@@ -1,0 +1,34 @@
+.uk_page_404
+{
+	padding: 300px 0;
+	text-align: center;
+}
+/* .techmarket-sticky-wrap .custom-logo-link img */
+/* { */
+	/* transition: 0.3s; */
+/* } */
+.techmarket-sticky-wrap.stuck .custom-logo-link img
+{
+	height: 39px;
+	width: 37px;
+}
+.primary-navigation, .secondary-navigation
+{
+	padding-top: 32px;
+}
+.techmarket-sticky-wrap.stuck .primary-navigation, .techmarket-sticky-wrap.stuck .secondary-navigation
+{
+	padding-top: 0;
+}
+.contact-form, .form-group
+{
+	direction: rtl;
+}
+#msgboxnote a
+{
+	color: #6dc4b4;
+}
+#msgboxnote a:hover, #msgboxnote a:focus
+{
+	color: #577d76;
+}
