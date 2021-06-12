@@ -1,1714 +1,3 @@
-<!DOCTYPE html>
-<html lang="fa-IR" itemscope="itemscope" itemtype="http://schema.org/WebPage">
-
-<!-- Mirrored from transvelo.github.io/techmarket-html/home-v1.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 30 Oct 2019 07:08:35 GMT -->
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-<!-- /Added by HTTrack -->
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-    <title>Techmarket HTML</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-grid.min.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-reboot.min.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="assets/css/font-techmarket.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="assets/css/slick.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="assets/css/techmarket-font-awesome.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="assets/css/slick-style.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="assets/css/animate.min.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="assets/css/colors/blue.css" media="all" />
-    <!-- Demo Purpose Only. Should be removed in production -->
-    <link rel="stylesheet" href="assets/css/config.css">
-    <link href="assets/css/colors/blue.css" rel="alternate stylesheet" title="Blue color">
-    <link href="assets/css/colors/flat-green.css" rel="alternate stylesheet" title="Flat Green color">
-    <link href="assets/css/colors/green.css" rel="alternate stylesheet" title="Green color">
-    <link href="assets/css/colors/orange.css" rel="alternate stylesheet" title="Orange color">
-    <link href="assets/css/colors/red.css" rel="alternate stylesheet" title="Red color">
-    <link href="assets/css/colors/yellow.css" rel="alternate stylesheet" title="Yellow color">
-    <!-- Demo Purpose Only. Should be removed in production : END -->
-    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,900" rel="stylesheet">
-    <link rel="shortcut icon" href="assets/images/fav-icon.png">
-</head>
-
-<body dir="rtl" class="woocommerce-active page-template-template-homepage-v1 can-uppercase">
-    <div id="page" class="hfeed site">
-        <div class="top-bar top-bar-v1">
-            <div class="col-full">
-                <!-- <ul id="menu-top-bar-right" class="nav justify-content-center">
-                    <li class="menu-item animate-dropdown">
-                        <a title="TechMarket eCommerce - Always free delivery" href="contact-v1.html">TechMarket eCommerce &#8211; Always free delivery</a>
-                    </li>
-                    <li class="menu-item animate-dropdown">
-                        <a title="Quality Guarantee of products" href="shop.html">Quality Guarantee of products</a>
-                    </li>
-                    <li class="menu-item animate-dropdown">
-                        <a title="Fast returnings program" href="track-your-order.html">Fast returnings program</a>
-                    </li>
-                    <li class="menu-item animate-dropdown">
-                        <a title="No additional fees" href="contact-v2.html">No additional fees</a>
-                    </li>
-                </ul> -->
-                <!-- .nav -->
-            </div>
-            <!-- .col-full -->
-        </div>
-        <!-- .top-bar-v1 -->
-        <header id="masthead" class="site-header header-v1" style="background-image: none; ">
-            <div class="col-full desktop-only">
-                <div class="techmarket-sticky-wrap">
-                    <div class="row">
-                        <div class="site-branding">
-                            <a href="home-v1.html" class="custom-logo-link" rel="home">
-                                <img src="assets/images/logo.png" alt="یوزدکالا" width="160px">
-                            </a>
-                            <!-- /.custom-logo-link -->
-                        </div>
-                        <!-- /.site-branding -->
-                        <!-- ============================================================= End Header Logo ============================================================= -->
-                        <nav id="primary-navigation" class="primary-navigation" aria-label="Primary Navigation"
-                            data-nav="flex-menu">
-                            <ul id="menu-primary-menu" class="nav yamm">
-                                <li class="sale-clr yamm-fw menu-item animate-dropdown">
-                                    <a title="Super deals" href="product-category.html">محصولات برتر</a>
-                                </li>
-                                <li class="menu-item menu-item-has-children animate-dropdown dropdown">
-                                    <a title="Mother`s Day" data-toggle="dropdown" class="dropdown-toggle"
-                                        aria-haspopup="true" href="#">فروشگاه<span class="caret"></span></a>
-                                    <ul role="menu" class=" dropdown-menu">
-                                        <li class="menu-item animate-dropdown">
-                                            <a title="Wishlist" href="wishlist.html">علاقه مندی</a>
-                                        </li>
-                                        <li class="menu-item animate-dropdown">
-                                            <a title="افزودن به مقایسه" href="compare.html">اضافه کردن به مقایسه</a>
-                                        </li>
-                                        <li class="menu-item animate-dropdown">
-                                            <a title="About Us" href="about.html">درباره ما</a>
-                                        </li>
-                                        <li class="menu-item animate-dropdown">
-                                            <a title="Track Order" href="track-your-order.html">پیگیری محصولات
-                                                ارسالی</a>
-                                        </li>
-                                    </ul>
-                                    <!-- .dropdown-menu -->
-                                </li>
-                                <li class="yamm-fw menu-item menu-item-has-children animate-dropdown dropdown">
-                                    <a title="Pages" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true"
-                                        href="#">وبلاگ <span class="caret"></span></a>
-                                    <ul role="menu" class=" dropdown-menu">
-                                        <li class="menu-item menu-item-object-static_block animate-dropdown">
-                                            <div class="yamm-content">
-                                                <div class="tm-mega-menu">
-                                                    <div class="widget widget_nav_menu">
-                                                        <ul class="menu">
-                                                            <li class="nav-title menu-item">
-                                                                <a href="#">Home Pages</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="home-v1.html">Home v1</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="home-v2.html">Home v2</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="home-v3.html">Home v3</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="home-v4.html">Home v4</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="home-v5.html">Home v5</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="home-v6.html">Home v6</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="home-v7.html">Home v7</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="home-v8.html">Home v8</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="home-v9.html">Home v9</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="home-v10.html">Home v10</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="home-v11.html">Home v11</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="home-v12.html">Home v12</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="home-v13.html">Home v13</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="home-v14.html">Home v14</a>
-                                                            </li>
-                                                        </ul>
-                                                        <!-- .menu -->
-                                                    </div>
-                                                    <!-- .widget_nav_menu -->
-                                                    <div class="widget widget_nav_menu">
-                                                        <ul class="menu">
-                                                            <li class="nav-title menu-item">
-                                                                <a href="#">Landing Pages</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="landing-page-v1.html">Landing v1</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="landing-page-v2.html">Landing v2</a>
-                                                            </li>
-                                                            <li class="nav-title menu-item">
-                                                                <a href="#">Shop Pages</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="shop.html">Shop</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="shop-extended.html">Shop Extended</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="shop-listing.html">Shop Listing</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="shop-listing-large.html">Shop Listing Large</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="shop-listing-with-product-sidebar.html">Shop
-                                                                    Listing with Product Sidebar</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="product-category.html">Categories</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="shop-left-sidebar.html">Shop left Sidebar</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="shop-fullwidth.html">Shop Full Width</a>
-                                                            </li>
-                                                        </ul>
-                                                        <!-- .menu -->
-                                                    </div>
-                                                    <!-- .widget_nav_menu -->
-                                                    <div class="widget widget_nav_menu">
-                                                        <ul class="menu">
-                                                            <li class="nav-title menu-item">
-                                                                <a href="#">Single Product Pages</a>
-                                                            </li>
-                                                            <li class="menu-item menu-item-object-product">
-                                                                <a href="single-product-sidebar.html">Single Product
-                                                                    Sidebar</a>
-                                                            </li>
-                                                            <li class="menu-item menu-item-object-product">
-                                                                <a href="single-product-fullwidth.html">Single Product
-                                                                    Fullwidth</a>
-                                                            </li>
-                                                            <li class="menu-item menu-item-object-product">
-                                                                <a href="single-product-extended.html">Single Product
-                                                                    Extended</a>
-                                                            </li>
-                                                            <li class="nav-title menu-item">
-                                                                <a href="#">Ecommerce Pages</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="cart.html">Cart</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="checkout.html">Checkout</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="login-and-register.html">My Account</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="compare.html">Compare</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="wishlist.html">Wishlist</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="track-your-order.html">Track Order</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="terms-and-conditions.html">Terms and
-                                                                    Conditions</a>
-                                                            </li>
-                                                        </ul>
-                                                        <!-- .menu -->
-                                                    </div>
-                                                    <!-- .widget_nav_menu -->
-                                                    <div class="widget widget_nav_menu">
-                                                        <ul class="menu">
-                                                            <li class="nav-title menu-item">
-                                                                <a href="#">Blog Pages</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="blog-v1.html">Blog v1</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="blog-v2.html">Blog v2</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="blog-v3.html">Blog v3</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="blog-fullwidth.html">Blog Full Width</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="blog-single.html">Single Blog Post</a>
-                                                            </li>
-                                                            <li class="nav-title menu-item">
-                                                                <a href="#">Other Pages</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="about.html">About Us</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="contact-v1.html">Contact v1</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="contact-v2.html">Contact v2</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="faq.html">FAQ</a>
-                                                            </li>
-                                                            <li class="menu-item">
-                                                                <a href="404.html">404</a>
-                                                            </li>
-                                                        </ul>
-                                                        <!-- .menu -->
-                                                    </div>
-                                                    <!-- .widget_nav_menu -->
-                                                </div>
-                                                <!-- .tm-mega-menu -->
-                                            </div>
-                                            <!-- .yamm-content -->
-                                        </li>
-                                        <!-- .menu-item -->
-                                    </ul>
-                                    <!-- .dropdown-menu -->
-                                </li>
-                                <li class="menu-item animate-dropdown">
-                                    <a title="Logitech Sale" href="product-category.html">درباره ما</a>
-                                </li>
-                                <li class="menu-item animate-dropdown">
-                                    <a title="Headphones Sale" href="product-category.html">تماس با ما</a>
-                                </li>
-                                <!-- <li class="techmarket-flex-more-menu-item dropdown"> -->
-                                <!-- <a title="..." href="#" data-toggle="dropdown" class="dropdown-toggle">...</a> -->
-                                <!-- <ul class="overflow-items dropdown-menu"></ul> -->
-                                <!-- . -->
-                                <!-- </li> -->
-                            </ul>
-                            <!-- .nav -->
-                        </nav>
-                        <!-- .primary-navigation -->
-                        <nav id="secondary-navigation" class="secondary-navigation" aria-label="Secondary Navigation"
-                            data-nav="flex-menu">
-                            <ul id="menu-secondary-menu" class="nav">
-                                <li
-                                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2802 animate-dropdown">
-                                    <a title="Track Your Order" href="track-your-order.html">
-                                        <i class="tm tm-order-tracking"></i>پیگیری سفارشات</a>
-                                </li>
-                                <!-- <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-487 animate-dropdown dropdown">
-                                    <a title="Dollar (US)" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" href="#">
-                                        <i class="tm tm-dollar"></i>Dollar (US)
-                                        <span class="caret"></span>
-                                    </a>
-                                    <ul role="menu" class=" dropdown-menu">
-                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-489 animate-dropdown">
-                                            <a title="AUD" href="#">AUD</a>
-                                        </li>
-                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-490 animate-dropdown">
-                                            <a title="INR" href="#">INR</a>
-                                        </li>
-                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-491 animate-dropdown">
-                                            <a title="AED" href="#">AED</a>
-                                        </li>
-                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-492 animate-dropdown">
-                                            <a title="SGD" href="#">SGD</a>
-                                        </li>
-                                    </ul>
-                                </li> -->
-                                <!-- .dropdown-menu -->
-                                <li class="menu-item">
-                                    <a title="My Account" href="login-and-register.html">
-                                        <i class="tm tm-login-register"></i>ثبت نام یا ورود</a>
-                                </li>
-                                <li class="techmarket-flex-more-menu-item dropdown">
-                                    <a title="..." href="#" data-toggle="dropdown" class="dropdown-toggle">...</a>
-                                    <ul class="overflow-items dropdown-menu"></ul>
-                                </li>
-                            </ul>
-                            <!-- .nav -->
-                        </nav>
-                        <!-- .secondary-navigation -->
-                    </div>
-                    <!-- /.row -->
-                </div>
-                <!-- .techmarket-sticky-wrap -->
-                <div class="row align-items-center">
-                    <div id="departments-menu" class="dropdown departments-menu">
-                        <button class="btn dropdown-toggle btn-block" type="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            <i class="tm tm-departments-thin"></i>
-                            <span>تمامی محصولات</span>
-                        </button>
-                        <ul id="menu-departments-menu" class="dropdown-menu yamm departments-menu-dropdown">
-                            <li class="highlight menu-item animate-dropdown">
-                                <a title="Value of the Day" href="home-v2.html">سرور</a>
-                            </li>
-                            <li class="highlight menu-item animate-dropdown">
-                                <a title="Top 100 Offers" href="home-v3.html">سوئیچ</a>
-                            </li>
-                            <li class="highlight menu-item animate-dropdown">
-                                <a title="New Arrivals" href="home-v4.html">روتر</a>
-                            </li>
-                            <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown-submenu">
-                                <a title="رک" data-toggle="dropdown" class="dropdown-toggle"
-                                    aria-haspopup="true" href="#">فایروال <span class="caret"></span></a>
-                                <ul role="menu" class=" dropdown-menu">
-                                    <li class="menu-item menu-item-object-static_block animate-dropdown">
-                                        <div class="yamm-content">
-                                            <div class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
-                                                <div class="kc-col-container">
-                                                    <div class="kc_single_image">
-                                                        <img src="assets/images/megamenu.jpg" class="" alt="" />
-                                                    </div>
-                                                    <!-- .kc_single_image -->
-                                                </div>
-                                                <!-- .kc-col-container -->
-                                            </div>
-                                            <!-- .bg-yamm-content -->
-                                            <div class="row yamm-content-row">
-                                                <div class="col-md-6 col-sm-12">
-                                                    <div class="kc-col-container">
-                                                        <div class="kc_text_block">
-                                                            <ul>
-                                                                <li class="nav-title">Computers &amp; Accessories</li>
-                                                                <li><a href="shop.html">All Computers &amp;
-                                                                        Accessories</a></li>
-                                                                <li><a href="shop.html">Laptops, Desktops &amp;
-                                                                        Monitors</a></li>
-                                                                <li><a href="shop.html">Pen Drives, Hard Drives &amp;
-                                                                        Memory Cards</a></li>
-                                                                <li><a href="shop.html">Printers &amp; Ink</a></li>
-                                                                <li><a href="shop.html">Networking &amp; Internet
-                                                                        Devices</a></li>
-                                                                <li><a href="shop.html">Computer Accessories</a></li>
-                                                                <li><a href="shop.html">Software</a></li>
-                                                                <li class="nav-divider"></li>
-                                                                <li>
-                                                                    <a href="shop.html">
-                                                                        <span class="nav-text">All Electronics</span>
-                                                                        <span class="nav-subtext">Discover more
-                                                                            products</span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                        <!-- .kc_text_block -->
-                                                    </div>
-                                                    <!-- .kc-col-container -->
-                                                </div>
-                                                <!-- .kc_column -->
-                                                <div class="col-md-6 col-sm-12">
-                                                    <div class="kc-col-container">
-                                                        <div class="kc_text_block">
-                                                            <ul>
-                                                                <li class="nav-title">Office &amp; Stationery</li>
-                                                                <li><a href="shop.html">All Office &amp; Stationery</a>
-                                                                </li>
-                                                                <li><a href="shop.html">Pens &amp; Writing</a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <!-- .kc_text_block -->
-                                                    </div>
-                                                    <!-- .kc-col-container -->
-                                                </div>
-                                                <!-- .kc_column -->
-                                            </div>
-                                            <!-- .kc_row -->
-                                        </div>
-                                        <!-- .yamm-content -->
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown-submenu">
-                                <a title="Cameras &amp; Photo" data-toggle="dropdown" class="dropdown-toggle"
-                                    aria-haspopup="true" href="#">دوربین مداربسته<span class="caret"></span></a>
-                                <ul role="menu" class=" dropdown-menu">
-                                    <li class="menu-item menu-item-object-static_block animate-dropdown">
-                                        <div class="yamm-content">
-                                            <div class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
-                                                <div class="kc-col-container">
-                                                    <div class="kc_single_image">
-                                                        <img src="assets/images/megamenu-1.jpg" class="" alt="" />
-                                                    </div>
-                                                    <!-- .kc_single_image -->
-                                                </div>
-                                                <!-- .kc-col-container -->
-                                            </div>
-                                            <!-- .bg-yamm-content -->
-                                            <div class="row yamm-content-row">
-                                                <div class="col-md-6 col-sm-12">
-                                                    <div class="kc-col-container">
-                                                        <div class="kc_text_block">
-                                                            <ul>
-                                                                <li class="nav-title">Cameras & Photography</li>
-                                                                <li><a href="shop.html">All Cameras & Photography</a>
-                                                                </li>
-                                                                <li><a href="shop.html">Point & Shoot Cameras</a></li>
-                                                                <li><a href="shop.html">Lenses</a></li>
-                                                                <li><a href="shop.html">Camera Accessories</a></li>
-                                                                <li><a href="shop.html">Security & Surveillance</a></li>
-                                                                <li><a href="shop.html">Binoculars & Telescopes</a></li>
-                                                                <li><a href="shop.html">Camcorders</a></li>
-                                                                <li class="nav-divider"></li>
-                                                                <li>
-                                                                    <a href="shop.html">
-                                                                        <span class="nav-text">All Electronics</span>
-                                                                        <span class="nav-subtext">Discover more
-                                                                            products</span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                        <!-- .kc_text_block -->
-                                                    </div>
-                                                    <!-- .kc-col-container -->
-                                                </div>
-                                                <!-- .kc_column -->
-                                                <div class="col-md-6 col-sm-12">
-                                                    <div class="kc-col-container">
-                                                        <div class="kc_text_block">
-                                                            <ul>
-                                                                <li class="nav-title">Audio & Video</li>
-                                                                <li><a href="shop.html">All Audio & Video</a></li>
-                                                                <li><a href="shop.html">Headphones & Speakers</a></li>
-                                                                <li><a href="shop.html">Home Entertainment Systems</a>
-                                                                </li>
-                                                                <li><a href="shop.html">MP3 & Media Players</a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <!-- .kc_text_block -->
-                                                    </div>
-                                                    <!-- .kc-col-container -->
-                                                </div>
-                                                <!-- .kc_column -->
-                                            </div>
-                                            <!-- .kc_row -->
-                                        </div>
-                                        <!-- .yamm-content -->
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown-submenu">
-                                <a title="Smart Phones &amp; Tablets" data-toggle="dropdown" class="dropdown-toggle"
-                                    aria-haspopup="true" href="#"> تلفن اینترنتی (VOIP) <span class="caret"></span></a>
-                                <ul role="menu" class=" dropdown-menu">
-                                    <li class="menu-item menu-item-object-static_block animate-dropdown">
-                                        <div class="yamm-content">
-                                            <div class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
-                                                <div class="kc-col-container">
-                                                    <div class="kc_single_image">
-                                                        <img src="assets/images/megamenu.jpg" class="" alt="" />
-                                                    </div>
-                                                    <!-- .kc_single_image -->
-                                                </div>
-                                                <!-- .kc-col-container -->
-                                            </div>
-                                            <!-- .bg-yamm-content -->
-                                            <div class="row yamm-content-row">
-                                                <div class="col-md-6 col-sm-12">
-                                                    <div class="kc-col-container">
-                                                        <div class="kc_text_block">
-                                                            <ul>
-                                                                <li class="nav-title">Computers &amp; Accessories</li>
-                                                                <li><a href="shop.html">All Computers &amp;
-                                                                        Accessories</a></li>
-                                                                <li><a href="shop.html">Laptops, Desktops &amp;
-                                                                        Monitors</a></li>
-                                                                <li><a href="shop.html">Pen Drives, Hard Drives &amp;
-                                                                        Memory Cards</a></li>
-                                                                <li><a href="shop.html">Printers &amp; Ink</a></li>
-                                                                <li><a href="shop.html">Networking &amp; Internet
-                                                                        Devices</a></li>
-                                                                <li><a href="shop.html">Computer Accessories</a></li>
-                                                                <li><a href="shop.html">Software</a></li>
-                                                                <li class="nav-divider"></li>
-                                                                <li>
-                                                                    <a href="shop.html">
-                                                                        <span class="nav-text">All Electronics</span>
-                                                                        <span class="nav-subtext">Discover more
-                                                                            products</span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                        <!-- .kc_text_block -->
-                                                    </div>
-                                                    <!-- .kc-col-container -->
-                                                </div>
-                                                <!-- .kc_column -->
-                                                <div class="col-md-6 col-sm-12">
-                                                    <div class="kc-col-container">
-                                                        <div class="kc_text_block">
-                                                            <ul>
-                                                                <li class="nav-title">Office &amp; Stationery</li>
-                                                                <li><a href="shop.html">All Office &amp; Stationery</a>
-                                                                </li>
-                                                                <li><a href="shop.html">Pens &amp; Writing</a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <!-- .kc_text_block -->
-                                                    </div>
-                                                    <!-- .kc-col-container -->
-                                                </div>
-                                                <!-- .kc_column -->
-                                            </div>
-                                            <!-- .kc_row -->
-                                        </div>
-                                        <!-- .yamm-content -->
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown-submenu">
-                                <a title="Video Games &amp; Consoles" data-toggle="dropdown" class="dropdown-toggle"
-                                    aria-haspopup="true" href="#"> کابل شبکه <span class="caret"></span></a>
-                                <ul role="menu" class=" dropdown-menu">
-                                    <li class="menu-item menu-item-object-static_block animate-dropdown">
-                                        <div class="yamm-content">
-                                            <div class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
-                                                <div class="kc-col-container">
-                                                    <div class="kc_single_image">
-                                                        <img src="assets/images/megamenu-1.jpg" class="" alt="" />
-                                                    </div>
-                                                    <!-- .kc_single_image -->
-                                                </div>
-                                                <!-- .kc-col-container -->
-                                            </div>
-                                            <!-- .bg-yamm-content -->
-                                            <div class="row yamm-content-row">
-                                                <div class="col-md-6 col-sm-12">
-                                                    <div class="kc-col-container">
-                                                        <div class="kc_text_block">
-                                                            <ul>
-                                                                <li class="nav-title">Cameras & Photography</li>
-                                                                <li><a href="shop.html">All Cameras & Photography</a>
-                                                                </li>
-                                                                <li><a href="shop.html">Point & Shoot Cameras</a></li>
-                                                                <li><a href="shop.html">Lenses</a></li>
-                                                                <li><a href="shop.html">Camera Accessories</a></li>
-                                                                <li><a href="shop.html">Security & Surveillance</a></li>
-                                                                <li><a href="shop.html">Binoculars & Telescopes</a></li>
-                                                                <li><a href="shop.html">Camcorders</a></li>
-                                                                <li class="nav-divider"></li>
-                                                                <li>
-                                                                    <a href="shop.html">
-                                                                        <span class="nav-text">All Electronics</span>
-                                                                        <span class="nav-subtext">Discover more
-                                                                            products</span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                        <!-- .kc_text_block -->
-                                                    </div>
-                                                    <!-- .kc-col-container -->
-                                                </div>
-                                                <!-- .kc_column -->
-                                                <div class="col-md-6 col-sm-12">
-                                                    <div class="kc-col-container">
-                                                        <div class="kc_text_block">
-                                                            <ul>
-                                                                <li class="nav-title">Audio & Video</li>
-                                                                <li><a href="shop.html">All Audio & Video</a></li>
-                                                                <li><a href="shop.html">Headphones & Speakers</a></li>
-                                                                <li><a href="shop.html">Home Entertainment Systems</a>
-                                                                </li>
-                                                                <li><a href="shop.html">MP3 & Media Players</a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <!-- .kc_text_block -->
-                                                    </div>
-                                                    <!-- .kc-col-container -->
-                                                </div>
-                                                <!-- .kc_column -->
-                                            </div>
-                                            <!-- .kc_row -->
-                                        </div>
-                                        <!-- .yamm-content -->
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown-submenu">
-                                <a title="TV &amp; Audio" data-toggle="dropdown" class="dropdown-toggle"
-                                    aria-haspopup="true" href="#"> ذخیره ساز <span class="caret"></span></a>
-                                <ul role="menu" class=" dropdown-menu">
-                                    <li class="menu-item menu-item-object-static_block animate-dropdown">
-                                        <div class="yamm-content">
-                                            <div class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
-                                                <div class="kc-col-container">
-                                                    <div class="kc_single_image">
-                                                        <img src="assets/images/megamenu.jpg" class="" alt="" />
-                                                    </div>
-                                                    <!-- .kc_single_image -->
-                                                </div>
-                                                <!-- .kc-col-container -->
-                                            </div>
-                                            <!-- .bg-yamm-content -->
-                                            <div class="row yamm-content-row">
-                                                <div class="col-md-6 col-sm-12">
-                                                    <div class="kc-col-container">
-                                                        <div class="kc_text_block">
-                                                            <ul>
-                                                                <li class="nav-title">Computers &amp; Accessories</li>
-                                                                <li><a href="shop.html">All Computers &amp;
-                                                                        Accessories</a></li>
-                                                                <li><a href="shop.html">Laptops, Desktops &amp;
-                                                                        Monitors</a></li>
-                                                                <li><a href="shop.html">Pen Drives, Hard Drives &amp;
-                                                                        Memory Cards</a></li>
-                                                                <li><a href="shop.html">Printers &amp; Ink</a></li>
-                                                                <li><a href="shop.html">Networking &amp; Internet
-                                                                        Devices</a></li>
-                                                                <li><a href="shop.html">Computer Accessories</a></li>
-                                                                <li><a href="shop.html">Software</a></li>
-                                                                <li class="nav-divider"></li>
-                                                                <li>
-                                                                    <a href="shop.html">
-                                                                        <span class="nav-text">All Electronics</span>
-                                                                        <span class="nav-subtext">Discover more
-                                                                            products</span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                        <!-- .kc_text_block -->
-                                                    </div>
-                                                    <!-- .kc-col-container -->
-                                                </div>
-                                                <!-- .kc_column -->
-                                                <div class="col-md-6 col-sm-12">
-                                                    <div class="kc-col-container">
-                                                        <div class="kc_text_block">
-                                                            <ul>
-                                                                <li class="nav-title">Office &amp; Stationery</li>
-                                                                <li><a href="shop.html">All Office &amp; Stationery</a>
-                                                                </li>
-                                                                <li><a href="shop.html">Pens &amp; Writing</a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <!-- .kc_text_block -->
-                                                    </div>
-                                                    <!-- .kc-col-container -->
-                                                </div>
-                                                <!-- .kc_column -->
-                                            </div>
-                                            <!-- .kc_row -->
-                                        </div>
-                                        <!-- .yamm-content -->
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown-submenu">
-                                <a title="Car Electronic &amp; GPS" data-toggle="dropdown" class="dropdown-toggle"
-                                    aria-haspopup="true" href="#"> تجهیزات پسیو شبکه <span class="caret"></span></a>
-                                <ul role="menu" class=" dropdown-menu">
-                                    <li class="menu-item menu-item-object-static_block animate-dropdown">
-                                        <div class="yamm-content">
-                                            <div class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
-                                                <div class="kc-col-container">
-                                                    <div class="kc_single_image">
-                                                        <img src="assets/images/megamenu-1.jpg" class="" alt="" />
-                                                    </div>
-                                                    <!-- .kc_single_image -->
-                                                </div>
-                                                <!-- .kc-col-container -->
-                                            </div>
-                                            <!-- .bg-yamm-content -->
-                                            <div class="row yamm-content-row">
-                                                <div class="col-md-6 col-sm-12">
-                                                    <div class="kc-col-container">
-                                                        <div class="kc_text_block">
-                                                            <ul>
-                                                                <li class="nav-title">Cameras & Photography</li>
-                                                                <li><a href="shop.html">All Cameras & Photography</a>
-                                                                </li>
-                                                                <li><a href="shop.html">Point & Shoot Cameras</a></li>
-                                                                <li><a href="shop.html">Lenses</a></li>
-                                                                <li><a href="shop.html">Camera Accessories</a></li>
-                                                                <li><a href="shop.html">Security & Surveillance</a></li>
-                                                                <li><a href="shop.html">Binoculars & Telescopes</a></li>
-                                                                <li><a href="shop.html">Camcorders</a></li>
-                                                                <li class="nav-divider"></li>
-                                                                <li>
-                                                                    <a href="shop.html">
-                                                                        <span class="nav-text">All Electronics</span>
-                                                                        <span class="nav-subtext">Discover more
-                                                                            products</span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                        <!-- .kc_text_block -->
-                                                    </div>
-                                                    <!-- .kc-col-container -->
-                                                </div>
-                                                <!-- .kc_column -->
-                                                <div class="col-md-6 col-sm-12">
-                                                    <div class="kc-col-container">
-                                                        <div class="kc_text_block">
-                                                            <ul>
-                                                                <li class="nav-title">Audio & Video</li>
-                                                                <li><a href="shop.html">All Audio & Video</a></li>
-                                                                <li><a href="shop.html">Headphones & Speakers</a></li>
-                                                                <li><a href="shop.html">Home Entertainment Systems</a>
-                                                                </li>
-                                                                <li><a href="shop.html">MP3 & Media Players</a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <!-- .kc_text_block -->
-                                                    </div>
-                                                    <!-- .kc-col-container -->
-                                                </div>
-                                                <!-- .kc_column -->
-                                            </div>
-                                            <!-- .kc_row -->
-                                        </div>
-                                        <!-- .yamm-content -->
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown-submenu">
-                                <a title="Accesories" data-toggle="dropdown" class="dropdown-toggle"
-                                    aria-haspopup="true" href="#"> تجهیزات اکتیو شبکه <span class="caret"></span></a>
-                                <ul role="menu" class=" dropdown-menu">
-                                    <li class="menu-item menu-item-object-static_block animate-dropdown">
-                                        <div class="yamm-content">
-                                            <div class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
-                                                <div class="kc-col-container">
-                                                    <div class="kc_single_image">
-                                                        <img src="assets/images/megamenu.jpg" class="" alt="" />
-                                                    </div>
-                                                    <!-- .kc_single_image -->
-                                                </div>
-                                                <!-- .kc-col-container -->
-                                            </div>
-                                            <!-- .bg-yamm-content -->
-                                            <div class="row yamm-content-row">
-                                                <div class="col-md-6 col-sm-12">
-                                                    <div class="kc-col-container">
-                                                        <div class="kc_text_block">
-                                                            <ul>
-                                                                <li class="nav-title">Computers &amp; Accessories</li>
-                                                                <li><a href="shop.html">All Computers &amp;
-                                                                        Accessories</a></li>
-                                                                <li><a href="shop.html">Laptops, Desktops &amp;
-                                                                        Monitors</a></li>
-                                                                <li><a href="shop.html">Pen Drives, Hard Drives &amp;
-                                                                        Memory Cards</a></li>
-                                                                <li><a href="shop.html">Printers &amp; Ink</a></li>
-                                                                <li><a href="shop.html">Networking &amp; Internet
-                                                                        Devices</a></li>
-                                                                <li><a href="shop.html">Computer Accessories</a></li>
-                                                                <li><a href="shop.html">Software</a></li>
-                                                                <li class="nav-divider"></li>
-                                                                <li>
-                                                                    <a href="shop.html">
-                                                                        <span class="nav-text">All Electronics</span>
-                                                                        <span class="nav-subtext">Discover more
-                                                                            products</span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                        <!-- .kc_text_block -->
-                                                    </div>
-                                                    <!-- .kc-col-container -->
-                                                </div>
-                                                <!-- .kc_column -->
-                                                <div class="col-md-6 col-sm-12">
-                                                    <div class="kc-col-container">
-                                                        <div class="kc_text_block">
-                                                            <ul>
-                                                                <li class="nav-title">Office &amp; Stationery</li>
-                                                                <li><a href="shop.html">All Office &amp; Stationery</a>
-                                                                </li>
-                                                                <li><a href="shop.html">Pens &amp; Writing</a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <!-- .kc_text_block -->
-                                                    </div>
-                                                    <!-- .kc-col-container -->
-                                                </div>
-                                                <!-- .kc_column -->
-                                            </div>
-                                            <!-- .kc_row -->
-                                        </div>
-                                        <!-- .yamm-content -->
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="menu-item menu-item-type-custom animate-dropdown">
-                                <a title="Gadgets" href="landing-page-v1.html">ابزار شبکه</a>
-                            </li>
-                            <li class="menu-item menu-item-type-custom animate-dropdown">
-                                <a title="Virtual Reality" href="landing-page-v2.html">سایر تجهیزات شبکه</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- .departments-menu -->
-                    <form class="navbar-search" method="get"
-                        action="https://transvelo.github.io/techmarket-html/home-v1.html">
-                        <label class="sr-only screen-reader-text" for="search">جستجو:</label>
-                        <div class="input-group">
-                            <input type="text" id="search" class="form-control search-field product-search-field"
-                                dir="ltr" value="" name="s" placeholder="جستجوی محصول"
-                                style='font-family: "IRANSans";direction: rtl;' />
-                            <div class="input-group-addon search-categories">
-                                <select name='product_cat' id='product_cat' class='postform resizeselect'
-                                    style='font-family: "IRANSans"'>
-                                    <option value='0' selected='selected' style='font-family: "IRANSans"'>تمامی محصولات
-                                    </option>
-                                    <option class="level-0" value="television">Televisions</option>
-                                    <option class="level-0" value="home-theater-audio">Home Theater &amp; Audio</option>
-                                    <option class="level-0" value="headphones">Headphones</option>
-                                    <option class="level-0" value="digital-cameras">Digital Cameras</option>
-                                    <option class="level-0" value="cells-tablets">تلفن اینترنتی</option>
-                                    <option class="level-0" value="smartwatches">Smartwatches</option>
-                                    <option class="level-0" value="games-consoles">Games &amp; Consoles</option>
-                                    <option class="level-0" value="printer">Printer</option>
-                                    <option class="level-0" value="tv-video">TV &amp; Video</option>
-                                    <option class="level-0" value="home-entertainment">Home Entertainment</option>
-                                    <option class="level-0" value="tvs">TVs</option>
-                                    <option class="level-0" value="speakers">Speakers</option>
-                                    <option class="level-0" value="computers-laptops">رک</option>
-                                    <option class="level-0" value="laptops">Laptops</option>
-                                    <option class="level-0" value="ultrabooks">Ultrabooks</option>
-                                    <option class="level-0" value="notebooks">Notebooks</option>
-                                    <option class="level-0" value="desktop-pcs">Desktop PCs</option>
-                                    <option class="level-0" value="mac-computers">Mac Computers</option>
-                                    <option class="level-0" value="all-in-one-pc">سویچ</option>
-                                    <option class="level-0" value="audio-music">سرور</option>
-                                    <option class="level-0" value="pc-components">PC Components</option>
-                                </select>
-                            </div>
-                            <!-- .input-group-addon -->
-                            <div class="input-group-btn">
-                                <input type="hidden" id="search-param" name="post_type" value="product" />
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-search"></i>
-                                    <span class="search-btn">جستجو</span>
-                                </button>
-                            </div>
-                            <!-- .input-group-btn -->
-                        </div>
-                        <!-- .input-group -->
-                    </form>
-                    <!-- .navbar-search -->
-                    <ul class="header-compare nav navbar-nav">
-                        <li class="nav-item">
-                            <a href="compare.html" class="nav-link">
-                                <i class="tm tm-compare"></i>
-                                <span id="top-cart-compare-count" class="value">3</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- .header-compare -->
-                    <ul class="header-wishlist nav navbar-nav">
-                        <li class="nav-item">
-                            <a href="wishlist.html" class="nav-link">
-                                <i class="tm tm-favorites"></i>
-                                <span id="top-cart-wishlist-count" class="value">3</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- .header-wishlist -->
-                    <ul id="site-header-cart" class="site-header-cart menu">
-                        <li class="animate-dropdown dropdown ">
-                            <a class="cart-contents" href="cart.html" data-toggle="dropdown"
-                                title="View your shopping cart">
-                                <i class="tm tm-shopping-bag"></i>
-                                <span class="count">2</span>
-                                <!-- <span class="amount" dircetion="rtl">
-                                        <span class="price-label">Your Cart</span>&#036;136.99</span> -->
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-mini-cart">
-                                <li>
-                                    <div class="widget woocommerce widget_shopping_cart">
-                                        <div class="widget_shopping_cart_content">
-                                            <ul class="woocommerce-mini-cart cart_list product_list_widget ">
-                                                <li class="woocommerce-mini-cart-item mini_cart_item">
-                                                    <a href="#" class="remove" aria-label="Remove this item"
-                                                        data-product_id="65" data-product_sku="">×</a>
-                                                    <a href="single-product-sidebar.html">
-                                                        <img src="assets/images/products/mini-cart1.jpg"
-                                                            class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-                                                            alt="">XONE Wireless Controller&nbsp;
-                                                    </a>
-                                                    <span class="quantity">1 ×
-                                                        <span class="woocommerce-Price-amount amount" dir="rtl">
-                                                            <span
-                                                                class="woocommerce-Price-currencySymbol">$</span>64.99</span>
-                                                    </span>
-                                                </li>
-                                                <li class="woocommerce-mini-cart-item mini_cart_item">
-                                                    <a href="#" class="remove" aria-label="Remove this item"
-                                                        data-product_id="27" data-product_sku="">×</a>
-                                                    <a href="single-product-sidebar.html">
-                                                        <img src="assets/images/products/mini-cart2.jpg"
-                                                            class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"
-                                                            alt="">Gear Virtual Reality 3D with Bluetooth Glasses&nbsp;
-                                                    </a>
-                                                    <span class="quantity">1 ×
-                                                        <span class="woocommerce-Price-amount amount" dir="rtl">
-                                                            <span
-                                                                class="woocommerce-Price-currencySymbol">$</span>72.00</span>
-                                                    </span>
-                                                </li>
-                                            </ul>
-                                            <!-- .cart_list -->
-                                            <p class="woocommerce-mini-cart__total total">
-                                                <strong>Subtotal:</strong>
-                                                <span class="woocommerce-Price-amount amount" dir="rtl">
-                                                    <span class="woocommerce-Price-currencySymbol">$</span>136.99</span>
-                                            </p>
-                                            <p class="woocommerce-mini-cart__buttons buttons">
-                                                <a href="cart.html" class="button wc-forward">View cart</a>
-                                                <a href="checkout.html" class="button checkout wc-forward">Checkout</a>
-                                            </p>
-                                        </div>
-                                        <!-- .widget_shopping_cart_content -->
-                                    </div>
-                                    <!-- .widget_shopping_cart -->
-                                </li>
-                            </ul>
-                            <!-- .dropdown-menu-mini-cart -->
-                        </li>
-                    </ul>
-                    <!-- .site-header-cart -->
-                </div>
-                <!-- /.row -->
-            </div>
-            <!-- .col-full -->
-            <div class="col-full handheld-only">
-                <div class="handheld-header">
-                    <div class="row">
-                        <div class="site-branding">
-                            <a href="home-v1.html" class="custom-logo-link" rel="home">
-                                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 176 28">
-                                    <defs>
-                                        <style>
-                                            .cls-1,
-                                            .cls-2 {
-                                                fill: #333e48;
-                                            }
-
-                                            .cls-1 {
-                                                fill-rule: evenodd;
-                                            }
-
-                                            .cls-3 {
-                                                fill: #3265b0;
-                                            }
-                                        </style>
-                                    </defs>
-                                    <polygon class="cls-1"
-                                        points="171.63 0.91 171.63 11 170.63 11 170.63 0.91 170.63 0.84 170.63 0.06 176 0.06 176 0.91 171.63 0.91" />
-                                    <rect class="cls-2" x="166.19" y="0.06" width="3.47" height="0.84" />
-                                    <rect class="cls-2" x="159.65" y="4.81" width="3.51" height="0.84" />
-                                    <polygon class="cls-1"
-                                        points="158.29 11 157.4 11 157.4 0.06 158.26 0.06 158.36 0.06 164.89 0.06 164.89 0.87 158.36 0.87 158.36 10.19 164.99 10.19 164.99 11 158.36 11 158.29 11" />
-                                    <polygon class="cls-1"
-                                        points="149.54 6.61 150.25 5.95 155.72 10.98 154.34 10.98 149.54 6.61" />
-                                    <polygon class="cls-1"
-                                        points="147.62 10.98 146.65 10.98 146.65 0.05 147.62 0.05 147.62 5.77 153.6 0.33 154.91 0.33 147.62 7.05 147.62 10.98" />
-                                    <path class="cls-1"
-                                        d="M156.39,24h-1.25s-0.49-.39-0.71-0.59l-1.35-1.25c-0.25-.23-0.68-0.66-0.68-0.66s0-.46,0-0.72a3.56,3.56,0,0,0,3.54-2.87,3.36,3.36,0,0,0-3.22-4H148.8V24h-1V13.06h5c2.34,0.28,4,1.72,4.12,4a4.26,4.26,0,0,1-3.38,4.34C154.48,22.24,156.39,24,156.39,24Z"
-                                        transform="translate(-12 -13)" />
-                                    <polygon class="cls-1"
-                                        points="132.04 2.09 127.09 7.88 130.78 7.88 130.78 8.69 126.4 8.69 124.42 11 123.29 11 132.65 0 133.04 0 133.04 11 132.04 11 132.04 2.09" />
-                                    <polygon class="cls-1"
-                                        points="120.97 2.04 116.98 6.15 116.98 6.19 116.97 6.17 116.95 6.19 116.95 6.15 112.97 2.04 112.97 11 112 11 112 0 112.32 0 116.97 4.8 121.62 0 121.94 0 121.94 11 120.97 11 120.97 2.04" />
-                                    <ellipse class="cls-3" cx="116.3" cy="22.81" rx="5.15" ry="5.18" />
-                                    <rect class="cls-2" x="99.13" y="0.44" width="5.87" height="27.12" />
-                                    <polygon class="cls-1"
-                                        points="85.94 27.56 79.92 27.56 79.92 0.44 85.94 0.44 85.94 16.86 96.35 16.86 96.35 21.84 85.94 21.84 85.94 27.56" />
-                                    <path class="cls-1"
-                                        d="M77.74,36.07a9,9,0,0,0,6.41-2.68L88,37c-2.6,2.74-6.71,4-10.89,4A13.94,13.94,0,0,1,62.89,27.15,14.19,14.19,0,0,1,77.11,13c4.38,0,8.28,1.17,10.89,4,0,0-3.89,3.82-3.91,3.8A9,9,0,1,0,77.74,36.07Z"
-                                        transform="translate(-12 -13)" />
-                                    <rect class="cls-2" x="37.4" y="11.14" width="7.63" height="4.98" />
-                                    <polygon class="cls-1"
-                                        points="32.85 27.56 28.6 27.56 28.6 5.42 28.6 3.96 28.6 0.44 47.95 0.44 47.95 5.42 34.46 5.42 34.46 22.72 48.25 22.72 48.25 27.56 34.46 27.56 32.85 27.56" />
-                                    <polygon class="cls-1"
-                                        points="15.4 27.56 9.53 27.56 9.53 5.57 9.53 0.59 9.53 0.44 24.93 0.44 24.93 5.57 15.4 5.57 15.4 27.56" />
-                                    <rect class="cls-2" y="0.44" width="7.19" height="5.13" />
-                                </svg>
-                            </a>
-                            <!-- /.custom-logo-link -->
-                        </div>
-                        <!-- /.site-branding -->
-                        <!-- ============================================================= End Header Logo ============================================================= -->
-                        <div class="handheld-header-links">
-                            <ul class="columns-3">
-                                <li class="my-account">
-                                    <a href="login-and-register.html" class="has-icon">
-                                        <i class="tm tm-login-register"></i>
-                                    </a>
-                                </li>
-                                <li class="wishlist">
-                                    <a href="wishlist.html" class="has-icon">
-                                        <i class="tm tm-favorites"></i>
-                                        <span class="count">3</span>
-                                    </a>
-                                </li>
-                                <li class="compare">
-                                    <a href="compare.html" class="has-icon">
-                                        <i class="tm tm-compare"></i>
-                                        <span class="count">3</span>
-                                    </a>
-                                </li>
-                            </ul>
-                            <!-- .columns-3 -->
-                        </div>
-                        <!-- .handheld-header-links -->
-                    </div>
-                    <!-- /.row -->
-                    <div class="techmarket-sticky-wrap">
-                        <div class="row">
-                            <nav id="handheld-navigation" class="handheld-navigation" aria-label="Handheld Navigation">
-                                <button class="btn navbar-toggler" type="button">
-                                    <i class="tm tm-departments-thin"></i>
-                                    <span>Menu</span>
-                                </button>
-                                <div class="handheld-navigation-menu">
-                                    <span class="tmhm-close">Close</span>
-                                    <ul id="menu-departments-menu-1" class="nav">
-                                        <li class="highlight menu-item animate-dropdown">
-                                            <a title="Value of the Day" href="shop.html">Value of the Day</a>
-                                        </li>
-                                        <li class="highlight menu-item animate-dropdown">
-                                            <a title="Top 100 Offers" href="shop.html">Top 100 Offers</a>
-                                        </li>
-                                        <li class="highlight menu-item animate-dropdown">
-                                            <a title="New Arrivals" href="shop.html">New Arrivals</a>
-                                        </li>
-                                        <li
-                                            class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown-submenu">
-                                            <a title="رک" data-toggle="dropdown"
-                                                class="dropdown-toggle" aria-haspopup="true" href="#">Computers &#038;
-                                                Laptops <span class="caret"></span></a>
-                                            <ul role="menu" class=" dropdown-menu">
-                                                <li class="menu-item menu-item-object-static_block animate-dropdown">
-                                                    <div class="yamm-content">
-                                                        <div
-                                                            class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
-                                                            <div class="kc-col-container">
-                                                                <div class="kc_single_image">
-                                                                    <img src="assets/images/megamenu.jpg" class=""
-                                                                        alt="" />
-                                                                </div>
-                                                                <!-- .kc_single_image -->
-                                                            </div>
-                                                            <!-- .kc-col-container -->
-                                                        </div>
-                                                        <!-- .bg-yamm-content -->
-                                                        <div class="row yamm-content-row">
-                                                            <div class="col-md-6 col-sm-12">
-                                                                <div class="kc-col-container">
-                                                                    <div class="kc_text_block">
-                                                                        <ul>
-                                                                            <li class="nav-title">Computers &amp;
-                                                                                Accessories</li>
-                                                                            <li><a href="shop.html">All Computers &amp;
-                                                                                    Accessories</a></li>
-                                                                            <li><a href="shop.html">Laptops, Desktops
-                                                                                    &amp; Monitors</a></li>
-                                                                            <li><a href="shop.html">Pen Drives, Hard
-                                                                                    Drives &amp; Memory Cards</a></li>
-                                                                            <li><a href="shop.html">Printers &amp;
-                                                                                    Ink</a></li>
-                                                                            <li><a href="shop.html">Networking &amp;
-                                                                                    Internet Devices</a></li>
-                                                                            <li><a href="shop.html">Computer
-                                                                                    Accessories</a></li>
-                                                                            <li><a href="shop.html">Software</a></li>
-                                                                            <li class="nav-divider"></li>
-                                                                            <li>
-                                                                                <a href="shop.html">
-                                                                                    <span class="nav-text">All
-                                                                                        Electronics</span>
-                                                                                    <span class="nav-subtext">Discover
-                                                                                        more products</span>
-                                                                                </a>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <!-- .kc_text_block -->
-                                                                </div>
-                                                                <!-- .kc-col-container -->
-                                                            </div>
-                                                            <!-- .kc_column -->
-                                                            <div class="col-md-6 col-sm-12">
-                                                                <div class="kc-col-container">
-                                                                    <div class="kc_text_block">
-                                                                        <ul>
-                                                                            <li class="nav-title">Office &amp;
-                                                                                Stationery</li>
-                                                                            <li><a href="shop.html">All Office &amp;
-                                                                                    Stationery</a></li>
-                                                                            <li><a href="shop.html">Pens &amp;
-                                                                                    Writing</a></li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <!-- .kc_text_block -->
-                                                                </div>
-                                                                <!-- .kc-col-container -->
-                                                            </div>
-                                                            <!-- .kc_column -->
-                                                        </div>
-                                                        <!-- .kc_row -->
-                                                    </div>
-                                                    <!-- .yamm-content -->
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li
-                                            class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown-submenu">
-                                            <a title="Cameras &amp; Photo" data-toggle="dropdown"
-                                                class="dropdown-toggle" aria-haspopup="true" href="#">Cameras &#038;
-                                                Photo <span class="caret"></span></a>
-                                            <ul role="menu" class=" dropdown-menu">
-                                                <li class="menu-item menu-item-object-static_block animate-dropdown">
-                                                    <div class="yamm-content">
-                                                        <div
-                                                            class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
-                                                            <div class="kc-col-container">
-                                                                <div class="kc_single_image">
-                                                                    <img src="assets/images/megamenu-1.jpg" class=""
-                                                                        alt="" />
-                                                                </div>
-                                                                <!-- .kc_single_image -->
-                                                            </div>
-                                                            <!-- .kc-col-container -->
-                                                        </div>
-                                                        <!-- .bg-yamm-content -->
-                                                        <div class="row yamm-content-row">
-                                                            <div class="col-md-6 col-sm-12">
-                                                                <div class="kc-col-container">
-                                                                    <div class="kc_text_block">
-                                                                        <ul>
-                                                                            <li class="nav-title">Cameras & Photography
-                                                                            </li>
-                                                                            <li><a href="shop.html">All Cameras &
-                                                                                    Photography</a></li>
-                                                                            <li><a href="shop.html">Point & Shoot
-                                                                                    Cameras</a></li>
-                                                                            <li><a href="shop.html">Lenses</a></li>
-                                                                            <li><a href="shop.html">Camera
-                                                                                    Accessories</a></li>
-                                                                            <li><a href="shop.html">Security &
-                                                                                    Surveillance</a></li>
-                                                                            <li><a href="shop.html">Binoculars &
-                                                                                    Telescopes</a></li>
-                                                                            <li><a href="shop.html">Camcorders</a></li>
-                                                                            <li class="nav-divider"></li>
-                                                                            <li>
-                                                                                <a href="shop.html">
-                                                                                    <span class="nav-text">All
-                                                                                        Electronics</span>
-                                                                                    <span class="nav-subtext">Discover
-                                                                                        more products</span>
-                                                                                </a>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <!-- .kc_text_block -->
-                                                                </div>
-                                                                <!-- .kc-col-container -->
-                                                            </div>
-                                                            <!-- .kc_column -->
-                                                            <div class="col-md-6 col-sm-12">
-                                                                <div class="kc-col-container">
-                                                                    <div class="kc_text_block">
-                                                                        <ul>
-                                                                            <li class="nav-title">Audio & Video</li>
-                                                                            <li><a href="shop.html">All Audio &
-                                                                                    Video</a></li>
-                                                                            <li><a href="shop.html">Headphones &
-                                                                                    Speakers</a></li>
-                                                                            <li><a href="shop.html">Home Entertainment
-                                                                                    Systems</a></li>
-                                                                            <li><a href="shop.html">MP3 & Media
-                                                                                    Players</a></li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <!-- .kc_text_block -->
-                                                                </div>
-                                                                <!-- .kc-col-container -->
-                                                            </div>
-                                                            <!-- .kc_column -->
-                                                        </div>
-                                                        <!-- .kc_row -->
-                                                    </div>
-                                                    <!-- .yamm-content -->
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li
-                                            class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown-submenu">
-                                            <a title="Smart Phones &amp; Tablets" data-toggle="dropdown"
-                                                class="dropdown-toggle" aria-haspopup="true" href="#">Smart Phones
-                                                &#038; Tablets <span class="caret"></span></a>
-                                            <ul role="menu" class=" dropdown-menu">
-                                                <li class="menu-item menu-item-object-static_block animate-dropdown">
-                                                    <div class="yamm-content">
-                                                        <div
-                                                            class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
-                                                            <div class="kc-col-container">
-                                                                <div class="kc_single_image">
-                                                                    <img src="assets/images/megamenu.jpg" class=""
-                                                                        alt="" />
-                                                                </div>
-                                                                <!-- .kc_single_image -->
-                                                            </div>
-                                                            <!-- .kc-col-container -->
-                                                        </div>
-                                                        <!-- .bg-yamm-content -->
-                                                        <div class="row yamm-content-row">
-                                                            <div class="col-md-6 col-sm-12">
-                                                                <div class="kc-col-container">
-                                                                    <div class="kc_text_block">
-                                                                        <ul>
-                                                                            <li class="nav-title">Computers &amp;
-                                                                                Accessories</li>
-                                                                            <li><a href="shop.html">All Computers &amp;
-                                                                                    Accessories</a></li>
-                                                                            <li><a href="shop.html">Laptops, Desktops
-                                                                                    &amp; Monitors</a></li>
-                                                                            <li><a href="shop.html">Pen Drives, Hard
-                                                                                    Drives &amp; Memory Cards</a></li>
-                                                                            <li><a href="shop.html">Printers &amp;
-                                                                                    Ink</a></li>
-                                                                            <li><a href="shop.html">Networking &amp;
-                                                                                    Internet Devices</a></li>
-                                                                            <li><a href="shop.html">Computer
-                                                                                    Accessories</a></li>
-                                                                            <li><a href="shop.html">Software</a></li>
-                                                                            <li class="nav-divider"></li>
-                                                                            <li>
-                                                                                <a href="shop.html">
-                                                                                    <span class="nav-text">All
-                                                                                        Electronics</span>
-                                                                                    <span class="nav-subtext">Discover
-                                                                                        more products</span>
-                                                                                </a>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <!-- .kc_text_block -->
-                                                                </div>
-                                                                <!-- .kc-col-container -->
-                                                            </div>
-                                                            <!-- .kc_column -->
-                                                            <div class="col-md-6 col-sm-12">
-                                                                <div class="kc-col-container">
-                                                                    <div class="kc_text_block">
-                                                                        <ul>
-                                                                            <li class="nav-title">Office &amp;
-                                                                                Stationery</li>
-                                                                            <li><a href="shop.html">All Office &amp;
-                                                                                    Stationery</a></li>
-                                                                            <li><a href="shop.html">Pens &amp;
-                                                                                    Writing</a></li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <!-- .kc_text_block -->
-                                                                </div>
-                                                                <!-- .kc-col-container -->
-                                                            </div>
-                                                            <!-- .kc_column -->
-                                                        </div>
-                                                        <!-- .kc_row -->
-                                                    </div>
-                                                    <!-- .yamm-content -->
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li
-                                            class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown-submenu">
-                                            <a title="Video Games &amp; Consoles" data-toggle="dropdown"
-                                                class="dropdown-toggle" aria-haspopup="true" href="#">Video Games &#038;
-                                                Consoles <span class="caret"></span></a>
-                                            <ul role="menu" class=" dropdown-menu">
-                                                <li class="menu-item menu-item-object-static_block animate-dropdown">
-                                                    <div class="yamm-content">
-                                                        <div
-                                                            class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
-                                                            <div class="kc-col-container">
-                                                                <div class="kc_single_image">
-                                                                    <img src="assets/images/megamenu-1.jpg" class=""
-                                                                        alt="" />
-                                                                </div>
-                                                                <!-- .kc_single_image -->
-                                                            </div>
-                                                            <!-- .kc-col-container -->
-                                                        </div>
-                                                        <!-- .bg-yamm-content -->
-                                                        <div class="row yamm-content-row">
-                                                            <div class="col-md-6 col-sm-12">
-                                                                <div class="kc-col-container">
-                                                                    <div class="kc_text_block">
-                                                                        <ul>
-                                                                            <li class="nav-title">Cameras & Photography
-                                                                            </li>
-                                                                            <li><a href="shop.html">All Cameras &
-                                                                                    Photography</a></li>
-                                                                            <li><a href="shop.html">Point & Shoot
-                                                                                    Cameras</a></li>
-                                                                            <li><a href="shop.html">Lenses</a></li>
-                                                                            <li><a href="shop.html">Camera
-                                                                                    Accessories</a></li>
-                                                                            <li><a href="shop.html">Security &
-                                                                                    Surveillance</a></li>
-                                                                            <li><a href="shop.html">Binoculars &
-                                                                                    Telescopes</a></li>
-                                                                            <li><a href="shop.html">Camcorders</a></li>
-                                                                            <li class="nav-divider"></li>
-                                                                            <li>
-                                                                                <a href="shop.html">
-                                                                                    <span class="nav-text">All
-                                                                                        Electronics</span>
-                                                                                    <span class="nav-subtext">Discover
-                                                                                        more products</span>
-                                                                                </a>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <!-- .kc_text_block -->
-                                                                </div>
-                                                                <!-- .kc-col-container -->
-                                                            </div>
-                                                            <!-- .kc_column -->
-                                                            <div class="col-md-6 col-sm-12">
-                                                                <div class="kc-col-container">
-                                                                    <div class="kc_text_block">
-                                                                        <ul>
-                                                                            <li class="nav-title">Audio & Video</li>
-                                                                            <li><a href="shop.html">All Audio &
-                                                                                    Video</a></li>
-                                                                            <li><a href="shop.html">Headphones &
-                                                                                    Speakers</a></li>
-                                                                            <li><a href="shop.html">Home Entertainment
-                                                                                    Systems</a></li>
-                                                                            <li><a href="shop.html">MP3 & Media
-                                                                                    Players</a></li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <!-- .kc_text_block -->
-                                                                </div>
-                                                                <!-- .kc-col-container -->
-                                                            </div>
-                                                            <!-- .kc_column -->
-                                                        </div>
-                                                        <!-- .kc_row -->
-                                                    </div>
-                                                    <!-- .yamm-content -->
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li
-                                            class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown-submenu">
-                                            <a title="TV &amp; Audio" data-toggle="dropdown" class="dropdown-toggle"
-                                                aria-haspopup="true" href="#">TV &#038; Audio <span
-                                                    class="caret"></span></a>
-                                            <ul role="menu" class=" dropdown-menu">
-                                                <li class="menu-item menu-item-object-static_block animate-dropdown">
-                                                    <div class="yamm-content">
-                                                        <div
-                                                            class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
-                                                            <div class="kc-col-container">
-                                                                <div class="kc_single_image">
-                                                                    <img src="assets/images/megamenu.jpg" class=""
-                                                                        alt="" />
-                                                                </div>
-                                                                <!-- .kc_single_image -->
-                                                            </div>
-                                                            <!-- .kc-col-container -->
-                                                        </div>
-                                                        <!-- .bg-yamm-content -->
-                                                        <div class="row yamm-content-row">
-                                                            <div class="col-md-6 col-sm-12">
-                                                                <div class="kc-col-container">
-                                                                    <div class="kc_text_block">
-                                                                        <ul>
-                                                                            <li class="nav-title">Computers &amp;
-                                                                                Accessories</li>
-                                                                            <li><a href="shop.html">All Computers &amp;
-                                                                                    Accessories</a></li>
-                                                                            <li><a href="shop.html">Laptops, Desktops
-                                                                                    &amp; Monitors</a></li>
-                                                                            <li><a href="shop.html">Pen Drives, Hard
-                                                                                    Drives &amp; Memory Cards</a></li>
-                                                                            <li><a href="shop.html">Printers &amp;
-                                                                                    Ink</a></li>
-                                                                            <li><a href="shop.html">Networking &amp;
-                                                                                    Internet Devices</a></li>
-                                                                            <li><a href="shop.html">Computer
-                                                                                    Accessories</a></li>
-                                                                            <li><a href="shop.html">Software</a></li>
-                                                                            <li class="nav-divider"></li>
-                                                                            <li>
-                                                                                <a href="shop.html">
-                                                                                    <span class="nav-text">All
-                                                                                        Electronics</span>
-                                                                                    <span class="nav-subtext">Discover
-                                                                                        more products</span>
-                                                                                </a>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <!-- .kc_text_block -->
-                                                                </div>
-                                                                <!-- .kc-col-container -->
-                                                            </div>
-                                                            <!-- .kc_column -->
-                                                            <div class="col-md-6 col-sm-12">
-                                                                <div class="kc-col-container">
-                                                                    <div class="kc_text_block">
-                                                                        <ul>
-                                                                            <li class="nav-title">Office &amp;
-                                                                                Stationery</li>
-                                                                            <li><a href="shop.html">All Office &amp;
-                                                                                    Stationery</a></li>
-                                                                            <li><a href="shop.html">Pens &amp;
-                                                                                    Writing</a></li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <!-- .kc_text_block -->
-                                                                </div>
-                                                                <!-- .kc-col-container -->
-                                                            </div>
-                                                            <!-- .kc_column -->
-                                                        </div>
-                                                        <!-- .kc_row -->
-                                                    </div>
-                                                    <!-- .yamm-content -->
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li
-                                            class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown-submenu">
-                                            <a title="Car Electronic &amp; GPS" data-toggle="dropdown"
-                                                class="dropdown-toggle" aria-haspopup="true" href="#">Car Electronic
-                                                &#038; GPS <span class="caret"></span></a>
-                                            <ul role="menu" class=" dropdown-menu">
-                                                <li class="menu-item menu-item-object-static_block animate-dropdown">
-                                                    <div class="yamm-content">
-                                                        <div
-                                                            class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
-                                                            <div class="kc-col-container">
-                                                                <div class="kc_single_image">
-                                                                    <img src="assets/images/megamenu-1.jpg" class=""
-                                                                        alt="" />
-                                                                </div>
-                                                                <!-- .kc_single_image -->
-                                                            </div>
-                                                            <!-- .kc-col-container -->
-                                                        </div>
-                                                        <!-- .bg-yamm-content -->
-                                                        <div class="row yamm-content-row">
-                                                            <div class="col-md-6 col-sm-12">
-                                                                <div class="kc-col-container">
-                                                                    <div class="kc_text_block">
-                                                                        <ul>
-                                                                            <li class="nav-title">Cameras & Photography
-                                                                            </li>
-                                                                            <li><a href="shop.html">All Cameras &
-                                                                                    Photography</a></li>
-                                                                            <li><a href="shop.html">Point & Shoot
-                                                                                    Cameras</a></li>
-                                                                            <li><a href="shop.html">Lenses</a></li>
-                                                                            <li><a href="shop.html">Camera
-                                                                                    Accessories</a></li>
-                                                                            <li><a href="shop.html">Security &
-                                                                                    Surveillance</a></li>
-                                                                            <li><a href="shop.html">Binoculars &
-                                                                                    Telescopes</a></li>
-                                                                            <li><a href="shop.html">Camcorders</a></li>
-                                                                            <li class="nav-divider"></li>
-                                                                            <li>
-                                                                                <a href="shop.html">
-                                                                                    <span class="nav-text">All
-                                                                                        Electronics</span>
-                                                                                    <span class="nav-subtext">Discover
-                                                                                        more products</span>
-                                                                                </a>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <!-- .kc_text_block -->
-                                                                </div>
-                                                                <!-- .kc-col-container -->
-                                                            </div>
-                                                            <!-- .kc_column -->
-                                                            <div class="col-md-6 col-sm-12">
-                                                                <div class="kc-col-container">
-                                                                    <div class="kc_text_block">
-                                                                        <ul>
-                                                                            <li class="nav-title">Audio & Video</li>
-                                                                            <li><a href="shop.html">All Audio &
-                                                                                    Video</a></li>
-                                                                            <li><a href="shop.html">Headphones &
-                                                                                    Speakers</a></li>
-                                                                            <li><a href="shop.html">Home Entertainment
-                                                                                    Systems</a></li>
-                                                                            <li><a href="shop.html">MP3 & Media
-                                                                                    Players</a></li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <!-- .kc_text_block -->
-                                                                </div>
-                                                                <!-- .kc-col-container -->
-                                                            </div>
-                                                            <!-- .kc_column -->
-                                                        </div>
-                                                        <!-- .kc_row -->
-                                                    </div>
-                                                    <!-- .yamm-content -->
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li
-                                            class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown-submenu">
-                                            <a title="Accesories" data-toggle="dropdown" class="dropdown-toggle"
-                                                aria-haspopup="true" href="#">Accesories <span class="caret"></span></a>
-                                            <ul role="menu" class=" dropdown-menu">
-                                                <li class="menu-item menu-item-object-static_block animate-dropdown">
-                                                    <div class="yamm-content">
-                                                        <div
-                                                            class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
-                                                            <div class="kc-col-container">
-                                                                <div class="kc_single_image">
-                                                                    <img src="assets/images/megamenu.jpg" class=""
-                                                                        alt="" />
-                                                                </div>
-                                                                <!-- .kc_single_image -->
-                                                            </div>
-                                                            <!-- .kc-col-container -->
-                                                        </div>
-                                                        <!-- .bg-yamm-content -->
-                                                        <div class="row yamm-content-row">
-                                                            <div class="col-md-6 col-sm-12">
-                                                                <div class="kc-col-container">
-                                                                    <div class="kc_text_block">
-                                                                        <ul>
-                                                                            <li class="nav-title">Computers &amp;
-                                                                                Accessories</li>
-                                                                            <li><a href="shop.html">All Computers &amp;
-                                                                                    Accessories</a></li>
-                                                                            <li><a href="shop.html">Laptops, Desktops
-                                                                                    &amp; Monitors</a></li>
-                                                                            <li><a href="shop.html">Pen Drives, Hard
-                                                                                    Drives &amp; Memory Cards</a></li>
-                                                                            <li><a href="shop.html">Printers &amp;
-                                                                                    Ink</a></li>
-                                                                            <li><a href="shop.html">Networking &amp;
-                                                                                    Internet Devices</a></li>
-                                                                            <li><a href="shop.html">Computer
-                                                                                    Accessories</a></li>
-                                                                            <li><a href="shop.html">Software</a></li>
-                                                                            <li class="nav-divider"></li>
-                                                                            <li>
-                                                                                <a href="shop.html">
-                                                                                    <span class="nav-text">All
-                                                                                        Electronics</span>
-                                                                                    <span class="nav-subtext">Discover
-                                                                                        more products</span>
-                                                                                </a>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <!-- .kc_text_block -->
-                                                                </div>
-                                                                <!-- .kc-col-container -->
-                                                            </div>
-                                                            <!-- .kc_column -->
-                                                            <div class="col-md-6 col-sm-12">
-                                                                <div class="kc-col-container">
-                                                                    <div class="kc_text_block">
-                                                                        <ul>
-                                                                            <li class="nav-title">Office &amp;
-                                                                                Stationery</li>
-                                                                            <li><a href="shop.html">All Office &amp;
-                                                                                    Stationery</a></li>
-                                                                            <li><a href="shop.html">Pens &amp;
-                                                                                    Writing</a></li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <!-- .kc_text_block -->
-                                                                </div>
-                                                                <!-- .kc-col-container -->
-                                                            </div>
-                                                            <!-- .kc_column -->
-                                                        </div>
-                                                        <!-- .kc_row -->
-                                                    </div>
-                                                    <!-- .yamm-content -->
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="menu-item animate-dropdown">
-                                            <a title="Gadgets" href="shop.html">Gadgets</a>
-                                        </li>
-                                        <li class="menu-item animate-dropdown">
-                                            <a title="Virtual Reality" href="shop.html">Virtual Reality</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- .handheld-navigation-menu -->
-                            </nav>
-                            <!-- .handheld-navigation -->
-                            <div class="site-search">
-                                <div class="widget woocommerce widget_product_search">
-                                    <form role="search" method="get" class="woocommerce-product-search"
-                                        action="https://transvelo.github.io/techmarket-html/home-v1.html">
-                                        <label class="screen-reader-text"
-                                            for="woocommerce-product-search-field-0">جستجو:</label>
-                                        <input type="search" id="woocommerce-product-search-field-0"
-                                            class="search-field" placeholder="Search products&hellip;" value=""
-                                            name="s" />
-                                        <input type="submit" value="Search" />
-                                        <input type="hidden" name="post_type" value="product" />
-                                    </form>
-                                </div>
-                                <!-- .widget -->
-                            </div>
-                            <!-- .site-search -->
-                            <a class="handheld-header-cart-link has-icon" href="cart.html"
-                                title="View your shopping cart">
-                                <i class="tm tm-shopping-bag"></i>
-                                <span class="count">2</span>
-                            </a>
-                        </div>
-                        <!-- /.row -->
-                    </div>
-                    <!-- .techmarket-sticky-wrap -->
-                </div>
-                <!-- .handheld-header -->
-            </div>
-            <!-- .handheld-only -->
-        </header>
-        <!-- .header-v1 -->
-        <!-- ============================================================= Header End ============================================================= -->
         <div id="content" class="site-content">
             <div class="col-full">
                 <div class="row">
@@ -1716,8 +5,8 @@
                         <main id="main" class="site-main">
                             <div class="home-v1-slider home-slider">
                                 <div class="slider-1"
-                                    style="background-image: url(assets/images/slider/home-v1-background.jpg);">
-                                    <img src="assets/images/slider/home-v1-img-1.png" alt="">
+                                    style="background-image: url(<?= asset_url() ?>images/slider/home-v1-background.jpg);">
+                                    <img src="<?= asset_url() ?>images/slider/home-v1-img-1.png" alt="">
                                     <div class="caption">
                                         <div class="title">رایانه شخصی یکپارچه</div>
                                         <div class="sub-title"> به رایانه‌های رومیزی گفته می‌شود که نمایشگر آن به کیسی
@@ -1734,8 +23,8 @@
                                 </div>
                                 <!-- .slider-1 -->
                                 <div class="slider-1 slider-2"
-                                    style="background-image: url(assets/images/slider/home-v1-background.jpg);">
-                                    <img src="assets/images/slider/home-v1-img-2.png" alt="">
+                                    style="background-image: url(<?= asset_url() ?>images/slider/home-v1-background.jpg);">
+                                    <img src="<?= asset_url() ?>images/slider/home-v1-img-2.png" alt="">
                                     <div class="caption">
                                         <div class="title">The new-tech gift you
                                             <br> are wishing for is
@@ -1815,36 +104,36 @@
                                     <div class="banner-2">
                                         <div class="banner-box">
                                             <div class="col-img">
-                                                <a href="#"><img src="assets/images/banner/banner3-1.jpg" alt="banner 3"></a>
+                                                <a href="#"><img src="<?= asset_url() ?>images/banner/banner3-1.jpg" alt="banner 3"></a>
                                             </div>
                                             <div class="col-img">
-                                                <a href="#"><img src="assets/images/banner/banner3-2.jpg" alt="banner 3"></a>
-                                            </div>
-                                        </div>
-                                        <div class="banner-box">
-                                            <div class="col-img">
-                                                <a href="#"><img src="assets/images/banner/banner3-3.jpg" alt="banner 3"></a>
+                                                <a href="#"><img src="<?= asset_url() ?>images/banner/banner3-2.jpg" alt="banner 3"></a>
                                             </div>
                                         </div>
                                         <div class="banner-box">
                                             <div class="col-img">
-                                                <a href="#"><img src="assets/images/banner/banner3-4.jpg" alt="banner 3"></a>
-                                            </div>
-                                            <div class="col-img">
-                                                <a href="#"><img src="assets/images/banner/banner3-5.jpg" alt="banner 3"></a>
+                                                <a href="#"><img src="<?= asset_url() ?>images/banner/banner3-3.jpg" alt="banner 3"></a>
                                             </div>
                                         </div>
                                         <div class="banner-box">
                                             <div class="col-img">
-                                                <a href="#"><img src="assets/images/banner/banner3-6.jpg" alt="banner 3"></a>
+                                                <a href="#"><img src="<?= asset_url() ?>images/banner/banner3-4.jpg" alt="banner 3"></a>
+                                            </div>
+                                            <div class="col-img">
+                                                <a href="#"><img src="<?= asset_url() ?>images/banner/banner3-5.jpg" alt="banner 3"></a>
                                             </div>
                                         </div>
                                         <div class="banner-box">
                                             <div class="col-img">
-                                                <a href="#"><img src="assets/images/banner/banner3-7.jpg" alt="banner 3"></a>
+                                                <a href="#"><img src="<?= asset_url() ?>images/banner/banner3-6.jpg" alt="banner 3"></a>
+                                            </div>
+                                        </div>
+                                        <div class="banner-box">
+                                            <div class="col-img">
+                                                <a href="#"><img src="<?= asset_url() ?>images/banner/banner3-7.jpg" alt="banner 3"></a>
                                             </div>
                                             <div class="col-img">
-                                                <a href="#"><img src="assets/images/banner/banner3-8.jpg" alt="banner 3"></a>
+                                                <a href="#"><img src="<?= asset_url() ?>images/banner/banner3-8.jpg" alt="banner 3"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -1913,7 +202,7 @@
                                                                     <!-- /.sale-product-with-timer-header -->
                                                                     <img width="224" height="197" alt=""
                                                                         class="wp-post-image"
-                                                                        src="assets/images/products/1.jpg">
+                                                                        src="<?= asset_url() ?>images/products/1.jpg">
                                                                     <div class="deal-progress">
                                                                         <div class="deal-stock">
                                                                             <div class="stock-sold">فروخته شده:
@@ -1986,7 +275,7 @@
                                                                     <!-- /.sale-product-with-timer-header -->
                                                                     <img width="224" height="197" alt=""
                                                                         class="wp-post-image"
-                                                                        src="assets/images/products/2.jpg">
+                                                                        src="<?= asset_url() ?>images/products/2.jpg">
                                                                     <div class="deal-progress">
                                                                         <div class="deal-stock">
                                                                             <div class="stock-sold">فروخته شده:
@@ -2059,7 +348,7 @@
                                                                     <!-- /.sale-product-with-timer-header -->
                                                                     <img width="224" height="197" alt=""
                                                                         class="wp-post-image"
-                                                                        src="assets/images/products/3.jpg">
+                                                                        src="<?= asset_url() ?>images/products/3.jpg">
                                                                     <div class="deal-progress">
                                                                         <div class="deal-stock">
                                                                             <div class="stock-sold">فروخته شده:
@@ -2132,7 +421,7 @@
                                                                     <!-- /.sale-product-with-timer-header -->
                                                                     <img width="224" height="197" alt=""
                                                                         class="wp-post-image"
-                                                                        src="assets/images/products/4.jpg">
+                                                                        src="<?= asset_url() ?>images/products/4.jpg">
                                                                     <div class="deal-progress">
                                                                         <div class="deal-stock">
                                                                             <div class="stock-sold">فروخته شده:
@@ -2221,7 +510,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/3.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/3.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -2249,7 +538,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/15.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/15.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -2278,7 +567,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/11.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/11.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -2307,7 +596,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/4.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/4.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -2334,7 +623,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/5.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/5.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -2368,7 +657,7 @@
                                                                                 dir="rtl">
                                                                                2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="assets/images/products/7.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/7.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -2401,7 +690,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/16.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/16.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -2429,7 +718,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/10.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/10.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -2458,7 +747,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/13.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/13.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -2486,7 +775,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/9.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/9.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -2521,7 +810,7 @@
                                                                                 dir="rtl">
                                                                                2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="assets/images/products/2.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/2.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -2552,7 +841,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/6.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/6.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -2581,7 +870,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/8.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/8.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -2615,7 +904,7 @@
                                                                                 dir="rtl">
                                                                                2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="assets/images/products/14.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/14.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -2648,7 +937,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/12.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/12.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -2676,7 +965,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/1.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/1.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -2720,7 +1009,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/11.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/11.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -2755,7 +1044,7 @@
                                                                                 dir="rtl">
                                                                                2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="assets/images/products/2.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/2.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -2786,7 +1075,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/16.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/16.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -2814,7 +1103,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/10.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/10.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -2843,7 +1132,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/8.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/8.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -2871,7 +1160,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/5.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/5.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -2905,7 +1194,7 @@
                                                                                 dir="rtl">
                                                                                2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="assets/images/products/7.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/7.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -2938,7 +1227,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/1.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/1.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -2966,7 +1255,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/13.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/13.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3000,7 +1289,7 @@
                                                                                 dir="rtl">
                                                                                2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="assets/images/products/14.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/14.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3033,7 +1322,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/15.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/15.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3062,7 +1351,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/4.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/4.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3089,7 +1378,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/12.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/12.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3117,7 +1406,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/6.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/6.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3146,7 +1435,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/3.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/3.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3174,7 +1463,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/9.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/9.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3219,7 +1508,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/6.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/6.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3248,7 +1537,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/15.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/15.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3277,7 +1566,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/10.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/10.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3306,7 +1595,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/12.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/12.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3340,7 +1629,7 @@
                                                                                 dir="rtl">
                                                                                2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="assets/images/products/7.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/7.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3373,7 +1662,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/4.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/4.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3400,7 +1689,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/11.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/11.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3435,7 +1724,7 @@
                                                                                 dir="rtl">
                                                                                2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="assets/images/products/14.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/14.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3468,7 +1757,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/5.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/5.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3496,7 +1785,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/16.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/16.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3524,7 +1813,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/13.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/13.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3552,7 +1841,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/9.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/9.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3581,7 +1870,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/1.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/1.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3609,7 +1898,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/8.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/8.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3637,7 +1926,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/3.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/3.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3671,7 +1960,7 @@
                                                                                 dir="rtl">
                                                                                2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="assets/images/products/2.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/2.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3718,7 +2007,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/6.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/6.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3747,7 +2036,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/4.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/4.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3774,7 +2063,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/8.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/8.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3802,7 +2091,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/16.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/16.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3836,7 +2125,7 @@
                                                                                 dir="rtl">
                                                                                2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="assets/images/products/14.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/14.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3869,7 +2158,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/3.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/3.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3897,7 +2186,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/10.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/10.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3926,7 +2215,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/9.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/9.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3955,7 +2244,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/5.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/5.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -3983,7 +2272,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/15.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/15.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -4018,7 +2307,7 @@
                                                                                 dir="rtl">
                                                                                2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="assets/images/products/2.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/2.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -4049,7 +2338,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/12.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/12.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -4077,7 +2366,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/11.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/11.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -4106,7 +2395,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/13.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/13.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -4134,7 +2423,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/1.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/1.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -4168,7 +2457,7 @@
                                                                                 dir="rtl">
                                                                                2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="assets/images/products/7.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/7.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -4238,7 +2527,7 @@
                                             <div class="product-category product first">
                                                 <a href="product-category.html">
                                                     <img width="224" height="197" alt="سویچ"
-                                                        src="assets/images/category/16.png">
+                                                        src="<?= asset_url() ?>images/category/16.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         سویچ
                                                     </h2>
@@ -4248,7 +2537,7 @@
                                             <div class="product-category product">
                                                 <a href="product-category.html">
                                                     <img width="224" height="197" alt="سرور"
-                                                        src="assets/images/category/17.png">
+                                                        src="<?= asset_url() ?>images/category/17.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         سرور
                                                     </h2>
@@ -4258,7 +2547,7 @@
                                             <div class="product-category product">
                                                 <a href="product-category.html">
                                                     <img width="224" height="197" alt="تلفن اینترنتی"
-                                                        src="assets/images/category/18.png">
+                                                        src="<?= asset_url() ?>images/category/18.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         تلفن اینترنتی
                                                     </h2>
@@ -4268,7 +2557,7 @@
                                             <div class="product-category product">
                                                 <a href="product-category.html">
                                                     <img width="224" height="197" alt="رک"
-                                                        src="assets/images/category/19.png">
+                                                        src="<?= asset_url() ?>images/category/19.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         رک
                                                     </h2>
@@ -4278,7 +2567,7 @@
                                             <div class="product-category product last">
                                                 <a href="product-category.html">
                                                     <img width="224" height="197" alt="Desktop PCs"
-                                                        src="assets/images/category/20.png">
+                                                        src="<?= asset_url() ?>images/category/20.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         Desktop PCs
                                                     </h2>
@@ -4288,7 +2577,7 @@
                                             <div class="product-category product first">
                                                 <a href="product-category.html">
                                                     <img width="224" height="197" alt="Digital Cameras"
-                                                        src="assets/images/category/21.png">
+                                                        src="<?= asset_url() ?>images/category/21.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         Digital Cameras
                                                     </h2>
@@ -4298,7 +2587,7 @@
                                             <div class="product-category product">
                                                 <a href="product-category.html">
                                                     <img width="224" height="197" alt="Games &amp; Consoles"
-                                                        src="assets/images/category/22.png">
+                                                        src="<?= asset_url() ?>images/category/22.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         Games &amp; Consoles
                                                     </h2>
@@ -4308,7 +2597,7 @@
                                             <div class="product-category product">
                                                 <a href="product-category.html">
                                                     <img width="224" height="197" alt="Headphones"
-                                                        src="assets/images/category/23.png">
+                                                        src="<?= asset_url() ?>images/category/23.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         Headphones
                                                     </h2>
@@ -4318,7 +2607,7 @@
                                             <div class="product-category product">
                                                 <a href="product-category.html">
                                                     <img width="224" height="197" alt="Home Entertainment"
-                                                        src="assets/images/category/24.png">
+                                                        src="<?= asset_url() ?>images/category/24.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         Home Entertainment
                                                     </h2>
@@ -4328,7 +2617,7 @@
                                             <div class="product-category product last">
                                                 <a href="product-category.html">
                                                     <img width="224" height="197" alt="Home Theater &amp; Audio"
-                                                        src="assets/images/category/25.png">
+                                                        src="<?= asset_url() ?>images/category/25.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         Home Theater &amp; Audio
                                                     </h2>
@@ -4338,7 +2627,7 @@
                                             <div class="product-category product first">
                                                 <a href="product-category.html">
                                                     <img width="224" height="197" alt="Laptops"
-                                                        src="assets/images/category/18.png">
+                                                        src="<?= asset_url() ?>images/category/18.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         Laptops
                                                     </h2>
@@ -4348,7 +2637,7 @@
                                             <div class="product-category product">
                                                 <a href="product-category.html">
                                                     <img width="224" height="197" alt="Mac Computers"
-                                                        src="assets/images/category/22.png">
+                                                        src="<?= asset_url() ?>images/category/22.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         Mac Computers
                                                     </h2>
@@ -4364,7 +2653,7 @@
                             </section>
                             <!-- .section-categories-carousel -->
                             <section
-                                style="background-size: cover; background-position: center center; background-image: url( assets/images/products/card-bg.jpg); height: 853px;"
+                                style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>images/products/card-bg.jpg); height: 853px;"
                                 class="section-landscape-full-product-cards-carousel">
                                 <div class="col-full">
                                     <header class="section-header">
@@ -4390,7 +2679,7 @@
                                                                     <a class="woocommerce-LoopProduct-link"
                                                                         href="single-product-fullwidth.html">
                                                                         <img class="wp-post-image"
-                                                                            src="assets/images/products/1-2.jpg" alt="">
+                                                                            src="<?= asset_url() ?>images/products/1-2.jpg" alt="">
                                                                     </a>
                                                                     <div class="media-body" style="direction: rtl;">
                                                                         <a class="woocommerce-LoopProduct-link "
@@ -4448,7 +2737,7 @@
                                                                     <a class="woocommerce-LoopProduct-link"
                                                                         href="single-product-fullwidth.html">
                                                                         <img class="wp-post-image"
-                                                                            src="assets/images/products/1-4.jpg" alt="">
+                                                                            src="<?= asset_url() ?>images/products/1-4.jpg" alt="">
                                                                     </a>
                                                                     <div class="media-body" style="direction: rtl;">
                                                                         <a class="woocommerce-LoopProduct-link "
@@ -4506,7 +2795,7 @@
                                                                     <a class="woocommerce-LoopProduct-link"
                                                                         href="single-product-fullwidth.html">
                                                                         <img class="wp-post-image"
-                                                                            src="assets/images/products/1-1.jpg" alt="">
+                                                                            src="<?= asset_url() ?>images/products/1-1.jpg" alt="">
                                                                     </a>
                                                                     <div class="media-body" style="direction: rtl;">
                                                                         <a class="woocommerce-LoopProduct-link "
@@ -4564,7 +2853,7 @@
                                                                     <a class="woocommerce-LoopProduct-link"
                                                                         href="single-product-fullwidth.html">
                                                                         <img class="wp-post-image"
-                                                                            src="assets/images/products/1-6.jpg" alt="">
+                                                                            src="<?= asset_url() ?>images/products/1-6.jpg" alt="">
                                                                     </a>
                                                                     <div class="media-body" style="direction: rtl;">
                                                                         <a class="woocommerce-LoopProduct-link "
@@ -4622,7 +2911,7 @@
                                                                     <a class="woocommerce-LoopProduct-link"
                                                                         href="single-product-fullwidth.html">
                                                                         <img class="wp-post-image"
-                                                                            src="assets/images/products/1-2.jpg" alt="">
+                                                                            src="<?= asset_url() ?>images/products/1-2.jpg" alt="">
                                                                     </a>
                                                                     <div class="media-body" style="direction: rtl;">
                                                                         <a class="woocommerce-LoopProduct-link "
@@ -4680,7 +2969,7 @@
                                                                     <a class="woocommerce-LoopProduct-link"
                                                                         href="single-product-fullwidth.html">
                                                                         <img class="wp-post-image"
-                                                                            src="assets/images/products/1-5.jpg" alt="">
+                                                                            src="<?= asset_url() ?>images/products/1-5.jpg" alt="">
                                                                     </a>
                                                                     <div class="media-body" style="direction: rtl;">
                                                                         <a class="woocommerce-LoopProduct-link "
@@ -4738,7 +3027,7 @@
                                                                     <a class="woocommerce-LoopProduct-link"
                                                                         href="single-product-fullwidth.html">
                                                                         <img class="wp-post-image"
-                                                                            src="assets/images/products/1-3.jpg" alt="">
+                                                                            src="<?= asset_url() ?>images/products/1-3.jpg" alt="">
                                                                     </a>
                                                                     <div class="media-body" style="direction: rtl;">
                                                                         <a class="woocommerce-LoopProduct-link "
@@ -4796,7 +3085,7 @@
                                                                     <a class="woocommerce-LoopProduct-link"
                                                                         href="single-product-fullwidth.html">
                                                                         <img class="wp-post-image"
-                                                                            src="assets/images/products/1-5.jpg" alt="">
+                                                                            src="<?= asset_url() ?>images/products/1-5.jpg" alt="">
                                                                     </a>
                                                                     <div class="media-body" style="direction: rtl;">
                                                                         <a class="woocommerce-LoopProduct-link "
@@ -4892,7 +3181,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/12.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/12.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -4924,7 +3213,7 @@
                                                                             dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="assets/images/products/14.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/14.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -4954,7 +3243,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/6.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/6.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -4981,7 +3270,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/1.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/1.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5008,7 +3297,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/15.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/15.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5040,7 +3329,7 @@
                                                                             dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="assets/images/products/7.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/7.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5071,7 +3360,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/8.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/8.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5098,7 +3387,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/10.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/10.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5125,7 +3414,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/16.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/16.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5157,7 +3446,7 @@
                                                                             dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="assets/images/products/2.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/2.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5187,7 +3476,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/3.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/3.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5214,7 +3503,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/4.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/4.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5241,7 +3530,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/9.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/9.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5268,7 +3557,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/5.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/5.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5295,7 +3584,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/11.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/11.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5322,7 +3611,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/13.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/13.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5370,7 +3659,7 @@
                                                                             dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="assets/images/products/7.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/7.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5401,7 +3690,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/15.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/15.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5428,7 +3717,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/16.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/16.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5455,7 +3744,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/12.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/12.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5482,7 +3771,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/10.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/10.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5514,7 +3803,7 @@
                                                                             dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="assets/images/products/14.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/14.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5544,7 +3833,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/4.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/4.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5571,7 +3860,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/6.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/6.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5598,7 +3887,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/9.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/9.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5630,7 +3919,7 @@
                                                                             dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="assets/images/products/2.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/2.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5660,7 +3949,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/3.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/3.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5687,7 +3976,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/8.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/8.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5714,7 +4003,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/5.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/5.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5741,7 +4030,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/13.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/13.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5768,7 +4057,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/11.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/11.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5795,7 +4084,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/1.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/1.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5838,7 +4127,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/10.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/10.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5870,7 +4159,7 @@
                                                                             dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="assets/images/products/2.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/2.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5905,7 +4194,7 @@
                                                                             dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="assets/images/products/7.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/7.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5936,7 +4225,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/6.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/6.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5963,7 +4252,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/12.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/12.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -5995,7 +4284,7 @@
                                                                             dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="assets/images/products/14.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/14.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -6025,7 +4314,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/11.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/11.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -6052,7 +4341,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/13.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/13.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -6079,7 +4368,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/8.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/8.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -6106,7 +4395,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/5.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/5.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -6133,7 +4422,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/4.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/4.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -6160,7 +4449,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/9.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/9.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -6187,7 +4476,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/3.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/3.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -6214,7 +4503,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/16.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/16.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -6241,7 +4530,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/1.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/1.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -6268,7 +4557,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/15.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/15.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -6311,7 +4600,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/9.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/9.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -6338,7 +4627,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/10.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/10.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -6365,7 +4654,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/6.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/6.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -6392,7 +4681,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/15.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/15.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -6419,7 +4708,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/5.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/5.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -6446,7 +4735,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/16.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/16.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -6473,7 +4762,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/4.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/4.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -6500,7 +4789,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/1.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/1.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -6527,7 +4816,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/12.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/12.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -6554,7 +4843,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/8.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/8.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -6586,7 +4875,7 @@
                                                                             dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="assets/images/products/2.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/2.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -6616,7 +4905,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/13.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/13.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -6648,7 +4937,7 @@
                                                                             dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="assets/images/products/14.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/14.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -6683,7 +4972,7 @@
                                                                             dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="assets/images/products/7.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/7.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -6714,7 +5003,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/3.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/3.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -6741,7 +5030,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/11.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/11.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -6780,7 +5069,7 @@
                                 <div class="row">
                                     <div class="banner banner-long text-in-left">
                                         <a href="shop.html">
-                                            <div style="background-size: cover; background-position: center center; background-image: url( assets/images/banner/3-2.jpg); height: 259px;padding-right: 10px;justify-content: right;"
+                                            <div style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>images/banner/3-2.jpg); height: 259px;padding-right: 10px;justify-content: right;"
                                                 class="banner-bg">
                                                 <div class="caption">
                                                     <div class="banner-info">
@@ -6798,7 +5087,7 @@
                                     <!-- /.banner -->
                                     <div class="banner banner-short text-in-right">
                                         <a href="shop.html">
-                                            <div style="background-size: cover; background-position: center center; background-image: url( assets/images/banner/3-3.jpg); height: 259px;"
+                                            <div style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>images/banner/3-3.jpg); height: 259px;"
                                                 class="banner-bg">
                                                 <div class="caption">
                                                     <div class="banner-info">
@@ -6837,7 +5126,7 @@
                                                         href="single-product-fullwidth.html">
                                                         <div class="media">
                                                             <img class="wp-post-image"
-                                                                src="assets/images/products/card-2.jpg" alt="">
+                                                                src="<?= asset_url() ?>images/products/card-2.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -6870,7 +5159,7 @@
                                                         href="single-product-fullwidth.html">
                                                         <div class="media">
                                                             <img class="wp-post-image"
-                                                                src="assets/images/products/card-6.jpg" alt="">
+                                                                src="<?= asset_url() ?>images/products/card-6.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -6903,7 +5192,7 @@
                                                         href="single-product-fullwidth.html">
                                                         <div class="media">
                                                             <img class="wp-post-image"
-                                                                src="assets/images/products/card-3.jpg" alt="">
+                                                                src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -6940,7 +5229,7 @@
                                                         href="single-product-fullwidth.html">
                                                         <div class="media">
                                                             <img class="wp-post-image"
-                                                                src="assets/images/products/card-3.jpg" alt="">
+                                                                src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -6977,7 +5266,7 @@
                                                         href="single-product-fullwidth.html">
                                                         <div class="media">
                                                             <img class="wp-post-image"
-                                                                src="assets/images/products/card-5.jpg" alt="">
+                                                                src="<?= asset_url() ?>images/products/card-5.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -7014,7 +5303,7 @@
                                                         href="single-product-fullwidth.html">
                                                         <div class="media">
                                                             <img class="wp-post-image"
-                                                                src="assets/images/products/card-1.jpg" alt="">
+                                                                src="<?= asset_url() ?>images/products/card-1.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -7051,7 +5340,7 @@
                                                         href="single-product-fullwidth.html">
                                                         <div class="media">
                                                             <img class="wp-post-image"
-                                                                src="assets/images/products/card-4.jpg" alt="">
+                                                                src="<?= asset_url() ?>images/products/card-4.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -7084,7 +5373,7 @@
                                                         href="single-product-fullwidth.html">
                                                         <div class="media">
                                                             <img class="wp-post-image"
-                                                                src="assets/images/products/card-4.jpg" alt="">
+                                                                src="<?= asset_url() ?>images/products/card-4.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -7124,12 +5413,12 @@
                                 <div class="container big-banner-box">
                                     <div class="col-img">
                                         <a href="#">
-                                            <img src="assets/images/banner/5.jpg" alt="">
+                                            <img src="<?= asset_url() ?>images/banner/5.jpg" alt="">
                                         </a>
                                     </div>
                                     <div class="col-img">
                                         <a href="#">
-                                            <img src="assets/images/banner/h1-banner3.jpg" alt="">
+                                            <img src="<?= asset_url() ?>images/banner/h1-banner3.jpg" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -7175,7 +5464,7 @@
                                             </a>
                                         </li>
                                     </ul>
-                                    <div style="background-size: cover; background-position: center center; background-image: url( assets/images/banner/vertical-bg.png); height: 552px;"
+                                    <div style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>images/banner/vertical-bg.png); height: 552px;"
                                         class="tab-content">
                                         <div id="desktop-pc" class="tab-pane active" role="tabpanel">
                                             <div class="products-carousel" data-ride="tm-slick-carousel"
@@ -7191,7 +5480,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/12.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/12.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -7218,7 +5507,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/11.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/11.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -7245,7 +5534,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/5.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/5.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -7272,7 +5561,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/4.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/4.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -7299,7 +5588,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/16.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/16.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -7326,7 +5615,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/6.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/6.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -7353,7 +5642,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/3.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/3.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -7380,7 +5669,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/13.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/13.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -7407,7 +5696,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/10.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/10.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -7439,7 +5728,7 @@
                                                                             dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="assets/images/products/7.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/7.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -7470,7 +5759,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/1.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/1.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -7497,7 +5786,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/8.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/8.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -7529,7 +5818,7 @@
                                                                             dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="assets/images/products/14.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/14.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -7559,7 +5848,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/15.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/15.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -7586,7 +5875,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/9.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/9.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -7618,7 +5907,7 @@
                                                                             dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="assets/images/products/2.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/2.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -7664,7 +5953,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/16.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/16.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -7691,7 +5980,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/11.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/11.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -7718,7 +6007,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/13.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/13.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -7745,7 +6034,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/6.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/6.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -7777,7 +6066,7 @@
                                                                             dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="assets/images/products/2.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/2.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -7812,7 +6101,7 @@
                                                                             dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="assets/images/products/14.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/14.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -7842,7 +6131,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/12.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/12.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -7869,7 +6158,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/15.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/15.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -7896,7 +6185,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/9.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/9.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -7928,7 +6217,7 @@
                                                                             dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="assets/images/products/7.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/7.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -7959,7 +6248,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/4.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/4.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -7986,7 +6275,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/5.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/5.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8013,7 +6302,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/1.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/1.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8040,7 +6329,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/8.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/8.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8067,7 +6356,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/3.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/3.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8094,7 +6383,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/10.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/10.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8137,7 +6426,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/11.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/11.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8164,7 +6453,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/8.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/8.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8196,7 +6485,7 @@
                                                                             dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="assets/images/products/2.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/2.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8226,7 +6515,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/13.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/13.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8253,7 +6542,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/12.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/12.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8280,7 +6569,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/9.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/9.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8307,7 +6596,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/16.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/16.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8334,7 +6623,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/1.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/1.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8361,7 +6650,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/5.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/5.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8388,7 +6677,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/6.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/6.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8415,7 +6704,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/4.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/4.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8447,7 +6736,7 @@
                                                                             dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="assets/images/products/14.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/14.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8482,7 +6771,7 @@
                                                                             dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="assets/images/products/7.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/7.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8513,7 +6802,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/10.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/10.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8540,7 +6829,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/3.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/3.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8567,7 +6856,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/15.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/15.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8615,7 +6904,7 @@
                                                                             dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="assets/images/products/2.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/2.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8645,7 +6934,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/4.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/4.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8672,7 +6961,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/5.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/5.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8699,7 +6988,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/6.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/6.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8726,7 +7015,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/1.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/1.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8753,7 +7042,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/13.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/13.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8780,7 +7069,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/12.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/12.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8812,7 +7101,7 @@
                                                                             dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="assets/images/products/14.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/14.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8842,7 +7131,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/8.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/8.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8869,7 +7158,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/11.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/11.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8896,7 +7185,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/10.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/10.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8923,7 +7212,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/15.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/15.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8950,7 +7239,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/9.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/9.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -8982,7 +7271,7 @@
                                                                             dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="assets/images/products/7.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/7.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -9013,7 +7302,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/16.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/16.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -9040,7 +7329,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/3.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/3.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -9083,7 +7372,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/16.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/16.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -9110,7 +7399,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/13.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/13.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -9137,7 +7426,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/10.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/10.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -9164,7 +7453,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/4.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/4.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -9191,7 +7480,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/11.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/11.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -9218,7 +7507,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/3.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/3.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -9245,7 +7534,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/12.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/12.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -9272,7 +7561,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/5.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/5.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -9299,7 +7588,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/1.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/1.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -9326,7 +7615,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/9.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/9.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -9358,7 +7647,7 @@
                                                                             dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="assets/images/products/2.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/2.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -9393,7 +7682,7 @@
                                                                             dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="assets/images/products/7.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/7.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -9424,7 +7713,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/8.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/8.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -9451,7 +7740,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/6.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/6.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -9478,7 +7767,7 @@
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html"
                                                                     class="woocommerce-LoopProduct-link">
-                                                                    <img src="assets/images/products/15.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/15.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -9510,7 +7799,7 @@
                                                                             dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="assets/images/products/14.jpg" width="224"
+                                                                    <img src="<?= asset_url() ?>images/products/14.jpg" width="224"
                                                                         height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
@@ -9586,7 +7875,7 @@
                                                                                 dir="rtl">
                                                                                2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="assets/images/products/14.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/14.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -9619,7 +7908,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/10.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/10.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -9648,7 +7937,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/1.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/1.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -9676,7 +7965,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/6.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/6.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -9705,7 +7994,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/11.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/11.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -9740,7 +8029,7 @@
                                                                                 dir="rtl">
                                                                                2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="assets/images/products/7.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/7.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -9773,7 +8062,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/8.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/8.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -9807,7 +8096,7 @@
                                                                                 dir="rtl">
                                                                                2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="assets/images/products/2.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/2.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -9838,7 +8127,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/13.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/13.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -9866,7 +8155,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/15.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/15.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -9895,7 +8184,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/4.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/4.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -9922,7 +8211,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/12.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/12.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -9950,7 +8239,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/9.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/9.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -9979,7 +8268,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/16.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/16.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10007,7 +8296,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/5.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/5.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10035,7 +8324,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/3.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/3.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10073,7 +8362,7 @@
                                                                 href="single-product-fullwidth.html">
                                                                 <img width="600" height="600" alt=""
                                                                     class="attachment-shop_single size-shop_single wp-post-image"
-                                                                    src="assets/images/products/featured.jpg">
+                                                                    src="<?= asset_url() ?>images/products/featured.jpg">
                                                                 <span class="price">
                                                                     <ins>
                                                                         <span class="woocommerce-Price-amount amount"
@@ -10130,7 +8419,7 @@
                                                                                 dir="rtl">
                                                                                2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="assets/images/products/7.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/7.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10163,7 +8452,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/16.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/16.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10191,7 +8480,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/8.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/8.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10219,7 +8508,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/6.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/6.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10248,7 +8537,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/4.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/4.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10275,7 +8564,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/1.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/1.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10303,7 +8592,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/12.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/12.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10331,7 +8620,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/9.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/9.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10366,7 +8655,7 @@
                                                                                 dir="rtl">
                                                                                2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="assets/images/products/14.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/14.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10405,7 +8694,7 @@
                                                                                 dir="rtl">
                                                                                2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="assets/images/products/2.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/2.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10436,7 +8725,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/3.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/3.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10464,7 +8753,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/5.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/5.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10492,7 +8781,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/15.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/15.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10521,7 +8810,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/11.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/11.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10550,7 +8839,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/13.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/13.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10578,7 +8867,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/10.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/10.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10617,7 +8906,7 @@
                                                                 href="single-product-fullwidth.html">
                                                                 <img width="600" height="600" alt=""
                                                                     class="attachment-shop_single size-shop_single wp-post-image"
-                                                                    src="assets/images/products/featured-1.jpg">
+                                                                    src="<?= asset_url() ?>images/products/featured-1.jpg">
                                                                 <span class="price">
                                                                     <ins>
                                                                         <span class="woocommerce-Price-amount amount"
@@ -10674,7 +8963,7 @@
                                                                                 dir="rtl">
                                                                                2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="assets/images/products/7.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/7.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10707,7 +8996,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/8.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/8.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10735,7 +9024,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/5.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/5.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10763,7 +9052,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/11.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/11.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10792,7 +9081,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/9.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/9.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10821,7 +9110,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/4.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/4.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10848,7 +9137,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/12.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/12.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10876,7 +9165,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/16.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/16.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10904,7 +9193,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/13.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/13.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10932,7 +9221,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/6.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/6.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10967,7 +9256,7 @@
                                                                                 dir="rtl">
                                                                                2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="assets/images/products/2.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/2.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -10998,7 +9287,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/10.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/10.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -11033,7 +9322,7 @@
                                                                                 dir="rtl">
                                                                                2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="assets/images/products/14.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/14.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -11066,7 +9355,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/15.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/15.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -11095,7 +9384,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/3.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/3.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -11123,7 +9412,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/1.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/1.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -11161,7 +9450,7 @@
                                                                 href="single-product-fullwidth.html">
                                                                 <img width="600" height="600" alt=""
                                                                     class="attachment-shop_single size-shop_single wp-post-image"
-                                                                    src="assets/images/products/featured.jpg">
+                                                                    src="<?= asset_url() ?>images/products/featured.jpg">
                                                                 <span class="price">
                                                                     <ins>
                                                                         <span class="woocommerce-Price-amount amount"
@@ -11212,7 +9501,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/16.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/16.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -11246,7 +9535,7 @@
                                                                                 dir="rtl">
                                                                                2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="assets/images/products/7.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/7.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -11279,7 +9568,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/9.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/9.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -11308,7 +9597,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/5.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/5.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -11336,7 +9625,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/1.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/1.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -11364,7 +9653,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/10.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/10.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -11399,7 +9688,7 @@
                                                                                 dir="rtl">
                                                                                2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="assets/images/products/14.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/14.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -11432,7 +9721,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/11.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/11.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -11461,7 +9750,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/13.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/13.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -11495,7 +9784,7 @@
                                                                                 dir="rtl">
                                                                                2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="assets/images/products/2.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/2.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -11526,7 +9815,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/15.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/15.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -11555,7 +9844,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/6.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/6.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -11584,7 +9873,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/12.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/12.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -11612,7 +9901,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/4.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/4.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -11639,7 +9928,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/8.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/8.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -11667,7 +9956,7 @@
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html"
                                                                         class="woocommerce-LoopProduct-link">
-                                                                        <img src="assets/images/products/3.jpg"
+                                                                        <img src="<?= asset_url() ?>images/products/3.jpg"
                                                                             width="224" height="197"
                                                                             class="wp-post-image" alt="">
                                                                         <span class="price">
@@ -11705,7 +9994,7 @@
                                                                 href="single-product-fullwidth.html">
                                                                 <img width="600" height="600" alt=""
                                                                     class="attachment-shop_single size-shop_single wp-post-image"
-                                                                    src="assets/images/products/featured-1.jpg">
+                                                                    src="<?= asset_url() ?>images/products/featured-1.jpg">
                                                                 <span class="price">
                                                                     <ins>
                                                                         <span class="woocommerce-Price-amount amount"
@@ -11758,7 +10047,7 @@
                                                         href="single-product-fullwidth.html">
                                                         <div class="media">
                                                             <img class="wp-post-image"
-                                                                src="assets/images/products/card-3.jpg" alt="">
+                                                                src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -11781,7 +10070,7 @@
                                                         href="single-product-fullwidth.html">
                                                         <div class="media">
                                                             <img class="wp-post-image"
-                                                                src="assets/images/products/card-2.jpg" alt="">
+                                                                src="<?= asset_url() ?>images/products/card-2.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -11804,7 +10093,7 @@
                                                         href="single-product-fullwidth.html">
                                                         <div class="media">
                                                             <img class="wp-post-image"
-                                                                src="assets/images/products/card-3.jpg" alt="">
+                                                                src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -11827,7 +10116,7 @@
                                                         href="single-product-fullwidth.html">
                                                         <div class="media">
                                                             <img class="wp-post-image"
-                                                                src="assets/images/products/card-3.jpg" alt="">
+                                                                src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -11850,7 +10139,7 @@
                                                         href="single-product-fullwidth.html">
                                                         <div class="media">
                                                             <img class="wp-post-image"
-                                                                src="assets/images/products/card-3.jpg" alt="">
+                                                                src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -11873,7 +10162,7 @@
                                                         href="single-product-fullwidth.html">
                                                         <div class="media">
                                                             <img class="wp-post-image"
-                                                                src="assets/images/products/card-3.jpg" alt="">
+                                                                src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -11896,7 +10185,7 @@
                                                         href="single-product-fullwidth.html">
                                                         <div class="media">
                                                             <img class="wp-post-image"
-                                                                src="assets/images/products/card-3.jpg" alt="">
+                                                                src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -11919,7 +10208,7 @@
                                                         href="single-product-fullwidth.html">
                                                         <div class="media">
                                                             <img class="wp-post-image"
-                                                                src="assets/images/products/card-3.jpg" alt="">
+                                                                src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -11948,7 +10237,7 @@
                             <!-- .section-products-carousel-tabs-->
                             <div class="banner full-width-banner">
                                 <a href="shop.html">
-                                    <div style="background-size: cover; background-position: center center; background-image: url( assets/images/banner/full-width.png); height: 236px;"
+                                    <div style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>images/banner/full-width.png); height: 236px;"
                                         class="banner-bg">
                                         <div class="caption">
                                             <div class="banner-info">
@@ -12013,7 +10302,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/12.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/12.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -12047,7 +10336,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/9.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/9.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -12081,7 +10370,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/11.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/11.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -12121,7 +10410,7 @@
                                                                                             dir="rtl">
                                                                                             17,000,000 ریال</span>
                                                                                     </span>
-                                                                                    <img src="assets/images/products/7.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/7.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -12159,7 +10448,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/5.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/5.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -12192,7 +10481,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/15.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/15.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -12225,7 +10514,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/10.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/10.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -12259,7 +10548,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/13.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/13.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -12298,7 +10587,7 @@
                                                                                             dir="rtl">
                                                                                             17,000,000 ریال</span>
                                                                                     </span>
-                                                                                    <img src="assets/images/products/2.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/2.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -12341,7 +10630,7 @@
                                                                                             dir="rtl">
                                                                                             17,000,000 ریال</span>
                                                                                     </span>
-                                                                                    <img src="assets/images/products/14.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/14.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -12378,7 +10667,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/16.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/16.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -12411,7 +10700,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/8.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/8.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -12444,7 +10733,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/3.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/3.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -12477,7 +10766,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/4.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/4.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -12511,7 +10800,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/6.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/6.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -12545,7 +10834,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/1.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/1.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -12590,7 +10879,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/13.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/13.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -12623,7 +10912,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/12.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/12.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -12657,7 +10946,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/11.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/11.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -12697,7 +10986,7 @@
                                                                                             dir="rtl">
                                                                                             17,000,000 ریال</span>
                                                                                     </span>
-                                                                                    <img src="assets/images/products/7.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/7.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -12735,7 +11024,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/4.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/4.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -12769,7 +11058,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/1.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/1.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -12808,7 +11097,7 @@
                                                                                             dir="rtl">
                                                                                             17,000,000 ریال</span>
                                                                                     </span>
-                                                                                    <img src="assets/images/products/2.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/2.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -12845,7 +11134,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/10.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/10.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -12879,7 +11168,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/6.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/6.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -12913,7 +11202,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/3.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/3.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -12946,7 +11235,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/9.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/9.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -12986,7 +11275,7 @@
                                                                                             dir="rtl">
                                                                                             17,000,000 ریال</span>
                                                                                     </span>
-                                                                                    <img src="assets/images/products/14.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/14.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13023,7 +11312,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/15.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/15.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13056,7 +11345,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/16.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/16.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13089,7 +11378,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/8.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/8.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13122,7 +11411,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/5.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/5.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13173,7 +11462,7 @@
                                                                                             dir="rtl">
                                                                                             17,000,000 ریال</span>
                                                                                     </span>
-                                                                                    <img src="assets/images/products/2.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/2.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13210,7 +11499,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/15.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/15.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13249,7 +11538,7 @@
                                                                                             dir="rtl">
                                                                                             17,000,000 ریال</span>
                                                                                     </span>
-                                                                                    <img src="assets/images/products/14.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/14.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13286,7 +11575,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/4.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/4.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13320,7 +11609,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/12.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/12.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13354,7 +11643,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/9.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/9.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13388,7 +11677,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/13.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/13.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13421,7 +11710,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/1.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/1.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13460,7 +11749,7 @@
                                                                                             dir="rtl">
                                                                                             17,000,000 ریال</span>
                                                                                     </span>
-                                                                                    <img src="assets/images/products/7.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/7.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13498,7 +11787,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/16.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/16.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13531,7 +11820,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/11.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/11.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13565,7 +11854,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/5.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/5.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13598,7 +11887,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/10.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/10.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13632,7 +11921,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/6.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/6.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13666,7 +11955,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/3.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/3.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13699,7 +11988,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/8.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/8.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13744,7 +12033,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/13.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/13.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13783,7 +12072,7 @@
                                                                                             dir="rtl">
                                                                                             17,000,000 ریال</span>
                                                                                     </span>
-                                                                                    <img src="assets/images/products/7.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/7.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13821,7 +12110,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/8.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/8.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13854,7 +12143,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/15.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/15.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13887,7 +12176,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/4.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/4.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13921,7 +12210,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/3.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/3.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13954,7 +12243,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/10.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/10.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -13988,7 +12277,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/6.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/6.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -14022,7 +12311,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/16.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/16.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -14055,7 +12344,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/9.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/9.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -14095,7 +12384,7 @@
                                                                                             dir="rtl">
                                                                                             17,000,000 ریال</span>
                                                                                     </span>
-                                                                                    <img src="assets/images/products/2.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/2.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -14138,7 +12427,7 @@
                                                                                             dir="rtl">
                                                                                             17,000,000 ریال</span>
                                                                                     </span>
-                                                                                    <img src="assets/images/products/14.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/14.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -14175,7 +12464,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/1.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/1.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -14208,7 +12497,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/11.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/11.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -14242,7 +12531,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/5.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/5.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -14275,7 +12564,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/12.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/12.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -14354,7 +12643,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/3.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/3.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -14387,7 +12676,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/4.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/4.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -14421,7 +12710,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/9.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/9.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -14455,7 +12744,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/1.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/1.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -14494,7 +12783,7 @@
                                                                                             dir="rtl">
                                                                                             17,000,000 ریال</span>
                                                                                     </span>
-                                                                                    <img src="assets/images/products/7.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/7.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -14532,7 +12821,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/5.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/5.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -14565,7 +12854,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/8.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/8.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -14598,7 +12887,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/12.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/12.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -14632,7 +12921,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/11.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/11.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -14666,7 +12955,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/16.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/16.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -14699,7 +12988,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/6.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/6.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -14733,7 +13022,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/10.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/10.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -14773,7 +13062,7 @@
                                                                                             dir="rtl">
                                                                                             17,000,000 ریال</span>
                                                                                     </span>
-                                                                                    <img src="assets/images/products/14.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/14.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -14810,7 +13099,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/15.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/15.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -14849,7 +13138,7 @@
                                                                                             dir="rtl">
                                                                                             17,000,000 ریال</span>
                                                                                     </span>
-                                                                                    <img src="assets/images/products/2.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/2.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -14886,7 +13175,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/13.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/13.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -14931,7 +13220,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/11.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/11.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -14971,7 +13260,7 @@
                                                                                             dir="rtl">
                                                                                             17,000,000 ریال</span>
                                                                                     </span>
-                                                                                    <img src="assets/images/products/2.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/2.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15014,7 +13303,7 @@
                                                                                             dir="rtl">
                                                                                             17,000,000 ریال</span>
                                                                                     </span>
-                                                                                    <img src="assets/images/products/7.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/7.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15052,7 +13341,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/10.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/10.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15086,7 +13375,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/16.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/16.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15125,7 +13414,7 @@
                                                                                             dir="rtl">
                                                                                             17,000,000 ریال</span>
                                                                                     </span>
-                                                                                    <img src="assets/images/products/14.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/14.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15162,7 +13451,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/1.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/1.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15195,7 +13484,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/5.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/5.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15228,7 +13517,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/3.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/3.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15261,7 +13550,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/13.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/13.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15294,7 +13583,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/12.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/12.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15328,7 +13617,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/15.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/15.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15361,7 +13650,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/4.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/4.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15395,7 +13684,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/9.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/9.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15429,7 +13718,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/6.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/6.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15463,7 +13752,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/8.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/8.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15508,7 +13797,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/4.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/4.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15542,7 +13831,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/16.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/16.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15575,7 +13864,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/8.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/8.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15608,7 +13897,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/6.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/6.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15642,7 +13931,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/5.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/5.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15675,7 +13964,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/13.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/13.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15708,7 +13997,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/10.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/10.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15742,7 +14031,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/9.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/9.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15782,7 +14071,7 @@
                                                                                             dir="rtl">
                                                                                             17,000,000 ریال</span>
                                                                                     </span>
-                                                                                    <img src="assets/images/products/2.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/2.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15819,7 +14108,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/3.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/3.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15858,7 +14147,7 @@
                                                                                             dir="rtl">
                                                                                             17,000,000 ریال</span>
                                                                                     </span>
-                                                                                    <img src="assets/images/products/7.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/7.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15896,7 +14185,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/1.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/1.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15935,7 +14224,7 @@
                                                                                             dir="rtl">
                                                                                             17,000,000 ریال</span>
                                                                                     </span>
-                                                                                    <img src="assets/images/products/14.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/14.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -15972,7 +14261,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/11.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/11.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -16006,7 +14295,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/15.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/15.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -16039,7 +14328,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/12.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/12.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -16091,7 +14380,7 @@
                                                                                             dir="rtl">
                                                                                             17,000,000 ریال</span>
                                                                                     </span>
-                                                                                    <img src="assets/images/products/14.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/14.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -16128,7 +14417,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/1.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/1.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -16161,7 +14450,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/15.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/15.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -16194,7 +14483,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/11.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/11.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -16228,7 +14517,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/9.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/9.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -16262,7 +14551,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/8.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/8.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -16295,7 +14584,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/6.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/6.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -16329,7 +14618,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/5.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/5.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -16368,7 +14657,7 @@
                                                                                             dir="rtl">
                                                                                             17,000,000 ریال</span>
                                                                                     </span>
-                                                                                    <img src="assets/images/products/7.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/7.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -16406,7 +14695,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/3.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/3.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -16439,7 +14728,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/12.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/12.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -16473,7 +14762,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/4.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/4.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -16507,7 +14796,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/10.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/10.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -16541,7 +14830,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/13.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/13.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -16574,7 +14863,7 @@
                                                                                 </div>
                                                                                 <a href="single-product-fullwidth.html"
                                                                                     class="woocommerce-LoopProduct-link">
-                                                                                    <img src="assets/images/products/16.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/16.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -16613,7 +14902,7 @@
                                                                                             dir="rtl">
                                                                                             17,000,000 ریال</span>
                                                                                     </span>
-                                                                                    <img src="assets/images/products/2.jpg"
+                                                                                    <img src="<?= asset_url() ?>images/products/2.jpg"
                                                                                         width="224" height="197"
                                                                                         class="wp-post-image" alt="">
                                                                                     <span class="price">
@@ -16660,7 +14949,7 @@
                                                 <div class="banner text-in-right">
                                                     <a href="#">
                                                         <div class="banner-bg"
-                                                            style="background-size: cover; background-position: center center; background-image: url( assets/images/banner/1-1.jpg); height: 245px;">
+                                                            style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>images/banner/1-1.jpg); height: 245px;">
                                                             <div class="caption">
                                                                 <div class="banner-info">
                                                                     <h4 class="pretitle">
@@ -16696,7 +14985,7 @@
                                                 <div class="banner text-in-right">
                                                     <a href="#">
                                                         <div class="banner-bg"
-                                                            style="background-size: cover; background-position: center center; background-image: url( assets/images/banner/1-2.jpg); height: 245px;">
+                                                            style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>images/banner/1-2.jpg); height: 245px;">
                                                             <div class="caption">
                                                                 <div class="banner-info">
                                                                     <h3 class="title">
@@ -16729,7 +15018,7 @@
                                                 <div class="banner small-banner text-in-right">
                                                     <a href="#">
                                                         <div class="banner-bg"
-                                                            style="background-size: cover; background-position: center center; background-image: url( assets/images/banner/1-3.jpg); height: 245px;">
+                                                            style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>images/banner/1-3.jpg); height: 245px;">
                                                             <div class="caption">
                                                                 <div class="banner-info">
                                                                     <h3 class="title">بهترین
@@ -16768,7 +15057,7 @@
                                                         href="single-product-fullwidth.html">
                                                         <div class="media">
                                                             <img class="wp-post-image"
-                                                                src="assets/images/products/card-3.jpg" alt="">
+                                                                src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -16805,7 +15094,7 @@
                                                         href="single-product-fullwidth.html">
                                                         <div class="media">
                                                             <img class="wp-post-image"
-                                                                src="assets/images/products/card-2.jpg" alt="">
+                                                                src="<?= asset_url() ?>images/products/card-2.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -16838,7 +15127,7 @@
                                                         href="single-product-fullwidth.html">
                                                         <div class="media">
                                                             <img class="wp-post-image"
-                                                                src="assets/images/products/card-4.jpg" alt="">
+                                                                src="<?= asset_url() ?>images/products/card-4.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -16871,7 +15160,7 @@
                                                         href="single-product-fullwidth.html">
                                                         <div class="media">
                                                             <img class="wp-post-image"
-                                                                src="assets/images/products/card-5.jpg" alt="">
+                                                                src="<?= asset_url() ?>images/products/card-5.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -16908,7 +15197,7 @@
                                                         href="single-product-fullwidth.html">
                                                         <div class="media">
                                                             <img class="wp-post-image"
-                                                                src="assets/images/products/card-6.jpg" alt="">
+                                                                src="<?= asset_url() ?>images/products/card-6.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -16941,7 +15230,7 @@
                                                         href="single-product-fullwidth.html">
                                                         <div class="media">
                                                             <img class="wp-post-image"
-                                                                src="assets/images/products/card-1.jpg" alt="">
+                                                                src="<?= asset_url() ?>images/products/card-1.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -16978,7 +15267,7 @@
                                                         href="single-product-fullwidth.html">
                                                         <div class="media">
                                                             <img class="wp-post-image"
-                                                                src="assets/images/products/card-3.jpg" alt="">
+                                                                src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -17015,7 +15304,7 @@
                                                         href="single-product-fullwidth.html">
                                                         <div class="media">
                                                             <img class="wp-post-image"
-                                                                src="assets/images/products/card-4.jpg" alt="">
+                                                                src="<?= asset_url() ?>images/products/card-4.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -17068,7 +15357,7 @@
                                                         <!-- /.info -->
                                                     </figcaption>
                                                     <img width="145" height="50" class="img-responsive desaturate"
-                                                        alt="apple" src="assets/images/brands/1.png">
+                                                        alt="apple" src="<?= asset_url() ?>images/brands/1.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -17083,7 +15372,7 @@
                                                         <!-- /.info -->
                                                     </figcaption>
                                                     <img width="145" height="50" class="img-responsive desaturate"
-                                                        alt="bosch" src="assets/images/brands/2.png">
+                                                        alt="bosch" src="<?= asset_url() ?>images/brands/2.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -17098,7 +15387,7 @@
                                                         <!-- /.info -->
                                                     </figcaption>
                                                     <img width="145" height="50" class="img-responsive desaturate"
-                                                        alt="cannon" src="assets/images/brands/3.png">
+                                                        alt="cannon" src="<?= asset_url() ?>images/brands/3.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -17113,7 +15402,7 @@
                                                         <!-- /.info -->
                                                     </figcaption>
                                                     <img width="145" height="50" class="img-responsive desaturate"
-                                                        alt="connect" src="assets/images/brands/4.png">
+                                                        alt="connect" src="<?= asset_url() ?>images/brands/4.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -17128,7 +15417,7 @@
                                                         <!-- /.info -->
                                                     </figcaption>
                                                     <img width="145" height="50" class="img-responsive desaturate"
-                                                        alt="galaxy" src="assets/images/brands/5.png">
+                                                        alt="galaxy" src="<?= asset_url() ?>images/brands/5.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -17143,7 +15432,7 @@
                                                         <!-- /.info -->
                                                     </figcaption>
                                                     <img width="145" height="50" class="img-responsive desaturate"
-                                                        alt="gopro" src="assets/images/brands/6.png">
+                                                        alt="gopro" src="<?= asset_url() ?>images/brands/6.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -17158,7 +15447,7 @@
                                                         <!-- /.info -->
                                                     </figcaption>
                                                     <img width="145" height="50" class="img-responsive desaturate"
-                                                        alt="handspot" src="assets/images/brands/7.png">
+                                                        alt="handspot" src="<?= asset_url() ?>images/brands/7.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -17173,7 +15462,7 @@
                                                         <!-- /.info -->
                                                     </figcaption>
                                                     <img width="145" height="50" class="img-responsive desaturate"
-                                                        alt="kinova" src="assets/images/brands/8.png">
+                                                        alt="kinova" src="<?= asset_url() ?>images/brands/8.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -17188,7 +15477,7 @@
                                                         <!-- /.info -->
                                                     </figcaption>
                                                     <img width="145" height="50" class="img-responsive desaturate"
-                                                        alt="nespresso" src="assets/images/brands/9.png">
+                                                        alt="nespresso" src="<?= asset_url() ?>images/brands/9.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -17203,7 +15492,7 @@
                                                         <!-- /.info -->
                                                     </figcaption>
                                                     <img width="145" height="50" class="img-responsive desaturate"
-                                                        alt="samsung" src="assets/images/brands/10.png">
+                                                        alt="samsung" src="<?= asset_url() ?>images/brands/10.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -17218,7 +15507,7 @@
                                                         <!-- /.info -->
                                                     </figcaption>
                                                     <img width="145" height="50" class="img-responsive desaturate"
-                                                        alt="speedway" src="assets/images/brands/11.png">
+                                                        alt="speedway" src="<?= asset_url() ?>images/brands/11.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -17233,7 +15522,7 @@
                                                         <!-- /.info -->
                                                     </figcaption>
                                                     <img width="145" height="50" class="img-responsive desaturate"
-                                                        alt="yoko" src="assets/images/brands/12.png">
+                                                        alt="yoko" src="<?= asset_url() ?>images/brands/12.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -17252,405 +15541,4 @@
             </div>
             <!-- .col-full -->
         </div>
-        <!-- #content -->
-        <footer class="site-footer footer-v1">
-            <div class="col-full">
-                <div class="before-footer-wrap">
-                    <div class="col-full">
-                        <div class="footer-newsletter">
-                            <div class="media">
-                                <i class="footer-newsletter-icon tm tm-newsletter"></i>
-                                <div class="media-body" style="direction: rtl;">
-                                    <div class="clearfix">
-                                        <div class="newsletter-header">
-                                            <h5 class="newsletter-title">عضویت در خبرنامه</h5>
-                                            <span class="newsletter-marketing-text">باعضویت در خبرنامه ما از آخرین اخبار
-                                                <strong> دنیای فناوری</strong>
-                                                مطلع شوید
-                                            </span>
-                                        </div>
-                                        <!-- .newsletter-header -->
-                                        <div class="newsletter-body">
-                                            <form class="newsletter-form">
-                                                <input type="text" placeholder="رایانامه خود را وارد کنید"
-                                                    style="font-family: 'IRANSans';">
-                                                <button class="button" type="button"
-                                                    style="font-family: 'IRANSans';">عضویت</button>
-                                            </form>
-                                        </div>
-                                        <!-- .newsletter body -->
-                                    </div>
-                                    <!-- .clearfix -->
-                                </div>
-                                <!-- .media-body -->
-                            </div>
-                            <!-- .media -->
-                        </div>
-                        <!-- .footer-newsletter -->
-                        <div class="footer-social-icons">
-                            <ul class="social-icons nav">
-                                <li class="nav-item">
-                                    <a class="sm-icon-label-link nav-link" href="#">
-                                        <i class="fa fa-facebook"></i> Facebook</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="sm-icon-label-link nav-link" href="#">
-                                        <i class="fa fa-twitter"></i> Twitter</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="sm-icon-label-link nav-link" href="#">
-                                        <i class="fa fa-google-plus"></i> Google+</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="sm-icon-label-link nav-link" href="#">
-                                        <i class="fa fa-vimeo-square"></i> Vimeo</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="sm-icon-label-link nav-link" href="#">
-                                        <i class="fa fa-rss"></i> RSS</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- .footer-social-icons -->
-                    </div>
-                    <!-- .col-full -->
-                </div>
-                <!-- .before-footer-wrap -->
-                <div class="footer-widgets-block">
-                    <div class="row">
-                        <div class="footer-contact">
-                            <div class="footer-logo">
-                                <a href="home-v1.html" class="custom-logo-link" rel="home">
-                                    <img src="assets/images/logo.png" alt="یوزدکالا">
-                                </a>
-                            </div>
-                            <!-- .footer-logo -->
-                            <div class="contact-payment-wrap">
-                                <div class="footer-contact-info">
-                                    <div class="media">
-                                        <span class="media-right icon media-middle">
-                                            <i class="tm tm-call-us-footer"></i>
-                                        </span>
-                                        <div class="media-body" style="direction: rtl;">
-                                            <span class="call-us-title">شماره های تماس</span>
-                                            <span class="call-us-text" dir="ltr">+98-21-42922</span>
-                                            <address class="footer-contact-address"> تهران، خیابان قائم مقام فراهانی،
-                                                بالاتر از میدان شعاع، کوچه شبنم، پلاک ۱، ساختمان مفتاح</address>
-                                            <!-- <a href="#" class="footer-address-map-link">
-                                                <i class="tm tm-map-marker"></i>Find us on map</a> -->
-                                        </div>
-                                        <!-- .media-body -->
-                                    </div>
-                                    <!-- .media -->
-                                </div>
-                                <!-- .footer-contact-info -->
-                                <div class="footer-payment-info">
-                                    <div class="media">
-                                        <!-- <span class="media-right icon media-middle">
-                                            <i class="tm tm-safe-payments"></i>
-                                        </span> -->
-                                        <div class="media-body" style="direction: rtl;">
-                                            <!-- <h5 class="footer-payment-info-title">پرداخت ایمن و مطمئن</h5>
-                                            <div class="footer-payment-icons">
-                                                <ul class="list-payment-icons nav">
-                                                    <li class="nav-item">
-                                                        <img class="payment-icon-image"
-                                                            src="assets/images/credit-cards/1.png"
-                                                            alt="mastercard" />
-                                                    </li>
-                                                </ul>
-                                            </div> -->
-                                            <!-- .footer-payment-icons -->
-                                            <!-- <div class="footer-secure-by-info">
-                                                <h6 class="footer-secured-by-title">Secured by:</h6>
-                                                <ul class="footer-secured-by-icons">
-                                                    <li class="nav-item">
-                                                        <img class="secure-icons-image"
-                                                            src="assets/images/secured-by/norton.svg" alt="norton" />
-                                                    </li>
-                                                    <li class="nav-item">
-                                                        <img class="secure-icons-image"
-                                                            src="assets/images/secured-by/mcafee.svg" alt="mcafee" />
-                                                    </li>
-                                                </ul>
-                                            </div> -->
-                                            <!-- .footer-secure-by-info -->
-                                        </div>
-                                        <!-- .media-body -->
-                                    </div>
-                                    <!-- .media -->
-                                </div>
-                                <!-- .footer-payment-info -->
-                            </div>
-                            <!-- .contact-payment-wrap -->
-                        </div>
-                        <!-- .footer-contact -->
-                        <div class="footer-widgets">
-                            <div class="columns">
-                                <aside class="widget clearfix">
-                                    <div class="body">
-                                        <h4 class="widget-title">محصولات دیگر</h4>
-                                        <div class="menu-footer-menu-1-container">
-                                            <ul id="menu-footer-menu-1" class="menu">
-                                                <li class="menu-item">
-                                                    <a href="shop.html">دوربین مداربسته</a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="shop.html">تجهیزات اکتیو شبکه</a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="shop.html">تجهیزات پسیو شبکه</a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="shop.html">ابزارآلات شبکه</a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="shop.html">ابزار سنجش شبکه</a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="shop.html">ذخیره ساز</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- .menu-footer-menu-1-container -->
-                                    </div>
-                                    <!-- .body -->
-                                </aside>
-                                <!-- .widget -->
-                            </div>
-                            <!-- .columns -->
-                            <div class="columns">
-                                <aside class="widget clearfix">
-                                    <div class="body">
-                                        <h4 class="widget-title">تمامی محصولات</h4>
-                                        <div class="menu-footer-menu-2-container">
-                                            <ul id="menu-footer-menu-2" class="menu">
-                                                <li class="menu-item">
-                                                    <a href="shop.html">سرور</a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="shop.html">سوئیچ</a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="shop.html">روتر</a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="shop.html">فایروال</a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="shop.html">تلفن اینترنتی</a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="shop.html">تمامی تجهیزات شبکه</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- .menu-footer-menu-2-container -->
-                                    </div>
-                                    <!-- .body -->
-                                </aside>
-                                <!-- .widget -->
-                            </div>
-                            <!-- .columns -->
-                            <div class="columns">
-                                <aside class="widget clearfix">
-                                    <div class="body">
-                                        <h4 class="widget-title">بخش مشتریان</h4>
-                                        <div class="menu-footer-menu-3-container">
-                                            <ul id="menu-footer-menu-3" class="menu">
-                                                <li class="menu-item">
-                                                    <a href="login-and-register.html">حساب کاربری</a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="track-your-order.html">پیگیری ارسال</a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="shop.html">خریدها</a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="wishlist.html">علاقه مندی ها</a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="about.html">درباره ما</a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="terms-and-conditions.html">بازگرداندن محصول</a>
-                                                </li>
-                                                <li class="menu-item">
-                                                    <a href="faq.html">سوالات متداول</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- .menu-footer-menu-3-container -->
-                                    </div>
-                                    <!-- .body -->
-                                </aside>
-                                <!-- .widget -->
-                            </div>
-                            <!-- .columns -->
-                        </div>
-                        <!-- .footer-widgets -->
-                    </div>
-                    <img class="payment-icon-image" src="assets/images/credit-cards/1.png" alt="mastercard" />
-                    <!-- .row -->
-                </div>
-                <!-- .footer-widgets-block -->
-                <div class="site-info">
-                    <div class="col-full">
-                        <div class="copyright">تمامی حقوق برای یوزدکالا محفوظ میباشد.</div>
-                        <!-- .copyright -->
-                        <!-- .credit -->
-                    </div>
-                    <!-- .col-full -->
-                </div>
-                <!-- .site-info -->
-            </div>
-            <!-- .col-full -->
-        </footer>
-        <!-- .site-footer -->
-    </div>
-    <!-- For demo purposes – can be removed on production -->
-    <div id="config" class="config">
-        <div id="config_wrapper">
-            <div id="config_container">
-                <div class="style-main-title">Style Selector</div>
-                <div class="box-title">Choose Home &#038; Static Pages</div>
-                <div class="input-box">
-                    <div class="input">
-                        <select id="home-pages" name="home_page">
-                            <option value="">Choose</option>
-                            <option value="//transvelo.github.io/techmarket-html/home-v1.html">Home v1</option>
-                            <option value="//transvelo.github.io/techmarket-html/home-v2.html">Home v2</option>
-                            <option value="//transvelo.github.io/techmarket-html/home-v3.html">Home v3</option>
-                            <option value="//transvelo.github.io/techmarket-html/home-v4.html">Home v4</option>
-                            <option value="//transvelo.github.io/techmarket-html/home-v5.html">Home v5</option>
-                            <option value="//transvelo.github.io/techmarket-html/home-v6.html">Home v6</option>
-                            <option value="//transvelo.github.io/techmarket-html/home-v7.html">Home v7</option>
-                            <option value="//transvelo.github.io/techmarket-html/home-v8.html">Home v8</option>
-                            <option value="//transvelo.github.io/techmarket-html/home-v9.html">Home v9</option>
-                            <option value="//transvelo.github.io/techmarket-html/home-v10.html">Home v10</option>
-                            <option value="//transvelo.github.io/techmarket-html/home-v11.html">Home v11</option>
-                            <option value="//transvelo.github.io/techmarket-html/home-v12.html">Home v12</option>
-                            <option value="//transvelo.github.io/techmarket-html/home-v13.html">Home v13</option>
-                            <option value="//transvelo.github.io/techmarket-html/home-v14.html">Home v14</option>
-                            <option value="//transvelo.github.io/techmarket-html/landing-page-v1.html">Landing v1
-                            </option>
-                            <option value="//transvelo.github.io/techmarket-html/landing-page-v2.html">Landing v2
-                            </option>
-                            <option value="//transvelo.github.io/techmarket-html/about.html">About</option>
-                            <option value="//transvelo.github.io/techmarket-html/contact-v1.html">Contact v1</option>
-                            <option value="//transvelo.github.io/techmarket-html/contact-v2.html">Contact v2</option>
-                            <option value="//transvelo.github.io/techmarket-html/terms-and-conditions.html">Terms and
-                                Conditions</option>
-                            <option value="//transvelo.github.io/techmarket-html/404.html">404</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="box-title">Choose Ecommerce Page</div>
-                <div class="input-box">
-                    <div class="input">
-                        <select id="demo-pages" name="demo-shop">
-                            <option value="">Choose</option>
-                            <option value="//transvelo.github.io/techmarket-html/shop.html">Shop</option>
-                            <option value="//transvelo.github.io/techmarket-html/login-and-register.html">My Account
-                            </option>
-                            <option value="//transvelo.github.io/techmarket-html/cart.html">Cart</option>
-                            <option value="//transvelo.github.io/techmarket-html/checkout.html">Checkout</option>
-                            <option value="//transvelo.github.io/techmarket-html/track-your-order.html">Track Your Order
-                            </option>
-                            <option value="//transvelo.github.io/techmarket-html/wishlist.html">Wishlist</option>
-                            <option value="//transvelo.github.io/techmarket-html/compare.html">Compare</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="box-title">Choose Blog Style</div>
-                <div class="input-box">
-                    <div class="input">
-                        <select id="header-style" name="header">
-                            <option value="">Choose</option>
-                            <option value="//transvelo.github.io/techmarket-html/blog-v1.html">Blog v1</option>
-                            <option value="//transvelo.github.io/techmarket-html/blog-v2.html">Blog v2</option>
-                            <option value="//transvelo.github.io/techmarket-html/blog-v3.html">Blog v3</option>
-                            <option value="//transvelo.github.io/techmarket-html/blog-single.html">Blog Single</option>
-                            <option value="//transvelo.github.io/techmarket-html/blog-fullwidth.html">Blog Fullwidth
-                            </option>
-                        </select>
-                    </div>
-                </div>
-                <div class="box-title">Choose Shop Pages</div>
-                <div class="input-box">
-                    <div class="input">
-                        <select id="shop-style" name="shop-style">
-                            <option value="">Choose</option>
-                            <option value="//transvelo.github.io/techmarket-html/shop-extended.html">Shop Extended
-                            </option>
-                            <option value="//transvelo.github.io/techmarket-html/shop-fullwidth.html">Shop Fullwidth
-                            </option>
-                            <option value="//transvelo.github.io/techmarket-html/shop-listing.html">Shop Listing
-                            </option>
-                            <option value="//transvelo.github.io/techmarket-html/shop-listing-large.html">Shop Listing
-                                Large</option>
-                            <option
-                                value="//transvelo.github.io/techmarket-html/shop-listing-with-product-sidebar.html">
-                                Shop Listing with Product Sidebar</option>
-                            <option value="//transvelo.github.io/techmarket-html/shop-left-sidebar.html">Shop left
-                                Sidebar</option>
-                            <option value="//transvelo.github.io/techmarket-html/product-category.html">Product Category
-                            </option>
-                        </select>
-                    </div>
-                </div>
-                <div class="box-title">Choose Single Product Pages</div>
-                <div class="input-box">
-                    <div class="input">
-                        <select id="single-products" name="single-product">
-                            <option value="">Choose</option>
-                            <option value="//transvelo.github.io/techmarket-html/single-product-sidebar.html">Single
-                                Product Sidebar</option>
-                            <option value="//transvelo.github.io/techmarket-html/single-product-fullwidth.html">Single
-                                Product Fullwidth</option>
-                            <option value="//transvelo.github.io/techmarket-html/single-product-ectended.html">Single
-                                Product Extended</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="box-title">Colors</div>
-                <div id="colors" class="colors">
-                    <a class="changecolor blue" href="#" title="Blue color">Blue</a>
-                    <a class="changecolor flat-green" href="#" title="Flat Green color">Flat Green</a>
-                    <a class="changecolor green" href="#" title="Green color">Green</a>
-                    <a class="changecolor orange" href="#" title="Orange color">Orange</a>
-                    <a class="changecolor red" href="#" title="Red color">Red</a>
-                    <a class="changecolor yellow" href="#" title="Yellow color">Yellow</a>
-                </div>
-                <div class="box-title-text">
-                    <strong>Tons</strong> of customization you can do through Sass...</div>
-            </div>
-        </div>
-        <div class="style-toggle open">
-            <i class="fa fa-cog"></i>
-        </div>
-    </div>
-    <!-- For demo purposes – can be removed on production : End -->
-    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/js/tether.min.js"></script>
-    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="assets/js/jquery-migrate.min.js"></script>
-    <script type="text/javascript" src="assets/js/hidemaxlistitem.min.js"></script>
-    <script type="text/javascript" src="assets/js/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="assets/js/hidemaxlistitem.min.js"></script>
-    <script type="text/javascript" src="assets/js/jquery.easing.min.js"></script>
-    <script type="text/javascript" src="assets/js/scrollup.min.js"></script>
-    <script type="text/javascript" src="assets/js/jquery.waypoints.min.js"></script>
-    <script type="text/javascript" src="assets/js/waypoints-sticky.min.js"></script>
-    <script type="text/javascript" src="assets/js/pace.min.js"></script>
-    <script type="text/javascript" src="assets/js/slick.min.js"></script>
-    <script type="text/javascript" src="assets/js/scripts.js"></script>
-    <!-- For demo purposes – can be removed on production -->
-    <script src="switchstylesheet/switchstylesheet.js"></script>
-    <!-- For demo purposes – can be removed on production : End -->
-</body>
-
-<!-- Mirrored from transvelo.github.io/techmarket-html/home-v1.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 30 Oct 2019 07:08:38 GMT -->
-
-</html>
+       

@@ -1,9 +1,9 @@
 <?php
-function site_url($route)
+function site_url($route=null)
 {
     return  $_ENV['BASE_URL'] . $route;
 }
-function asset_url($route)
+function asset_url($route=null)
 {
     return  site_url('assets/' . $route);
 }
@@ -11,8 +11,9 @@ function view($path, $data = [])
 {
     extract($data);
     $path = str_replace('.', '/', $path);
-    $view_full_path = BASEPATH . "views/$path.php";
-    include_once $view_full_path;
+    include_once BASEPATH . "views/layouts/header.php";
+    include_once BASEPATH . "views/$path.php";
+    include_once BASEPATH . "views/layouts/footer.php";
 }
 function xss_clean($str)
 {

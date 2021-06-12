@@ -5,7 +5,6 @@ use App\Core\Request;
 define('BASEPATH',$_SERVER['DOCUMENT_ROOT'].'/');
 
 
-
 include BASEPATH . "vendor/autoload.php";
 
 $dotenv = Dotenv\Dotenv::createImmutable(BASEPATH);
