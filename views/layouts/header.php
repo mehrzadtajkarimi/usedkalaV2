@@ -330,26 +330,7 @@
                                     <option value='0' selected='selected' style='font-family: "IRANSans"'>تمامی محصولات
                                     </option>
                                     <option class="level-0" value="television">Televisions</option>
-                                    <option class="level-0" value="home-theater-audio">Home Theater &amp; Audio</option>
-                                    <option class="level-0" value="headphones">Headphones</option>
-                                    <option class="level-0" value="digital-cameras">Digital Cameras</option>
-                                    <option class="level-0" value="cells-tablets">تلفن اینترنتی</option>
-                                    <option class="level-0" value="smartwatches">Smartwatches</option>
-                                    <option class="level-0" value="games-consoles">Games &amp; Consoles</option>
-                                    <option class="level-0" value="printer">Printer</option>
-                                    <option class="level-0" value="tv-video">TV &amp; Video</option>
-                                    <option class="level-0" value="home-entertainment">Home Entertainment</option>
-                                    <option class="level-0" value="tvs">TVs</option>
-                                    <option class="level-0" value="speakers">Speakers</option>
-                                    <option class="level-0" value="computers-laptops">رک</option>
-                                    <option class="level-0" value="laptops">Laptops</option>
-                                    <option class="level-0" value="ultrabooks">Ultrabooks</option>
-                                    <option class="level-0" value="notebooks">Notebooks</option>
-                                    <option class="level-0" value="desktop-pcs">Desktop PCs</option>
-                                    <option class="level-0" value="mac-computers">Mac Computers</option>
-                                    <option class="level-0" value="all-in-one-pc">سویچ</option>
-                                    <option class="level-0" value="audio-music">سرور</option>
-                                    <option class="level-0" value="pc-components">PC Components</option>
+
                                 </select>
                             </div>
                             <!-- .input-group-addon -->
