@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>css/slick-style.css" media="all" />
     <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>css/animate.min.css" media="all" />
     <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>css/style.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>css/style_uk.css" media="all" />
     <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>css/colors/blue.css" media="all" />
     <!-- Demo Purpose Only. Should be removed in production -->
     <link rel="stylesheet" href="<?= asset_url() ?>css/config.css">
@@ -62,8 +63,8 @@
                 <div class="techmarket-sticky-wrap">
                     <div class="row">
                         <div class="site-branding">
-                            <a href="home-v1.html" class="custom-logo-link" rel="home">
-                                <img src="<?= asset_url() ?>images/uklogo.png" alt="یوزدکالا" width="110px">
+                            <a href="<?= base_url(); ?>" class="custom-logo-link" rel="home">
+                                <img src="<?= asset_url() ?>images/uklogo.png"  alt="یوزدکالا" width="110px">
                             </a>
                             <!-- /.custom-logo-link -->
                         </div>

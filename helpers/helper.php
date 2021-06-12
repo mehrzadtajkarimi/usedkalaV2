@@ -1,11 +1,11 @@
 <?php
-function site_url($route=null)
+function base_url($route=null)
 {
     return  $_ENV['BASE_URL'] . $route;
 }
 function asset_url($route=null)
 {
-    return  site_url('assets/' . $route);
+    return  base_url('assets/' . $route);
 }
 function view($path, $data = [])
 {
