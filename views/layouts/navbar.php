@@ -31,10 +31,10 @@
 <!-- .primary-navigation -->
 <nav id="secondary-navigation" class="secondary-navigation" aria-label="Secondary Navigation" data-nav="flex-menu">
     <ul id="menu-secondary-menu" class="nav">
-        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2802 animate-dropdown">
+        <!-- <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2802 animate-dropdown">
             <a title="Track Your Order" href="track-your-order.html">
                 <i class="tm tm-order-tracking"></i>پیگیری سفارشات</a>
-        </li>
+        </li> -->
         <!-- <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-487 animate-dropdown dropdown">
                                     <a title="Dollar (US)" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" href="#">
                                         <i class="tm tm-dollar"></i>Dollar (US)

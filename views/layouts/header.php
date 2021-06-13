@@ -32,7 +32,7 @@
     <link href="<?= asset_url() ?>css/colors/yellow.css" rel="alternate stylesheet" title="Yellow color">
     <!-- Demo Purpose Only. Should be removed in production : END -->
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,900" rel="stylesheet">
-    <link rel="shortcut icon" href="<?= asset_url() ?>images/fav-icon.png">
+    <link rel="shortcut icon" href="<?= asset_url() ?>images/ukfav-icon.png">
 </head>
 
 <body dir="rtl" class="woocommerce-active page-template-template-homepage-v1 can-uppercase">

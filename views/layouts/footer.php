@@ -65,7 +65,7 @@
                  <div class="footer-contact">
                      <div class="footer-logo">
                          <a href="home-v1.html" class="custom-logo-link" rel="home">
-                             <img src="<?= asset_url() ?>images/logo.png" alt="یوزدکالا">
+                             <img src="<?= asset_url() ?>images/uklogo.png" alt="یوزدکالا">
                          </a>
                      </div>
                      <!-- .footer-logo -->
@@ -235,7 +235,6 @@
                  </div>
                  <!-- .footer-widgets -->
              </div>
-             <img class="payment-icon-image" src="<?= asset_url() ?>images/credit-cards/1.png" alt="mastercard" />
              <!-- .row -->
          </div>
          <!-- .footer-widgets-block -->
