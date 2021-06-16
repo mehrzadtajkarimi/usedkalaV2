@@ -13,8 +13,9 @@ use App\Middleware\Gate;
  * Route::get('/example/{slug}/example2/{id}','exampleController@index');
  */
 
+Route::group(function(){
+
+    Route::get('/','HomeController@index');
+});
 
 
-
-
-Route::get('/','HomeController@index');

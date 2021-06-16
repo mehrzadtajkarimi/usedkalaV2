@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\frontend;
 
 class HomeController
 {
@@ -9,6 +9,6 @@ class HomeController
     public function index()
     {
         global $request;
-        return view('index',['request'=>$request]);
+        return view_front('index',['request'=>$request]);
     }
 }

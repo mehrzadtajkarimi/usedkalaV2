@@ -4,8 +4,7 @@
                     <div id="primary" class="content-area">
                         <main id="main" class="site-main">
                             <div class="home-v1-slider home-slider">
-                                <div class="slider-1"
-                                    style="background-image: url(<?= asset_url() ?>images/slider/home-v1-background.jpg);">
+                                <div class="slider-1" style="background-image: url(<?= asset_url() ?>images/slider/home-v1-background.jpg);">
                                     <img src="<?= asset_url() ?>images/slider/home-v1-img-1.png" alt="">
                                     <div class="caption">
                                         <div class="title">رایانه شخصی یکپارچه</div>
@@ -22,15 +21,16 @@
                                     </div>
                                 </div>
                                 <!-- .slider-1 -->
-                                <div class="slider-1 slider-2"
-                                    style="background-image: url(<?= asset_url() ?>images/slider/home-v1-background.jpg);">
+                                <div class="slider-1 slider-2" style="background-image: url(<?= asset_url() ?>images/slider/home-v1-background.jpg);">
                                     <img src="<?= asset_url() ?>images/slider/home-v1-img-2.png" alt="">
                                     <div class="caption">
                                         <div class="title">The new-tech gift you
                                             <br> are wishing for is
-                                            <br> left here</div>
+                                            <br> left here
+                                        </div>
                                         <div class="sub-title">Big screens in incredibly slim designs
-                                            <br>that in your hand.</div>
+                                            <br>that in your hand.
+                                        </div>
                                         <div class="button">Browse now
                                             <i class="tm tm-long-arrow-left"></i>
                                         </div>
@@ -149,38 +149,29 @@
                                         <header class="section-header">
                                             <ul role="tablist" class="nav justify-content-end">
                                                 <li class="nav-item">
-                                                    <a class="nav-link active" href="#tab-59f89f0881f930"
-                                                        data-toggle="tab">جدیدترین محصولات</a>
+                                                    <a class="nav-link active" href="#tab-59f89f0881f930" data-toggle="tab">جدیدترین محصولات</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link " href="#tab-59f89f0881f931"
-                                                        data-toggle="tab">حراجی</a>
+                                                    <a class="nav-link " href="#tab-59f89f0881f931" data-toggle="tab">حراجی</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link " href="#tab-59f89f0881f932"
-                                                        data-toggle="tab">پرفروش ترینها</a>
+                                                    <a class="nav-link " href="#tab-59f89f0881f932" data-toggle="tab">پرفروش ترینها</a>
                                                 </li>
                                             </ul>
                                         </header>
                                         <!-- .section-header -->
                                         <div class="tab-content">
                                             <div id="tab-59f89f0881f930" class="tab-pane active" role="tabpanel">
-                                                <div class="products-carousel" data-ride="tm-slick-carousel"
-                                                    data-wrap=".products"
-                                                    data-slick="{&quot;infinite&quot;:false,&quot;rows&quot;:2,&quot;slidesPerRow&quot;:5,&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;dots&quot;:true,&quot;arrows&quot;:false,&quot;rtl&quot;:true,&quot;responsive&quot;:[{&quot;breakpoint&quot;:1023,&quot;settings&quot;:{&quot;slidesPerRow&quot;:2}},{&quot;breakpoint&quot;:1169,&quot;settings&quot;:{&quot;slidesPerRow&quot;:4}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesPerRow&quot;:3}}]}">
+                                                <div class="products-carousel" data-ride="tm-slick-carousel" data-wrap=".products" data-slick="{&quot;infinite&quot;:false,&quot;rows&quot;:2,&quot;slidesPerRow&quot;:5,&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;dots&quot;:true,&quot;arrows&quot;:false,&quot;rtl&quot;:true,&quot;responsive&quot;:[{&quot;breakpoint&quot;:1023,&quot;settings&quot;:{&quot;slidesPerRow&quot;:2}},{&quot;breakpoint&quot;:1169,&quot;settings&quot;:{&quot;slidesPerRow&quot;:4}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesPerRow&quot;:3}}]}">
                                                     <div class="container-fluid">
                                                         <div class="woocommerce">
                                                             <div class="products">
                                                                 <div class="product">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a href="single-product-fullwidth.html"
-                                                                        class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/3.jpg"
-                                                                            width="224" height="197"
-                                                                            class="wp-post-image" alt="">
+                                                                    <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                        <img src="<?= asset_url() ?>images/products/3.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -192,23 +183,17 @@
                                                                             سرور ایستاده</h2>
                                                                     </a>
                                                                     <div class="hover-area">
-                                                                        <a class="button add_to_cart_button"
-                                                                            href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                        <a class="add-to-compare-link"
-                                                                            href="compare.html">افزودن به مقایسه</a>
+                                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                        <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                     </div>
                                                                 </div>
                                                                 <!-- /.product-outer -->
                                                                 <div class="product">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a href="single-product-fullwidth.html"
-                                                                        class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/15.jpg"
-                                                                            width="224" height="197"
-                                                                            class="wp-post-image" alt="">
+                                                                    <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                        <img src="<?= asset_url() ?>images/products/15.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -221,23 +206,17 @@
                                                                             Dell</h2>
                                                                     </a>
                                                                     <div class="hover-area">
-                                                                        <a class="button add_to_cart_button"
-                                                                            href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                        <a class="add-to-compare-link"
-                                                                            href="compare.html">افزودن به مقایسه</a>
+                                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                        <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                     </div>
                                                                 </div>
                                                                 <!-- /.product-outer -->
                                                                 <div class="product">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a href="single-product-fullwidth.html"
-                                                                        class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/11.jpg"
-                                                                            width="224" height="197"
-                                                                            class="wp-post-image" alt="">
+                                                                    <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                        <img src="<?= asset_url() ?>images/products/11.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -250,23 +229,17 @@
                                                                         </h2>
                                                                     </a>
                                                                     <div class="hover-area">
-                                                                        <a class="button add_to_cart_button"
-                                                                            href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                        <a class="add-to-compare-link"
-                                                                            href="compare.html">افزودن به مقایسه</a>
+                                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                        <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                     </div>
                                                                 </div>
                                                                 <!-- /.product-outer -->
                                                                 <div class="product">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a href="single-product-fullwidth.html"
-                                                                        class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/4.jpg"
-                                                                            width="224" height="197"
-                                                                            class="wp-post-image" alt="">
+                                                                    <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                        <img src="<?= asset_url() ?>images/products/4.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -277,23 +250,17 @@
                                                                         <h2 class="woocommerce-loop-product__title">ذخیزه ساز hpe مدل xxx</h2>
                                                                     </a>
                                                                     <div class="hover-area">
-                                                                        <a class="button add_to_cart_button"
-                                                                            href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                        <a class="add-to-compare-link"
-                                                                            href="compare.html">افزودن به مقایسه</a>
+                                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                        <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                     </div>
                                                                 </div>
                                                                 <!-- /.product-outer -->
                                                                 <div class="product">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a href="single-product-fullwidth.html"
-                                                                        class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/5.jpg"
-                                                                            width="224" height="197"
-                                                                            class="wp-post-image" alt="">
+                                                                    <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                        <img src="<?= asset_url() ?>images/products/5.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -305,13 +272,11 @@
                                                                             Wireless Controller</h2>
                                                                     </a>
                                                                     <div class="hover-area">
-                                                                        <a class="button add_to_cart_button"
-                                                                            href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                        <a class="add-to-compare-link"
-                                                                            href="compare.html">افزودن به مقایسه</a>
+                                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                        <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                     </div>
                                                                 </div>
- 
+
                                                             </div>
                                                         </div>
                                                         <!-- .woocommerce -->
@@ -322,22 +287,16 @@
                                             </div>
                                             <!-- .tab-pane -->
                                             <div id="tab-59f89f0881f931" class="tab-pane " role="tabpanel">
-                                                <div class="products-carousel" data-ride="tm-slick-carousel"
-                                                    data-wrap=".products"
-                                                    data-slick="{&quot;infinite&quot;:false,&quot;rows&quot;:2,&quot;slidesPerRow&quot;:5,&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;dots&quot;:true,&quot;arrows&quot;:false,&quot;rtl&quot;:true,&quot;responsive&quot;:[{&quot;breakpoint&quot;:1023,&quot;settings&quot;:{&quot;slidesPerRow&quot;:2}},{&quot;breakpoint&quot;:1169,&quot;settings&quot;:{&quot;slidesPerRow&quot;:4}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesPerRow&quot;:3}}]}">
+                                                <div class="products-carousel" data-ride="tm-slick-carousel" data-wrap=".products" data-slick="{&quot;infinite&quot;:false,&quot;rows&quot;:2,&quot;slidesPerRow&quot;:5,&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;dots&quot;:true,&quot;arrows&quot;:false,&quot;rtl&quot;:true,&quot;responsive&quot;:[{&quot;breakpoint&quot;:1023,&quot;settings&quot;:{&quot;slidesPerRow&quot;:2}},{&quot;breakpoint&quot;:1169,&quot;settings&quot;:{&quot;slidesPerRow&quot;:4}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesPerRow&quot;:3}}]}">
                                                     <div class="container-fluid">
                                                         <div class="woocommerce">
                                                             <div class="products">
                                                                 <div class="product">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a href="single-product-fullwidth.html"
-                                                                        class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/11.jpg"
-                                                                            width="224" height="197"
-                                                                            class="wp-post-image" alt="">
+                                                                    <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                        <img src="<?= asset_url() ?>images/products/11.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -350,29 +309,21 @@
                                                                         </h2>
                                                                     </a>
                                                                     <div class="hover-area">
-                                                                        <a class="button add_to_cart_button"
-                                                                            href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                        <a class="add-to-compare-link"
-                                                                            href="compare.html">افزودن به مقایسه</a>
+                                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                        <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                     </div>
                                                                 </div>
                                                                 <!-- /.product-outer -->
                                                                 <div class="product">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a href="single-product-fullwidth.html"
-                                                                        class="woocommerce-LoopProduct-link">
+                                                                    <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
                                                                         <span class="onsale">
-                                                                            <span
-                                                                                class="woocommerce-Price-amount amount"
-                                                                                dir="rtl">
-                                                                               2,000,000 ریال</span>
+                                                                            <span class="woocommerce-Price-amount amount" dir="rtl">
+                                                                                2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="<?= asset_url() ?>images/products/2.jpg"
-                                                                            width="224" height="197"
-                                                                            class="wp-post-image" alt="">
+                                                                        <img src="<?= asset_url() ?>images/products/2.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> 309.95</span>
@@ -387,23 +338,17 @@
                                                                             ZenBook 3 Ultrabook 8GB 512SSD W10</h2>
                                                                     </a>
                                                                     <div class="hover-area">
-                                                                        <a class="button add_to_cart_button"
-                                                                            href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                        <a class="add-to-compare-link"
-                                                                            href="compare.html">افزودن به مقایسه</a>
+                                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                        <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                     </div>
                                                                 </div>
                                                                 <!-- /.product-outer -->
                                                                 <div class="product">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a href="single-product-fullwidth.html"
-                                                                        class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/16.jpg"
-                                                                            width="224" height="197"
-                                                                            class="wp-post-image" alt="">
+                                                                    <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                        <img src="<?= asset_url() ?>images/products/16.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -415,23 +360,17 @@
                                                                             Dell</h2>
                                                                     </a>
                                                                     <div class="hover-area">
-                                                                        <a class="button add_to_cart_button"
-                                                                            href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                        <a class="add-to-compare-link"
-                                                                            href="compare.html">افزودن به مقایسه</a>
+                                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                        <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                     </div>
                                                                 </div>
                                                                 <!-- /.product-outer -->
                                                                 <div class="product">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a href="single-product-fullwidth.html"
-                                                                        class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/10.jpg"
-                                                                            width="224" height="197"
-                                                                            class="wp-post-image" alt="">
+                                                                    <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                        <img src="<?= asset_url() ?>images/products/10.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -444,23 +383,17 @@
                                                                         </h2>
                                                                     </a>
                                                                     <div class="hover-area">
-                                                                        <a class="button add_to_cart_button"
-                                                                            href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                        <a class="add-to-compare-link"
-                                                                            href="compare.html">افزودن به مقایسه</a>
+                                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                        <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                     </div>
                                                                 </div>
                                                                 <!-- /.product-outer -->
                                                                 <div class="product">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a href="single-product-fullwidth.html"
-                                                                        class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/8.jpg"
-                                                                            width="224" height="197"
-                                                                            class="wp-post-image" alt="">
+                                                                    <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                        <img src="<?= asset_url() ?>images/products/8.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -472,13 +405,11 @@
                                                                             Video & Air Quality Monitor</h2>
                                                                     </a>
                                                                     <div class="hover-area">
-                                                                        <a class="button add_to_cart_button"
-                                                                            href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                        <a class="add-to-compare-link"
-                                                                            href="compare.html">افزودن به مقایسه</a>
+                                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                        <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                     </div>
                                                                 </div>
-                                                                
+
                                                             </div>
                                                         </div>
                                                         <!-- .woocommerce -->
@@ -489,22 +420,16 @@
                                             </div>
                                             <!-- .tab-pane -->
                                             <div id="tab-59f89f0881f932" class="tab-pane " role="tabpanel">
-                                                <div class="products-carousel" data-ride="tm-slick-carousel"
-                                                    data-wrap=".products"
-                                                    data-slick="{&quot;rtl&quot;:true,&quot;infinite&quot;:false,&quot;rows&quot;:2,&quot;slidesPerRow&quot;:5,&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;dots&quot;:true,&quot;arrows&quot;:false,&quot;rtl&quot;:true,&quot;responsive&quot;:[{&quot;breakpoint&quot;:1023,&quot;settings&quot;:{&quot;slidesPerRow&quot;:2}},{&quot;breakpoint&quot;:1169,&quot;settings&quot;:{&quot;slidesPerRow&quot;:4}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesPerRow&quot;:3}}]}">
+                                                <div class="products-carousel" data-ride="tm-slick-carousel" data-wrap=".products" data-slick="{&quot;rtl&quot;:true,&quot;infinite&quot;:false,&quot;rows&quot;:2,&quot;slidesPerRow&quot;:5,&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;dots&quot;:true,&quot;arrows&quot;:false,&quot;rtl&quot;:true,&quot;responsive&quot;:[{&quot;breakpoint&quot;:1023,&quot;settings&quot;:{&quot;slidesPerRow&quot;:2}},{&quot;breakpoint&quot;:1169,&quot;settings&quot;:{&quot;slidesPerRow&quot;:4}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesPerRow&quot;:3}}]}">
                                                     <div class="container-fluid">
                                                         <div class="woocommerce">
                                                             <div class="products">
                                                                 <div class="product">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a href="single-product-fullwidth.html"
-                                                                        class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/6.jpg"
-                                                                            width="224" height="197"
-                                                                            class="wp-post-image" alt="">
+                                                                    <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                        <img src="<?= asset_url() ?>images/products/6.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -517,23 +442,17 @@
                                                                         </h2>
                                                                     </a>
                                                                     <div class="hover-area">
-                                                                        <a class="button add_to_cart_button"
-                                                                            href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                        <a class="add-to-compare-link"
-                                                                            href="compare.html">افزودن به مقایسه</a>
+                                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                        <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                     </div>
                                                                 </div>
                                                                 <!-- /.product-outer -->
                                                                 <div class="product">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a href="single-product-fullwidth.html"
-                                                                        class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/15.jpg"
-                                                                            width="224" height="197"
-                                                                            class="wp-post-image" alt="">
+                                                                    <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                        <img src="<?= asset_url() ?>images/products/15.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -546,23 +465,17 @@
                                                                             Dell</h2>
                                                                     </a>
                                                                     <div class="hover-area">
-                                                                        <a class="button add_to_cart_button"
-                                                                            href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                        <a class="add-to-compare-link"
-                                                                            href="compare.html">افزودن به مقایسه</a>
+                                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                        <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                     </div>
                                                                 </div>
                                                                 <!-- /.product-outer -->
                                                                 <div class="product">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a href="single-product-fullwidth.html"
-                                                                        class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/10.jpg"
-                                                                            width="224" height="197"
-                                                                            class="wp-post-image" alt="">
+                                                                    <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                        <img src="<?= asset_url() ?>images/products/10.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -575,23 +488,17 @@
                                                                         </h2>
                                                                     </a>
                                                                     <div class="hover-area">
-                                                                        <a class="button add_to_cart_button"
-                                                                            href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                        <a class="add-to-compare-link"
-                                                                            href="compare.html">افزودن به مقایسه</a>
+                                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                        <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                     </div>
                                                                 </div>
                                                                 <!-- /.product-outer -->
                                                                 <div class="product">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a href="single-product-fullwidth.html"
-                                                                        class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/12.jpg"
-                                                                            width="224" height="197"
-                                                                            class="wp-post-image" alt="">
+                                                                    <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                        <img src="<?= asset_url() ?>images/products/12.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -603,29 +510,21 @@
                                                                             23-Inch Screen LED-Lit Monitorss Buds</h2>
                                                                     </a>
                                                                     <div class="hover-area">
-                                                                        <a class="button add_to_cart_button"
-                                                                            href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                        <a class="add-to-compare-link"
-                                                                            href="compare.html">افزودن به مقایسه</a>
+                                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                        <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                     </div>
                                                                 </div>
                                                                 <!-- /.product-outer -->
                                                                 <div class="product">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a href="single-product-fullwidth.html"
-                                                                        class="woocommerce-LoopProduct-link">
+                                                                    <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
                                                                         <span class="onsale">
-                                                                            <span
-                                                                                class="woocommerce-Price-amount amount"
-                                                                                dir="rtl">
-                                                                               2,000,000 ریال</span>
+                                                                            <span class="woocommerce-Price-amount amount" dir="rtl">
+                                                                                2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="<?= asset_url() ?>images/products/7.jpg"
-                                                                            width="224" height="197"
-                                                                            class="wp-post-image" alt="">
+                                                                        <img src="<?= asset_url() ?>images/products/7.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> 150,000,000
@@ -642,10 +541,8 @@
                                                                             Bluetooth on-ear PureBass Headphones</h2>
                                                                     </a>
                                                                     <div class="hover-area">
-                                                                        <a class="button add_to_cart_button"
-                                                                            href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                        <a class="add-to-compare-link"
-                                                                            href="compare.html">افزودن به مقایسه</a>
+                                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                        <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -658,22 +555,16 @@
                                             </div>
                                             <!-- .tab-pane -->
                                             <div id="tab-59f89f0881f933" class="tab-pane " role="tabpanel">
-                                                <div class="products-carousel" data-ride="tm-slick-carousel"
-                                                    data-wrap=".products"
-                                                    data-slick="{&quot;rtl&quot;:true,&quot;infinite&quot;:false,&quot;rows&quot;:2,&quot;slidesPerRow&quot;:5,&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;dots&quot;:true,&quot;arrows&quot;:false,&quot;responsive&quot;:[{&quot;breakpoint&quot;:1023,&quot;settings&quot;:{&quot;slidesPerRow&quot;:2}},{&quot;breakpoint&quot;:1169,&quot;settings&quot;:{&quot;slidesPerRow&quot;:4}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesPerRow&quot;:3}}]}">
+                                                <div class="products-carousel" data-ride="tm-slick-carousel" data-wrap=".products" data-slick="{&quot;rtl&quot;:true,&quot;infinite&quot;:false,&quot;rows&quot;:2,&quot;slidesPerRow&quot;:5,&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;dots&quot;:true,&quot;arrows&quot;:false,&quot;responsive&quot;:[{&quot;breakpoint&quot;:1023,&quot;settings&quot;:{&quot;slidesPerRow&quot;:2}},{&quot;breakpoint&quot;:1169,&quot;settings&quot;:{&quot;slidesPerRow&quot;:4}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesPerRow&quot;:3}}]}">
                                                     <div class="container-fluid">
                                                         <div class="woocommerce">
                                                             <div class="products">
                                                                 <div class="product">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a href="single-product-fullwidth.html"
-                                                                        class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/6.jpg"
-                                                                            width="224" height="197"
-                                                                            class="wp-post-image" alt="">
+                                                                    <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                        <img src="<?= asset_url() ?>images/products/6.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -686,23 +577,17 @@
                                                                         </h2>
                                                                     </a>
                                                                     <div class="hover-area">
-                                                                        <a class="button add_to_cart_button"
-                                                                            href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                        <a class="add-to-compare-link"
-                                                                            href="compare.html">افزودن به مقایسه</a>
+                                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                        <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                     </div>
                                                                 </div>
                                                                 <!-- /.product-outer -->
                                                                 <div class="product">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a href="single-product-fullwidth.html"
-                                                                        class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/4.jpg"
-                                                                            width="224" height="197"
-                                                                            class="wp-post-image" alt="">
+                                                                    <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                        <img src="<?= asset_url() ?>images/products/4.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -713,23 +598,17 @@
                                                                         <h2 class="woocommerce-loop-product__title">ذخیزه ساز hpe مدل xxx</h2>
                                                                     </a>
                                                                     <div class="hover-area">
-                                                                        <a class="button add_to_cart_button"
-                                                                            href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                        <a class="add-to-compare-link"
-                                                                            href="compare.html">افزودن به مقایسه</a>
+                                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                        <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                     </div>
                                                                 </div>
                                                                 <!-- /.product-outer -->
                                                                 <div class="product">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a href="single-product-fullwidth.html"
-                                                                        class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/8.jpg"
-                                                                            width="224" height="197"
-                                                                            class="wp-post-image" alt="">
+                                                                    <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                        <img src="<?= asset_url() ?>images/products/8.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -741,23 +620,17 @@
                                                                             Video & Air Quality Monitor</h2>
                                                                     </a>
                                                                     <div class="hover-area">
-                                                                        <a class="button add_to_cart_button"
-                                                                            href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                        <a class="add-to-compare-link"
-                                                                            href="compare.html">افزودن به مقایسه</a>
+                                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                        <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                     </div>
                                                                 </div>
                                                                 <!-- /.product-outer -->
                                                                 <div class="product">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a href="single-product-fullwidth.html"
-                                                                        class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/16.jpg"
-                                                                            width="224" height="197"
-                                                                            class="wp-post-image" alt="">
+                                                                    <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                        <img src="<?= asset_url() ?>images/products/16.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -769,29 +642,21 @@
                                                                             Dell</h2>
                                                                     </a>
                                                                     <div class="hover-area">
-                                                                        <a class="button add_to_cart_button"
-                                                                            href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                        <a class="add-to-compare-link"
-                                                                            href="compare.html">افزودن به مقایسه</a>
+                                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                        <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                     </div>
                                                                 </div>
                                                                 <!-- /.product-outer -->
                                                                 <div class="product">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a href="single-product-fullwidth.html"
-                                                                        class="woocommerce-LoopProduct-link">
+                                                                    <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
                                                                         <span class="onsale">
-                                                                            <span
-                                                                                class="woocommerce-Price-amount amount"
-                                                                                dir="rtl">
-                                                                               2,000,000 ریال</span>
+                                                                            <span class="woocommerce-Price-amount amount" dir="rtl">
+                                                                                2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="<?= asset_url() ?>images/products/14.jpg"
-                                                                            width="224" height="197"
-                                                                            class="wp-post-image" alt="">
+                                                                        <img src="<?= asset_url() ?>images/products/14.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> 9.000.000
@@ -808,10 +673,8 @@
                                                                             Dell</h2>
                                                                     </a>
                                                                     <div class="hover-area">
-                                                                        <a class="button add_to_cart_button"
-                                                                            href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                        <a class="add-to-compare-link"
-                                                                            href="compare.html">افزودن به مقایسه</a>
+                                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                        <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -839,26 +702,23 @@
                             </div>
                             <!-- .fullwidth-notice -->
 
-                            <section class="section-top-categories section-categories-carousel"
-                                id="categories-carousel-1">
+                            <section class="section-top-categories section-categories-carousel" id="categories-carousel-1">
                                 <header class="section-header">
                                     <h4 class="pre-title"> </h4>
                                     <h2 class="section-title">برترین
-                                        <br>محصولات</h2>
+                                        <br>محصولات
+                                    </h2>
                                     <nav class="custom-slick-nav"></nav>
                                     <!-- .custom-slick-nav -->
                                     <!-- <a class="readmore-link" href="#">Full Catalog</a> -->
                                 </header>
                                 <!-- .section-header -->
-                                <div class="product-categories-1 product-categories-carousel"
-                                    data-ride="tm-slick-carousel" data-wrap=".products"
-                                    data-slick='{"rtl":true, "slidesToShow":5,"slidesToScroll":1,"dots":false,"arrows":true,"prevArrow":"<a href=\"#\"><i class=\"tm tm-arrow-right\"><\/i><\/a>","nextArrow":"<a href=\"#\"><i class=\"tm tm-arrow-left\"><\/i><\/a>","appendArrows":"#categories-carousel-1 .custom-slick-nav","responsive":[{"breakpoint":1200,"settings":{"slidesToShow":2,"slidesToScroll":2}},{"breakpoint":1400,"settings":{"slidesToShow":4,"slidesToScroll":4}}]}'>
+                                <div class="product-categories-1 product-categories-carousel" data-ride="tm-slick-carousel" data-wrap=".products" data-slick='{"rtl":true, "slidesToShow":5,"slidesToScroll":1,"dots":false,"arrows":true,"prevArrow":"<a href=\"#\"><i class=\"tm tm-arrow-right\"><\/i><\/a>","nextArrow":"<a href=\"#\"><i class=\"tm tm-arrow-left\"><\/i><\/a>","appendArrows":"#categories-carousel-1 .custom-slick-nav","responsive":[{"breakpoint":1200,"settings":{"slidesToShow":2,"slidesToScroll":2}},{"breakpoint":1400,"settings":{"slidesToShow":4,"slidesToScroll":4}}]}'>
                                     <div class="woocommerce columns-5">
                                         <div class="products">
                                             <div class="product-category product first">
                                                 <a href="product-category.html">
-                                                    <img width="224" height="197" alt="سویچ"
-                                                        src="<?= asset_url() ?>images/category/16.png">
+                                                    <img width="224" height="197" alt="سویچ" src="<?= asset_url() ?>images/category/16.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         سویچ
                                                     </h2>
@@ -867,8 +727,7 @@
                                             <!-- .product-category -->
                                             <div class="product-category product">
                                                 <a href="product-category.html">
-                                                    <img width="224" height="197" alt="سرور"
-                                                        src="<?= asset_url() ?>images/category/17.png">
+                                                    <img width="224" height="197" alt="سرور" src="<?= asset_url() ?>images/category/17.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         سرور
                                                     </h2>
@@ -877,8 +736,7 @@
                                             <!-- .product-category -->
                                             <div class="product-category product">
                                                 <a href="product-category.html">
-                                                    <img width="224" height="197" alt="تلفن اینترنتی"
-                                                        src="<?= asset_url() ?>images/category/18.png">
+                                                    <img width="224" height="197" alt="تلفن اینترنتی" src="<?= asset_url() ?>images/category/18.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         تلفن اینترنتی
                                                     </h2>
@@ -887,8 +745,7 @@
                                             <!-- .product-category -->
                                             <div class="product-category product">
                                                 <a href="product-category.html">
-                                                    <img width="224" height="197" alt="رک"
-                                                        src="<?= asset_url() ?>images/category/19.png">
+                                                    <img width="224" height="197" alt="رک" src="<?= asset_url() ?>images/category/19.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         رک
                                                     </h2>
@@ -897,8 +754,7 @@
                                             <!-- .product-category -->
                                             <div class="product-category product last">
                                                 <a href="product-category.html">
-                                                    <img width="224" height="197" alt="Desktop PCs"
-                                                        src="<?= asset_url() ?>images/category/20.png">
+                                                    <img width="224" height="197" alt="Desktop PCs" src="<?= asset_url() ?>images/category/20.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         Desktop PCs
                                                     </h2>
@@ -907,8 +763,7 @@
                                             <!-- .product-category -->
                                             <div class="product-category product first">
                                                 <a href="product-category.html">
-                                                    <img width="224" height="197" alt="Digital Cameras"
-                                                        src="<?= asset_url() ?>images/category/21.png">
+                                                    <img width="224" height="197" alt="Digital Cameras" src="<?= asset_url() ?>images/category/21.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         Digital Cameras
                                                     </h2>
@@ -917,8 +772,7 @@
                                             <!-- .product-category -->
                                             <div class="product-category product">
                                                 <a href="product-category.html">
-                                                    <img width="224" height="197" alt="Games &amp; Consoles"
-                                                        src="<?= asset_url() ?>images/category/22.png">
+                                                    <img width="224" height="197" alt="Games &amp; Consoles" src="<?= asset_url() ?>images/category/22.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         Games &amp; Consoles
                                                     </h2>
@@ -927,8 +781,7 @@
                                             <!-- .product-category -->
                                             <div class="product-category product">
                                                 <a href="product-category.html">
-                                                    <img width="224" height="197" alt="Headphones"
-                                                        src="<?= asset_url() ?>images/category/23.png">
+                                                    <img width="224" height="197" alt="Headphones" src="<?= asset_url() ?>images/category/23.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         Headphones
                                                     </h2>
@@ -937,8 +790,7 @@
                                             <!-- .product-category -->
                                             <div class="product-category product">
                                                 <a href="product-category.html">
-                                                    <img width="224" height="197" alt="Home Entertainment"
-                                                        src="<?= asset_url() ?>images/category/24.png">
+                                                    <img width="224" height="197" alt="Home Entertainment" src="<?= asset_url() ?>images/category/24.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         Home Entertainment
                                                     </h2>
@@ -947,8 +799,7 @@
                                             <!-- .product-category -->
                                             <div class="product-category product last">
                                                 <a href="product-category.html">
-                                                    <img width="224" height="197" alt="Home Theater &amp; Audio"
-                                                        src="<?= asset_url() ?>images/category/25.png">
+                                                    <img width="224" height="197" alt="Home Theater &amp; Audio" src="<?= asset_url() ?>images/category/25.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         Home Theater &amp; Audio
                                                     </h2>
@@ -957,8 +808,7 @@
                                             <!-- .product-category -->
                                             <div class="product-category product first">
                                                 <a href="product-category.html">
-                                                    <img width="224" height="197" alt="Laptops"
-                                                        src="<?= asset_url() ?>images/category/18.png">
+                                                    <img width="224" height="197" alt="Laptops" src="<?= asset_url() ?>images/category/18.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         Laptops
                                                     </h2>
@@ -967,8 +817,7 @@
                                             <!-- .product-category -->
                                             <div class="product-category product">
                                                 <a href="product-category.html">
-                                                    <img width="224" height="197" alt="Mac Computers"
-                                                        src="<?= asset_url() ?>images/category/22.png">
+                                                    <img width="224" height="197" alt="Mac Computers" src="<?= asset_url() ?>images/category/22.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         Mac Computers
                                                     </h2>
@@ -983,9 +832,7 @@
                                 <!-- .product-categories-carousel -->
                             </section>
                             <!-- .section-categories-carousel -->
-                            <section
-                                style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>images/products/card-bg.jpg); height: 853px;"
-                                class="section-landscape-full-product-cards-carousel">
+                            <section style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>images/products/card-bg.jpg); height: 853px;" class="section-landscape-full-product-cards-carousel">
                                 <div class="col-full">
                                     <header class="section-header">
                                         <h2 class="section-title">
@@ -995,26 +842,20 @@
                                     <!-- .section-header -->
                                     <div class="row">
                                         <div class="landscape-full-product-cards-carousel">
-                                            <div class="products-carousel" data-ride="tm-slick-carousel"
-                                                data-wrap=".products"
-                                                data-slick="{&quot;rtl&quot;:true,&quot;rows&quot;:2,&quot;slidesPerRow&quot;:2,&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;dots&quot;:true,&quot;arrows&quot;:false,&quot;responsive&quot;:[{&quot;breakpoint&quot;:767,&quot;settings&quot;:{&quot;slidesPerRow&quot;:2,&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesPerRow&quot;:1,&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1}}]}">
+                                            <div class="products-carousel" data-ride="tm-slick-carousel" data-wrap=".products" data-slick="{&quot;rtl&quot;:true,&quot;rows&quot;:2,&quot;slidesPerRow&quot;:2,&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;dots&quot;:true,&quot;arrows&quot;:false,&quot;responsive&quot;:[{&quot;breakpoint&quot;:767,&quot;settings&quot;:{&quot;slidesPerRow&quot;:2,&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesPerRow&quot;:1,&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1}}]}">
                                                 <div class="container-fluid">
                                                     <div class="woocommerce columns-2">
                                                         <div class="products">
                                                             <div class="landscape-product-card product">
                                                                 <div class="media">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a class="woocommerce-LoopProduct-link"
-                                                                        href="single-product-fullwidth.html">
-                                                                        <img class="wp-post-image"
-                                                                            src="<?= asset_url() ?>images/products/1-2.jpg" alt="">
+                                                                    <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
+                                                                        <img class="wp-post-image" src="<?= asset_url() ?>images/products/1-2.jpg" alt="">
                                                                     </a>
                                                                     <div class="media-body" style="direction: rtl;">
-                                                                        <a class="woocommerce-LoopProduct-link "
-                                                                            href="single-product-fullwidth.html">
+                                                                        <a class="woocommerce-LoopProduct-link " href="single-product-fullwidth.html">
                                                                             <span class="price">
                                                                                 <ins>
                                                                                     <span class="amount" dircetion="rtl">112,000,000
@@ -1034,11 +875,9 @@
                                                                                 <span>A++</span>
                                                                             </div>
                                                                             <div class="techmarket-product-rating">
-                                                                                <div title="Rated 0 out of 5"
-                                                                                    class="star-rating">
+                                                                                <div title="Rated 0 out of 5" class="star-rating">
                                                                                     <span style="width:0%">
-                                                                                        <strong
-                                                                                            class="rating">0</strong>
+                                                                                        <strong class="rating">0</strong>
                                                                                         out of 5</span>
                                                                                 </div>
                                                                                 <span class="review-count">(0)</span>
@@ -1046,10 +885,8 @@
                                                                             <!-- .techmarket-product-rating -->
                                                                         </a>
                                                                         <div class="hover-area">
-                                                                            <a class="button add_to_cart_button"
-                                                                                href="cart.html">افزودن به سبد خرید</a>
-                                                                            <a href="compare.html"
-                                                                                class="add-to-compare-link">Add to
+                                                                            <a class="button add_to_cart_button" href="cart.html">افزودن به سبد خرید</a>
+                                                                            <a href="compare.html" class="add-to-compare-link">Add to
                                                                                 compare</a>
                                                                         </div>
                                                                         <!-- .hover-area -->
@@ -1062,17 +899,13 @@
                                                             <div class="landscape-product-card product">
                                                                 <div class="media">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a class="woocommerce-LoopProduct-link"
-                                                                        href="single-product-fullwidth.html">
-                                                                        <img class="wp-post-image"
-                                                                            src="<?= asset_url() ?>images/products/1-4.jpg" alt="">
+                                                                    <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
+                                                                        <img class="wp-post-image" src="<?= asset_url() ?>images/products/1-4.jpg" alt="">
                                                                     </a>
                                                                     <div class="media-body" style="direction: rtl;">
-                                                                        <a class="woocommerce-LoopProduct-link "
-                                                                            href="single-product-fullwidth.html">
+                                                                        <a class="woocommerce-LoopProduct-link " href="single-product-fullwidth.html">
                                                                             <span class="price">
                                                                                 <ins>
                                                                                     <span class="amount" dircetion="rtl">112,000,000
@@ -1092,11 +925,9 @@
                                                                                 <span>A+</span>
                                                                             </div>
                                                                             <div class="techmarket-product-rating">
-                                                                                <div title="Rated 0 out of 5"
-                                                                                    class="star-rating">
+                                                                                <div title="Rated 0 out of 5" class="star-rating">
                                                                                     <span style="width:0%">
-                                                                                        <strong
-                                                                                            class="rating">0</strong>
+                                                                                        <strong class="rating">0</strong>
                                                                                         out of 5</span>
                                                                                 </div>
                                                                                 <span class="review-count">(0)</span>
@@ -1104,10 +935,8 @@
                                                                             <!-- .techmarket-product-rating -->
                                                                         </a>
                                                                         <div class="hover-area">
-                                                                            <a class="button add_to_cart_button"
-                                                                                href="cart.html">افزودن به سبد خرید</a>
-                                                                            <a href="compare.html"
-                                                                                class="add-to-compare-link">Add to
+                                                                            <a class="button add_to_cart_button" href="cart.html">افزودن به سبد خرید</a>
+                                                                            <a href="compare.html" class="add-to-compare-link">Add to
                                                                                 compare</a>
                                                                         </div>
                                                                         <!-- .hover-area -->
@@ -1120,17 +949,13 @@
                                                             <div class="landscape-product-card product">
                                                                 <div class="media">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a class="woocommerce-LoopProduct-link"
-                                                                        href="single-product-fullwidth.html">
-                                                                        <img class="wp-post-image"
-                                                                            src="<?= asset_url() ?>images/products/1-1.jpg" alt="">
+                                                                    <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
+                                                                        <img class="wp-post-image" src="<?= asset_url() ?>images/products/1-1.jpg" alt="">
                                                                     </a>
                                                                     <div class="media-body" style="direction: rtl;">
-                                                                        <a class="woocommerce-LoopProduct-link "
-                                                                            href="single-product-fullwidth.html">
+                                                                        <a class="woocommerce-LoopProduct-link " href="single-product-fullwidth.html">
                                                                             <span class="price">
                                                                                 <ins>
                                                                                     <span class="amount" dircetion="rtl">112,000,000
@@ -1150,11 +975,9 @@
                                                                                 <span>A++</span>
                                                                             </div>
                                                                             <div class="techmarket-product-rating">
-                                                                                <div title="Rated 0 out of 5"
-                                                                                    class="star-rating">
+                                                                                <div title="Rated 0 out of 5" class="star-rating">
                                                                                     <span style="width:0%">
-                                                                                        <strong
-                                                                                            class="rating">0</strong>
+                                                                                        <strong class="rating">0</strong>
                                                                                         out of 5</span>
                                                                                 </div>
                                                                                 <span class="review-count">(0)</span>
@@ -1162,10 +985,8 @@
                                                                             <!-- .techmarket-product-rating -->
                                                                         </a>
                                                                         <div class="hover-area">
-                                                                            <a class="button add_to_cart_button"
-                                                                                href="cart.html">افزودن به سبد خرید</a>
-                                                                            <a href="compare.html"
-                                                                                class="add-to-compare-link">Add to
+                                                                            <a class="button add_to_cart_button" href="cart.html">افزودن به سبد خرید</a>
+                                                                            <a href="compare.html" class="add-to-compare-link">Add to
                                                                                 compare</a>
                                                                         </div>
                                                                         <!-- .hover-area -->
@@ -1178,17 +999,13 @@
                                                             <div class="landscape-product-card product">
                                                                 <div class="media">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a class="woocommerce-LoopProduct-link"
-                                                                        href="single-product-fullwidth.html">
-                                                                        <img class="wp-post-image"
-                                                                            src="<?= asset_url() ?>images/products/1-6.jpg" alt="">
+                                                                    <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
+                                                                        <img class="wp-post-image" src="<?= asset_url() ?>images/products/1-6.jpg" alt="">
                                                                     </a>
                                                                     <div class="media-body" style="direction: rtl;">
-                                                                        <a class="woocommerce-LoopProduct-link "
-                                                                            href="single-product-fullwidth.html">
+                                                                        <a class="woocommerce-LoopProduct-link " href="single-product-fullwidth.html">
                                                                             <span class="price">
                                                                                 <ins>
                                                                                     <span class="amount" dircetion="rtl">112,000,000
@@ -1208,11 +1025,9 @@
                                                                                 <span>A+</span>
                                                                             </div>
                                                                             <div class="techmarket-product-rating">
-                                                                                <div title="Rated 0 out of 5"
-                                                                                    class="star-rating">
+                                                                                <div title="Rated 0 out of 5" class="star-rating">
                                                                                     <span style="width:0%">
-                                                                                        <strong
-                                                                                            class="rating">0</strong>
+                                                                                        <strong class="rating">0</strong>
                                                                                         out of 5</span>
                                                                                 </div>
                                                                                 <span class="review-count">(0)</span>
@@ -1220,10 +1035,8 @@
                                                                             <!-- .techmarket-product-rating -->
                                                                         </a>
                                                                         <div class="hover-area">
-                                                                            <a class="button add_to_cart_button"
-                                                                                href="cart.html">افزودن به سبد خرید</a>
-                                                                            <a href="compare.html"
-                                                                                class="add-to-compare-link">Add to
+                                                                            <a class="button add_to_cart_button" href="cart.html">افزودن به سبد خرید</a>
+                                                                            <a href="compare.html" class="add-to-compare-link">Add to
                                                                                 compare</a>
                                                                         </div>
                                                                         <!-- .hover-area -->
@@ -1236,17 +1049,13 @@
                                                             <div class="landscape-product-card product">
                                                                 <div class="media">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a class="woocommerce-LoopProduct-link"
-                                                                        href="single-product-fullwidth.html">
-                                                                        <img class="wp-post-image"
-                                                                            src="<?= asset_url() ?>images/products/1-2.jpg" alt="">
+                                                                    <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
+                                                                        <img class="wp-post-image" src="<?= asset_url() ?>images/products/1-2.jpg" alt="">
                                                                     </a>
                                                                     <div class="media-body" style="direction: rtl;">
-                                                                        <a class="woocommerce-LoopProduct-link "
-                                                                            href="single-product-fullwidth.html">
+                                                                        <a class="woocommerce-LoopProduct-link " href="single-product-fullwidth.html">
                                                                             <span class="price">
                                                                                 <ins>
                                                                                     <span class="amount" dircetion="rtl">112,000,000
@@ -1266,11 +1075,9 @@
                                                                                 <span>A+</span>
                                                                             </div>
                                                                             <div class="techmarket-product-rating">
-                                                                                <div title="Rated 0 out of 5"
-                                                                                    class="star-rating">
+                                                                                <div title="Rated 0 out of 5" class="star-rating">
                                                                                     <span style="width:0%">
-                                                                                        <strong
-                                                                                            class="rating">0</strong>
+                                                                                        <strong class="rating">0</strong>
                                                                                         out of 5</span>
                                                                                 </div>
                                                                                 <span class="review-count">(0)</span>
@@ -1278,10 +1085,8 @@
                                                                             <!-- .techmarket-product-rating -->
                                                                         </a>
                                                                         <div class="hover-area">
-                                                                            <a class="button add_to_cart_button"
-                                                                                href="cart.html">افزودن به سبد خرید</a>
-                                                                            <a href="compare.html"
-                                                                                class="add-to-compare-link">Add to
+                                                                            <a class="button add_to_cart_button" href="cart.html">افزودن به سبد خرید</a>
+                                                                            <a href="compare.html" class="add-to-compare-link">Add to
                                                                                 compare</a>
                                                                         </div>
                                                                         <!-- .hover-area -->
@@ -1294,17 +1099,13 @@
                                                             <div class="landscape-product-card product">
                                                                 <div class="media">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a class="woocommerce-LoopProduct-link"
-                                                                        href="single-product-fullwidth.html">
-                                                                        <img class="wp-post-image"
-                                                                            src="<?= asset_url() ?>images/products/1-5.jpg" alt="">
+                                                                    <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
+                                                                        <img class="wp-post-image" src="<?= asset_url() ?>images/products/1-5.jpg" alt="">
                                                                     </a>
                                                                     <div class="media-body" style="direction: rtl;">
-                                                                        <a class="woocommerce-LoopProduct-link "
-                                                                            href="single-product-fullwidth.html">
+                                                                        <a class="woocommerce-LoopProduct-link " href="single-product-fullwidth.html">
                                                                             <span class="price">
                                                                                 <ins>
                                                                                     <span class="amount" dircetion="rtl">112,000,000
@@ -1324,11 +1125,9 @@
                                                                                 <span>A++</span>
                                                                             </div>
                                                                             <div class="techmarket-product-rating">
-                                                                                <div title="Rated 0 out of 5"
-                                                                                    class="star-rating">
+                                                                                <div title="Rated 0 out of 5" class="star-rating">
                                                                                     <span style="width:0%">
-                                                                                        <strong
-                                                                                            class="rating">0</strong>
+                                                                                        <strong class="rating">0</strong>
                                                                                         out of 5</span>
                                                                                 </div>
                                                                                 <span class="review-count">(0)</span>
@@ -1336,10 +1135,8 @@
                                                                             <!-- .techmarket-product-rating -->
                                                                         </a>
                                                                         <div class="hover-area">
-                                                                            <a class="button add_to_cart_button"
-                                                                                href="cart.html">افزودن به سبد خرید</a>
-                                                                            <a href="compare.html"
-                                                                                class="add-to-compare-link">Add to
+                                                                            <a class="button add_to_cart_button" href="cart.html">افزودن به سبد خرید</a>
+                                                                            <a href="compare.html" class="add-to-compare-link">Add to
                                                                                 compare</a>
                                                                         </div>
                                                                         <!-- .hover-area -->
@@ -1352,17 +1149,13 @@
                                                             <div class="landscape-product-card product">
                                                                 <div class="media">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a class="woocommerce-LoopProduct-link"
-                                                                        href="single-product-fullwidth.html">
-                                                                        <img class="wp-post-image"
-                                                                            src="<?= asset_url() ?>images/products/1-3.jpg" alt="">
+                                                                    <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
+                                                                        <img class="wp-post-image" src="<?= asset_url() ?>images/products/1-3.jpg" alt="">
                                                                     </a>
                                                                     <div class="media-body" style="direction: rtl;">
-                                                                        <a class="woocommerce-LoopProduct-link "
-                                                                            href="single-product-fullwidth.html">
+                                                                        <a class="woocommerce-LoopProduct-link " href="single-product-fullwidth.html">
                                                                             <span class="price">
                                                                                 <ins>
                                                                                     <span class="amount" dircetion="rtl">112,000,000
@@ -1382,11 +1175,9 @@
                                                                                 <span>A+</span>
                                                                             </div>
                                                                             <div class="techmarket-product-rating">
-                                                                                <div title="Rated 0 out of 5"
-                                                                                    class="star-rating">
+                                                                                <div title="Rated 0 out of 5" class="star-rating">
                                                                                     <span style="width:0%">
-                                                                                        <strong
-                                                                                            class="rating">0</strong>
+                                                                                        <strong class="rating">0</strong>
                                                                                         out of 5</span>
                                                                                 </div>
                                                                                 <span class="review-count">(0)</span>
@@ -1394,10 +1185,8 @@
                                                                             <!-- .techmarket-product-rating -->
                                                                         </a>
                                                                         <div class="hover-area">
-                                                                            <a class="button add_to_cart_button"
-                                                                                href="cart.html">افزودن به سبد خرید</a>
-                                                                            <a href="compare.html"
-                                                                                class="add-to-compare-link">Add to
+                                                                            <a class="button add_to_cart_button" href="cart.html">افزودن به سبد خرید</a>
+                                                                            <a href="compare.html" class="add-to-compare-link">Add to
                                                                                 compare</a>
                                                                         </div>
                                                                         <!-- .hover-area -->
@@ -1410,17 +1199,13 @@
                                                             <div class="landscape-product-card product">
                                                                 <div class="media">
                                                                     <div class="yith-wcwl-add-to-wishlist">
-                                                                        <a href="wishlist.html" rel="nofollow"
-                                                                            class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
-                                                                    <a class="woocommerce-LoopProduct-link"
-                                                                        href="single-product-fullwidth.html">
-                                                                        <img class="wp-post-image"
-                                                                            src="<?= asset_url() ?>images/products/1-5.jpg" alt="">
+                                                                    <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
+                                                                        <img class="wp-post-image" src="<?= asset_url() ?>images/products/1-5.jpg" alt="">
                                                                     </a>
                                                                     <div class="media-body" style="direction: rtl;">
-                                                                        <a class="woocommerce-LoopProduct-link "
-                                                                            href="single-product-fullwidth.html">
+                                                                        <a class="woocommerce-LoopProduct-link " href="single-product-fullwidth.html">
                                                                             <span class="price">
                                                                                 <ins>
                                                                                     <span class="amount" dircetion="rtl">112,000,000
@@ -1440,11 +1225,9 @@
                                                                                 <span>A</span>
                                                                             </div>
                                                                             <div class="techmarket-product-rating">
-                                                                                <div title="Rated 0 out of 5"
-                                                                                    class="star-rating">
+                                                                                <div title="Rated 0 out of 5" class="star-rating">
                                                                                     <span style="width:0%">
-                                                                                        <strong
-                                                                                            class="rating">0</strong>
+                                                                                        <strong class="rating">0</strong>
                                                                                         out of 5</span>
                                                                                 </div>
                                                                                 <span class="review-count">(0)</span>
@@ -1452,10 +1235,8 @@
                                                                             <!-- .techmarket-product-rating -->
                                                                         </a>
                                                                         <div class="hover-area">
-                                                                            <a class="button add_to_cart_button"
-                                                                                href="cart.html">افزودن به سبد خرید</a>
-                                                                            <a href="compare.html"
-                                                                                class="add-to-compare-link">Add to
+                                                                            <a class="button add_to_cart_button" href="cart.html">افزودن به سبد خرید</a>
+                                                                            <a href="compare.html" class="add-to-compare-link">Add to
                                                                                 compare</a>
                                                                         </div>
                                                                         <!-- .hover-area -->
@@ -1486,31 +1267,24 @@
                                     <header class="section-header">
                                         <h2 class="section-title">محصولات پرفروش</h2>
                                         <ul role="tablist" class="nav justify-content-end">
-                                            <li class="nav-item"><a class="nav-link active" href="#tab-59f89f08825d50"
-                                                    data-toggle="tab">سرور</a></li>
-                                            <li class="nav-item"><a class="nav-link " href="#tab-59f89f08825d51"
-                                                    data-toggle="tab">سوئیچ</a></li>
+                                            <li class="nav-item"><a class="nav-link active" href="#tab-59f89f08825d50" data-toggle="tab">سرور</a></li>
+                                            <li class="nav-item"><a class="nav-link " href="#tab-59f89f08825d51" data-toggle="tab">سوئیچ</a></li>
 
                                         </ul>
                                     </header>
                                     <!-- .section-header -->
                                     <div class="tab-content">
                                         <div id="tab-59f89f08825d50" class="tab-pane active" role="tabpanel">
-                                            <div class="products-carousel" data-ride="tm-slick-carousel"
-                                                data-wrap=".products"
-                                                data-slick="{&quot;rtl&quot;:true,&quot;infinite&quot;:false,&quot;slidesToShow&quot;:7,&quot;slidesToScroll&quot;:7,&quot;dots&quot;:true,&quot;arrows&quot;:false,&quot;responsive&quot;:[{&quot;breakpoint&quot;:700,&quot;settings&quot;:{&quot;slidesToShow&quot;:2,&quot;slidesToScroll&quot;:2}},{&quot;breakpoint&quot;:780,&quot;settings&quot;:{&quot;slidesToShow&quot;:3,&quot;slidesToScroll&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:4,&quot;slidesToScroll&quot;:4}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesToShow&quot;:5,&quot;slidesToScroll&quot;:5}}]}">
+                                            <div class="products-carousel" data-ride="tm-slick-carousel" data-wrap=".products" data-slick="{&quot;rtl&quot;:true,&quot;infinite&quot;:false,&quot;slidesToShow&quot;:7,&quot;slidesToScroll&quot;:7,&quot;dots&quot;:true,&quot;arrows&quot;:false,&quot;responsive&quot;:[{&quot;breakpoint&quot;:700,&quot;settings&quot;:{&quot;slidesToShow&quot;:2,&quot;slidesToScroll&quot;:2}},{&quot;breakpoint&quot;:780,&quot;settings&quot;:{&quot;slidesToShow&quot;:3,&quot;slidesToScroll&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:4,&quot;slidesToScroll&quot;:4}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesToShow&quot;:5,&quot;slidesToScroll&quot;:5}}]}">
                                                 <div class="container-fluid">
                                                     <div class="woocommerce">
                                                         <div class="products">
                                                             <div class="product">
                                                                 <div class="yith-wcwl-add-to-wishlist">
-                                                                    <a href="wishlist.html" rel="nofollow"
-                                                                        class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                    <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                 </div>
-                                                                <a href="single-product-fullwidth.html"
-                                                                    class="woocommerce-LoopProduct-link">
-                                                                    <img src="<?= asset_url() ?>images/products/12.jpg" width="224"
-                                                                        height="197" class="wp-post-image" alt="">
+                                                                <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                    <img src="<?= asset_url() ?>images/products/12.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
                                                                             <span class="amount" dircetion="rtl"> </span>
@@ -1522,27 +1296,21 @@
                                                                         23-Inch Screen LED-Lit Monitorss Buds</h2>
                                                                 </a>
                                                                 <div class="hover-area">
-                                                                    <a class="button add_to_cart_button"
-                                                                        href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                    <a class="add-to-compare-link"
-                                                                        href="compare.html">افزودن به مقایسه</a>
+                                                                    <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                    <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                 </div>
                                                             </div>
                                                             <!-- /.product-outer -->
                                                             <div class="product">
                                                                 <div class="yith-wcwl-add-to-wishlist">
-                                                                    <a href="wishlist.html" rel="nofollow"
-                                                                        class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                    <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                 </div>
-                                                                <a href="single-product-fullwidth.html"
-                                                                    class="woocommerce-LoopProduct-link">
+                                                                <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
                                                                     <span class="onsale">
-                                                                        <span class="woocommerce-Price-amount amount"
-                                                                            dir="rtl">
+                                                                        <span class="woocommerce-Price-amount amount" dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="<?= asset_url() ?>images/products/14.jpg" width="224"
-                                                                        height="197" class="wp-post-image" alt="">
+                                                                    <img src="<?= asset_url() ?>images/products/14.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
                                                                             <span class="amount" dircetion="rtl"> 9.000.000 ریال</span>
@@ -1557,22 +1325,17 @@
                                                                         Fitbit Flex</h2>
                                                                 </a>
                                                                 <div class="hover-area">
-                                                                    <a class="button add_to_cart_button"
-                                                                        href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                    <a class="add-to-compare-link"
-                                                                        href="compare.html">افزودن به مقایسه</a>
+                                                                    <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                    <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                 </div>
                                                             </div>
                                                             <!-- /.product-outer -->
                                                             <div class="product">
                                                                 <div class="yith-wcwl-add-to-wishlist">
-                                                                    <a href="wishlist.html" rel="nofollow"
-                                                                        class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                    <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                 </div>
-                                                                <a href="single-product-fullwidth.html"
-                                                                    class="woocommerce-LoopProduct-link">
-                                                                    <img src="<?= asset_url() ?>images/products/6.jpg" width="224"
-                                                                        height="197" class="wp-post-image" alt="">
+                                                                <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                    <img src="<?= asset_url() ?>images/products/6.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
                                                                             <span class="amount" dircetion="rtl"> </span>
@@ -1584,10 +1347,8 @@
                                                                         Virtual Reality 3D with Bluetooth Glasses</h2>
                                                                 </a>
                                                                 <div class="hover-area">
-                                                                    <a class="button add_to_cart_button"
-                                                                        href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                    <a class="add-to-compare-link"
-                                                                        href="compare.html">افزودن به مقایسه</a>
+                                                                    <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                    <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1600,26 +1361,20 @@
                                         </div>
                                         <!-- .tab-pane -->
                                         <div id="tab-59f89f08825d51" class="tab-pane " role="tabpanel">
-                                            <div class="products-carousel" data-ride="tm-slick-carousel"
-                                                data-wrap=".products"
-                                                data-slick="{&quot;rtl&quot;:true,&quot;infinite&quot;:false,&quot;slidesToShow&quot;:7,&quot;slidesToScroll&quot;:7,&quot;dots&quot;:true,&quot;arrows&quot;:false,&quot;responsive&quot;:[{&quot;breakpoint&quot;:700,&quot;settings&quot;:{&quot;slidesToShow&quot;:2,&quot;slidesToScroll&quot;:2}},{&quot;breakpoint&quot;:780,&quot;settings&quot;:{&quot;slidesToShow&quot;:3,&quot;slidesToScroll&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:4,&quot;slidesToScroll&quot;:4}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesToShow&quot;:5,&quot;slidesToScroll&quot;:5}}]}">
+                                            <div class="products-carousel" data-ride="tm-slick-carousel" data-wrap=".products" data-slick="{&quot;rtl&quot;:true,&quot;infinite&quot;:false,&quot;slidesToShow&quot;:7,&quot;slidesToScroll&quot;:7,&quot;dots&quot;:true,&quot;arrows&quot;:false,&quot;responsive&quot;:[{&quot;breakpoint&quot;:700,&quot;settings&quot;:{&quot;slidesToShow&quot;:2,&quot;slidesToScroll&quot;:2}},{&quot;breakpoint&quot;:780,&quot;settings&quot;:{&quot;slidesToShow&quot;:3,&quot;slidesToScroll&quot;:3}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:4,&quot;slidesToScroll&quot;:4}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesToShow&quot;:5,&quot;slidesToScroll&quot;:5}}]}">
                                                 <div class="container-fluid">
                                                     <div class="woocommerce">
                                                         <div class="products">
                                                             <div class="product">
                                                                 <div class="yith-wcwl-add-to-wishlist">
-                                                                    <a href="wishlist.html" rel="nofollow"
-                                                                        class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                    <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                 </div>
-                                                                <a href="single-product-fullwidth.html"
-                                                                    class="woocommerce-LoopProduct-link">
+                                                                <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
                                                                     <span class="onsale">
-                                                                        <span class="woocommerce-Price-amount amount"
-                                                                            dir="rtl">
+                                                                        <span class="woocommerce-Price-amount amount" dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="<?= asset_url() ?>images/products/7.jpg" width="224"
-                                                                        height="197" class="wp-post-image" alt="">
+                                                                    <img src="<?= asset_url() ?>images/products/7.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
                                                                             <span class="amount" dircetion="rtl"> 150,000,000
@@ -1635,22 +1390,17 @@
                                                                         Bluetooth on-ear PureBass Headphones</h2>
                                                                 </a>
                                                                 <div class="hover-area">
-                                                                    <a class="button add_to_cart_button"
-                                                                        href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                    <a class="add-to-compare-link"
-                                                                        href="compare.html">افزودن به مقایسه</a>
+                                                                    <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                    <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                 </div>
                                                             </div>
                                                             <!-- /.product-outer -->
                                                             <div class="product">
                                                                 <div class="yith-wcwl-add-to-wishlist">
-                                                                    <a href="wishlist.html" rel="nofollow"
-                                                                        class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                    <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                 </div>
-                                                                <a href="single-product-fullwidth.html"
-                                                                    class="woocommerce-LoopProduct-link">
-                                                                    <img src="<?= asset_url() ?>images/products/15.jpg" width="224"
-                                                                        height="197" class="wp-post-image" alt="">
+                                                                <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                    <img src="<?= asset_url() ?>images/products/15.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
                                                                             <span class="amount" dircetion="rtl"> </span>
@@ -1662,36 +1412,34 @@
                                                                         Fitbit Flex</h2>
                                                                 </a>
                                                                 <div class="hover-area">
-                                                                    <a class="button add_to_cart_button"
-                                                                        href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                    <a class="add-to-compare-link"
-                                                                        href="compare.html">افزودن به مقایسه</a>
+                                                                    <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                    <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                 </div>
                                                             </div>
+                                                        </div>
+                                                        <!-- .woocommerce -->
                                                     </div>
-                                                    <!-- .woocommerce -->
+                                                    <!-- .container-fluid -->
                                                 </div>
-                                                <!-- .container-fluid -->
+                                                <!-- .products-carousel -->
                                             </div>
-                                            <!-- .products-carousel -->
+                                            <!-- .tab-pane -->
                                         </div>
-                                        <!-- .tab-pane -->
+                                        <!-- .tab-content -->
                                     </div>
-                                    <!-- .tab-content -->
-                                </div>
-                                <!-- .section-products-carousel-tabs-wrap -->
+                                    <!-- .section-products-carousel-tabs-wrap -->
                             </section>
                             <!-- .section-products-carousel-tabs -->
                             <div class="banners">
                                 <div class="row">
                                     <div class="banner banner-long text-in-left">
                                         <a href="shop.html">
-                                            <div style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>images/banner/3-2.jpg); height: 259px;padding-right: 10px;justify-content: right;"
-                                                class="banner-bg">
+                                            <div style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>images/banner/3-2.jpg); height: 259px;padding-right: 10px;justify-content: right;" class="banner-bg">
                                                 <div class="caption">
                                                     <div class="banner-info">
                                                         <h3 class="title"> تمامی محصولات
-                                                            <br /><strong>Dell EMC</strong></h3>
+                                                            <br /><strong>Dell EMC</strong>
+                                                        </h3>
                                                     </div>
                                                     <!-- /.banner-info -->
                                                     <span class="banner-action button">اطلاعات بیشتر</span>
@@ -1704,13 +1452,13 @@
                                     <!-- /.banner -->
                                     <div class="banner banner-short text-in-right">
                                         <a href="shop.html">
-                                            <div style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>images/banner/3-3.jpg); height: 259px;"
-                                                class="banner-bg">
+                                            <div style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>images/banner/3-3.jpg); height: 259px;" class="banner-bg">
                                                 <div class="caption">
                                                     <div class="banner-info">
                                                         <h3 class="title">
                                                             تمامی محصولات
-                                                            <br> <strong>HPE</strong> </h3>
+                                                            <br> <strong>HPE</strong>
+                                                        </h3>
                                                     </div>
                                                     <!-- /.banner-info -->
                                                     <!-- <span class="price">$34.99</span> -->
@@ -1726,24 +1474,20 @@
                                 <!-- /.row -->
                             </div>
                             <!-- /.banners -->
-                            <section class="section-landscape-products-carousel 4-column-landscape-carousel"
-                                id="landscape-products-carousel">
+                            <section class="section-landscape-products-carousel 4-column-landscape-carousel" id="landscape-products-carousel">
                                 <header class="section-header">
                                     <h2 class="section-title">سرورها و رک ها</h2>
                                     <nav class="custom-slick-nav">
                                     </nav>
                                 </header>
-                                <div class="products-carousel" data-ride="tm-slick-carousel" data-wrap=".products"
-                                    data-slick="{&quot;slidesToShow&quot;:4,&quot;slidesToScroll&quot;:2,&quot;dots&quot;:false,&quot;arrows&quot;:true,&quot;prevArrow&quot;:&quot;<a href=\&quot;#\&quot;><i class=\&quot;tm tm-arrow-right\&quot;><\/i><\/a>&quot;,&quot;nextArrow&quot;:&quot;<a href=\&quot;#\&quot;><i class=\&quot;tm tm-arrow-left\&quot;><\/i><\/a>&quot;,&quot;appendArrows&quot;:&quot;#landscape-products-carousel .custom-slick-nav&quot;,&quot;responsive&quot;:[{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:2,&quot;slidesToScroll&quot;:2}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesToShow&quot;:3,&quot;slidesToScroll&quot;:3}}]}">
+                                <div class="products-carousel" data-ride="tm-slick-carousel" data-wrap=".products" data-slick="{&quot;slidesToShow&quot;:4,&quot;slidesToScroll&quot;:2,&quot;dots&quot;:false,&quot;arrows&quot;:true,&quot;prevArrow&quot;:&quot;<a href=\&quot;#\&quot;><i class=\&quot;tm tm-arrow-right\&quot;><\/i><\/a>&quot;,&quot;nextArrow&quot;:&quot;<a href=\&quot;#\&quot;><i class=\&quot;tm tm-arrow-left\&quot;><\/i><\/a>&quot;,&quot;appendArrows&quot;:&quot;#landscape-products-carousel .custom-slick-nav&quot;,&quot;responsive&quot;:[{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:2,&quot;slidesToScroll&quot;:2}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesToShow&quot;:3,&quot;slidesToScroll&quot;:3}}]}">
                                     <div class="container-fluid" dir="ltr">
                                         <div class="woocommerce columns-5">
                                             <div class="products">
                                                 <div class="landscape-product product">
-                                                    <a class="woocommerce-LoopProduct-link"
-                                                        href="single-product-fullwidth.html">
+                                                    <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image"
-                                                                src="<?= asset_url() ?>images/products/card-2.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-2.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -1772,11 +1516,9 @@
                                                 </div>
                                                 <!-- .landscape-product -->
                                                 <div class="landscape-product product">
-                                                    <a class="woocommerce-LoopProduct-link"
-                                                        href="single-product-fullwidth.html">
+                                                    <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image"
-                                                                src="<?= asset_url() ?>images/products/card-6.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-6.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -1805,11 +1547,9 @@
                                                 </div>
                                                 <!-- .landscape-product -->
                                                 <div class="landscape-product product">
-                                                    <a class="woocommerce-LoopProduct-link"
-                                                        href="single-product-fullwidth.html">
+                                                    <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image"
-                                                                src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -1842,11 +1582,9 @@
                                                 </div>
                                                 <!-- .landscape-product -->
                                                 <div class="landscape-product product">
-                                                    <a class="woocommerce-LoopProduct-link"
-                                                        href="single-product-fullwidth.html">
+                                                    <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image"
-                                                                src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -1879,11 +1617,9 @@
                                                 </div>
                                                 <!-- .landscape-product -->
                                                 <div class="landscape-product product">
-                                                    <a class="woocommerce-LoopProduct-link"
-                                                        href="single-product-fullwidth.html">
+                                                    <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image"
-                                                                src="<?= asset_url() ?>images/products/card-5.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-5.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -1916,11 +1652,9 @@
                                                 </div>
                                                 <!-- .landscape-product -->
                                                 <div class="landscape-product product">
-                                                    <a class="woocommerce-LoopProduct-link"
-                                                        href="single-product-fullwidth.html">
+                                                    <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image"
-                                                                src="<?= asset_url() ?>images/products/card-1.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-1.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -1953,11 +1687,9 @@
                                                 </div>
                                                 <!-- .landscape-product -->
                                                 <div class="landscape-product product">
-                                                    <a class="woocommerce-LoopProduct-link"
-                                                        href="single-product-fullwidth.html">
+                                                    <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image"
-                                                                src="<?= asset_url() ?>images/products/card-4.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-4.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -1986,11 +1718,9 @@
                                                 </div>
                                                 <!-- .landscape-product -->
                                                 <div class="landscape-product product">
-                                                    <a class="woocommerce-LoopProduct-link"
-                                                        href="single-product-fullwidth.html">
+                                                    <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image"
-                                                                src="<?= asset_url() ?>images/products/card-4.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-4.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -2062,26 +1792,20 @@
                                                 <i class="tm tm-arrow-left"></i>
                                             </a>
                                         </li>
-                                       
+
                                     </ul>
-                                    <div style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>images/banner/vertical-bg.png); height: 552px;"
-                                        class="tab-content">
+                                    <div style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>images/banner/vertical-bg.png); height: 552px;" class="tab-content">
                                         <div id="desktop-pc" class="tab-pane active" role="tabpanel">
-                                            <div class="products-carousel" data-ride="tm-slick-carousel"
-                                                data-wrap=".products"
-                                                data-slick="{&quot;rtl&quot;:true,&quot;infinite&quot;:false,&quot;slidesToShow&quot;:6,&quot;slidesToScroll&quot;:6,&quot;dots&quot;:true,&quot;arrows&quot;:false,&quot;responsive&quot;:[{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:2,&quot;slidesToScroll&quot;:2}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesToShow&quot;:3,&quot;slidesToScroll&quot;:3}},{&quot;breakpoint&quot;:1600,&quot;settings&quot;:{&quot;slidesToShow&quot;:4,&quot;slidesToScroll&quot;:4}}]}">
+                                            <div class="products-carousel" data-ride="tm-slick-carousel" data-wrap=".products" data-slick="{&quot;rtl&quot;:true,&quot;infinite&quot;:false,&quot;slidesToShow&quot;:6,&quot;slidesToScroll&quot;:6,&quot;dots&quot;:true,&quot;arrows&quot;:false,&quot;responsive&quot;:[{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:2,&quot;slidesToScroll&quot;:2}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesToShow&quot;:3,&quot;slidesToScroll&quot;:3}},{&quot;breakpoint&quot;:1600,&quot;settings&quot;:{&quot;slidesToShow&quot;:4,&quot;slidesToScroll&quot;:4}}]}">
                                                 <div class="container-fluid">
                                                     <div class="woocommerce columns-5">
                                                         <div class="products">
                                                             <div class="product">
                                                                 <div class="yith-wcwl-add-to-wishlist">
-                                                                    <a href="wishlist.html" rel="nofollow"
-                                                                        class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                    <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                 </div>
-                                                                <a href="single-product-fullwidth.html"
-                                                                    class="woocommerce-LoopProduct-link">
-                                                                    <img src="<?= asset_url() ?>images/products/12.jpg" width="224"
-                                                                        height="197" class="wp-post-image" alt="">
+                                                                <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                    <img src="<?= asset_url() ?>images/products/12.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
                                                                             <span class="amount" dircetion="rtl"> </span>
@@ -2093,22 +1817,17 @@
                                                                         23-Inch Screen LED-Lit Monitorss Buds</h2>
                                                                 </a>
                                                                 <div class="hover-area">
-                                                                    <a class="button add_to_cart_button"
-                                                                        href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                    <a class="add-to-compare-link"
-                                                                        href="compare.html">افزودن به مقایسه</a>
+                                                                    <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                    <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                 </div>
                                                             </div>
                                                             <!-- /.product-outer -->
                                                             <div class="product">
                                                                 <div class="yith-wcwl-add-to-wishlist">
-                                                                    <a href="wishlist.html" rel="nofollow"
-                                                                        class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                    <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                 </div>
-                                                                <a href="single-product-fullwidth.html"
-                                                                    class="woocommerce-LoopProduct-link">
-                                                                    <img src="<?= asset_url() ?>images/products/11.jpg" width="224"
-                                                                        height="197" class="wp-post-image" alt="">
+                                                                <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                    <img src="<?= asset_url() ?>images/products/11.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
                                                                             <span class="amount" dircetion="rtl"> </span>
@@ -2120,22 +1839,17 @@
                                                                         ultimate splashproof portable speaker</h2>
                                                                 </a>
                                                                 <div class="hover-area">
-                                                                    <a class="button add_to_cart_button"
-                                                                        href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                    <a class="add-to-compare-link"
-                                                                        href="compare.html">افزودن به مقایسه</a>
+                                                                    <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                    <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                 </div>
                                                             </div>
                                                             <!-- /.product-outer -->
                                                             <div class="product">
                                                                 <div class="yith-wcwl-add-to-wishlist">
-                                                                    <a href="wishlist.html" rel="nofollow"
-                                                                        class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                    <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                 </div>
-                                                                <a href="single-product-fullwidth.html"
-                                                                    class="woocommerce-LoopProduct-link">
-                                                                    <img src="<?= asset_url() ?>images/products/5.jpg" width="224"
-                                                                        height="197" class="wp-post-image" alt="">
+                                                                <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                    <img src="<?= asset_url() ?>images/products/5.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
                                                                             <span class="amount" dircetion="rtl"> </span>
@@ -2147,13 +1861,11 @@
                                                                         Wireless Controller</h2>
                                                                 </a>
                                                                 <div class="hover-area">
-                                                                    <a class="button add_to_cart_button"
-                                                                        href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                    <a class="add-to-compare-link"
-                                                                        href="compare.html">افزودن به مقایسه</a>
+                                                                    <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                    <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                 </div>
                                                             </div>
-                                                           
+
                                                         </div>
                                                     </div>
                                                     <!-- .woocommerce-->
@@ -2164,21 +1876,16 @@
                                         </div>
                                         <!-- .tab-pane -->
                                         <div id="ultrabooks" class="tab-pane" role="tabpanel">
-                                            <div class="products-carousel" data-ride="tm-slick-carousel"
-                                                data-wrap=".products"
-                                                data-slick="{&quot;rtl&quot;:true,&quot;infinite&quot;:false,&quot;slidesToShow&quot;:6,&quot;slidesToScroll&quot;:6,&quot;dots&quot;:true,&quot;arrows&quot;:false,&quot;responsive&quot;:[{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:2,&quot;slidesToScroll&quot;:2}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesToShow&quot;:3,&quot;slidesToScroll&quot;:3}},{&quot;breakpoint&quot;:1600,&quot;settings&quot;:{&quot;slidesToShow&quot;:4,&quot;slidesToScroll&quot;:4}}]}">
+                                            <div class="products-carousel" data-ride="tm-slick-carousel" data-wrap=".products" data-slick="{&quot;rtl&quot;:true,&quot;infinite&quot;:false,&quot;slidesToShow&quot;:6,&quot;slidesToScroll&quot;:6,&quot;dots&quot;:true,&quot;arrows&quot;:false,&quot;responsive&quot;:[{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:2,&quot;slidesToScroll&quot;:2}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesToShow&quot;:3,&quot;slidesToScroll&quot;:3}},{&quot;breakpoint&quot;:1600,&quot;settings&quot;:{&quot;slidesToShow&quot;:4,&quot;slidesToScroll&quot;:4}}]}">
                                                 <div class="container-fluid">
                                                     <div class="woocommerce columns-5">
                                                         <div class="products">
                                                             <div class="product">
                                                                 <div class="yith-wcwl-add-to-wishlist">
-                                                                    <a href="wishlist.html" rel="nofollow"
-                                                                        class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                    <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                 </div>
-                                                                <a href="single-product-fullwidth.html"
-                                                                    class="woocommerce-LoopProduct-link">
-                                                                    <img src="<?= asset_url() ?>images/products/16.jpg" width="224"
-                                                                        height="197" class="wp-post-image" alt="">
+                                                                <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                    <img src="<?= asset_url() ?>images/products/16.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
                                                                             <span class="amount" dircetion="rtl"> </span>
@@ -2190,22 +1897,17 @@
                                                                         Fitbit Flex</h2>
                                                                 </a>
                                                                 <div class="hover-area">
-                                                                    <a class="button add_to_cart_button"
-                                                                        href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                    <a class="add-to-compare-link"
-                                                                        href="compare.html">افزودن به مقایسه</a>
+                                                                    <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                    <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                 </div>
                                                             </div>
                                                             <!-- /.product-outer -->
                                                             <div class="product">
                                                                 <div class="yith-wcwl-add-to-wishlist">
-                                                                    <a href="wishlist.html" rel="nofollow"
-                                                                        class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                    <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                 </div>
-                                                                <a href="single-product-fullwidth.html"
-                                                                    class="woocommerce-LoopProduct-link">
-                                                                    <img src="<?= asset_url() ?>images/products/11.jpg" width="224"
-                                                                        height="197" class="wp-post-image" alt="">
+                                                                <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                    <img src="<?= asset_url() ?>images/products/11.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
                                                                             <span class="amount" dircetion="rtl"> </span>
@@ -2217,22 +1919,17 @@
                                                                         ultimate splashproof portable speaker</h2>
                                                                 </a>
                                                                 <div class="hover-area">
-                                                                    <a class="button add_to_cart_button"
-                                                                        href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                    <a class="add-to-compare-link"
-                                                                        href="compare.html">افزودن به مقایسه</a>
+                                                                    <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                    <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                 </div>
                                                             </div>
                                                             <!-- /.product-outer -->
                                                             <div class="product">
                                                                 <div class="yith-wcwl-add-to-wishlist">
-                                                                    <a href="wishlist.html" rel="nofollow"
-                                                                        class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                    <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                 </div>
-                                                                <a href="single-product-fullwidth.html"
-                                                                    class="woocommerce-LoopProduct-link">
-                                                                    <img src="<?= asset_url() ?>images/products/13.jpg" width="224"
-                                                                        height="197" class="wp-post-image" alt="">
+                                                                <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                    <img src="<?= asset_url() ?>images/products/13.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
                                                                             <span class="amount" dircetion="rtl"> </span>
@@ -2244,10 +1941,8 @@
                                                                         WIFI FPV With 4K</h2>
                                                                 </a>
                                                                 <div class="hover-area">
-                                                                    <a class="button add_to_cart_button"
-                                                                        href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                                    <a class="add-to-compare-link"
-                                                                        href="compare.html">افزودن به مقایسه</a>
+                                                                    <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                    <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2268,17 +1963,14 @@
                                     <h2 class="section-title">آخرین خبرها</h2>
                                     <nav class="custom-slick-nav"></nav>
                                 </header>
-                                <div class="products-carousel" data-ride="tm-slick-carousel" data-wrap=".products"
-                                    data-slick='{"rtl":true, "slidesToShow":5,"slidesToScroll":2,"dots":true,"arrows":true,"prevArrow":"<a href=\"#\"><i class=\"tm tm-arrow-right\"><\/i><\/a>","nextArrow":"<a href=\"#\"><i class=\"tm tm-arrow-left\"><\/i><\/a>","appendArrows":"#news .custom-slick-nav","responsive":[{"breakpoint":992,"settings":{"slidesToShow":2,"slidesToScroll":2}},{"breakpoint":1200,"settings":{"slidesToShow":3,"slidesToScroll":3}},{"breakpoint":1400,"settings":{"slidesToShow":3,"slidesToScroll":3}},{"breakpoint":1700,"settings":{"slidesToShow":4,"slidesToScroll":4}}]}'>
+                                <div class="products-carousel" data-ride="tm-slick-carousel" data-wrap=".products" data-slick='{"rtl":true, "slidesToShow":5,"slidesToScroll":2,"dots":true,"arrows":true,"prevArrow":"<a href=\"#\"><i class=\"tm tm-arrow-right\"><\/i><\/a>","nextArrow":"<a href=\"#\"><i class=\"tm tm-arrow-left\"><\/i><\/a>","appendArrows":"#news .custom-slick-nav","responsive":[{"breakpoint":992,"settings":{"slidesToShow":2,"slidesToScroll":2}},{"breakpoint":1200,"settings":{"slidesToShow":3,"slidesToScroll":3}},{"breakpoint":1400,"settings":{"slidesToShow":3,"slidesToScroll":3}},{"breakpoint":1700,"settings":{"slidesToShow":4,"slidesToScroll":4}}]}'>
                                     <div class="container-fluid">
                                         <div class="woocommerce columns-5">
                                             <div class="products">
                                                 <div class="landscape-product product">
-                                                    <a class="woocommerce-LoopProduct-link"
-                                                        href="single-product-fullwidth.html">
+                                                    <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image"
-                                                                src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -2297,11 +1989,9 @@
                                                 </div>
                                                 <!-- .landscape-product -->
                                                 <div class="landscape-product product">
-                                                    <a class="woocommerce-LoopProduct-link"
-                                                        href="single-product-fullwidth.html">
+                                                    <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image"
-                                                                src="<?= asset_url() ?>images/products/card-2.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-2.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -2320,11 +2010,9 @@
                                                 </div>
                                                 <!-- .landscape-product -->
                                                 <div class="landscape-product product">
-                                                    <a class="woocommerce-LoopProduct-link"
-                                                        href="single-product-fullwidth.html">
+                                                    <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image"
-                                                                src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -2343,11 +2031,9 @@
                                                 </div>
                                                 <!-- .landscape-product -->
                                                 <div class="landscape-product product">
-                                                    <a class="woocommerce-LoopProduct-link"
-                                                        href="single-product-fullwidth.html">
+                                                    <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image"
-                                                                src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -2366,11 +2052,9 @@
                                                 </div>
                                                 <!-- .landscape-product -->
                                                 <div class="landscape-product product">
-                                                    <a class="woocommerce-LoopProduct-link"
-                                                        href="single-product-fullwidth.html">
+                                                    <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image"
-                                                                src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -2389,11 +2073,9 @@
                                                 </div>
                                                 <!-- .landscape-product -->
                                                 <div class="landscape-product product">
-                                                    <a class="woocommerce-LoopProduct-link"
-                                                        href="single-product-fullwidth.html">
+                                                    <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image"
-                                                                src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -2412,11 +2094,9 @@
                                                 </div>
                                                 <!-- .landscape-product -->
                                                 <div class="landscape-product product">
-                                                    <a class="woocommerce-LoopProduct-link"
-                                                        href="single-product-fullwidth.html">
+                                                    <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image"
-                                                                src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -2435,11 +2115,9 @@
                                                 </div>
                                                 <!-- .landscape-product -->
                                                 <div class="landscape-product product">
-                                                    <a class="woocommerce-LoopProduct-link"
-                                                        href="single-product-fullwidth.html">
+                                                    <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image"
-                                                                src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -2468,8 +2146,7 @@
                             <!-- .section-products-carousel-tabs-->
                             <div class="banner full-width-banner">
                                 <a href="shop.html">
-                                    <div style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>images/banner/full-width.png); height: 236px;"
-                                        class="banner-bg">
+                                    <div style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>images/banner/full-width.png); height: 236px;" class="banner-bg">
                                         <div class="caption">
                                             <div class="banner-info">
                                                 <h3 class="title">
@@ -2488,10 +2165,9 @@
                                 <!-- /.section-header -->
                             </div>
                             <!-- /.product-carousel-with-banners -->
-                                <section class="brands-carousel">
+                            <section class="brands-carousel">
                                 <h2 class="sr-only">Brands Carousel</h2>
-                                <div class="col-full" data-ride="tm-slick-carousel" data-wrap=".brands"
-                                    data-slick='{"rtl":true,"slidesToShow":6,"slidesToScroll":1,"dots":false,"arrows":true,"responsive":[{"breakpoint":400,"settings":{"slidesToShow":1,"slidesToScroll":1}},{"breakpoint":800,"settings":{"slidesToShow":3,"slidesToScroll":3}},{"breakpoint":992,"settings":{"slidesToShow":3,"slidesToScroll":3}},{"breakpoint":1200,"settings":{"slidesToShow":4,"slidesToScroll":4}},{"breakpoint":1400,"settings":{"slidesToShow":5,"slidesToScroll":5}}]}'>
+                                <div class="col-full" data-ride="tm-slick-carousel" data-wrap=".brands" data-slick='{"rtl":true,"slidesToShow":6,"slidesToScroll":1,"dots":false,"arrows":true,"responsive":[{"breakpoint":400,"settings":{"slidesToShow":1,"slidesToScroll":1}},{"breakpoint":800,"settings":{"slidesToShow":3,"slidesToScroll":3}},{"breakpoint":992,"settings":{"slidesToShow":3,"slidesToScroll":3}},{"breakpoint":1200,"settings":{"slidesToShow":4,"slidesToScroll":4}},{"breakpoint":1400,"settings":{"slidesToShow":5,"slidesToScroll":5}}]}'>
                                     <div class="brands">
                                         <div class="item">
                                             <a href="shop.html">
@@ -2502,8 +2178,7 @@
                                                         </div>
                                                         <!-- /.info -->
                                                     </figcaption>
-                                                    <img width="145" height="50" class="img-responsive desaturate"
-                                                        alt="apple" src="<?= asset_url() ?>images/brands/1.png">
+                                                    <img width="145" height="50" class="img-responsive desaturate" alt="apple" src="<?= asset_url() ?>images/brands/1.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -2517,8 +2192,7 @@
                                                         </div>
                                                         <!-- /.info -->
                                                     </figcaption>
-                                                    <img width="145" height="50" class="img-responsive desaturate"
-                                                        alt="bosch" src="<?= asset_url() ?>images/brands/2.png">
+                                                    <img width="145" height="50" class="img-responsive desaturate" alt="bosch" src="<?= asset_url() ?>images/brands/2.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -2532,8 +2206,7 @@
                                                         </div>
                                                         <!-- /.info -->
                                                     </figcaption>
-                                                    <img width="145" height="50" class="img-responsive desaturate"
-                                                        alt="cannon" src="<?= asset_url() ?>images/brands/3.png">
+                                                    <img width="145" height="50" class="img-responsive desaturate" alt="cannon" src="<?= asset_url() ?>images/brands/3.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -2547,8 +2220,7 @@
                                                         </div>
                                                         <!-- /.info -->
                                                     </figcaption>
-                                                    <img width="145" height="50" class="img-responsive desaturate"
-                                                        alt="connect" src="<?= asset_url() ?>images/brands/4.png">
+                                                    <img width="145" height="50" class="img-responsive desaturate" alt="connect" src="<?= asset_url() ?>images/brands/4.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -2562,8 +2234,7 @@
                                                         </div>
                                                         <!-- /.info -->
                                                     </figcaption>
-                                                    <img width="145" height="50" class="img-responsive desaturate"
-                                                        alt="galaxy" src="<?= asset_url() ?>images/brands/5.png">
+                                                    <img width="145" height="50" class="img-responsive desaturate" alt="galaxy" src="<?= asset_url() ?>images/brands/5.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -2577,8 +2248,7 @@
                                                         </div>
                                                         <!-- /.info -->
                                                     </figcaption>
-                                                    <img width="145" height="50" class="img-responsive desaturate"
-                                                        alt="gopro" src="<?= asset_url() ?>images/brands/6.png">
+                                                    <img width="145" height="50" class="img-responsive desaturate" alt="gopro" src="<?= asset_url() ?>images/brands/6.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -2592,8 +2262,7 @@
                                                         </div>
                                                         <!-- /.info -->
                                                     </figcaption>
-                                                    <img width="145" height="50" class="img-responsive desaturate"
-                                                        alt="handspot" src="<?= asset_url() ?>images/brands/7.png">
+                                                    <img width="145" height="50" class="img-responsive desaturate" alt="handspot" src="<?= asset_url() ?>images/brands/7.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -2607,8 +2276,7 @@
                                                         </div>
                                                         <!-- /.info -->
                                                     </figcaption>
-                                                    <img width="145" height="50" class="img-responsive desaturate"
-                                                        alt="kinova" src="<?= asset_url() ?>images/brands/8.png">
+                                                    <img width="145" height="50" class="img-responsive desaturate" alt="kinova" src="<?= asset_url() ?>images/brands/8.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -2622,11 +2290,11 @@
                                                         </div>
                                                         <!-- /.info -->
                                                     </figcaption>
-                                                    <img width="145" height="50" class="img-responsive desaturate"
-                                                        alt="nespresso" src="<?= asset_url() ?>images/brands/9.png">
+                                                    <img width="145" height="50" class="img-responsive desaturate" alt="nespresso" src="<?= asset_url() ?>images/brands/9.png">
                                                 </figure>
                                             </a>
-     `                                   </div>
+                                            `
+                                        </div>
                                         <!-- .item -->
                                         <div class="item">
                                             <a href="shop.html">
@@ -2637,8 +2305,7 @@
                                                         </div>
                                                         <!-- /.info -->
                                                     </figcaption>
-                                                    <img width="145" height="50" class="img-responsive desaturate"
-                                                        alt="samsung" src="<?= asset_url() ?>images/brands/10.png">
+                                                    <img width="145" height="50" class="img-responsive desaturate" alt="samsung" src="<?= asset_url() ?>images/brands/10.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -2652,8 +2319,7 @@
                                                         </div>
                                                         <!-- /.info -->
                                                     </figcaption>
-                                                    <img width="145" height="50" class="img-responsive desaturate"
-                                                        alt="speedway" src="<?= asset_url() ?>images/brands/11.png">
+                                                    <img width="145" height="50" class="img-responsive desaturate" alt="speedway" src="<?= asset_url() ?>images/brands/11.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -2667,8 +2333,7 @@
                                                         </div>
                                                         <!-- /.info -->
                                                     </figcaption>
-                                                    <img width="145" height="50" class="img-responsive desaturate"
-                                                        alt="yoko" src="<?= asset_url() ?>images/brands/12.png">
+                                                    <img width="145" height="50" class="img-responsive desaturate" alt="yoko" src="<?= asset_url() ?>images/brands/12.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -2687,4 +2352,3 @@
             </div>
             <!-- .col-full -->
         </div>
-       

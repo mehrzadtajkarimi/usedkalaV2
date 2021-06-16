@@ -12,5 +12,6 @@ $dotenv->load();
 $request = new Request;
 
 include BASEPATH . "helpers/helper.php";
-include BASEPATH . "routes/web.php";
+include BASEPATH . "routes/backend.php";
+include BASEPATH . "routes/frontend.php";
 

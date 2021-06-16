@@ -63,20 +63,20 @@
                 "showMethod": "fadeIn",
                 "hideMethod": "fadeOut"
             }
-            @if($errors -> any())
-            @foreach($errors -> all() as $error)
-            var error = '{{ $error }}';
-            toastr["error"](error);
-            @endforeach
-            @endif
+            // @if($errors -> any())
+            // @foreach($errors -> all() as $error)
+            // var error = '{{ $error }}';
+            // toastr["error"](error);
+            // @endforeach
+            // @endif
 
-            @foreach(['success', 'error', 'info', 'warning'] as $msgType)
-            @if(session() -> has($msgType))
-            var msgType = '{{ $msgType }}';
-            var msgText = '{{ session($msgType) }}';
-            toastr[msgType](msgText);
-            @endif
-            @endforeach
+            // @foreach(['success', 'error', 'info', 'warning'] as $msgType)
+            // @if(session() -> has($msgType))
+            // var msgType = '{{ $msgType }}';
+            // var msgText = '{{ session($msgType) }}';
+            // toastr[msgType](msgText);
+            // @endif
+            // @endforeach
         });
         $(document).ready(function() {
             $('input').iCheck({
@@ -87,3 +87,7 @@
     </script>
     <button class='btn-loading-black invisible'></button>
     <button class='btn-loading-white invisible'></button>
+
+    </body>
+
+</html>

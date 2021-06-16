@@ -6,13 +6,12 @@ use App\Core\Request;
 use App\Core\Routing\Route;
 use App\Middleware\GlobalMiddleware;
 
-const  BASE_CONTROLLER = '\App\Controllers\\';
 class Router
 {
     private $request;
     private $routes;
     private $route_current;
-    const BASE_CONTROLLER = '\App\Controllers\\';
+    const BASE_CONTROLLER = '\App\Controllers\frontend\\';
 
 
 
@@ -79,7 +78,7 @@ class Router
     private function dispatch_404()
     {
         header("HTTP/1.0 404 Not Found");
-        view('error.404');
+        view_error('error.404');
         die();
     }
 
@@ -96,6 +95,7 @@ class Router
             $action = explode('@', $action);
         }
         if (is_array($action)) {
+       
             $class_name  = self::BASE_CONTROLLER . $action[0];
             $method_name = $action[1];
             if (!class_exists($class_name)) {

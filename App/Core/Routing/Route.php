@@ -10,6 +10,7 @@ class Route
     private static function add($method, $uri, $action,  $middleware)
     {
         $method = is_array($method) ? $method : [$method];
+
         self::$routes[] = [
             'method'     => $method,
             'uri'        => $uri,
@@ -20,6 +21,14 @@ class Route
     public static function routes()
     {
         return self::$routes;
+    }
+
+    public static function group($callback)
+    {
+        if (is_callable($callback)) {
+            $callback();
+        }
+        return;
     }
     public static function get($uri, $action, $middleware = [])
     {
