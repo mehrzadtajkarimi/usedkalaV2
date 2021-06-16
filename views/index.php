@@ -2626,7 +2626,7 @@
                                                         alt="nespresso" src="<?= asset_url() ?>images/brands/9.png">
                                                 </figure>
                                             </a>
-                                        </div>
+     `                                   </div>
                                         <!-- .item -->
                                         <div class="item">
                                             <a href="shop.html">
