@@ -22,7 +22,7 @@ function view_back($path, $data = [])
     include_once BASEPATH . "views/backend/layouts/head.php";
     include_once BASEPATH . "views/backend/layouts/nav.php";
     include_once BASEPATH . "views/backend/layouts/mainSidebar.php";
-    include_once BASEPATH . "views/$path.php";
+    include_once BASEPATH . "views/backend/$path.php";
     include_once BASEPATH . "views/backend/layouts/footer.php";
 }
 function view_error($path, $data = [])
@@ -33,6 +33,8 @@ function view_error($path, $data = [])
     include_once BASEPATH . "views/$path.php";
 
 }
+
+
 function xss_clean($str)
 {
     return filter_var(htmlspecialchars($str), FILTER_SANITIZE_STRING);

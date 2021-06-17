@@ -11,7 +11,7 @@ class Router
     private $request;
     private $routes;
     private $route_current;
-    const BASE_CONTROLLER = '\App\Controllers\frontend\\';
+    const BASE_CONTROLLER = '\App\Controllers\\';
 
 
 
@@ -95,8 +95,10 @@ class Router
             $action = explode('@', $action);
         }
         if (is_array($action)) {
-       
-            $class_name  = self::BASE_CONTROLLER . $action[0];
+
+            $uri_separator = explode('/',$route['uri']);
+            $namespace_of_controller = $uri_separator[1] =='admin' ? 'backend\\' : 'frontend\\';
+            $class_name  = self::BASE_CONTROLLER .$namespace_of_controller. $action[0];
             $method_name = $action[1];
             if (!class_exists($class_name)) {
                 throw new \Exception("class $class_name Not Exists");
