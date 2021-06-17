@@ -10,9 +10,9 @@
        <div class="sidebar">
            <div>
                <!-- Sidebar user panel (optional) -->
-               <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+               <div class="pb-3 mt-3 mb-3 user-panel d-flex">
                    <div class="image">
-                       <img src="{{ asset('/panel/dist/img/user.png') }}" class="img-circle " alt="User Image">
+                       <img src="<?= asset_url() ?>panel/dist/img/user.png" class="img-circle " alt="User Image">
                    </div>
                    <div class="info">
                        <a href="#" class="d-block"> مهرزاد</a>
@@ -37,7 +37,7 @@
                            <ul class="nav nav-treeview">
                                <li class="nav-item">
                                    <a href="{{ route('user.index') }}" class="nav-link @yield('sidebar-user')">
-                                       <i class="far fa-circle  ml-2 nav-icon"></i>
+                                       <i class="ml-2 far fa-circle nav-icon"></i>
                                        <p>لیست کاربران</p>
                                    </a>
                                </li>

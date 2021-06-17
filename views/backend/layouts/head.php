@@ -15,7 +15,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="<?= asset_url() ?>panel/plugins/font-awesome/css/all.css">
-    <link rel="icon" sizes="114x114" type="image/x-icon" href="{{ asset('front/img/favicon.png" />
+    <link rel="icon" sizes="114x114" type="image/x-icon" href="<?= asset_url() ?>front/img/favicon.png" />
 
 
     <link rel="stylesheet" href="<?= asset_url() ?>panel/dist/css/ionicons.min.css">

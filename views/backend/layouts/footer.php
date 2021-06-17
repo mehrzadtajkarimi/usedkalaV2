@@ -20,29 +20,29 @@
     <!-- REQUIRED SCRIPTS -->
 
     <!-- jQuery -->
-    <script src="{{ asset('/panel/plugins/jquery/jquery.min.js')}}"></script>
+    <script src="<?= asset_url() ?>panel/plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap 4 -->
-    <script src="{{ asset('/panel/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="<?= asset_url() ?>panel/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="{{ asset('/panel/dist/js/adminlte.js')}}"></script>
+    <script src="<?= asset_url() ?>panel/dist/js/adminlte.js"></script>
 
-    <script src="{{asset('/panel/plugins/jQuery-Toast-Message-Plugin/build/toastr.min.js')}}"></script>
+    <script src="<?= asset_url() ?>panel/plugins/jQuery-Toast-Message-Plugin/build/toastr.min.js"></script>
 
-    <script src="{{ asset('/panel/plugins/chart.js/Chart.js')}}"></script>
-    <script src="{{ asset('/panel/dist/js/demo.js')}}"></script>
-    <script src="{{ asset('/panel/dist/js/pages/dashboard3.js')}}"></script>
-    <script src="{{asset('/panel/plugins/select2/select2.full.js')}}"></script>
-    <script src="{{asset('/panel/plugins/jQuery-Toast-Message-Plugin/build/toastr.min.js')}}"></script>
+    <script src="<?= asset_url() ?>panel/plugins/chart.js/Chart.js"></script>
+    <script src="<?= asset_url() ?>panel/dist/js/demo.js"></script>
+    <script src="<?= asset_url() ?>panel/dist/js/pages/dashboard3.js"></script>
+    <script src="<?= asset_url() ?>panel/plugins/select2/select2.full.js"></script>
+    <script src="<?= asset_url() ?>panel/plugins/jQuery-Toast-Message-Plugin/build/toastr.min.js"></script>
 
-    <script src="{{ asset('/panel/plugins/font-awesome/js/all.js') }}"></script>
+    <script src="<?= asset_url() ?>panel/plugins/font-awesome/js/all.js"></script>
 
 
 
-    <script src="{{ asset('js/admin.js') }}"></script>
-    <script src="{{ asset('/panel/plugins/datepicker/persian-date.min.js')}}"></script>
-    <script src="{{ asset('/panel/plugins/datepicker/persian-datepicker.min.js')}}"></script>
+    <script src="<?= asset_url() ?>js/admin.js"></script>
+    <script src="<?= asset_url() ?>panel/plugins/datepicker/persian-date.min.js"></script>
+    <script src="<?= asset_url() ?>panel/plugins/datepicker/persian-datepicker.min.js"></script>
 
-    <script src="{{ asset('/panel/plugins/iCheck/icheck.js') }}"></script>
+    <script src="<?= asset_url() ?>panel/plugins/iCheck/icheck.js"></script>
     @yield('script')
     <script>
         $(document).ready(function() {
@@ -85,8 +85,8 @@
             });
         });
     </script>
-    <button class='btn-loading-black invisible'></button>
-    <button class='btn-loading-white invisible'></button>
+    <button class='invisible btn-loading-black'></button>
+    <button class='invisible btn-loading-white'></button>
 
     </body>
 

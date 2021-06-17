@@ -4,7 +4,6 @@ namespace App\Core\Routing;
 
 class Route
 {
-
     private static $routes = [];
 
     private static function add($method, $uri, $action,  $middleware)
