@@ -36,7 +36,7 @@
                            </a>
                            <ul class="nav nav-treeview">
                                <li class="nav-item">
-                                   <a href="{{ route('user.index') }}" class="nav-link @yield('sidebar-user')">
+                                   <a href="<?= base_url('') ?>admin/users" class="nav-link @yield('sidebar-user')">
                                        <i class="ml-2 far fa-circle nav-icon"></i>
                                        <p>لیست کاربران</p>
                                    </a>
@@ -70,3 +70,9 @@
        </div>
        <!-- /.sidebar -->
    </aside>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Main content -->
+    <div class="content">
+        <div class="container-fluid">

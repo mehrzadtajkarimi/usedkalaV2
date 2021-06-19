@@ -16,6 +16,6 @@ use App\Middleware\Gate;
 
 
 Route::group(function(){
-
 Route::get('/admin','HomeController@index');
+Route::get('/admin/users','UserController@index');
 });

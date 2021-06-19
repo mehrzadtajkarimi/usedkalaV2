@@ -97,8 +97,8 @@ class Router
         if (is_array($action)) {
 
             $uri_separator = explode('/',$route['uri']);
-            $namespace_of_controller = $uri_separator[1] =='admin' ? 'backend\\' : 'frontend\\';
-            $class_name  = self::BASE_CONTROLLER .$namespace_of_controller. $action[0];
+            $routing = $uri_separator[1] =='admin' ? 'backend\\' : 'frontend\\';
+            $class_name  = self::BASE_CONTROLLER .$routing. $action[0];
             $method_name = $action[1];
             if (!class_exists($class_name)) {
                 throw new \Exception("class $class_name Not Exists");
