@@ -2,6 +2,8 @@
 
 use App\Core\Request;
 
+session_start();
+
 define('BASEPATH',$_SERVER['DOCUMENT_ROOT'].'/');
 
 

@@ -12,7 +12,7 @@
                <!-- Sidebar user panel (optional) -->
                <div class="pb-3 mt-3 mb-3 user-panel d-flex">
                    <div class="image">
-                       <img src="<?= asset_url() ?>panel/dist/img/user.png" class="img-circle " alt="User Image">
+                       <img src="<?= asset_url() ?>panel/img/user.png" class="img-circle " alt="User Image">
                    </div>
                    <div class="info">
                        <a href="#" class="d-block"> مهرزاد</a>

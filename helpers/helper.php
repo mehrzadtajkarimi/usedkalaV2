@@ -25,7 +25,7 @@ function view_back($path, $data = [])
     include_once BASEPATH . "views/backend/$path.php";
     include_once BASEPATH . "views/backend/layouts/footer.php";
 }
-function view_error($path, $data = [])
+function view_flash_message($path, $data = [])
 {
     extract($data);
     $path = str_replace('.', '/', $path);

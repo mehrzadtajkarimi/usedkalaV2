@@ -14,21 +14,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- <script src="https://kit.fontawesome.com/8e6fa7d1cb.js" crossorigin="anonymous"></script> -->
 
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="<?= asset_url() ?>panel/plugins/font-awesome/css/all.css">
+    <link rel="stylesheet" href="<?= asset_url() ?>plugins/font-awesome/css/all.css">
     <link rel="icon" sizes="114x114" type="image/x-icon" href="<?= asset_url() ?>front/img/favicon.png" />
 
 
-    <link rel="stylesheet" href="<?= asset_url() ?>panel/dist/css/ionicons.min.css">
-    <link rel="stylesheet" href="<?= asset_url() ?>panel/plugins/select2/select2.css">
-    <link rel="stylesheet" href="<?= asset_url() ?>panel/plugins/iCheck/all.css">
+    <link rel="stylesheet" href="<?= asset_url() ?>panel/css/ionicons.min.css">
+    <link rel="stylesheet" href="<?= asset_url() ?>plugins/select2/select2.css">
+    <link rel="stylesheet" href="<?= asset_url() ?>plugins/iCheck/all.css">
+    <link rel="stylesheet" href="<?= asset_url() ?>plugins/flash_message/toastr.min.css">
 
     <!-- Theme style -->
-    <link rel="stylesheet" href="<?= asset_url() ?>panel/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="<?= asset_url() ?>panel/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
-    <link href="<?= asset_url() ?>panel/dist/fonts/font.css" rel="stylesheet">
+    <link href="<?= asset_url() ?>panel/fonts/font.css" rel="stylesheet">
 
     <!-- bootstrap rtl -->
-    <link rel="stylesheet" href="<?= asset_url() ?>panel/dist/css/bootstrap-rtl.min.css">
+    <link rel="stylesheet" href="<?= asset_url() ?>panel/css/bootstrap-rtl.min.css">
     <!-- template rtl version -->
-    <link rel="stylesheet" href="<?= asset_url() ?>panel/dist/css/custom-style.css">
+    <link rel="stylesheet" href="<?= asset_url() ?>panel/css/custom-style.css">
 </head>

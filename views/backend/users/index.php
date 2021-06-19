@@ -61,50 +61,50 @@
                                 <th>اطلاعات ورود</th>
                                 <th class="text-center">عملیات</th>
                             </tr>
-     
 
 
-                                <tr class="vertical-align">
-                                    <td class="text-center" width="10px">11</td>
-                                    <td class="text-center">
-                                        <span>1500<sub class="text-muted">/1</sub></span>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <span>اسم</span>
-                                            <span>فامیلی</span>
-                                        </div>
-                                        <div>
-                                            <small>email</small>
-                                        </div>
-                                        <div>
-                                            <small>شماره موبایل</small>
-                                        </div>
-                                        <div>
-                                            <small>کد ملی</small>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <small>ورود دو عاملی : </small>
-                                            <i class="fa fa-times text-danger"></i>
-                                            <!-- <i class="fa fa-check text-success"></i> -->
-                                            <small>
-                                            </small>
-                                        </div>
-                                        <div>
-                                            <small>آخرین ورود : </small>
-                                            <small>
-                                                <bdi class="arabic-num">timestamp</bdi>
-                                            </small>
-                                        </div>
-                                        <div>
-                                            <small>وضعیت کاربر : </small>
-                                            <i class="fa fa-check text-success"></i>
-                                            <!-- <i class="fa fa-times text-danger"></i> -->
-                                        </div>
-                                        <div>
-                                            <!-- <small>مبتدی:</small>
+
+                            <tr class="vertical-align">
+                                <td class="text-center" width="10px">11</td>
+                                <td class="text-center">
+                                    <span>1500<sub class="text-muted">/1</sub></span>
+                                </td>
+                                <td>
+                                    <div>
+                                        <span>اسم</span>
+                                        <span>فامیلی</span>
+                                    </div>
+                                    <div>
+                                        <small>email</small>
+                                    </div>
+                                    <div>
+                                        <small>شماره موبایل</small>
+                                    </div>
+                                    <div>
+                                        <small>کد ملی</small>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <small>ورود دو عاملی : </small>
+                                        <i class="fa fa-times text-danger"></i>
+                                        <!-- <i class="fa fa-check text-success"></i> -->
+                                        <small>
+                                        </small>
+                                    </div>
+                                    <div>
+                                        <small>آخرین ورود : </small>
+                                        <small>
+                                            <bdi class="arabic-num">timestamp</bdi>
+                                        </small>
+                                    </div>
+                                    <div>
+                                        <small>وضعیت کاربر : </small>
+                                        <i class="fa fa-check text-success"></i>
+                                        <!-- <i class="fa fa-times text-danger"></i> -->
+                                    </div>
+                                    <div>
+                                        <!-- <small>مبتدی:</small>
                                             <i class="fa fa-star text-lighter"></i>
                                             <small>نقره ای : </small>
                                             <i class="fa fa-star text-secondary"></i>
@@ -113,22 +113,22 @@
                                             <i class="fa fa-star text-warning"></i>
                                             <i class="fa fa-star text-warning"></i>
                                             <i class="fa fa-star text-warning"></i> -->
-                                            <small>VIP : </small>
-                                            <i class="fa fa-star text-warning"></i>
-                                            <i class="fa fa-star text-warning"></i>
-                                            <i class="fa fa-star text-warning"></i>
-                                            <i class="fa fa-star text-warning"></i>
-                                        </div>
-                                    </td>
-                                    <td class="text-center">
-                                        <div class="row mb-1 p-1">
-                                            <a href="{{ route('user.show',$value->id) }}" class="btn btn-light btn-sm rounded vertical-align col-6">مشاهده جزئیات</a>
-                                            <a href="{{ route('user.permission',$value->id) }}" class="btn btn-light btn-sm rounded vertical-align col-6"> دسترسی ها</a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                        <small>VIP : </small>
+                                        <i class="fa fa-star text-warning"></i>
+                                        <i class="fa fa-star text-warning"></i>
+                                        <i class="fa fa-star text-warning"></i>
+                                        <i class="fa fa-star text-warning"></i>
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <div class="row mb-1 p-1">
+                                        <a href="{{ route('user.show',$value->id) }}" class="btn btn-light btn-sm rounded vertical-align col-6">مشاهده جزئیات</a>
+                                        <a href="{{ route('user.permission',$value->id) }}" class="btn btn-light btn-sm rounded vertical-align col-6"> دسترسی ها</a>
+                                    </div>
+                                </td>
+                            </tr>
 
-                   
+
 
 
                             <tr class="alert alert-secondary" role="alert">
@@ -142,7 +142,7 @@
                 </div>
                 <div class="card-footer">
                     <span class="float-left">
-                      1.2.3.
+                        1.2.3.
                     </span>
                 </div>
             </div>
