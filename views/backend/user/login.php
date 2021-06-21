@@ -12,28 +12,28 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="<?= asset_url() ?>backend/dist/css/adminlte.min.css">
   <!-- iCheck -->
-  <link rel="stylesheet" href="../../plugins/iCheck/square/blue.css">
+  <link rel="stylesheet" href="<?= asset_url() ?>backend/plugins/iCheck/square/blue.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
   <!-- bootstrap rtl -->
-  <link rel="stylesheet" href="../../dist/css/bootstrap-rtl.min.css">
+  <link rel="stylesheet" href="<?= asset_url() ?>backend/dist/css/bootstrap-rtl.min.css">
   <!-- template rtl version -->
-  <link rel="stylesheet" href="../../dist/css/custom-style.css">
+  <link rel="stylesheet" href="<?= asset_url() ?>backend/dist/css/custom-style.css">
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>ورود به سایت</b></a>
+    <a href="<?= base_url() ?>admin"><b>ورود به سایت</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">فرم زیر را تکمیل کنید و ورود بزنید</p>
 
-      <form action="../../index2.html" method="post">
+      <form action="<?= base_url() ?>admin/login" >
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="ایمیل">
           <div class="input-group-append">
@@ -86,11 +86,11 @@
 <!-- /.login-box -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
+<script src="<?= asset_url() ?>backend/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?= asset_url() ?>backend/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- iCheck -->
-<script src="../../plugins/iCheck/icheck.min.js"></script>
+<script src="<?= asset_url() ?>backend/plugins/iCheck/icheck.min.js"></script>
 <script>
   $(function () {
     $('input').iCheck({
