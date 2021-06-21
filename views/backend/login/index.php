@@ -1,68 +1,104 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    @include('admin.layout.include.head')
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>پنل مدیریت | صفحه ورود</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="../../plugins/iCheck/square/blue.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  <!-- bootstrap rtl -->
+  <link rel="stylesheet" href="../../dist/css/bootstrap-rtl.min.css">
+  <!-- template rtl version -->
+  <link rel="stylesheet" href="../../dist/css/custom-style.css">
 </head>
-<style>
-    .main-footer {
-        border-top: 0px;
-    }
-</style>
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <a href="../../index2.html"><b>ورود به سایت</b></a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">فرم زیر را تکمیل کنید و ورود بزنید</p>
 
-<body>
-    <div class="container">
-        <div class="row justify-content-md-center">
-            <div class="col-lg-7">
-                <div class="card card-info mt-5 shadow ">
-                    <div class="card-header bg-transparent  d-flex justify-content-center">
-                        <img src="{{ asset('/admin/dist/img/logo-web.png')}}" class="w-25 float-left pb-2 " alt="">
-                    </div>
-                    <!-- /.card-header -->
-                    <!-- form start -->
-                    <form class="form-horizontal" action="{{ route('login') }}" method="post">
-                        @csrf
-                        <div class="card-body" style="direction: ltr;">
-                            <div class="form-group">
-                                <label for="input1" class="col-sm-2 control-label">ایمیل</label>
-                                <div class="col-sm-12 ">
-                                    <input autocomplete="off" type="email" name="email" class="form-control" id="input1" placeholder="email" value="{{old('email')}}" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="input2" class="col-sm-2 control-label">رمز ورود</label>
-                                <div class="col-sm-12">
-                                    <input autocomplete="off" type="password" name="password" class="form-control" id="input2" placeholder="password" required>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <!-- /.card-body -->
-                        <div class="card-footer">
-                            <div class="col-md-6 offset-3">
-                                <button type="submit" class="btn btn-info btn-block"> ورود پنل ادمین</button>
-                            </div>
-                        </div>
-                        <!-- /.card-footer -->
-                    </form>
-                </div>
-
-            </div>
-
+      <form action="../../index2.html" method="post">
+        <div class="input-group mb-3">
+          <input type="email" class="form-control" placeholder="ایمیل">
+          <div class="input-group-append">
+            <span class="fa fa-envelope input-group-text"></span>
+          </div>
         </div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" placeholder="رمز عبور">
+          <div class="input-group-append">
+            <span class="fa fa-lock input-group-text"></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <div class="checkbox icheck">
+              <label>
+                <input type="checkbox"> یاد آوری من
+              </label>
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block btn-flat">ورود</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
 
+      <div class="social-auth-links text-center mb-3">
+        <p>- OR -</p>
+        <a href="#" class="btn btn-block btn-primary">
+          <i class="fa fa-facebook mr-2"></i> ورود با اکانت فیسوبک
+        </a>
+        <a href="#" class="btn btn-block btn-danger">
+          <i class="fa fa-google-plus mr-2"></i> ورود با اکانت گوگل
+        </a>
+      </div>
+      <!-- /.social-auth-links -->
 
-
+      <p class="mb-1">
+        <a href="#">رمز عبورم را فراموش کرده ام.</a>
+      </p>
+      <p class="mb-0">
+        <a href="register.html" class="text-center">ثبت نام</a>
+      </p>
     </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>
+<!-- /.login-box -->
 
-    <!-- /.content-wrapper -->
-    <footer class="main-footer">
-        @include('admin.layout.include.footer')
-    </footer>
-
-
-
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- iCheck -->
+<script src="../../plugins/iCheck/icheck.min.js"></script>
+<script>
+  $(function () {
+    $('input').iCheck({
+      checkboxClass: 'icheckbox_square-blue',
+      radioClass   : 'iradio_square-blue',
+      increaseArea : '20%' // optional
+    })
+  })
+</script>
 </body>
-
 </html>

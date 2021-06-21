@@ -9,6 +9,6 @@ class HomeController
     public function index()
     {
         global $request;
-        return view_front('index',['request'=>$request]);
+        return view('frontend.index',['request'=>$request]);
     }
 }

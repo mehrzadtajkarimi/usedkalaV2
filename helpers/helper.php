@@ -7,33 +7,30 @@ function asset_url($route = null)
 {
     return  base_url('assets/' . $route);
 }
-function view_front($content_path, $data = [])
+function view($path, $data = [], $layout = true)
 {
-    $content_path = str_replace('.', DIRECTORY_SEPARATOR, $content_path);
-    $full_view_path = BASEPATH . "views/frontend/$content_path.php";
-    if (file_exists($full_view_path) && is_readable($full_view_path)) {
-        ob_start();
-        extract($data);
-        include_once $full_view_path;
-        $view = ob_get_clean();
-        include_once BASEPATH . "views/frontend/layouts/master.php";
-    }
-    include_once BASEPATH . "views/error/404.php";
-}
-function view_back($content_path, $data = [])
-{
-    $content_path = str_replace('.', DIRECTORY_SEPARATOR, $content_path);
-    $full_view_path = BASEPATH . "views/backend/$content_path.php";
-    if (file_exists($full_view_path) && is_readable($full_view_path)) {
-        ob_start();
-        extract($data);
-        include_once $full_view_path;
-        $view = ob_get_clean();
-        include_once BASEPATH . "views/backend/layouts/master.php";
-    }
-    include_once BASEPATH . "views/error/404.php";
+    $path = str_replace('.', DIRECTORY_SEPARATOR, $path);
+    $path_explode = explode('/', $path);
+    $full_path = BASEPATH . "views/$path.php";
+    $is_file = is_readable($full_path) && file_exists($full_path);
 
+    if ($layout) {
+        $is_file ? buffering($full_path, $data, $path_explode[0]) : include_once BASEPATH . "views/error/404.php";
+    } else {
+        $is_file ? buffering($full_path, $data) : include_once BASEPATH . "views/error/404.php";
+    }
 }
+function buffering($full_path_view, $data, $dir = null)
+{
+    ob_start();
+    extract($data);
+    include_once $full_path_view;
+    $view = ob_get_clean();
+    if (!is_null($dir)) {
+        include_once BASEPATH . "views/$dir/layouts/master.php";
+    }
+}
+
 function view_flash_message($path, $data = [])
 {
     extract($data);
