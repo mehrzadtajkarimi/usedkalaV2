@@ -65,7 +65,7 @@
                  <div class="footer-contact">
                      <div class="footer-logo">
                          <a href="home-v1.html" class="custom-logo-link" rel="home">
-                             <img src="<?= asset_url() ?>images/uklogo.png" alt="یوزدکالا">
+                             <img src="<?= asset_url() ?>frontend/images/uklogo.png" alt="یوزدکالا">
                          </a>
                      </div>
                      <!-- .footer-logo -->
@@ -99,7 +99,7 @@
                                                 <ul class="list-payment-icons nav">
                                                     <li class="nav-item">
                                                         <img class="payment-icon-image"
-                                                            src="<?= asset_url() ?>images/credit-cards/1.png"
+                                                            src="<?= asset_url() ?>frontend/images/credit-cards/1.png"
                                                             alt="mastercard" />
                                                     </li>
                                                 </ul>
@@ -110,11 +110,11 @@
                                                 <ul class="footer-secured-by-icons">
                                                     <li class="nav-item">
                                                         <img class="secure-icons-image"
-                                                            src="<?= asset_url() ?>images/secured-by/norton.svg" alt="norton" />
+                                                            src="<?= asset_url() ?>frontend/images/secured-by/norton.svg" alt="norton" />
                                                     </li>
                                                     <li class="nav-item">
                                                         <img class="secure-icons-image"
-                                                            src="<?= asset_url() ?>images/secured-by/mcafee.svg" alt="mcafee" />
+                                                            src="<?= asset_url() ?>frontend/images/secured-by/mcafee.svg" alt="mcafee" />
                                                     </li>
                                                 </ul>
                                             </div> -->
@@ -236,7 +236,20 @@
                  <!-- .footer-widgets -->
              </div>
              <!-- .row -->
-         </div>
+         </div>?>js/
+?>js/
+?>js/
+?>js/
+?>js/
+?>js/
+?>js/
+?>js/
+?>js/
+?>js/
+?>js/
+?>js/
+?>js/
+?>js/
          <!-- .footer-widgets-block -->
          <div class="site-info">
              <div class="col-full">
@@ -375,20 +388,20 @@
      </div>
  </div> -->
  <!-- For demo purposes – can be removed on production : End -->
- <script type="text/javascript" src="<?= asset_url() ?>js/jquery.min.js"></script>
- <script type="text/javascript" src="<?= asset_url() ?>js/tether.min.js"></script>
- <script type="text/javascript" src="<?= asset_url() ?>js/bootstrap.min.js"></script>
- <script type="text/javascript" src="<?= asset_url() ?>js/jquery-migrate.min.js"></script>
- <script type="text/javascript" src="<?= asset_url() ?>js/hidemaxlistitem.min.js"></script>
- <script type="text/javascript" src="<?= asset_url() ?>js/jquery-ui.min.js"></script>
- <script type="text/javascript" src="<?= asset_url() ?>js/hidemaxlistitem.min.js"></script>
- <script type="text/javascript" src="<?= asset_url() ?>js/jquery.easing.min.js"></script>
- <script type="text/javascript" src="<?= asset_url() ?>js/scrollup.min.js"></script>
- <script type="text/javascript" src="<?= asset_url() ?>js/jquery.waypoints.min.js"></script>
- <script type="text/javascript" src="<?= asset_url() ?>js/waypoints-sticky.min.js"></script>
- <script type="text/javascript" src="<?= asset_url() ?>js/pace.min.js"></script>
- <script type="text/javascript" src="<?= asset_url() ?>js/slick.min.js"></script>
- <script type="text/javascript" src="<?= asset_url() ?>js/scripts.js"></script>
+ <script type="text/javascript" src="<?= asset_url() ?>frontend/js/jquery.min.js"></script>
+ <script type="text/javascript" src="<?= asset_url() ?>frontend/js/tether.min.js"></script>
+ <script type="text/javascript" src="<?= asset_url() ?>frontend/js/bootstrap.min.js"></script>
+ <script type="text/javascript" src="<?= asset_url() ?>frontend/js/jquery-migrate.min.js"></script>
+ <script type="text/javascript" src="<?= asset_url() ?>frontend/js/hidemaxlistitem.min.js"></script>
+ <script type="text/javascript" src="<?= asset_url() ?>frontend/js/jquery-ui.min.js"></script>
+ <script type="text/javascript" src="<?= asset_url() ?>frontend/js/hidemaxlistitem.min.js"></script>
+ <script type="text/javascript" src="<?= asset_url() ?>frontend/js/jquery.easing.min.js"></script>
+ <script type="text/javascript" src="<?= asset_url() ?>frontend/js/scrollup.min.js"></script>
+ <script type="text/javascript" src="<?= asset_url() ?>frontend/js/jquery.waypoints.min.js"></script>
+ <script type="text/javascript" src="<?= asset_url() ?>frontend/js/waypoints-sticky.min.js"></script>
+ <script type="text/javascript" src="<?= asset_url() ?>frontend/js/pace.min.js"></script>
+ <script type="text/javascript" src="<?= asset_url() ?>frontend/js/slick.min.js"></script>
+ <script type="text/javascript" src="<?= asset_url() ?>frontend/js/scripts.js"></script>
  <!-- For demo purposes – can be removed on production -->
  <script src="switchstylesheet/switchstylesheet.js"></script>
  <!-- For demo purposes – can be removed on production : End -->

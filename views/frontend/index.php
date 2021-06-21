@@ -4,8 +4,8 @@
                     <div id="primary" class="content-area">
                         <main id="main" class="site-main">
                             <div class="home-v1-slider home-slider">
-                                <div class="slider-1" style="background-image: url(<?= asset_url() ?>images/slider/home-v1-background.jpg);">
-                                    <img src="<?= asset_url() ?>images/slider/home-v1-img-1.png" alt="">
+                                <div class="slider-1" style="background-image: url(<?= asset_url() ?>frontend/images/slider/home-v1-background.jpg);">
+                                    <img src="<?= asset_url() ?>frontend/images/slider/home-v1-img-1.png" alt="">
                                     <div class="caption">
                                         <div class="title">رایانه شخصی یکپارچه</div>
                                         <div class="sub-title"> به رایانه‌های رومیزی گفته می‌شود که نمایشگر آن به کیسی
@@ -21,8 +21,8 @@
                                     </div>
                                 </div>
                                 <!-- .slider-1 -->
-                                <div class="slider-1 slider-2" style="background-image: url(<?= asset_url() ?>images/slider/home-v1-background.jpg);">
-                                    <img src="<?= asset_url() ?>images/slider/home-v1-img-2.png" alt="">
+                                <div class="slider-1 slider-2" style="background-image: url(<?= asset_url() ?>frontend/images/slider/home-v1-background.jpg);">
+                                    <img src="<?= asset_url() ?>frontend/images/slider/home-v1-img-2.png" alt="">
                                     <div class="caption">
                                         <div class="title">The new-tech gift you
                                             <br> are wishing for is
@@ -104,36 +104,36 @@
                                     <div class="banner-2">
                                         <div class="banner-box">
                                             <div class="col-img">
-                                                <a href="#"><img src="<?= asset_url() ?>images/banner/banner3-1.jpg" alt="banner 3"></a>
+                                                <a href="#"><img src="<?= asset_url() ?>frontend/images/banner/banner3-1.jpg" alt="banner 3"></a>
                                             </div>
                                             <div class="col-img">
-                                                <a href="#"><img src="<?= asset_url() ?>images/banner/banner3-2.jpg" alt="banner 3"></a>
-                                            </div>
-                                        </div>
-                                        <div class="banner-box">
-                                            <div class="col-img">
-                                                <a href="#"><img src="<?= asset_url() ?>images/banner/banner3-3.jpg" alt="banner 3"></a>
+                                                <a href="#"><img src="<?= asset_url() ?>frontend/images/banner/banner3-2.jpg" alt="banner 3"></a>
                                             </div>
                                         </div>
                                         <div class="banner-box">
                                             <div class="col-img">
-                                                <a href="#"><img src="<?= asset_url() ?>images/banner/banner3-4.jpg" alt="banner 3"></a>
-                                            </div>
-                                            <div class="col-img">
-                                                <a href="#"><img src="<?= asset_url() ?>images/banner/banner3-5.jpg" alt="banner 3"></a>
+                                                <a href="#"><img src="<?= asset_url() ?>frontend/images/banner/banner3-3.jpg" alt="banner 3"></a>
                                             </div>
                                         </div>
                                         <div class="banner-box">
                                             <div class="col-img">
-                                                <a href="#"><img src="<?= asset_url() ?>images/banner/banner3-6.jpg" alt="banner 3"></a>
+                                                <a href="#"><img src="<?= asset_url() ?>frontend/images/banner/banner3-4.jpg" alt="banner 3"></a>
+                                            </div>
+                                            <div class="col-img">
+                                                <a href="#"><img src="<?= asset_url() ?>frontend/images/banner/banner3-5.jpg" alt="banner 3"></a>
                                             </div>
                                         </div>
                                         <div class="banner-box">
                                             <div class="col-img">
-                                                <a href="#"><img src="<?= asset_url() ?>images/banner/banner3-7.jpg" alt="banner 3"></a>
+                                                <a href="#"><img src="<?= asset_url() ?>frontend/images/banner/banner3-6.jpg" alt="banner 3"></a>
+                                            </div>
+                                        </div>
+                                        <div class="banner-box">
+                                            <div class="col-img">
+                                                <a href="#"><img src="<?= asset_url() ?>frontend/images/banner/banner3-7.jpg" alt="banner 3"></a>
                                             </div>
                                             <div class="col-img">
-                                                <a href="#"><img src="<?= asset_url() ?>images/banner/banner3-8.jpg" alt="banner 3"></a>
+                                                <a href="#"><img src="<?= asset_url() ?>frontend/images/banner/banner3-8.jpg" alt="banner 3"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -171,7 +171,7 @@
                                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/3.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                        <img src="<?= asset_url() ?>frontend/images/products/3.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -193,7 +193,7 @@
                                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/15.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                        <img src="<?= asset_url() ?>frontend/images/products/15.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -216,7 +216,7 @@
                                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/11.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                        <img src="<?= asset_url() ?>frontend/images/products/11.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -239,7 +239,7 @@
                                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/4.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                        <img src="<?= asset_url() ?>frontend/images/products/4.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -260,7 +260,7 @@
                                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/5.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                        <img src="<?= asset_url() ?>frontend/images/products/5.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -296,7 +296,7 @@
                                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/11.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                        <img src="<?= asset_url() ?>frontend/images/products/11.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -323,7 +323,7 @@
                                                                             <span class="woocommerce-Price-amount amount" dir="rtl">
                                                                                 2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="<?= asset_url() ?>images/products/2.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                        <img src="<?= asset_url() ?>frontend/images/products/2.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> 309.95</span>
@@ -348,7 +348,7 @@
                                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/16.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                        <img src="<?= asset_url() ?>frontend/images/products/16.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -370,7 +370,7 @@
                                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/10.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                        <img src="<?= asset_url() ?>frontend/images/products/10.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -393,7 +393,7 @@
                                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/8.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                        <img src="<?= asset_url() ?>frontend/images/products/8.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -429,7 +429,7 @@
                                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/6.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                        <img src="<?= asset_url() ?>frontend/images/products/6.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -452,7 +452,7 @@
                                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/15.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                        <img src="<?= asset_url() ?>frontend/images/products/15.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -475,7 +475,7 @@
                                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/10.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                        <img src="<?= asset_url() ?>frontend/images/products/10.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -498,7 +498,7 @@
                                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/12.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                        <img src="<?= asset_url() ?>frontend/images/products/12.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -524,7 +524,7 @@
                                                                             <span class="woocommerce-Price-amount amount" dir="rtl">
                                                                                 2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="<?= asset_url() ?>images/products/7.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                        <img src="<?= asset_url() ?>frontend/images/products/7.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> 150,000,000
@@ -564,7 +564,7 @@
                                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/6.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                        <img src="<?= asset_url() ?>frontend/images/products/6.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -587,7 +587,7 @@
                                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/4.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                        <img src="<?= asset_url() ?>frontend/images/products/4.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -608,7 +608,7 @@
                                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/8.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                        <img src="<?= asset_url() ?>frontend/images/products/8.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -630,7 +630,7 @@
                                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
                                                                     <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                        <img src="<?= asset_url() ?>images/products/16.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                        <img src="<?= asset_url() ?>frontend/images/products/16.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> </span>
@@ -656,7 +656,7 @@
                                                                             <span class="woocommerce-Price-amount amount" dir="rtl">
                                                                                 2,000,000 ریال</span>
                                                                         </span>
-                                                                        <img src="<?= asset_url() ?>images/products/14.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                        <img src="<?= asset_url() ?>frontend/images/products/14.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                         <span class="price">
                                                                             <ins>
                                                                                 <span class="amount" dircetion="rtl"> 9.000.000
@@ -718,7 +718,7 @@
                                         <div class="products">
                                             <div class="product-category product first">
                                                 <a href="product-category.html">
-                                                    <img width="224" height="197" alt="سویچ" src="<?= asset_url() ?>images/category/16.png">
+                                                    <img width="224" height="197" alt="سویچ" src="<?= asset_url() ?>frontend/images/category/16.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         سویچ
                                                     </h2>
@@ -727,7 +727,7 @@
                                             <!-- .product-category -->
                                             <div class="product-category product">
                                                 <a href="product-category.html">
-                                                    <img width="224" height="197" alt="سرور" src="<?= asset_url() ?>images/category/17.png">
+                                                    <img width="224" height="197" alt="سرور" src="<?= asset_url() ?>frontend/images/category/17.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         سرور
                                                     </h2>
@@ -736,7 +736,7 @@
                                             <!-- .product-category -->
                                             <div class="product-category product">
                                                 <a href="product-category.html">
-                                                    <img width="224" height="197" alt="تلفن اینترنتی" src="<?= asset_url() ?>images/category/18.png">
+                                                    <img width="224" height="197" alt="تلفن اینترنتی" src="<?= asset_url() ?>frontend/images/category/18.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         تلفن اینترنتی
                                                     </h2>
@@ -745,7 +745,7 @@
                                             <!-- .product-category -->
                                             <div class="product-category product">
                                                 <a href="product-category.html">
-                                                    <img width="224" height="197" alt="رک" src="<?= asset_url() ?>images/category/19.png">
+                                                    <img width="224" height="197" alt="رک" src="<?= asset_url() ?>frontend/images/category/19.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         رک
                                                     </h2>
@@ -754,7 +754,7 @@
                                             <!-- .product-category -->
                                             <div class="product-category product last">
                                                 <a href="product-category.html">
-                                                    <img width="224" height="197" alt="Desktop PCs" src="<?= asset_url() ?>images/category/20.png">
+                                                    <img width="224" height="197" alt="Desktop PCs" src="<?= asset_url() ?>frontend/images/category/20.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         Desktop PCs
                                                     </h2>
@@ -763,7 +763,7 @@
                                             <!-- .product-category -->
                                             <div class="product-category product first">
                                                 <a href="product-category.html">
-                                                    <img width="224" height="197" alt="Digital Cameras" src="<?= asset_url() ?>images/category/21.png">
+                                                    <img width="224" height="197" alt="Digital Cameras" src="<?= asset_url() ?>frontend/images/category/21.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         Digital Cameras
                                                     </h2>
@@ -772,7 +772,7 @@
                                             <!-- .product-category -->
                                             <div class="product-category product">
                                                 <a href="product-category.html">
-                                                    <img width="224" height="197" alt="Games &amp; Consoles" src="<?= asset_url() ?>images/category/22.png">
+                                                    <img width="224" height="197" alt="Games &amp; Consoles" src="<?= asset_url() ?>frontend/images/category/22.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         Games &amp; Consoles
                                                     </h2>
@@ -781,7 +781,7 @@
                                             <!-- .product-category -->
                                             <div class="product-category product">
                                                 <a href="product-category.html">
-                                                    <img width="224" height="197" alt="Headphones" src="<?= asset_url() ?>images/category/23.png">
+                                                    <img width="224" height="197" alt="Headphones" src="<?= asset_url() ?>frontend/images/category/23.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         Headphones
                                                     </h2>
@@ -790,7 +790,7 @@
                                             <!-- .product-category -->
                                             <div class="product-category product">
                                                 <a href="product-category.html">
-                                                    <img width="224" height="197" alt="Home Entertainment" src="<?= asset_url() ?>images/category/24.png">
+                                                    <img width="224" height="197" alt="Home Entertainment" src="<?= asset_url() ?>frontend/images/category/24.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         Home Entertainment
                                                     </h2>
@@ -799,7 +799,7 @@
                                             <!-- .product-category -->
                                             <div class="product-category product last">
                                                 <a href="product-category.html">
-                                                    <img width="224" height="197" alt="Home Theater &amp; Audio" src="<?= asset_url() ?>images/category/25.png">
+                                                    <img width="224" height="197" alt="Home Theater &amp; Audio" src="<?= asset_url() ?>frontend/images/category/25.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         Home Theater &amp; Audio
                                                     </h2>
@@ -808,7 +808,7 @@
                                             <!-- .product-category -->
                                             <div class="product-category product first">
                                                 <a href="product-category.html">
-                                                    <img width="224" height="197" alt="Laptops" src="<?= asset_url() ?>images/category/18.png">
+                                                    <img width="224" height="197" alt="Laptops" src="<?= asset_url() ?>frontend/images/category/18.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         Laptops
                                                     </h2>
@@ -817,7 +817,7 @@
                                             <!-- .product-category -->
                                             <div class="product-category product">
                                                 <a href="product-category.html">
-                                                    <img width="224" height="197" alt="Mac Computers" src="<?= asset_url() ?>images/category/22.png">
+                                                    <img width="224" height="197" alt="Mac Computers" src="<?= asset_url() ?>frontend/images/category/22.png">
                                                     <h2 class="woocommerce-loop-category__title">
                                                         Mac Computers
                                                     </h2>
@@ -832,7 +832,7 @@
                                 <!-- .product-categories-carousel -->
                             </section>
                             <!-- .section-categories-carousel -->
-                            <section style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>images/products/card-bg.jpg); height: 853px;" class="section-landscape-full-product-cards-carousel">
+                            <section style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>frontend/images/products/card-bg.jpg); height: 853px;" class="section-landscape-full-product-cards-carousel">
                                 <div class="col-full">
                                     <header class="section-header">
                                         <h2 class="section-title">
@@ -852,7 +852,7 @@
                                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
                                                                     <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                                                        <img class="wp-post-image" src="<?= asset_url() ?>images/products/1-2.jpg" alt="">
+                                                                        <img class="wp-post-image" src="<?= asset_url() ?>frontend/images/products/1-2.jpg" alt="">
                                                                     </a>
                                                                     <div class="media-body" style="direction: rtl;">
                                                                         <a class="woocommerce-LoopProduct-link " href="single-product-fullwidth.html">
@@ -902,7 +902,7 @@
                                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
                                                                     <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                                                        <img class="wp-post-image" src="<?= asset_url() ?>images/products/1-4.jpg" alt="">
+                                                                        <img class="wp-post-image" src="<?= asset_url() ?>frontend/images/products/1-4.jpg" alt="">
                                                                     </a>
                                                                     <div class="media-body" style="direction: rtl;">
                                                                         <a class="woocommerce-LoopProduct-link " href="single-product-fullwidth.html">
@@ -952,7 +952,7 @@
                                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
                                                                     <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                                                        <img class="wp-post-image" src="<?= asset_url() ?>images/products/1-1.jpg" alt="">
+                                                                        <img class="wp-post-image" src="<?= asset_url() ?>frontend/images/products/1-1.jpg" alt="">
                                                                     </a>
                                                                     <div class="media-body" style="direction: rtl;">
                                                                         <a class="woocommerce-LoopProduct-link " href="single-product-fullwidth.html">
@@ -1002,7 +1002,7 @@
                                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
                                                                     <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                                                        <img class="wp-post-image" src="<?= asset_url() ?>images/products/1-6.jpg" alt="">
+                                                                        <img class="wp-post-image" src="<?= asset_url() ?>frontend/images/products/1-6.jpg" alt="">
                                                                     </a>
                                                                     <div class="media-body" style="direction: rtl;">
                                                                         <a class="woocommerce-LoopProduct-link " href="single-product-fullwidth.html">
@@ -1052,7 +1052,7 @@
                                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
                                                                     <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                                                        <img class="wp-post-image" src="<?= asset_url() ?>images/products/1-2.jpg" alt="">
+                                                                        <img class="wp-post-image" src="<?= asset_url() ?>frontend/images/products/1-2.jpg" alt="">
                                                                     </a>
                                                                     <div class="media-body" style="direction: rtl;">
                                                                         <a class="woocommerce-LoopProduct-link " href="single-product-fullwidth.html">
@@ -1102,7 +1102,7 @@
                                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
                                                                     <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                                                        <img class="wp-post-image" src="<?= asset_url() ?>images/products/1-5.jpg" alt="">
+                                                                        <img class="wp-post-image" src="<?= asset_url() ?>frontend/images/products/1-5.jpg" alt="">
                                                                     </a>
                                                                     <div class="media-body" style="direction: rtl;">
                                                                         <a class="woocommerce-LoopProduct-link " href="single-product-fullwidth.html">
@@ -1152,7 +1152,7 @@
                                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
                                                                     <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                                                        <img class="wp-post-image" src="<?= asset_url() ?>images/products/1-3.jpg" alt="">
+                                                                        <img class="wp-post-image" src="<?= asset_url() ?>frontend/images/products/1-3.jpg" alt="">
                                                                     </a>
                                                                     <div class="media-body" style="direction: rtl;">
                                                                         <a class="woocommerce-LoopProduct-link " href="single-product-fullwidth.html">
@@ -1202,7 +1202,7 @@
                                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                     </div>
                                                                     <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                                                        <img class="wp-post-image" src="<?= asset_url() ?>images/products/1-5.jpg" alt="">
+                                                                        <img class="wp-post-image" src="<?= asset_url() ?>frontend/images/products/1-5.jpg" alt="">
                                                                     </a>
                                                                     <div class="media-body" style="direction: rtl;">
                                                                         <a class="woocommerce-LoopProduct-link " href="single-product-fullwidth.html">
@@ -1284,7 +1284,7 @@
                                                                     <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                    <img src="<?= asset_url() ?>images/products/12.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                    <img src="<?= asset_url() ?>frontend/images/products/12.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
                                                                             <span class="amount" dircetion="rtl"> </span>
@@ -1310,7 +1310,7 @@
                                                                         <span class="woocommerce-Price-amount amount" dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="<?= asset_url() ?>images/products/14.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                    <img src="<?= asset_url() ?>frontend/images/products/14.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
                                                                             <span class="amount" dircetion="rtl"> 9.000.000 ریال</span>
@@ -1335,7 +1335,7 @@
                                                                     <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                    <img src="<?= asset_url() ?>images/products/6.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                    <img src="<?= asset_url() ?>frontend/images/products/6.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
                                                                             <span class="amount" dircetion="rtl"> </span>
@@ -1374,7 +1374,7 @@
                                                                         <span class="woocommerce-Price-amount amount" dir="rtl">
                                                                             2,000,000 ریال</span>
                                                                     </span>
-                                                                    <img src="<?= asset_url() ?>images/products/7.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                    <img src="<?= asset_url() ?>frontend/images/products/7.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
                                                                             <span class="amount" dircetion="rtl"> 150,000,000
@@ -1400,7 +1400,7 @@
                                                                     <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                    <img src="<?= asset_url() ?>images/products/15.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                    <img src="<?= asset_url() ?>frontend/images/products/15.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
                                                                             <span class="amount" dircetion="rtl"> </span>
@@ -1434,7 +1434,7 @@
                                 <div class="row">
                                     <div class="banner banner-long text-in-left">
                                         <a href="shop.html">
-                                            <div style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>images/banner/3-2.jpg); height: 259px;padding-right: 10px;justify-content: right;" class="banner-bg">
+                                            <div style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>frontend/images/banner/3-2.jpg); height: 259px;padding-right: 10px;justify-content: right;" class="banner-bg">
                                                 <div class="caption">
                                                     <div class="banner-info">
                                                         <h3 class="title"> تمامی محصولات
@@ -1452,7 +1452,7 @@
                                     <!-- /.banner -->
                                     <div class="banner banner-short text-in-right">
                                         <a href="shop.html">
-                                            <div style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>images/banner/3-3.jpg); height: 259px;" class="banner-bg">
+                                            <div style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>frontend/images/banner/3-3.jpg); height: 259px;" class="banner-bg">
                                                 <div class="caption">
                                                     <div class="banner-info">
                                                         <h3 class="title">
@@ -1487,7 +1487,7 @@
                                                 <div class="landscape-product product">
                                                     <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-2.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>frontend/images/products/card-2.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -1518,7 +1518,7 @@
                                                 <div class="landscape-product product">
                                                     <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-6.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>frontend/images/products/card-6.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -1549,7 +1549,7 @@
                                                 <div class="landscape-product product">
                                                     <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>frontend/images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -1584,7 +1584,7 @@
                                                 <div class="landscape-product product">
                                                     <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>frontend/images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -1619,7 +1619,7 @@
                                                 <div class="landscape-product product">
                                                     <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-5.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>frontend/images/products/card-5.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -1654,7 +1654,7 @@
                                                 <div class="landscape-product product">
                                                     <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-1.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>frontend/images/products/card-1.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -1689,7 +1689,7 @@
                                                 <div class="landscape-product product">
                                                     <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-4.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>frontend/images/products/card-4.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -1720,7 +1720,7 @@
                                                 <div class="landscape-product product">
                                                     <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-4.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>frontend/images/products/card-4.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -1760,12 +1760,12 @@
                                 <div class="container big-banner-box">
                                     <div class="col-img">
                                         <a href="#">
-                                            <img src="<?= asset_url() ?>images/banner/5.jpg" alt="">
+                                            <img src="<?= asset_url() ?>frontend/images/banner/5.jpg" alt="">
                                         </a>
                                     </div>
                                     <div class="col-img">
                                         <a href="#">
-                                            <img src="<?= asset_url() ?>images/banner/h1-banner3.jpg" alt="">
+                                            <img src="<?= asset_url() ?>frontend/images/banner/h1-banner3.jpg" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -1794,7 +1794,7 @@
                                         </li>
 
                                     </ul>
-                                    <div style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>images/banner/vertical-bg.png); height: 552px;" class="tab-content">
+                                    <div style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>frontend/images/banner/vertical-bg.png); height: 552px;" class="tab-content">
                                         <div id="desktop-pc" class="tab-pane active" role="tabpanel">
                                             <div class="products-carousel" data-ride="tm-slick-carousel" data-wrap=".products" data-slick="{&quot;rtl&quot;:true,&quot;infinite&quot;:false,&quot;slidesToShow&quot;:6,&quot;slidesToScroll&quot;:6,&quot;dots&quot;:true,&quot;arrows&quot;:false,&quot;responsive&quot;:[{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:2,&quot;slidesToScroll&quot;:2}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesToShow&quot;:3,&quot;slidesToScroll&quot;:3}},{&quot;breakpoint&quot;:1600,&quot;settings&quot;:{&quot;slidesToShow&quot;:4,&quot;slidesToScroll&quot;:4}}]}">
                                                 <div class="container-fluid">
@@ -1805,7 +1805,7 @@
                                                                     <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                    <img src="<?= asset_url() ?>images/products/12.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                    <img src="<?= asset_url() ?>frontend/images/products/12.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
                                                                             <span class="amount" dircetion="rtl"> </span>
@@ -1827,7 +1827,7 @@
                                                                     <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                    <img src="<?= asset_url() ?>images/products/11.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                    <img src="<?= asset_url() ?>frontend/images/products/11.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
                                                                             <span class="amount" dircetion="rtl"> </span>
@@ -1849,7 +1849,7 @@
                                                                     <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                    <img src="<?= asset_url() ?>images/products/5.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                    <img src="<?= asset_url() ?>frontend/images/products/5.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
                                                                             <span class="amount" dircetion="rtl"> </span>
@@ -1885,7 +1885,7 @@
                                                                     <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                    <img src="<?= asset_url() ?>images/products/16.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                    <img src="<?= asset_url() ?>frontend/images/products/16.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
                                                                             <span class="amount" dircetion="rtl"> </span>
@@ -1907,7 +1907,7 @@
                                                                     <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                    <img src="<?= asset_url() ?>images/products/11.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                    <img src="<?= asset_url() ?>frontend/images/products/11.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
                                                                             <span class="amount" dircetion="rtl"> </span>
@@ -1929,7 +1929,7 @@
                                                                     <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                                 </div>
                                                                 <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                    <img src="<?= asset_url() ?>images/products/13.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                                    <img src="<?= asset_url() ?>frontend/images/products/13.jpg" width="224" height="197" class="wp-post-image" alt="">
                                                                     <span class="price">
                                                                         <ins>
                                                                             <span class="amount" dircetion="rtl"> </span>
@@ -1970,7 +1970,7 @@
                                                 <div class="landscape-product product">
                                                     <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>frontend/images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -1991,7 +1991,7 @@
                                                 <div class="landscape-product product">
                                                     <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-2.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>frontend/images/products/card-2.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -2012,7 +2012,7 @@
                                                 <div class="landscape-product product">
                                                     <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>frontend/images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -2033,7 +2033,7 @@
                                                 <div class="landscape-product product">
                                                     <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>frontend/images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -2054,7 +2054,7 @@
                                                 <div class="landscape-product product">
                                                     <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>frontend/images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -2075,7 +2075,7 @@
                                                 <div class="landscape-product product">
                                                     <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>frontend/images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -2096,7 +2096,7 @@
                                                 <div class="landscape-product product">
                                                     <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>frontend/images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -2117,7 +2117,7 @@
                                                 <div class="landscape-product product">
                                                     <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
                                                         <div class="media">
-                                                            <img class="wp-post-image" src="<?= asset_url() ?>images/products/card-3.jpg" alt="">
+                                                            <img class="wp-post-image" src="<?= asset_url() ?>frontend/images/products/card-3.jpg" alt="">
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <span class="price">
                                                                     <ins>
@@ -2146,7 +2146,7 @@
                             <!-- .section-products-carousel-tabs-->
                             <div class="banner full-width-banner">
                                 <a href="shop.html">
-                                    <div style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>images/banner/full-width.png); height: 236px;" class="banner-bg">
+                                    <div style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>frontend/images/banner/full-width.png); height: 236px;" class="banner-bg">
                                         <div class="caption">
                                             <div class="banner-info">
                                                 <h3 class="title">
@@ -2178,7 +2178,7 @@
                                                         </div>
                                                         <!-- /.info -->
                                                     </figcaption>
-                                                    <img width="145" height="50" class="img-responsive desaturate" alt="apple" src="<?= asset_url() ?>images/brands/1.png">
+                                                    <img width="145" height="50" class="img-responsive desaturate" alt="apple" src="<?= asset_url() ?>frontend/images/brands/1.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -2192,7 +2192,7 @@
                                                         </div>
                                                         <!-- /.info -->
                                                     </figcaption>
-                                                    <img width="145" height="50" class="img-responsive desaturate" alt="bosch" src="<?= asset_url() ?>images/brands/2.png">
+                                                    <img width="145" height="50" class="img-responsive desaturate" alt="bosch" src="<?= asset_url() ?>frontend/images/brands/2.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -2206,7 +2206,7 @@
                                                         </div>
                                                         <!-- /.info -->
                                                     </figcaption>
-                                                    <img width="145" height="50" class="img-responsive desaturate" alt="cannon" src="<?= asset_url() ?>images/brands/3.png">
+                                                    <img width="145" height="50" class="img-responsive desaturate" alt="cannon" src="<?= asset_url() ?>frontend/images/brands/3.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -2220,7 +2220,7 @@
                                                         </div>
                                                         <!-- /.info -->
                                                     </figcaption>
-                                                    <img width="145" height="50" class="img-responsive desaturate" alt="connect" src="<?= asset_url() ?>images/brands/4.png">
+                                                    <img width="145" height="50" class="img-responsive desaturate" alt="connect" src="<?= asset_url() ?>frontend/images/brands/4.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -2234,7 +2234,7 @@
                                                         </div>
                                                         <!-- /.info -->
                                                     </figcaption>
-                                                    <img width="145" height="50" class="img-responsive desaturate" alt="galaxy" src="<?= asset_url() ?>images/brands/5.png">
+                                                    <img width="145" height="50" class="img-responsive desaturate" alt="galaxy" src="<?= asset_url() ?>frontend/images/brands/5.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -2248,7 +2248,7 @@
                                                         </div>
                                                         <!-- /.info -->
                                                     </figcaption>
-                                                    <img width="145" height="50" class="img-responsive desaturate" alt="gopro" src="<?= asset_url() ?>images/brands/6.png">
+                                                    <img width="145" height="50" class="img-responsive desaturate" alt="gopro" src="<?= asset_url() ?>frontend/images/brands/6.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -2262,7 +2262,7 @@
                                                         </div>
                                                         <!-- /.info -->
                                                     </figcaption>
-                                                    <img width="145" height="50" class="img-responsive desaturate" alt="handspot" src="<?= asset_url() ?>images/brands/7.png">
+                                                    <img width="145" height="50" class="img-responsive desaturate" alt="handspot" src="<?= asset_url() ?>frontend/images/brands/7.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -2276,7 +2276,7 @@
                                                         </div>
                                                         <!-- /.info -->
                                                     </figcaption>
-                                                    <img width="145" height="50" class="img-responsive desaturate" alt="kinova" src="<?= asset_url() ?>images/brands/8.png">
+                                                    <img width="145" height="50" class="img-responsive desaturate" alt="kinova" src="<?= asset_url() ?>frontend/images/brands/8.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -2290,7 +2290,7 @@
                                                         </div>
                                                         <!-- /.info -->
                                                     </figcaption>
-                                                    <img width="145" height="50" class="img-responsive desaturate" alt="nespresso" src="<?= asset_url() ?>images/brands/9.png">
+                                                    <img width="145" height="50" class="img-responsive desaturate" alt="nespresso" src="<?= asset_url() ?>frontend/images/brands/9.png">
                                                 </figure>
                                             </a>
                                             `
@@ -2305,7 +2305,7 @@
                                                         </div>
                                                         <!-- /.info -->
                                                     </figcaption>
-                                                    <img width="145" height="50" class="img-responsive desaturate" alt="samsung" src="<?= asset_url() ?>images/brands/10.png">
+                                                    <img width="145" height="50" class="img-responsive desaturate" alt="samsung" src="<?= asset_url() ?>frontend/images/brands/10.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -2319,7 +2319,7 @@
                                                         </div>
                                                         <!-- /.info -->
                                                     </figcaption>
-                                                    <img width="145" height="50" class="img-responsive desaturate" alt="speedway" src="<?= asset_url() ?>images/brands/11.png">
+                                                    <img width="145" height="50" class="img-responsive desaturate" alt="speedway" src="<?= asset_url() ?>frontend/images/brands/11.png">
                                                 </figure>
                                             </a>
                                         </div>
@@ -2333,7 +2333,7 @@
                                                         </div>
                                                         <!-- /.info -->
                                                     </figcaption>
-                                                    <img width="145" height="50" class="img-responsive desaturate" alt="yoko" src="<?= asset_url() ?>images/brands/12.png">
+                                                    <img width="145" height="50" class="img-responsive desaturate" alt="yoko" src="<?= asset_url() ?>frontend/images/brands/12.png">
                                                 </figure>
                                             </a>
                                         </div>

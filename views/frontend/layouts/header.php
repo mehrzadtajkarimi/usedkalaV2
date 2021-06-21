@@ -10,29 +10,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
     <title>Techmarket HTML</title>
-    <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>css/bootstrap.min.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>css/font-awesome.min.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>css/bootstrap-grid.min.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>css/bootstrap-reboot.min.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>css/font-techmarket.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>css/slick.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>css/techmarket-font-awesome.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>css/slick-style.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>css/animate.min.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>css/style.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>css/style_uk.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>css/colors/blue.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>frontend/css/bootstrap.min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>frontend/css/font-awesome.min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>frontend/css/bootstrap-grid.min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>frontend/css/bootstrap-reboot.min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>frontend/css/font-techmarket.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>frontend/css/slick.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>frontend/css/techmarket-font-awesome.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>frontend/css/slick-style.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>frontend/css/animate.min.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>frontend/css/style.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>frontend/css/style_uk.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>frontend/css/colors/blue.css" media="all" />
     <!-- Demo Purpose Only. Should be removed in production -->
-    <link rel="stylesheet" href="<?= asset_url() ?>css/config.css">
-    <link href="<?= asset_url() ?>css/colors/blue.css" rel="alternate stylesheet" title="Blue color">
-    <link href="<?= asset_url() ?>css/colors/flat-green.css" rel="alternate stylesheet" title="Flat Green color">
-    <link href="<?= asset_url() ?>css/colors/green.css" rel="alternate stylesheet" title="Green color">
-    <link href="<?= asset_url() ?>css/colors/orange.css" rel="alternate stylesheet" title="Orange color">
-    <link href="<?= asset_url() ?>css/colors/red.css" rel="alternate stylesheet" title="Red color">
-    <link href="<?= asset_url() ?>css/colors/yellow.css" rel="alternate stylesheet" title="Yellow color">
+    <link rel="stylesheet" href="<?= asset_url() ?>frontend/css/config.css">
+    <link href="<?= asset_url() ?>frontend/css/colors/blue.css" rel="alternate stylesheet" title="Blue color">
+    <link href="<?= asset_url() ?>frontend/css/colors/flat-green.css" rel="alternate stylesheet" title="Flat Green color">
+    <link href="<?= asset_url() ?>frontend/css/colors/green.css" rel="alternate stylesheet" title="Green color">
+    <link href="<?= asset_url() ?>frontend/css/colors/orange.css" rel="alternate stylesheet" title="Orange color">
+    <link href="<?= asset_url() ?>frontend/css/colors/red.css" rel="alternate stylesheet" title="Red color">
+    <link href="<?= asset_url() ?>frontend/css/colors/yellow.css" rel="alternate stylesheet" title="Yellow color">
     <!-- Demo Purpose Only. Should be removed in production : END -->
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,900" rel="stylesheet">
-    <link rel="shortcut icon" href="<?= asset_url() ?>images/ukfav-icon.png">
+    <link rel="shortcut icon" href="<?= asset_url() ?>frontend/images/ukfav-icon.png">
 </head>
 
 <body dir="rtl" class="woocommerce-active page-template-template-homepage-v1 can-uppercase">
@@ -64,7 +64,7 @@
                     <div class="row">
                         <div class="site-branding">
                             <a href="<?= base_url(); ?>" class="custom-logo-link" rel="home">
-                                <img src="<?= asset_url() ?>images/uklogo.png"  alt="یوزدکالا" width="110px">
+                                <img src="<?= asset_url() ?>frontend/images/uklogo.png"  alt="یوزدکالا" width="110px">
                             </a>
                             <!-- /.custom-logo-link -->
                         </div>
@@ -119,7 +119,7 @@
                                             <div class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
                                                 <div class="kc-col-container">
                                                     <div class="kc_single_image">
-                                                        <img src="<?= asset_url() ?>images/megamenu.jpg" class="" alt="" />
+                                                        <img src="<?= asset_url() ?>frontend/images/megamenu.jpg" class="" alt="" />
                                                     </div>
                                                     <!-- .kc_single_image -->
                                                 </div>
@@ -188,7 +188,7 @@
                                             <div class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
                                                 <div class="kc-col-container">
                                                     <div class="kc_single_image">
-                                                        <img src="<?= asset_url() ?>images/megamenu-1.jpg" class="" alt="" />
+                                                        <img src="<?= asset_url() ?>frontend/images/megamenu-1.jpg" class="" alt="" />
                                                     </div>
                                                     <!-- .kc_single_image -->
                                                 </div>
@@ -256,7 +256,7 @@
                                             <div class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
                                                 <div class="kc-col-container">
                                                     <div class="kc_single_image">
-                                                        <img src="<?= asset_url() ?>images/megamenu.jpg" class="" alt="" />
+                                                        <img src="<?= asset_url() ?>frontend/images/megamenu.jpg" class="" alt="" />
                                                     </div>
                                                     <!-- .kc_single_image -->
                                                 </div>
@@ -380,7 +380,7 @@
                                                 <li class="woocommerce-mini-cart-item mini_cart_item">
                                                     <a href="#" class="remove" aria-label="Remove this item" data-product_id="65" data-product_sku="">×</a>
                                                     <a href="single-product-sidebar.html">
-                                                        <img src="<?= asset_url() ?>images/products/mini-cart1.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">XONE Wireless Controller&nbsp;
+                                                        <img src="<?= asset_url() ?>frontend/images/products/mini-cart1.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">XONE Wireless Controller&nbsp;
                                                     </a>
                                                     <span class="quantity">1 ×
                                                         <span class="woocommerce-Price-amount amount" dir="rtl">
@@ -390,7 +390,7 @@
                                                 <li class="woocommerce-mini-cart-item mini_cart_item">
                                                     <a href="#" class="remove" aria-label="Remove this item" data-product_id="27" data-product_sku="">×</a>
                                                     <a href="single-product-sidebar.html">
-                                                        <img src="<?= asset_url() ?>images/products/mini-cart2.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">Gear Virtual Reality 3D with Bluetooth Glasses&nbsp;
+                                                        <img src="<?= asset_url() ?>frontend/images/products/mini-cart2.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">Gear Virtual Reality 3D with Bluetooth Glasses&nbsp;
                                                     </a>
                                                     <span class="quantity">1 ×
                                                         <span class="woocommerce-Price-amount amount" dir="rtl">
@@ -520,7 +520,7 @@
                                                         <div class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
                                                             <div class="kc-col-container">
                                                                 <div class="kc_single_image">
-                                                                    <img src="<?= asset_url() ?>images/megamenu.jpg" class="" alt="" />
+                                                                    <img src="<?= asset_url() ?>frontend/images/megamenu.jpg" class="" alt="" />
                                                                 </div>
                                                                 <!-- .kc_single_image -->
                                                             </div>
@@ -596,7 +596,7 @@
                                                         <div class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
                                                             <div class="kc-col-container">
                                                                 <div class="kc_single_image">
-                                                                    <img src="<?= asset_url() ?>images/megamenu-1.jpg" class="" alt="" />
+                                                                    <img src="<?= asset_url() ?>frontend/images/megamenu-1.jpg" class="" alt="" />
                                                                 </div>
                                                                 <!-- .kc_single_image -->
                                                             </div>
@@ -674,7 +674,7 @@
                                                         <div class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
                                                             <div class="kc-col-container">
                                                                 <div class="kc_single_image">
-                                                                    <img src="<?= asset_url() ?>images/megamenu.jpg" class="" alt="" />
+                                                                    <img src="<?= asset_url() ?>frontend/images/megamenu.jpg" class="" alt="" />
                                                                 </div>
                                                                 <!-- .kc_single_image -->
                                                             </div>
@@ -750,7 +750,7 @@
                                                         <div class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
                                                             <div class="kc-col-container">
                                                                 <div class="kc_single_image">
-                                                                    <img src="<?= asset_url() ?>images/megamenu-1.jpg" class="" alt="" />
+                                                                    <img src="<?= asset_url() ?>frontend/images/megamenu-1.jpg" class="" alt="" />
                                                                 </div>
                                                                 <!-- .kc_single_image -->
                                                             </div>
@@ -827,7 +827,7 @@
                                                         <div class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
                                                             <div class="kc-col-container">
                                                                 <div class="kc_single_image">
-                                                                    <img src="<?= asset_url() ?>images/megamenu.jpg" class="" alt="" />
+                                                                    <img src="<?= asset_url() ?>frontend/images/megamenu.jpg" class="" alt="" />
                                                                 </div>
                                                                 <!-- .kc_single_image -->
                                                             </div>
@@ -903,7 +903,7 @@
                                                         <div class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
                                                             <div class="kc-col-container">
                                                                 <div class="kc_single_image">
-                                                                    <img src="<?= asset_url() ?>images/megamenu-1.jpg" class="" alt="" />
+                                                                    <img src="<?= asset_url() ?>frontend/images/megamenu-1.jpg" class="" alt="" />
                                                                 </div>
                                                                 <!-- .kc_single_image -->
                                                             </div>
@@ -980,7 +980,7 @@
                                                         <div class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
                                                             <div class="kc-col-container">
                                                                 <div class="kc_single_image">
-                                                                    <img src="<?= asset_url() ?>images/megamenu.jpg" class="" alt="" />
+                                                                    <img src="<?= asset_url() ?>frontend/images/megamenu.jpg" class="" alt="" />
                                                                 </div>
                                                                 <!-- .kc_single_image -->
                                                             </div>
