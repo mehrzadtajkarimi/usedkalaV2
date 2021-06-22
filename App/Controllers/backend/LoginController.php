@@ -15,7 +15,7 @@ class LoginController
     public function is_login()
     {
         global $request;
-        echo $request->params;
+        var_dump($request->input('email'));
         return true;
     }
     public function register()

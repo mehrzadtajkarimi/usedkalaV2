@@ -48,4 +48,12 @@ class Request
     {
         return $this->uri;
     }
+    public  function input($key)
+    {
+        return $this->params[$key]??null;
+    }
+    public  function redirect($rout)
+    {
+       header('Location: '. base_url($rout));die();
+    }
 }
