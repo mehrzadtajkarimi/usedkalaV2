@@ -20,5 +20,4 @@ Route::group(function () {
     Route::get('/admin/users', 'UserController@index');
     Route::get('/admin/login', 'LoginController@login');
     Route::post('/admin/login', 'LoginController@is_login');
-    Route::get('/admin/register', 'LoginController@register');
 });

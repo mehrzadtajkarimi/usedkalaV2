@@ -6,7 +6,7 @@ use Medoo\Medoo;
 
 class  MysqlBaseModel extends BaseModel
 {
-    function __construct($id)
+    function __construct($id=null)
     {
         try {
             $this->connection = new Medoo([
@@ -50,13 +50,17 @@ class  MysqlBaseModel extends BaseModel
         }
         return $this;
     }
+    public function count_by($field,$value)
+    {
+        return count($this->get($field,$value));
+    }
 
     public function all(): array
     {
         return $this->get('*');
     }
 
-    public function get($columns, array $where = null): array
+    public function  get($columns, array $where = null): array
     {
         // start pagination ***to  url -> ?page=1
         $page = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 1;

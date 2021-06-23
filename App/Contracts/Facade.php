@@ -11,6 +11,7 @@ abstract class Facade
     public static function __callStatic($name , $arguments)
     {
         static::set_provider();
+        // مثلا متذ های داخل  سشن فراخانی می شود
         return static::$provider->$name(... $arguments);
     }
 }

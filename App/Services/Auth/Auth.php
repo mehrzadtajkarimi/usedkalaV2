@@ -11,6 +11,7 @@ class Auth extends Facade
 
     public static function set_provider()
     {
+
         self::$provider = SessionProvider::instance();
     }
 }

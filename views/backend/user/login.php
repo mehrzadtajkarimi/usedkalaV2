@@ -1,9 +1,14 @@
+<?php
+
+use App\Utilities\FlashMessage;
+?>
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>پنل مدیریت | صفحه ورود</title>
+  <title>پنل مدیریت | صفحه ثبت نام</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -23,82 +28,66 @@
   <!-- template rtl version -->
   <link rel="stylesheet" href="<?= asset_url() ?>backend/dist/css/custom-style.css">
 </head>
-<body class="hold-transition login-page">
-<div class="login-box">
-  <div class="login-logo">
-    <a href="<?= base_url() ?>admin"><b>ورود به سایت</b></a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="card">
-    <div class="card-body login-card-body">
-      <p class="login-box-msg">فرم زیر را تکمیل کنید و ورود بزنید</p>
 
-      <form action="<?= base_url() ?>admin/login" method="post" >
-        <div class="input-group mb-3">
-          <input type="email" name="email" class="form-control" placeholder="ایمیل">
-          <div class="input-group-append">
-            <span class="fa fa-envelope input-group-text"></span>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="password"  name="password" class="form-control" placeholder="رمز عبور">
-          <div class="input-group-append">
-            <span class="fa fa-lock input-group-text"></span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-8">
-            <div class="checkbox icheck">
-              <label>
-                <input type="checkbox"> یاد آوری من
-              </label>
+<body class="hold-transition register-page bg-primary">
+  <div class="register-box">
+    <div class="register-logo">
+      <img src="<?= asset_url() ?>backend/dist/img/ukfav-icon.png" alt="">
+
+      <b class='text-dark'>ورود یه پنل</b>
+
+      <?= \App\Utilities\FlashMessage::show_message() ?>
+    </div>
+
+    <div class="card shadow-lg ">
+      <div class="card-body register-card-body">
+        <p class="login-box-msg text-muted">برای ورود یا ثبت نام کافیست شماره تماس خود را وارد کنید.</p>
+
+        <form action="<?= base_url() ?>admin/login" method="post">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" name="phone-number" placeholder="شماره تلفن همراه خود را وارد نمایید">
+            <div class="input-group-append">
+              <span class="fa fa-phone input-group-text"></span>
             </div>
           </div>
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">ورود</button>
-          </div>
-          <!-- /.col -->
-        </div>
-      </form>
 
-      <div class="social-auth-links text-center mb-3">
-        <p>- OR -</p>
+          <button class="btn btn-primary btn-block" type="submit">ارسال</button>
+        </form>
+
+        <!-- <div class="social-auth-links text-center">
+        <p class='text-muted'>- یا -</p>
         <a href="#" class="btn btn-block btn-primary">
-          <i class="fa fa-facebook mr-2"></i> ورود با اکانت فیسوبک
+          <i class="fa fa-facebook mr-2"></i>
+          ثبت نام با اکانت فیس بود
         </a>
         <a href="#" class="btn btn-block btn-danger">
-          <i class="fa fa-google-plus mr-2"></i> ورود با اکانت گوگل
+          <i class="fa fa-google-plus mr-2"></i>
+           ورود یا ثبت نام با گوگل
         </a>
+      </div> -->
+
+        <a href="<?= base_url() ?>admin/login" class="text-center">من قبلا ثبت نام کرده ام</a>
       </div>
-      <!-- /.social-auth-links -->
-
-      <p class="mb-1">
-        <a href="#">رمز عبورم را فراموش کرده ام.</a>
-      </p>
-      <p class="mb-0">
-        <a href="register.html" class="text-center">ثبت نام</a>
-      </p>
-    </div>
-    <!-- /.login-card-body -->
+      <!-- /.form-box -->
+    </div><!-- /.card -->
   </div>
-</div>
-<!-- /.login-box -->
+  <!-- /.register-box -->
 
-<!-- jQuery -->
-<script src="<?= asset_url() ?>backend/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="<?= asset_url() ?>backend/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- iCheck -->
-<script src="<?= asset_url() ?>backend/plugins/iCheck/icheck.min.js"></script>
-<script>
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass   : 'iradio_square-blue',
-      increaseArea : '20%' // optional
+  <!-- jQuery -->
+  <script src="<?= asset_url() ?>backend/plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="<?= asset_url() ?>backend/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- iCheck -->
+  <script src="<?= asset_url() ?>backend/plugins/iCheck/icheck.min.js"></script>
+  <script>
+    $(function() {
+      $('input').iCheck({
+        checkboxClass: 'icheckbox_square-blue',
+        radioClass: 'iradio_square-blue',
+        increaseArea: '20%' // optional
+      })
     })
-  })
-</script>
+  </script>
 </body>
+
 </html>
