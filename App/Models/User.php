@@ -15,7 +15,7 @@ public function already_exists(array  $data)
         return $this->find('phone' , $phone);
     }
     if ($email=$data['email']) {
-        return $this->find('email' , $email)
+        return $this->find('email' , $email);
     }
 }
 
