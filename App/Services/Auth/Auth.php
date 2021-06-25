@@ -2,7 +2,7 @@
 
 namespace App\Services\Auth;
 
-use App\contracts\Facade;
+use App\Contracts\Facade;
 use App\Services\Auth\providers\SessionProvider;
 
 class Auth extends Facade
@@ -15,3 +15,5 @@ class Auth extends Facade
         self::$provider = SessionProvider::instance();
     }
 }
+
+

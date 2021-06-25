@@ -65,7 +65,7 @@ class Router
 
     private function run_middleware()
     {
-        $middles = $this->route_current['middleware'];
+        $middles = $this->route_current['middleware']??array();
 
         foreach ($middles as $middle_class) {
             $middle_object = new $middle_class;

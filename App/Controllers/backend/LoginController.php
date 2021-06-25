@@ -23,12 +23,9 @@ class LoginController
     {
 
         global $request;
-
         $phone_number = $request->input('phone-number');
-        echo'<pre>';var_dump(Auth::login(['phone' => $phone_number]));die;
         $user_id = Auth::login(['phone' => $phone_number]);
-        return $user_id;
-        $phone_number =  $request->input('phone-number');
-        return true;
+     echo $user_id;
+
     }
 }

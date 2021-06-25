@@ -14,11 +14,10 @@ class SessionProvider extends AuthProvider
     public  function login( $data, $password = null)
     {
 
-        echo'<pre>';var_dump($data);die;
-        if ( $user_id_get = $this->user_model->get('*',['phone',$data['phone']])) {
+        if ( $user_id_get = $this->user_model->get('*',['phone'=>$data['phone']])) {
            var_dump( $user_id_get);
         }else{
-            echo 'dd'; 
+            echo 'dd';
         };
 
         // user already exists
