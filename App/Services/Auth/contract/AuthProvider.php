@@ -56,7 +56,7 @@ abstract class AuthProvider
 
     public function is_valid_phone($phone)
     {
-        $pattern = "//09(0[1-2]|1[0-9]|3[0-9]|2[0-1])-?[0-9]{3}-?[0-9]{4}//u";
+        $pattern = '/^09(1[0-9]|3[1-9]|2[1-9])-?[0-9]{3}-?[0-9]{4}/';
         return preg_match($pattern, $phone);
     }
 

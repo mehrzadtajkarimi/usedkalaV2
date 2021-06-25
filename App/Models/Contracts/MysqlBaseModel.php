@@ -6,7 +6,7 @@ use Medoo\Medoo;
 
 class  MysqlBaseModel extends BaseModel
 {
-    function __construct($id=null)
+    function __construct($id = null)
     {
         try {
             $this->connection = new Medoo([
@@ -50,9 +50,9 @@ class  MysqlBaseModel extends BaseModel
         }
         return $this;
     }
-    public function count_by($field,$value)
+    public function count_by($field, $value)
     {
-        return count($this->get($field,$value));
+        return count($this->get($field, $value));
     }
 
     public function all(): array
@@ -69,6 +69,11 @@ class  MysqlBaseModel extends BaseModel
         // end pagination
 
         return $this->connection->select($this->table, $columns, $where);
+    }
+    public function  first(array $where): array
+    {
+        $first=  $this->connection->select($this->table, '*', $where);
+        return $first[0];
     }
 
     public function update(array $data, array $where): int

@@ -25,7 +25,7 @@ class LoginController
         global $request;
         $phone_number = $request->input('phone-number');
         $user_id = Auth::login(['phone' => $phone_number]);
-     echo $user_id;
 
+        die;
     }
 }

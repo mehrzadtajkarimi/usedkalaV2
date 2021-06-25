@@ -36,7 +36,7 @@ use App\Utilities\FlashMessage;
 
 
 
-  <div class="register-box wow fadeInDown"  data-wow-delay="0.5s">
+  <div class="register-box wow fadeInDown" data-wow-delay="0.5s">
     <div class="register-logo">
       <img src="<?= asset_url() ?>backend/dist/img/ukfav-icon.png" alt="">
 
@@ -51,7 +51,7 @@ use App\Utilities\FlashMessage;
 
         <form id="form-phone" action="<?= base_url() ?>admin/login" method="post">
           <div class="mb-3 input-group ">
-            <input type="text" id="phone-number" class="form-control " name="phone-number" maxlength="11" placeholder="شماره تلفن همراه خود را وارد نمایید">
+            <input type="text" id="phone-number" class="form-control " name="phone-number" maxlength="11" placeholder="شماره تلفن همراه خود را وارد نمایید" autofocus autocomplete="off">
             <div class="input-group-append">
               <span class="fa fa-phone input-group-text"></span>
             </div>

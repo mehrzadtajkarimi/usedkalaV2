@@ -11,33 +11,31 @@ class SessionProvider extends AuthProvider
     const AUTH_KEY = 'auth';
 
 
-    public  function login( $data, $password = null)
+    public  function login($data, $password = null)
     {
 
-        if ( $user_id_get = $this->user_model->get('*',['phone'=>$data['phone']])) {
-           var_dump( $user_id_get);
-        }else{
-            echo 'dd';
-        };
-
-        // user already exists
-        // data validation
 
 
-        if (!$this->is_valid_phone($data['phone'])) {
-            FlashMessage::add('شماره وارد شده صحیح نیست', FlashMessage::WARNING);
-            return false;
+        if ($id = $this->user_model->already_exists($data)) {
+            echo '<pre>';
+            var_dump($id);
+            echo '</pre><br>';
+            // if expired time  > now() get token show massage second expired time
+            // else generate token save token to database set time expired 3 min send new sms
+
+
+
+
+
         }
+        // show form get code
+        // generate token
+        // send sms
+        // check token exists
 
-        if (!$this->is_valid_email($data['email'])) {
-            FlashMessage::add('ایمیل وارد شده صحیح نیست', FlashMessage::WARNING);
-            return false;
-        }
 
-        if ($this->user_model->already_exists($data)) {
-            FlashMessage::add('کاربری با این نام وجود دارد', FlashMessage::WARNING);
-            return false;
-        }
+
+
         $user_id = $this->user_model->create($data);
 
         if ($user_id) {
@@ -46,6 +44,12 @@ class SessionProvider extends AuthProvider
         } else {
             FlashMessage::add('مشکلی در هنگام ثبت تام رخ داده است', FlashMessage::WARNING);
         }
+
+
+        // user already exists
+        // data validation
+
+
     }
     public  function is_login()
     {

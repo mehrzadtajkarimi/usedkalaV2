@@ -6,20 +6,16 @@ use App\Models\Contracts\MysqlBaseModel;
 
 class User extends MysqlBaseModel
 {
-    protected $table='users';
+    protected $table = 'users';
 
 
-public function already_exists(array  $data)
-{
-    if ($phone=$data['phone']) {
-        return $this->find('phone' , $phone);
+    public function already_exists(array  $data)
+    {
+        if ($phone = $data['phone']) {
+            return  $this->first(['phone' => $phone]);
+        }
+        if ($email = $data['email']) {
+            return $this->first(['email' => $email]);
+        }
     }
-    if ($email=$data['email']) {
-        return $this->find('email' , $email);
-    }
-}
-
-
-
-
 }
