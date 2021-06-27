@@ -14,4 +14,17 @@ class ProfileController
             # code...
         }
     }
+
+    public function index()
+    {
+        $data = array();
+        return view('backend.user.profile',$data);
+    }
+
+    public function photo_edit()
+    {
+        echo 'open modal photo_edit';
+    }
+
+
 }

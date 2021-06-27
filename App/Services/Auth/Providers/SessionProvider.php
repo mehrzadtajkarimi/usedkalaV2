@@ -18,7 +18,8 @@ class SessionProvider extends AuthProvider
 
         if (!empty($user)) {
 
-          return  $_SESSION[self::AUTH_KEY] ?? $_SESSION[self::AUTH_KEY] = $user['id'];
+            $_SESSION[self::AUTH_KEY] ?? $_SESSION[self::AUTH_KEY] = $user['id'];
+            return $user;
 
             //     $code_expired_at = $user['token_expired_at'];
 
@@ -60,7 +61,7 @@ class SessionProvider extends AuthProvider
         $user_id = $this->user_model->create($data);
 
         if ($user_id) {
-            $_SESSION['user_id'] = $user_id;
+            $_SESSION[self::AUTH_KEY] = $user_id;
             FlashMessage::add('ثبت نام با موفقیت انجام شپ', FlashMessage::SUCCESS);
         } else {
             FlashMessage::add('مشکلی در هنگام ثبت تام رخ داده است', FlashMessage::WARNING);

@@ -21,11 +21,20 @@ class LoginController
 
     public function is_login()
     {
-
         global $request;
         $phone_number = $request->input('phone-number');
+        $user = Auth::login(['phone' => $phone_number]);
+        if ($user) {
 
-        $user_id = Auth::login(['phone' => $phone_number]);
+            $data = [
+                'photo' => $user,
+            ];
 
+            return view('backend.index', $data);
+        }
+    }
+    public function logout()
+    {
+        Auth::logout();
     }
 }

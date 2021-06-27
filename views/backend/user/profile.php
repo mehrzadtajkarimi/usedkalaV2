@@ -8,7 +8,9 @@
         <div class="card card-primary card-outline">
           <div class="card-body box-profile">
             <div class="text-center">
-              <img class="profile-user-img img-fluid img-circle" src="../../dist/img/user4-128x128.jpg" alt="User profile picture">
+              <a href="<?= base_url() ?>admin/user/photo">
+                <img class="profile-user-img img-fluid img-circle" src="<?= asset_url() ?>backend/dist/img/user4-128x128.jpg" alt="User profile picture">
+              </a>
             </div>
 
             <h3 class="profile-username text-center">فاطمه برهمند</h3>
@@ -27,7 +29,7 @@
               </li>
             </ul>
 
-            <a href="#" class="btn btn-primary btn-block"><b>دنبال کردن</b></a>
+            <!-- <a href="#" class="btn btn-primary btn-block"><b>دنبال کردن</b></a> -->
           </div>
           <!-- /.card-body -->
         </div>
@@ -90,7 +92,7 @@
                 <!-- Post -->
                 <div class="post">
                   <div class="user-block">
-                    <img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="user image">
+                    <img class="img-circle img-bordered-sm" src="<?= asset_url() ?>backend/dist/img/user1-128x128.jpg" alt="user image">
                     <span class="username">
                       <a href="#">حسام موسوی</a>
                       <a href="#" class="float-left btn-tool"><i class="fa fa-times"></i></a>
@@ -120,7 +122,7 @@
                 <!-- Post -->
                 <div class="post clearfix">
                   <div class="user-block">
-                    <img class="img-circle img-bordered-sm" src="../../dist/img/user7-128x128.jpg" alt="User Image">
+                    <img class="img-circle img-bordered-sm" src="<?= asset_url() ?>backend/dist/img/user7-128x128.jpg" alt="User Image">
                     <span class="username">
                       <a href="#">نینا الکس</a>
                       <a href="#" class="float-left btn-tool"><i class="fa fa-times"></i></a>
@@ -146,7 +148,7 @@
                 <!-- Post -->
                 <div class="post">
                   <div class="user-block">
-                    <img class="img-circle img-bordered-sm" src="../../dist/img/user6-128x128.jpg" alt="User Image">
+                    <img class="img-circle img-bordered-sm" src="<?= asset_url() ?>backend/dist/img/user6-128x128.jpg" alt="User Image">
                     <span class="username">
                       <a href="#">محمد محمدی</a>
                       <a href="#" class="float-left btn-tool"><i class="fa fa-times"></i></a>
@@ -156,19 +158,19 @@
                   <!-- /.user-block -->
                   <div class="row mb-3">
                     <div class="col-sm-6">
-                      <img class="img-fluid" src="../../dist/img/photo1.png" alt="Photo">
+                      <img class="img-fluid" src="<?= asset_url() ?>backend/dist/img/photo1.png" alt="Photo">
                     </div>
                     <!-- /.col -->
                     <div class="col-sm-6">
                       <div class="row">
                         <div class="col-sm-6">
-                          <img class="img-fluid mb-3" src="../../dist/img/photo2.png" alt="Photo">
-                          <img class="img-fluid" src="../../dist/img/photo3.jpg" alt="Photo">
+                          <img class="img-fluid mb-3" src="<?= asset_url() ?>backend/dist/img/photo2.png" alt="Photo">
+                          <img class="img-fluid" src="<?= asset_url() ?>backend/dist/img/photo3.jpg" alt="Photo">
                         </div>
                         <!-- /.col -->
                         <div class="col-sm-6">
-                          <img class="img-fluid mb-3" src="../../dist/img/photo4.jpg" alt="Photo">
-                          <img class="img-fluid" src="../../dist/img/photo1.png" alt="Photo">
+                          <img class="img-fluid mb-3" src="<?= asset_url() ?>backend/dist/img/photo4.jpg" alt="Photo">
+                          <img class="img-fluid" src="<?= asset_url() ?>backend/dist/img/photo1.png" alt="Photo">
                         </div>
                         <!-- /.col -->
                       </div>

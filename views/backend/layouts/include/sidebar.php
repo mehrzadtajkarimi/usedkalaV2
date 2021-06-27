@@ -4,7 +4,10 @@
                   <img src="<?= asset_url() ?>backend/dist/img/user.png" class="img-circle elevation-2" alt="User Image">
               </div>
               <div class="info">
-                  <a href="#" class="d-block">مهرزاد</a>
+                  <a href="<?= base_url() ?>admin/profile" class="">مهرزاد</a>
+                  <a href="<?= base_url() ?>admin/logout" class="left" >
+                      <i class="fa fa-sign-out"></i>
+                  </a>
               </div>
           </div>
 
