@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Auth\contract;
+namespace App\Services\Auth\Contract;
 
 use App\Models\User;
 
@@ -20,9 +20,9 @@ abstract class AuthProvider
         return static::$instance;
     }
 
-    protected function __construct(User $user_model)
+    protected function __construct()
     {
-        $this->user_model = $user_model;
+        $this->user_model = new User();
     }
 
     // public abstract function register(array $data);

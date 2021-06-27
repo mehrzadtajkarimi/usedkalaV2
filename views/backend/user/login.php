@@ -15,8 +15,9 @@ use App\Utilities\FlashMessage;
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"> -->
   <!-- Theme style -->
+  <link rel="stylesheet" href="<?= asset_url() ?>backend/plugins/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="<?= asset_url() ?>backend/dist/css/adminlte.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="<?= asset_url() ?>backend/plugins/iCheck/square/blue.css">
@@ -49,7 +50,7 @@ use App\Utilities\FlashMessage;
       <div class="card-body register-card-body">
         <p class="login-box-msg text-muted">برای ورود یا ثبت نام کافیست شماره تماس خود را وارد کنید.</p>
 
-        <form id="form-phone" action="<?= base_url() ?>admin/login" method="post">
+        <form id="form-phone" action="<?= base_url() ?>admin/login" method="POST">
           <div class="mb-3 input-group ">
             <input type="text" id="phone-number" class="form-control " name="phone-number" maxlength="11" placeholder="شماره تلفن همراه خود را وارد نمایید" autofocus autocomplete="off">
             <div class="input-group-append">
@@ -86,19 +87,18 @@ use App\Utilities\FlashMessage;
   <script>
     new WOW().init();
     $("#phone-number").keyup(function(e) {
-      var mobile = $("#phone-number").val();
+      var mobile = $(this).val();
       if (mobile.match('^09(1[0-9]|3[1-9]|2[1-9])-?[0-9]{3}-?[0-9]{4}')) {
 
-        var form = $('form');
+        var form = $('#form-phone');
         var url = form.attr('action');
 
         $.ajax({
-          type: "POST",
+          type:'post',
           url: url,
           data: form.serialize(), // serializes the form's elements.
-          success: function(data) {
-            $('form').submit();
-          }
+        }).done(function(msg) {
+          form.submit();
         });
       }
 

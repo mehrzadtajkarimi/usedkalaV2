@@ -70,10 +70,10 @@ class  MysqlBaseModel extends BaseModel
 
         return $this->connection->select($this->table, $columns, $where);
     }
-    public function  first(array $where): array
+    public function  first(array $where)
     {
-        $first=  $this->connection->select($this->table, '*', $where);
-        return $first[0];
+        $first =  $this->connection->select($this->table, '*', $where);
+        return  $first[0] ;
     }
 
     public function update(array $data, array $where): int
