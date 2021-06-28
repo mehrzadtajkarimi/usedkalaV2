@@ -80,6 +80,5 @@ class SessionProvider extends AuthProvider
         if (isset($_SESSION[self::AUTH_KEY])) {
             unset($_SESSION[self::AUTH_KEY]);
         }
-        return true;
     }
 }

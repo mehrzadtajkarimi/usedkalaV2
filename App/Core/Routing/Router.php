@@ -4,6 +4,7 @@ namespace App\Core\Routing;
 
 use App\Core\Request;
 use App\Core\Routing\Route;
+use App\Middleware\Auth;
 use App\Middleware\GlobalMiddleware;
 
 class Router
@@ -71,8 +72,13 @@ class Router
             $middle_object = new $middle_class;
             $middle_object->handle();
         }
+        if ($this->request->segment(2) !== 'login') {
+            $middle_object = new  Auth;
+            $middle_object->handle();
+        }
         $middle_object = new  GlobalMiddleware;
         $middle_object->handle();
+
     }
 
     private function dispatch_404()

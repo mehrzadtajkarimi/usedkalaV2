@@ -1,12 +1,12 @@
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-              <div class="image">
+              <a href="<?= base_url() ?>admin/profile"  class="image">
                   <img src="<?= asset_url() ?>backend/dist/img/user.png" class="img-circle elevation-2" alt="User Image">
-              </div>
+                  <span class="">مهرزاد</span>
+              </a>
               <div class="info">
-                  <a href="<?= base_url() ?>admin/profile" class="">مهرزاد</a>
-                  <a href="<?= base_url() ?>admin/logout" class="left" >
-                      <i class="fa fa-sign-out"></i>
+                  <a href="<?= base_url() ?>admin/logout" class="position-absolute " style="right: 195px">
+                      <i class="fa fa-sign-out p-1"></i>
                   </a>
               </div>
           </div>

@@ -12,9 +12,7 @@ class LoginController
 
     public function login()
     {
-
-
-
+        
         global $request;
         return view('backend.user.login', ['request' => $request], true);
     }
@@ -25,16 +23,14 @@ class LoginController
         $phone_number = $request->input('phone-number');
         $user = Auth::login(['phone' => $phone_number]);
         if ($user) {
-
-            $data = [
-                'photo' => $user,
-            ];
-
-            return view('backend.index', $data);
+            
+            return $request->redirect('admin');
         }
     }
     public function logout()
     {
+        global $request;
         Auth::logout();
+        return $request->redirect('');
     }
 }

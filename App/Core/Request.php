@@ -27,6 +27,11 @@ class Request
     {
         return is_null($key) ? $this->rout_params : $this->rout_params[$key];
     }
+    public function segment($key)
+    {
+        $segment = explode('/', $this->uri());
+        return $segment[$key] ?? null;
+    }
 
     public  function params()
     {
@@ -50,10 +55,11 @@ class Request
     }
     public  function input($key)
     {
-        return $this->params[$key]??null;
+        return $this->params[$key] ?? null;
     }
     public  function redirect($rout)
     {
-       header('Location: '. base_url($rout));die();
+        header('Location: ' . base_url($rout));
+        die();
     }
 }
