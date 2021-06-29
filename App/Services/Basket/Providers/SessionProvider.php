@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Basket\providers;
+namespace App\Services\Basket\Providers;
 
 use App\Services\Basket\Contract\BasketContract;
 
@@ -8,7 +8,7 @@ class SessionProvider implements BasketContract
 {
     public static $instance = null;
 
-    private  function __construct()
+    public  function __construct()
     {
         if (!$this->count()) {
             $_SESSION['cart'] = array();

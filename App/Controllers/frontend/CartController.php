@@ -4,24 +4,24 @@ namespace App\Controllers\frontend;
 
 use App\Core\Request;
 use App\Models\Product;
-use App\Services\Basket\providers\SessionProvider;
+use App\Services\Basket\Providers\SessionProvider;
 
 class CartController
 {
-    private $basket;
+    public $basket;
 
     public function __construct()
     {
         $this->basket = new SessionProvider();
     }
 
-    public function index(Request $request)
+    public function index()
     {
         $cart_items = $this->basket->items();
         $data = array(
             'cart_items' => $cart_items
         );
-        return view('backend.cart.index', $data);
+        return view('frontend.cart.index', $data);
     }
 
 

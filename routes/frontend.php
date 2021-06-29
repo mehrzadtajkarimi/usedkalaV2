@@ -16,6 +16,7 @@ use App\Middleware\Gate;
 Route::group(function(){
 
     Route::get('/','HomeController@index');
+    Route::get('/cart','CartController@index');
 });
 
 

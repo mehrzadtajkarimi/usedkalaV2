@@ -307,7 +307,7 @@
         <!-- .header-wishlist -->
         <ul id="site-header-cart" class="site-header-cart menu">
             <li class="animate-dropdown dropdown ">
-                <a class="cart-contents" href="cart.html" data-toggle="dropdown" title="View your shopping cart">
+                <a class="cart-contents" href="" data-toggle="dropdown" title="View your shopping cart">
                     <i class="tm tm-shopping-bag"></i>
                     <span class="count">2</span>
                     <!-- <span class="amount" dircetion="rtl">
@@ -346,7 +346,7 @@
                                         <span class="woocommerce-Price-currencySymbol">$</span>136.99</span>
                                 </p>
                                 <p class="woocommerce-mini-cart__buttons buttons">
-                                    <a href="cart.html" class="button wc-forward">View cart</a>
+                                    <a href="<?= base_url() ?>cart" class="button wc-forward">View cart</a>
                                     <a href="checkout.html" class="button checkout wc-forward">Checkout</a>
                                 </p>
                             </div>
