@@ -57,7 +57,7 @@ class Request
     {
         return $this->params[$key] ?? null;
     }
-    public  function redirect($rout)
+    public static  function redirect($rout)
     {
         header('Location: ' . base_url($rout));
         die();
