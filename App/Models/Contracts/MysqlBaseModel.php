@@ -73,7 +73,7 @@ class  MysqlBaseModel extends BaseModel
     public function  first(array $where)
     {
         $first =  $this->connection->select($this->table, '*', $where);
-        return  $first[0] ;
+        return  $first[0];
     }
 
     public function update(array $data, array $where): int
@@ -91,5 +91,30 @@ class  MysqlBaseModel extends BaseModel
     public function count(array $where): int
     {
         return $this->connection->count($this->table,  $where);
+    }
+
+    public function has(array $where): int
+    {
+        return $this->connection->has($this->table,  $where);
+    }
+}
+    public function inner_join($columns, array $where = null): array
+    {
+               // start pagination ***to  url -> ?page=1
+               $page = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 1;
+               $start = ($page - 1) * $this->pageSize;
+               $where['LIMIT'] = [$start, $this->pageSize];
+               // end pagination
+       
+               return $this->connection->select($this->table, $columns, $where);
+
+
+               $database->select("post", [
+                // Here is the table relativity argument that tells the relativity between the table you want to join.
+                "[>]account" => ["author_id" => "user_id"]
+            ], [
+                "post.title",
+                "account.city"
+            ]);
     }
 }
