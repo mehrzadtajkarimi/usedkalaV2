@@ -1,6 +1,6 @@
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-              <a href="<?= base_url() ?>admin/profile"  class="image">
+              <a href="<?= base_url() ?>admin/profile" class="image">
                   <img src="<?= asset_url() ?>backend/dist/img/user.png" class="img-circle elevation-2" alt="User Image">
                   <span class="">مهرزاد</span>
               </a>
@@ -18,17 +18,34 @@
                  with font-awesome or any other icon font library -->
                   <li class="nav-item has-treeview">
                       <a href="#" class="nav-link">
-                          <i class="nav-icon fa fa-dashboard"></i>
                           <p>
                               کاربران
                               <i class="right fa fa-angle-left"></i>
                           </p>
+                          <i class="nav-icon fa fa-dashboard"></i>
                       </a>
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
                               <a href="<?= base_url() ?>admin/users" class="nav-link">
-                                  <i class="fa fa-circle-o nav-icon"></i>
                                   <p>لیست کاربران</p>
+                                  <i class="fa fa-circle-o nav-icon"></i>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+                  <li class="nav-item has-treeview">
+                      <a href="#" class="nav-link">
+                          <p>
+                              دسته بندی ها
+                              <i class="right fa fa-angle-left"></i>
+                          </p>
+                          <i class="nav-icon fa fa-book"></i>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                              <a href="<?= base_url() ?>admin/category" class="nav-link">
+                                  <p>لیست دسته بندی ها</p>
+                                  <i class="fa fa-circle-o nav-icon"></i>
                               </a>
                           </li>
                       </ul>

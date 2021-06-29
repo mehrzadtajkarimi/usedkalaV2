@@ -24,3 +24,12 @@ Route::group(function () {
     Route::get('/admin/profile', 'ProfileController@index');
     Route::post('/admin/user/photo', 'ProfileController@photo');
 });
+
+
+Route::group(function () {
+    Route::get('/admin/category', 'CategoryController@index');
+
+
+
+
+});
