@@ -1,3 +1,15 @@
+-- usedkalav2.active_code definition
+
+CREATE TABLE `active_code` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `code` int NOT NULL,
+  `expired_at` timestamp NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `active_code_UN` (`user_id`,`code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
 -- usedkalav2.activity_log definition
 
 CREATE TABLE `activity_log` (
@@ -81,7 +93,7 @@ CREATE TABLE `categories` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `categories_UN` (`slug`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 -- usedkalav2.category_product definition
@@ -371,7 +383,9 @@ CREATE TABLE `users` (
   `city_id` int unsigned DEFAULT NULL,
   `user_level` tinyint DEFAULT '0',
   `phone` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `phone_verified_at` timestamp NULL DEFAULT NULL,
+  `token` int DEFAULT NULL,
+  `token_expired_at` timestamp NULL DEFAULT NULL,
+  `two_factor_type` enum('sms','email') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'sms',
   `first_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `last_name` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `email` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -388,7 +402,9 @@ CREATE TABLE `users` (
   `bank_number` bigint unsigned DEFAULT NULL,
   `ip` varchar(16) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NOT NULL,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_UN` (`phone`),
+  UNIQUE KEY `users_email_IDX` (`email`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=224 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

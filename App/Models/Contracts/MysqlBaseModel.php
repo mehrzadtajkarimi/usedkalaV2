@@ -97,24 +97,19 @@ class  MysqlBaseModel extends BaseModel
     {
         return $this->connection->has($this->table,  $where);
     }
-}
-    public function inner_join($columns, array $where = null): array
+
+    public function inner_join($join, array $where, $columns_as, $columns_to)
     {
-               // start pagination ***to  url -> ?page=1
-               $page = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 1;
-               $start = ($page - 1) * $this->pageSize;
-               $where['LIMIT'] = [$start, $this->pageSize];
-               // end pagination
-       
-               return $this->connection->select($this->table, $columns, $where);
+        // start pagination ***to  url -> ?page=1
+        $page = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 1;
+        $start = ($page - 1) * $this->pageSize;
+        $where['LIMIT'] = [$start, $this->pageSize];
+        // end pagination
 
-
-               $database->select("post", [
-                // Here is the table relativity argument that tells the relativity between the table you want to join.
-                "[>]account" => ["author_id" => "user_id"]
-            ], [
-                "post.title",
-                "account.city"
-            ]);
+        return $this->connection->select(
+            $this->table,
+            array('[><]' . $join => array($where)),
+            array($this->table . '.' . $columns_as, $join . '.' . $columns_to)
+        );
     }
 }
