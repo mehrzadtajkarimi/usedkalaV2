@@ -98,18 +98,9 @@ class  MysqlBaseModel extends BaseModel
         return $this->connection->has($this->table,  $where);
     }
 
-    public function inner_join($join, array $where, $columns_as, $columns_to)
+    public function inner_join($join, $columns_as, $columns_to)
     {
-        // start pagination ***to  url -> ?page=1
-        $page = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 1;
-        $start = ($page - 1) * $this->pageSize;
-        $where['LIMIT'] = [$start, $this->pageSize];
-        // end pagination
-
-        return $this->connection->select(
-            $this->table,
-            array('[><]' . $join => array($where)),
-            array($this->table . '.' . $columns_as, $join . '.' . $columns_to)
-        );
+        return  $this->connection->query("SELECT * FROM $this->table as c1 INNER JOIN $join as c2 ON c1.$columns_as = c2.$columns_to")->fetchAll();
     }
+   
 }

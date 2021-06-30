@@ -7,17 +7,12 @@ use App\Models\Category;
 
 class CategoryController
 {
-
-
     public function index()
     {
-        // $category =  new Category();
-
-
+        $children = new Category();
         $data = array(
-            // 'children' =>  $category->child(),
+            'children' =>  $children->child(),
         );
-
         return view('backend.category.index', $data);
     }
 }

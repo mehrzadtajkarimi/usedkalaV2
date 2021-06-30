@@ -44,3 +44,18 @@ function xss_clean($str)
 {
     return filter_var(htmlspecialchars($str), FILTER_SANITIZE_STRING);
 }
+
+
+
+function menu_generator($menu_items)
+{
+    $htmlwrapper;
+    foreach($menu_items as $category => $item) {
+        if (is_array($item)) {
+            $htmlwrapper .= "<li>" . $category . menu_generator($item) . "</li>";
+            continue;
+        }
+        $htmlwrapper .= "<li>" . $item . "</li>";
+    }
+    return "<ul>$htmlwrapper</ul>";
+}

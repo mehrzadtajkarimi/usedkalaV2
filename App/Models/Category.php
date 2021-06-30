@@ -11,6 +11,6 @@ class Category extends MysqlBaseModel
 
     public  function child()
     {
-        // return  $this->get('*',["parent_id => "]) ;
+       return (object) $this->inner_join('categories', 'parent_id', 'id');
     }
 }
