@@ -10,6 +10,7 @@ class CategoryController
     public function index()
     {
         $children = new Category();
+
         $data = array(
             'children' =>  $children->child(),
         );

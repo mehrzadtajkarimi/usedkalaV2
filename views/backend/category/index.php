@@ -7,11 +7,9 @@
                 </div>
                 <div class="offset-4"> </div>
                 <div class="col-4">
-
-                    <div class="card-tools p-3">
+                 <div class="card-tools p-3">
                         <div class="input-group input-group-sm">
                             <input type="text" name="table_search" class="form-control float-right" placeholder="جستجو">
-
                             <div class="input-group-append">
                                 <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                             </div>

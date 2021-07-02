@@ -1,4 +1,5 @@
 <ul class="list-group">
+
     <?php foreach ($children as $value) : ?>
         <li class="list-group-item">
             <div class="d-flex">
@@ -9,14 +10,12 @@
             </div>
             <?php
 
+            if (contains_array($value)) {
+                include_data(base_url() . '/views/backend/category/group.php', $children);
+            }
 
-echo '<pre>';
-var_dump($value);
-
-// if ($value['name'][0]) {
-//     var_dump($value['name']);
-// }
             ?>
+
         </li>
     <?php endforeach; ?>
 </ul>
