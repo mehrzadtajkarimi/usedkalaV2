@@ -1,19 +1,17 @@
 <ul class="list-group">
-
     <?php foreach ($children as $value) : ?>
         <li class="list-group-item">
             <div class="d-flex">
                 <span class="p-1"> <?= $value['name'] ?> </span>
-                <a href="<?= base_url() ?>admin/category/delete"><span class="badge badge-danger shadow-sm m-1 p-1"> حذف</span></a>
-                <a href="<?= base_url() ?>admin/category/edit"><span class="badge badge-success shadow-sm m-1 p-1"> ویرایش</span></a>
-                <a href="<?= base_url() ?>admin/category/create"><span class="badge badge-warning shadow-sm m-1 p-1"> ایجاد زیر دسته</span></a>
+                <a href="<?= base_url() ?>admin/category/delete"><span class="p-1 m-1 shadow-sm badge badge-danger"> حذف</span></a>
+                <a href="<?= base_url() ?>admin/category/edit"><span class="p-1 m-1 shadow-sm badge badge-success"> ویرایش</span></a>
+                <a href="<?= base_url() ?>admin/category/create"><span class="p-1 m-1 shadow-sm badge badge-warning"> ایجاد زیر دسته</span></a>
             </div>
             <?php
-
+                include_data(base_url() . '/views/backend/category/index.php', $children );
             if (contains_array($value)) {
-                include_data(base_url() . '/views/backend/category/group.php', $children);
+                echo 'ddddddddd';
             }
-
             ?>
 
         </li>

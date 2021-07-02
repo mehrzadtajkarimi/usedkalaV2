@@ -100,11 +100,6 @@ class  MysqlBaseModel extends BaseModel
 
     public function inner_join($join, $columns_as, $columns_to)
     {
-        return  $this->connection->query("SELECT * FROM
-         $this->table as c1
-         INNER JOIN $join as c2
-         ON c1.$columns_as = c2.$columns_to"
-          )->fetchAll();
+        return  $this->connection->query("SELECT * FROM $this->table as c1 INNER JOIN $join as c2 ON c1.$columns_as = c2.$columns_to")->fetchAll();
     }
-   
 }
