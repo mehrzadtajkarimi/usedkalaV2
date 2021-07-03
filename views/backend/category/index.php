@@ -20,14 +20,18 @@
             </div>
         </div>
         <div class="p-0 card-body table-responsive">
-            <ul class="list-group">
-                <?php
-                foreach ($children as $item) {
-                    echo    menu_generator($item);
-                }
-                ?>
 
+
+
+            <ul class="list-group">
+                <?php foreach ($categories as $value) : ?>
+                    <li class="list-group-item border-0"><?= $value ?></li>
+                <?php endforeach; ?>
             </ul>
+
+
+
+
         </div>
     </div>
 </div>

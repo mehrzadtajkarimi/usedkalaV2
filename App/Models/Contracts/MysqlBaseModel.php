@@ -98,8 +98,22 @@ class  MysqlBaseModel extends BaseModel
         return $this->connection->has($this->table,  $where);
     }
 
-    public function inner_join($join, $columns_as, $columns_to)
+    public function inner_join($join, $columns_as, $columns_to = 0)
     {
-        return  $this->connection->query("SELECT * FROM $this->table as c1 INNER JOIN $join as c2 ON c1.$columns_as = c2.$columns_to")->fetchAll();
+        return  $this->connection->query("SELECT * FROM $this->table as c1  JOIN $join as c2 ON c1.$columns_as = c2.$columns_to")->fetchAll();
     }
+
+    // public function category_tree($parent_id = 0, $sub_mark = '')
+    // {
+    //     $html_wrapper=null;
+    //     $variable =  $this->get('*', ['parent_id' => $parent_id]);
+    //     if (is_array($variable)) {
+    //         foreach ($variable as  $value) {
+    //             $html_wrapper .=  '<li class="list-group-item">' . $sub_mark . $value['name'] . '</li>';
+    //             $html_wrapper .=   $this->category_tree($value['id'], $sub_mark . '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp');
+    //         }
+    //     }
+    //     return "<ul class='list-group'>$html_wrapper</ul>";
+    // }
+
 }
