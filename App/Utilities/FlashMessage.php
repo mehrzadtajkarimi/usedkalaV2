@@ -44,4 +44,22 @@ class FlashMessage
         view_flash_message('error.flash.notice',$data);
         self::clean();
     }
+
+
+    public static function getCssClass($type)
+    {
+        switch ($type) {
+            case self::ERROR:
+                return "danger";
+            case self::SUCCESS:
+                return "success";
+            case self::WARNING:
+                return "warning";
+            case self::INFO:
+                return "primary";
+            default:
+                return "dark";
+        }
+    }
+
 }

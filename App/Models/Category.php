@@ -8,8 +8,6 @@ class Category extends MysqlBaseModel
 {
     protected $table = 'categories';
 
-
-
     public $property_category_array = [];
     public $children = [];
 
@@ -19,20 +17,6 @@ class Category extends MysqlBaseModel
 
         if (is_array($get_categories)) {
             foreach ($get_categories as  $value) {
-                // array_push($this->category_array,   $sub_mark . $value['name']);
-
-
-
-
-
-
-
-
-
-
-
-
-
                 array_push(
                     $this->property_category_array,
                     array(

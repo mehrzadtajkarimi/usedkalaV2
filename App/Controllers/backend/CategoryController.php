@@ -5,13 +5,16 @@ namespace App\Controllers\backend;
 use App\Controllers\Controller;
 use App\Core\Request;
 use App\Models\Category;
+use App\Utilities\FlashMessage;
 
 class CategoryController extends Controller
 {
     private $model;
+    private $request;
     public function __construct()
     {
         $this->model = new Category();
+        $this->request = new Request();
     }
 
 
@@ -26,12 +29,14 @@ class CategoryController extends Controller
 
     public function create()
     {
-        $parent_id = $this->request->get_param('id');
-
+        $params = $this->request->params();
         $this->model->create([
-            'parent_id' => $parent_id,
-            'name' => $this->request->get_param('name')
+            'parent_id' => $params['parent_id'],
+            'name' => $params['name'],
+            'slug' => $params['slug'],
         ]);
+        FlashMessage::add('مقادیر با موفقیت در دیتابیس ذخیره شد');
+        return $this->request->redirect('backend.category.index');
     }
     public function edit()
     {
