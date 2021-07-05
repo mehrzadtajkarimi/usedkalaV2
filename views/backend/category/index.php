@@ -12,7 +12,12 @@
                         <div class="input-group-append">
                             <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
                         </div>
-                    <a href="<?=base_url()?>"class="btn btn-success mr-3 shadow-sm-sm" >ایجاد دسته </a>
+
+                        <?php
+                        $data = ['ss' => 'dddddddddddd'];
+                        include_data(BASEPATH. 'views/backend/layouts/modal.php', $data);
+                        ?>
+
                     </div>
                 </div>
             </div>
@@ -28,12 +33,12 @@
                         foreach ($categories as $value) :
                         ?>
 
-                            <li class="list-group-item  <?= $value['parent']==0 ?'bg-light font-weight-bold mt-3' :''?>">
+                            <li class="list-group-item  <?= $value['parent'] == 0 ? 'bg-light font-weight-bold mt-3' : '' ?>">
 
                                 <span class="ml-4"><?= $value['name'] ?></span>
-                                <a href="<?= base_url() ?>admin/category/<?=$value['id']?>/edit" class="badge badge-pill badge-warning shadow-sm p-1 pl-3 pr-3">ویرایش</a>
-                                <a href="<?= base_url() ?>admin/category/<?=$value['id']?>/delete"  class="badge badge-pill badge-danger shadow-sm p-1 pl-3 pr-3">حذف</a>
-                                <a href="<?= base_url() ?>admin/category/create"  class="badge badge-pill badge-success shadow-sm p-1 pl-3 pr-3">ایجاد زیر دسته </a>
+                                <a href="<?= base_url() ?>admin/category/<?= $value['id'] ?>/edit" class="badge badge-pill badge-warning shadow-sm" style="padding: 5px 16px 5px 16px;">ویرایش</a>
+                                <a href="<?= base_url() ?>admin/category/<?= $value['id'] ?>/delete" class="badge badge-pill badge-danger shadow-sm" style="padding: 5px 20px 5px 20px;">حذف</a>
+                                <a href="<?= base_url() ?>admin/category/<?= $value['id'] ?>/create" class="badge badge-pill badge-success shadow-sm" style="padding: 5px 20px 5px 20px;">ایجاد </a>
 
                             </li>
 

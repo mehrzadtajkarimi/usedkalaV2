@@ -50,10 +50,11 @@ function xss_clean($str)
 
 function include_data($full_path_view, $data)
 {
+
     ob_start();
     extract($data);
     include_once $full_path_view;
-    return ob_get_clean();
+    echo  ob_get_clean();
 }
 
 function contains_array($array)
@@ -65,5 +66,3 @@ function contains_array($array)
     }
     return false;
 }
-
-

@@ -26,6 +26,12 @@ class CategoryController extends Controller
 
     public function create()
     {
+        $parent_id = $this->request->get_param('id');
+
+        $this->model->create([
+            'parent_id' => $parent_id,
+            'name' => $this->request->get_param('name')
+        ]);
     }
     public function edit()
     {
