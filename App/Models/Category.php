@@ -10,7 +10,8 @@ class Category extends MysqlBaseModel
 
 
 
-    public $category_array=[];
+    public $property_category_array = [];
+    public $children = [];
 
     public function category_tree($parent_id = 0, $sub_mark = '')
     {
@@ -18,11 +19,32 @@ class Category extends MysqlBaseModel
 
         if (is_array($get_categories)) {
             foreach ($get_categories as  $value) {
+                // array_push($this->category_array,   $sub_mark . $value['name']);
 
-                array_push($this->category_array,   $sub_mark . $value['name']);
+
+
+
+
+
+
+
+
+
+
+
+
+                array_push(
+                    $this->property_category_array,
+                    array(
+                        'name' => $sub_mark . $value['name'],
+                        'id' => $value['id'],
+                        'parent' => $value['parent_id'],
+                        'is_cat' =>  $this->count(['parent_id'=> $value['parent_id']])  ? 'd-block' : 'd-none',
+                    )
+                );
                 $this->category_tree($value['id'], $sub_mark . ' <b> &#10010; </b> ');
             }
         }
-        return $this->category_array;
+        return $this->property_category_array;
     }
 }

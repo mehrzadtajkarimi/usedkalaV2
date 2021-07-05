@@ -2,15 +2,17 @@
 
 namespace App\Controllers\backend;
 
-class ProfileController
+use App\Controllers\Controller;
+
+class ProfileController extends Controller
 {
     public function manege_two_factor()
     {
-        global $request;
-        if ($request->input('sms')) {
+
+        if ($this->request->input('sms')) {
             # code...
         }
-        if ($request->input('email')) {
+        if ($this->request->input('email')) {
             # code...
         }
     }
@@ -18,13 +20,11 @@ class ProfileController
     public function index()
     {
         $data = array();
-        return view('backend.user.profile',$data);
+        return view('backend.user.profile', $data);
     }
 
     public function photo_edit()
     {
         echo 'open modal photo_edit';
     }
-
-
 }

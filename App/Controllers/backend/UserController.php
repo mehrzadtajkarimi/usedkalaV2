@@ -2,11 +2,12 @@
 
 namespace App\Controllers\backend;
 
-class UserController
+use App\Controllers\Controller;
+
+class UserController  extends Controller
 {
     public function index()
     {
-        global $request;
-        return view('backend.user.index', ['request' => $request]);
+        return view('backend.user.index', ['request' => $this->request]);
     }
 }

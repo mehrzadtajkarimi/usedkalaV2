@@ -2,11 +2,12 @@
 
 namespace App\Controllers\frontend;
 
+use App\Controllers\Controller;
 use App\Core\Request;
 use App\Models\Product;
 use App\Services\Basket\Providers\SessionProvider;
 
-class CartController
+class CartController  extends Controller
 {
     public $basket;
 
@@ -25,19 +26,19 @@ class CartController
     }
 
 
-    public function add(Request $request)
+    public function add()
     {
         $product_model = new Product();
-        $product = $product_model->get('*', ['id' => $request->id]);
+        $product = $product_model->get('*', ['id' => $this->request->id]);
         if ($product) {
             $this->basket->add($product_model);
         }
         Request::redirect('cart');
     }
 
-    public function remove(Request $request)
+    public function remove()
     {
-        $this->basket->remove($request->id);
+        $this->basket->remove($this->request->id);
         Request::redirect('cart');
     }
 }

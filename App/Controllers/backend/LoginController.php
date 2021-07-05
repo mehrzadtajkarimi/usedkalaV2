@@ -2,9 +2,10 @@
 
 namespace App\Controllers\backend;
 
+use App\Controllers\Controller;
 use App\Services\Auth\Auth;
 
-class LoginController
+class LoginController extends Controller
 {
 
 
@@ -12,25 +13,22 @@ class LoginController
 
     public function login()
     {
-        
-        global $request;
-        return view('backend.user.login', ['request' => $request], true);
+
+        return view('backend.user.login', ['request' => $this->request], true);
     }
 
     public function is_login()
     {
-        global $request;
-        $phone_number = $request->input('phone-number');
+        $phone_number = $this->request->input('phone-number');
         $user = Auth::login(['phone' => $phone_number]);
         if ($user) {
-            
-            return $request->redirect('admin');
+
+            return $this->request->redirect('admin');
         }
     }
     public function logout()
     {
-        global $request;
         Auth::logout();
-        return $request->redirect('');
+        return $this->request->redirect('');
     }
 }

@@ -2,13 +2,14 @@
 
 namespace App\Controllers\backend;
 
-class HomeController
+use App\Controllers\Controller;
+
+class HomeController extends Controller
 {
 
 
     public function index()
     {
-        global $request;
-        return view('backend.index',['request'=>$request]);
+        return view('backend.index',['request'=>$this->request]);
     }
 }

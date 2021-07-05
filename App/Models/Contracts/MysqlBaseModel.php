@@ -98,7 +98,7 @@ class  MysqlBaseModel extends BaseModel
         return $this->connection->has($this->table,  $where);
     }
 
-    public function inner_join($join, $columns_as, $columns_to = 0)
+    public function inner_join($join, $columns_as, $columns_to )
     {
         return  $this->connection->query("SELECT * FROM $this->table as c1  JOIN $join as c2 ON c1.$columns_as = c2.$columns_to")->fetchAll();
     }
