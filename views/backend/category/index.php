@@ -14,7 +14,7 @@
                         </div>
 
                         <!-- Button trigger modal -->
-                        <a href="<?= base_url() ?>admin/category/0/create" type="button" class="btn btn-success shadow-sm mr-2 wow slideInLeft" data-toggle="modal" data-target="#exampleModalCenter">
+                        <a href="<?= base_url() ?>admin/category/0/create" type="button" class="btn btn-success shadow-sm mr-2  " data-toggle="modal" data-target="#exampleModalCenter">
                             ایجاد دسته اصلی
                         </a>
 

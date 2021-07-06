@@ -54,7 +54,6 @@ class Router
         if (!$result) {
             return false;
         }
-
         // send key value use { global $request } from controller
         foreach ($matches as $key => $value) {
             if (!is_int($key)) {

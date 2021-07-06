@@ -3,10 +3,13 @@
 namespace App\Controllers\backend;
 
 use App\Controllers\Controller;
+use App\Core\Request;
+use App\Models\Category;
 use App\Utilities\FlashMessage;
 
 class CategoryController extends Controller
 {
+
 
 
 
@@ -21,9 +24,8 @@ class CategoryController extends Controller
 
     public function create()
     {
-        $params = $this->request->params();
-
-
+        global $request;
+        $params = $request->params();
         $this->model->create([
             'parent_id' => $params['parent_id'],
             'name' => $params['name'],
@@ -34,9 +36,18 @@ class CategoryController extends Controller
     }
     public function edit()
     {
-        $id = $this->request->get_param('id');
-
-        echo  $id;
+        global $request;
+        $id = $request->get_param('id');
+        echo '<pre>';
+        var_dump($id);
+        echo '</pre><br>';
+        $params = $request->params();
+        $this->model->update([
+            'parent_id' => $params['parent_id'],
+            'name' => $params['name'],
+            'slug' => $params['slug'],
+            'image' => $params['image'],
+        ],['id'=>$id]);
     }
     public function delete()
     {

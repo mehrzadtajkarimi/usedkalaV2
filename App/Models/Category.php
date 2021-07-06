@@ -14,7 +14,6 @@ class Category extends MysqlBaseModel
     public function category_tree($parent_id = 0, $sub_mark = '')
     {
         $get_categories =  $this->get('*', ['parent_id' => $parent_id]);
-
         if (is_array($get_categories)) {
             foreach ($get_categories as  $value) {
                 array_push(
@@ -23,7 +22,9 @@ class Category extends MysqlBaseModel
                         'name' => $sub_mark . $value['name'],
                         'id' => $value['id'],
                         'parent' => $value['parent_id'],
-                        'is_cat' =>  $this->count(['parent_id'=> $value['parent_id']])  ? 'd-block' : 'd-none',
+                        'slug' => $value['slug'],
+                        'image' => $value['image'],
+                        // 'is_cat' =>  $this->count(['parent_id'=> $value['parent_id']])  ? 'd-block' : 'd-none',
                     )
                 );
                 $this->category_tree($value['id'], $sub_mark . ' <b> &#10010; </b> ');

@@ -19,14 +19,18 @@ class Request
         $this->agent = $_SERVER['HTTP_USER_AGENT'];
         $this->uri = strtok($_SERVER['REQUEST_URI'], '?');
     }
+ 
+    // get from router  method regex_matched
     public function set_param($key, $value)
     {
         $this->rout_params[$key] = $value;
     }
+
     public function get_param($key = null)
     {
         return is_null($key) ? $this->rout_params : $this->rout_params[$key];
     }
+
     public function segment($key)
     {
         $segment = explode('/', $this->uri());
