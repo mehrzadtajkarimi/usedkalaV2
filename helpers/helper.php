@@ -36,10 +36,11 @@ function buffering($full_path_view, $data, $dir = null)
 
 function view_flash_message($path, $data = [])
 {
-    extract($data);
     $path = str_replace('.', '/', $path);
-
-    include_once BASEPATH . "views/$path.php";
+    ob_start();
+    extract($data);
+    include_once BASEPATH . 'views/'. $path . '.php';
+    echo  ob_get_clean();
 }
 
 

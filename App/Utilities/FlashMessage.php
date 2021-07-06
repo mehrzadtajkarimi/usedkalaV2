@@ -16,7 +16,7 @@ class FlashMessage
         if (!isset($_SESSION['flash_message'])) {
             $_SESSION['flash_message'] = array();
         }
-        $_SESSION['flash_message'][] = (object)['mag' => $msg, 'type' => $type];
+        $_SESSION['flash_message'][] = ['msg' => $msg, 'type' => $type];
         if ($type == FlashMessage::ERROR) {
             self::$has_error = true;
         }
@@ -31,17 +31,18 @@ class FlashMessage
 
     public static function get_message()
     {
-        return $_SERVER['flash_message'] ?? array();
+        return $_SESSION['flash_message'] ?? array();
     }
 
     public static function show_message()
     {
         $flash_message = self::get_message();
+
         if (empty($flash_message)) {
             return;
         }
-        $data =['flash_message'=>$flash_message];
-        view_flash_message('error.flash.notice',$data);
+        $data = ['flash_message' => $flash_message];
+        view_flash_message('error.flash.notice', $data);
         self::clean();
     }
 
@@ -61,5 +62,4 @@ class FlashMessage
                 return "dark";
         }
     }
-
 }

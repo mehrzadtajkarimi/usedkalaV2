@@ -33,7 +33,7 @@
         </div>
       </section>
       <section class="content">
-
+        <?= App\Utilities\FlashMessage::show_message(); ?>
         <?= $view ?>
 
       </section>

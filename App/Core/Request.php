@@ -60,6 +60,6 @@ class Request
     public static  function redirect($rout)
     {
         header('Location: ' . base_url($rout));
-        die();
+        exit();
     }
 }
