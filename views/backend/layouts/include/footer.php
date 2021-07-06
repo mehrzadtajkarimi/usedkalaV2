@@ -29,5 +29,7 @@
 
    <!-- OPTIONAL SCRIPTS -->
    <script src="<?= asset_url() ?>backend/plugins/chart.js/Chart.min.js"></script>
+   <script src="<?= asset_url() ?>backend/plugins/WOW/dist/wow.min.js"></script>
    <script src="<?= asset_url() ?>backend/dist/js/demo.js"></script>
    <script src="<?= asset_url() ?>backend/dist/js/pages/dashboard3.js"></script>
+   <script src="<?= asset_url() ?>backend/dist/js/pages/my.js"></script>
