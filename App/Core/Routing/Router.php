@@ -35,7 +35,7 @@ class Router
     private function fine_route(Request $request)
     {
         foreach ($this->routes as  $route) {
-            if (!in_array($request->method(), $route['method'])) {
+            if (!in_array($request->method(), $route['method'])  ) {
                continue;
             }
             if ($this->regex_matched($route)) {

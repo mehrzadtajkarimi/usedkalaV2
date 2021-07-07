@@ -39,7 +39,7 @@ function view_flash_message($path, $data = [])
     $path = str_replace('.', '/', $path);
     ob_start();
     extract($data);
-    include_once BASEPATH . 'views/'. $path . '.php';
+    include_once BASEPATH . 'views/' . $path . '.php';
     echo  ob_get_clean();
 }
 
@@ -67,3 +67,4 @@ function contains_array($array)
     }
     return false;
 }
+

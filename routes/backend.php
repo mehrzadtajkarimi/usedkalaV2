@@ -11,6 +11,17 @@ use App\Middleware\Gate;
  * add slug example =
  * Route::get('/example/{slug}','exampleController@index');
  * Route::get('/example/{slug}/example2/{id}','exampleController@index');
+ * 
+ * 
+ * 
+ * Route::get('/admin/category', 'CategoryController@index');
+ * Route::get('/admin/category/create', 'CategoryController@create');
+ * Route::post('/admin/category', 'CategoryController@store');
+ * Route::get('/admin/category/{id}/edit', 'CategoryController@edit');
+ * Route::put('/admin/category/{id}', 'CategoryController@update');
+ * Route::delete('/admin/category/{id}', 'CategoryController@destroy');
+ * 
+ * 
  */
 
 
@@ -28,13 +39,9 @@ Route::group(function () {
 
 Route::group(function () {
     Route::get('/admin/category', 'CategoryController@index');
-    Route::get('/admin/category/create', 'CategoryController@create');
-    Route::post('/admin/category', 'CategoryController@store');
+    Route::get('/admin/category/{id}/create', 'CategoryController@create');
+    Route::post('/admin/category/{id}', 'CategoryController@store');
     Route::get('/admin/category/{id}/edit', 'CategoryController@edit');
-    Route::put('/admin/category/{id}', 'CategoryController@update');
+    Route::patch('/admin/category/{id}', 'CategoryController@update');
     Route::delete('/admin/category/{id}', 'CategoryController@destroy');
-
-
-
-
 });

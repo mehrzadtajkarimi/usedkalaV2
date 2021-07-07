@@ -10,7 +10,10 @@ use App\Utilities\FlashMessage;
 class CategoryController extends Controller
 {
 
-
+    public $model;
+    public function __construct() {
+        $this->model = new Category;
+    }
 
 
     public function index()
@@ -23,6 +26,16 @@ class CategoryController extends Controller
 
 
     public function create()
+    {
+        global $request;
+        $parent_id = $request->get_param('id');
+        $data = array(
+            'parent' =>   $this->model->first(['id' => $parent_id]),
+        );
+        return view('backend.category.create', $data);
+    }
+
+    public function store()
     {
         global $request;
         $params = $request->params();
@@ -38,6 +51,16 @@ class CategoryController extends Controller
     {
         global $request;
         $id = $request->get_param('id');
+
+        $data = array(
+            'parent' =>   $this->model->first(['id' => $id]),
+        );
+        return view('backend.category.edit', $data);
+    }
+    public function update()
+    {
+        global $request;
+        $id = $request->get_param('id');
         echo '<pre>';
         var_dump($id);
         echo '</pre><br>';
@@ -47,11 +70,12 @@ class CategoryController extends Controller
             'name' => $params['name'],
             'slug' => $params['slug'],
             'image' => $params['image'],
-        ],['id'=>$id]);
+        ], ['id' => $id]);
     }
-    public function delete()
+    public function destroy()
     {
-        $id = $this->request->get_param('id');
+        global $request;
+        $id = $request->params('id');
 
         echo  $id;
     }
