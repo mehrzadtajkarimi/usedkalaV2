@@ -12,9 +12,9 @@ use App\Services\Validation\contract\ValidationProvider;
  * @category  PHPSampleCodes
  * @package   SampleCodes
  * @copyright 2018 The Ide Pardazan (ipe.ir) PHP Group. All rights reserved.
- * @license   https://sms.ir/ ipe license
- * @version   IPE: 2.0
- * @link      https://sms.ir/ Documentation of sms.ir Restful API PHP Sample Codes.
+ * @license   https: //sms.ir/ ipe license
+ * @version   IPE  : 2.0
+ * @link      https: //sms.ir/ Documentation of sms.ir Restful API PHP Sample Codes.
  */
 
 /**
@@ -24,8 +24,8 @@ use App\Services\Validation\contract\ValidationProvider;
  * @package   SampleCodesClass
  
  * @copyright 2018 The Ide Pardazan (ipe.ir) PHP Group. All rights reserved.
- * @license   https://sms.ir/ ipe license
- * @link      https://sms.ir/ Documentation of sms.ir 
+ * @license   https: //sms.ir/ ipe license
+ * @link      https: //sms.ir/ Documentation of sms.ir 
  */
 class SmsIR_GetToken extends ValidationProvider
 {
@@ -51,9 +51,9 @@ class SmsIR_GetToken extends ValidationProvider
      */
     public function __construct($APIKey, $SecretKey, $APIURL)
     {
-        $this->APIKey = $APIKey;
+        $this->APIKey    = $APIKey;
         $this->SecretKey = $SecretKey;
-        $this->APIURL = $APIURL;
+        $this->APIURL    = $APIURL;
     }
 
     /**
@@ -65,8 +65,8 @@ class SmsIR_GetToken extends ValidationProvider
     {
         $postData = array(
             'UserApiKey' => $this->APIKey,
-            'SecretKey' => $this->SecretKey,
-            'System' => 'php_rest_v_2_0'
+            'SecretKey'  => $this->SecretKey,
+            'System'     => 'php_rest_v_2_0'
         );
         $postString = json_encode($postData);
 
@@ -88,14 +88,14 @@ class SmsIR_GetToken extends ValidationProvider
 
         $response = json_decode($result);
 
-        $resp = false;
+        $resp         = false;
         $IsSuccessful = '';
-        $TokenKey = '';
+        $TokenKey     = '';
         if (is_object($response)) {
             $IsSuccessful = $response->IsSuccessful;
             if ($IsSuccessful == true) {
                 $TokenKey = $response->TokenKey;
-                $resp = $TokenKey;
+                $resp     = $TokenKey;
             } else {
                 $resp = false;
             }
@@ -108,12 +108,12 @@ try {
     date_default_timezone_set("Asia/Tehran");
 
     // your sms.ir panel configuration
-    $APIKey = "enter your api key ...";
+    $APIKey    = "enter your api key ...";
     $SecretKey = "enter your secret key ...";
-    $APIURL = "https://ws.sms.ir/";
+    $APIURL    = "https://ws.sms.ir/";
 
     $SmsIR_GetToken = new SmsIR_GetToken($APIKey, $SecretKey, $APIURL);
-    $GetToken = $SmsIR_GetToken->getToken();
+    $GetToken       = $SmsIR_GetToken->getToken();
     var_dump($GetToken);
 } catch (Exeption $e) {
     echo 'Error GetToken : ' . $e->getMessage();

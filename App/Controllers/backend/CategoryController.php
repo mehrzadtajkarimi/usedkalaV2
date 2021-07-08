@@ -12,14 +12,14 @@ class CategoryController extends Controller
 
     public function __construct()
     {
-        parent::__construct();
+        parent:: __construct();
         $this->Model = new Category;
     }
 
     public function index()
     {
         $data = array(
-            'categories' =>   $this->Model->category_tree(),
+            'categories' => $this->Model->category_tree(),
         );
         return view('backend.category.index', $data);
     }
@@ -30,8 +30,8 @@ class CategoryController extends Controller
         $id = $this->request->get_param('id');
 
         $parent = $this->Model->first(['id' => $id]);
-        $data = array(
-            'parent' =>  $parent ,
+        $data   = array(
+            'parent' => $parent,
         );
         return view('backend.category.create', $data);
     }
@@ -39,13 +39,14 @@ class CategoryController extends Controller
     public function store()
     {
         $params = $this->request->params();
+        echo'<pre>';var_dump($params);die;
         $this->Model->create([
             'parent_id' => $params['parent_id'],
-            'name' => $params['name'],
-            'slug' => $params['slug'],
-            'image' => $params['image'],
+            'name'      => $params['name'],
+            'slug'      => $params['slug'],
+            'image'     => $params['image'],
         ]);
-        FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
+        FlashMessage:: add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
         return $this->request->redirect('admin/category');
     }
     public function edit()
@@ -53,7 +54,7 @@ class CategoryController extends Controller
         $id = $this->request->get_param('id');
 
         $data = array(
-            'parent' =>   $this->Model->first(['id' => $id]),
+            'parent' => $this->Model->first(['id' => $id]),
         );
         return view('backend.category.edit', $data);
     }
@@ -67,9 +68,9 @@ class CategoryController extends Controller
         $params = $this->request->params();
         $this->Model->update([
             'parent_id' => $params['parent_id'],
-            'name' => $params['name'],
-            'slug' => $params['slug'],
-            'image' => $params['image'],
+            'name'      => $params['name'],
+            'slug'      => $params['slug'],
+            'image'     => $params['image'],
         ], ['id' => $id]);
     }
     public function destroy()

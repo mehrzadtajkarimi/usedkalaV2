@@ -14,7 +14,6 @@
                 </div>
             </div>
             <div class="form-group row">
-
                 <label for="inputPassword3" class="col-sm-2 col-form-label">slug</label>
                 <div class="col-sm-10">
                     <input name="slug" type="text" class="form-control" id="inputPassword3" placeholder="نامه دسته بندی جهت نمایش در url"">

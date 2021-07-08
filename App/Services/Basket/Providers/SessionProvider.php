@@ -21,7 +21,7 @@ class SessionProvider implements BasketContract
         if (is_null(self::$instance)) {
             self::$instance = new self();
         }
-        return self::$instance;
+        return self:: $instance;
     }
 
 
@@ -29,7 +29,7 @@ class SessionProvider implements BasketContract
     {
         $count = $_SESSION['cart'][$item->id]->count  ?? 0;
         if ($this->item_exists($item->id)) {
-            $_SESSION['cart'][$item->id] =$item;
+            $_SESSION['cart'][$item->id] = $item;
         }
         $_SESSION['cart'][$item->id]->count = ++$count;
     }

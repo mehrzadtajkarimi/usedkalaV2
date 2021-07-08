@@ -14,7 +14,7 @@ class SessionProvider extends AuthProvider
 
     public  function login($data, $password = null)
     {
-        $user =  $this->user_model->already_exists($data);
+        $user = $this->user_model->already_exists($data);
 
         if (!empty($user)) {
 
@@ -54,7 +54,7 @@ class SessionProvider extends AuthProvider
 
 
         $data += [
-            'token' => rand(1, 9999),
+            'token'            => rand(1, 9999),
             'token_expired_at' => date('Y-m-d H:i:s', time() + 180),
         ];
 
@@ -62,9 +62,9 @@ class SessionProvider extends AuthProvider
 
         if ($user_id) {
             $_SESSION[self::AUTH_KEY] = $user_id;
-            FlashMessage::add('ثبت نام با موفقیت انجام شپ', FlashMessage::SUCCESS);
+            FlashMessage:: add('ثبت نام با موفقیت انجام شپ', FlashMessage::SUCCESS);
         } else {
-            FlashMessage::add('مشکلی در هنگام ثبت تام رخ داده است', FlashMessage::WARNING);
+            FlashMessage:: add('مشکلی در هنگام ثبت تام رخ داده است', FlashMessage::WARNING);
         }
         // user already exists
         // data validation

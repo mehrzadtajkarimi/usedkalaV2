@@ -10,15 +10,15 @@ class  MysqlBaseModel extends BaseModel
     {
         try {
             $this->connection = new Medoo([
-                'type' => 'mysql',
-                'host' => $_ENV['DB_HOST'],
-                'database' => $_ENV['DB_NAME'],
-                'username' => $_ENV['DB_USER'],
-                'password' => $_ENV['DB_PASS'],
-                'charset' => 'utf8mb4',
+                'type'      => 'mysql',
+                'host'      => $_ENV['DB_HOST'],
+                'database'  => $_ENV['DB_NAME'],
+                'username'  => $_ENV['DB_USER'],
+                'password'  => $_ENV['DB_PASS'],
+                'charset'   => 'utf8mb4',
                 'collation' => 'utf8mb4_general_ci',
-                'port' => 3306,
-                'prefix' => '',
+                'port'      => 3306,
+                'prefix'    => '',
                 // [optional] Enable logging, it is disabled by default for better performance.
                 'logging' => true,
                 // PDO::ERRMODE_SILENT (default) | PDO::ERRMODE_WARNING | PDO::ERRMODE_EXCEPTION
@@ -63,18 +63,18 @@ class  MysqlBaseModel extends BaseModel
     public function  get($columns, array $where = null): array
     {
         // start pagination ***to  url -> ?page=1
-        $page = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 1;
-        $start = ($page - 1) * $this->pageSize;
+               $page    = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 1;
+               $start   = ($page - 1) * $this->pageSize;
         $where['LIMIT'] = [$start, $this->pageSize];
 
-        $where["ORDER"]=["id" => "DESC"];
+        $where["ORDER"] = ["id" => "DESC"];
         // end pagination
 
         return $this->connection->select($this->table, $columns, $where);
     }
     public function  first(array $where)
     {
-        $first =  $this->connection->select($this->table, '*', $where);
+        $first = $this->connection->select($this->table, '*', $where);
         return  $first[0];
     }
 
