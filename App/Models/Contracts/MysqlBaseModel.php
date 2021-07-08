@@ -25,7 +25,7 @@ class  MysqlBaseModel extends BaseModel
                 'error' => \PDO::ERRMODE_EXCEPTION,
             ]);
         } catch (\PDOException $e) {
-            echo "Connection failed" . $e->getMessage();
+            echo '<h1>مشکلی در ارتباط با دیتابیس رخ داد </h1>';
         }
 
         if (!is_null($id)) {
@@ -66,6 +66,8 @@ class  MysqlBaseModel extends BaseModel
         $page = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 1;
         $start = ($page - 1) * $this->pageSize;
         $where['LIMIT'] = [$start, $this->pageSize];
+
+        $where["ORDER"]=["id" => "DESC"];
         // end pagination
 
         return $this->connection->select($this->table, $columns, $where);

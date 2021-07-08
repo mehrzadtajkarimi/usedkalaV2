@@ -33,10 +33,10 @@
                       <div class="form-group row">
                         <label for="slug" class="col-2 col-form-label">عکس</label>
                         <div class="col-10">
-                        <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="inputGroupFile04">
-                          <label  name="image" class="custom-file-label" for="inputGroupFile04">Choose file</label>
-                        </div>
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile04">
+                            <label name="image" class="custom-file-label" for="inputGroupFile04">Choose file</label>
+                          </div>
                         </div>
                       </div>
                       <div class="form-group row">
@@ -71,7 +71,7 @@
                   </div>
                   <div class="col">
                     <a href="<?= base_url() ?>admin/category/<?= $value['id'] ?>/edit" class="btn btn-warning btn-sm shadow-sm " style="padding: 0px 16px; border-radius: 18px;">ویرایش</a>
-                    <a href="<?= base_url() ?>admin/category/<?= $value['parent'] ?>/create" class="btn btn-success btn-sm shadow-sm" style="padding: 0px 20px; border-radius: 18px;">ایجاد </a>
+                    <a href="<?= base_url() ?>admin/category/<?=  $value['id'] ?>/create" class="btn btn-success btn-sm shadow-sm" style="padding: 0px 20px; border-radius: 18px;">ایجاد </a>
                     <form method="delete" action="<?= base_url() ?>admin/category/<?= $value['id'] ?>" class="d-inline">
                       <input type="submit" class="btn btn-danger btn-sm shadow-sm " style="padding: 0px 20px; border-radius: 18px;" value="حذف">
                     </form>

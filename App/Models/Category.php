@@ -13,7 +13,7 @@ class Category extends MysqlBaseModel
 
     public function category_tree($parent_id = 0, $sub_mark = '')
     {
-        $get_categories =  $this->get('*', ['parent_id' => $parent_id]);
+        $get_categories =  $this->get('*', ['parent_id' => $parent_id ]);
         if (is_array($get_categories)) {
             foreach ($get_categories as  $value) {
                 array_push(
