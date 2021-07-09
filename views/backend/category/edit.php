@@ -9,6 +9,7 @@
 
         <form action="<?= base_url() ?>admin/category/<?= $parent['id'] ?>" method="post">
         <input type="hidden" name="_method" value="patch" />
+        <input type="hidden" name="parent_id" value="<?= $parent['id'] ?>" />
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">نام</label>
                 <div class="col-sm-10">
@@ -35,6 +36,7 @@
                 <div class="form-group row">
                     <div class="col-sm-10">
                         <button type="submit" class="btn btn-primary">ذخیره</button>
+                        <a href="<?= base_url() ?>admin/category" class="btn btn-danger">انصراف</a>
                     </div>
                 </div>
         </form>

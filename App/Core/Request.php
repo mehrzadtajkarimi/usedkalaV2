@@ -14,7 +14,7 @@ class Request
 
     public  function __construct()
     {
-        $this->form_method = isset($REQUEST['_method']) ? $REQUEST['_method'] : '';
+        $this->form_method = isset($_REQUEST['_method']) ? $_REQUEST['_method'] : '';
         $this->params = $_REQUEST;
         $this->method = strtolower($_SERVER['REQUEST_METHOD']);
         $this->ip = $_SERVER['SERVER_ADDR'];
@@ -45,6 +45,9 @@ class Request
     }
     public  function method()
     {
+        if ($this->method == 'post' && !empty($this->form_method)) {
+            $this->method = $this->form_method;
+        }
         return $this->method;
     }
     public  function form_method()

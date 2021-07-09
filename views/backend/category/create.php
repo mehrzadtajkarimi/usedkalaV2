@@ -1,12 +1,12 @@
 <div class="card">
     <div class="card-header">
-        <h5>ایجاد زیر دسته (( <?= $parent['name'] ?> ))</h5>
+        <h5>ایجاد زیر دسته (( <?= $category['name'] ?> ))</h5>
 
     </div>
     <div class="card-body">
 
-        <form action="<?= base_url() ?>admin/category/<?= $parent['id'] ?>" method="post">
-            <input type="hidden" name="parent_id" value="<?= $parent['parent_id'] ?>">
+        <form action="<?= base_url() ?>admin/category/<?= $category['id'] ?>" method="post">
+            <input type="hidden" name="parent_id" value="<?= $category['id'] ?>">
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">نام</label>
                 <div class="col-sm-10">

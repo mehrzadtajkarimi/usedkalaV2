@@ -35,8 +35,8 @@ class Router
     private function fine_route(Request $request)
     {
         foreach ($this->routes as  $route) {
-            if (!in_array($request->method(), $route['method'])  ) {
-               continue;
+            if (!in_array($request->method(), $route['method'])) {
+                continue;
             }
             if ($this->regex_matched($route)) {
                 return $route;
@@ -65,7 +65,7 @@ class Router
 
     private function run_middleware()
     {
-        $middles = $this->route_current['middleware']??array();
+        $middles = $this->route_current['middleware'] ?? array();
 
         foreach ($middles as $middle_class) {
             $middle_object = new $middle_class;
@@ -77,7 +77,6 @@ class Router
         }
         $middle_object = new  GlobalMiddleware;
         $middle_object->handle();
-
     }
 
     private function dispatch_404()
@@ -101,9 +100,9 @@ class Router
         }
         if (is_array($action)) {
 
-            $uri_separator = explode('/',$route['uri']);
-            $routing = $uri_separator[1] =='admin' ? 'backend\\' : 'frontend\\';
-            $class_name  = self::BASE_CONTROLLER .$routing. $action[0];
+            $uri_separator = explode('/', $route['uri']);
+            $routing = $uri_separator[1] == 'admin' ? 'backend\\' : 'frontend\\';
+            $class_name  = self::BASE_CONTROLLER . $routing . $action[0];
             $method_name = $action[1];
             if (!class_exists($class_name)) {
                 throw new \Exception("class $class_name Not Exists");
@@ -115,8 +114,4 @@ class Router
             return $controller->{$method_name}();
         }
     }
-
-
-
-
 }

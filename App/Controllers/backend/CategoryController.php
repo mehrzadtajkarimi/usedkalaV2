@@ -8,18 +8,18 @@ use App\Utilities\FlashMessage;
 
 class CategoryController extends Controller
 {
-    private $Model;
+    private $categoryModel;
 
     public function __construct()
     {
         parent:: __construct();
-        $this->Model = new Category;
+        $this->categoryModel = new Category;
     }
 
     public function index()
     {
         $data = array(
-            'categories' => $this->Model->category_tree(),
+            'categories' => $this->categoryModel->category_tree(),
         );
         return view('backend.category.index', $data);
     }
@@ -29,9 +29,11 @@ class CategoryController extends Controller
     {
         $id = $this->request->get_param('id');
 
-        $parent = $this->Model->first(['id' => $id]);
+        $category = $this->categoryModel->first(['id' => $id]);
+
         $data   = array(
-            'parent' => $parent,
+
+            'category' => $category,
         );
         return view('backend.category.create', $data);
     }
@@ -39,8 +41,8 @@ class CategoryController extends Controller
     public function store()
     {
         $params = $this->request->params();
-        echo'<pre>';var_dump($params);die;
-        $this->Model->create([
+        // echo'<pre>';var_dump($params);die;
+        $this->categoryModel->create([
             'parent_id' => $params['parent_id'],
             'name'      => $params['name'],
             'slug'      => $params['slug'],
@@ -54,29 +56,28 @@ class CategoryController extends Controller
         $id = $this->request->get_param('id');
 
         $data = array(
-            'parent' => $this->Model->first(['id' => $id]),
+            'parent' => $this->categoryModel->first(['id' => $id]),
         );
         return view('backend.category.edit', $data);
     }
     public function update()
     {
-        echo'<pre>';var_dump('ddddddddddd');die;
         $id = $this->request->get_param('id');
-        echo '<pre>';
-        var_dump($id);
-        echo '</pre><br>';
         $params = $this->request->params();
-        $this->Model->update([
-            'parent_id' => $params['parent_id'],
+        $this->categoryModel->update([
             'name'      => $params['name'],
             'slug'      => $params['slug'],
             'image'     => $params['image'],
         ], ['id' => $id]);
+        FlashMessage:: add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
+        return $this->request->redirect('admin/category');
     }
     public function destroy()
     {
-        $id = $this->request->params('id');
+        $id = $this->request->get_param('id');
+        $this->categoryModel->delete(['id'=>$id]);
 
-        echo  $id;
+        FlashMessage:: add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
+        return $this->request->redirect('admin/category');
     }
 }
