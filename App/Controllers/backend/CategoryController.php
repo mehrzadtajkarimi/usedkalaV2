@@ -12,7 +12,7 @@ class CategoryController extends Controller
 
     public function __construct()
     {
-        parent:: __construct();
+        parent::__construct();
         $this->categoryModel = new Category;
     }
 
@@ -28,15 +28,13 @@ class CategoryController extends Controller
     public function create()
     {
         $id = $this->request->get_param('id');
-
         $category = $this->categoryModel->first(['id' => $id]);
-
         $data   = array(
-
             'category' => $category,
         );
         return view('backend.category.create', $data);
     }
+
 
     public function store()
     {
@@ -48,9 +46,12 @@ class CategoryController extends Controller
             'slug'      => $params['slug'],
             'image'     => $params['image'],
         ]);
-        FlashMessage:: add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
+        FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
         return $this->request->redirect('admin/category');
     }
+
+
+
     public function edit()
     {
         $id = $this->request->get_param('id');
@@ -60,6 +61,9 @@ class CategoryController extends Controller
         );
         return view('backend.category.edit', $data);
     }
+
+
+
     public function update()
     {
         $id = $this->request->get_param('id');
@@ -69,15 +73,24 @@ class CategoryController extends Controller
             'slug'      => $params['slug'],
             'image'     => $params['image'],
         ], ['id' => $id]);
-        FlashMessage:: add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
+        FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
         return $this->request->redirect('admin/category');
     }
+
+
+
     public function destroy()
     {
         $id = $this->request->get_param('id');
-        $this->categoryModel->delete(['id'=>$id]);
+        $is_cat = $this->categoryModel->has( ['parent_id' => $id]);
+        if ($is_cat == false) {
+            $this->categoryModel->delete(['id' => $id]);
 
-        FlashMessage:: add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
+            FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
+            return $this->request->redirect('admin/category');
+        }
+        FlashMessage::add("به دلیل وجود زیر دسته امکان حذف وجود ندارد",FlashMessage::ERROR);
         return $this->request->redirect('admin/category');
+
     }
 }
