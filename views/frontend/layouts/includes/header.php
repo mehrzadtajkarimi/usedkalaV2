@@ -50,214 +50,57 @@
                 <span>تمامی محصولات</span>
             </button>
             <ul id="menu-departments-menu" class="dropdown-menu yamm departments-menu-dropdown">
-
-                <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown-submenu">
-                    <a title="رک" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" href="#">سرور <span class="caret"></span></a>
-
-                    <ul role="menu" class=" dropdown-menu">
-                        <li class="menu-item menu-item-object-static_block animate-dropdown">
-                            <div class="yamm-content">
-                                <div class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
-                                    <div class="kc-col-container">
-                                        <div class="kc_single_image">
-                                            <img src="<?= asset_url() ?>frontend/images/megamenu.jpg" class="" alt="" />
+                <?php foreach ($categoryLevelOne as $valueLevelOne) : ?>
+                    <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown-submenu">
+                        <a title="دسته اصلی" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" href="#"><?= $valueLevelOne['name'] ?> <span class="caret"></span></a>
+                        <ul role="menu" class=" dropdown-menu">
+                            <li class="menu-item menu-item-object-static_block animate-dropdown">
+                                <div class="yamm-content">
+                                    <div class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
+                                        <div class="kc-col-container">
+                                            <div class="kc_single_image">
+                                                <!-- <img src="<?= asset_url() ?>frontend/images/megamenu.jpg" class="" alt="" /> -->
+                                            </div>
+                                            <!-- .kc_single_image -->
                                         </div>
-                                        <!-- .kc_single_image -->
+                                        <!-- .kc-col-container -->
                                     </div>
-                                    <!-- .kc-col-container -->
-                                </div>
-                                <!-- .bg-yamm-content -->
-                                <div class="row yamm-content-row">
-                                    <div class="col-md-6 col-sm-12">
+                                    <!-- .bg-yamm-content -->
+                                    <div class="row yamm-content-row">
                                         <div class="kc-col-container">
                                             <div class="kc_text_block">
-                                                <ul>
-                                                    <li class="nav-title">Computers &amp; Accessories</li>
-                                                    <li><a href="shop.html">All Computers &amp;
-                                                            Accessories</a></li>
-                                                    <li><a href="shop.html">Laptops, Desktops &amp;
-                                                            Monitors</a></li>
-                                                    <li><a href="shop.html">Pen Drives, Hard Drives &amp;
-                                                            Memory Cards</a></li>
-                                                    <li><a href="shop.html">Printers &amp; Ink</a></li>
-                                                    <li><a href="shop.html">Networking &amp; Internet
-                                                            Devices</a></li>
-                                                    <li><a href="shop.html">Computer Accessories</a></li>
-                                                    <li><a href="shop.html">Software</a></li>
-                                                    <li class="nav-divider"></li>
-                                                    <li>
-                                                        <a href="shop.html">
-                                                            <span class="nav-text">All Electronics</span>
-                                                            <span class="nav-subtext">Discover more
-                                                                products</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
+                                                <div class="row">
+                                                    <?php foreach ($categoryLevelTwo[$valueLevelOne['id']] as $valueLevelTwo) : ?>
+                                                        <div class="col mr-3 ml-3 ">
+                                                            <ul>
+                                                                <li class="">
+                                                                    <a class="d-flex justify-content-center text-center" href="<?= base_url() ?>">
+                                                                        <div class="card border-0 " style="width: 10rem;">
+                                                                            <img class="card-img-top img-fluid rounded-circle  " src="<?= asset_url() ?>frontend/images/megamenu.jpg" alt="">
+                                                                            <div class="card-body  pt-3">
+                                                                                <p class="card-text">
+                                                                                    <?= $valueLevelTwo['name'] ?>
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    <?php endforeach; ?>
+                                                </div>
                                             </div>
                                             <!-- .kc_text_block -->
                                         </div>
                                         <!-- .kc-col-container -->
                                     </div>
-                                    <!-- .kc_column -->
-                                    <div class="col-md-6 col-sm-12">
-                                        <div class="kc-col-container">
-                                            <div class="kc_text_block">
-                                                <ul>
-                                                    <li class="nav-title">Office &amp; Stationery</li>
-                                                    <li><a href="shop.html">All Office &amp; Stationery</a>
-                                                    </li>
-                                                    <li><a href="shop.html">Pens &amp; Writing</a></li>
-                                                </ul>
-                                            </div>
-                                            <!-- .kc_text_block -->
-                                        </div>
-                                        <!-- .kc-col-container -->
-                                    </div>
-                                    <!-- .kc_column -->
+                                    <!-- .kc_row -->
                                 </div>
-                                <!-- .kc_row -->
-                            </div>
-                            <!-- .yamm-content -->
-                        </li>
-                    </ul>
-                </li>
-                <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown-submenu">
-                    <a title="Cameras &amp; Photo" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" href="#">ذخیره ساز<span class="caret"></span></a>
-                    <ul role="menu" class=" dropdown-menu">
-                        <li class="menu-item menu-item-object-static_block animate-dropdown">
-                            <div class="yamm-content">
-                                <div class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
-                                    <div class="kc-col-container">
-                                        <div class="kc_single_image">
-                                            <img src="<?= asset_url() ?>frontend/images/megamenu-1.jpg" class="" alt="" />
-                                        </div>
-                                        <!-- .kc_single_image -->
-                                    </div>
-                                    <!-- .kc-col-container -->
-                                </div>
-                                <!-- .bg-yamm-content -->
-                                <div class="row yamm-content-row">
-                                    <div class="col-md-6 col-sm-12">
-                                        <div class="kc-col-container">
-                                            <div class="kc_text_block">
-                                                <ul>
-                                                    <li class="nav-title">Cameras & Photography</li>
-                                                    <li><a href="shop.html">All Cameras & Photography</a>
-                                                    </li>
-                                                    <li><a href="shop.html">Point & Shoot Cameras</a></li>
-                                                    <li><a href="shop.html">Lenses</a></li>
-                                                    <li><a href="shop.html">Camera Accessories</a></li>
-                                                    <li><a href="shop.html">Security & Surveillance</a></li>
-                                                    <li><a href="shop.html">Binoculars & Telescopes</a></li>
-                                                    <li><a href="shop.html">Camcorders</a></li>
-                                                    <li class="nav-divider"></li>
-                                                    <li>
-                                                        <a href="shop.html">
-                                                            <span class="nav-text">All Electronics</span>
-                                                            <span class="nav-subtext">Discover more
-                                                                products</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <!-- .kc_text_block -->
-                                        </div>
-                                        <!-- .kc-col-container -->
-                                    </div>
-                                    <!-- .kc_column -->
-                                    <div class="col-md-6 col-sm-12">
-                                        <div class="kc-col-container">
-                                            <div class="kc_text_block">
-                                                <ul>
-                                                    <li class="nav-title">Audio & Video</li>
-                                                    <li><a href="shop.html">All Audio & Video</a></li>
-                                                    <li><a href="shop.html">Headphones & Speakers</a></li>
-                                                    <li><a href="shop.html">Home Entertainment Systems</a>
-                                                    </li>
-                                                    <li><a href="shop.html">MP3 & Media Players</a></li>
-                                                </ul>
-                                            </div>
-                                            <!-- .kc_text_block -->
-                                        </div>
-                                        <!-- .kc-col-container -->
-                                    </div>
-                                    <!-- .kc_column -->
-                                </div>
-                                <!-- .kc_row -->
-                            </div>
-                            <!-- .yamm-content -->
-                        </li>
-                    </ul>
-                </li>
-                <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown-submenu">
-                    <a title="Smart Phones &amp; Tablets" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" href="#">تجهیزات شبکه <span class="caret"></span></a>
-                    <ul role="menu" class=" dropdown-menu">
-                        <li class="menu-item menu-item-object-static_block animate-dropdown">
-                            <div class="yamm-content">
-                                <div class="bg-yamm-content bg-yamm-content-bottom bg-yamm-content-left">
-                                    <div class="kc-col-container">
-                                        <div class="kc_single_image">
-                                            <img src="<?= asset_url() ?>frontend/images/megamenu.jpg" class="" alt="" />
-                                        </div>
-                                        <!-- .kc_single_image -->
-                                    </div>
-                                    <!-- .kc-col-container -->
-                                </div>
-                                <!-- .bg-yamm-content -->
-                                <div class="row yamm-content-row">
-                                    <div class="col-md-6 col-sm-12">
-                                        <div class="kc-col-container">
-                                            <div class="kc_text_block">
-                                                <ul>
-                                                    <li class="nav-title">Computers &amp; Accessories</li>
-                                                    <li><a href="shop.html">All Computers &amp;
-                                                            Accessories</a></li>
-                                                    <li><a href="shop.html">Laptops, Desktops &amp;
-                                                            Monitors</a></li>
-                                                    <li><a href="shop.html">Pen Drives, Hard Drives &amp;
-                                                            Memory Cards</a></li>
-                                                    <li><a href="shop.html">Printers &amp; Ink</a></li>
-                                                    <li><a href="shop.html">Networking &amp; Internet
-                                                            Devices</a></li>
-                                                    <li><a href="shop.html">Computer Accessories</a></li>
-                                                    <li><a href="shop.html">Software</a></li>
-                                                    <li class="nav-divider"></li>
-                                                    <li>
-                                                        <a href="shop.html">
-                                                            <span class="nav-text">All Electronics</span>
-                                                            <span class="nav-subtext">Discover more
-                                                                products</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <!-- .kc_text_block -->
-                                        </div>
-                                        <!-- .kc-col-container -->
-                                    </div>
-                                    <!-- .kc_column -->
-                                    <div class="col-md-6 col-sm-12">
-                                        <div class="kc-col-container">
-                                            <div class="kc_text_block">
-                                                <ul>
-                                                    <li class="nav-title">Office &amp; Stationery</li>
-                                                    <li><a href="shop.html">All Office &amp; Stationery</a>
-                                                    </li>
-                                                    <li><a href="shop.html">Pens &amp; Writing</a></li>
-                                                </ul>
-                                            </div>
-                                            <!-- .kc_text_block -->
-                                        </div>
-                                        <!-- .kc-col-container -->
-                                    </div>
-                                    <!-- .kc_column -->
-                                </div>
-                                <!-- .kc_row -->
-                            </div>
-                            <!-- .yamm-content -->
-                        </li>
-                    </ul>
-                </li>
+                                <!-- .yamm-content -->
+                            </li>
+                        </ul>
+                    </li>
+                <?php endforeach; ?>
 
             </ul>
         </div>

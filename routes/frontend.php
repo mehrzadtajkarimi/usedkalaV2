@@ -17,6 +17,7 @@ Route::group(function(){
 
     Route::get('/','HomeController@index');
     Route::get('/cart','CartController@index');
+    Route::get('/category','CategoryController@index');
 });
 
 
