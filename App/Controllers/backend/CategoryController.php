@@ -28,7 +28,7 @@ class CategoryController extends Controller
     public function create()
     {
         $id = $this->request->get_param('id');
-        $category = $this->categoryModel->first(['id' => $id]);
+        $category = $this->categoryModel->first(['id' => $id])?? 0;
         $data   = array(
             'category' => $category,
         );

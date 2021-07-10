@@ -23,7 +23,7 @@
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="modal-body">
-                    <form action="<?= base_url() ?>admin/category/{0}/create" method="post">
+                    <form action="<?= base_url() ?>admin/category/0" method="post">
                       <div class="form-group row">
                         <label for="category" class="col-2 col-form-label">نام</label>
                         <div class="col-10">

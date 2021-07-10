@@ -14,7 +14,7 @@ class LoginController extends Controller
     public function login()
     {
 
-        return view('backend.user.login', ['request' => $this->request], true);
+        return view('backend.user.login',[], true);
     }
 
     public function is_login()
