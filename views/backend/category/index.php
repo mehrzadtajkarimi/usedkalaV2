@@ -51,7 +51,7 @@
                   </div>
                 </div>
               </div>
-            </div>str_rtrim
+            </div>
 
           </div>
         </div>

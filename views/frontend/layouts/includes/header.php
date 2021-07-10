@@ -19,10 +19,10 @@
 
             <!-- ============================================================= navbar ============================================================= -->
             <nav id="primary-navigation" class="primary-navigation" aria-label="Primary Navigation" data-nav="flex-menu">
-                <?php include_once BASEPATH  . 'views/frontend/layouts/includs/primary-navigation.php' ?>
+                <?php include_once BASEPATH  . 'views/frontend/layouts/includes/primary-navigation.php' ?>
             </nav>
             <nav id="secondary-navigation" class="secondary-navigation" aria-label="Secondary Navigation" data-nav="flex-menu">
-                <?php include_once BASEPATH  . 'views/frontend/layouts/includs/secondary-navigation.php' ?>
+                <?php include_once BASEPATH  . 'views/frontend/layouts/includes/secondary-navigation.php' ?>
             </nav>
 
             <!-- ============================================================= navbar ============================================================= -->

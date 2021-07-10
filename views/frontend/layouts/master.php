@@ -7,7 +7,7 @@
 <!-- /Added by HTTrack -->
 
 <head>
-  <?php include_once BASEPATH  . 'views/frontend/layouts/includs/head.php' ?>
+  <?php include_once BASEPATH  . 'views/frontend/layouts/includes/head.php' ?>
 
 </head>
 
@@ -35,7 +35,7 @@
     </div>
     <!-- .top-bar-v1 -->
     <header id="masthead" class="site-header header-v1" style="background-image: none; ">
-      <?php include_once BASEPATH  . 'views/frontend/layouts/includs/header.php' ?>
+      <?php include_once BASEPATH  . 'views/frontend/layouts/includes/header.php' ?>
     </header>
     <!-- .header-v1 -->
     <!-- ============================================================= Header End ============================================================= -->
@@ -57,7 +57,7 @@
 
     <!-- #content -->
     <footer class="site-footer footer-v1">
-      <?php include_once BASEPATH  . 'views/frontend/layouts/includs/footer.php' ?>
+      <?php include_once BASEPATH  . 'views/frontend/layouts/includes/footer.php' ?>
     </footer>
     <!-- .site-footer -->
   </div>
