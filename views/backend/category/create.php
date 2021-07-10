@@ -23,7 +23,7 @@
                     <label for="slug" class="col-2 col-form-label">عکس</label>
                     <div class="col-10">
                         <div class="custom-file">
-                            <input name="image" type="file" class="custom-file-input" id="inputGroupFile04">
+                            <input name="image" type="file" class="custom-file-input" id="inputGroupFile04" enctype="multipart/form-data">
                             <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
                         </div>
                     </div>

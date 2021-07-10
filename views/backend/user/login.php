@@ -52,7 +52,7 @@ use App\Utilities\FlashMessage;
 
         <form id="form-phone" action="<?= base_url() ?>admin/login" method="POST">
           <div class="mb-3 input-group ">
-            <input type="text" id="phone-number" class="form-control " name="phone-number" maxlength="11" placeholder="شماره تلفن همراه خود را وارد نمایید" autofocus autocomplete="off">
+            <input type="text" id="phone-number" class="form-control " name="phone" maxlength="11" placeholder="شماره تلفن همراه خود را وارد نمایید" autofocus autocomplete="off">
             <div class="input-group-append">
               <span class="fa fa-phone input-group-text"></span>
             </div>

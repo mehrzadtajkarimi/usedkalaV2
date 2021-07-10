@@ -13,16 +13,15 @@ class LoginController extends Controller
 
     public function login()
     {
-
-        return view('backend.user.login',[], true);
+        global $request;
+        return view('backend.user.login',['request'=>$request],true);
     }
 
     public function is_login()
     {
-        $phone_number = $this->request->input('phone-number');
-        $user = Auth::login(['phone' => $phone_number]);
+        $phone = $this->request->input('phone');
+        $user = Auth::login(['phone' => $phone]);
         if ($user) {
-
             return $this->request->redirect('admin');
         }
     }

@@ -14,14 +14,9 @@ class User extends MysqlBaseModel
         if ($phone = $data['phone']) {
             return  $this->first(['phone' => $phone]);
         }
-
         if ($email = $data['email']) {
             return $this->first(['email' => $email]);
         }
     }
 
-    public function photo()
-    {
-        return $this->has_one(Phone::class);
-    }
 }

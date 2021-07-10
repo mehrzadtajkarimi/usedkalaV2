@@ -49,6 +49,15 @@ function xss_clean($str)
     return filter_var(htmlspecialchars($str), FILTER_SANITIZE_STRING);
 }
 
+
+function dd(...$args)
+{
+    echo "<pre  style='background:#FF5722; border-radius: 10px; padding: 10PX;'>";
+    var_dump($args);
+    echo "</pre>";
+    die();
+}
+
 function include_data($full_path_view, $data)
 {
 
@@ -68,3 +77,12 @@ function contains_array($array)
     return false;
 }
 
+function storage_url($filename)
+{
+    return base_url("storage/$filename");
+}
+
+function storage_path($filename)
+{
+    return base_url() . $filename;
+}

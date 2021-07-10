@@ -15,7 +15,6 @@ class SessionProvider extends AuthProvider
     public  function login($data, $password = null)
     {
         $user = $this->user_model->already_exists($data);
-
         if (!empty($user)) {
 
             $_SESSION[self::AUTH_KEY] ?? $_SESSION[self::AUTH_KEY] = $user['id'];
