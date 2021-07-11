@@ -23,7 +23,6 @@ class Category extends MysqlBaseModel
                         'id'     => $value['id'],
                         'parent' => $value['parent_id'],
                         'slug'   => $value['slug'],
-                        'image'  => $value['image'],
                         // 'is_cat' =>  $this->count(['parent_id'=> $value['parent_id']])  ? 'd-block' : 'd-none',
                     )
                 );

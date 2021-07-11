@@ -54,7 +54,7 @@ class UploadedFile implements UploadContract
 
     private function generateRandomStr()
     {
-        return bin2hex(random_bytes(2));
+        return bin2hex(random_bytes(4));
     }
 
     private function upload($path)

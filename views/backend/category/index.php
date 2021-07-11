@@ -40,7 +40,7 @@
                         <label for="slug" class="col-2 col-form-label">عکس</label>
                         <div class="col-10">
                           <div class="custom-file">
-                            <input  name="image" type="file" class="custom-file-input" id="image">
+                            <input  name="image_category" type="file" class="custom-file-input" id="image" required>
                             <label class="custom-file-label" for="image">Choose file</label>
                           </div>
                         </div>

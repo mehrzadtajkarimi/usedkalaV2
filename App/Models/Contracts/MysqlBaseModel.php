@@ -36,10 +36,14 @@ class  MysqlBaseModel extends BaseModel
 
 
 
-    public function create(array $data): int
+    public function create(array $data)
     {
-        $this->connection->insert($this->table, $data);
-        return  $this->connection->id();
+        try {
+            $this->connection->insert($this->table, $data);
+            return  $this->connection->id() ?? null;
+        } catch (\PDOException $e) {
+            echo 'مشکلی در هنگام ذخیره اطلاعات رخ داد/n' . $e->getMessage();
+        }
     }
 
     public function find($id): object
@@ -63,8 +67,8 @@ class  MysqlBaseModel extends BaseModel
     public function  get($columns, array $where = null): array
     {
         // start pagination ***to  url -> ?page=1
-               $page    = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 1;
-               $start   = ($page - 1) * $this->pageSize;
+        $page    = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 1;
+        $start   = ($page - 1) * $this->pageSize;
         $where['LIMIT'] = [$start, $this->pageSize];
 
         $where["ORDER"] = ["id" => "DESC"];
@@ -80,8 +84,12 @@ class  MysqlBaseModel extends BaseModel
 
     public function update(array $data, array $where): int
     {
-        $result = $this->connection->update($this->table, $data, $where);
-        return $result->rowCount();
+        try {
+            $result = $this->connection->update($this->table, $data, $where);
+            return $result->rowCount();
+        } catch (\PDOException $e) {
+            echo '<h1>مشکلی در ارتباط با دیتابیس رخ داد </h1>';
+        }
     }
 
     public function delete(array $where): int
@@ -100,7 +108,7 @@ class  MysqlBaseModel extends BaseModel
         return $this->connection->has($this->table,  $where);
     }
 
-    public function inner_join($join, $columns_as, $columns_to )
+    public function inner_join($join, $columns_as, $columns_to)
     {
         return  $this->connection->query("SELECT * FROM $this->table as c1  JOIN $join as c2 ON c1.$columns_as = c2.$columns_to")->fetchAll();
     }
