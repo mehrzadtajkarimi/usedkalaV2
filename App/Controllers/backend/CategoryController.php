@@ -4,6 +4,7 @@ namespace App\Controllers\backend;
 
 use App\Controllers\Controller;
 use App\Models\Category;
+use App\Services\Upload\UploadedFile;
 use App\Utilities\FlashMessage;
 
 class CategoryController extends Controller
@@ -28,7 +29,7 @@ class CategoryController extends Controller
     public function create()
     {
         $id = $this->request->get_param('id');
-        $category = $this->categoryModel->first(['id' => $id])?? 0;
+        $category = $this->categoryModel->first(['id' => $id]) ?? 0;
         $data   = array(
             'category' => $category,
         );
@@ -39,15 +40,34 @@ class CategoryController extends Controller
     public function store()
     {
         $params = $this->request->params();
-        // echo'<pre>';var_dump($params);die;
-        $this->categoryModel->create([
-            'parent_id' => $params['parent_id'],
-            'name'      => $params['name'],
-            'slug'      => $params['slug'],
-            'image'     => $params['image'],
-        ]);
-        FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
-        return $this->request->redirect('admin/category');
+        $files = $this->request->files();
+        if (!empty($files['image']['tmp_name'])) {
+            $file = new UploadedFile('image');
+            $file_url = $file->save();
+            if ($file_url) {
+                $this->categoryModel->create([
+                    'image' => $files['image'],
+                    'parent_id' => $params['parent_id'],
+                    'name'      => $params['name'],
+                    'slug'      => $params['slug'],
+                ]);
+                FlashMessage::add("آپلود فایل با ضمیمه عکس با موفقیت انجام شد", FlashMessage::SUCCESS);
+                return $this->request->redirect('admin/category');
+
+            } else {
+                FlashMessage::add("مشکلی در آپلود قایل رخ  داده است", FlashMessage::ERROR);
+                $file->destroy();
+                return $this->request->redirect('admin/category');
+            }
+        }else{
+            $this->categoryModel->create([
+                'parent_id' => $params['parent_id'],
+                'name'      => $params['name'],
+                'slug'      => $params['slug'],
+            ]);
+            FlashMessage::add("مقادیر بدونه ضمیمه عکس با موفقیت در دیتابیس ذخیره شد", FlashMessage::WARNING);
+            return $this->request->redirect('admin/category');
+        }
     }
 
 
@@ -82,15 +102,14 @@ class CategoryController extends Controller
     public function destroy()
     {
         $id = $this->request->get_param('id');
-        $is_cat = $this->categoryModel->has( ['parent_id' => $id]);
+        $is_cat = $this->categoryModel->has(['parent_id' => $id]);
         if ($is_cat == false) {
             $this->categoryModel->delete(['id' => $id]);
 
             FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
             return $this->request->redirect('admin/category');
         }
-        FlashMessage::add("به دلیل وجود زیر دسته امکان حذف وجود ندارد",FlashMessage::ERROR);
+        FlashMessage::add("به دلیل وجود زیر دسته امکان حذف وجود ندارد", FlashMessage::ERROR);
         return $this->request->redirect('admin/category');
-
     }
 }

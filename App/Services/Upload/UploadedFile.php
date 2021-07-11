@@ -17,13 +17,11 @@ class UploadedFile implements UploadContract
 
         if ($sub_folder == null) {
             $sub_folder = date(self::default_subfolder_format);
-            $sub_folder_path = base_url(). 'storage/' . $sub_folder;
+            $sub_folder_path = BASEPATH. 'storage/' . $sub_folder;
             if (!file_exists($sub_folder_path)) {
                 mkdir($sub_folder_path);
             }
         }
-        FlashMessage::add("این فقط یه مثال در کانستراکتور آپلودفایل است.", FlashMessage::INFO);
-
         $this->path_in_storage = $sub_folder . "/" . $this->basename() . '-' . $this->generateRandomStr() . $this->extension();
     }
 
@@ -39,7 +37,7 @@ class UploadedFile implements UploadContract
 
     public function name()
     {
-        return substr($this->file['name'], 0, 32);
+        return substr($this->file['name'], 0, 128);
     }
 
     public function extension()
@@ -48,7 +46,7 @@ class UploadedFile implements UploadContract
         return '.' . end($arr);
     }
 
-    public function basename()
+    public function  basename()
     {
         return basename($this->name(), $this->extension());
     }
@@ -66,16 +64,16 @@ class UploadedFile implements UploadContract
 
     public function destroy()
     {
-        $path        =  base_url(). 'storage/'  . $this->path_in_storage;
+        $path        =  BASEPATH . 'storage/'  . $this->path_in_storage;
         if (!file_exists($path)) {
             return;
         }
-        return rename($path, "$path.deleted");
+        return unlink($path);
     }
 
     public function save()
     {
-        $path        =  base_url(). 'storage/'  . $this->path_in_storage;
+        $path        =  BASEPATH . 'storage/' . $this->path_in_storage;
         if ($this->upload($path)) {
             return storage_url($this->path_in_storage);
         }

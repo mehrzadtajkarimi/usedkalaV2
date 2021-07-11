@@ -23,26 +23,26 @@
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="modal-body">
-                    <form action="<?= base_url() ?>admin/category/0" method="post">
+                    <form action="<?= base_url() ?>admin/category/0" method="post" enctype="multipart/form-data">
                       <div class="form-group row">
                         <label for="category" class="col-2 col-form-label">نام</label>
                         <div class="col-10">
-                          <input name="name" type="text" class="form-control" id="category" placeholder=" دسته اصلی را وارد نمایید">
+                          <input name="name" type="text" class="form-control" id="category" placeholder=" دسته اصلی را وارد نمایید" required>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="slug" class="col-2 col-form-label">slug</label>
+                        <div class="col-10">
+                          <input name="slug" type="text" class="form-control" id="slug" placeholder="نامه دسته بندی جهت نمایش در url" required>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="slug" class="col-2 col-form-label">عکس</label>
                         <div class="col-10">
                           <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputGroupFile04">
-                            <label name="image" class="custom-file-label" for="inputGroupFile04">Choose file</label>
+                            <input  name="image" type="file" class="custom-file-input" id="image">
+                            <label class="custom-file-label" for="image">Choose file</label>
                           </div>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="slug" class="col-2 col-form-label">slug</label>
-                        <div class="col-10">
-                          <input name="slug" type="text" class="form-control" id="slug" placeholder="نامه دسته بندی جهت نمایش در url">
                         </div>
                       </div>
                       <input name="parent_id" type="hidden" value="0">

@@ -46,7 +46,7 @@ class Request
         return $this->params;
     }
 
-    public  function files ()
+    public  function files()
     {
         return $this->files;
     }
