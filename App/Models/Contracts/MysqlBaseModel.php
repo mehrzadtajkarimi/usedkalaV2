@@ -33,9 +33,6 @@ class  MysqlBaseModel extends BaseModel
         }
     }
 
-
-
-
     public function create(array $data)
     {
         try {
@@ -54,6 +51,7 @@ class  MysqlBaseModel extends BaseModel
         }
         return $this;
     }
+
     public function count_by($field, $value)
     {
         return count($this->get($field, $value));
@@ -76,6 +74,7 @@ class  MysqlBaseModel extends BaseModel
 
         return $this->connection->select($this->table, $columns, $where);
     }
+
     public function  first(array $where)
     {
         $first = $this->connection->select($this->table, '*', $where);
@@ -91,6 +90,7 @@ class  MysqlBaseModel extends BaseModel
             echo '<h1>مشکلی در ارتباط با دیتابیس رخ داد </h1>';
         }
     }
+
     public function update_create(array $data, array $where): int
     {
         try {
@@ -124,18 +124,4 @@ class  MysqlBaseModel extends BaseModel
     {
         return  $this->connection->query("SELECT * FROM $this->table as c1  JOIN $join as c2 ON c1.$columns_as = c2.$columns_to")->fetchAll();
     }
-
-    // public function category_tree($parent_id = 0, $sub_mark = '')
-    // {
-    //     $html_wrapper=null;
-    //     $variable =  $this->get('*', ['parent_id' => $parent_id]);
-    //     if (is_array($variable)) {
-    //         foreach ($variable as  $value) {
-    //             $html_wrapper .=  '<li class="list-group-item">' . $sub_mark . $value['name'] . '</li>';
-    //             $html_wrapper .=   $this->category_tree($value['id'], $sub_mark . '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp');
-    //         }
-    //     }
-    //     return "<ul class='list-group'>$html_wrapper</ul>";
-    // }
-
 }

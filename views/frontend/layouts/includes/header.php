@@ -76,7 +76,7 @@
                                                                 <li class="">
                                                                     <a class="d-flex justify-content-center text-center" href="<?= base_url() ?>">
                                                                         <div class="card border-0 " style="width: 10rem;">
-                                                                            <img class="card-img-top img-fluid rounded-circle  " src="<?= asset_url() ?>frontend/images/megamenu.jpg" alt="">
+                                                                            <img class="card-img-top img-fluid rounded-circle  " src="<?= $categoryPhoto['path'] ?>" alt="">
                                                                             <div class="card-body  pt-3">
                                                                                 <p class="card-text">
                                                                                     <?= $valueLevelTwo['name'] ?>
