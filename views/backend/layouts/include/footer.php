@@ -12,8 +12,7 @@
    </div>
    <!-- ./wrapper -->
 
-   <!-- jQuery -->
-   <script src="<?= asset_url() ?>backend/plugins/jquery/jquery.min.js"></script>
+
    <!-- Bootstrap 4 -->
    <script src="<?= asset_url() ?>backend/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
    <!-- SlimScroll -->

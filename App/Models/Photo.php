@@ -20,4 +20,15 @@ class Photo extends MysqlBaseModel
         ]);
         return $is_create_photo;
     }
+    public function update_photo(string $entity_type, int $entity_id, $file_path, string $name)
+    {
+        $is_create_photo = $this->update([
+            'entity_type' => $entity_type,
+            'entity_id' => $entity_id,
+            'path' =>  $file_path,
+            'name' =>  $name,
+
+        ],['entity_id'=>$entity_id]);
+        return $is_create_photo;
+    }
 }
