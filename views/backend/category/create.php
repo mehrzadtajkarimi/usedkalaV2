@@ -5,7 +5,7 @@
     </div>
     <div class="card-body">
 
-        <form action="<?= base_url() ?>admin/category/<?= $category['id'] ?>" method="post">
+        <form action="<?= base_url() ?>admin/category/<?= $category['id'] ?>" method="post" enctype="multipart/form-data">
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">نام</label>
                 <div class="col-sm-10">
@@ -22,7 +22,7 @@
                     <label for="slug" class="col-2 col-form-label">عکس</label>
                     <div class="col-10">
                         <div class="custom-file">
-                            <input name="image" type="file" class="custom-file-input" id="inputGroupFile04" enctype="multipart/form-data">
+                            <input name="image_category" type="file" class="custom-file-input" id="inputGroupFile04">
                             <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
                         </div>
                     </div>
@@ -34,6 +34,5 @@
                     </div>
                 </div>
         </form>
-
     </div>
 </div>

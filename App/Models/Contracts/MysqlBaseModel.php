@@ -79,7 +79,7 @@ class  MysqlBaseModel extends BaseModel
     public function  first(array $where)
     {
         $first = $this->connection->select($this->table, '*', $where);
-        return  $first[0];
+        return  $first[0] ?? [];
     }
 
     public function update(array $data, array $where): int
@@ -87,6 +87,18 @@ class  MysqlBaseModel extends BaseModel
         try {
             $result = $this->connection->update($this->table, $data, $where);
             return $result->rowCount();
+        } catch (\PDOException $e) {
+            echo '<h1>مشکلی در ارتباط با دیتابیس رخ داد </h1>';
+        }
+    }
+    public function update_create(array $data, array $where): int
+    {
+        try {
+            $exists = $this->has($where);
+            if (empty($exists)) {
+                return  $this->create($data);
+            }
+            return $this->update($data, $where);
         } catch (\PDOException $e) {
             echo '<h1>مشکلی در ارتباط با دیتابیس رخ داد </h1>';
         }

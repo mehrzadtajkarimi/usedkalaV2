@@ -45,7 +45,6 @@
                           </div>
                         </div>
                       </div>
-                      <input name="parent_id" type="hidden" value="0">
                       <button type="submit" class="btn btn-primary float-left btn-block">ذخیره </button>
                     </form>
                   </div>
