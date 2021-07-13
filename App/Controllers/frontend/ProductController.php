@@ -3,17 +3,17 @@
 namespace App\Controllers\frontend;
 
 use App\Controllers\Controller;
-use App\Models\Category;
+use App\Models\Product;
 use App\Utilities\FlashMessage;
 
-class CategoryController extends Controller
+class ProductController extends Controller
 {
-    private $categoryModel;
+    private $productModel;
 
     public function __construct()
     {
         parent::__construct();
-        $this->categoryModel = new Category;
+        $this->productModel = new Product();
     }
 
     public function index()
@@ -33,17 +33,15 @@ class CategoryController extends Controller
     public function show()
     {
         $id = $this->request->get_param('id');
-        $categories = $this->categoryModel->inner_join('photos', 'id', 'entity_id', 'categories.parent_id' . '=' . $id );
+        $categories = $this->productModel->inner_join_two('categories','photos', 'id', 'entity_id', 'categories.parent_id' . '=' . $id );
 
 
         $data = array(
             'categories' => $categories,
         );
-        if (is_null($categories)) {
-            # code...
+ 
             return view('frontend.product.show', $data);
-        }
-        return view('frontend.category.show', $data);
+
     }
 
     public function edit()

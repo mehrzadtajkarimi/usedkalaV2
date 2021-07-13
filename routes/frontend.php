@@ -26,8 +26,11 @@ Route::group(function () {
 
     Route::get('/', 'HomeController@index');
     Route::get('/cart', 'CartController@index');
-    Route::get('/category/{id}', 'CategoryController@show');
 });
 
 Route::group(function () {
+    Route::get('/category/{id}', 'CategoryController@show');
+});
+Route::group(function () {
+    Route::get('/product/{id}', 'ProductController@show');
 });

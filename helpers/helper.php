@@ -17,7 +17,7 @@ function view($path, $data = [], $layout = null)
     $full_path = BASEPATH . "views/$path.php";
     $is_file = is_readable($full_path) && file_exists($full_path);
     if ($path_explode[0] == 'frontend') {
-        $data = inject_menu($path_explode[0]);
+        $data += inject_menu($path_explode[0]);
     }
 
     if (is_null($layout)) {
@@ -65,7 +65,7 @@ function xss_clean($str)
 }
 
 
-function dd(...$args)
+function dd($args)
 {
     echo "<pre  style='background:#FF5722; border-radius: 10px; padding: 10PX;'>";
     var_dump($args);
