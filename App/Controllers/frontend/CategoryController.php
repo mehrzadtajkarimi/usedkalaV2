@@ -25,7 +25,6 @@ class CategoryController extends Controller
         //
     }
 
-
     public function store()
     {
         //
@@ -33,16 +32,11 @@ class CategoryController extends Controller
 
     public function show()
     {
-        // $categoryLevelOne = $this->categoryModel->get('*', ['parent_id' => 0]);
-        // foreach ($categoryLevelOne as $LevelOne) {
-        //     $categoryLevelTwo[$LevelOne['id']] = $this->categoryModel->inner_join('photos', 'id', 'entity_id', 'categories.parent_id' . '=' . $LevelOne['id']);
-        // }
         $id = $this->request->get_param('id');
         $categories = $this->categoryModel->get('*', ['parent_id' => $id]);
+
         $data = array(
             'categories' => $categories,
-            // 'categoryLevelOne' => $categoryLevelOne,
-            // 'categoryLevelTwo' => $categoryLevelTwo,
         );
         return view('frontend.category.show', $data);
     }

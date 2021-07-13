@@ -35,27 +35,24 @@ class Category extends MysqlBaseModel
 
     public function create_category($params , $id)
     {
-        $categoryModel = $this->create([
+        return $this->create([
             'parent_id' => $id,
             'name'      => $params['name'],
             'slug'      => $params['slug'],
         ]);
-        return $categoryModel;
     }
 
     public function update_category($params , $id)
     {
-        $categoryModel =$this->update([
+        return $this->update([
             'name'      => $params['name'],
             'slug'      => $params['slug'],
         ], ['id' => $id]);
-        return $categoryModel;
     }
 
     public function delete_category($id)
     {
-        $categoryModel =$this->delete(['id' => $id]);
-        return $categoryModel;
+        return $this->delete(['id' => $id]);
     }
 
 }

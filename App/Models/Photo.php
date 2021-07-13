@@ -11,30 +11,28 @@ class Photo extends MysqlBaseModel
 
     public function create_photo(string $entity_type, int $entity_id, $file_path, string $name)
     {
-        $is_create_photo = $this->create([
+        return $this->create([
             'entity_type' => $entity_type,
             'entity_id' => $entity_id,
             'path' =>  $file_path,
-            'name' =>  $name,
+            'alt' =>  $name,
 
         ]);
-        return $is_create_photo;
     }
     public function update_photo(string $entity_type, int $entity_id, $file_path, string $name)
     {
-        $is_create_photo = $this->update_create([
+        return $this->update_create([
             'entity_type' => $entity_type,
             'entity_id' => $entity_id,
             'path' =>  $file_path,
-            'name' =>  $name,
+            'alt' =>  $name,
 
-        ],['entity_id'=>$entity_id]);
-        return $is_create_photo;
+        ], ['entity_id' => $entity_id]);
     }
 
     public function delete_photo($id)
     {
-        $categoryModel =$this->delete(['entity_id' => $id]);
+        $categoryModel = $this->delete(['entity_id' => $id]);
         return $categoryModel;
     }
 }
