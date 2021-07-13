@@ -21,20 +21,16 @@ class HomeController extends Controller
     public function index()
     {
         global $request;
-        $categoryPhoto=[];
+        $categoryPhoto = [];
         $categoryLevelOne = $this->categoryModel->get('*', ['parent_id' => 0]);
-        foreach ($categoryLevelOne as $LevelOne ) {
-            $categoryLevelTwo[$LevelOne['id']]= $this->categoryModel->get('*', ['parent_id' => $LevelOne['id']]);
-            $categoryLevelTwo[$LevelOne['id']] += $this->photoModel->get('*', ['entity_id' => $LevelOne['id']]);
+        foreach ($categoryLevelOne as $LevelOne) {
+            $categoryLevelTwo[$LevelOne['id']] = $this->categoryModel->inner_join('photos', 'id', 'entity_id', 'categories.parent_id' . '=' . $LevelOne['id']);
         }
-
-
 
         $data = array(
             'request' => $request,
             'categoryLevelOne' => $categoryLevelOne,
             'categoryLevelTwo' => $categoryLevelTwo,
-            'categoryPhoto' => $categoryPhoto,
         );
         return view('frontend.index', $data);
     }
