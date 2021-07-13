@@ -122,14 +122,7 @@ class  MysqlBaseModel extends BaseModel
 
     public function inner_join($join, $columns_as, $columns_to , $where= null)
     {
-        // return  $this->connection->query("SELECT * FROM $this->table as c1  JOIN $join as c2 ON c1.$columns_as = c2.$columns_to")->fetchAll();
         return  $this->connection->query("SELECT * FROM $this->table INNER JOIN $join ON $this->table.$columns_as = $join.$columns_to WHERE $where")->fetchAll();
     }
-    public function inner_join1($join, $columns_as, $columns_to,array $where= null)
-    {
-        return  $this->connection->select($this->table, [
-            // Here is the table relativity argument that tells the relativity between the table you want to join.
-            "[><].$join" => ["$columns_as" => "$columns_to"]
-        ], $where);
-    }
+
 }

@@ -16,11 +16,26 @@ function view($path, $data = [], $layout = null)
     $path_explode = explode('/', $path);
     $full_path = BASEPATH . "views/$path.php";
     $is_file = is_readable($full_path) && file_exists($full_path);
+    if ($path_explode[0] == 'frontend') {
+        $data = inject_menu($path_explode[0]);
+    }
 
     if (is_null($layout)) {
         $is_file ? buffering($full_path, $data, $path_explode[0]) : include_once BASEPATH . "views/error/404.php";
     }
     $is_file ? buffering($full_path, $data) : include_once BASEPATH . "views/error/404.php";
+}
+function inject_menu($path)
+{
+    $categoryModel = new Category;
+    $categoryLevelOne = $categoryModel->get('*', ['parent_id' => 0]);
+    foreach ($categoryLevelOne as $LevelOne) {
+        $categoryLevelTwo[$LevelOne['id']] = $categoryModel->inner_join('photos', 'id', 'entity_id', 'categories.parent_id' . '=' . $LevelOne['id']);
+    }
+    return  [
+        'categoryLevelOne' => $categoryLevelOne,
+        'categoryLevelTwo' => $categoryLevelTwo
+    ];
 }
 function buffering($full_path_view, $data, $dir = null)
 {

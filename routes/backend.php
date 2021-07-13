@@ -17,6 +17,7 @@ use App\Middleware\Gate;
  * Route::get('/admin/category', 'CategoryController@index');
  * Route::get('/admin/category/create', 'CategoryController@create');
  * Route::post('/admin/category', 'CategoryController@store');
+ * Route::get('/admin/category/{id}', 'CategoryController@show');
  * Route::get('/admin/category/{id}/edit', 'CategoryController@edit');
  * Route::put('/admin/category/{id}', 'CategoryController@update');
  * Route::delete('/admin/category/{id}', 'CategoryController@destroy');

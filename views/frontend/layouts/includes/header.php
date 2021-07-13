@@ -74,7 +74,7 @@
                                                         <div class="col mr-3 ml-3 ">
                                                             <ul>
                                                                 <li class="">
-                                                                    <a class="d-flex justify-content-center text-center" href="<?= base_url() ?>">
+                                                                    <a class="d-flex justify-content-center text-center" href="<?= base_url() ?>category/<?= $valueLevelTwo[0] ?>">
                                                                         <div class="card border-0 " style="width: 10rem;">
                                                                             <img class="card-img-top img-fluid rounded-circle  " src="<?= $valueLevelTwo['path'] ?>" alt="">
                                                                             <div class="card-body  pt-3">
