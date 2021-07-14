@@ -17,7 +17,7 @@ class UploadedFile implements UploadContract
 
         if ($sub_folder == null) {
             $sub_folder = date(self::default_subfolder_format);
-            $sub_folder_path = BASEPATH. 'storage/' . $sub_folder;
+            $sub_folder_path = BASEPATH . 'storage/' . $sub_folder;
             if (!file_exists($sub_folder_path)) {
                 mkdir($sub_folder_path);
             }
