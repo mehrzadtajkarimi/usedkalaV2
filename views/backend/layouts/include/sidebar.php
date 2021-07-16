@@ -61,7 +61,7 @@
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
                               <a href="<?= base_url() ?>admin/product" class="nav-link">
-                                  <p>لیست دسته محصولات </p>
+                                  <p>لیست  محصولات </p>
                                   <i class="fa fa-circle-o nav-icon"></i>
                               </a>
                           </li>
@@ -69,7 +69,7 @@
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
                               <a href="<?= base_url() ?>admin/brand" class="nav-link">
-                                  <p>لیست برند محصولات </p>
+                                  <p>لیست برند ها </p>
                                   <i class="fa fa-circle-o nav-icon"></i>
                               </a>
                           </li>

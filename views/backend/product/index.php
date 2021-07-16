@@ -42,10 +42,10 @@
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label class="col-2 col-form-label" for="product-category">برند </label>
+                        <label class="col-2 col-form-label" for="product-brand">برند </label>
                         <div class="col-10">
-                          <select name='product-category' class="form-control" id="product-category">
-                            <?php foreach ($brans as $value) : ?>
+                          <select name='product-brand' class="form-control" id="product-brand">
+                            <?php foreach ($brands as $value) : ?>
                               <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
                             <?php endforeach; ?>
                           </select>
@@ -56,7 +56,7 @@
                         <label for="slug" class="col-2 col-form-label">عکس</label>
                         <div class="col-10">
                           <div class="custom-file">
-                            <input name="product-image" type="file" class="custom-file-input" id="product-image" required>
+                            <input name="product_image" type="file" class="custom-file-input" id="product-image" required>
                             <label class="custom-file-label" for="product-image">Choose file</label>
                           </div>
                         </div>
