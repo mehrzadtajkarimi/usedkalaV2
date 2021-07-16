@@ -41,6 +41,10 @@ class Category extends MysqlBaseModel
             'slug'      => $params['slug'],
         ]);
     }
+    public function read_category()
+    {
+        return $this->get('*');
+    }
 
     public function update_category($params , $id)
     {

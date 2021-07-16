@@ -94,8 +94,8 @@ class CategoryController extends Controller
             $file = new UploadedFile('image_category');
             $file_url = $file->save();
             if ($file_url) {
-                $is_create_photo = $this->photoModel->update_photo('Category', $id, $file_url, 'image_category');
-                if ($is_create_photo) {
+                $is_update_photo = $this->photoModel->update_photo('Category', $id, $file_url, 'image_category');
+                if ($is_update_photo ) {
                     FlashMessage::add("ویرایش دسته بندی موفقیت انجام شد");
                 } else {
                     FlashMessage::add(" مشکلی در ویرایش دسته بندی رخ داد ", FlashMessage::ERROR);

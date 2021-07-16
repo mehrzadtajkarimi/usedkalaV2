@@ -3,7 +3,7 @@
     <div class="card-header">
       <div class="row">
         <div class="col-4">
-          <h3 class="p-3 card-title"> لیست دسته بندی ها</h3>
+          <h3 class="p-3 card-title"> لیست برند</h3>
         </div>
         <div class="offset-4"> </div>
         <div class="col-4">
@@ -14,37 +14,48 @@
             </div>
 
             <!-- Button trigger modal -->
-            <a href="<?= base_url() ?>admin/category/0/create" type="button" class="btn btn-success shadow-sm mr-2  " data-toggle="modal" data-target="#exampleModalCenter">
-              ایجاد دسته اصلی
+            <a href="<?= base_url() ?>admin/brand/create" type="button" class="btn btn-success shadow-sm mr-2  " data-toggle="modal" data-target="#exampleModalCenter">
+              ایجاد برند
             </a>
+
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="modal-body">
-                    <form action="<?= base_url() ?>admin/category/0" method="post" enctype="multipart/form-data">
+                    <form action="<?= base_url() ?>admin/brand" method="post" enctype="multipart/form-data">
+
                       <div class="form-group row">
-                        <label for="category" class="col-2 col-form-label">نام</label>
+                        <label for="brand-name" class="col-2 col-form-label"> نام </label>
                         <div class="col-10">
-                          <input name="name" type="text" class="form-control" id="category" placeholder=" دسته اصلی را وارد نمایید" required>
+                          <input name="brand-name" type="text" class="form-control" id="brand-name" placeholder="" required>
                         </div>
                       </div>
+
                       <div class="form-group row">
-                        <label for="slug" class="col-2 col-form-label">slug</label>
+                        <label class="col-2 col-form-label" for="brand-brand">اولویت </label>
                         <div class="col-10">
-                          <input name="slug" type="text" class="form-control" id="slug" placeholder="نامه دسته بندی جهت نمایش در url" required>
+                          <select name='brand-sort' class="form-control" id="brand-brand">
+                            <?php for ($i = 0; $i < 20; $i++) : ?>
+                              <option value="<?= $i ?>"><?= $i ?></option>
+                            <?php endfor; ?>
+                          </select>
                         </div>
                       </div>
+
                       <div class="form-group row">
                         <label for="slug" class="col-2 col-form-label">عکس</label>
                         <div class="col-10">
                           <div class="custom-file">
-                            <input  name="image_category" type="file" class="custom-file-input" id="image" >
-                            <label class="custom-file-label" for="image">Choose file</label>
+                            <input name="brand_image" type="file" class="custom-file-input" id="brand-image" >
+                            <label class="custom-file-label" for="brand-image">Choose file</label>
                           </div>
                         </div>
                       </div>
+
+
+
                       <button type="submit" class="btn btn-primary float-left btn-block">ذخیره </button>
                     </form>
                   </div>
@@ -61,18 +72,17 @@
         <div class="card-body">
           <ul class="list-group">
             <?php
-            foreach ($categories as $value) :
+            foreach ($brands as $value) :
             ?>
-              <li class="list-group-item  <?= $value['parent'] == 0 ? 'bg-light font-weight-bold mt-3' : '' ?>">
+              <li class="list-group-item ">
                 <div class="row">
                   <div class="col">
                     <span class="ml-4"><?= $value['name'] ?></span>
                   </div>
                   <div class="col">
-                    <a href="<?= base_url() ?>admin/category/<?= $value['id'] ?>/edit" class="btn btn-warning btn-sm shadow-sm " style="padding: 0px 16px; border-radius: 18px;">ویرایش</a>
-                    <a href="<?= base_url() ?>admin/category/<?=  $value['id'] ?>/create" class="btn btn-success btn-sm shadow-sm" style="padding: 0px 20px; border-radius: 18px;">ایجاد </a>
-                    <form method="post" action="<?= base_url() ?>admin/category/<?= $value['id'] ?>" class="d-inline">
-                    <input type="hidden" name="_method" value="delete" />
+                    <a href="<?= base_url() ?>admin/brand/<?= $value['id'] ?>/edit" class="btn btn-warning btn-sm shadow-sm " style="padding: 0px 16px; border-radius: 18px;">ویرایش</a>
+                    <form method="post" action="<?= base_url() ?>admin/brand/<?= $value['id'] ?>" class="d-inline">
+                      <input type="hidden" name="_method" value="delete" />
                       <input type="submit" class="btn btn-danger btn-sm shadow-sm " style="padding: 0px 20px; border-radius: 18px;" value="حذف">
                     </form>
                   </div>

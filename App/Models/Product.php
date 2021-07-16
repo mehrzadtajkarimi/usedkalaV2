@@ -8,6 +8,8 @@ class Product extends MysqlBaseModel
 {
     protected $table = 'products';
 
-
-
+    public function read_product()
+    {
+        return $this->get('*');
+    }
 }
