@@ -46,12 +46,9 @@ class Category extends MysqlBaseModel
         return $this->get('*');
     }
 
-    public function update_category($params , $id)
+    public function update_category(array $params , $id)
     {
-        return $this->update([
-            'name'      => $params['name'],
-            'slug'      => $params['slug'],
-        ], ['id' => $id]);
+        return $this->update($params , ['id' => $id]);
     }
 
     public function delete_category($id)

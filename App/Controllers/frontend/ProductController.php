@@ -18,6 +18,10 @@ class ProductController extends Controller
 
     public function index()
     {
+        $data = array(
+
+        );
+        view('backend.product.index', $data);
     }
 
     public function create()

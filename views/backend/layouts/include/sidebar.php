@@ -56,7 +56,7 @@
                               محصولات
                               <i class="right fa fa-angle-left"></i>
                           </p>
-                          <i class="nav-icon fa fa-book"></i>
+                          <i class="nav-icon fa fa-product-hunt"></i>
                       </a>
                       <ul class="nav nav-treeview">
                           <li class="nav-item">

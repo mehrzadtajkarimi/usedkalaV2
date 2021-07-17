@@ -3,9 +3,10 @@
 namespace App\Controllers\backend;
 
 use App\Controllers\Controller;
-use App\Models\product;
-use App\Models\Category;
+use App\Models\Brand;
 use App\Models\Product;
+use App\Models\Category;
+use App\Models\Photo;
 use App\Services\Upload\UploadedFile;
 use App\Utilities\FlashMessage;
 
@@ -13,43 +14,34 @@ class ProductController extends Controller
 {
     private $productModel;
     private $categoryModel;
-    private $productModel;
+    private $brandModel;
+    private $photoModel;
 
     public function __construct()
     {
         parent::__construct();
-        $this->productModel = new Product();
+        $this->productModel  = new Product();
         $this->categoryModel = new Category();
-        $this->productModel = new product();
+        $this->brandModel    = new Brand();
+        $this->photoModel    = new Photo();
     }
 
     public function index()
     {
         $data = array(
-            'products' => $this->productModel->read_product(),
+            'products'   => $this->productModel->read_product(),
+            'brands'     => $this->brandModel->read_brand(),
             'categories' => $this->categoryModel->category_tree(),
-            'products' => $this->productModel->read_product(),
         );
         view('backend.product.index', $data);
     }
 
     public function create()
     {
-
     }
 
     public function store()
     {
-        $param=$this->request->params();
-        return $this->productModel->create([
-            'name' => $param['name'],
-            'category_id' => $param['product-category'],
-            'brand_id' => $param['product-brand'],
-        ]);
-
-
-
-
         $params = $this->request->params();
 
         $files = $this->request->files();
@@ -58,20 +50,31 @@ class ProductController extends Controller
             $file_url = $file->save();
             if ($file_url) {
 
-
                 $is_create_product = $this->productModel->create_product($params);
-                $is_create_photo = $this->photoModel->create_photo('products', $is_create_product, $file_url, 'product_image');
-
+                $is_create_photo   = $this->photoModel->create_photo('Product', $is_create_product, $file_url, 'product_image');
 
                 if ($is_create_photo && $is_create_product) {
-                    FlashMessage::add("ایجاد برند موفقیت انجام شد");
+                    FlashMessage::add("ایجاد محصول موفقیت انجام شد");
                 } else {
-                    FlashMessage::add(" مشکلی در ایجاد برند رخ داد ", FlashMessage::ERROR);
+                    FlashMessage::add(" مشکلی در ایجاد محصول رخ داد ", FlashMessage::ERROR);
                 }
                 return $this->request->redirect('admin/product');
             }
         } else {
-            $this->productModel->create_product($params);
+            $this->productModel->create_product([
+                'title'       => $params['product-name'],
+                'slug'        => $params['product-slug'],
+                'price'       => $params['product-price'],
+                'sale_price'  => $params['product-sale'],
+                'featured'    => $params['product-featured'],
+                'category_id' => $params['product-category'],
+                'brand_id'    => $params['product-brand'],
+                'sku'         => $params['product-sku'],
+                'weight'      => $params['product-weight'],
+                'quantity'    => $params['product-quantity'],
+                'meta_title'  => $params['product-meta'],
+                'description' => $params['product-description'],
+            ]);
             FlashMessage::add("مقادیر بدونه ضمیمه عکس با موفقیت در دیتابیس ذخیره شد", FlashMessage::WARNING);
             return $this->request->redirect('admin/product');
         }
@@ -79,31 +82,72 @@ class ProductController extends Controller
 
     public function show()
     {
-        $id = $this->request->get_param('id');
-        $categories = $this->productModel->inner_join_two('categories', 'photos', 'id', 'entity_id', 'categories.parent_id' . '=' . $id);
-
-
-        $data = array(
-            'categories' => $categories,
-        );
-
-        return view('frontend.product.show', $data);
     }
 
     public function edit()
     {
-        //
+        $id = $this->request->get_param('id');
+        $data = array(
+            'products'   => $this->productModel->read_product(['id' => $id]),
+            'brands'     => $this->brandModel->read_brand(),
+            'categories' => $this->categoryModel->category_tree(),
+            'photo'      => $this->photoModel->read_photo($id),
+
+        );
+        view('backend.product.edit', $data);
     }
 
 
     public function update()
     {
-        //
+        $id = $this->request->get_param('id');
+        $params = $this->request->params();
+
+        $files = $this->request->files();
+        if (!empty($files['product_image']['tmp_name'])) {
+            $file = new UploadedFile('product_image');
+            $file_url = $file->save();
+            if ($file_url) {
+                $is_update_photo = $this->photoModel->update_photo('Product', $id, $file_url, 'product_image');
+
+                if ($is_update_photo ) {
+                    FlashMessage::add("ویرایش محصول بندی موفقیت انجام شد");
+                } else {
+                    FlashMessage::add(" مشکلی در ویرایش محصول بندی رخ داد ", FlashMessage::ERROR);
+                }
+            }
+        } else {
+            $this->productModel->update_product([
+                'title'       => $params['product-name'],
+                'slug'        => $params['product-slug'],
+                'price'       => $params['product-price'],
+                'sale_price'  => $params['product-sale'],
+                'featured'    => $params['product-featured'],
+                'category_id' => $params['product-category'],
+                'brand_id'    => $params['product-brand'],
+                'sku'         => $params['product-sku'],
+                'weight'      => $params['product-weight'],
+                'quantity'    => $params['product-quantity'],
+                'meta_title'  => $params['product-meta'],
+                'description' => $params['product-description'],
+            ], $id);
+            FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
+        }
+        return $this->request->redirect('admin/product');
     }
 
 
     public function destroy()
     {
-        //
+        $id = $this->request->get_param('id');
+        $is_deleted_product = $this->productModel->delete_product($id);
+        $is_deleted_photo   = $this->photoModel->delete_photo($id);
+        if ($is_deleted_product && $is_deleted_photo) {
+            # code...
+            FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
+            return $this->request->redirect('admin/product');
+        }
+        FlashMessage::add(" مشکلی در حذف محصول پیش آمده است", FlashMessage::ERROR);
+        return $this->request->redirect('admin/product');
     }
 }

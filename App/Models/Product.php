@@ -8,27 +8,21 @@ class Product extends MysqlBaseModel
 {
     protected $table = 'products';
 
-    public function create_product($params)
+    public function create_product( array $params)
     {
-        return $this->create([
-            'name'      => $params['product-name'],
-            'sort'      => $params['product-sort'],
-        ]);
+        return $this->create($params);
     }
-    public function read_product($id=null)
+    public function read_product($id = null)
     {
         if (is_null($id)) {
             return $this->all();
         }
-        return $this->find($id);
+        return $this->first($id);
     }
 
-    public function update_product($params , $id)
+    public function update_product(array $params, $id)
     {
-        return $this->update([
-            'name'      => $params['product-name'],
-            'sort'      => $params['product-sort'],
-        ], ['id' => $id]);
+        return $this->update($params, ['id' => $id]);
     }
 
     public function delete_product($id)

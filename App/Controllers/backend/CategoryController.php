@@ -102,7 +102,10 @@ class CategoryController extends Controller
                 }
             }
         } else {
-            $this->categoryModel->update_category($params, $id);
+            $this->categoryModel->update_category([
+                'name'      => $params['name'],
+                'slug'      => $params['slug'],
+            ], $id);
             FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
         }
         return $this->request->redirect('admin/category');

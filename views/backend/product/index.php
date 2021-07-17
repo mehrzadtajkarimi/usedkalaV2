@@ -32,6 +32,54 @@
                         </div>
                       </div>
                       <div class="form-group row">
+                        <label for="product-slug" class="col-2 col-form-label"> slug </label>
+                        <div class="col-10">
+                          <input name="product-slug" type="text" class="form-control" id="product-slug" placeholder="" required>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="product-price" class="col-2 col-form-label"> قیمت </label>
+                        <div class="col-10">
+                          <input name="product-price" type="number" class="form-control" id="product-price" placeholder="" required>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="product-sale" class="col-2 col-form-label"> % تخفیف </label>
+                        <div class="col-10">
+                          <input name="product-sale" type="number" class="form-control" id="product-sale" placeholder="" required>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="product-quantity" class="col-2 col-form-label"> موجودی </label>
+                        <div class="col-10">
+                          <input name="product-quantity" type="number" class="form-control" id="product-quantity" placeholder="" required>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="product-weight" class="col-2 col-form-label"> وزن </label>
+                        <div class="col-10">
+                          <input name="product-weight" type="number" class="form-control" id="product-weight" placeholder="" required>
+                        </div>
+                      </div>
+                      <div class="form-group row" title="شناسه منحصر به فرد محصول">
+                        <label for="product-sku" class="col-2 col-form-label"> SKU </label>
+                        <div class="col-10">
+                          <input name="product-sku" type="text" class="form-control" id="product-sku" placeholder="" required>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="product-meta" class="col-2 col-form-label"> متن متا</label>
+                        <div class="col-10">
+                          <textarea name="product-meta" type="text" class="form-control" id="product-meta" placeholder="" rows="2" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="product-description" class="col-2 col-form-label"> درباره محصول </label>
+                        <div class="col-10">
+                          <textarea name="product-description" type="text" class="form-control" id="product-description" placeholder="" rows="3" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
                         <label class="col-2 col-form-label" for="product-category">دسته </label>
                         <div class="col-10">
                           <select name='product-category' class="form-control" id="product-category">
@@ -56,17 +104,31 @@
                         <label for="slug" class="col-2 col-form-label">عکس</label>
                         <div class="col-10">
                           <div class="custom-file">
-                            <input name="product_image" type="file" class="custom-file-input" id="product-image" required>
                             <label class="custom-file-label" for="product-image">Choose file</label>
+                            <input name="product_image" type="file" class="custom-file-input" id="product-image" required>
                           </div>
                         </div>
                       </div>
 
+                      <div class="form-check pt-2 pb-2">
+                        <input name="product-featured" type="checkbox" class="form-check-input" id="product-featured">
+                        <label class="form-check-label" for="product-featured">
+                        محصول ویژه
+                        </label>
+                      </div>
+                      <div class="form-check pt-2 pb-2">
+                        <input name="product-status" type="checkbox" class="form-check-input" id="product-status">
+                        <label class="form-check-label" for="product-status">
+                        وضعیت
+                        </label>
+                      </div>
+        
+
 
                       <!-- <div class="form-group row" >
-                        <label class="col-2 col-form-label" for="product-category">تامین کننده </label>
+                        <label class="col-2 col-form-label" for="product-product">تامین کننده </label>
                         <div class="col-10">
-                          <select name='product-category' class="form-control" id="product-category" disabled>
+                          <select name='product-product' class="form-control" id="product-product" disabled>
                            //* <?php foreach ($suppliers as $value) : ?>
                            //*   <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
                            //* <?php endforeach; ?>
@@ -95,12 +157,11 @@
               <li class="list-group-item ">
                 <div class="row">
                   <div class="col">
-                    <span class="ml-4"><?= $value['name'] ?></span>
+                    <span class="ml-4"><?= $value['title'] ?></span>
                   </div>
                   <div class="col">
-                    <a href="<?= base_url() ?>admin/category/<?= $value['id'] ?>/edit" class="btn btn-warning btn-sm shadow-sm " style="padding: 0px 16px; border-radius: 18px;">ویرایش</a>
-                    <a href="<?= base_url() ?>admin/category/<?= $value['id'] ?>/create" class="btn btn-success btn-sm shadow-sm" style="padding: 0px 20px; border-radius: 18px;">ایجاد </a>
-                    <form method="post" action="<?= base_url() ?>admin/category/<?= $value['id'] ?>" class="d-inline">
+                    <a href="<?= base_url() ?>admin/product/<?= $value['id'] ?>/edit" class="btn btn-warning btn-sm shadow-sm " style="padding: 0px 16px; border-radius: 18px;">ویرایش</a>
+                    <form method="post" action="<?= base_url() ?>admin/product/<?= $value['id'] ?>" class="d-inline">
                       <input type="hidden" name="_method" value="delete" />
                       <input type="submit" class="btn btn-danger btn-sm shadow-sm " style="padding: 0px 20px; border-radius: 18px;" value="حذف">
                     </form>

@@ -23,12 +23,9 @@ class Brand extends MysqlBaseModel
         return $this->find($id);
     }
 
-    public function update_brand($params , $id)
+    public function update_brand(array $params , $id)
     {
-        return $this->update([
-            'name'      => $params['brand-name'],
-            'sort'      => $params['brand-sort'],
-        ], ['id' => $id]);
+        return $this->update($params, ['id' => $id]);
     }
 
     public function delete_brand($id)

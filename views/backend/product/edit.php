@@ -1,46 +1,121 @@
 <div class="card">
     <div class="card-header">
-        <h5>ویرایش زیر دسته (( <?= $category['name'] ?> ))</h5>
-
+        <h5>ویرایش محصول (( <?= $products['title'] ?> ))</h5>
     </div>
     <div class="card-body">
-        <form action="<?= base_url() ?>admin/category/<?= $category['id'] ?>" method="post"  enctype="multipart/form-data">
+        <form action="<?= base_url() ?>admin/product/<?= $products['id'] ?>" method="post" enctype="multipart/form-data">
             <input type="hidden" name="_method" value="patch" />
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">نام</label>
                 <div class="col-sm-10">
-                    <input name="name" type="text" class="form-control" id="inputEmail3" value="<?= $category['name'] ?? '' ?>" placeholder="نام زیر دسته را وارد نمایید" autofocus>
+                    <input name="product-name" type="text" class="form-control" id="inputEmail3" value="<?= $products['title'] ?? '' ?>" placeholder="نام زیر دسته را وارد نمایید" autofocus>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="inputPassword3" class="col-sm-2 col-form-label">slug</label>
-                <div class="col-sm-10">
-                    <input name="slug" type="text" class="form-control" id="inputPassword3" value="<?= $category['slug'] ?? '' ?>" placeholder="نامه دسته بندی جهت نمایش در url"">
+                <label class="col-2 col-form-label" for="product-category">دسته </label>
+                <div class="col-10">
+                    <select name='product-category' class="form-control" id="product-category">
+                        <?php foreach ($categories as $value) : ?>
+                            <option value="<?= $value['id'] ?>" <?= $products['category_id'] == $value['id'] ? 'selected' : '' ?> ><?= $value['name'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2 col-form-label" for="product-brand">برند </label>
+                <div class="col-10">
+                    <select name='product-brand' class="form-control" id="product-brand">
+                        <?php foreach ($brands as $value) : ?>
+                            <option value="<?= $value['id'] ?>" <?= $products['brand_id'] == $value['id'] ? 'selected' : '' ?> ><?= $value['name'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="product-slug" class="col-2 col-form-label"> slug </label>
+                <div class="col-10">
+                    <input name="product-slug" type="text" class="form-control" id="product-slug" placeholder="<?= $products['slug']  ?>" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="product-price" class="col-2 col-form-label"> قیمت </label>
+                <div class="col-10">
+                    <input name="product-price" type="number" class="form-control" id="product-price" placeholder="<?= $products['price']  ?>" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="product-sale" class="col-2 col-form-label"> % تخفیف </label>
+                <div class="col-10">
+                    <input name="product-sale" type="number" class="form-control" id="product-sale" placeholder="<?= $products['sale_price']  ?>" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="product-quantity" class="col-2 col-form-label"> موجودی </label>
+                <div class="col-10">
+                    <input name="product-quantity" type="number" class="form-control" id="product-quantity" placeholder="<?= $products['quantity']  ?>" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="product-weight" class="col-2 col-form-label"> وزن </label>
+                <div class="col-10">
+                    <input name="product-weight" type="number" class="form-control" id="product-weight" placeholder="<?= $products['weight']  ?>" required>
+                </div>
+            </div>
+
+            <div class="form-group row" title="شناسه منحصر به فرد محصول">
+                <label for="product-sku" class="col-2 col-form-label"> SKU </label>
+                <div class="col-10">
+                    <input name="product-sku" type="text" class="form-control" id="product-sku" placeholder="<?= $products['sku']  ?>" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="product-meta" class="col-2 col-form-label"> متن متا</label>
+                <div class="col-10">
+                    <textarea name="product-meta" type="text" class="form-control" id="product-meta" placeholder="<?= $products['meta_title']  ?>" rows="2" required></textarea>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="product-description" class="col-2 col-form-label"> درباره محصول </label>
+                <div class="col-10">
+                    <textarea name="product-description" type="text" class="form-control" id="product-description" placeholder="<?= $products['description']  ?>" rows="3" required></textarea>
+                </div>
+            </div>
+
+
+            <div class="form-check row pt-2 pb-2">
+                <input name="product-featured" type="checkbox" class="form-check-input" id="product-featured" <?= $products['featured'] ?  'checked' : ''  ?>>
+                <label class="form-check-label" for="product-featured">
+                    محصول ویژه
+                </label>
+            </div>
+            <div class="form-check row pt-2 pb-2">
+                <input name="product-status" type="checkbox" class="form-check-input" id="product-status" <?= $products['status'] ?  'checked' : ''  ?>>
+                <label class="form-check-label" for="product-status">
+                    وضعیت
+                </label>
             </div>
             <?php if (empty($photo['path'])) : ?>
                 <div class=" form-group row">
                     <label for="slug" class="col-2 col-form-label">عکس</label>
                     <div class="col-10">
                         <div class="custom-file">
-                            <input name="image_category" type="file" class="custom-file-input" id="inputGroupFile04">
+                            <input name="product_image" type="file" class="custom-file-input" id="inputGroupFile04">
                             <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
                         </div>
                     </div>
                 </div>
-                <?php else : ?>
-
-                    <div class="text-center">
+            <?php else : ?>
+                <div class="text-center">
                     <!-- Button trigger modal -->
                     <span type="button" class="btn w-50" data-toggle="modal" data-target="#form-modal-edit-photo" title="جهت ویرایش کلیک کتید">
                         <img id="img-edit" src="<?= $photo['path'] ?>" class="rounded img-fluid " data-img-name="" alt="<?= $photo['alt'] ?>" />
                     </span>
-                   <!-- Modal -->
+                    <!-- Modal -->
                     <div id="form-modal-edit-photo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog"  role="document">
+                        <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-body">
-                                    <input name="image_category" id="input-edit" type="file" >
+                                    <input name="product_image" id="input-edit" type="file">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-success" data-dismiss="modal">تایید</button>
@@ -48,13 +123,13 @@
                             </div>
                         </div>
                     </div>
-                    <?php include(BASEPATH . "views/backend/category/script.php") ?>
+                    <?php include(BASEPATH . "views/backend/product/script.php") ?>
                 </div>
             <?php endif; ?>
             <div class="form-group row">
                 <div class="col-sm-10">
                     <button type="submit" class="btn btn-primary">ذخیره</button>
-                    <a href="<?= base_url() ?>admin/category" class="btn btn-danger">انصراف</a>
+                    <a href="<?= base_url() ?>admin/product" class="btn btn-danger">انصراف</a>
                 </div>
             </div>
         </form>
