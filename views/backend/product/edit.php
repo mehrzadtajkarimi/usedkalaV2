@@ -34,54 +34,52 @@
             <div class="form-group row">
                 <label for="product-slug" class="col-2 col-form-label"> slug </label>
                 <div class="col-10">
-                    <input name="product-slug" type="text" class="form-control" id="product-slug" placeholder="<?= $products['slug']  ?>" required>
+                    <input name="product-slug" type="text" class="form-control" id="product-slug" value="<?= $products['slug']  ?>" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="product-price" class="col-2 col-form-label"> قیمت </label>
                 <div class="col-10">
-                    <input name="product-price" type="number" class="form-control" id="product-price" placeholder="<?= $products['price']  ?>" required>
+                    <input name="product-price" type="number" class="form-control" id="product-price" value="<?= $products['price']  ?>" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="product-sale" class="col-2 col-form-label"> % تخفیف </label>
                 <div class="col-10">
-                    <input name="product-sale" type="number" class="form-control" id="product-sale" placeholder="<?= $products['sale_price']  ?>" required>
+                    <input name="product-sale" type="number" class="form-control" id="product-sale" value="<?= $products['sale_price']  ?>" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="product-quantity" class="col-2 col-form-label"> موجودی </label>
                 <div class="col-10">
-                    <input name="product-quantity" type="number" class="form-control" id="product-quantity" placeholder="<?= $products['quantity']  ?>" required>
+                    <input name="product-quantity" type="number" class="form-control" id="product-quantity" value="<?= $products['quantity']  ?>" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="product-weight" class="col-2 col-form-label"> وزن </label>
                 <div class="col-10">
-                    <input name="product-weight" type="number" class="form-control" id="product-weight" placeholder="<?= $products['weight']  ?>" required>
+                    <input name="product-weight" type="number" class="form-control" id="product-weight" value="<?= $products['weight']  ?>" required>
                 </div>
             </div>
 
             <div class="form-group row" title="شناسه منحصر به فرد محصول">
                 <label for="product-sku" class="col-2 col-form-label"> SKU </label>
                 <div class="col-10">
-                    <input name="product-sku" type="text" class="form-control" id="product-sku" placeholder="<?= $products['sku']  ?>" required>
+                    <input name="product-sku" type="text" class="form-control" id="product-sku" value="<?= $products['sku']  ?>" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="product-meta" class="col-2 col-form-label"> متن متا</label>
                 <div class="col-10">
-                    <textarea name="product-meta" type="text" class="form-control" id="product-meta" placeholder="<?= $products['meta_title']  ?>" rows="2" required></textarea>
+                    <textarea name="product-meta" type="text" class="form-control" id="product-meta" rows="2" required><?= $products['meta_title']  ?></textarea>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="product-description" class="col-2 col-form-label"> درباره محصول </label>
                 <div class="col-10">
-                    <textarea name="product-description" type="text" class="form-control" id="product-description" placeholder="<?= $products['description']  ?>" rows="3" required></textarea>
+                    <textarea name="product-description" type="text" class="form-control" id="product-description"  rows="3" required><?= $products['description']  ?></textarea>
                 </div>
             </div>
-
-
             <div class="form-check row pt-2 pb-2">
                 <input name="product-featured" type="checkbox" class="form-check-input" id="product-featured" <?= $products['featured'] ?  'checked' : ''  ?>>
                 <label class="form-check-label" for="product-featured">

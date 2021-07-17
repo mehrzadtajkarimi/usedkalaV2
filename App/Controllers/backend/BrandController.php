@@ -44,7 +44,10 @@ class BrandController extends Controller
             if ($file_url) {
 
 
-                $is_create_brand = $this->brandModel->create_brand($params);
+                $is_create_brand = $this->brandModel->create_brand([
+                    'name'      => $params['brand-name'],
+                    'sort'      => $params['brand-sort'],
+                ]);
                 $is_create_photo = $this->photoModel->create_photo('Brands', $is_create_brand, $file_url, 'brand_image');
 
 
@@ -56,7 +59,10 @@ class BrandController extends Controller
                 return $this->request->redirect('admin/brand');
             }
         } else {
-            $this->brandModel->create_brand($params);
+            $this->brandModel->create_brand([
+                'name'      => $params['brand-name'],
+                'sort'      => $params['brand-sort'],
+            ]);
             FlashMessage::add("مقادیر بدونه ضمیمه عکس با موفقیت در دیتابیس ذخیره شد", FlashMessage::WARNING);
             return $this->request->redirect('admin/brand');
         }

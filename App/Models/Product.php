@@ -8,7 +8,7 @@ class Product extends MysqlBaseModel
 {
     protected $table = 'products';
 
-    public function create_product( array $params)
+    public function create_product(array $params)
     {
         return $this->create($params);
     }

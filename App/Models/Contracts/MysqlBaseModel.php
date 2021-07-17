@@ -37,7 +37,7 @@ class  MysqlBaseModel extends BaseModel
     {
         try {
             $this->connection->insert($this->table, $data);
-            return  $this->connection->id() ?? null;
+            return  $this->connection->id() ;
         } catch (\PDOException $e) {
             echo 'مشکلی در هنگام ذخیره اطلاعات رخ داد/n' . $e->getMessage();
         }

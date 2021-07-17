@@ -8,12 +8,9 @@ class Brand extends MysqlBaseModel
 {
     protected $table = 'brands';
 
-    public function create_brand($params)
+    public function create_brand( array $params)
     {
-        return $this->create([
-            'name'      => $params['brand-name'],
-            'sort'      => $params['brand-sort'],
-        ]);
+        return $this->create($params);
     }
     public function read_brand($id=null)
     {

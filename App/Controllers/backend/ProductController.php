@@ -7,6 +7,7 @@ use App\Models\Brand;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Photo;
+use App\Services\Auth\Auth;
 use App\Services\Upload\UploadedFile;
 use App\Utilities\FlashMessage;
 
@@ -43,6 +44,22 @@ class ProductController extends Controller
     public function store()
     {
         $params = $this->request->params();
+        // dd($params);
+        $params_create = array(
+            'user_id'     => Auth::is_login(),
+            'title'       => $params['product-name'],
+            'slug'        => $params['product-slug'],
+            'price'       => $params['product-price'],
+            'sale_price'  => $params['product-sale'],
+            'category_id' => $params['product-category'],
+            'brand_id'    => $params['product-brand'],
+            'sku'         => $params['product-sku'],
+            'weight'      => $params['product-weight'],
+            'quantity'    => $params['product-quantity'],
+            'meta_title'  => $params['product-meta'],
+            'description' => $params['product-description'],
+            'featured'    => $params['product-featured'] == 'on'?1:0 ,
+        );
 
         $files = $this->request->files();
         if (!empty($files['product_image']['tmp_name'])) {
@@ -50,7 +67,7 @@ class ProductController extends Controller
             $file_url = $file->save();
             if ($file_url) {
 
-                $is_create_product = $this->productModel->create_product($params);
+                $is_create_product = $this->productModel->create_product($params_create);
                 $is_create_photo   = $this->photoModel->create_photo('Product', $is_create_product, $file_url, 'product_image');
 
                 if ($is_create_photo && $is_create_product) {
@@ -61,20 +78,7 @@ class ProductController extends Controller
                 return $this->request->redirect('admin/product');
             }
         } else {
-            $this->productModel->create_product([
-                'title'       => $params['product-name'],
-                'slug'        => $params['product-slug'],
-                'price'       => $params['product-price'],
-                'sale_price'  => $params['product-sale'],
-                'featured'    => $params['product-featured'],
-                'category_id' => $params['product-category'],
-                'brand_id'    => $params['product-brand'],
-                'sku'         => $params['product-sku'],
-                'weight'      => $params['product-weight'],
-                'quantity'    => $params['product-quantity'],
-                'meta_title'  => $params['product-meta'],
-                'description' => $params['product-description'],
-            ]);
+            $this->productModel->create_product($params_create);
             FlashMessage::add("مقادیر بدونه ضمیمه عکس با موفقیت در دیتابیس ذخیره شد", FlashMessage::WARNING);
             return $this->request->redirect('admin/product');
         }
@@ -110,7 +114,7 @@ class ProductController extends Controller
             if ($file_url) {
                 $is_update_photo = $this->photoModel->update_photo('Product', $id, $file_url, 'product_image');
 
-                if ($is_update_photo ) {
+                if ($is_update_photo) {
                     FlashMessage::add("ویرایش محصول بندی موفقیت انجام شد");
                 } else {
                     FlashMessage::add(" مشکلی در ویرایش محصول بندی رخ داد ", FlashMessage::ERROR);
@@ -118,11 +122,11 @@ class ProductController extends Controller
             }
         } else {
             $this->productModel->update_product([
+                'user_id'     => Auth::is_login(),
                 'title'       => $params['product-name'],
                 'slug'        => $params['product-slug'],
                 'price'       => $params['product-price'],
                 'sale_price'  => $params['product-sale'],
-                'featured'    => $params['product-featured'],
                 'category_id' => $params['product-category'],
                 'brand_id'    => $params['product-brand'],
                 'sku'         => $params['product-sku'],
@@ -130,6 +134,8 @@ class ProductController extends Controller
                 'quantity'    => $params['product-quantity'],
                 'meta_title'  => $params['product-meta'],
                 'description' => $params['product-description'],
+                'featured'    => $params['product-featured'] == 'on' ? 1 : 0,
+                'status'      => $params['product-status'] == 'on' ? 1 : 0,
             ], $id);
             FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
         }

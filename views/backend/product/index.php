@@ -105,7 +105,7 @@
                         <div class="col-10">
                           <div class="custom-file">
                             <label class="custom-file-label" for="product-image">Choose file</label>
-                            <input name="product_image" type="file" class="custom-file-input" id="product-image" required>
+                            <input name="product_image" type="file" class="custom-file-input" id="product-image" >
                           </div>
                         </div>
                       </div>
@@ -116,8 +116,8 @@
                         محصول ویژه
                         </label>
                       </div>
-                      <div class="form-check pt-2 pb-2">
-                        <input name="product-status" type="checkbox" class="form-check-input" id="product-status">
+                      <div class="form-check pt-2 pb-2 disabled " >
+                        <input name="product-status" type="checkbox" class="form-check-input " id="product-status" checked disabled>
                         <label class="form-check-label" for="product-status">
                         وضعیت
                         </label>
