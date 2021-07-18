@@ -20,5 +20,6 @@
 <link rel="stylesheet" href="<?= asset_url() ?>backend/dist/css/bootstrap-rtl.min.css">
 <!-- template rtl version -->
 <link rel="stylesheet" href="<?= asset_url() ?>backend/dist/css/custom-style.css">
+<link rel="stylesheet" href="<?= asset_url() ?>backend/dist/css/my.css">
 <!-- jQuery -->
 <script src="<?= asset_url() ?>backend/plugins/jquery/jquery.min.js"></script>

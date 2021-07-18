@@ -96,7 +96,6 @@ class ProductController extends Controller
             'brands'     => $this->brandModel->read_brand(),
             'categories' => $this->categoryModel->category_tree(),
             'photo'      => $this->photoModel->read_photo($id),
-
         );
         view('backend.product.edit', $data);
     }
