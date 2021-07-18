@@ -33,9 +33,9 @@ class CategoryController extends Controller
     public function show()
     {
         $id = $this->request->get_param('id');
-        $categories = $this->categoryModel->inner_join('photos', 'id', 'entity_id', 'categories.parent_id' . '=' . $id );
+        $categories = $this->categoryModel->join_category_to_photo($id);
 
-
+dd($categories);
         $data = array(
             'categories' => $categories,
         );

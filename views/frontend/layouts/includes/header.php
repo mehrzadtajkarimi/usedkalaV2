@@ -50,6 +50,7 @@
                 <span>تمامی محصولات</span>
             </button>
             <ul id="menu-departments-menu" class="dropdown-menu yamm departments-menu-dropdown">
+                <!-- inject menu as helper function -->
                 <?php foreach ($categoryLevelOne as $valueLevelOne) : ?>
                     <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown-submenu">
                         <a title="دسته اصلی" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" href="#"><?= $valueLevelOne['name'] ?> <span class="caret"></span></a>

@@ -55,5 +55,9 @@ class Category extends MysqlBaseModel
     {
         return $this->delete(['id' => $id]);
     }
+    public function join_category_to_photo($id)
+    {
+        return $this->inner_join('photos', $id,'entity_id');
+    }
 
 }
