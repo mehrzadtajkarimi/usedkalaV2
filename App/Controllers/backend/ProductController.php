@@ -33,6 +33,7 @@ class ProductController extends Controller
             'products'   => $this->productModel->read_product(),
             'brands'     => $this->brandModel->read_brand(),
             'categories' => $this->categoryModel->category_tree(),
+            'photo'      => $this->photoModel->read_photo(),
         );
         view('backend.product.index', $data);
     }

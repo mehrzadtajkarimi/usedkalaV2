@@ -48,21 +48,17 @@
                         <label for="slug" class="col-2 col-form-label">عکس</label>
                         <div class="col-10">
                           <div class="custom-file">
-                            <input name="brand_image" type="file" class="custom-file-input" id="brand-image" >
+                            <input name="brand_image" type="file" class="custom-file-input" id="brand-image">
                             <label class="custom-file-label" for="brand-image">Choose file</label>
                           </div>
                         </div>
                       </div>
-
-
-
                       <button type="submit" class="btn btn-primary float-left btn-block">ذخیره </button>
                     </form>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -70,28 +66,35 @@
     <div class="p-0 card-body table-responsive">
       <div class="card ">
         <div class="card-body">
-          <ul class="list-group">
-            <?php
-            foreach ($brands as $value) :
-            ?>
-              <li class="list-group-item ">
-                <div class="row">
-                  <div class="col">
-                    <span class="ml-4"><?= $value['name'] ?></span>
-                  </div>
-                  <div class="col">
+          <table class="table table--vertical_middle ">
+            <thead>
+              <tr>
+                <th class="text-center" scope="col">#</th>
+                <th class="text-center" scope="col">نام</th>
+                <th class="text-center" scope="col">اصلاحات</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              $count = 0;
+              foreach ($brands as $value) :
+              ?>
+                <tr>
+                  <td class="text-center"><?= $count++ ?></td>
+                  <td class="text-center"><?= $value['name'] ?></td>
+                  <td class="text-center">
                     <a href="<?= base_url() ?>admin/brand/<?= $value['id'] ?>/edit" class="btn btn-warning btn-sm shadow-sm " style="padding: 0px 16px; border-radius: 18px;">ویرایش</a>
                     <form method="post" action="<?= base_url() ?>admin/brand/<?= $value['id'] ?>" class="d-inline">
                       <input type="hidden" name="_method" value="delete" />
-                      <input type="submit" class="btn btn-danger btn-sm shadow-sm " style="padding: 0px 20px; border-radius: 18px;" value="حذف">
+                      <input type="submit" class="btn btn-danger btn-sm shadow-sm " style="padding: 0px 20px; border-radius: 18px;" onclick="return confirm('آیا برای حذف اطلاعات اطمینان دارید');" value="حذف">
                     </form>
-                  </div>
-                </div>
-              </li>
-            <?php
-            endforeach;
-            ?>
-          </ul>
+                  </td>
+                </tr>
+              <?php
+              endforeach;
+              ?>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

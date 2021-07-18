@@ -174,12 +174,11 @@
                   <td class="text-center"  title="<?= $value['weight'] ?>"><?= $value['quantity'] ?></td>
                   <td>
                     <div>
-                      وضعیت :
-                      <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                      وضــــــــــعــیـت :
                       <?php if ($value['status'] == 1) : ?>
-                        <i class="fa fa-check text-success pr-1"></i>
+                        <i class="fa fa-check text-success "></i>
                       <?php else : ?>
-                        <i class="fa fa-times text-danger pr-1"></i>
+                        <i class="fa fa-times text-danger "></i>
                       <?php endif; ?>
                     </div>
                     <div>
@@ -195,7 +194,7 @@
                     <a href="<?= base_url() ?>admin/product/<?= $value['id'] ?>/edit" class="btn btn-warning btn-sm shadow-sm " style="padding: 0px 16px; border-radius: 18px;">ویرایش</a>
                     <form method="post" action="<?= base_url() ?>admin/product/<?= $value['id'] ?>" class="d-inline">
                       <input type="hidden" name="_method" value="delete" />
-                      <input type="submit" class="btn btn-danger btn-sm shadow-sm " style="padding: 0px 20px; border-radius: 18px;" value="حذف">
+                      <input type="submit" class="btn btn-danger btn-sm shadow-sm " style="padding: 0px 20px; border-radius: 18px;" onclick="return confirm('آیا برای حذف اطلاعات اطمینان دارید');" value="حذف">
                     </form>
                   </td>
                 </tr>
