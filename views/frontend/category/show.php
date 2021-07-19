@@ -15,21 +15,21 @@
                             <h1 class="woocommerce-products-header__title page-title">Computers &amp; Laptops Categories</h1>
                         </header>
                         <div class="woocommerce columns-5">
-                            <?php foreach ($arr as $value): ?>
-                            
-                            <?php endforeach; ?>
                             <div class="product-loop-categories">
-                                <div class="product-category product first">
-                                    <a href="product-category.html">
-                                        <img src="assets/images/category/21.png" alt="Ultrabooks" width="224" height="197">
-                                        <h2 class="woocommerce-loop-category__title"> Digital Cameras
-                                            <mark class="count">(5)</mark>
-                                        </h2>
-                                    </a>
+                                    <?php foreach ($categories as $value): ?>
+                                    <div class="product-category product ">
+                                        <a href="<?= base_url() ?>product/category/<?= $value['id'] ?>">
+                                            <img src="<?= $value['path'] ?>" alt="Ultrabooks" width="224" height="197">
+                                            <h2 class="woocommerce-loop-category__title"> 
+                                            <?= $value['name'] ?>
+                                                <mark class="count"></mark>
+                                            </h2>
+                                        </a>
+                                    </div>
+                                    <?php endforeach; ?>
                                 </div>
+                                <!-- .product-loop-categories -->
                             </div>
-                            <!-- .product-loop-categories -->
-                        </div>
                         <!-- .woocommerce -->
                     </section>
 

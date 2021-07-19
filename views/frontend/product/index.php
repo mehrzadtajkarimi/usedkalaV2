@@ -72,13 +72,14 @@
         <div id="grid" class="tab-pane active" role="tabpanel">
             <div class="woocommerce columns-7">
                 <div class="products">
-                <?php foreach ($categories as $value): ?>
+                <?php foreach ($products as $value): ?>
                     <div class="product first">
                         <div class="yith-wcwl-add-to-wishlist">
-                            <a href="wishlist.html" rel="nofollow" class="add_to_wishlist"> Add to Wishlist</a>
+                            <a href="" rel="nofollow" class="add_to_wishlist"> Add to Wishlist</a>
                         </div>
                         <!-- .yith-wcwl-add-to-wishlist -->
-                        <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" href="single-product-fullwidth.html">
+                        <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" href="<?= base_url() ?>product/<?= $value['id'] ?>">
+                            dddd
                             <img alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image" src="<?= $value['path'] ?>" width="224" height="197">
                             <span class="price">
                                 <span class="woocommerce-Price-amount amount">

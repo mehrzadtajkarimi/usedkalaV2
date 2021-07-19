@@ -37,7 +37,7 @@ class  MysqlBaseModel extends BaseModel
     {
         try {
             $this->connection->insert($this->table, $data);
-            return  $this->connection->id() ;
+            return  $this->connection->id();
         } catch (\PDOException $e) {
             echo 'مشکلی در هنگام ذخیره اطلاعات رخ داد/n' . $e->getMessage();
         }
@@ -120,15 +120,53 @@ class  MysqlBaseModel extends BaseModel
         return $this->connection->has($this->table,  $where);
     }
 
-    public function inner_join($join, $columns_as, $columns_to, $where = null)
-    {
-        return $this->connection->query("SELECT * FROM $this->table INNER JOIN $join ON $this->table.$columns_as = $join.$columns_to WHERE $where")->fetchAll();
+
+
+
+
+    public function inner_join(
+        $join,
+        $columns_as,
+        $columns_to,
+        $where_1,
+        $where_2 = null,
+        $where_3 = null
+    ) {
+        $query = "
+        SELECT * FROM $this->table
+        INNER JOIN $join
+        ON $this->table.$columns_as = $join.$columns_to
+        ";
+        if ($where_2) {
+            return $this->connection->query("$query AND $where_1 AND $where_2")->fetchAll();
+        }
+        if ($where_3) {
+            return $this->connection->query("$query AND $where_1 AND $where_2 AND $where_3")->fetchAll();
+        }
+        return $this->connection->query("$query AND $where_1")->fetchAll();
     }
-    public function inner_join_two($join_table_one, $join_table_two, $table_one_as, $table_one_to, $table_two_as, $table_two_to, $where = null)
-    {
-       return $this->connection->query("SELECT * FROM  $this->table 
-       INNER JOIN $join_table_one ON $this->table.$table_one_as = $join_table_one.$table_one_to
-       INNER JOIN $join_table_two ON $this->table.$table_two_as = $join_table_two.$table_two_to
-       WHERE $where")->fetchAll();
+
+
+
+
+    public function inner_join_two(
+        $join_table_one,
+        $table_one_as,
+        $table_one_to,
+        $join_table_two,
+        $table_two_as,
+        $table_two_to,
+        $where_1,
+        $where_2 = null
+    ) {
+        return $this->connection->query("
+            SELECT * FROM  $this->table
+            INNER JOIN $join_table_one
+            ON $this->table.$table_one_as = $join_table_one.$table_one_to
+            INNER JOIN $join_table_two
+            ON $this->table.$table_two_as = $join_table_two.$table_two_to
+            AND $where_1
+            AND $where_2
+            ")->fetchAll();
     }
 }

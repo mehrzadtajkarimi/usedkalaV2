@@ -18,6 +18,11 @@ class CategoryController extends Controller
 
     public function index()
     {
+        $category_id = $this->request->get_param('id');
+        $data = array(
+            'products' => $this->productModel->read_product($category_id),
+        );
+        view('backend.product.show', $data);
     }
 
     public function create()
@@ -34,13 +39,10 @@ class CategoryController extends Controller
     {
         $id = $this->request->get_param('id');
         $categories = $this->categoryModel->join_category_to_photo($id);
-
-dd($categories);
         $data = array(
             'categories' => $categories,
         );
         if (is_null($categories)) {
-            # code...
             return view('frontend.product.show', $data);
         }
         return view('frontend.category.show', $data);

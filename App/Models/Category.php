@@ -33,7 +33,7 @@ class Category extends MysqlBaseModel
     }
 
 
-    public function create_category($params , $id)
+    public function create_category($params, $id)
     {
         return $this->create([
             'parent_id' => $id,
@@ -46,9 +46,9 @@ class Category extends MysqlBaseModel
         return $this->get('*');
     }
 
-    public function update_category(array $params , $id)
+    public function update_category(array $params, $id)
     {
-        return $this->update($params , ['id' => $id]);
+        return $this->update($params, ['id' => $id]);
     }
 
     public function delete_category($id)
@@ -57,7 +57,14 @@ class Category extends MysqlBaseModel
     }
     public function join_category_to_photo($id)
     {
-        return $this->inner_join('photos', $id,'entity_id');
-    }
+        return $this->inner_join(
+            "photos",
+            "id",
+            "entity_id",
+            "categories.parent_id > '0'",
+            "categories.id = entity_id",
+            "photos.entity_type='Category'",
 
+        );
+    }
 }
