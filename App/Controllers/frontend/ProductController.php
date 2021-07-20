@@ -20,7 +20,7 @@ class ProductController extends Controller
     {
         $id       = $this->request->get_param('id');
         $products = $this->productModel->join_product__with_category_and_brand_and_photo($id);
-        $data = array(
+        $data     = array(
             'products' => $products,
         );
         view('frontend.product.index', $data);
@@ -38,13 +38,10 @@ class ProductController extends Controller
 
     public function show()
     {
-        $id       = $this->request->get_param('id');
-        $products = $this->productModel->join_product_to_photo($id);
-        $brands   = $this->productModel->join_product_to_brand($id);
-        dd($brands);
-        $data = array(
-            'product' => $products[0],
-            'brand'   => $brands[0],
+        $id      = $this->request->get_param('id');
+        $product = $this->productModel->join_product__with_brand_and_photo($id);
+        $data    = array(
+            'product' => $product,
         );
         return view('frontend.product.show', $data);
     }

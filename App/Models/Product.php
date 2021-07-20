@@ -87,4 +87,21 @@ class Product extends MysqlBaseModel
             "photos.entity_type='Product'",
         );
     }
+    public function join_product__with_brand_and_photo($id)
+    {
+        return $this->inner_join_two(
+            "products.*,
+             photos.path,
+             photos.alt,
+             brands.name AS brand_name", // column
+            "brands",                    // -- table brands
+            "brand_id",                  // products.brand_id
+            "id",                        // brands.id
+            "photos",                    // -- table photos
+            "id",                        // products.id
+            "entity_id",                 // photos.entity_id
+            "products.id=$id",
+            "photos.entity_type='Product'",
+        );
+    }
 }
