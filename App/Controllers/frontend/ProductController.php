@@ -18,14 +18,10 @@ class ProductController extends Controller
 
     public function index()
     {
-        $id = $this->request->get_param('id');
-        $products = $this->productModel->join_product_to_category($id);
-        $photo = $this->productModel->join_product_to_photo($id);
-        $brands = $this->productModel->join_product_to_brand($id);
-        dd($brands);
+        $id       = $this->request->get_param('id');
+        $products = $this->productModel->join_product__with_category_and_brand_and_photo($id);
         $data = array(
-            'product' => $products[0],
-            'brand' => $brands[0],
+            'products' => $products,
         );
         view('frontend.product.index', $data);
     }
@@ -42,13 +38,13 @@ class ProductController extends Controller
 
     public function show()
     {
-        $id = $this->request->get_param('id');
+        $id       = $this->request->get_param('id');
         $products = $this->productModel->join_product_to_photo($id);
-        $brands = $this->productModel->join_product_to_brand($id);
+        $brands   = $this->productModel->join_product_to_brand($id);
         dd($brands);
         $data = array(
             'product' => $products[0],
-            'brand' => $brands[0],
+            'brand'   => $brands[0],
         );
         return view('frontend.product.show', $data);
     }

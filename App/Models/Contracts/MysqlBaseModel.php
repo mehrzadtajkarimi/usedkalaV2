@@ -125,6 +125,7 @@ class  MysqlBaseModel extends BaseModel
 
 
     public function inner_join(
+        $column,
         $join,
         $columns_as,
         $columns_to,
@@ -133,8 +134,30 @@ class  MysqlBaseModel extends BaseModel
         $where_3 = null
     ) {
         $query = "
-        SELECT * FROM $this->table
+        SELECT $column FROM $this->table
         INNER JOIN $join
+        ON $this->table.$columns_as = $join.$columns_to
+        ";
+        if ($where_2) {
+            return $this->connection->query("$query AND $where_1 AND $where_2")->fetchAll();
+        }
+        if ($where_3) {
+            return $this->connection->query("$query AND $where_1 AND $where_2 AND $where_3")->fetchAll();
+        }
+        return $this->connection->query("$query AND $where_1")->fetchAll();
+    }
+    public function left_join(
+        $column,
+        $join,
+        $columns_as,
+        $columns_to,
+        $where_1,
+        $where_2 = null,
+        $where_3 = null
+    ) {
+        $query = "
+        SELECT $column FROM $this->table
+        LEFT JOIN $join
         ON $this->table.$columns_as = $join.$columns_to
         ";
         if ($where_2) {
@@ -148,8 +171,8 @@ class  MysqlBaseModel extends BaseModel
 
 
 
-
     public function inner_join_two(
+        $column,
         $join_table_one,
         $table_one_as,
         $table_one_to,
@@ -157,16 +180,54 @@ class  MysqlBaseModel extends BaseModel
         $table_two_as,
         $table_two_to,
         $where_1,
-        $where_2 = null
+        $where_2 = null,
+        $where_3 = null
     ) {
-        return $this->connection->query("
-            SELECT * FROM  $this->table
-            INNER JOIN $join_table_one
-            ON $this->table.$table_one_as = $join_table_one.$table_one_to
-            INNER JOIN $join_table_two
-            ON $this->table.$table_two_as = $join_table_two.$table_two_to
-            AND $where_1
-            AND $where_2
-            ")->fetchAll();
+        $query = "
+        SELECT $column FROM  $this->table
+        INNER JOIN $join_table_one
+        ON $this->table.$table_one_as = $join_table_one.$table_one_to
+        INNER JOIN $join_table_two
+        ON $this->table.$table_two_as = $join_table_two.$table_two_to
+        ";
+        if ($where_2) {
+            return $this->connection->query("$query AND $where_1 AND $where_2")->fetchAll();
+        }
+        if ($where_3) {
+            return $this->connection->query("$query AND $where_1 AND $where_2 AND $where_3")->fetchAll();
+        }
+        return $this->connection->query("$query AND $where_1")->fetchAll();
+    }
+    public function inner_join_tree(
+        $column,
+        $join_table_one,
+        $table_one_as,
+        $table_one_to,
+        $join_table_two,
+        $table_two_as,
+        $table_two_to,
+        $join_table_tree,
+        $table_tree_as,
+        $table_tree_to,
+        $where_1,
+        $where_2 = null,
+        $where_3 = null
+    ) {
+        $query = "
+        SELECT $column FROM  $this->table
+        INNER JOIN $join_table_one
+        ON $this->table.$table_one_as = $join_table_one.$table_one_to
+        INNER JOIN $join_table_two
+        ON $this->table.$table_two_as = $join_table_two.$table_two_to
+        INNER JOIN $join_table_tree
+        ON $this->table.$table_tree_as = $join_table_tree.$table_tree_to
+        ";
+        if ($where_2) {
+            return $this->connection->query("$query AND $where_1 AND $where_2")->fetchAll();
+        }
+        if ($where_3) {
+            return $this->connection->query("$query AND $where_1 AND $where_2 AND $where_3")->fetchAll();
+        }
+        return $this->connection->query("$query AND $where_1")->fetchAll();
     }
 }

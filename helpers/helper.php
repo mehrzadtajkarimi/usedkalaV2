@@ -30,7 +30,7 @@ function inject_menu($path)
     $categoryModel = new Category;
     $categoryLevelOne = $categoryModel->get('*', ['parent_id' => 0]);
     foreach ($categoryLevelOne as $LevelOne) {
-        $categoryLevelTwo[$LevelOne['id']] = $categoryModel->inner_join('photos', 'id', 'entity_id', 'categories.parent_id' . '=' . $LevelOne['id']);
+        $categoryLevelTwo[$LevelOne['id']] = $categoryModel->inner_join('*','photos', 'id', 'entity_id', 'categories.parent_id' . '=' . $LevelOne['id']);
     }
     return  [
         'categoryLevelOne' => $categoryLevelOne,

@@ -31,6 +31,7 @@ Route::group(function () {
 Route::group(function () {
     Route::get('/category/{id}', 'CategoryController@show');
 });
+
 Route::group(function () {
     Route::get('/product/{id}', 'ProductController@show');
     Route::get('/product/category/{id}', 'ProductController@index');

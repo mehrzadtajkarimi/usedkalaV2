@@ -105,7 +105,7 @@
                         <div class="col-10">
                           <div class="custom-file">
                             <label class="custom-file-label" for="product-image">Choose file</label>
-                            <input name="product_image" type="file" class="custom-file-input" id="product-image">
+                            <input name="product_image" type="file" class="custom-file-input" id="product-image" required>
                           </div>
                         </div>
                       </div>

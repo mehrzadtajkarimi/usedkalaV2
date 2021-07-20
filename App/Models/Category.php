@@ -58,11 +58,23 @@ class Category extends MysqlBaseModel
     public function join_category_to_photo($id)
     {
         return $this->inner_join(
-            "photos",
-            "id",
-            "entity_id",
-            "categories.parent_id > '0'",
-            "categories.id = entity_id",
+            "categories.id AS categories_id , categories.* , photos.*",
+            "photos",                      // -- table photos
+            "id",                          // categories.id
+            "entity_id",                   // photos.entity_id
+            "categories.id = $id",
+            "photos.entity_type='Category'",
+
+        );
+    }
+    public function left_join_category_to_photo($id)
+    {
+        return $this->left_join(
+            "categories.id AS categories_id , categories.* , photos.*",
+            "photos",                      // -- table photos
+            "id",                          // categories.id
+            "entity_id",                   // photos.entity_id
+            "categories.id = $id",
             "photos.entity_type='Category'",
 
         );
