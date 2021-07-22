@@ -121,7 +121,7 @@
                             </div>
                         </div>
                     </div>
-                    <?php include(BASEPATH . "views/Backend/product/script.php") ?>
+                    <?php include(BASEPATH . "App/Views/Backend/product/script.php") ?>
                 </div>
             <?php endif; ?>
             <div class="form-group row">

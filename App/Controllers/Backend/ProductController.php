@@ -45,7 +45,6 @@ class ProductController extends Controller
     public function store()
     {
         $params = $this->request->params();
-        dd($params['product-brand']);
         $params_create = array(
             'user_id'     => Auth::is_login(),
             'title'       => $params['product-name'],

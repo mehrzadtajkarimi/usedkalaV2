@@ -2,6 +2,7 @@
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
               <a href="<?= base_url() ?>admin/profile" class="image">
                   <img src="<?= asset_url() ?>Backend/dist/img/user.png" class="img-circle elevation-2" alt="User Image">
+                  <img src="<?= asset_url() ?>Backend/dist/img/user.png" class="img-circle elevation-2" alt="User Image">
                   <span class="">مهرزاد</span>
               </a>
               <div class="info">

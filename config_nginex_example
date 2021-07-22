@@ -3,7 +3,7 @@ server {
         root /var/www/usedkalaV2/Public;
         index index.php index.html index.htm index.nginx-debian.html;
         server_name usedkalaV2.me;
-        rewrite ^/(.*)/$ /$1 permanent; 
+        rewrite ^/(.*)/$ /$1 permanent;
 
         location ~* \.(ico|css|js|gif|jpe?g|png)(\?[0-9]+)?$ {
                 expires max;

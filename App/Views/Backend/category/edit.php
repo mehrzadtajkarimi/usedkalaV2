@@ -48,7 +48,7 @@
                             </div>
                         </div>
                     </div>
-                    <?php include(BASEPATH . "views/Backend/category/script.php") ?>
+                    <?php include(BASEPATH . "App/Views/Backend/category/script.php") ?>
                 </div>
             <?php endif; ?>
             <div class="form-group row">
