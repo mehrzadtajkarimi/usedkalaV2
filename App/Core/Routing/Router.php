@@ -2,10 +2,10 @@
 
 namespace App\Core\Routing;
 
+use App\Core\Middleware\Auth;
+use App\Core\Middleware\GlobalMiddleware;
 use App\Core\Request;
 use App\Core\Routing\Route;
-use App\Middleware\Auth;
-use App\Middleware\GlobalMiddleware;
 
 class Router
 {
@@ -19,7 +19,7 @@ class Router
     public function __construct()
     {
         $this->request       = new Request;
-        $this->routes        = Route::routes();
+        $this->routes        = route::routes();
         $this->route_current = $this->fine_route($this->request) ?? null;
         $this->run_middleware();
     }
@@ -101,7 +101,7 @@ class Router
         if (is_array($action)) {
 
             $uri_separator = explode('/', $route['uri']);
-            $routing = $uri_separator[1] == 'admin' ? 'backend\\' : 'frontend\\';
+            $routing = $uri_separator[1] == 'admin' ? 'Backend\\' : 'Frontend\\';
             $class_name  = self::BASE_CONTROLLER . $routing . $action[0];
             $method_name = $action[1];
             if (!class_exists($class_name)) {

@@ -42,7 +42,7 @@ class FlashMessage
             return;
         }
         $data = ['flash_message' => $flash_message];
-        view_flash_message('error.flash.notice', $data);
+        view_flash_message('Error.flash.notice', $data);
         self::clean();
     }
 
