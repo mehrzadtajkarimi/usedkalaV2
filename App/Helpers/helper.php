@@ -94,7 +94,7 @@ function contains_array($array)
 
 function storage_url($filename)
 {
-    return base_url() . "App/Storage/$filename";
+    return base_url() . "Storage/$filename";
 }
 
 function storage_path($filename)

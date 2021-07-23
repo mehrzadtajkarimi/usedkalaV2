@@ -58,7 +58,7 @@ class ProductController extends Controller
             'quantity'    => $params['product-quantity'],
             'meta_title'  => $params['product-meta'],
             'description' => $params['product-description'],
-            'featured'    => $params['product-featured'] == 'on' ? 1 : 0,
+            'featured'    => $params['product-featured'] ?? 0,
         );
 
         $files = $this->request->files();
@@ -70,9 +70,11 @@ class ProductController extends Controller
                 $is_create_product = $this->productModel->create_product($params_create);
                 $is_create_photo   = $this->photoModel->create_photo('Product', $is_create_product, $file_url, 'product_image');
 
-                if ($is_create_photo && $is_create_product) {
+                if ($is_create_product) {
                     FlashMessage::add("ایجاد محصول موفقیت انجام شد");
-                } else {
+                } elseif( $is_create_photo) {
+                    FlashMessage::add(" ایجاد تصویر موفقیت انجام شد", FlashMessage::ERROR);
+                }else {
                     FlashMessage::add(" مشکلی در ایجاد محصول رخ داد ", FlashMessage::ERROR);
                 }
                 return $this->request->redirect('admin/product');

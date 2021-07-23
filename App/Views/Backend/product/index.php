@@ -14,7 +14,7 @@
             </div>
 
             <!-- Button trigger modal -->
-            <a href="<?= base_url() ?>admin/product/create" type="button" class="btn btn-success shadow-sm mr-2  " data-toggle="modal" data-target="#exampleModalCenter">
+            <a href="<?= base_url() ?>admin/product/create" type="button" class="mr-2 shadow-sm btn btn-success " data-toggle="modal" data-target="#exampleModalCenter">
               ایجاد حصول
             </a>
 
@@ -110,13 +110,13 @@
                         </div>
                       </div>
 
-                      <div class="form-check pt-2 pb-2">
-                        <input name="product-featured" type="checkbox" class="form-check-input" id="product-featured">
+                      <div class="pt-2 pb-2 form-check">
+                        <input value="1" name="product-featured" type="checkbox" class="form-check-input" id="product-featured">
                         <label class="form-check-label" for="product-featured">
                           محصول ویژه
                         </label>
                       </div>
-                      <div class="form-check pt-2 pb-2 disabled ">
+                      <div class="pt-2 pb-2 form-check disabled ">
                         <input name="product-status" type="checkbox" class="form-check-input " id="product-status" checked disabled>
                         <label class="form-check-label" for="product-status">
                           وضعیت
@@ -136,7 +136,7 @@
                         </div>
                       </div> -->
 
-                      <button type="submit" class="btn btn-primary float-left btn-block">ذخیره </button>
+                      <button type="submit" class="float-left btn btn-primary btn-block">ذخیره </button>
                     </form>
                   </div>
                 </div>
@@ -191,10 +191,10 @@
                     </div>
                   </td>
                   <td class="text-center" >
-                    <a href="<?= base_url() ?>admin/product/<?= $value['id'] ?>/edit" class="btn btn-warning btn-sm shadow-sm " style="padding: 0px 16px; border-radius: 18px;">ویرایش</a>
+                    <a href="<?= base_url() ?>admin/product/<?= $value['id'] ?>/edit" class="shadow-sm btn btn-warning btn-sm " style="padding: 0px 16px; border-radius: 18px;">ویرایش</a>
                     <form method="post" action="<?= base_url() ?>admin/product/<?= $value['id'] ?>" class="d-inline">
                       <input type="hidden" name="_method" value="delete" />
-                      <input type="submit" class="btn btn-danger btn-sm shadow-sm " style="padding: 0px 20px; border-radius: 18px;" onclick="return confirm('آیا برای حذف اطلاعات اطمینان دارید');" value="حذف">
+                      <input type="submit" class="shadow-sm btn btn-danger btn-sm " style="padding: 0px 20px; border-radius: 18px;" onclick="return confirm('آیا برای حذف اطلاعات اطمینان دارید');" value="حذف">
                     </form>
                   </td>
                 </tr>

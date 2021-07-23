@@ -17,7 +17,7 @@ class UploadedFile implements UploadContract
 
         if ($sub_folder == null) {
             $sub_folder = date(self::default_subfolder_format);
-            $sub_folder_path = BASEPATH . 'App/Storage/' . $sub_folder;
+            $sub_folder_path = BASEPATH . 'Public/Storage/' . $sub_folder;
             if (!file_exists($sub_folder_path)) {
                 mkdir($sub_folder_path);
             }
@@ -64,7 +64,7 @@ class UploadedFile implements UploadContract
 
     public function destroy()
     {
-        $path        =  BASEPATH . 'App/Storage/'  . $this->path_in_storage;
+        $path        =  BASEPATH . 'Public/Storage/'  . $this->path_in_storage;
         if (!file_exists($path)) {
             return;
         }
@@ -73,7 +73,7 @@ class UploadedFile implements UploadContract
 
     public function save()
     {
-        $path        =  BASEPATH . 'App/Storage/' . $this->path_in_storage;
+        $path        =  BASEPATH . 'Public/Storage/' . $this->path_in_storage;
         if ($this->upload($path)) {
             return storage_url($this->path_in_storage);
         }

@@ -74,7 +74,7 @@ class CategoryController extends Controller
     public function edit()
     {
         $id = $this->request->get_param('id');
-dd($this->photoModel->first(['entity_id' => $id]));
+
         $data = array(
             'category' => $this->categoryModel->first(['id' => $id]),
             'photo' => $this->photoModel->first(['entity_id' => $id]),
