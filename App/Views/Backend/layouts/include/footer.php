@@ -31,4 +31,5 @@
    <script src="<?= asset_url() ?>Backend/plugins/WOW/dist/wow.min.js"></script>
    <script src="<?= asset_url() ?>Backend/dist/js/demo.js"></script>
    <script src="<?= asset_url() ?>Backend/dist/js/pages/dashboard3.js"></script>
+   <script src="<?= asset_url() ?>Backend/plugins/Multiple-Image-Picker-jQuery/spartan-multi-image-picker-min.js"></script>
    <script src="<?= asset_url() ?>Backend/dist/js/pages/my.js"></script>

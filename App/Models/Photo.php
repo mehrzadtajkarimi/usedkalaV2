@@ -27,6 +27,10 @@ class Photo extends MysqlBaseModel
         }
         return $this->first(['entity_id' => $id]);
     }
+    public function read_photo_by_id($entity_id,$entity_type)
+    {
+        return $this->get(['entity_id' => $entity_id]);
+    }
 
     public function update_photo(string $entity_type, int $entity_id, $file_path, string $name)
     {

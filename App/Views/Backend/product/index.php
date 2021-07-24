@@ -103,12 +103,27 @@
                       <div class="form-group row">
                         <label for="slug" class="col-2 col-form-label">عکس</label>
                         <div class="col-10">
-                          <div class="custom-file">
+                          <!-- <div class="custom-file">
                             <label class="custom-file-label" for="product-image">Choose file</label>
                             <input name="product_image" type="file" class="custom-file-input" id="product-image" required>
+                          </div> -->
+                          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+                          <div class="card-block">
+                            <div class="flex-row d-flex" id="coba"></div>
                           </div>
                         </div>
                       </div>
+
+                      <script>
+                        $(document).ready(function() {
+                          $("#coba").spartanMultiImagePicker({
+                            fieldName: 'product_image[]',
+                            groupClassName: 'col-2',
+                            rowHeight:        '100px',
+                          });
+
+                        });
+                      </script>
 
                       <div class="pt-2 pb-2 form-check">
                         <input value="1" name="product-featured" type="checkbox" class="form-check-input" id="product-featured">
@@ -168,10 +183,10 @@
               foreach ($products as $value) :
               ?>
                 <tr>
-                  <td class="text-center"  title="<?= $value['sku'] ?>"><?= $count++ ?></td>
-                  <td class="text-center"  title="<?= $value['meta_title'] ?>"><?= $value['title'] ?></td>
-                  <td class="text-center"  title="<?= $value['sale_price'] ?>"><?= $value['price'] ?></td>
-                  <td class="text-center"  title="<?= $value['weight'] ?>"><?= $value['quantity'] ?></td>
+                  <td class="text-center" title="<?= $value['sku'] ?>"><?= $count++ ?></td>
+                  <td class="text-center" title="<?= $value['meta_title'] ?>"><?= $value['title'] ?></td>
+                  <td class="text-center" title="<?= $value['sale_price'] ?>"><?= $value['price'] ?></td>
+                  <td class="text-center" title="<?= $value['weight'] ?>"><?= $value['quantity'] ?></td>
                   <td>
                     <div>
                       وضــــــــــعــیـت :
@@ -190,7 +205,7 @@
                       <?php endif; ?>
                     </div>
                   </td>
-                  <td class="text-center" >
+                  <td class="text-center">
                     <a href="<?= base_url() ?>admin/product/<?= $value['id'] ?>/edit" class="shadow-sm btn btn-warning btn-sm " style="padding: 0px 16px; border-radius: 18px;">ویرایش</a>
                     <form method="post" action="<?= base_url() ?>admin/product/<?= $value['id'] ?>" class="d-inline">
                       <input type="hidden" name="_method" value="delete" />

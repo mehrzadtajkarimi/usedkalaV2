@@ -104,4 +104,14 @@ class Product extends MysqlBaseModel
             "photos.entity_type='Product'",
         );
     }
+    public function join_product__with_brand($id)
+    {
+        return $this->inner_join(
+            "*",                         // column
+            "brands",                    // -- table brands
+            "brand_id",                  // products.brand_id
+            "id",                        // brands.id
+            "products.id=$id",
+        );
+    }
 }

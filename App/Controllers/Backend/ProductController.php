@@ -45,6 +45,7 @@ class ProductController extends Controller
     public function store()
     {
         $params = $this->request->params();
+
         $params_create = array(
             'user_id'     => Auth::is_login(),
             'title'       => $params['product-name'],
@@ -61,8 +62,41 @@ class ProductController extends Controller
             'featured'    => $params['product-featured'] ?? 0,
         );
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         $files = $this->request->files();
-        if (!empty($files['product_image']['tmp_name'])) {
+        unset($files['product_image']['error']);
+        unset($files['product_image']['size']);
+        foreach ($files as  $values) {
+            foreach ($values as $keys => $value) {
+                $key[$keys] =array_filter($value);
+            }
+        }
+        echo '<pre>';
+        var_dump($key );
+        echo '</pre><br>';
+        echo '<pre>';
+
+
+
+
+        die;
+
+
+        if (!empty($key['tmp_name'])) {
             $file = new UploadedFile('product_image');
             $file_url = $file->save();
             if ($file_url) {
@@ -72,9 +106,9 @@ class ProductController extends Controller
 
                 if ($is_create_product) {
                     FlashMessage::add("ایجاد محصول موفقیت انجام شد");
-                } elseif( $is_create_photo) {
+                } elseif ($is_create_photo) {
                     FlashMessage::add(" ایجاد تصویر موفقیت انجام شد", FlashMessage::ERROR);
-                }else {
+                } else {
                     FlashMessage::add(" مشکلی در ایجاد محصول رخ داد ", FlashMessage::ERROR);
                 }
                 return $this->request->redirect('admin/product');

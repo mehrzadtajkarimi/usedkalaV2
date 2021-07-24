@@ -14,7 +14,7 @@ class UploadedFile implements UploadContract
     public function __construct($fileName, $sub_folder = null)
     {
         $this->file = $_FILES[$fileName];
-
+dd($_FILES[$fileName]);
         if ($sub_folder == null) {
             $sub_folder = date(self::default_subfolder_format);
             $sub_folder_path = BASEPATH . 'Public/Storage/' . $sub_folder;

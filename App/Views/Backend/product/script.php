@@ -18,6 +18,9 @@
         // $('#input-edit').change(function() {
         //     $("input[type='file']").prop("files", e.originalEvent.dataTransfer.files);
         // });
+        $("#product-image").spartanMultiImagePicker({
+            fieldName: 'fileUpload[]'
+        });
 
 
 

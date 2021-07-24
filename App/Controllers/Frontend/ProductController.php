@@ -3,17 +3,20 @@
 namespace App\Controllers\Frontend;
 
 use App\Controllers\Controller;
+use App\Models\Photo;
 use App\Models\Product;
 use App\Utilities\FlashMessage;
 
 class ProductController extends Controller
 {
     private $productModel;
+    private $photoModel;
 
     public function __construct()
     {
         parent::__construct();
         $this->productModel = new Product();
+        $this->photoModel = new Photo();
     }
 
     public function index()
@@ -39,9 +42,11 @@ class ProductController extends Controller
     public function show()
     {
         $id      = $this->request->get_param('id');
-        $product = $this->productModel->join_product__with_brand_and_photo($id);
+        $product = $this->productModel->join_product__with_brand($id);
+        $photos = $this->photoModel->get_photo($id,  'product');
         $data    = array(
             'product' => $product,
+            'photos' => $photos,
         );
         return view('Frontend.product.show', $data);
     }
