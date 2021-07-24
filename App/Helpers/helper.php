@@ -32,10 +32,13 @@ function inject_menu($path)
     foreach ($categoryLevelOne as $LevelOne) {
         $categoryLevelTwo[$LevelOne['id']] = $categoryModel->inner_join('*', 'photos', 'id', 'entity_id', 'categories.parent_id' . '=' . $LevelOne['id']);
     }
-    return  [
-        'categoryLevelOne' => $categoryLevelOne,
-        'categoryLevelTwo' => $categoryLevelTwo
-    ];
+    if ($categoryLevelOne) {
+        return  [
+            'categoryLevelOne' => $categoryLevelOne,
+            'categoryLevelTwo' => $categoryLevelTwo
+        ];
+    }
+    return [];
 }
 function buffering($full_path_view, $data, $dir = null)
 {

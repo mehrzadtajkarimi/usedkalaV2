@@ -72,28 +72,30 @@
         <div id="grid" class="tab-pane active" role="tabpanel">
             <div class="woocommerce columns-7">
                 <div class="products">
-                <?php foreach ($products as $value): ?>
-                    <div class="product first">
-                        <div class="yith-wcwl-add-to-wishlist">
-                            <a href="" rel="nofollow" class="add_to_wishlist"> Add to Wishlist</a>
+                    <?php foreach ($products as $value) : ?>
+                        <div class="product first">
+                            <div class="yith-wcwl-add-to-wishlist">
+                                <a href="" rel="nofollow" class="add_to_wishlist"> Add to Wishlist</a>
+                            </div>
+                            <!-- .yith-wcwl-add-to-wishlist -->
+                            <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" href="<?= base_url() ?>product/<?= $value['id'] ?>">
+                                <img alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image" src="<?= $value['path'] ?>" width="224" height="197">
+                                <span class="price">
+                                    <span class="woocommerce-Price-amount amount">
+                                        <?= $value['price'] ?>
+                                    </span>
+                                </span>
+                                <h2 class="woocommerce-loop-product__title">
+                                    <?= $value['title'] ?>
+                                </h2>
+                            </a>
+                            <!-- .woocommerce-LoopProduct-link -->
+                            <div class="hover-area">
+                                <a class="button" href="cart.html">Add to cart</a>
+                                <a class="add-to-compare-link" href="compare.html">Add to compare</a>
+                            </div>
+                            <!-- .hover-area -->
                         </div>
-                        <!-- .yith-wcwl-add-to-wishlist -->
-                        <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" href="<?= base_url() ?>product/<?= $value['id'] ?>">
-                            dddd
-                            <img alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image" src="<?= $value['path'] ?>" width="224" height="197">
-                            <span class="price">
-                                <span class="woocommerce-Price-amount amount">
-                                    $۸۰۰.۰۰</span>
-                            </span>
-                            <h2 class="woocommerce-loop-product__title">Xtreme ultimate splashproof portable speaker</h2>
-                        </a>
-                        <!-- .woocommerce-LoopProduct-link -->
-                        <div class="hover-area">
-                            <a class="button" href="cart.html">Add to cart</a>
-                            <a class="add-to-compare-link" href="compare.html">Add to compare</a>
-                        </div>
-                        <!-- .hover-area -->
-                    </div>
                     <?php endforeach; ?>
                 </div>
                 <!-- .products -->
@@ -104,49 +106,49 @@
         <div id="grid-extended" class="tab-pane" role="tabpanel">
             <div class="woocommerce columns-7">
                 <div class="products">
-                   
-                        <div class="product first">
-                            <div class="yith-wcwl-add-to-wishlist">
-                                <a href="wishlist.html" rel="nofollow" class="add_to_wishlist"> Add to Wishlist</a>
-                            </div>
-                            <!-- .yith-wcwl-add-to-wishlist -->
-                            <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" href="single-product-fullwidth.html">
-                                <img alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image" src="" width="224" height="197">
-                                <span class="price">
-                                    <span class="woocommerce-Price-amount amount">
-                                        $۸۰۰.۰۰</span>
-                                </span>
-                                <h2 class="woocommerce-loop-product__title">Bluetooth on-ear PureBass Headphones</h2>
-                            </a>
-                            <!-- .woocommerce-LoopProduct-link -->
-                            <div class="techmarket-product-rating">
-                                <div title="Rated 5.00 out of 5" class="star-rating">
-                                    <span style="width:100%">
-                                        <strong class="rating">5.00</strong> out of 5</span>
-                                </div>
-                                <span class="review-count">(1)</span>
-                            </div>
-                            <!-- .techmarket-product-rating -->
-                            <span class="sku_wrapper">SKU:
-                                <span class="sku">5487FB8/13</span>
-                            </span>
-                            <div class="woocommerce-product-details__short-description">
-                                <ul>
-                                    <li>Multimedia Speakers</li>
-                                    <li>120 watts peak</li>
-                                    <li>Front-facing subwoofer</li>
-                                    <li>Refresh Rate: 120Hz (Effective)</li>
-                                    <li>Backlight: LED</li>
-                                    <li>Smart Functionality: Yes, webOS 3.0</li>
-                                    <li>Dimensions (W x H x D): TV without stand: 43.5″ x 25.4″ x 3.0″, TV with stand: 43.5″ x 27.6″ x 8.5″</li>
-                                    <li>Inputs: 3 HMDI, 2 USB, 1 RF, 1 Component, 1 Composite, 1 Optical, 1 RS232C, 1 Ethernet</li>
-                                </ul>
-                            </div>
-                            <!-- .woocommerce-product-details__short-description -->
-                            <a class="button product_type_simple add_to_cart_button" href="cart.html">Add to cart</a>
-                            <a class="add-to-compare-link" href="compare.html">Add to compare</a>
+
+                    <div class="product first">
+                        <div class="yith-wcwl-add-to-wishlist">
+                            <a href="wishlist.html" rel="nofollow" class="add_to_wishlist"> Add to Wishlist</a>
                         </div>
-                   
+                        <!-- .yith-wcwl-add-to-wishlist -->
+                        <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" href="single-product-fullwidth.html">
+                            <img alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image" src="" width="224" height="197">
+                            <span class="price">
+                                <span class="woocommerce-Price-amount amount">
+                                    $۸۰۰.۰۰</span>
+                            </span>
+                            <h2 class="woocommerce-loop-product__title">Bluetooth on-ear PureBass Headphones</h2>
+                        </a>
+                        <!-- .woocommerce-LoopProduct-link -->
+                        <div class="techmarket-product-rating">
+                            <div title="Rated 5.00 out of 5" class="star-rating">
+                                <span style="width:100%">
+                                    <strong class="rating">5.00</strong> out of 5</span>
+                            </div>
+                            <span class="review-count">(1)</span>
+                        </div>
+                        <!-- .techmarket-product-rating -->
+                        <span class="sku_wrapper">SKU:
+                            <span class="sku">5487FB8/13</span>
+                        </span>
+                        <div class="woocommerce-product-details__short-description">
+                            <ul>
+                                <li>Multimedia Speakers</li>
+                                <li>120 watts peak</li>
+                                <li>Front-facing subwoofer</li>
+                                <li>Refresh Rate: 120Hz (Effective)</li>
+                                <li>Backlight: LED</li>
+                                <li>Smart Functionality: Yes, webOS 3.0</li>
+                                <li>Dimensions (W x H x D): TV without stand: 43.5″ x 25.4″ x 3.0″, TV with stand: 43.5″ x 27.6″ x 8.5″</li>
+                                <li>Inputs: 3 HMDI, 2 USB, 1 RF, 1 Component, 1 Composite, 1 Optical, 1 RS232C, 1 Ethernet</li>
+                            </ul>
+                        </div>
+                        <!-- .woocommerce-product-details__short-description -->
+                        <a class="button product_type_simple add_to_cart_button" href="cart.html">Add to cart</a>
+                        <a class="add-to-compare-link" href="compare.html">Add to compare</a>
+                    </div>
+
                 </div>
                 <!-- .products -->
             </div>
