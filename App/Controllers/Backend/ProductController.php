@@ -62,47 +62,19 @@ class ProductController extends Controller
             'featured'    => $params['product-featured'] ?? 0,
         );
 
+        $files                   = $this->request->files();
+        $files_param             = $files['product_image'];
+        $files_param_tmp_name    = array_filter($files_param['tmp_name']);
+        $check_file_param_exists = !empty($files_param_tmp_name[0]);
 
-
-
-        $files_param = $this->request->files();
-
-        // echo '<pre>';
-        // var_dump($files_repair);
-        // echo '</pre><br>';
-        // echo '<pre>';
-
-        // echo '<pre>';
-        // var_dump(array_keys($files)[0]);
-        // echo '</pre><br>';
-        // echo '<pre>';
-
-        // echo '<pre>';
-        // var_dump(is_array($files));
-        // echo '</pre><br>';
-        // echo '<pre>';
-        // echo '<pre>';
-        // var_dump($files[array_keys($files)[0]]['tmp_name']);
-        // echo '</pre><br>';
-        // echo '<pre>';
-        // echo '<pre>';
-        // var_dump(array_values($files));
-        // echo '</pre><br>';
-        // echo '<pre>';
-
-
-
-
-        // die;
-        // array_keys($files_param)[0] output : name input file
-        if (!empty($files_param[array_keys($files_param)[0]]['tmp_name'][0])) {
+        if ($check_file_param_exists) {
             $is_create_product = $this->productModel->create_product($params_create);
-
             $file = new UploadedFile($files_param);
-            $file_url = $file->save();
-            if ($file_url) {
-
-                $is_create_photo   = $this->photoModel->create_photo('Product', $is_create_product, $file_url, 'product_image');
+            $file_paths = $file->save();
+            if ($file_paths) {
+                foreach ($file_paths as $path) {
+                    $is_create_photo   = $this->photoModel->create_photo('Product', $is_create_product, $path, 'product_image');
+                }
 
                 if ($is_create_product) {
                     FlashMessage::add("ایجاد محصول موفقیت انجام شد");

@@ -68,7 +68,7 @@ function xss_clean($str)
 }
 
 
-function dd($args)
+function dd(...$args)
 {
     echo "<pre  style='background:#FF5722; border-radius: 10px; padding: 10PX;'>";
     var_dump($args);

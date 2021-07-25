@@ -16,12 +16,12 @@ class Request
     public  function __construct()
     {
         $this->form_method = isset($_REQUEST['_method']) ? $_REQUEST['_method'] : '';
-        $this->params = $_REQUEST;
-        $this->files = $_FILES;
-        $this->method = strtolower($_SERVER['REQUEST_METHOD']);
-        $this->ip = $_SERVER['SERVER_ADDR'];
-        $this->agent = $_SERVER['HTTP_USER_AGENT'];
-        $this->uri = strtok($_SERVER['REQUEST_URI'], '?');
+        $this->method      = strtolower($_SERVER['REQUEST_METHOD']);
+        $this->uri         = strtok($_SERVER['REQUEST_URI'], '?');
+        $this->params      = $_REQUEST;
+        $this->files       = $_FILES;
+        $this->ip          = $_SERVER['SERVER_ADDR'];
+        $this->agent       = $_SERVER['HTTP_USER_AGENT'];
     }
 
     // get from router  method regex_matched
