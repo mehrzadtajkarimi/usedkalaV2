@@ -7,14 +7,14 @@ use App\Utilities\FlashMessage;
 
 class UploadedFile implements UploadContract
 {
-    private $file;
+    private $files;
+    private $file_names;
+    private $file_tmp_names;
     private $path_in_storage;
     const default_subfolder_format = "Ym";
 
-    public function __construct($fileName, $sub_folder = null)
+    public function __construct($file_params, $sub_folder = null)
     {
-        $this->file = $_FILES[$fileName];
-dd($_FILES[$fileName]);
         if ($sub_folder == null) {
             $sub_folder = date(self::default_subfolder_format);
             $sub_folder_path = BASEPATH . 'Public/Storage/' . $sub_folder;
@@ -22,39 +22,49 @@ dd($_FILES[$fileName]);
                 mkdir($sub_folder_path);
             }
         }
-        $this->path_in_storage = $sub_folder . "/" . $this->basename() . '-' . $this->generateRandomStr() . $this->extension();
+        // array_keys($files_param)[0] output : name input file
+        unset($file_params[array_keys($file_params)[0]]['error']);
+        unset($file_params[array_keys($file_params)[0]]['size']);
+        unset($file_params[array_keys($file_params)[0]]['type']);
+
+        foreach ($file_params as  $values) {
+            foreach ($values as $key => $value) {
+                $this->files[$key] = array_filter($value);
+            }
+        }
+
+        $count = count($this->files[array_keys($this->files)[0]]);
+
+        for ($i = 0; $i < $count; $i++) {
+            $this->file_names['name'] = $this->files['name'];
+            $this->file_tmp_names['tmp_name'] = $this->files['tmp_name'];
+            $this->path_in_storage[] = $sub_folder . "/" . $this->basename($i) . '---' . $this->generateRandomStr() . $this->extension();
+        }
+
+        echo '<pre>';
+        var_dump($this->files['name'][0]);
+        echo '</pre><br>';die;
     }
 
-    public function mimeType()
+
+    public function  basename($key)
     {
-        return $this->file['type'];
+        return basename($this->name($key), $this->extension());
     }
-
-    public function size()
+    private function generateRandomStr()
     {
-        return $this->file['size'];
+        return bin2hex(random_bytes(4));
     }
-
-    public function name()
-    {
-        return substr($this->file['name'], 0, 128);
-    }
-
     public function extension()
     {
         $arr = explode('.', $this->name());
         return '.' . end($arr);
     }
 
-    public function  basename()
-    {
-        return basename($this->name(), $this->extension());
-    }
 
-
-    private function generateRandomStr()
+    public function name($key)
     {
-        return bin2hex(random_bytes(4));
+        return substr($this->file_names[$key], 0, 128);
     }
 
     private function upload($path)

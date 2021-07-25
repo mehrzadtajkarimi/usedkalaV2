@@ -65,43 +65,43 @@ class ProductController extends Controller
 
 
 
+        $files_param = $this->request->files();
+
+        // echo '<pre>';
+        // var_dump($files_repair);
+        // echo '</pre><br>';
+        // echo '<pre>';
+
+        // echo '<pre>';
+        // var_dump(array_keys($files)[0]);
+        // echo '</pre><br>';
+        // echo '<pre>';
+
+        // echo '<pre>';
+        // var_dump(is_array($files));
+        // echo '</pre><br>';
+        // echo '<pre>';
+        // echo '<pre>';
+        // var_dump($files[array_keys($files)[0]]['tmp_name']);
+        // echo '</pre><br>';
+        // echo '<pre>';
+        // echo '<pre>';
+        // var_dump(array_values($files));
+        // echo '</pre><br>';
+        // echo '<pre>';
 
 
 
 
+        // die;
+        // array_keys($files_param)[0] output : name input file
+        if (!empty($files_param[array_keys($files_param)[0]]['tmp_name'][0])) {
+            $is_create_product = $this->productModel->create_product($params_create);
 
-
-
-
-
-
-
-
-        $files = $this->request->files();
-        unset($files['product_image']['error']);
-        unset($files['product_image']['size']);
-        foreach ($files as  $values) {
-            foreach ($values as $keys => $value) {
-                $key[$keys] =array_filter($value);
-            }
-        }
-        echo '<pre>';
-        var_dump($key );
-        echo '</pre><br>';
-        echo '<pre>';
-
-
-
-
-        die;
-
-
-        if (!empty($key['tmp_name'])) {
-            $file = new UploadedFile('product_image');
+            $file = new UploadedFile($files_param);
             $file_url = $file->save();
             if ($file_url) {
 
-                $is_create_product = $this->productModel->create_product($params_create);
                 $is_create_photo   = $this->photoModel->create_photo('Product', $is_create_product, $file_url, 'product_image');
 
                 if ($is_create_product) {
