@@ -66,7 +66,6 @@ class ProductController extends Controller
         $files_param             = $files['product_image'];
         $files_param_tmp_name    = array_filter($files_param['tmp_name']);
         $check_file_param_exists = !empty($files_param_tmp_name[0]);
-
         if ($check_file_param_exists) {
             $is_create_product = $this->productModel->create_product($params_create);
             $file = new UploadedFile($files_param);

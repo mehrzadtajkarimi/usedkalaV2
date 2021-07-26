@@ -42,23 +42,30 @@ class CategoryController extends Controller
 
     public function store()
     {
-        $id = $this->request->get_param('id');
         $params = $this->request->params();
+
+        $id = $this->request->get_param('id');
         $files = $this->request->files();
-        if (!empty($files['image_category']['tmp_name'])) {
-            $file = new UploadedFile('image_category');
-            $file_url = $file->save();
-            if ($file_url) {
+        $files_param             = $files['image_category'];
+        $files_param_tmp_name    = $files_param['tmp_name'];
+        $check_file_param_exists = !empty($files_param_tmp_name[0]);
+        if ($check_file_param_exists) {
+            $is_create_category = $this->categoryModel->create_category($params, $id);
+
+            $file = new UploadedFile($files_param);
+            $file_paths = $file->save();
+
+            if ($file_paths) {
+
+                $is_create_photo = $this->photoModel->create_photo('Category', $is_create_category, $file_paths[0], 'image_category');
 
 
-                $is_create_category = $this->categoryModel->create_category($params, $id);
-                $is_create_photo = $this->photoModel->create_photo('Category', $is_create_category, $file_url, 'image_category');
-
-
-                if ($is_create_photo && $is_create_category) {
-                    FlashMessage::add("ایجاد دسته بندی موفقیت انجام شد");
+                if ($is_create_category) {
+                    FlashMessage::add("ایجاد محصول موفقیت انجام شد");
+                } elseif ($is_create_photo) {
+                    FlashMessage::add(" ایجاد تصویر موفقیت انجام شد", FlashMessage::ERROR);
                 } else {
-                    FlashMessage::add(" مشکلی در ایجاد دسته بندی رخ داد ", FlashMessage::ERROR);
+                    FlashMessage::add(" مشکلی در ایجاد محصول رخ داد ", FlashMessage::ERROR);
                 }
                 return $this->request->redirect('admin/category');
             }

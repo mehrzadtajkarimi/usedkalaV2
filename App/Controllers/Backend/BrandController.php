@@ -38,23 +38,28 @@ class BrandController extends Controller
         $params = $this->request->params();
 
         $files = $this->request->files();
-        if (!empty($files['brand_image']['tmp_name'])) {
-            $file = new UploadedFile('brand_image');
-            $file_url = $file->save();
-            if ($file_url) {
+        $files_param             = $files['brand_image'];
+        $files_param_tmp_name    = $files_param['tmp_name'];
+        $check_file_param_exists = !empty($files_param_tmp_name[0]);
+        if ($check_file_param_exists) {
+            $is_create_brand = $this->brandModel->create_brand([
+                'name'      => $params['brand-name'],
+                'sort'      => $params['brand-sort'],
+            ]);
+
+            $file = new UploadedFile($files_param);
+            $file_paths = $file->save();
+            if ($file_paths) {
+
+                $is_create_photo = $this->photoModel->create_photo('Brands', $is_create_brand, $file_paths[0], 'brand_image');
 
 
-                $is_create_brand = $this->brandModel->create_brand([
-                    'name'      => $params['brand-name'],
-                    'sort'      => $params['brand-sort'],
-                ]);
-                $is_create_photo = $this->photoModel->create_photo('Brands', $is_create_brand, $file_url, 'brand_image');
-
-
-                if ($is_create_photo && $is_create_brand) {
-                    FlashMessage::add("ایجاد برند موفقیت انجام شد");
+                if ($is_create_brand) {
+                    FlashMessage::add("ایجاد برند با موفقیت انجام شد");
+                } elseif ($is_create_photo) {
+                    FlashMessage::add(" ایجاد تصویر موفقیت انجام شد", FlashMessage::ERROR);
                 } else {
-                    FlashMessage::add(" مشکلی در ایجاد برند رخ داد ", FlashMessage::ERROR);
+                    FlashMessage::add(" مشکلی در ایجاد محصول رخ داد ", FlashMessage::ERROR);
                 }
                 return $this->request->redirect('admin/brand');
             }

@@ -14,9 +14,12 @@ class UploadedFile implements UploadContract
 
     public function __construct($files_param)
     {
-        $this->files = $files_param;
-        $array_count = $this->files[array_keys($this->files)[0]];
-        $count = count(array_filter($array_count));
+        // dd($files_param);
+        $this->files                = $files_param;
+        $array_keys                 = $this->files[array_keys($this->files)[0]];
+        $files_param_is_array       = is_array($array_keys) ? $array_keys : [$array_keys];
+        $array_filter_trim_end_null = array_filter($files_param_is_array);
+        $count                      = count($array_filter_trim_end_null);
         for ($i = 0; $i < $count; $i++) {
             $paths_in_storage           = $this->generate_paths($i);
             $this->paths_for_database[] = base_url() . "Storage/$paths_in_storage";
@@ -24,16 +27,8 @@ class UploadedFile implements UploadContract
         }
     }
 
-    private function unset()
-    {
-        $param = $this->files;
-        unset($param[array_keys($param)[0]]['error']);
-        unset($param[array_keys($param)[0]]['size']);
-        unset($param[array_keys($param)[0]]['type']);
-    }
     public function  generate_paths($key)
     {
-        $this->unset();
         $name             = substr($this->files['name'][$key], 0, 64);
         $name_explode     = explode('.', $name);
         $type_file        = end($name_explode);
@@ -61,10 +56,14 @@ class UploadedFile implements UploadContract
 
     private function upload()
     {
+       if ( is_array($this->files['tmp_name'])) {
+           foreach ($this->files['tmp_name'] as $key => $path) {
+               move_uploaded_file($path, $this->paths_for_storage[$key]);
+           }
+       }else{
+           move_uploaded_file($this->paths_for_database[0], $this->paths_for_storage[0]);
+       }
 
-        foreach ($this->files['tmp_name'] as $key => $path) {
-            move_uploaded_file($path, $this->paths_for_storage[$key]);
-        }
         return true;
     }
 
