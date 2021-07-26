@@ -22,7 +22,8 @@ class ProductController extends Controller
     public function index()
     {
         $id       = $this->request->get_param('id');
-        $products = $this->productModel->join_product__with_category_and_brand_and_photo($id);
+        $products = $this->productModel->join_product_to_photo($id);
+        // dd($products);
         $data     = array(
             'products' => $products,
         );

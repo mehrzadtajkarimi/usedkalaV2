@@ -71,8 +71,8 @@ class ProductController extends Controller
             $file = new UploadedFile($files_param);
             $file_paths = $file->save();
             if ($file_paths) {
-                foreach ($file_paths as $path) {
-                    $is_create_photo   = $this->photoModel->create_photo('Product', $is_create_product, $path, 'product_image');
+                foreach ($file_paths as $key => $path) {
+                    $is_create_photo   = $this->photoModel->create_photo('Product', $is_create_product, $path, 'product_image',$key);
                 }
 
                 if ($is_create_product) {

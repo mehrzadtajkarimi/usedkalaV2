@@ -17,7 +17,7 @@ class Product extends MysqlBaseModel
         if (is_null($id)) {
             return $this->all();
         }
-        return $this->first($id);
+        return $this->get('*', ['category_id' => $id]);
     }
     public function read_product_by_category($id = null)
     {
@@ -46,14 +46,18 @@ class Product extends MysqlBaseModel
             "products.category_id=$id",
         );
     }
-    public function join_product_to_photo()
+    public function join_product_to_photo($id)
     {
         return $this->inner_join(
-            "photos.*",
+            "products.*,
+            photos.path,
+            photos.alt",
             "photos",
             "id",
             "entity_id",
-            "photos.entity_type='Product'"
+            "photos.entity_type='Product'",
+            "photos.type='0'",
+            "products.category_id=$id",
         );
     }
     public function join_product_to_brand($id)
