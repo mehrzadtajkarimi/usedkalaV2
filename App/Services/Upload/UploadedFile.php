@@ -8,28 +8,32 @@ use App\Utilities\FlashMessage;
 class UploadedFile implements UploadContract
 {
     private $files;
+    private $count_array;
+    private $array_keys;
+    private $paths_in_storage;
+    private $files_param_is_array;
+    private $array_filter_trim_end_null;
     private $paths_for_storage;
     private $paths_for_database;
     const default_subfolder_format = "Ym";
 
     public function __construct($files_param)
     {
-        // dd($files_param);
-        $this->files                = $files_param;
-        $array_keys                 = $this->files[array_keys($this->files)[0]];
-        $files_param_is_array       = is_array($array_keys) ? $array_keys : [$array_keys];
-        $array_filter_trim_end_null = array_filter($files_param_is_array);
-        $count                      = count($array_filter_trim_end_null);
-        for ($i = 0; $i < $count; $i++) {
-            $paths_in_storage           = $this->generate_paths($i);
-            $this->paths_for_database[] = base_url() . "Storage/$paths_in_storage";
-            $this->paths_for_storage[]  = BASEPATH . "Public/Storage/$paths_in_storage";
+        $this->files                      = $files_param;
+        $this->array_keys                 = $this->files[array_keys($this->files)[0]];
+        $this->files_param_is_array       = is_array($this->array_keys) ? $this->array_keys : [$this->array_keys];
+        $this->array_filter_trim_end_null = array_filter($this->files_param_is_array);
+        $this->count_array                = count($this->array_filter_trim_end_null);
+        for ($i = 0; $i < $this->count_array ; $i++) {
+            $this->paths_in_storage     = $this->generate_paths($i);
+            $this->paths_for_database[] = base_url() . "Storage/$this->paths_in_storage";
+            $this->paths_for_storage[]  = BASEPATH . "Public/Storage/$this->paths_in_storage";
         }
     }
 
     public function  generate_paths($key)
     {
-        $name             = substr($this->files['name'][$key], 0, 64);
+        $name             = substr($this->array_filter_trim_end_null[$key], 0, 64);
         $name_explode     = explode('.', $name);
         $type_file        = end($name_explode);
         $basename         = basename($name, $type_file);
@@ -56,13 +60,14 @@ class UploadedFile implements UploadContract
 
     private function upload()
     {
-       if ( is_array($this->files['tmp_name'])) {
-           foreach ($this->files['tmp_name'] as $key => $path) {
-               move_uploaded_file($path, $this->paths_for_storage[$key]);
+        // dd($this->paths_for_storage,$this->paths_for_database,$this->array_filter_trim_end_null);
+    //    if ( is_array($this->array_filter_trim_end_null)) {
+           foreach ($this->paths_for_database as $key => $path) {
+               move_uploaded_file($path[$key], $this->paths_for_storage[$key]);
            }
-       }else{
-           move_uploaded_file($this->paths_for_database[0], $this->paths_for_storage[0]);
-       }
+    //    }else{
+    //        move_uploaded_file($this->paths_for_database[0], $this->paths_for_storage[0]);
+    //    }
 
         return true;
     }

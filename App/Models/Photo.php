@@ -9,14 +9,14 @@ class Photo extends MysqlBaseModel
 {
     protected $table = 'photos';
 
-    public function create_photo(string $entity_type, int $entity_id, $file_path, string $name, int $key)
+    public function create_photo(string $entity_type, int $entity_id, $file_path, string $name, int $type=0)
     {
         return $this->create([
             'entity_type' => $entity_type,
             'entity_id' => $entity_id,
             'path' =>  $file_path,
             'alt' =>  $name,
-            'tape' =>  $key,
+            'type' =>  $type,
 
         ]);
     }

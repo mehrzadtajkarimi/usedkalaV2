@@ -82,7 +82,7 @@ class Router
     private function dispatch_404()
     {
         header("HTTP/1.0 404 Not Found");
-        view_flash_message('error.404');
+        view_flash_message('Error.404');
         die();
     }
 
