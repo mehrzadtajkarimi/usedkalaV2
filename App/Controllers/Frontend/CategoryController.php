@@ -37,15 +37,17 @@ class CategoryController extends Controller
 
     public function show()
     {
-        $id = $this->request->get_param('id');
-        $categories = $this->categoryModel->join_category_to_photo($id);
-        $data = array(
-            'categories' => $categories,
-        );
-        if (is_null($categories)) {
-            return view('Frontend.product.show', $data);
+        $parent_id = $this->request->get_param('id');
+        $categories = $this->categoryModel->category_tree_for_frontend($parent_id);
+        // dd($categories);
+        if (is_array($categories)) {
+            $data = array(
+                'categories' => $categories,
+            );
+            return view('Frontend.category.show', $data);
         }
-        return view('Frontend.category.show', $data);
+       
+  
     }
 
     public function edit()

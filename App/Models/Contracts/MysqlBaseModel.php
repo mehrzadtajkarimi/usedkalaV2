@@ -74,19 +74,6 @@ class  MysqlBaseModel extends BaseModel
 
         return $this->connection->select($this->table, $columns, $where);
     }
-    public function  get_photo($entity_id,  $entity_type )
-    {
-        return $this->connection->select(
-            $this->table,
-            ['path', 'alt'],
-            [
-                "AND" => [
-                    'entity_id' => $entity_id,
-                    'entity_type' => ucfirst($entity_type)
-                ]
-            ],
-        );
-    }
 
     public function  first(array $where)
     {

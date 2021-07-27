@@ -55,9 +55,9 @@ class Product extends MysqlBaseModel
             "photos",
             "id",
             "entity_id",
-            "photos.entity_type='Product'",
-            "photos.type='0'",
             "products.category_id=$id",
+            "photos.type=0",
+            "photos.entity_type='Product'",
         );
     }
     public function join_product_to_brand($id)
@@ -108,14 +108,14 @@ class Product extends MysqlBaseModel
             "photos.entity_type='Product'",
         );
     }
-    public function join_product__with_brand($id)
+    public function join_product__with_brand($parent_id)
     {
         return $this->inner_join(
             "*",                         // column
             "brands",                    // -- table brands
             "brand_id",                  // products.brand_id
             "id",                        // brands.id
-            "products.id=$id",
+            "products.parent_id=$parent_id",
         );
     }
 }

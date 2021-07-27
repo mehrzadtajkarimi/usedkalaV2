@@ -32,7 +32,7 @@ class ProductController extends Controller
         $data = array(
             'products'   => $this->productModel->read_product(),
             'brands'     => $this->brandModel->read_brand(),
-            'categories' => $this->categoryModel->category_tree(),
+            'categories' => $this->categoryModel->category_tree_for_backend(),
             'photo'      => $this->photoModel->read_photo(),
         );
         view('Backend.product.index', $data);
@@ -101,7 +101,7 @@ class ProductController extends Controller
         $data = array(
             'products'   => $this->productModel->read_product(['id' => $id]),
             'brands'     => $this->brandModel->read_brand(),
-            'categories' => $this->categoryModel->category_tree(),
+            'categories' => $this->categoryModel->category_tree_for_backend(),
             'photo'      => $this->photoModel->read_photo($id),
         );
         view('Backend.product.edit', $data);

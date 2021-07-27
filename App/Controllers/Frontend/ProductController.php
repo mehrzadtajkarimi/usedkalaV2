@@ -42,9 +42,12 @@ class ProductController extends Controller
 
     public function show()
     {
-        $id      = $this->request->get_param('id');
-        $product = $this->productModel->join_product__with_brand($id);
-        $photos = $this->photoModel->get_photo($id,  'product');
+        $parent_id      = $this->request->get_param('id');
+        $product = $this->productModel->join_product__with_brand($parent_id);
+        dd($product);
+        $photos  = $this->photoModel->get('*', [
+            'entry_id' =>''
+        ]);
         $data    = array(
             'product' => $product,
             'photos' => $photos,

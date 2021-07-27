@@ -23,7 +23,7 @@ class CategoryController extends Controller
     public function index()
     {
         $data = array(
-            'categories' => $this->categoryModel->category_tree(),
+            'categories' => $this->categoryModel->category_tree_for_backend(),
         );
         return view('Backend.category.index', $data);
     }

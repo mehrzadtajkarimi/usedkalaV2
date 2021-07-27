@@ -8,16 +8,17 @@ class Category extends MysqlBaseModel
 {
     protected $table = 'categories';
 
-    public $property_category_array = [];
-    public $children                = [];
+    public $property_category_tree_for_backend  = [];
+    public $property_category_tree_for_frontend = [];
+    public $children                            = [];
 
-    public function category_tree($parent_id = 0, $sub_mark = '')
+    public function category_tree_for_backend($parent_id = 0, $sub_mark = '')
     {
         $get_categories = $this->get('*', ['parent_id' => $parent_id]);
         if (is_array($get_categories)) {
             foreach ($get_categories as  $value) {
                 array_push(
-                    $this->property_category_array,
+                    $this->property_category_tree_for_backend,
                     array(
                         'name'   => $sub_mark . $value['name'],
                         'id'     => $value['id'],
@@ -26,10 +27,33 @@ class Category extends MysqlBaseModel
                         // 'is_cat' =>  $this->count(['parent_id'=> $value['parent_id']])  ? 'd-block' : 'd-none',
                     )
                 );
-                $this->category_tree($value['id'], $sub_mark . ' <b> &#10010; </b> ');
+                $this->category_tree_for_backend($value['id'], $sub_mark . ' <b> &#10010; </b> ');
             }
         }
-        return $this->property_category_array;
+        return $this->property_category_tree_for_backend;
+    }
+
+    public function category_tree_for_frontend($parent_id = 0)
+    {
+        global $request;
+        $value = $this->inner_join("categories.*,photos.path,photos.alt", "photos", "id", "entity_id", "categories.parent_id={$parent_id}",  "categories.id=photos.entity_id");
+        if (!empty($value)) {
+                array_push(
+                    $this->property_category_tree_for_frontend,
+                    array(
+                        'name'   => $value[0]['name'],
+                        'id'     => $value[0]['id'],
+                        'parent' => $value[0]['parent_id'],
+                        'slug'   => $value[0]['slug'],
+                        'path'   => $value[0]['path'],
+                        'alt'    => $value[0]['alt'],
+                    )
+                );
+            return $this->property_category_tree_for_frontend;
+        }else{
+
+            return $request::redirect("product/category/$parent_id");
+        }
     }
 
 

@@ -25,7 +25,7 @@ function view($path, $data = [], $layout = null)
     }
     $is_file ? buffering($full_path, $data) : include_once BASEPATH . "App/Views/Error/404.php";
 }
-function inject_menu($path)
+function inject_menu()
 {
     $categoryModel = new Category;
     $categoryLevelOne = $categoryModel->get('*', ['parent_id' => 0]);
