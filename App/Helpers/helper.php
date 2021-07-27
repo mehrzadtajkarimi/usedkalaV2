@@ -30,7 +30,7 @@ function inject_menu($path)
     $categoryModel = new Category;
     $categoryLevelOne = $categoryModel->get('*', ['parent_id' => 0]);
     foreach ($categoryLevelOne as $LevelOne) {
-        $categoryLevelTwo[$LevelOne['id']] = $categoryModel->inner_join("*", "photos", "id", "entity_id",  "categories.id=photos.entity_id" , "categories.parent_id={$LevelOne['id']}" );
+        $categoryLevelTwo[$LevelOne['id']] = $categoryModel->inner_join("*", "photos", "id", "entity_id",  "categories.id=photos.entity_id", "categories.parent_id={$LevelOne['id']}");
     }
     if ($categoryLevelOne) {
         return  [
@@ -68,10 +68,10 @@ function xss_clean($str)
 }
 
 
-function dd($args_1 , $args_2=NULL, $args_3=NULL)
+function dd($args_1, $args_2 = NULL, $args_3 = NULL, $args_4 = NULL, $args_5 = NULL)
 {
     echo "<pre  style='background:#FF5722; border-radius: 10px; padding: 10PX;'>";
-    var_dump($args_1, $args_2,$args_3);
+    var_dump($args_1, $args_2, $args_3, $args_4, $args_5);
     echo "</pre>";
     die();
 }

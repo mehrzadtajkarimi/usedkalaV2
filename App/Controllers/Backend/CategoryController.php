@@ -51,10 +51,8 @@ class CategoryController extends Controller
         $check_file_param_exists = !empty($files_param_tmp_name[0]);
         if ($check_file_param_exists) {
             $is_create_category = $this->categoryModel->create_category($params, $id);
-
             $file = new UploadedFile($files_param);
             $file_paths = $file->save();
-
             if ($file_paths) {
 
                 $is_create_photo = $this->photoModel->create_photo('Category', $is_create_category, $file_paths[0], 'image_category');

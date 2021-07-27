@@ -8,23 +8,27 @@ use App\Utilities\FlashMessage;
 class UploadedFile implements UploadContract
 {
     private $files;
-    private $count_array;
-    private $array_keys;
-    private $paths_in_storage;
-    private $files_param_is_array;
+    private $array_keys_first;
+    private $array_keys_tmp_name;
+    private $array_files_is_param_get_first;
+    private $array_files_is_param_get_tmp_name;
     private $array_filter_trim_end_null;
+    private $array_count;
+    private $paths_in_storage;
     private $paths_for_storage;
     private $paths_for_database;
     const default_subfolder_format = "Ym";
 
     public function __construct($files_param)
     {
-        $this->files                      = $files_param;
-        $this->array_keys                 = $this->files[array_keys($this->files)[0]];
-        $this->files_param_is_array       = is_array($this->array_keys) ? $this->array_keys : [$this->array_keys];
-        $this->array_filter_trim_end_null = array_filter($this->files_param_is_array);
-        $this->count_array                = count($this->array_filter_trim_end_null);
-        for ($i = 0; $i < $this->count_array ; $i++) {
+        $this->files                             = $files_param;
+        $this->array_keys_first                  = $this->files[array_keys($this->files)[0]];
+        $this->array_keys_tmp_name               = $this->files[array_keys($this->files)[2]];
+        $this->array_files_is_param_get_first    = is_array($this->array_keys_first) ? $this->array_keys_first : [$this->array_keys_first];
+        $this->array_files_is_param_get_tmp_name = is_array($this->array_keys_tmp_name) ? $this->array_keys_tmp_name : [$this->array_keys_tmp_name];
+        $this->array_filter_trim_end_null        = array_filter($this->array_files_is_param_get_first);
+        $this->array_count                       = count($this->array_filter_trim_end_null);
+        for ($i = 0; $i < $this->array_count ; $i++) {
             $this->paths_in_storage     = $this->generate_paths($i);
             $this->paths_for_database[] = base_url() . "Storage/$this->paths_in_storage";
             $this->paths_for_storage[]  = BASEPATH . "Public/Storage/$this->paths_in_storage";
@@ -60,10 +64,10 @@ class UploadedFile implements UploadContract
 
     private function upload()
     {
-        // dd($this->paths_for_storage,$this->paths_for_database,$this->array_filter_trim_end_null);
+        // dd($this->array_files_is_param_get_tmp_name,$this->paths_for_database,$this->paths_for_storage,$this->paths_for_storage);
     //    if ( is_array($this->array_filter_trim_end_null)) {
-           foreach ($this->paths_for_database as $key => $path) {
-               move_uploaded_file($path[$key], $this->paths_for_storage[$key]);
+           foreach ($this->array_files_is_param_get_tmp_name as $key => $path) {
+               move_uploaded_file($path, $this->paths_for_storage[$key]);
            }
     //    }else{
     //        move_uploaded_file($this->paths_for_database[0], $this->paths_for_storage[0]);
