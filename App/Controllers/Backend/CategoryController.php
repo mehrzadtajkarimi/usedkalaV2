@@ -104,7 +104,7 @@ class CategoryController extends Controller
             if ($file_paths) {
 
                 $is_update_photo = $this->photoModel->update_photo('Category', $id, $file_paths[0], 'image_category');
-                
+
                 if ($is_update_photo) {
                     FlashMessage::add("ویرایش دسته بندی موفقیت انجام شد");
                 } else {
@@ -113,8 +113,10 @@ class CategoryController extends Controller
             }
         } else {
             $this->categoryModel->update_category([
-                'name'      => $params['name'],
-                'slug'      => $params['slug'],
+                'name'        => $params['name'],
+                'slug'        => $params['slug'],
+                'description' => $params['description'],
+                'status'      => $params['status']== 'on' ? 1 : 0,
             ], $id);
             FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
         }

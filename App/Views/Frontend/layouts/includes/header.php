@@ -55,7 +55,7 @@
 
                     <?php foreach ($categoryLevelOne as $valueLevelOne) : ?>
                         <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown-submenu">
-                            <a title="دسته اصلی" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" href="#"><?= $valueLevelOne['name'] ?> <span class="caret"></span></a>
+                            <a title="دسته اصلی" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" href="#"><?= $valueLevelOne['status'] == 1 ?  $valueLevelOne['name'] : '' ?> <span class="caret"></span></a>
                             <ul role="menu" class=" dropdown-menu">
                                 <li class="menu-item menu-item-object-static_block animate-dropdown">
                                     <div class="yamm-content">
@@ -74,15 +74,16 @@
                                                 <div class="kc_text_block">
                                                     <div class="row">
                                                         <?php foreach ($categoryLevelTwo[$valueLevelOne['id']] as $valueLevelTwo) : ?>
+                                                            <?php if( $valueLevelTwo['status']==1 ): ?>
                                                             <div class="ml-3 mr-3 col ">
                                                                 <ul>
                                                                     <li class="">
                                                                         <a class="text-center d-flex justify-content-center" href="<?= base_url() ?>category/<?= $valueLevelTwo[0] ?>">
                                                                             <div class="border-0 card " style="width: 10rem;">
-                                                                                <img class="card-img-top img-fluid rounded-circle " src="<?= $valueLevelTwo['path'] ?>" alt="">
+                                                                                <img class="card-img-top img-fluid rounded-circle " src="<?=  $valueLevelTwo['path'] ?>" alt="">
                                                                                 <div class="pt-3 card-body">
                                                                                     <p class="card-text">
-                                                                                        <?= $valueLevelTwo['name'] ?>
+                                                                                        <?=  $valueLevelTwo['name'] ?>
                                                                                     </p>
                                                                                 </div>
                                                                             </div>
@@ -90,6 +91,7 @@
                                                                     </li>
                                                                 </ul>
                                                             </div>
+                                                            <?php endif; ?>
                                                         <?php endforeach; ?>
                                                     </div>
                                                 </div>

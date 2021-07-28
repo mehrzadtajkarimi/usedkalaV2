@@ -20,7 +20,7 @@
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="modal-body">
                     <form action="<?= base_url() ?>admin/category/0" method="post" enctype="multipart/form-data">
@@ -45,13 +45,24 @@
                           </div>
                         </div>
                       </div>
+                      <div class="form-group row">
+                        <label for="description" class="col-2 col-form-label"> درباره دسته بندی </label>
+                        <div class="col-10">
+                          <textarea name="description" type="text" class="form-control" id="description" placeholder="" rows="3" required></textarea>
+                        </div>
+                      </div>
+                      <div class="pt-2 pb-2 form-check">
+                        <input value="1" name="status" type="checkbox" class="form-check-input" id="status">
+                        <label class="form-check-label" for="status">
+                           وضعیت
+                        </label>
+                      </div>
                       <button type="submit" class="btn btn-primary float-left btn-block">ذخیره </button>
                     </form>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>

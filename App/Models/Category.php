@@ -60,9 +60,11 @@ class Category extends MysqlBaseModel
     public function create_category($params, $id)
     {
         return $this->create([
-            'parent_id' => $id,
-            'name'      => $params['name'],
-            'slug'      => $params['slug'],
+            'parent_id'   => $id,
+            'name'        => $params['name'],
+            'slug'        => $params['slug'],
+            'description' => $params['description'],
+            'status'      => $params['status']== 'on' ? 1 : 0,
         ]);
     }
     public function read_category()
