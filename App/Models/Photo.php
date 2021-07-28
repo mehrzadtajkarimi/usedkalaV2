@@ -9,7 +9,7 @@ class Photo extends MysqlBaseModel
 {
     protected $table = 'photos';
 
-    public function create_photo(string $entity_type, int $entity_id, $file_path, string $name, int $type=0)
+    public function create_photo(string $entity_type, int $entity_id, $file_path, string $name, int $type = 0)
     {
         return $this->create([
             'entity_type' => $entity_type,
@@ -28,9 +28,20 @@ class Photo extends MysqlBaseModel
         }
         return $this->first(['entity_id' => $id]);
     }
-    public function read_photo_by_id($entity_id,$entity_type)
+    public function read_photo_by_id($entity_id, $entity_type)
     {
-        return $this->get(['entity_id' => $entity_id]);
+        return   $this->connection->select("photos", "*",  [
+            'entity_id' => $entity_id,
+            'entity_type' => $entity_type,
+        ],["ORDER"=>"ASC"]);
+    }
+    public function read_single_photo_by_id($type,$entity_id, $entity_type)
+    {
+        return   $this->connection->select("photos", "*",  [
+            'type' => $type,
+            'entity_id' => $entity_id,
+            'entity_type' => $entity_type,
+        ]);
     }
 
     public function update_photo(string $entity_type, int $entity_id, $file_path, string $name)

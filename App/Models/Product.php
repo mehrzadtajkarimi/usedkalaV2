@@ -96,26 +96,25 @@ class Product extends MysqlBaseModel
         return $this->inner_join_two(
             "products.*,
              photos.path,
-             photos.alt,
-             brands.name AS brand_name", // column
-            "brands",                    // -- table brands
-            "brand_id",                  // products.brand_id
-            "id",                        // brands.id
-            "photos",                    // -- table photos
-            "id",                        // products.id
-            "entity_id",                 // photos.entity_id
-            "products.id=$id",
+             photos.alt",                 // column
+             "brands",                     // -- table brands
+             "brand_id",                   // products.brand_id
+             "id",                         // brands.id
+             "photos",                    // -- table photos
+             "id",                        // products.id
+             "entity_id",                 // photos.entity_id
             "photos.entity_type='Product'",
+            "products.id=$id",
         );
     }
-    public function join_product__with_brand($parent_id)
+    public function join_product__with_brand($id)
     {
         return $this->inner_join(
             "*",                         // column
             "brands",                    // -- table brands
             "brand_id",                  // products.brand_id
             "id",                        // brands.id
-            "products.parent_id=$parent_id",
+            "products.id=$id",
         );
     }
 }

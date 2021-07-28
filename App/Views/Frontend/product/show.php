@@ -11,7 +11,7 @@
                                     <figure class="woocommerce-product-gallery__wrapper ">
                                         <div data-thumb="<?= base_url() ?>Assets/Frontend/images/products/1-6.jpg" class="woocommerce-product-gallery__image">
                                             <a href="assets/images/products/1-6.jpg" tabindex="0">
-                                                <img width="600" height="600" src="<?= base_url() ?>Assets/Frontend/images/products/1-6.jpg" class="attachment-shop_single size-shop_single wp-post-image" alt="">
+                                                    <img width="600" height="600" src="<?= $photo['path']  ?>" class="attachment-shop_single size-shop_single wp-post-image" alt="">
                                             </a>
                                         </div>
                                     </figure>
@@ -23,7 +23,9 @@
                                 <figure class="techmarket-single-product-gallery-thumbnails__wrapper">
                                     <figure data-thumb="<?= base_url() ?>Assets/Frontend/images/products/1-1.jpg" class="techmarket-wc-product-gallery__image">
                                         <?php foreach ($photos as $value) : ?>
-                                            <img width="180" height="180" src="<?= $value['path'] ?>" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">
+                                            <a href="#">
+                                                <img width="180" height="180" src="<?= $value['path'] ?>" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">
+                                            </a>
                                         <?php endforeach; ?>
                                     </figure>
                                 </figure>
@@ -64,10 +66,10 @@
                         <div class="product-actions">
                             <p class="price" dir="rtl">
                                 <del>
-                                    <span class="woocommerce-Price-amount amount">10000000 ریال</span>
+                                    <!-- <span class="woocommerce-Price-amount amount">10000000 ریال</span> -->
                                 </del>
                                 <ins>
-                                    <span class="woocommerce-Price-amount amount">9000000 ریال</span>
+                                    <span class="woocommerce-Price-amount amount"><?= $product['price'] ?> ریال</span>
                                 </ins>
                             </p>
                             <!-- .single-product-header -->
@@ -83,6 +85,11 @@
                             </form>
                             <!-- .cart -->
                             <a class="add-to-compare-link" href="compare.html">مقایسه</a>
+                            <div class="card  border-0 pt-5">
+                                <div class="card-body">
+                                    <p class="card-text"><?= $product['description'] ?></p>
+                                </div>
+                            </div>
                         </div>
                         <!-- .product-actions -->
                     </div>
