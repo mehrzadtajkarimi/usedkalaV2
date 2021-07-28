@@ -17,7 +17,7 @@ class Product extends MysqlBaseModel
         if (is_null($id)) {
             return $this->all();
         }
-        return $this->get('*', ['category_id' => $id]);
+        return $this->first(['id' => $id]);
     }
     public function read_product_by_category($id = null)
     {

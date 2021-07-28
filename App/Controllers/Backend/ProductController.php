@@ -72,7 +72,7 @@ class ProductController extends Controller
             $file_paths = $file->save();
             if ($file_paths) {
                 foreach ($file_paths as $key => $path) {
-                    $is_create_photo   = $this->photoModel->create_photo('Product', $is_create_product, $path, 'product_image',$key);
+                    $is_create_photo   = $this->photoModel->create_photo('Product', $is_create_product, $path, 'product_image', $key);
                 }
 
                 if ($is_create_product) {
@@ -99,7 +99,7 @@ class ProductController extends Controller
     {
         $id = $this->request->get_param('id');
         $data = array(
-            'products'   => $this->productModel->read_product(['id' => $id]),
+            'products'   => $this->productModel->read_product($id),
             'brands'     => $this->brandModel->read_brand(),
             'categories' => $this->categoryModel->category_tree_for_backend(),
             'photo'      => $this->photoModel->read_photo($id),
@@ -110,15 +110,36 @@ class ProductController extends Controller
 
     public function update()
     {
-        $id = $this->request->get_param('id');
         $params = $this->request->params();
 
-        $files = $this->request->files();
-        if (!empty($files['product_image']['tmp_name'])) {
-            $file = new UploadedFile('product_image');
-            $file_url = $file->save();
-            if ($file_url) {
-                $is_update_photo = $this->photoModel->update_photo('Product', $id, $file_url, 'product_image');
+        $id = $this->request->get_param('id');
+
+        $params_updated = array(
+            'user_id'     => Auth::is_login(),
+            'title'       => $params['product-name'],
+            'slug'        => $params['product-slug'],
+            'price'       => $params['product-price'],
+            'sale_price'  => $params['product-sale'],
+            'category_id' => $params['product-category'],
+            'brand_id'    => $params['product-brand'],
+            'sku'         => $params['product-sku'],
+            'weight'      => $params['product-weight'],
+            'quantity'    => $params['product-quantity'],
+            'meta_title'  => $params['product-meta'],
+            'description' => $params['product-description'],
+            'featured'    => $params['product-featured'] == 'on' ? 1 : 0,
+            'status'      => $params['product-status'] == 'on' ? 1 : 0,
+        );
+
+        $files                   = $this->request->files();
+        $files_param             = $files['product_image'];
+        $check_file_param_exists = !empty($files_param);
+        if ($check_file_param_exists) {
+            $file = new UploadedFile($files_param);
+            $file_paths = $file->save();
+            if ($file_paths) {
+
+                $is_update_photo = $this->photoModel->update_photo('Product', $id, $file_paths[0], 'product_image');
 
                 if ($is_update_photo) {
                     FlashMessage::add("ویرایش محصول بندی موفقیت انجام شد");
@@ -127,22 +148,7 @@ class ProductController extends Controller
                 }
             }
         } else {
-            $this->productModel->update_product([
-                'user_id'     => Auth::is_login(),
-                'title'       => $params['product-name'],
-                'slug'        => $params['product-slug'],
-                'price'       => $params['product-price'],
-                'sale_price'  => $params['product-sale'],
-                'category_id' => $params['product-category'],
-                'brand_id'    => $params['product-brand'],
-                'sku'         => $params['product-sku'],
-                'weight'      => $params['product-weight'],
-                'quantity'    => $params['product-quantity'],
-                'meta_title'  => $params['product-meta'],
-                'description' => $params['product-description'],
-                'featured'    => $params['product-featured'] == 'on' ? 1 : 0,
-                'status'      => $params['product-status'] == 'on' ? 1 : 0,
-            ], $id);
+            $this->productModel->update_product($params_updated, $id);
             FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
         }
         return $this->request->redirect('admin/product');

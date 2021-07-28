@@ -91,15 +91,20 @@ class CategoryController extends Controller
 
     public function update()
     {
-        $id = $this->request->get_param('id');
         $params = $this->request->params();
 
+        $id = $this->request->get_param('id');
         $files = $this->request->files();
-        if (!empty($files['image_category']['tmp_name'])) {
-            $file = new UploadedFile('image_category');
-            $file_url = $file->save();
-            if ($file_url) {
-                $is_update_photo = $this->photoModel->update_photo('Category', $id, $file_url, 'image_category');
+        $files_param             = $files['image_category'];
+        $files_param_tmp_name    = $files_param['tmp_name'];
+        $check_file_param_exists = !empty($files_param_tmp_name[0]);
+        if ($check_file_param_exists) {
+            $file = new UploadedFile($files_param);
+            $file_paths = $file->save();
+            if ($file_paths) {
+
+                $is_update_photo = $this->photoModel->update_photo('Category', $id, $file_paths[0], 'image_category');
+                
                 if ($is_update_photo) {
                     FlashMessage::add("ویرایش دسته بندی موفقیت انجام شد");
                 } else {
