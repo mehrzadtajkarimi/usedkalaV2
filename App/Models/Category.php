@@ -41,12 +41,13 @@ class Category extends MysqlBaseModel
                 array_push(
                     $this->property_category_tree_for_frontend,
                     array(
-                        'name'   => $value[0]['name'],
-                        'id'     => $value[0]['id'],
-                        'parent' => $value[0]['parent_id'],
-                        'slug'   => $value[0]['slug'],
-                        'path'   => $value[0]['path'],
-                        'alt'    => $value[0]['alt'],
+                        'name'        => $value[0]['name'],
+                        'id'          => $value[0]['id'],
+                        'parent'      => $value[0]['parent_id'],
+                        'slug'        => $value[0]['slug'],
+                        'path'        => $value[0]['path'],
+                        'alt'         => $value[0]['alt'],
+                        'description' => $value[0]['description'],
                     )
                 );
             return $this->property_category_tree_for_frontend;
@@ -67,9 +68,12 @@ class Category extends MysqlBaseModel
             'status'      => $params['status']== 'on' ? 1 : 0,
         ]);
     }
-    public function read_category()
+    public function read_category($id=null)
     {
-        return $this->get('*');
+        if (is_null($id)) {
+            return $this->all();
+        }
+        return $this->first(['id' => $id]);
     }
 
     public function update_category(array $params, $id)

@@ -1,3 +1,10 @@
+<?php if(!is_null($description)): ?>
+    <div class="card border-0  p-3 ">
+        <div class="card-body">
+            <p class="card-text"><?= $description['description'] ?></p>
+        </div>
+    </div>
+<?php endif; ?>
 <div id="content" class="site-content" tabindex="-1">
     <div class="col-full">
         <div class="row">
@@ -16,21 +23,21 @@
                         </header>
                         <div class="woocommerce columns-5">
                             <div class="product-loop-categories">
-                                    <?php foreach ($categories as $value): ?>
+                                <?php foreach ($categories as $value) : ?>
                                     <div class="product-category product ">
-                                         <!-- change  id categories rename categories_id -->
+                                        <!-- change  id categories rename categories_id -->
                                         <a href="<?= base_url() ?>category/<?= $value['id'] ?>">
                                             <img src="<?= $value['path'] ?>" alt="Ultrabooks" width="224" height="197">
-                                            <h2 class="woocommerce-loop-category__title"> 
-                                            <?= $value['name'] ?>
+                                            <h2 class="woocommerce-loop-category__title">
+                                                <?= $value['name'] ?>
                                                 <mark class="count"></mark>
                                             </h2>
                                         </a>
                                     </div>
-                                    <?php endforeach; ?>
-                                </div>
-                                <!-- .product-loop-categories -->
+                                <?php endforeach; ?>
                             </div>
+                            <!-- .product-loop-categories -->
+                        </div>
                         <!-- .woocommerce -->
                     </section>
 
