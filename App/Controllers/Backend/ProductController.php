@@ -48,8 +48,8 @@ class ProductController extends Controller
 
         $params_create = array(
             'user_id'     => Auth::is_login(),
+            'slug'        => create_slug($params['product-slug']),
             'title'       => $params['product-name'],
-            'slug'        => $params['product-slug'],
             'price'       => $params['product-price'],
             'sale_price'  => $params['product-sale'],
             'category_id' => $params['product-category'],
@@ -116,8 +116,8 @@ class ProductController extends Controller
 
         $params_updated = array(
             'user_id'     => Auth::is_login(),
+            'slug'        => create_slug($params['product-slug']),
             'title'       => $params['product-name'],
-            'slug'        => $params['product-slug'],
             'price'       => $params['product-price'],
             'sale_price'  => $params['product-sale'],
             'category_id' => $params['product-category'],

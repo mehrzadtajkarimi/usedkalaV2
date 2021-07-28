@@ -17,7 +17,7 @@ class CategoryController extends Controller
     {
         parent::__construct();
         $this->categoryModel = new Category;
-        $this->photoModel = new Photo;
+        $this->photoModel    = new Photo;
     }
 
     public function index()
@@ -31,9 +31,9 @@ class CategoryController extends Controller
 
     public function create()
     {
-        $id = $this->request->get_param('id');
+        $id       = $this->request->get_param('id');
         $category = $this->categoryModel->first(['id' => $id]) ?? 0;
-        $data   = array(
+        $data     = array(
             'category' => $category,
         );
         return view('Backend.category.create', $data);
@@ -44,15 +44,23 @@ class CategoryController extends Controller
     {
         $params = $this->request->params();
 
-        $id = $this->request->get_param('id');
-        $files = $this->request->files();
-        $files_param             = $files['image_category'];
-        $files_param_tmp_name    = $files_param['tmp_name'];
-        $check_file_param_exists = !empty($files_param_tmp_name[0]);
-        if ($check_file_param_exists) {
-            $is_create_category = $this->categoryModel->create_category($params, $id);
-            $file = new UploadedFile($files_param);
-            $file_paths = $file->save();
+        $id                   = $this->request->get_param('id');
+
+        $request=array(
+            'parent_id'   => $id,
+            'slug'        => create_slug($params['slug']),
+            'name'        => $params['name'],
+            'description' => $params['description'],
+            'status'      => $params['status']== 'on' ? 1 : 0,
+        );
+        $files                = $this->request->files();
+        $files_param          = $files['image_category'];
+        $files_param_tmp_name = $files_param['tmp_name'];
+        $file_param_exists    = !empty($files_param_tmp_name[0]);
+        if ($file_param_exists) {
+            $is_create_category = $this->categoryModel->create_category($request);
+            $file               = new UploadedFile($files_param);
+            $file_paths         = $file->save();
             if ($file_paths) {
 
                 $is_create_photo = $this->photoModel->create_photo('Category', $is_create_category, $file_paths[0], 'image_category');
@@ -68,7 +76,7 @@ class CategoryController extends Controller
                 return $this->request->redirect('admin/category');
             }
         } else {
-            $this->categoryModel->create_category($params, $id);
+            $this->categoryModel->create_category($request);
             FlashMessage::add("مقادیر بدونه ضمیمه عکس با موفقیت در دیتابیس ذخیره شد", FlashMessage::WARNING);
             return $this->request->redirect('admin/category');
         }
@@ -82,7 +90,7 @@ class CategoryController extends Controller
 
         $data = array(
             'category' => $this->categoryModel->first(['id' => $id]),
-            'photo' => $this->photoModel->first(['entity_id' => $id]),
+            'photo'    => $this->photoModel->first(['entity_id' => $id]),
         );
         return view('Backend.category.edit', $data);
     }
@@ -93,13 +101,13 @@ class CategoryController extends Controller
     {
         $params = $this->request->params();
 
-        $id = $this->request->get_param('id');
-        $files = $this->request->files();
-        $files_param             = $files['image_category'];
-        $files_param_tmp_name    = $files_param['tmp_name'];
-        $check_file_param_exists = !empty($files_param_tmp_name[0]);
-        if ($check_file_param_exists) {
-            $file = new UploadedFile($files_param);
+        $id                   = $this->request->get_param('id');
+        $files                = $this->request->files();
+        $files_param          = $files['image_category'];
+        $files_param_tmp_name = $files_param['tmp_name'];
+        $file_param_exists    = !empty($files_param_tmp_name[0]);
+        if ($file_param_exists) {
+            $file       = new UploadedFile($files_param);
             $file_paths = $file->save();
             if ($file_paths) {
 
@@ -113,8 +121,8 @@ class CategoryController extends Controller
             }
         } else {
             $this->categoryModel->update_category([
+                'slug'        => create_slug($params['slug']),
                 'name'        => $params['name'],
-                'slug'        => $params['slug'],
                 'description' => $params['description'],
                 'status'      => $params['status']== 'on' ? 1 : 0,
             ], $id);
@@ -127,7 +135,7 @@ class CategoryController extends Controller
 
     public function destroy()
     {
-        $id = $this->request->get_param('id');
+        $id     = $this->request->get_param('id');
         $is_cat = $this->categoryModel->has(['parent_id' => $id]);
         if ($is_cat == false) {
             $this->categoryModel->delete_category($id);

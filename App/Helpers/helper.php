@@ -40,6 +40,10 @@ function inject_menu()
     }
     return [];
 }
+function create_slug($string){
+    $slug=preg_replace('/[^A-Za-z0-9-]+/', '-', $string);
+    return $slug;
+}
 function buffering($full_path_view, $data, $dir = null)
 {
     if (!is_null($dir)) {
