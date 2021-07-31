@@ -64,3 +64,14 @@ Route::group(function () {
     Route::patch('/admin/brand/{id}', 'BrandController@update');
     Route::delete('/admin/brand/{id}', 'BrandController@destroy');
 });
+
+Route::group(function () {
+    Route::get('/admin/discount', 'DiscountController@index');
+    Route::get('/admin/discount/create', 'DiscountController@create');
+    Route::post('/admin/discount', 'DiscountController@store');
+    Route::get('/admin/discount/{id}/edit', 'DiscountController@edit');
+    Route::patch('/admin/discount/{id}', 'DiscountController@update');
+    Route::delete('/admin/discount/{id}', 'DiscountController@destroy');
+});
+
+
