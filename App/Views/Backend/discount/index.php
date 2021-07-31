@@ -3,7 +3,7 @@
     <div class="card-header">
       <div class="row">
         <div class="col-4">
-          <h3 class="p-3 card-title"> لیست محصولات</h3>
+          <h3 class="p-3 card-title"> لیست تخفیفات</h3>
         </div>
         <div class="offset-4"> </div>
         <div class="col-4">
@@ -15,7 +15,7 @@
 
             <!-- Button trigger modal -->
             <a href="<?= base_url() ?>admin/product/create" type="button" class="mr-2 shadow-sm btn btn-success " data-toggle="modal" data-target="#exampleModalCenter">
-              ایجاد حصول
+              ایجاد کپن تخفیف
             </a>
 
 
@@ -170,11 +170,12 @@
             <thead>
               <tr>
                 <th class="text-center" scope="col">#</th>
-                <th class="text-center" scope="col">نام/متا</th>
-                <th class="text-center" scope="col">قیمت/تخفیف</th>
-                <th class="text-center" scope="col">موجودی/وزن</th>
-                <th scope="col"> وضعیت/ویژه</th>
-                <th class="text-center" scope="col">اصلاحات</th>
+                <th class="text-center" scope="col">کد</th>
+                <th class="text-center" scope="col">نوع تخفیف</th>
+                <th class="text-center" scope="col">میزان تخفیف</th>
+                <th class="text-center" scope="col">توضیحات</th>
+                <th class="text-center" scope="col">اعتبار</th>
+                <th class="text-center" scope="col">مشاهده</th>
               </tr>
             </thead>
             <tbody>
@@ -183,10 +184,10 @@
               foreach ($products as $value) :
               ?>
                 <tr>
-                  <td class="text-center" title="<?= $value['sku'] ?>"><?= $count++ ?></td>
-                  <td class="text-center" title="<?= $value['meta_title'] ?>"><?= $value['title'] ?></td>
-                  <td class="text-center" title="<?= $value['sale_price'] ?>"><?= $value['price'] ?></td>
-                  <td class="text-center" title="<?= $value['weight'] ?>"><?= $value['quantity'] ?></td>
+                  <td class="text-center" title="ردیف"><?= $count++ ?></td>
+                  <td class="text-center" ><?= $value['title'] ?></td>
+                  <td class="text-center" ><?= $value['price'] ?></td>
+                  <td class="text-center" ><?= $value['quantity'] ?></td>
                   <td>
                     <div>
                       وضــــــــــعــیـت :

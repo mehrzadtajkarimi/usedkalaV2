@@ -35,7 +35,7 @@ class DiscountController extends Controller
             'categories' => $this->categoryModel->category_tree_for_backend(),
             'photo'      => $this->photoModel->read_photo(),
         );
-        view('Backend.product.index', $data);
+        view('Backend.discount.index', $data);
     }
 
     public function create()

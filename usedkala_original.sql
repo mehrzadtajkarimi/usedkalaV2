@@ -93,7 +93,7 @@ CREATE TABLE `categories` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `categories_UN` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 -- usedkalav2.category_product definition
@@ -128,6 +128,23 @@ CREATE TABLE `comments` (
   `ip` varchar(16) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `status` tinyint(1) DEFAULT '0',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+-- usedkalav2.discounts definition
+
+CREATE TABLE `discounts` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `entity_id` int NOT NULL,
+  `entity_type` varchar(64) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `code` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `type` tinyint DEFAULT NULL,
+  `Percent` tinyint DEFAULT NULL COMMENT '%',
+  `description` varchar(512) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `shipping` tinyint(1) DEFAULT '0',
+  `expired_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -409,4 +426,4 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_UN` (`phone`),
   UNIQUE KEY `users_email_IDX` (`email`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
