@@ -12,152 +12,61 @@
             <div class="input-group-append">
               <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
             </div>
-
             <!-- Button trigger modal -->
-            <a href="<?= base_url() ?>admin/product/create" type="button" class="mr-2 shadow-sm btn btn-success " data-toggle="modal" data-target="#exampleModalCenter">
+            <a href="<?= base_url() ?>admin/discount/create" type="button" class="mr-2 shadow-sm btn btn-success " data-toggle="modal" data-target="#exampleModalCenter">
               ایجاد کپن تخفیف
             </a>
-
-
             <!-- Modal -->
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
               <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="modal-body">
-                    <form action="<?= base_url() ?>admin/product" method="post" enctype="multipart/form-data">
-                      <div class="form-group row">
-                        <label for="product-name" class="col-2 col-form-label"> نام </label>
-                        <div class="col-10">
-                          <input name="product-name" type="text" class="form-control" id="product-name" placeholder="" required>
+                    <form action="<?= base_url() ?>admin/discount" method="post" class="p-1">
+                      <input type="hidden" name="code" value="<?= rand(100000, 999999) ?>">
+                      <div class="row">
+                        <div class="col">
+                          <div class="form-group">
+                            <label for="Input1" class=""> شروع</label>
+                            <input type="text" class="form-control start_at" id="Input1" required>
+                            <input type="hidden" id="start_at" name="start_at">
+                          </div>
                         </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="product-slug" class="col-2 col-form-label"> slug </label>
-                        <div class="col-10">
-                          <input name="product-slug" type="text" class="form-control" id="product-slug" placeholder="" required>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="product-price" class="col-2 col-form-label"> قیمت </label>
-                        <div class="col-10">
-                          <input name="product-price" type="number" class="form-control" id="product-price" placeholder="" required>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="product-sale" class="col-2 col-form-label"> % تخفیف </label>
-                        <div class="col-10">
-                          <input name="product-sale" type="number" class="form-control" id="product-sale" placeholder="" required>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="product-quantity" class="col-2 col-form-label"> موجودی </label>
-                        <div class="col-10">
-                          <input name="product-quantity" type="number" class="form-control" id="product-quantity" placeholder="" required>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="product-weight" class="col-2 col-form-label"> وزن </label>
-                        <div class="col-10">
-                          <input name="product-weight" type="number" class="form-control" id="product-weight" placeholder="" required>
-                        </div>
-                      </div>
-                      <div class="form-group row" title="شناسه منحصر به فرد محصول">
-                        <label for="product-sku" class="col-2 col-form-label"> SKU </label>
-                        <div class="col-10">
-                          <input name="product-sku" type="text" class="form-control" id="product-sku" placeholder="" required>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="product-meta" class="col-2 col-form-label"> متن متا</label>
-                        <div class="col-10">
-                          <textarea name="product-meta" type="text" class="form-control" id="product-meta" placeholder="" rows="2" required></textarea>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="product-description" class="col-2 col-form-label"> درباره محصول </label>
-                        <div class="col-10">
-                          <textarea name="product-description" type="text" class="form-control" id="product-description" placeholder="" rows="3" required></textarea>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-2 col-form-label" for="product-category">دسته </label>
-                        <div class="col-10">
-                          <select name='product-category' class="form-control" id="product-category">
-                            <?php foreach ($categories as $value) : ?>
-                              <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
-                            <?php endforeach; ?>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label class="col-2 col-form-label" for="product-brand">برند </label>
-                        <div class="col-10">
-                          <select name='product-brand' class="form-control" id="product-brand">
-                            <?php foreach ($brands as $value) : ?>
-                              <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
-                            <?php endforeach; ?>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div class="form-group row">
-                        <label for="slug" class="col-2 col-form-label">عکس</label>
-                        <div class="col-10">
-                          <!-- <div class="custom-file">
-                            <label class="custom-file-label" for="product-image">Choose file</label>
-                            <input name="product_image" type="file" class="custom-file-input" id="product-image" required>
-                          </div> -->
-                          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
-                          <div class="card-block">
-                            <div class="flex-row d-flex" id="coba"></div>
+                        <div class="col">
+                          <div class="form-group">
+                            <label for="Input2" class=""> پایان</label>
+                            <input type="text" class="form-control finish_at" id="Input2" required>
+                            <input type="hidden" id="finish_at" name="finish_at">
                           </div>
                         </div>
                       </div>
-
-                      <script>
-                        $(document).ready(function() {
-                          $("#coba").spartanMultiImagePicker({
-                            fieldName: 'product_image[]',
-                            groupClassName: 'col-2',
-                            rowHeight:        '100px',
-                          });
-
-                        });
-                      </script>
-
-                      <div class="pt-2 pb-2 form-check">
-                        <input value="1" name="product-featured" type="checkbox" class="form-check-input" id="product-featured">
-                        <label class="form-check-label" for="product-featured">
-                          محصول ویژه
-                        </label>
-                      </div>
-                      <div class="pt-2 pb-2 form-check disabled ">
-                        <input name="product-status" type="checkbox" class="form-check-input " id="product-status" checked disabled>
-                        <label class="form-check-label" for="product-status">
-                          وضعیت
-                        </label>
-                      </div>
-
-
-
-                      <!-- <div class="form-group row" >
-                        <label class="col-2 col-form-label" for="product-product">تامین کننده </label>
-                        <div class="col-10">
-                          <select name='product-product' class="form-control" id="product-product" disabled>
-                           //* <?php foreach ($suppliers as $value) : ?>
-                           //*   <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
-                           //* <?php endforeach; ?>
-                          </select>
+                      <div class="row">
+                        <div class="col">
+                          <div class="form-group ">
+                            <label for="discount-entity_type">نوع تخفیف </label>
+                            <select name='discount-entity_type' class="form-control" id="discount-entity_type">
+                              <?php foreach ($discount_entities as  $value) : ?>
+                                <option value="<?= $value ?>"><?= $value ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                          </div>
                         </div>
-                      </div> -->
-
+                        <div class="col">
+                          <div class="form-group ">
+                            <label for="discount-percent">میزان تخفیف %</label>
+                            <input name="discount-percent" type="number" class="form-control" id="discount-percent" placeholder="" required>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group  mb-5">
+                        <label for="discount-description" class="col-form-label"> توضیحات</label>
+                        <textarea name="discount-meta" type="text" class="form-control" id="discount-meta" placeholder="" rows="2" required></textarea>
+                      </div>
                       <button type="submit" class="float-left btn btn-primary btn-block">ذخیره </button>
                     </form>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -176,43 +85,22 @@
                 <th class="text-center" scope="col">توضیحات</th>
                 <th class="text-center" scope="col">اعتبار</th>
                 <th class="text-center" scope="col">مشاهده</th>
+                <th class="text-center" scope="col"> اصلاحات</th>
               </tr>
             </thead>
             <tbody>
               <?php
               $count = 0;
-              foreach ($products as $value) :
+              foreach ($discounts as $value) :
               ?>
                 <tr>
                   <td class="text-center" title="ردیف"><?= $count++ ?></td>
-                  <td class="text-center" ><?= $value['title'] ?></td>
-                  <td class="text-center" ><?= $value['price'] ?></td>
-                  <td class="text-center" ><?= $value['quantity'] ?></td>
-                  <td>
-                    <div>
-                      وضــــــــــعــیـت :
-                      <?php if ($value['status'] == 1) : ?>
-                        <i class="fa fa-check text-success "></i>
-                      <?php else : ?>
-                        <i class="fa fa-times text-danger "></i>
-                      <?php endif; ?>
-                    </div>
-                    <div>
-                      محصول ویژه :
-                      <?php if ($value['featured'] == 1) : ?>
-                        <i class="fa fa-check text-success"></i>
-                      <?php else : ?>
-                        <i class="fa fa-times text-danger"></i>
-                      <?php endif; ?>
-                    </div>
-                  </td>
-                  <td class="text-center">
-                    <a href="<?= base_url() ?>admin/product/<?= $value['id'] ?>/edit" class="shadow-sm btn btn-warning btn-sm " style="padding: 0px 16px; border-radius: 18px;">ویرایش</a>
-                    <form method="post" action="<?= base_url() ?>admin/product/<?= $value['id'] ?>" class="d-inline">
-                      <input type="hidden" name="_method" value="delete" />
-                      <input type="submit" class="shadow-sm btn btn-danger btn-sm " style="padding: 0px 20px; border-radius: 18px;" onclick="return confirm('آیا برای حذف اطلاعات اطمینان دارید');" value="حذف">
-                    </form>
-                  </td>
+                  <td class="text-center"><?= $value['code'] ?></td>
+                  <td class="text-center"><?= $value['entity_type'] ?></td>
+                  <td class="text-center"><?= $value['percent'] ?></td>
+                  <td class="text-center"><?= $value['description'] ?></td>
+                  <td class="text-center"><?= $value['start_at'] ?></td>
+                  <td class="text-center"><?= $value['finish_at'] ?></td>
                 </tr>
               <?php
               endforeach;

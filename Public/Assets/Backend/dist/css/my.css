@@ -2,3 +2,15 @@
 .table.table--vertical_middle th {
     vertical-align: middle;
 }
+
+.datepicker-plot-area {
+    width: 374px !important;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    box-shadow: inset 0 0 0 transparent;
+}

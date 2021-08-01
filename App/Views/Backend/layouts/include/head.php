@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="<?= asset_url() ?>Backend/dist/css/bootstrap-rtl.min.css">
 <!-- template rtl version -->
 <link rel="stylesheet" href="<?= asset_url() ?>Backend/dist/css/custom-style.css">
+<link rel="stylesheet" href="<?= asset_url() ?>Backend/plugins/datepicker/persian-datepicker.min.css">
 <link rel="stylesheet" href="<?= asset_url() ?>Backend/dist/css/my.css">
 <!-- jQuery -->
 <script src="<?= asset_url() ?>Backend/plugins/jquery/jquery.min.js"></script>

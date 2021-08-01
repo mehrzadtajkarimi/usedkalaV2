@@ -84,6 +84,24 @@
                           </li>
                       </ul>
                   </li>
+                  <li class="nav-item has-treeview">
+                      <a href="#" class="nav-link">
+                          <p>
+                              تخفیفات
+                              <i class="right fa fa-angle-left"></i>
+                          </p>
+                          <i class="fa fa-bullhorn nav-icon"></i>
+                      </a>
+
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                              <a href="<?= base_url() ?>admin/discount" class="nav-link">
+                                  <p>لیست تخفیفات</p>
+                                  <i class="fa fa-circle-o nav-icon"></i>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
               </ul>
           </nav>
           <!-- /.sidebar-menu -->

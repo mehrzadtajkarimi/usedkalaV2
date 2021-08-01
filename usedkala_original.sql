@@ -93,7 +93,7 @@ CREATE TABLE `categories` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `categories_UN` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 -- usedkalav2.category_product definition
@@ -136,15 +136,17 @@ CREATE TABLE `comments` (
 
 CREATE TABLE `discounts` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
   `entity_id` int NOT NULL,
-  `entity_type` varchar(64) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `entity_type` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '[''User'',''Product'',''Category'',''Brand'']',
   `code` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `type` tinyint DEFAULT NULL,
-  `Percent` tinyint DEFAULT NULL COMMENT '%',
+  `percent` tinyint DEFAULT NULL COMMENT '%',
   `description` varchar(512) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `shipping` tinyint(1) DEFAULT '0',
-  `expired_at` timestamp NOT NULL,
-  `created_at` timestamp NOT NULL,
+  `start_at` timestamp NOT NULL,
+  `finish_at` timestamp NOT NULL,
+  `updated_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -242,7 +244,7 @@ CREATE TABLE `photos` (
   `alt` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 -- usedkalav2.products definition

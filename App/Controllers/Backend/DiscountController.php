@@ -6,6 +6,7 @@ use App\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Discount;
 use App\Models\Photo;
 use App\Services\Auth\Auth;
 use App\Services\Upload\UploadedFile;
@@ -17,6 +18,7 @@ class DiscountController extends Controller
     private $categoryModel;
     private $brandModel;
     private $photoModel;
+    private $discountModel;
 
     public function __construct()
     {
@@ -25,15 +27,18 @@ class DiscountController extends Controller
         $this->categoryModel = new Category();
         $this->brandModel    = new Brand();
         $this->photoModel    = new Photo();
+        $this->discountModel = new Discount();
     }
 
     public function index()
     {
         $data = array(
-            'products'   => $this->productModel->read_product(),
-            'brands'     => $this->brandModel->read_brand(),
-            'categories' => $this->categoryModel->category_tree_for_backend(),
-            'photo'      => $this->photoModel->read_photo(),
+                'products'          => $this->productModel->read_product(),
+                'discounts'         => $this->discountModel->read_discount(),
+                'brands'            => $this->brandModel->read_brand(),
+                'categories'        => $this->categoryModel->category_tree_for_backend(),
+                'photo'             => $this->photoModel->read_photo(),
+                'discount_entities' => ['User','Product','Category','Brand'],
         );
         view('Backend.discount.index', $data);
     }
@@ -48,47 +53,20 @@ class DiscountController extends Controller
 
         $params_create = array(
             'user_id'     => Auth::is_login(),
-            'slug'        => create_slug($params['product-slug']),
-            'title'       => $params['product-name'],
-            'price'       => $params['product-price'],
-            'sale_price'  => $params['product-sale'],
-            'category_id' => $params['product-category'],
-            'brand_id'    => $params['product-brand'],
-            'sku'         => $params['product-sku'],
-            'weight'      => $params['product-weight'],
-            'quantity'    => $params['product-quantity'],
-            'meta_title'  => $params['product-meta'],
-            'description' => $params['product-description'],
-            'featured'    => $params['product-featured'] ?? 0,
+            'code'        => $params['code'],
+            'start_at'    => date("Y-m-d H:i:s", $params['start_at']),
+            'finish_at'   => date("Y-m-d H:i:s", $params['finish_at']),
+            'entity_type' => $params['discount-entity_type'],
+            'description' => $params['discount-description'],
+            'percent'     => $params['discount-percent'],
         );
 
-        $files                   = $this->request->files();
-        $files_param             = $files['product_image'];
-        $files_param_tmp_name    = array_filter($files_param['tmp_name']);
-        $check_file_param_exists = !empty($files_param_tmp_name[0]);
-        if ($check_file_param_exists) {
-            $is_create_product = $this->productModel->create_product($params_create);
-            $file = new UploadedFile($files_param);
-            $file_paths = $file->save();
-            if ($file_paths) {
-                foreach ($file_paths as $key => $path) {
-                    $is_create_photo   = $this->photoModel->create_photo('Product', $is_create_product, $path, 'product_image', $key);
-                }
 
-                if ($is_create_product) {
-                    FlashMessage::add("ایجاد محصول موفقیت انجام شد");
-                } elseif ($is_create_photo) {
-                    FlashMessage::add(" ایجاد تصویر موفقیت انجام شد", FlashMessage::ERROR);
-                } else {
-                    FlashMessage::add(" مشکلی در ایجاد محصول رخ داد ", FlashMessage::ERROR);
-                }
-                return $this->request->redirect('admin/product');
-            }
-        } else {
-            $this->productModel->create_product($params_create);
+           $a= $this->discountModel->create_discount($params_create);
+           dd($a);
             FlashMessage::add("مقادیر بدونه ضمیمه عکس با موفقیت در دیتابیس ذخیره شد", FlashMessage::WARNING);
-            return $this->request->redirect('admin/product');
-        }
+            return $this->request->redirect('admin/discount');
+        
     }
 
     public function show()
