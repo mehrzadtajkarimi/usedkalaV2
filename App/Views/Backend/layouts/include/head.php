@@ -4,6 +4,7 @@
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" href="<?= asset_url() ?>Backend/dist/img/ukfav-icon.png">
+<link rel="stylesheet" href="<?= asset_url() ?>Backend/dist/css/adminlte.min.css">
 
 <!-- Font Awesome -->
 <link rel="stylesheet" href="<?= asset_url() ?>Backend/plugins/font-awesome/css/all.min.css">
@@ -11,7 +12,7 @@
 <!-- Ionicons -->
 <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 <!-- Theme style -->
-<link rel="stylesheet" href="<?= asset_url() ?>Backend/dist/css/adminlte.min.css">
+<link rel="stylesheet" href="<?= asset_url() ?>Backend/plugins/select2/select2.min.css">
 <link rel="stylesheet" href="<?= asset_url() ?>Backend/plugins/WOW/css/libs/animate.css">
 <!-- Google Font: Source Sans Pro -->
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">

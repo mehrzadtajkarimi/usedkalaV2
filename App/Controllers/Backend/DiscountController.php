@@ -33,12 +33,12 @@ class DiscountController extends Controller
     public function index()
     {
         $data = array(
-                'products'          => $this->productModel->read_product(),
-                'discounts'         => $this->discountModel->read_discount(),
-                'brands'            => $this->brandModel->read_brand(),
-                'categories'        => $this->categoryModel->category_tree_for_backend(),
-                'photo'             => $this->photoModel->read_photo(),
-                'discount_entities' => ['User','Product','Category','Brand'],
+            'products'          => $this->productModel->read_product(),
+            'discounts'         => $this->discountModel->read_discount(),
+            'brands'            => $this->brandModel->read_brand(),
+            'categories'        => $this->categoryModel->category_tree_for_backend(),
+            'photo'             => $this->photoModel->read_photo(),
+            'discount_entities' => ['User', 'Product', 'Category', 'Brand'],
         );
         view('Backend.discount.index', $data);
     }
@@ -50,7 +50,7 @@ class DiscountController extends Controller
     public function store()
     {
         $params = $this->request->params();
-
+        dd($params);
         $params_create = array(
             'user_id'     => Auth::is_login(),
             'code'        => $params['code'],
@@ -62,11 +62,9 @@ class DiscountController extends Controller
         );
 
 
-           $a= $this->discountModel->create_discount($params_create);
-           dd($a);
-            FlashMessage::add("مقادیر بدونه ضمیمه عکس با موفقیت در دیتابیس ذخیره شد", FlashMessage::WARNING);
-            return $this->request->redirect('admin/discount');
-        
+        $this->discountModel->create_discount($params_create);
+        FlashMessage::add("مقادیر باموفقیت  ضمیمه شد و با موفقیت در دیتابیس ذخیره شد");
+        return $this->request->redirect('admin/discount');
     }
 
     public function show()
