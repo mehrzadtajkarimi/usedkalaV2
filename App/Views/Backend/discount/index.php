@@ -61,7 +61,7 @@
                         <label>محصول انتخابی</label>
                         <select name="discount-product[]" id="discount_product" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
                           <?php foreach ($products as $value) : ?>
-                            <option value="<?= $value['id']?>"><?= $value['title'] ?></option>
+                            <option value="<?= $value['id'] ?>"><?= $value['title'] ?></option>
                           <?php endforeach; ?>
                         </select>
                       </div>
@@ -82,7 +82,7 @@
     <div class="p-0 card-body table-responsive">
       <div class="card ">
         <div class="card-body">
-          
+
           <table class="table table--vertical_middle ">
             <thead>
               <tr>
@@ -91,9 +91,10 @@
                 <th class="text-center" scope="col">نوع تخفیف</th>
                 <th class="text-center" scope="col">میزان تخفیف</th>
                 <th class="text-center" scope="col">توضیحات</th>
-                <th class="text-center" scope="col">اعتبار</th>
-                <th class="text-center" scope="col">مشاهده</th>
+                <th class="text-center" scope="col">از تاریخ</th>
+                <th class="text-center" scope="col">تا تاریخ</th>
                 <th class="text-center" scope="col">وضعیت</th>
+                <th class="text-center" scope="col">مشاهده</th>
                 <th class="text-center" scope="col"> اصلاحات</th>
               </tr>
             </thead>
@@ -101,7 +102,7 @@
               <?php
               $count = 0;
               foreach ($discounts as $value) :
-                ?>
+              ?>
                 <tr>
                   <td class="text-center" title="ردیف"><?= $count++ ?></td>
                   <td class="text-center"><?= $value['code'] ?></td>
@@ -113,32 +114,27 @@
                   <td>
                     <div>
                       وضــــــــــعــیـت :
-                      <?php if ($value['status'] == 1) : ?>
-                        <i class="fa fa-check text-success "></i>
-                        <?php else : ?>
-                          <i class="fa fa-times text-danger "></i>
-                          <?php endif; ?>
-                        </div>
-                        <div>
-                          محصول ویژه :
-                          <?php if ($value['featured'] == 1) : ?>
-                            <i class="fa fa-check text-success"></i>
-                            <?php else : ?>
-                              <i class="fa fa-times text-danger"></i>
-                              <?php endif; ?>
-                            </div>
-                          </td>
-                        </tr>
+                      <i class="fa fa-check text-success "></i>
+                    </div>
+                    <div>
+                      محصول ویژه :
+                      <i class="fa fa-times text-danger"></i>
+                    </div>
+                  </td>
+                  <td class="text-center">
+                    <img src="<?= base_url() . 'Backend/dist/img/other_48dp.png' ?>" alt="" srcset="">
+                  </td>
+                </tr>
               <?php
               endforeach;
               ?>
             </tbody>
           </table>
-          
+
         </div>
       </div>
       <p class="text-muted font-italic pr-4">برای به دست آوردن نام متا - تخفیف یا وزن با موس روی نقطه مورد نظر هاور کنید</p>
     </div>
   </div>
 </div>
-<?php include( BASEPATH."/App/Views/Backend/discount/script.php") ?>
+<?php include(BASEPATH . "/App/Views/Backend/discount/script.php") ?>
