@@ -136,6 +136,7 @@ CREATE TABLE `comments` (
 
 CREATE TABLE `discounts` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `product_id` int NOT NULL,
   `user_id` int NOT NULL,
   `entity_id` int NOT NULL,
   `entity_type` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '[''User'',''Product'',''Category'',''Brand'']',
@@ -145,10 +146,10 @@ CREATE TABLE `discounts` (
   `description` varchar(512) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `start_at` timestamp NOT NULL,
   `finish_at` timestamp NOT NULL,
-  `updated_at` timestamp NOT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 -- usedkalav2.likes definition
@@ -247,6 +248,16 @@ CREATE TABLE `photos` (
 ) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
+-- usedkalav2.product_discounts definition
+
+CREATE TABLE `product_discounts` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `discount_id` int DEFAULT NULL,
+  `product_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
 -- usedkalav2.products definition
 
 CREATE TABLE `products` (
@@ -272,7 +283,7 @@ CREATE TABLE `products` (
   `started_at` timestamp NULL DEFAULT NULL,
   `end_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 -- usedkalav2.provinces definition

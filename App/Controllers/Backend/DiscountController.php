@@ -50,7 +50,7 @@ class DiscountController extends Controller
     public function store()
     {
         $params = $this->request->params();
-        dd($params);
+        // dd($params);
         $params_create = array(
             'user_id'     => Auth::is_login(),
             'code'        => $params['code'],
@@ -60,9 +60,15 @@ class DiscountController extends Controller
             'description' => $params['discount-description'],
             'percent'     => $params['discount-percent'],
         );
+        // dd($params['discount-product']);
 
-
-        $this->discountModel->create_discount($params_create);
+        $discount_id =  $this->discountModel->create_discount($params_create);
+        foreach ($params['discount-product'] as  $value) {
+            $this->productModel->create_product_discount([
+                'discount_id' => $discount_id,
+                'product_id' => $value,
+            ]);
+        }
         FlashMessage::add("مقادیر باموفقیت  ضمیمه شد و با موفقیت در دیتابیس ذخیره شد");
         return $this->request->redirect('admin/discount');
     }

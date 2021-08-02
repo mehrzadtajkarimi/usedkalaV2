@@ -14,8 +14,8 @@ class GlobalMiddleware implements MiddlewareInterface
 
     private function sanitizeGetParams()
     {
-        foreach ($_REQUEST as $key => $value) {
-            $_REQUEST[$key] = xss_clean($value);
+        foreach ($_REQUEST as $key => $requests) {
+            $_REQUEST[$key] = xss_clean($requests);
         }
     }
 

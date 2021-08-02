@@ -69,7 +69,7 @@ function view_flash_message($path, $data = [])
 
 function xss_clean($str)
 {
-    return filter_var(htmlspecialchars($str), FILTER_SANITIZE_STRING);
+    // return filter_var(htmlspecialchars($str), FILTER_SANITIZE_STRING);
 }
 
 
