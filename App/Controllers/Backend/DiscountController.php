@@ -3,20 +3,16 @@
 namespace App\Controllers\Backend;
 
 use App\Controllers\Controller;
-use App\Models\Brand;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Discount;
-use App\Models\Photo;
 use App\Services\Auth\Auth;
-use App\Services\Upload\UploadedFile;
 use App\Utilities\FlashMessage;
 
 class DiscountController extends Controller
 {
     private $productModel;
     private $categoryModel;
-    private $brandModel;
     private $photoModel;
     private $discountModel;
 
@@ -25,8 +21,6 @@ class DiscountController extends Controller
         parent::__construct();
         $this->productModel  = new Product();
         $this->categoryModel = new Category();
-        $this->brandModel    = new Brand();
-        $this->photoModel    = new Photo();
         $this->discountModel = new Discount();
     }
 
@@ -35,10 +29,7 @@ class DiscountController extends Controller
         $data = array(
             'products'          => $this->productModel->read_product(),
             'discounts'         => $this->discountModel->read_discount(),
-            'brands'            => $this->brandModel->read_brand(),
             'categories'        => $this->categoryModel->category_tree_for_backend(),
-            'photo'             => $this->photoModel->read_photo(),
-            'discount_entities' => ['User', 'Product', 'Category', 'Brand'],
         );
         view('Backend.discount.index', $data);
     }
@@ -50,21 +41,23 @@ class DiscountController extends Controller
     public function store()
     {
         $params = $this->request->params();
-        // dd($params);
         $params_create = array(
             'user_id'     => Auth::is_login(),
-            'code'        => $params['code'],
             'start_at'    => date("Y-m-d H:i:s", $params['start_at']),
             'finish_at'   => date("Y-m-d H:i:s", $params['finish_at']),
-            'entity_type' => $params['discount-entity_type'],
+            'code'        => $params['code'],
             'description' => $params['discount-description'],
             'percent'     => $params['discount-percent'],
         );
-        // dd($params['discount-product']);
-
         $discount_id =  $this->discountModel->create_discount($params_create);
+        foreach ($params['discount-category'] as  $value) {
+            $this->categoryModel->create_categoryDiscount([
+                'discount_id' => $discount_id,
+                'category_id' => $value,
+            ]);
+        }
         foreach ($params['discount-product'] as  $value) {
-            $this->productModel->create_product_discount([
+            $this->productModel->create_productDiscount([
                 'discount_id' => $discount_id,
                 'product_id' => $value,
             ]);
@@ -80,66 +73,48 @@ class DiscountController extends Controller
     public function edit()
     {
         $id = $this->request->get_param('id');
+
         $data = array(
-            'products'   => $this->productModel->read_product($id),
-            'brands'     => $this->brandModel->read_brand(),
+            'discount'   => $this->discountModel->read_discount($id),
+            'products'   => $this->productModel->read_productDiscount_by_id($id),
             'categories' => $this->categoryModel->category_tree_for_backend(),
-            'photo'      => $this->photoModel->read_photo($id),
         );
-        view('Backend.product.edit', $data);
+        view('Backend.discount.edit', $data);
     }
 
 
     public function update()
     {
         $params = $this->request->params();
-
         $id = $this->request->get_param('id');
-
-        $params_updated = array(
+        $params_update = array(
             'user_id'     => Auth::is_login(),
-            'slug'        => create_slug($params['product-slug']),
-            'title'       => $params['product-name'],
-            'price'       => $params['product-price'],
-            'sale_price'  => $params['product-sale'],
-            'category_id' => $params['product-category'],
-            'brand_id'    => $params['product-brand'],
-            'sku'         => $params['product-sku'],
-            'weight'      => $params['product-weight'],
-            'quantity'    => $params['product-quantity'],
-            'meta_title'  => $params['product-meta'],
-            'description' => $params['product-description'],
-            'featured'    => $params['product-featured'] == 'on' ? 1 : 0,
-            'status'      => $params['product-status'] == 'on' ? 1 : 0,
+            'start_at'    => date("Y-m-d H:i:s", $params['start_at']),
+            'finish_at'   => date("Y-m-d H:i:s", $params['finish_at']),
+            'code'        => $params['discount-code'],
+            'description' => $params['discount-description'],
+            'percent'     => $params['discount-percent'],
         );
-
-        $files                   = $this->request->files();
-        $files_param             = $files['product_image'];
-        $check_file_param_exists = !empty($files_param);
-        if ($check_file_param_exists) {
-            $file = new UploadedFile($files_param);
-            $file_paths = $file->save();
-            if ($file_paths) {
-
-                $is_update_photo = $this->photoModel->update_photo('Product', $id, $file_paths[0], 'product_image');
-
-                if ($is_update_photo) {
-                    FlashMessage::add("ویرایش محصول بندی موفقیت انجام شد");
-                } else {
-                    FlashMessage::add(" مشکلی در ویرایش محصول بندی رخ داد ", FlashMessage::ERROR);
-                }
-            }
-        } else {
-            $this->productModel->update_product($params_updated, $id);
-            FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
+        $this->discountModel->update_discount($params_update,$id);
+        foreach ($params['discount-category'] as  $value) {
+            $this->categoryModel->update_categoryDiscount([
+                'category_id' => $value,
+            ],$id);
         }
-        return $this->request->redirect('admin/product');
+        foreach ($params['discount-product'] as  $value) {
+            $this->productModel->update_productDiscount([
+                'product_id' => $value,
+            ],$id);
+        }
+        FlashMessage::add("مقادیر باموفقیت  ضمیمه شد و با موفقیت در دیتابیس ذخیره شد");
+        return $this->request->redirect('admin/discount');
     }
 
 
     public function destroy()
     {
         $id = $this->request->get_param('id');
+        dd($id);
         $is_deleted_product = $this->productModel->delete_product($id);
         $is_deleted_photo   = $this->photoModel->delete_photo($id);
         if ($is_deleted_product && $is_deleted_photo) {

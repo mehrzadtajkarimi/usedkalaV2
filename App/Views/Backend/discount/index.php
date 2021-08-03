@@ -42,19 +42,19 @@
                       <div class="row">
                         <div class="col">
                           <div class="form-group ">
-                            <label for="discount-entity_type">نوع تخفیف </label>
-                            <select name='discount-entity_type' class="form-control" id="discount-entity_type">
-                              <?php foreach ($discount_entities as  $value) : ?>
-                                <option value="<?= $value ?>"><?= $value ?></option>
-                              <?php endforeach; ?>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="col">
-                          <div class="form-group ">
                             <label for="discount-percent">میزان تخفیف %</label>
                             <input name="discount-percent" type="number" class="form-control" id="discount-percent" placeholder="" required>
                           </div>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group ">
+                          <label > دسته بندی انتخابی</label>
+                          <select name='discount-category[]' id="discount_category"  class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
+                            <?php foreach ($categories as $value) : ?>
+                              <option value="<?= $value['id'] ?>" ><?= $value['name'] ?></option>
+                            <?php endforeach; ?>
+                          </select>
                         </div>
                       </div>
                       <div class="col">
@@ -88,7 +88,6 @@
               <tr>
                 <th class="text-center" scope="col">#</th>
                 <th class="text-center" scope="col">کد</th>
-                <th class="text-center" scope="col">نوع تخفیف</th>
                 <th class="text-center" scope="col">میزان تخفیف</th>
                 <th class="text-center" scope="col">توضیحات</th>
                 <th class="text-center" scope="col">از تاریخ</th>
@@ -106,7 +105,6 @@
                 <tr>
                   <td class="text-center" title="ردیف"><?= $count++ ?></td>
                   <td class="text-center"><?= $value['code'] ?></td>
-                  <td class="text-center"><?= $value['entity_type'] ?></td>
                   <td class="text-center"><?= $value['percent'] ?></td>
                   <td class="text-center"><?= $value['description'] ?></td>
                   <td class="text-center"><?= $value['start_at'] ?></td>
@@ -122,7 +120,16 @@
                     </div>
                   </td>
                   <td class="text-center">
-                    <img src="<?= base_url() . 'Backend/dist/img/other_48dp.png' ?>" alt="" srcset="">
+                    <a href="" class="p-4">
+                      <i class="fa fa-folder-open fa-2x text-muted" aria-hidden="true"></i>
+                    </a>
+                  </td>
+                  <td class="text-center">
+                    <a href="<?= base_url() ?>admin/discount/<?= $value['id'] ?>/edit" class="shadow-sm btn btn-warning btn-sm" style="padding: 0px 16px; border-radius: 18px;">ویرایش</a>
+                    <form method="post" action="<?= base_url() ?>admin/discount/<?= $value['id'] ?>" class="d-inline">
+                      <input type="hidden" name="_method" value="delete" />
+                      <input type="submit" class="shadow-sm btn btn-danger btn-sm " style="padding: 0px 20px; border-radius: 18px;" onclick="return confirm('آیا برای حذف اطلاعات اطمینان دارید');" value="حذف">
+                    </form>
                   </td>
                 </tr>
               <?php

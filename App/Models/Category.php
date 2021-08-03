@@ -38,20 +38,20 @@ class Category extends MysqlBaseModel
         global $request;
         $value = $this->inner_join("categories.*,photos.path,photos.alt", "photos", "id", "entity_id", "categories.parent_id={$parent_id}",  "categories.id=photos.entity_id");
         if (!empty($value)) {
-                array_push(
-                    $this->property_category_tree_for_frontend,
-                    array(
-                        'name'        => $value[0]['name'],
-                        'id'          => $value[0]['id'],
-                        'parent'      => $value[0]['parent_id'],
-                        'slug'        => $value[0]['slug'],
-                        'path'        => $value[0]['path'],
-                        'alt'         => $value[0]['alt'],
-                        'description' => $value[0]['description'],
-                    )
-                );
+            array_push(
+                $this->property_category_tree_for_frontend,
+                array(
+                    'name'        => $value[0]['name'],
+                    'id'          => $value[0]['id'],
+                    'parent'      => $value[0]['parent_id'],
+                    'slug'        => $value[0]['slug'],
+                    'path'        => $value[0]['path'],
+                    'alt'         => $value[0]['alt'],
+                    'description' => $value[0]['description'],
+                )
+            );
             return $this->property_category_tree_for_frontend;
-        }else{
+        } else {
 
             return $request::redirect("product/category/$parent_id");
         }
@@ -62,7 +62,16 @@ class Category extends MysqlBaseModel
     {
         return $this->create($params);
     }
-    public function read_category($id=null)
+    public function create_categoryDiscount(array $params)
+    {
+        $this->connection->insert('category_discounts', $params);
+        return  $this->connection->id();
+    }
+    public function update_categoryDiscount(array $params, $id)
+    {
+        return  $this->connection->update('category_discounts', $params, $id);
+    }
+    public function read_category($id = null)
     {
         if (is_null($id)) {
             return $this->all();

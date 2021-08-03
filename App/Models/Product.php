@@ -12,10 +12,14 @@ class Product extends MysqlBaseModel
     {
         return $this->create($params);
     }
-    public function create_product_discount(array $params)
+    public function create_productDiscount(array $params)
     {
         $this->connection->insert('product_discounts', $params);
         return  $this->connection->id();
+    }
+    public function update_productDiscount(array $params , $id)
+    {
+        return  $this->connection->update('product_discounts', $params,$id);
     }
     public function read_product($id = null)
     {
@@ -23,6 +27,11 @@ class Product extends MysqlBaseModel
             return $this->all();
         }
         return $this->first(['id' => $id]);
+    }
+    public function read_productDiscount_by_id($id = null)
+    {
+        $product_id =  $this->connection->select('product_discounts', 'product_id', ['discount_id' => $id]);
+        return $this->get(['id', 'title'], ['id' => $product_id]);
     }
     public function read_product_by_category($id = null)
     {
@@ -102,12 +111,12 @@ class Product extends MysqlBaseModel
             "products.*,
              photos.path,
              photos.alt",                 // column
-             "brands",                     // -- table brands
-             "brand_id",                   // products.brand_id
-             "id",                         // brands.id
-             "photos",                    // -- table photos
-             "id",                        // products.id
-             "entity_id",                 // photos.entity_id
+            "brands",                     // -- table brands
+            "brand_id",                   // products.brand_id
+            "id",                         // brands.id
+            "photos",                    // -- table photos
+            "id",                        // products.id
+            "entity_id",                 // photos.entity_id
             "photos.entity_type='Product'",
             "products.id=$id",
         );
