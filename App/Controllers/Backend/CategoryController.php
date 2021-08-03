@@ -44,14 +44,13 @@ class CategoryController extends Controller
     {
         $params = $this->request->params();
 
-        $id                   = $this->request->get_param('id');
-
-        $request=array(
+        $id= $this->request->get_param('id');
+        $request = array(
             'parent_id'   => $id,
             'slug'        => create_slug($params['slug']),
             'name'        => $params['name'],
             'description' => $params['description'],
-            'status'      => $params['status']== 'on' ? 1 : 0,
+            'status'      => $params['status'] ?? '0',
         );
         $files                = $this->request->files();
         $files_param          = $files['image_category'];
@@ -124,7 +123,7 @@ class CategoryController extends Controller
                 'slug'        => create_slug($params['slug']),
                 'name'        => $params['name'],
                 'description' => $params['description'],
-                'status'      => $params['status']== 'on' ? 1 : 0,
+                'status'      => $params['status'] == 'on' ? 1 : 0,
             ], $id);
             FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
         }

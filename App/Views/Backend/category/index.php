@@ -52,8 +52,8 @@
                         </div>
                       </div>
                       <div class="pt-2 pb-2 form-check">
-                        <input value="1" name="status" type="checkbox" class="form-check-input" id="status">
-                        <label class="form-check-label" for="status">
+                        <input value="1" name="status" type="checkbox" class="form-check-input" id="status" checked>
+                        <label class="form-check-label" for="status" >
                            وضعیت
                         </label>
                       </div>
