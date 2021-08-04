@@ -67,9 +67,10 @@ class Category extends MysqlBaseModel
         $this->connection->insert('category_discounts', $params);
         return  $this->connection->id();
     }
-    public function update_categoryDiscount(array $params, $id)
+    public function replace_categoryDiscount(array $params, $id)
     {
-        return  $this->connection->update('category_discounts', $params, $id);
+       $this->connection->delete('category_discounts', ['discount_id'=>$id]);
+        return  $this->connection->insert('category_discounts', $params);
     }
     public function read_category($id = null)
     {

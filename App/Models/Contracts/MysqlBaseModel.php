@@ -84,8 +84,8 @@ class  MysqlBaseModel extends BaseModel
     public function update(array $data, array $where): int
     {
         try {
-            $result = $this->connection->update($this->table, $data, $where);
-            return $result->rowCount();
+        $result = $this->connection->update($this->table, $data, $where);
+        return $result->rowCount();
         } catch (\PDOException $e) {
             echo '<h1>مشکلی در ارتباط با دیتابیس رخ داد </h1>';
         }

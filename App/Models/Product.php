@@ -12,26 +12,12 @@ class Product extends MysqlBaseModel
     {
         return $this->create($params);
     }
-    public function create_productDiscount(array $params)
-    {
-        $this->connection->insert('product_discounts', $params);
-        return  $this->connection->id();
-    }
-    public function update_productDiscount(array $params , $id)
-    {
-        return  $this->connection->update('product_discounts', $params,$id);
-    }
     public function read_product($id = null)
     {
         if (is_null($id)) {
             return $this->all();
         }
         return $this->first(['id' => $id]);
-    }
-    public function read_productDiscount_by_id($id = null)
-    {
-        $product_id =  $this->connection->select('product_discounts', 'product_id', ['discount_id' => $id]);
-        return $this->get(['id', 'title'], ['id' => $product_id]);
     }
     public function read_product_by_category($id = null)
     {

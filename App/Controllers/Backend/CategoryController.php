@@ -44,7 +44,7 @@ class CategoryController extends Controller
     {
         $params = $this->request->params();
 
-        $id= $this->request->get_param('id');
+        $id = $this->request->get_param('id');
         $request = array(
             'parent_id'   => $id,
             'slug'        => create_slug($params['slug']),

@@ -158,7 +158,7 @@ class ProductController extends Controller
     public function destroy()
     {
         $id = $this->request->get_param('id');
-        $is_deleted_product = $this->productModel->delete_product($id);
+        $is_deleted_product = $this->productModel->delete($id);
         $is_deleted_photo   = $this->photoModel->delete_photo($id);
         if ($is_deleted_product && $is_deleted_photo) {
             # code...

@@ -13,10 +13,10 @@ class Photo extends MysqlBaseModel
     {
         return $this->create([
             'entity_type' => $entity_type,
-            'entity_id' => $entity_id,
-            'path' =>  $file_path,
-            'alt' =>  $name,
-            'type' =>  $type,
+            'entity_id'   => $entity_id,
+            'path'        => $file_path,
+            'alt'         => $name,
+            'type'        => $type,
 
         ]);
     }
@@ -44,13 +44,14 @@ class Photo extends MysqlBaseModel
         ]);
     }
 
-    public function update_photo(string $entity_type, int $entity_id, $file_path, string $name)
+    public function update_photo(string $entity_type, int $entity_id, $file_path, string $name,int $type = 0)
     {
         return $this->update_create([
             'entity_type' => $entity_type,
-            'entity_id' => $entity_id,
-            'path' =>  $file_path,
-            'alt' =>  $name,
+            'entity_id'   => $entity_id,
+            'path'        => $file_path,
+            'alt'         => $name,
+            'type'        => $type,
 
         ], ['entity_id' => $entity_id]);
     }

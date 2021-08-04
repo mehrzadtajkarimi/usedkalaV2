@@ -62,7 +62,7 @@
             <div class="form-group  row mb-5">
                 <label for="discount-description" class="col-2  col-form-label"> توضیحات</label>
                 <div class="col-10">
-                    <textarea name="discount-description" type="text" class="form-control" id="discount-description" placeholder="" rows="2" required></textarea>
+                    <textarea name="discount-description" type="text" class="form-control" id="discount-description" placeholder="" rows="2" required><?= $discount['description'] ?></textarea>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">ذخیره</button>

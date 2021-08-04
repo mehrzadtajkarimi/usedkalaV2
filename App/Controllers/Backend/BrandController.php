@@ -103,13 +103,15 @@ class BrandController extends Controller
     {
         $id = $this->request->get_param('id');
         $params = $this->request->params();
-
         $files = $this->request->files();
-        if (!empty($files['brand_image']['tmp_name'])) {
-            $file = new UploadedFile('brand_image');
-            $file_url = $file->save();
-            if ($file_url) {
-                $is_update_photo = $this->photoModel->update_photo('Brand', $id, $file_url, 'brand_image');
+        $files_param             = $files['brand_image'];
+        $files_param_tmp_name    = $files_param['tmp_name'];
+        $check_file_param_exists = !empty($files_param_tmp_name[0]);
+        if ($check_file_param_exists) {
+            $file = new UploadedFile($files_param);
+            $file_paths = $file->save();
+            if ($file_paths) {
+                $is_update_photo = $this->photoModel->update_photo('Brand', $id, $file_paths[0], 'brand_image');
 
                 if ($is_update_photo) {
                     FlashMessage::add("ویرایش برند بندی موفقیت انجام شد");
@@ -118,7 +120,10 @@ class BrandController extends Controller
                 }
             }
         } else {
-            $this->brandModel->update_brand($params, $id);
+            $this->brandModel->update_brand([
+                'name'      => $params['brand-name'],
+                'sort'      => $params['brand-sort'],
+            ], $id);
             FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
         }
         return $this->request->redirect('admin/brand');
