@@ -56,13 +56,13 @@ class DiscountController extends Controller
         );
         $discount_id =  $this->discountModel->create_discount($params_create);
         foreach ($params['discount-category'] as  $value) {
-            $this->categoryDiscountModel->create([
+            $this->categoryDiscountModel->create_categoryDiscount([
                 'discount_id' => $discount_id,
                 'category_id' => $value,
             ]);
         }
         foreach ($params['discount-product'] as  $value) {
-            $this->productDiscountModel->create([
+            $this->productDiscountModel->create_productDiscount([
                 'discount_id' => $discount_id,
                 'product_id' => $value,
             ]);
@@ -81,7 +81,7 @@ class DiscountController extends Controller
 
         $data = array(
             'discount'   => $this->discountModel->read_discount($id),
-            'products'   => $this->productDiscountModel->read($id),
+            'products'   => $this->productDiscountModel->read_productDiscount($id),
             'categories' => $this->categoryModel->category_tree_for_backend(),
         );
         view('Backend.discount.edit', $data);
@@ -92,6 +92,7 @@ class DiscountController extends Controller
     {
         $params = $this->request->params();
         $id = $this->request->get_param('id');
+        // dd($params);
         $params_update = array(
             'user_id'     => Auth::is_login(),
             'start_at'    => date("Y-m-d H:i:s", $params['start_at']),
@@ -102,13 +103,13 @@ class DiscountController extends Controller
         );
         $this->discountModel->update_discount($params_update, $id);
         foreach ($params['discount-category'] as  $value) {
-            $this->categoryDiscountModel->replace([
+            $this->categoryDiscountModel->replace_categoryDiscount([
                 'discount_id' => $id,
                 'category_id' => $value,
             ], $id);
         }
         foreach ($params['discount-product'] as  $value) {
-            $this->productDiscountModel->replace([
+            $this->productDiscountModel->replace_productDiscount([
                 'discount_id' => $id,
                 'product_id' => $value,
             ], $id);

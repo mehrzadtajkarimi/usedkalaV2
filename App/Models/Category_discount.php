@@ -8,17 +8,16 @@ class Category_discount extends MysqlBaseModel
 {
     protected $table = 'category_discounts';
 
-    public $property_category_tree_for_backend  = [];
-    public $property_category_tree_for_frontend = [];
-    public $children                            = [];
-
-    public function create(array $params)
+    public function create_categoryDiscount(array $params)
     {
-        return   $this->create($params);
+        return  $this->create($params);
     }
-    public function replace(array $params, $id)
+    public function replace_categoryDiscount(array $params, $id)
     {
-        $this->delete(['discount_id' => $id]);
+        $discount_id = ['discount_id' => $id];
+        if (!empty($this->get('*', $discount_id))) {
+            $this->delete($discount_id);
+        }
         return  $this->create($params);
     }
 }
