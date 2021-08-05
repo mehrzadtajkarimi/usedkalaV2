@@ -77,12 +77,23 @@ class DiscountController extends Controller
 
     public function edit()
     {
-        $id = $this->request->get_param('id');
+        $id               = $this->request->get_param('id');
+        $categories_by_id = $this->categoryDiscountModel->read_categoryDiscount($id);
+        $products_by_id   = $this->productDiscountModel->read_productDiscount($id);
+
+        foreach ($categories_by_id as  $value) {
+            $categories_selected[] = $value['id'];
+        }
+        foreach ($products_by_id as  $value) {
+            $products_selected[] = $value['id'];
+        }
 
         $data = array(
-            'discount'   => $this->discountModel->read_discount($id),
-            'products'   => $this->productDiscountModel->read_productDiscount($id),
-            'categories' => $this->categoryModel->category_tree_for_backend(),
+            'discount'            => $this->discountModel->read_discount($id),
+            'categories'          => $this->categoryModel->category_tree_for_backend(),
+            'products'            => $this->productModel->read_product($id),
+            'products_selected'   => $products_selected,
+            'categories_selected' => $categories_selected,
         );
         view('Backend.discount.edit', $data);
     }

@@ -41,7 +41,7 @@
                     <div class="col-10">
                         <select name='discount-category[]' id="discount_category" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
                             <?php foreach ($categories as $value) : ?>
-                                <option value="<?= $value['id'] ?>" selected><?= $value['name'] ?></option>
+                                <option value="<?= $value['id'] ?>" <?= in_array($value['id'] , $categories_selected) ? 'selected' : ''  ?>><?= $value['name'] ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -53,7 +53,7 @@
                     <div class="col-10">
                         <select name="discount-product[]" id="discount_product" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
                             <?php foreach ($products as $value) : ?>
-                                <option value="<?= $value['id'] ?>" selected><?= $value['title'] ?></option>
+                                <option value="<?= $value['id'] ?>" <?= in_array($value['id'] , $products_selected) ? 'selected' : ''  ?>><?= $value['title'] ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>

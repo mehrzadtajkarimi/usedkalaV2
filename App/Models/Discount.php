@@ -19,14 +19,6 @@ class Discount extends MysqlBaseModel
         }
         return $this->first(['id' => $id]);
     }
-    public function read_discount_by_category($id = null)
-    {
-        if (is_null($id)) {
-            return $this->all();
-        }
-        return $this->get('*', ['category_id' => $id]);
-    }
-
     public function update_discount(array $params, $id)
     {
         return $this->update($params, ['id' => $id]);
@@ -36,40 +28,7 @@ class Discount extends MysqlBaseModel
     {
         return $this->delete(['id' => $id]);
     }
-    public function join_discount_to_category($id)
-    {
-        return $this->inner_join(
-            "*",
-            "categories",
-            "category_id",
-            "id",
-            "discounts.category_id=$id",
-        );
-    }
-    public function join_discount_to_photo($id)
-    {
-        return $this->inner_join(
-            "discounts.*,
-            photos.path,
-            photos.alt",
-            "photos",
-            "id",
-            "entity_id",
-            "discounts.category_id=$id",
-            "photos.type=0",
-            "photos.entity_type='discount'",
-        );
-    }
-    public function join_discount_to_brand($id)
-    {
-        return $this->inner_join(
-            "*",
-            "brands",
-            "brand_id",
-            "id",
-            "discounts.id=$id",
-        );
-    }
+
     public function join_discount__with_category_and_brand_and_photo($id)
     {
         return $this->inner_join_tree(
@@ -91,30 +50,18 @@ class Discount extends MysqlBaseModel
             "photos.entity_type='discount'",
         );
     }
-    public function join_discount__with_brand_and_photo($id)
+    public function join_discount__with_category_and_product($id)
     {
         return $this->inner_join_two(
-            "discounts.*,
-             photos.path,
-             photos.alt",                 // column
-             "brands",                     // -- table brands
-             "brand_id",                   // discounts.brand_id
-             "id",                         // brands.id
-             "photos",                    // -- table photos
-             "id",                        // discounts.id
-             "entity_id",                 // photos.entity_id
-            "photos.entity_type='discount'",
+            "*",
+             "category_discounts",
+             "id",
+             "discount_id",
+             "product_discounts",
+             "id",
+             "discount_id",
             "discounts.id=$id",
         );
     }
-    public function join_discount__with_brand($id)
-    {
-        return $this->inner_join(
-            "*",                         // column
-            "brands",                    // -- table brands
-            "brand_id",                  // discounts.brand_id
-            "id",                        // brands.id
-            "discounts.id=$id",
-        );
-    }
+
 }
