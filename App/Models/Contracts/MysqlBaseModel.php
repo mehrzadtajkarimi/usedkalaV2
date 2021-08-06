@@ -185,20 +185,33 @@ class  MysqlBaseModel extends BaseModel
         $where_3 = null
     ) {
         $query = "
-        SELECT $column FROM  $this->table
-        INNER JOIN $join_table_one
-        ON $this->table.$table_one_as = $join_table_one.$table_one_to
-        INNER JOIN $join_table_two
-        ON $this->table.$table_two_as = $join_table_two.$table_two_to
+        SELECT $column FROM $this->table
+        INNER JOIN $join_table_one t1
+        ON $this->table.$table_one_as = t1.$table_one_to
+        INNER JOIN $join_table_two t2
+        ON $this->table.$table_two_as = t2.$table_two_to
         ";
         if ($where_2) {
-            return $this->connection->query("$query AND $where_1 AND $where_2")->fetchAll();
+            $query .= "$query AND $where_1 AND $where_2";
+            // return $this->connection->query("")->fetchAll();
         }
         if ($where_3) {
-            return $this->connection->query("$query AND $where_1 AND $where_2 AND $where_3")->fetchAll();
+            $query .= "$query AND $where_1 AND $where_2 AND $where_3";
+            // return $this->connection->query()->fetchAll();
         }
-        return $this->connection->query("$query AND $where_1")->fetchAll();
+        $query ="$query AND $where_1";
+        // dd($query);
+        // dd( $this->connection->query($query)->fetchAll());
     }
+
+
+    // SELECT product.id, product.name,
+    // (SELECT group_concat(CONCAT('["',images.url, '",',  images.order_number,']')) FROM images WHERE images.product_id = product.id GROUP BY (product.id)) AS IMAGES_LIST,
+    // (SELECT GROUP_CONCAT(CONCAT('["',prices.combination, '","', prices.currency, '",', prices.price,"]" )) FROM prices WHERE prices.product_id = product.id GROUP BY (product.id)) AS PRICE_LIST,
+    // (SELECT GROUP_CONCAT(CONCAT('["',quantites.combination, '",',  quantites.quantity,"]")) FROM quantites WHERE quantites.product_id = product.id GROUP BY (product.id)) AS Quantity_LIST
+    // FROM product WHERE product.id = 1
+
+
     public function inner_join_tree(
         $column,
         $join_table_one,
@@ -216,12 +229,12 @@ class  MysqlBaseModel extends BaseModel
     ) {
         $query = "
         SELECT $column FROM  $this->table
-        INNER JOIN $join_table_one
-        ON $this->table.$table_one_as = $join_table_one.$table_one_to
-        INNER JOIN $join_table_two
-        ON $this->table.$table_two_as = $join_table_two.$table_two_to
-        INNER JOIN $join_table_tree
-        ON $this->table.$table_tree_as = $join_table_tree.$table_tree_to
+        INNER JOIN $join_table_one t1
+        ON $this->table.$table_one_as = t1.$table_one_to
+        INNER JOIN $join_table_two t2
+        ON $this->table.$table_two_as = t2.$table_two_to
+        INNER JOIN $join_table_tree t3
+        ON $this->table.$table_tree_as = t3.$table_tree_to
         ";
         if ($where_2) {
             return $this->connection->query("$query AND $where_1 AND $where_2")->fetchAll();

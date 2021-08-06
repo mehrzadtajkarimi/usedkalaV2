@@ -91,7 +91,7 @@ class DiscountController extends Controller
         $data = array(
             'discount'            => $this->discountModel->read_discount($id),
             'categories'          => $this->categoryModel->category_tree_for_backend(),
-            'products'            => $this->productModel->read_product($id),
+            'products'            => $this->productModel->read_product(),
             'products_selected'   => $products_selected,
             'categories_selected' => $categories_selected,
         );

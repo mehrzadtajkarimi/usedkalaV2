@@ -29,39 +29,17 @@ class Discount extends MysqlBaseModel
         return $this->delete(['id' => $id]);
     }
 
-    public function join_discount__with_category_and_brand_and_photo($id)
+
+    public function join_discount__with_category($id)
     {
-        return $this->inner_join_tree(
+        return $this->inner_join(
             "discounts.*,
-             photos.path,
-             photos.alt,
-             categories.name AS category_name,
-             brands.name AS brand_name", // column
-            "categories",                // -- table categories
-            "category_id",               // discounts.category_id
-            "id",                        // categories.id
-            "brands",                    // -- table brands
-            "brand_id",                  // discounts.brand_id
-            "id",                        // brands.id
-            "photos",                    // -- table photos
-            "id",                        // discounts.id
-            "entity_id",                 // photos.entity_id
-            "discounts.category_id=$id",
-            "photos.entity_type='discount'",
-        );
-    }
-    public function join_discount__with_category_and_product($id)
-    {
-        return $this->inner_join_two(
-            "*",
-             "category_discounts",
-             "id",
-             "discount_id",
-             "product_discounts",
-             "id",
-             "discount_id",
+             category_discounts.id AS category_discounts_id,
+             category_discounts.category_id",
+            "category_discounts",
+            "id",
+            "discount_id",
             "discounts.id=$id",
         );
     }
-
 }

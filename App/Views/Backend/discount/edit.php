@@ -22,7 +22,7 @@
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">کد</label>
                 <div class="col-sm-10">
-                    <input name="discount-code" type="text" class="form-control" id="inputEmail3" value="<?= $discount['code'] ?? '' ?>">
+                    <input name="discount-code" type="text" class="form-control" id="inputEmail3" value="<?= $discount['code'] ?>">
                 </div>
             </div>
             <div class="row">
@@ -59,8 +59,8 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group  row mb-5">
-                <label for="discount-description" class="col-2  col-form-label"> توضیحات</label>
+            <div class="mb-5 form-group row">
+                <label for="discount-description" class="col-2 col-form-label"> توضیحات</label>
                 <div class="col-10">
                     <textarea name="discount-description" type="text" class="form-control" id="discount-description" placeholder="" rows="2" required><?= $discount['description'] ?></textarea>
                 </div>
