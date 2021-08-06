@@ -73,14 +73,6 @@ function xss_clean($str)
 }
 
 
-function dd($args_1, $args_2 = NULL, $args_3 = NULL, $args_4 = NULL, $args_5 = NULL)
-{
-    echo "<pre  style='background:#FF5722; border-radius: 10px; padding: 10PX;'>";
-    var_dump($args_1, $args_2, $args_3, $args_4, $args_5);
-    echo "</pre>";
-    die();
-}
-
 function include_data($full_path_view, $data)
 {
 

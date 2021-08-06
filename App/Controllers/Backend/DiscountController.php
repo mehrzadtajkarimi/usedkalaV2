@@ -81,19 +81,23 @@ class DiscountController extends Controller
         $categories_by_id = $this->categoryDiscountModel->read_categoryDiscount($id);
         $products_by_id   = $this->productDiscountModel->read_productDiscount($id);
 
-        foreach ($categories_by_id as  $value) {
-            $categories_selected[] = $value['id'];
+        if ($categories_by_id) {
+            foreach ($categories_by_id as  $value) {
+                $categories_selected[] = $value['id'];
+            }
         }
-        foreach ($products_by_id as  $value) {
-            $products_selected[] = $value['id'];
+        if ($products_by_id) {
+            foreach ($products_by_id as  $value) {
+                $products_selected[] = $value['id'];
+            }
         }
 
         $data = array(
             'discount'            => $this->discountModel->read_discount($id),
             'categories'          => $this->categoryModel->category_tree_for_backend(),
             'products'            => $this->productModel->read_product(),
-            'products_selected'   => $products_selected,
-            'categories_selected' => $categories_selected,
+            'products_selected'   => $products_selected ?? [],
+            'categories_selected' => $categories_selected ?? [],
         );
         view('Backend.discount.edit', $data);
     }
@@ -103,7 +107,6 @@ class DiscountController extends Controller
     {
         $params = $this->request->params();
         $id = $this->request->get_param('id');
-        // dd($params);
         $params_update = array(
             'user_id'     => Auth::is_login(),
             'start_at'    => date("Y-m-d H:i:s", $params['start_at']),
@@ -113,17 +116,25 @@ class DiscountController extends Controller
             'percent'     => $params['discount-percent'],
         );
         $this->discountModel->update_discount($params_update, $id);
-        foreach ($params['discount-category'] as  $value) {
-            $this->categoryDiscountModel->replace_categoryDiscount([
-                'discount_id' => $id,
-                'category_id' => $value,
-            ], $id);
+
+
+        if (!empty($params['discount-category'])) {
+            $this->categoryDiscountModel->delete_categoryDiscount_by_discount_id($id);
+            foreach ($params['discount-category'] as  $category_id) {
+                $this->categoryDiscountModel->create_categoryDiscount([
+                    'discount_id' => $id,
+                    'category_id' => $category_id,
+                ]);
+            }
         }
-        foreach ($params['discount-product'] as  $value) {
-            $this->productDiscountModel->replace_productDiscount([
-                'discount_id' => $id,
-                'product_id' => $value,
-            ], $id);
+        if (!empty($params['discount-product'])) {
+            $this->productDiscountModel->delete_productDiscount_by_category_id($id);
+            foreach ($params['discount-product'] as  $value) {
+                $this->productDiscountModel->create_productDiscount([
+                    'discount_id' => $id,
+                    'product_id' => $value,
+                ], $id);
+            }
         }
         FlashMessage::add("مقادیر باموفقیت  ضمیمه شد و با موفقیت در دیتابیس ذخیره شد");
         return $this->request->redirect('admin/discount');
@@ -134,14 +145,16 @@ class DiscountController extends Controller
     {
         $id = $this->request->get_param('id');
 
-        $is_deleted_product = $this->productModel->delete_product($id);
-        $is_deleted_category = $this->categoryModel->delete_category($id);
-        if ($is_deleted_product && $is_deleted_category) {
+        $is_deleted_categoryDiscount=   $this->categoryDiscountModel->delete_categoryDiscount_by_discount_id($id);
+        $is_deleted_productDiscount=  $this->productDiscountModel->delete_productDiscount_by_category_id($id);
+        $is_deleted_discount=  $this->discountModel->delete_discount($id);
+
+        if ($is_deleted_categoryDiscount && $is_deleted_productDiscount && $is_deleted_discount) {
             # code...
             FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
-            return $this->request->redirect('admin/product');
+            return $this->request->redirect('admin/discount');
         }
         FlashMessage::add(" مشکلی در حذف محصول پیش آمده است", FlashMessage::ERROR);
-        return $this->request->redirect('admin/product');
+        return $this->request->redirect('admin/discount');
     }
 }

@@ -7,6 +7,10 @@ use App\Models\Contracts\MysqlBaseModel;
 class Product_discount extends MysqlBaseModel
 {
     protected $table = 'product_discounts';
+    public function delete_productDiscount_by_category_id($category_id)
+    {
+        return   $this->delete(['discount_id' => $category_id]);
+    }
 
     public function create_productDiscount(array $params)
     {

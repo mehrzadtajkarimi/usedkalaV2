@@ -30,7 +30,7 @@
                     <div class="form-group row">
                         <label class="col-2 col-form-label" for="discount-percent">میزان تخفیف %</label>
                         <div class="col-10">
-                            <input name="discount-percent" type="number" class="form-control" id="discount-percent" value="<?= $discount['percent'] ?? '' ?>" placeholder="" required>
+                            <input name="discount-percent"  maxlength="3" type="text" class="form-control" id="discount-percent" value="<?= $discount['percent'] ?? '' ?>" placeholder="" required>
                         </div>
                     </div>
                 </div>
