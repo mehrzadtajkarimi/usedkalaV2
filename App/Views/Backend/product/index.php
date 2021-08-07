@@ -44,12 +44,6 @@
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="product-sale" class="col-2 col-form-label"> % تخفیف </label>
-                        <div class="col-10">
-                          <input name="product-sale" type="number" class="form-control" id="product-sale" placeholder="" required>
-                        </div>
-                      </div>
-                      <div class="form-group row">
                         <label for="product-quantity" class="col-2 col-form-label"> موجودی </label>
                         <div class="col-10">
                           <input name="product-quantity" type="number" class="form-control" id="product-quantity" placeholder="" required>
