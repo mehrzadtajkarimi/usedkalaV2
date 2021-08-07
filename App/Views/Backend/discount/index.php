@@ -144,12 +144,12 @@
                       <i class="fa fa-folder-open fa-2x text-muted" aria-hidden="true"></i>
                     </a>
                   </td>
-                  <td class="text-center">
-                    <a href="<?= base_url() ?>admin/discount/<?= $value['id'] ?>/edit" class="shadow-sm btn btn-warning btn-sm p-0 pr-2 pl-2" style=" border-radius: 18px;">ویــرایـش</a>
-                    <form method="post" action="<?= base_url() ?>admin/discount/<?= $value['id'] ?>" class="d-inline">
-                      <input type="hidden" name="_method" value="delete" />
-                      <input type="submit" class="shadow-sm btn btn-danger btn-sm p-0 pr-2 pl-2" style="border-radius: 18px;" onclick="return confirm('آیا برای حذف اطلاعات اطمینان دارید');" value="حـــــــذف">
-                    </form>
+                  <td class="text-center ">
+                      <a href="<?= base_url() ?>admin/discount/<?= $value['id'] ?>/edit" class=" shadow-sm btn btn-warning btn-sm p-0 pr-2 pl-2" style=" border-radius: 18px;">ویــرایـش</a>
+                      <form method="post" action="<?= base_url() ?>admin/discount/<?= $value['id'] ?>" class="d-inline">
+                        <input type="hidden" name="_method" value="delete" />
+                        <input type="submit" class=" shadow-sm btn btn-danger btn-sm p-0 pr-2 pl-2" style="border-radius: 18px;" onclick="return confirm('آیا برای حذف اطلاعات اطمینان دارید');" value="حــــــــذف">
+                      </form>
                   </td>
                 </tr>
               <?php

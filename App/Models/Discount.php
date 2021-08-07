@@ -45,13 +45,16 @@ class Discount extends MysqlBaseModel
 
     public function join_discount__with_productDiscounts_products()
     {
-       return $this->connection->query("
-        SELECT * FROM discounts
-        INNER JOIN product_discounts 
+        return $this->connection->query("
+        SELECT 
+        discounts.*,
+        products.title AS products_title,
+        products.price AS products_price
+         FROM discounts
+        INNER JOIN product_discounts
         ON discounts.id = product_discounts.discount_id
         INNER JOIN products
         ON product_discounts.product_id = products.id
         ")->fetchAll();
-
     }
 }

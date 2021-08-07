@@ -26,9 +26,9 @@ class HomeController extends Controller
     {
 
 
-        // echo '<br><hr><pre style="background:#FF5722; border-radius: 10px; padding: 20PX">';
-        // var_dump($this->discountModel->join_discount__with_productDiscounts_products());
-        // die('LINE' .' => '. __LINE__ . PHP_EOL .'FILE' .' => '. __FILE__ );
+        echo '<br><hr><pre style="background:#FF5722; border-radius: 10px; padding: 20PX">';
+        var_dump($this->discountModel->join_discount__with_productDiscounts_products());
+        die('LINE' .' => '. __LINE__ . PHP_EOL .'FILE' .' => '. __FILE__ );
 
         $data = array(
             'bestsellers'=>[],
