@@ -21,7 +21,7 @@
             <div class=" form-group row">
                     <label for="description" class="col-2 col-form-label"> درباره دسته بندی </label>
                     <div class="col-10">
-                        <textarea name="description" type="text" class="form-control" id="description"  placeholder="<?= $category['description'] ?? '' ?>" rows="3" required></textarea>
+                        <textarea name="description" type="text" class="form-control" id="description"  placeholder="" rows="3" required><?= $category['description'] ?></textarea>
                     </div>
                 </div>
                 <div class="pt-2 pb-2 form-check">

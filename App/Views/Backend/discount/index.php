@@ -43,7 +43,7 @@
                         <div class="col">
                           <div class="form-group ">
                             <label for="discount-percent">میزان تخفیف %</label>
-                            <input name="discount-percent" type="number" class="form-control" id="discount-percent" placeholder="" required>
+                            <input name="discount-percent" type="text" maxlength="3" class="form-control" id="discount-percent" placeholder="" required>
                           </div>
                         </div>
                       </div>
