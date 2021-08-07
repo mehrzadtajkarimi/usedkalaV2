@@ -42,4 +42,16 @@ class Discount extends MysqlBaseModel
             "discounts.id=$id",
         );
     }
+
+    public function join_discount__with_productDiscounts_products()
+    {
+       return $this->connection->query("
+        SELECT * FROM discounts
+        INNER JOIN product_discounts 
+        ON discounts.id = product_discounts.discount_id
+        INNER JOIN products
+        ON product_discounts.product_id = products.id
+        ")->fetchAll();
+
+    }
 }

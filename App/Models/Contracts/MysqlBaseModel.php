@@ -63,7 +63,7 @@ class  MysqlBaseModel extends BaseModel
         return $this->get('*');
     }
 
-    public function  get($columns, array $where = null): array
+    public function  get($columns = '*', array $where = null): array
     {
         // start pagination ***to  url -> ?page=1
         $page    = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 1;
@@ -85,8 +85,8 @@ class  MysqlBaseModel extends BaseModel
     public function update(array $data, array $where): int
     {
         try {
-        $result = $this->connection->update($this->table, $data, $where);
-        return $result->rowCount();
+            $result = $this->connection->update($this->table, $data, $where);
+            return $result->rowCount();
         } catch (\PDOException $e) {
             echo '<h1>مشکلی در ارتباط با دیتابیس رخ داد </h1>';
         }
@@ -192,16 +192,12 @@ class  MysqlBaseModel extends BaseModel
         ON $this->table.$table_two_as = t2.$table_two_to
         ";
         if ($where_2) {
-            $query .= "$query AND $where_1 AND $where_2";
-            // return $this->connection->query("")->fetchAll();
+            return $this->connection->query("$query AND $where_1 AND $where_2")->fetchAll();
         }
         if ($where_3) {
-            $query .= "$query AND $where_1 AND $where_2 AND $where_3";
-            // return $this->connection->query()->fetchAll();
+            return $this->connection->query("$query AND $where_1 AND $where_2 AND $where_3")->fetchAll();
         }
-        $query ="$query AND $where_1";
-        // dd($query);
-        // dd( $this->connection->query($query)->fetchAll());
+        return   $this->connection->query("$query AND $where_1")->fetchAll();
     }
 
 

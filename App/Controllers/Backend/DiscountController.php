@@ -51,8 +51,10 @@ class DiscountController extends Controller
             'start_at'    => date("Y-m-d H:i:s", $params['start_at']),
             'finish_at'   => date("Y-m-d H:i:s", $params['finish_at']),
             'code'        => $params['code'],
+            'title'       => $params['discount-title'],
             'description' => $params['discount-description'],
             'percent'     => $params['discount-percent'],
+            'status'      => $params['product-status'] ?? 0,
         );
         $discount_id =  $this->discountModel->create_discount($params_create);
         foreach ($params['discount-category'] as  $value) {
@@ -107,13 +109,19 @@ class DiscountController extends Controller
     {
         $params = $this->request->params();
         $id = $this->request->get_param('id');
+
+
+
+        
         $params_update = array(
             'user_id'     => Auth::is_login(),
             'start_at'    => date("Y-m-d H:i:s", $params['start_at']),
             'finish_at'   => date("Y-m-d H:i:s", $params['finish_at']),
             'code'        => $params['discount-code'],
+            'title'       => $params['discount-title'],
             'description' => $params['discount-description'],
             'percent'     => $params['discount-percent'],
+            'status'      => $params['discount-status']== 'on'? 1 : 0,
         );
         $this->discountModel->update_discount($params_update, $id);
 

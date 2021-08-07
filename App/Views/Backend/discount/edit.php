@@ -28,9 +28,19 @@
             <div class="row">
                 <div class="col">
                     <div class="form-group row">
+                        <label for="discount-title" class="col-sm-2 col-form-label">موضوع</label>
+                        <div class="col-sm-10">
+                            <input name="discount-title" type="text" class="form-control" id="discount-title" value="<?= $discount['title'] ?>" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group row">
                         <label class="col-2 col-form-label" for="discount-percent">میزان تخفیف %</label>
                         <div class="col-10">
-                            <input name="discount-percent"  maxlength="3" type="text" class="form-control" id="discount-percent" value="<?= $discount['percent'] ?? '' ?>" placeholder="" required>
+                            <input name="discount-percent" maxlength="3" type="text" class="form-control" id="discount-percent" value="<?= $discount['percent'] ?? '' ?>" placeholder="" required>
                         </div>
                     </div>
                 </div>
@@ -41,7 +51,7 @@
                     <div class="col-10">
                         <select name='discount-category[]' id="discount_category" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
                             <?php foreach ($categories as $value) : ?>
-                                <option value="<?= $value['id'] ?>" <?= in_array($value['id'] , $categories_selected) ? 'selected' : ''  ?>><?= $value['name'] ?></option>
+                                <option value="<?= $value['id'] ?>" <?= in_array($value['id'], $categories_selected) ? 'selected' : ''  ?>><?= $value['name'] ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -53,7 +63,7 @@
                     <div class="col-10">
                         <select name="discount-product[]" id="discount_product" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
                             <?php foreach ($products as $value) : ?>
-                                <option value="<?= $value['id'] ?>" <?= in_array($value['id'] , $products_selected) ? 'selected' : ''  ?>><?= $value['title'] ?></option>
+                                <option value="<?= $value['id'] ?>" <?= in_array($value['id'], $products_selected) ? 'selected' : ''  ?>><?= $value['title'] ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -64,6 +74,12 @@
                 <div class="col-10">
                     <textarea name="discount-description" type="text" class="form-control" id="discount-description" placeholder="" rows="2" required><?= $discount['description'] ?></textarea>
                 </div>
+            </div>
+            <div class="pt-1 pb-4 form-check disabled ">
+                <input name="discount-status" type="checkbox" class="form-check-input " id="discount-status" <?= $discount['status'] == 1 ? 'checked' : ''  ?>>
+                <label class="form-check-label" for="discount-status">
+                    وضعیت
+                </label>
             </div>
             <button type="submit" class="btn btn-primary">ذخیره</button>
             <a href="<?= base_url() ?>admin/discount" class="btn btn-danger">انصراف</a>
