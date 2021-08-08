@@ -28,23 +28,30 @@ class Photo extends MysqlBaseModel
         }
         return $this->first(['entity_id' => $id]);
     }
-    public function read_photo_by_id($entity_id, $entity_type)
+    public function read_photo_by_id($entity_id, $entity_type, $first_photo_type_by_0 = FALSE)
     {
+        if ($first_photo_type_by_0 === FALSE) {
+            return   $this->connection->select("photos", "*",  [
+                'entity_id'   => $entity_id,
+                'entity_type' => $entity_type,
+            ], ["ORDER" => "ASC"]);
+        }
         return   $this->connection->select("photos", "*",  [
-            'entity_id' => $entity_id,
+            'entity_id'   => $entity_id,
             'entity_type' => $entity_type,
-        ],["ORDER"=>"ASC"]);
+            'type'        => 0,
+        ], ["ORDER" => "ASC"]);
     }
-    public function read_single_photo_by_id($type,$entity_id, $entity_type)
+    public function read_single_photo_by_id($type, $entity_id, $entity_type)
     {
         return   $this->connection->select("photos", "*",  [
-            'type' => $type,
-            'entity_id' => $entity_id,
+            'type'        => $type,
+            'entity_id'   => $entity_id,
             'entity_type' => $entity_type,
         ]);
     }
 
-    public function update_photo(string $entity_type, int $entity_id, $file_path, string $name,int $type = 0)
+    public function update_photo(string $entity_type, int $entity_id, $file_path, string $name, int $type = 0)
     {
         return $this->update_create([
             'entity_type' => $entity_type,

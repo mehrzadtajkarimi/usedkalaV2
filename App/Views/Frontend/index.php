@@ -202,22 +202,22 @@
                                         <div class="container-fluid">
                                             <div class="woocommerce">
                                                 <div class="products">
-                                                    <?php foreach ($discounts as $value): ?>
+                                                    <?php foreach ($productDiscounts as $value) : ?>
                                                         <div class="product">
                                                             <div class="yith-wcwl-add-to-wishlist">
                                                                 <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                             </div>
-                                                            <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                                <img src="<?= asset_url() ?>Frontend/images/products/11.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                            <a href="<?= base_url() .'product/'.$value['products_id'] ?>" class="woocommerce-LoopProduct-link">
+                                                                <img src="<?= $value['photo']['path'] ?>" width="224" height="197" class="wp-post-image" alt="<?= $value['photo']['alt'] ?>">
                                                                 <span class="price">
                                                                     <ins>
                                                                         <span class="amount" dircetion="rtl"> </span>
                                                                     </ins>
-                                                                    <span class="amount" dircetion="rtl"> 20,000,000 ریال</span>
+                                                                    <span class="amount" dircetion="rtl"><?= $value['products_price'] ?> ریال</span>
                                                                 </span>
                                                                 <!-- /.price -->
                                                                 <h2 class="woocommerce-loop-product__title">
-                                                                    سویچ سیسکو مدل Catalyst 9600 Series
+                                                                    <?= $value['products_title'] ?>
                                                                 </h2>
                                                             </a>
                                                             <div class="hover-area">
