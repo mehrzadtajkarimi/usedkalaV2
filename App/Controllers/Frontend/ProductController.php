@@ -5,18 +5,21 @@ namespace App\Controllers\Frontend;
 use App\Controllers\Controller;
 use App\Models\Photo;
 use App\Models\Product;
+use App\Models\Product_discount;
 use App\Utilities\FlashMessage;
 
 class ProductController extends Controller
 {
     private $productModel;
     private $photoModel;
+    private $ProductDiscountModel;
 
     public function __construct()
     {
         parent::__construct();
-        $this->productModel = new Product();
-        $this->photoModel = new Photo();
+        $this->productModel         = new Product();
+        $this->photoModel           = new Photo();
+        $this->ProductDiscountModel = new Product_discount();
     }
 
     public function index()
@@ -41,15 +44,17 @@ class ProductController extends Controller
 
     public function show()
     {
-        $id      = $this->request->get_param('id');
-        $product = $this->productModel->join_product__with_brand($id);
-        $photos  = $this->photoModel->read_photo_by_id($id, 'Product');
-        $photo   = $this->photoModel->read_single_photo_by_id('0', $id, 'Product');
-        // dd($photo);
+        $id       = $this->request->get_param('id');
+
+        $photos   = $this->photoModel->read_photo_by_id($id, 'Product');
+        $photo    = $this->photoModel->read_single_photo_by_id('0', $id, 'Product')[0];
+        $productDiscounts = $this->productModel->join_product__with_productDiscounts_discounts($id)[0];
+        $product  = $this->productModel->read_product($id);
+
         $data    = array(
-            'product' => $product[0],
-            'photos' => $photos,
-            'photo' => $photo[0],
+            'product'  => $productDiscounts ?? $product,
+            'photos'   => $photos,
+            'photo'    => $photo,
         );
         return view('Frontend.product.show', $data);
     }

@@ -65,11 +65,13 @@
                     <div class="product-actions-wrapper">
                         <div class="product-actions">
                             <p class="price" dir="rtl">
+                                <?php if($product['discounts_status']): ?>
                                 <del>
-                                    <!-- <span class="woocommerce-Price-amount amount">10000000 ریال</span> -->
-                                </del>
-                                <ins>
                                     <span class="woocommerce-Price-amount amount"><?= $product['price'] ?> ریال</span>
+                                </del>
+                                <?php endif; ?>
+                                <ins>
+                                    <span class="woocommerce-Price-amount amount"><?= round($product['price'] / $product['discounts_percent'] - $product['price'], 0, PHP_ROUND_HALF_UP) ?>ریال</span>
                                 </ins>
                             </p>
                             <!-- .single-product-header -->

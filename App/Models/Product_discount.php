@@ -25,17 +25,15 @@ class Product_discount extends MysqlBaseModel
         return  $this->create($params);
     }
 
-    public function read_productDiscount($id = null)
+    public function read_productDiscount($discount_id = null)
     {
-        if (is_null($id)) {
-            $product_ids =  $this->get();
-            foreach ($product_ids as $value) {
-                $products[]= $this->connection->select('products','*', ['id' => $value['product_id']]);
-                $discounts[]= $this->connection->select('discounts','*', ['id' => $value['discount_id']]);
-            }
-        }
-        $product_id =  $this->get('product_id', ['discount_id' => $id]);
+        $product_id =  $this->get('product_id', ['discount_id' => $discount_id]);
         return $this->connection->select('products',['id', 'title'], ['id' => $product_id]);
+    }
+
+    public function read_productDiscount_by_product_id(int $product_id)
+    {
+        return $this->has(['product_id' => $product_id]);
     }
 
 

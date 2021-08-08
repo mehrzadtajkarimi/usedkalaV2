@@ -70,6 +70,29 @@ class Product extends MysqlBaseModel
             "products.id=$id",
         );
     }
+
+    public function join_product__with_productDiscounts_discounts($id)
+    {
+        $exists_productDiscount_by_product_id = (new Product_discount())->read_productDiscount_by_product_id($id);
+        if ($exists_productDiscount_by_product_id) {
+            return $this->connection->query("
+                SELECT
+                products.*,
+                discounts.title AS discounts_title,
+                discounts.percent AS discounts_percent,
+                discounts.id AS discounts_id,
+                discounts.status AS discounts_status
+                FROM products
+                INNER JOIN product_discounts
+                ON products.id = product_discounts.product_id
+                INNER JOIN discounts
+                ON product_discounts.product_id = products.id
+                AND products.id =$id
+                ")->fetchAll();
+        }
+        return false;
+    }
+
     public function join_product__with_category_and_brand_and_photo($id)
     {
         return $this->inner_join_tree(
