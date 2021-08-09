@@ -7,31 +7,30 @@ use App\Services\Basket\Contract\BasketContract;
 class SessionProvider implements BasketContract
 {
     public static $instance = null;
+    public static function instance()
+    {
+        if (is_null(self::$instance)) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
 
-    public  function __construct()
+    private  function __construct()
     {
         if (!$this->count()) {
             $_SESSION['cart'] = array();
         }
     }
 
-
-    public static function instance()
+    public function add(array $item)
     {
-        if (is_null(self::$instance)) {
-            self::$instance = new self();
-        }
-        return self:: $instance;
-    }
+        $count = $_SESSION['cart'][$item['id']]['count']  ?? 0;
 
-
-    public function add($item)
-    {
-        $count = $_SESSION['cart'][$item->id]->count  ?? 0;
-        if ($this->item_exists($item->id)) {
-            $_SESSION['cart'][$item->id] = $item;
+        if ($this->item_exists($item['id'])) {
+            $_SESSION['cart'][$item['id']] = $item;
         }
-        $_SESSION['cart'][$item->id]->count = ++$count;
+
+        $_SESSION['cart'][$item['id']]['count'] = ++$count;
     }
 
 
@@ -47,7 +46,7 @@ class SessionProvider implements BasketContract
     {
         $total_price = 0;
         foreach ($this->items() as $item) {
-            $total_price += $item->price * $item->count ;
+            $total_price += $item['price'] * $item['count'];
         }
         return $total_price;
     } //total contract

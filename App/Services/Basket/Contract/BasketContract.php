@@ -4,7 +4,7 @@ namespace App\Services\Basket\Contract;
 
 interface   BasketContract
 {
-    public function add(object $item);
+    public function add(array $item);
     public function remove(int $item_id);
     public function total(); //total contract
     public function reset();

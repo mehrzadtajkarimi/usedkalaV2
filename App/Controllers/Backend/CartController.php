@@ -9,30 +9,30 @@ use App\Models\Category;
 use App\Models\Category_cart;
 use App\Models\cart;
 use App\Services\Auth\Auth;
+use App\Services\Basket\Basket;
 use App\Utilities\FlashMessage;
 
 class CartController extends Controller
 {
+
     private $productModel;
-    private $categoryModel;
     private $cartModel;
 
 
     public function __construct()
     {
         parent::__construct();
-        $this->productModel  = new Product();
-        $this->categoryModel = new Category();
-        $this->cartModel = new cart();
+
+        $this->productModel = new Product();
+        $this->cartModel    = new cart();
 
     }
 
     public function index()
     {
         $data = array(
-            'products'          => $this->productModel->read_product(),
-            'carts'         => $this->cartModel->read_cart(),
-            'categories'        => $this->categoryModel->category_tree_for_backend(),
+            'products' => $this->productModel->read_product(),
+            'carts'    => $this->cartModel->read_cart(),
         );
         view('Backend.cart.index', $data);
     }

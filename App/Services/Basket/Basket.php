@@ -2,7 +2,7 @@
 
 namespace App\Services\Basket;
 
-use App\contracts\Facade;
+use App\Core\Contracts\Facade;
 use App\Services\Basket\providers\SessionProvider;
 
 class Basket extends Facade
