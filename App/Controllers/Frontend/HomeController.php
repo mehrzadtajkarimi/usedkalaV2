@@ -10,10 +10,8 @@ use App\Models\Product_discount;
 
 class HomeController extends Controller
 {
-    private $productModel;
     private $discountModel;
     private $photoModel;
-    private $product_discountModel;
     public function __construct()
     {
         parent::__construct();

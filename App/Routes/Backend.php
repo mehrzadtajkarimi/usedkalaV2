@@ -74,4 +74,13 @@ Route::group(function () {
     Route::delete('/admin/discount/{id}', 'DiscountController@destroy');
 });
 
+Route::group(function () {
+    Route::get('/admin/cart', 'CartController@index');
+    Route::get('/admin/cart/create', 'CartController@create');
+    Route::post('/admin/cart', 'CartController@store');
+    Route::get('/admin/cart/{id}/edit', 'CartController@edit');
+    Route::patch('/admin/cart/{id}', 'CartController@update');
+    Route::delete('/admin/cart/{id}', 'CartController@destroy');
+});
+
 
