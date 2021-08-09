@@ -22,6 +22,12 @@ class SessionProvider implements BasketContract
         }
     }
 
+
+    public function items()
+    {
+        return $_SESSION['cart'] ?? array();
+    }
+
     public function add(array $item)
     {
         $count = $_SESSION['cart'][$item['id']]['count']  ?? 0;
@@ -60,11 +66,6 @@ class SessionProvider implements BasketContract
         }
     }
 
-
-    public function items()
-    {
-        return $_SESSION['cart'] ?? array();
-    }
 
 
     public function count()
