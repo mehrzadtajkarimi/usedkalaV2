@@ -7,13 +7,6 @@ use App\Services\Basket\Contract\BasketContract;
 class SessionProvider implements BasketContract
 {
     public static $instance = null;
-    public static function instance()
-    {
-        if (is_null(self::$instance)) {
-            self::$instance = new self();
-        }
-        return self::$instance;
-    }
 
     private  function __construct()
     {
@@ -22,6 +15,13 @@ class SessionProvider implements BasketContract
         }
     }
 
+    public static function instance()
+    {
+        if (is_null(self::$instance)) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
 
     public function items()
     {

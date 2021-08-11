@@ -80,9 +80,6 @@ Route::group(function () {
     Route::delete('/admin/cart/destroy/{id}', 'CartController@destroy');
 });
 
-Route::group(function () {
-    Route::post('/payment', 'PayController@pay');
-    Route::get('/payment-verification', 'PayController@verify');
-});
+
 
 

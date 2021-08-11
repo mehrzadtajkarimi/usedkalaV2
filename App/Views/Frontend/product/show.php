@@ -79,7 +79,7 @@
                                 <?php endif; ?>
                             </p>
                             <!-- .single-product-header -->
-                            <form enctype="multipart/form-data" method="post" class="cart">
+                            <form accept="<?= base_url()?>payment" enctype="multipart/form-data" method="post" class="cart">
                                 <div class="row">
                                     <div class="col-3 quantity">
                                         <label for="quantity-input">تعداد</label>

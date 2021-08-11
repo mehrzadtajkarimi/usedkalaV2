@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\Backend;
+namespace App\Controllers\Frontend;
 
 use App\Controllers\Controller;
 use App\Services\Payment\Online\OnlinePayment;

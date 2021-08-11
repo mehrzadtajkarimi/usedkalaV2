@@ -36,3 +36,8 @@ Route::group(function () {
     Route::get('/product/{id}', 'ProductController@show');
     Route::get('/product/category/{id}', 'ProductController@index');
 });
+
+Route::group(function () {
+    Route::post('/payment', 'PayController@pay');
+    Route::get('/payment-verification', 'PayController@verify');
+});

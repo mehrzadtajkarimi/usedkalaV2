@@ -5,20 +5,15 @@ namespace App\Controllers\Frontend;
 use App\Controllers\Controller;
 use App\Core\Request;
 use App\Models\Product;
-use App\Services\Basket\Providers\SessionProvider;
+use App\Services\Basket\Basket;
 
 class CartController  extends Controller
 {
-    public $basket;
 
-    public function __construct()
-    {
-        $this->basket = new SessionProvider();
-    }
 
     public function index()
     {
-        $cart_items = $this->basket->items();
+        $cart_items =Basket::items();
         $data = array(
             'cart_items' => $cart_items
         );
@@ -31,7 +26,7 @@ class CartController  extends Controller
         $product_model = new Product();
         $product = $product_model->get('*', ['id' => $this->request->id]);
         if ($product) {
-            $this->basket->add($product_model);
+            $this->basket->add($product);
         }
         Request::redirect('cart');
     }
