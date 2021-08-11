@@ -99,11 +99,28 @@
                                             </table>
                                             <!-- .shop_table shop_table_responsive -->
                                             <div class="wc-proceed-to-checkout">
-   
-                                                <!-- .wc-proceed-to-checkout -->
-                                                <a class="checkout-button button alt wc-forward" href="checkout.html">ادامه پرداخت</a>
-                                                <a class="back-to-shopping" href="shop.html">بازگشت به فروشگاه</a>
-                                            </div>
+
+
+                                                <form action="<?= base_url('payment') ?>" method="post">
+                                                    <div class='comments pay-type'>
+                                                        <label for="pay-w">
+                                                            <input type="radio" id="pay-w" name="payType" value='Wallet'> پرداخت کیف پول
+                                                        </label>
+                                                        &nbsp; &nbsp; &nbsp; &nbsp;
+                                                        <label for="pay-o">
+                                                            <input type="radio" id="pay-o" name="payType" value='Online' > پرداخت آنلاین
+                                                        </label>
+                                                        &nbsp; &nbsp; &nbsp; &nbsp;
+                                                        <label for="pay-o">
+                                                            <input type="radio" id="pay-o" name="payType" value='COD' checked> پرداخت در محل
+                                                        </label>
+                                                    </div>
+                                                    <div class='cart-buttons'>
+                                                        <button type='submit' class='checkout-button button alt wc-forward'>پرداخت نهایی</button>
+                                                        <a class='back-to-shopping' href="<?= base_url('') ?>">ادامه خرید</a>
+                                                    </div>
+                                                </form>
+                                              </div>
                                             <!-- .wc-proceed-to-checkout -->
                                         </div>
                                         <!-- .cart_totals -->

@@ -25,7 +25,6 @@ use App\Middleware\Gate;
 Route::group(function () {
 
     Route::get('/', 'HomeController@index');
-    Route::get('/cart', 'CartController@index');
 });
 
 Route::group(function () {
@@ -40,4 +39,10 @@ Route::group(function () {
 Route::group(function () {
     Route::post('/payment', 'PayController@pay');
     Route::get('/payment-verification', 'PayController@verify');
+});
+
+Route::group(function () {
+    Route::get('/cart', 'CartController@index');
+    Route::post('/cart/add/{id}', 'CartController@add');
+    Route::get('/cart/remove', 'CartController@remove');
 });

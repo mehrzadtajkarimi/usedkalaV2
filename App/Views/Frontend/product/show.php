@@ -79,11 +79,11 @@
                                 <?php endif; ?>
                             </p>
                             <!-- .single-product-header -->
-                            <form accept="<?= base_url()?>payment" enctype="multipart/form-data" method="post" class="cart">
+                            <form action="<?= base_url()?>cart/add/<?= $product['id'] ?>" enctype="multipart/form-data" method="post" class="cart">
                                 <div class="row">
                                     <div class="col-3 quantity">
                                         <label for="quantity-input">تعداد</label>
-                                        <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" id="quantity-input">
+                                        <input name="product_quantity"  type="number" size="4" class="input-text qty text" title="Qty" value="1" id="quantity-input">
                                     </div>
                                     <!-- .quantity -->
                                     <button class="col-4 btn btn-outline-success" name="add-to-cart" type="submit">افزودن به سبد خرید</button>

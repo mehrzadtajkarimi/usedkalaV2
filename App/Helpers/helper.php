@@ -73,9 +73,9 @@ function xss_clean($str)
 }
 
 function dd($categoryLevelTwo){
-    echo '<br><pre style="background:#FF5722; border-radius: 10px; padding: 20PX">';
+    echo '<pre style="background:#FF5722; border-radius: 10px; padding: 20PX">';
     var_dump($categoryLevelTwo  );
-    die('REQUEST_URI' .' => '. $_SERVER['REQUEST_URI'] );
+    die();
 }
 
 function include_data($full_path_view, $data)

@@ -23,17 +23,23 @@ class CartController  extends Controller
 
     public function add()
     {
+        $product_id = $this->request->get_param('id');
+        $params = $this->request->params();
+
+        
+        
         $product_model = new Product();
-        $product = $product_model->get('*', ['id' => $this->request->id]);
+        $product = $product_model->first(['id' => $product_id]);
         if ($product) {
-            $this->basket->add($product);
+            Basket::add($product);
         }
+        dd($_SESSION['cart']);
         Request::redirect('cart');
     }
 
     public function remove()
     {
-        $this->basket->remove($this->request->id);
+        Basket::remove($this->request->id);
         Request::redirect('cart');
     }
 }
