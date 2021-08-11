@@ -46,15 +46,15 @@ class ProductController extends Controller
     {
         $id       = $this->request->get_param('id');
 
-        $photos   = $this->photoModel->read_photo_by_id($id, 'Product');
-        $photo    = $this->photoModel->read_single_photo_by_id('0', $id, 'Product')[0];
-        $productDiscounts = $this->productModel->join_product__with_productDiscounts_discounts($id)[0];
-        $product  = $this->productModel->read_product($id);
-
+        $photos          = $this->photoModel->read_photo_by_id($id, 'Product');
+        $photo           = $this->photoModel->read_single_photo_by_id('0', $id, 'Product')[0];
+        $product         = $this->productModel->read_product($id);
+        $productDiscount = $this->productModel->join_product__with_productDiscounts_discounts($id)[0]??'' ;
+        // dd(empty($productDiscount) ? $product : $productDiscount['discounts_status']);
         $data    = array(
-            'product'  => $productDiscounts ?? $product,
-            'photos'   => $photos,
-            'photo'    => $photo,
+            'product'          => empty($productDiscount) ? $product : $productDiscount,
+            'photos'           => $photos,
+            'photo'            => $photo,
         );
         return view('Frontend.product.show', $data);
     }

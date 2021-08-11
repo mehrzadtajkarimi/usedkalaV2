@@ -35,11 +35,9 @@ class CategoryController extends Controller
 
         $description = $this->categoryModel->read_category($parent_id);
         $categories  = $this->categoryModel->category_tree_for_frontend($parent_id);
-        $products    = $this->productModel->join_product_to_photo($parent_id);
         if (is_array($categories)) {
             $data = array(
                 'categories'  => $categories,
-                'products'    => $products,
                 'description' => $description,
             );
             return view('Frontend.category.show', $data);

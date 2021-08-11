@@ -11,7 +11,7 @@
                                     <figure class="woocommerce-product-gallery__wrapper ">
                                         <div data-thumb="<?= base_url() ?>Assets/Frontend/images/products/1-6.jpg" class="woocommerce-product-gallery__image">
                                             <a href="assets/images/products/1-6.jpg" tabindex="0">
-                                                    <img width="600" height="600" src="<?= $photo['path']  ?>" class="attachment-shop_single size-shop_single wp-post-image" alt="">
+                                                <img width="600" height="600" src="<?= $photo['path']  ?>" class="attachment-shop_single size-shop_single wp-post-image" alt="">
                                             </a>
                                         </div>
                                     </figure>
@@ -42,12 +42,12 @@
                         <h1 class="product_title entry-title">Cisco 8000 Series Router</h1>
                     </div>
                     <div class="single-product-meta">
-                        <!-- <div class="brand">
+                        <div class="brand">
                             <a href="#">
                                 <img alt="galaxy" class="img-fluid" width="180" height="180" src="<?= base_url() ?>Assets/Frontend/images/brands/5.png">
                             </a>
-                        </div> -->
-                        <!-- <div class="cat-and-sku">
+                        </div>
+                        <div class="cat-and-sku">
                             <span class="posted_in categories">
                                 <a rel="tag" href="product-category.html">روتر</a>
                             </span>
@@ -59,20 +59,24 @@
                             <div class="ribbon label green-label">
                                 <span>A+</span>
                             </div>
-                        </div> -->
+                        </div>
                     </div>
 
                     <div class="product-actions-wrapper">
                         <div class="product-actions">
                             <p class="price" dir="rtl">
-                                <?php if($product['discounts_status']): ?>
-                                <del>
-                                    <span class="woocommerce-Price-amount amount"><?= $product['price'] ?> ریال</span>
-                                </del>
+                                <?php if (!empty($product['discounts_status']) && $product['discounts_status'] == 1) : ?>
+                                    <del>
+                                        <span class="woocommerce-Price-amount amount"><?= $product['price'] ?> ریال</span>
+                                    </del>
+                                    <ins>
+                                        <span class="woocommerce-Price-amount amount"><?= round($product['price'] / $product['discounts_percent'] - $product['price'], 0, PHP_ROUND_HALF_UP) ?>ریال</span>
+                                    </ins>
+                                <?php else : ?>
+                                    <ins>
+                                        <span class="woocommerce-Price-amount amount"><?= $product['price'] ?> ریال</span>
+                                    </ins>
                                 <?php endif; ?>
-                                <ins>
-                                    <span class="woocommerce-Price-amount amount"><?= round($product['price'] / $product['discounts_percent'] - $product['price'], 0, PHP_ROUND_HALF_UP) ?>ریال</span>
-                                </ins>
                             </p>
                             <!-- .single-product-header -->
                             <form enctype="multipart/form-data" method="post" class="cart">

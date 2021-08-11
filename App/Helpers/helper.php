@@ -12,7 +12,7 @@ function asset_url($route = null)
 }
 function view($path, $data = [], $layout = null)
 {
-    $path = str_replace('.', DIRECTORY_SEPARATOR, $path);
+    $path = str_replace('.', '/', $path);
     $path_explode = explode('/', $path);
     $full_path = BASEPATH . "App/Views/$path.php";
     $is_file = is_readable($full_path) && file_exists($full_path);
@@ -72,6 +72,11 @@ function xss_clean($str)
     // return filter_var(htmlspecialchars($str), FILTER_SANITIZE_STRING);
 }
 
+function dd($categoryLevelTwo){
+    echo '<br><pre style="background:#FF5722; border-radius: 10px; padding: 20PX">';
+    var_dump($categoryLevelTwo  );
+    die('REQUEST_URI' .' => '. $_SERVER['REQUEST_URI'] );
+}
 
 function include_data($full_path_view, $data)
 {

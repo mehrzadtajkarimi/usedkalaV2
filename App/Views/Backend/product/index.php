@@ -165,7 +165,7 @@
               <tr>
                 <th class="text-center" scope="col">#</th>
                 <th class="text-center" scope="col">نام/متا</th>
-                <th class="text-center" scope="col">قیمت/تخفیف</th>
+                <th class="text-center" scope="col">قیمت</th>
                 <th class="text-center" scope="col">موجودی/وزن</th>
                 <th scope="col"> وضعیت/ویژه</th>
                 <th class="text-center" scope="col">اصلاحات</th>
@@ -179,7 +179,7 @@
                 <tr>
                   <td class="text-center" title="<?= $value['sku'] ?>"><?= $count++ ?></td>
                   <td class="text-center" title="<?= $value['meta_title'] ?>"><?= $value['title'] ?></td>
-                  <td class="text-center" title="<?= $value['sale_price'] ?>"><?= $value['price'] ?></td>
+                  <td class="text-center" ><?= $value['price'] ?></td>
                   <td class="text-center" title="<?= $value['weight'] ?>"><?= $value['quantity'] ?></td>
                   <td>
                     <div>

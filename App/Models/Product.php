@@ -86,7 +86,7 @@ class Product extends MysqlBaseModel
                 INNER JOIN product_discounts
                 ON products.id = product_discounts.product_id
                 INNER JOIN discounts
-                ON product_discounts.product_id = products.id
+                ON product_discounts.discount_id = discounts.id
                 AND products.id =$id
                 ")->fetchAll();
         }

@@ -18,6 +18,7 @@ class OnlinePayment implements PaymentContract
     {
         $this->gateway = $gateway;
     }
+    
     public function pay()
     {
         $resnum = bin2hex(random_bytes(2)) . time();
