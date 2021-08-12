@@ -26,14 +26,11 @@ class CartController  extends Controller
         $product_id = $this->request->get_param('id');
         $params = $this->request->params();
 
-        
-        
         $product_model = new Product();
         $product = $product_model->first(['id' => $product_id]);
         if ($product) {
-            Basket::add($product);
+            Basket::add($product, (int) $params['product_quantity']);
         }
-        dd($_SESSION['cart']);
         Request::redirect('cart');
     }
 
