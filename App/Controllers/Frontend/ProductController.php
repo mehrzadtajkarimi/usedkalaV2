@@ -26,7 +26,6 @@ class ProductController extends Controller
     {
         $id       = $this->request->get_param('id');
         $products = $this->productModel->join_product_to_photo($id);
-        dd($products);
         $data     = array(
             'products' => $products,
         );

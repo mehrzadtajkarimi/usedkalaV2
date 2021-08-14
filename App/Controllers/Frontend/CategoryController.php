@@ -39,7 +39,6 @@ class CategoryController extends Controller
 
 
 
-
         if (is_array($categories)) {
             $data = array(
                 'categories'  => $categories,

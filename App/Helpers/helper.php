@@ -30,8 +30,20 @@ function inject_menu()
     $categoryModel = new Category;
     $categoryLevelOne = $categoryModel->get('*', ['parent_id' => 0]);
     foreach ($categoryLevelOne as $LevelOne) {
-        $categoryLevelTwo[$LevelOne['id']] = $categoryModel->inner_join("*", "photos", "id", "entity_id",  "categories.id=photos.entity_id", "categories.parent_id={$LevelOne['id']}");
+        $categoryLevelTwo[$LevelOne['id']] =  $categoryModel->inner_join(
+            "categories.*,
+            photos.id AS photo_id,
+            photos.alt AS photo_alt,
+            photos.path AS photo_path",
+            "photos",
+            "id",
+            "entity_id",
+            "photos.entity_type='Category'",
+            "categories.parent_id={$LevelOne['id']}",
+            "categories.id=photos.entity_id",
+            );
     }
+    // dd($categoryLevelTwo);
     if ($categoryLevelOne) {
         return  [
             'categoryLevelOne' => $categoryLevelOne,
