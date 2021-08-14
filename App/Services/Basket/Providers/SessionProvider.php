@@ -36,7 +36,7 @@ class SessionProvider implements BasketContract
             $_SESSION['cart'][$item['id']] = $item;
         }
 
-        $_SESSION['cart'][$item['id']]['count'] =$count + $item['product_quantity'] ?? ++$count;
+        $_SESSION['cart'][$item['id']]['count'] = $count + $item['product_quantity'] ;
     }
 
 

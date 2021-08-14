@@ -28,42 +28,42 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php foreach ($cats_items as $value): ?>
+                                                <?php foreach ($cart_items as $value): ?>
                                                 <tr>
                                                     <td class="product-remove">
                                                         <a class="remove" href="#">×</a>
                                                     </td>
                                                     <td class="product-thumbnail">
                                                         <a href="single-product-fullwidth.html">
-                                                            <img width="180" height="180" alt="" class="wp-post-image" src="single-product-fullwidth.html">
+                                                            <img width="180" height="180" alt="" class="wp-post-image" src="">
                                                         </a>
                                                     </td>
                                                     <td data-title="Product" class="product-name">
                                                         <div class="media cart-item-product-detail">
                                                             <a href="single-product-fullwidth.html">
-                                                                <img width="180" height="180" alt="" class="wp-post-image" src="assets/images/products/1-1.jpg">
+                                                                <img width="180" height="180" alt="" class="wp-post-image" src="<?= $value['photo_path'] ?>">
                                                             </a>
                                                             <div class="media-body align-self-center">
-                                                                <a href="single-product-fullwidth.html">55" KU6470 6 Series UHD Crystal Colour HDR Smart TV</a>
+                                                                <a href="single-product-fullwidth.html"><?= $value['title'] ?></a>
                                                             </div>
                                                         </div>
                                                     </td>
                                                     <td data-title="Price" class="product-price">
                                                         <span class="woocommerce-Price-amount amount">
-                                                            <span class="woocommerce-Price-amount amount"> 9990000 ریال</span>
+                                                            <span class="woocommerce-Price-amount amount"><?= $value['price'] ?></span>
                                                         </span>
                                                     </td>
                                                     <td class="product-quantity" data-title="Quantity">
                                                         <div class="quantity">
                                                             <label for="quantity-input-1">Quantity</label>
-                                                            <input id="quantity-input-1" type="number" name="cart[e2230b853516e7b05d79744fbd4c9c13][qty]" value="1" title="Qty" class="input-text qty text" size="4">
+                                                            <input id="quantity-input-1" type="number" name="cart[e2230b853516e7b05d79744fbd4c9c13][qty]" value="<?= $value['count'] ?>" title="Qty" class="input-text qty text" size="4">
                                                         </div>
                                                     </td>
                                                     <td data-title="Total" class="product-subtotal">
                                                         <span class="woocommerce-Price-amount amount">
-                                                            <span class="woocommerce-Price-amount amount"> 9990000 ریال</span>
+                                                            <span class="woocommerce-Price-amount amount"><?= $value['count'] * $value['price'] ?></span>
                                                         </span>
-                                                        <a title="Remove this item" class="remove" href="#">×</a>
+                                                        <a title="Remove this item" class="remove" href="<?= base_url()?>cart/remove/<?= $value['id'] ?>">×</a>
                                                     </td>
                                                 </tr>
                                                 <?php endforeach; ?>
@@ -81,7 +81,7 @@
                                                         <th>مجموع کل</th>
                                                         <td data-title="Subtotal">
                                                             <span class="woocommerce-Price-amount amount">
-                                                                <span class="woocommerce-Price-amount amount"> 9990000 ریال</span>
+                                                                <span class="woocommerce-Price-amount amount"><?= $value['count'] * $value['price'] ?></span>
                                                         </td>
                                                     </tr>
                                                     <tr class="shipping">
@@ -93,7 +93,7 @@
                                                         <td data-title="Total">
                                                             <strong>
                                                                 <span class="woocommerce-Price-amount amount">
-                                                                    <span class="woocommerce-Price-amount amount"> 9990000 ریال</span>
+                                                                    <span class="woocommerce-Price-amount amount"><?= $value['count'] * $value['price'] ?></span>
                                                             </strong>
                                                         </td>
                                                     </tr>
@@ -104,18 +104,22 @@
 
 
                                                 <form action="<?= base_url('payment') ?>" method="post">
-                                                    <div class='comments pay-type'>
-                                                        <label for="pay-w">
-                                                            <input type="radio" id="pay-w" name="payType" value='Wallet'> پرداخت کیف پول
-                                                        </label>
-                                                        &nbsp; &nbsp; &nbsp; &nbsp;
-                                                        <label for="pay-o">
-                                                            <input type="radio" id="pay-o" name="payType" value='Online' > پرداخت آنلاین
-                                                        </label>
-                                                        &nbsp; &nbsp; &nbsp; &nbsp;
-                                                        <label for="pay-o">
-                                                            <input type="radio" id="pay-o" name="payType" value='COD' checked> پرداخت در محل
-                                                        </label>
+                                                    <div class='comments pay-type mb-4'>
+                                                        <div>
+                                                            <label for="pay-w">
+                                                                <input type="radio" id="pay-w" name="payType" value='Wallet'> پرداخت کیف پول
+                                                            </label>
+                                                        </div>
+                                                        <div>
+                                                            <label for="pay-o">
+                                                                <input type="radio" id="pay-o" name="payType" value='Online' > پرداخت آنلاین
+                                                            </label>
+                                                        </div>
+                                                        <div>
+                                                            <label for="pay-o">
+                                                                <input type="radio" id="pay-o" name="payType" value='COD' checked> پرداخت در محل
+                                                            </label>
+                                                        </div>
                                                     </div>
                                                     <div class='cart-buttons'>
                                                         <button type='submit' class='checkout-button button alt wc-forward'>پرداخت نهایی</button>

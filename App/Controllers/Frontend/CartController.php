@@ -14,7 +14,8 @@ class CartController  extends Controller
     public function index()
     {
         $cart_items = Basket::items();
-        dd($cart_items);
+//         dd($cart_items);
+// dd($_SESSION);
         $data = array(
             'cart_items' => $cart_items
         );
@@ -40,7 +41,8 @@ class CartController  extends Controller
 
     public function remove()
     {
-        Basket::remove($this->request->id);
+        $product_id = $this->request->get_param('id');
+        Basket::remove($product_id);
         Request::redirect('cart');
     }
 }
