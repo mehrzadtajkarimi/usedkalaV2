@@ -13,7 +13,8 @@ class CartController  extends Controller
 
     public function index()
     {
-        $cart_items =Basket::items();
+        $cart_items = Basket::items();
+        dd($cart_items);
         $data = array(
             'cart_items' => $cart_items
         );
@@ -23,13 +24,16 @@ class CartController  extends Controller
 
     public function add()
     {
-        $product_id = $this->request->get_param('id');
-        $params = $this->request->params();
-
         $product_model = new Product();
-        $product = $product_model->first(['id' => $product_id]);
+
+        $product_id = $this->request->get_param('id');
+        $params     = $this->request->params();
+        $product    = $product_model->first(['id' => $product_id]);
+        $product['product_quantity'] = $params['product_quantity'];
+        $product['photo_path']       = $params['photo_path'];
+
         if ($product) {
-            Basket::add($product, (int) $params['product_quantity']);
+            Basket::add($product);
         }
         Request::redirect('cart');
     }

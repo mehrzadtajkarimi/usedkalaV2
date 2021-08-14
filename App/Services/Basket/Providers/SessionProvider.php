@@ -28,7 +28,7 @@ class SessionProvider implements BasketContract
         return $_SESSION['cart'] ?? array();
     }
 
-    public function add(array $item, $quantity )
+    public function add(array $item)
     {
         $count = $_SESSION['cart'][$item['id']]['count']?? 0;
 
@@ -36,7 +36,7 @@ class SessionProvider implements BasketContract
             $_SESSION['cart'][$item['id']] = $item;
         }
 
-        $_SESSION['cart'][$item['id']]['count'] =$count + $quantity ?? ++$count;
+        $_SESSION['cart'][$item['id']]['count'] =$count + $item['product_quantity'] ?? ++$count;
     }
 
 

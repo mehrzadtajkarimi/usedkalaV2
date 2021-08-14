@@ -12,7 +12,6 @@ class ProductController extends Controller
 {
     private $productModel;
     private $photoModel;
-    private $ProductDiscountModel;
 
     public function __construct()
     {

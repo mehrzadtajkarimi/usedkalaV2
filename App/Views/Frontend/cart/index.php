@@ -28,6 +28,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <?php foreach ($cats_items as $value): ?>
                                                 <tr>
                                                     <td class="product-remove">
                                                         <a class="remove" href="#">×</a>
@@ -65,6 +66,7 @@
                                                         <a title="Remove this item" class="remove" href="#">×</a>
                                                     </td>
                                                 </tr>
+                                                <?php endforeach; ?>
                                             </tbody>
                                         </table>
                                         <!-- .shop_table shop_table_responsive -->

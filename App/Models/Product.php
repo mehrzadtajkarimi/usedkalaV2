@@ -143,7 +143,10 @@ class Product extends MysqlBaseModel
     public function join_product__with_single_photo_by_category_id($category_id)
     {
         return $this->inner_join(
-            "*",                         // column
+            "products.*,
+            photos.id AS photo_id,
+            photos.alt,
+            photos.path",                         // column
             "photos",                    // -- table photos
             "id",                        // products.id
             "entity_id",                       // brands.id

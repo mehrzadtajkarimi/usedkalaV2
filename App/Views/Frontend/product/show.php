@@ -11,7 +11,7 @@
                                     <figure class="woocommerce-product-gallery__wrapper ">
                                         <div data-thumb="<?= base_url() ?>Assets/Frontend/images/products/1-6.jpg" class="woocommerce-product-gallery__image">
                                             <a href="assets/images/products/1-6.jpg" tabindex="0">
-                                                <img width="600" height="600" src="<?= $photo['path']  ?>" class="attachment-shop_single size-shop_single wp-post-image" alt="">
+                                                <img width="600" height="600" src="<?= $photo['path']  ?>" class="attachment-shop_single size-shop_single wp-post-image" alt="<?= $photo['alt']  ?>">
                                             </a>
                                         </div>
                                     </figure>
@@ -80,6 +80,7 @@
                             </p>
                             <!-- .single-product-header -->
                             <form action="<?= base_url()?>cart/add/<?= $product['id'] ?>" enctype="multipart/form-data" method="post" class="cart">
+                            <input type="hidden" name="photo_path" value="<?= $photo['path']  ?>">
                                 <div class="row">
                                     <div class="col-3 quantity">
                                         <label for="quantity-input">تعداد</label>
