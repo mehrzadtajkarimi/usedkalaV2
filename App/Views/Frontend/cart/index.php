@@ -28,44 +28,56 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <?php foreach ($cart_items as $value): ?>
-                                                <tr>
-                                                    <td class="product-remove">
-                                                        <a class="remove" href="#">×</a>
-                                                    </td>
-                                                    <td class="product-thumbnail">
-                                                        <a href="single-product-fullwidth.html">
-                                                            <img width="180" height="180" alt="" class="wp-post-image" src="">
-                                                        </a>
-                                                    </td>
-                                                    <td data-title="Product" class="product-name">
-                                                        <div class="media cart-item-product-detail">
+                                                <?php foreach ($cart_items as $value) : ?>
+                                                    <tr>
+                                                        <td class="product-remove">
+                                                            <a class="remove" href="#">×</a>
+                                                        </td>
+                                                        <td class="product-thumbnail">
                                                             <a href="single-product-fullwidth.html">
-                                                                <img width="180" height="180" alt="" class="wp-post-image" src="<?= $value['photo_path'] ?>">
+                                                                <img width="180" height="180" alt="" class="wp-post-image" src="">
                                                             </a>
-                                                            <div class="media-body align-self-center">
-                                                                <a href="single-product-fullwidth.html"><?= $value['title'] ?></a>
+                                                        </td>
+                                                        <td data-title="Product" class="product-name">
+                                                            <div class="media cart-item-product-detail">
+                                                                <a href="single-product-fullwidth.html">
+                                                                    <img width="180" height="180" alt="" class="wp-post-image" src="<?= $value['photo_path'] ?>">
+                                                                </a>
+                                                                <div class="media-body align-self-center">
+                                                                    <a href="single-product-fullwidth.html"><?= $value['title'] ?></a>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    </td>
-                                                    <td data-title="Price" class="product-price">
-                                                        <span class="woocommerce-Price-amount amount">
-                                                            <span class="woocommerce-Price-amount amount"><?= $value['price'] ?></span>
-                                                        </span>
-                                                    </td>
-                                                    <td class="product-quantity" data-title="Quantity">
-                                                        <div class="quantity">
-                                                            <label for="quantity-input-1">Quantity</label>
-                                                            <input id="quantity-input-1" type="number" name="cart[e2230b853516e7b05d79744fbd4c9c13][qty]" value="<?= $value['count'] ?>" title="Qty" class="input-text qty text" size="4">
-                                                        </div>
-                                                    </td>
-                                                    <td data-title="Total" class="product-subtotal">
-                                                        <span class="woocommerce-Price-amount amount">
-                                                            <span class="woocommerce-Price-amount amount"><?= $value['count'] * $value['price'] ?></span>
-                                                        </span>
-                                                        <a title="Remove this item" class="remove" href="<?= base_url()?>cart/remove/<?= $value['id'] ?>">×</a>
-                                                    </td>
-                                                </tr>
+                                                        </td>
+                                                        <td data-title="Price" class="product-price">
+                                                            <span class="woocommerce-Price-amount amount">
+                                                                <span class="woocommerce-Price-amount amount"><?= $value['price'] ?></span>
+                                                            </span>
+                                                        </td>
+                                                        <td class="product-quantity" data-title="Quantity">
+                                                            <div class="quantity row">
+                                                                <div>
+                                                                    <span class="woocommerce-Price-amount amount">
+                                                                        <span class="woocommerce-Price-amount amount"><?= $value['count'] ?></span>
+                                                                    </span>
+                                                                </div>
+                                                                <div>
+
+                                                                    <a href="<?= base_url() ?>cart/plus/<?= $value['id'] ?>">
+                                                                        <i class="fa fa-plus-square text-muted" aria-hidden="true"></i>
+                                                                    </a>
+                                                                    <a href="<?= base_url() ?>cart/minus/<?= $value['id'] ?>">
+                                                                        <i class="fa fa-minus-square text-muted" aria-hidden="true"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td data-title="Total" class="product-subtotal">
+                                                            <span class="woocommerce-Price-amount amount">
+                                                                <span class="woocommerce-Price-amount amount subtotal"><?= $value['count'] * $value['price'] ?></span>
+                                                            </span>
+                                                            <a title="Remove this item" class="remove" href="<?= base_url() ?>cart/remove/<?= $value['id'] ?>">×</a>
+                                                        </td>
+                                                    </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
                                         </table>
@@ -80,8 +92,7 @@
                                                     <tr class="cart-subtotal">
                                                         <th>مجموع کل</th>
                                                         <td data-title="Subtotal">
-                                                            <span class="woocommerce-Price-amount amount">
-                                                                <span class="woocommerce-Price-amount amount"><?= $value['count'] * $value['price'] ?></span>
+                                                            <span class="woocommerce-Price-amount amount"><?= $value['count'] * $value['price'] ?></span>
                                                         </td>
                                                     </tr>
                                                     <tr class="shipping">
@@ -92,8 +103,7 @@
                                                         <th>قیمت کل</th>
                                                         <td data-title="Total">
                                                             <strong>
-                                                                <span class="woocommerce-Price-amount amount">
-                                                                    <span class="woocommerce-Price-amount amount"><?= $value['count'] * $value['price'] ?></span>
+                                                                <span class="woocommerce-Price-amount amount"><?= $cart_total ?></span>
                                                             </strong>
                                                         </td>
                                                     </tr>
@@ -112,7 +122,7 @@
                                                         </div>
                                                         <div>
                                                             <label for="pay-o">
-                                                                <input type="radio" id="pay-o" name="payType" value='Online' > پرداخت آنلاین
+                                                                <input type="radio" id="pay-o" name="payType" value='Online'> پرداخت آنلاین
                                                             </label>
                                                         </div>
                                                         <div>
@@ -126,7 +136,7 @@
                                                         <a class='back-to-shopping' href="<?= base_url('') ?>">ادامه خرید</a>
                                                     </div>
                                                 </form>
-                                              </div>
+                                            </div>
                                             <!-- .wc-proceed-to-checkout -->
                                         </div>
                                         <!-- .cart_totals -->

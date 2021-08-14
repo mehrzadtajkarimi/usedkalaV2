@@ -14,10 +14,13 @@ class CartController  extends Controller
     public function index()
     {
         $cart_items = Basket::items();
-//         dd($cart_items);
-// dd($_SESSION);
+
+        foreach ($cart_items as  $value) {
+            $cart_total[] = $value['count'] * $value['price'];
+        }
         $data = array(
-            'cart_items' => $cart_items
+            'cart_items' => $cart_items,
+            'cart_total' => array_sum($cart_total)
         );
         return view('Frontend.cart.index', $data);
     }
@@ -36,6 +39,18 @@ class CartController  extends Controller
         if ($product) {
             Basket::add($product);
         }
+        Request::redirect('cart');
+    }
+    public function plus()
+    {
+        $product_id = $this->request->get_param('id');
+        Basket::plus($product_id);
+        Request::redirect('cart');
+    }
+    public function minus()
+    {
+        $product_id = $this->request->get_param('id');
+        Basket::minus($product_id);
         Request::redirect('cart');
     }
 

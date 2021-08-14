@@ -30,13 +30,22 @@ class SessionProvider implements BasketContract
 
     public function add(array $item)
     {
-        $count = $_SESSION['cart'][$item['id']]['count']?? 0;
+        $count = $_SESSION['cart'][$item['id']]['count'] ?? 0;
 
-        if ($this->item_exists($item['id'])) {
+        if (!$this->item_exists($item['id'])) {
             $_SESSION['cart'][$item['id']] = $item;
         }
 
-        $_SESSION['cart'][$item['id']]['count'] = $count + $item['product_quantity'] ;
+        $_SESSION['cart'][$item['id']]['count'] = $count + $item['product_quantity'];
+    }
+
+    public function plus($product_id)
+    {
+        $_SESSION['cart'][$product_id]['count'] += 1;
+    }
+    public function minus($product_id)
+    {
+        $_SESSION['cart'][$product_id]['count'] -= 1;
     }
 
 

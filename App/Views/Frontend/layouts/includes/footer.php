@@ -234,20 +234,7 @@
       <!-- .footer-widgets -->
     </div>
     <!-- .row -->
-  </div>?>js/
-  ?>js/
-  ?>js/
-  ?>js/
-  ?>js/
-  ?>js/
-  ?>js/
-  ?>js/
-  ?>js/
-  ?>js/
-  ?>js/
-  ?>js/
-  ?>js/
-  ?>js/
+  </div>
   <!-- .footer-widgets-block -->
   <div class="site-info">
     <div class="col-full">
