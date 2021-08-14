@@ -140,4 +140,16 @@ class Product extends MysqlBaseModel
             "products.id=$id",
         );
     }
+    public function join_product__with_single_photo_by_category_id($category_id)
+    {
+        return $this->inner_join(
+            "*",                         // column
+            "photos",                    // -- table photos
+            "id",                        // products.id
+            "entity_id",                       // brands.id
+            "photos.type=0",
+            "photos.entity_type='Product'",
+            "products.category_id=$category_id",
+        );
+    }
 }

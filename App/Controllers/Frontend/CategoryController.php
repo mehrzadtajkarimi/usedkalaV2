@@ -16,7 +16,7 @@ class CategoryController extends Controller
     {
         parent::__construct();
         $this->categoryModel = new Category;
-        $this->productModel = new Product;
+        $this->productModel  = new Product;
     }
 
     public function index()
@@ -35,10 +35,16 @@ class CategoryController extends Controller
 
         $description = $this->categoryModel->read_category($parent_id);
         $categories  = $this->categoryModel->category_tree_for_frontend($parent_id);
+        $products    = $this->productModel->join_product__with_single_photo_by_category_id($parent_id);
+
+
+
+
         if (is_array($categories)) {
             $data = array(
                 'categories'  => $categories,
                 'description' => $description,
+                'products'    => $products,
             );
             return view('Frontend.category.show', $data);
         }
