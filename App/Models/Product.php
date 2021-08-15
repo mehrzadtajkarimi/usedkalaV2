@@ -46,7 +46,7 @@ class Product extends MysqlBaseModel
             "products.category_id=$id",
         );
     }
-    public function join_product_to_photo($id)
+    public function join_product_to_photo_by_category_id($category_id)
     {
         return $this->inner_join(
             "products.*,
@@ -55,7 +55,21 @@ class Product extends MysqlBaseModel
             "photos",
             "id",
             "entity_id",
-            "products.category_id=$id",
+            "products.category_id=$category_id",
+            "photos.type=0",
+            "photos.entity_type='Product'",
+        );
+    }
+    public function join_product_to_photo_by_id($product_id)
+    {
+        return $this->inner_join(
+            "products.*,
+            photos.path,
+            photos.alt",
+            "photos",
+            "id",
+            "entity_id",
+            "products.id=$product_id",
             "photos.type=0",
             "photos.entity_type='Product'",
         );

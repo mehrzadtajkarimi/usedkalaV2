@@ -91,7 +91,7 @@
                             </a>
                             <!-- .woocommerce-LoopProduct-link -->
                             <div class="hover-area">
-                                <a class="button" href="cart.html">Add to cart</a>
+                                <a href="<?= base_url() ?>cart/add/<?= $value['id'] ?>" class="button" >افزودن به سبد خرید</a>
                                 <a class="add-to-compare-link" href="compare.html">Add to compare</a>
                             </div>
                             <!-- .hover-area -->
