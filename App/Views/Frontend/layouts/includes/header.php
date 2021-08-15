@@ -172,7 +172,7 @@
                                     <?php foreach ($cart_items as $value) : ?>
                                         <li class="woocommerce-mini-cart-item mini_cart_item">
                                             <a href="#" class="remove" aria-label="Remove this item" data-product_id="65" data-product_sku="">×</a>
-                                            <a href="single-product-sidebar.html">
+                                            <a href="<?= base_url() ?>product/<?= $value['id'] ?>">
                                                 <img src="<?= $value['photo_path'] ?>" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt=""><?= $value['title'] ?>&nbsp;
                                             </a>
                                             <span class="quantity"><?= $value['count'] ?> ×
