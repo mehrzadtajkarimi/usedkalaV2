@@ -22,6 +22,10 @@
 <link href="<?= asset_url() ?>Frontend/css/colors/orange.css" rel="alternate stylesheet" title="Orange color">
 <link href="<?= asset_url() ?>Frontend/css/colors/red.css" rel="alternate stylesheet" title="Red color">
 <link href="<?= asset_url() ?>Frontend/css/colors/yellow.css" rel="alternate stylesheet" title="Yellow color">
+<link href="<?= asset_url() ?>Frontend/plugins/WOW/css/libs/animate.css" rel="alternate stylesheet" title="Yellow color">
 <!-- Demo Purpose Only. Should be removed in production : END -->
 <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,900" rel="stylesheet">
 <link rel="shortcut icon" href="<?= asset_url() ?>Frontend/images/ukfav-icon.png">
+<script type="text/javascript" src="<?= asset_url() ?>Frontend/js/jquery.min.js"></script>
+<script type="text/javascript" src="<?= asset_url() ?>Frontend/plugins/WOW/dist/wow.min.js"></script>
+

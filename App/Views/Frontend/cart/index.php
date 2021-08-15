@@ -16,55 +16,58 @@
                             <div class="woocommerce">
                                 <div class="cart-wrapper">
                                     <form method="post" action="#" class="woocommerce-cart-form">
-                                        <table class="shop_table shop_table_responsive cart">
+                                        <table class="shop_table shop_table_responsive cart ">
                                             <thead>
                                                 <tr>
-                                                    <th class="product-remove">&nbsp;</th>
-                                                    <th class="product-thumbnail">&nbsp;</th>
-                                                    <th class="product-name">محصول</th>
-                                                    <th class="product-price">قیمت</th>
-                                                    <th class="product-quantity">تعداد</th>
-                                                    <th class="product-subtotal">قیمت کل</th>
+                                                    <th class="text-center product-remove">&nbsp;</th>
+                                                    <th class="text-center product-thumbnail">&nbsp;</th>
+                                                    <th class="text-center product-name">محصول</th>
+                                                    <th class="text-center product-price">قیمت</th>
+                                                    <th class="text-center product-quantity">تعداد</th>
+                                                    <th class="text-center product-subtotal">قیمت کل</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php foreach ($cart_items as $value) : ?>
-                                                    <tr>
-                                                        <td class="product-remove">
-                                                            <a class="remove" href="#">×</a>
+                                                    <tr class="text-center">
+                                                        <td class="product-remove text-center ">
+                                                            <a class="text-center remove" href="#">×</a>
                                                         </td>
-                                                        <td class="product-thumbnail">
-                                                            <a href="single-product-fullwidth.html">
+                                                        <td class="product-thumbnail text-center ">
+                                                            <a href="single-product-fullwidth.html text-center ">
                                                                 <img width="180" height="180" alt="" class="wp-post-image" src="">
                                                             </a>
                                                         </td>
-                                                        <td data-title="Product" class="product-name">
-                                                            <div class="media cart-item-product-detail">
-                                                                <a href="single-product-fullwidth.html">
+                                                        <td data-title="Product" class="product-name ">
+                                                            <div class="media cart-item-product-detail ">
+                                                                <a href="single-product-fullwidth.html ">
                                                                     <img width="180" height="180" alt="" class="wp-post-image" src="<?= $value['photo_path'] ?>">
                                                                 </a>
-                                                                <div class="media-body align-self-center">
-                                                                    <a href="single-product-fullwidth.html"><?= $value['title'] ?></a>
+                                                                <div class="media-body align-self-center ">
+                                                                    <a href="single-product-fullwidth.html "><?= $value['title'] ?></a>
                                                                 </div>
                                                             </div>
                                                         </td>
-                                                        <td data-title="Price" class="product-price">
+                                                        <td data-title="Price" class="product-price text-center ">
                                                             <span class="woocommerce-Price-amount amount">
-                                                                <span class="woocommerce-Price-amount amount"><?= $value['price'] ?></span>
+                                                                <span class="woocommerce-Price-amount amount "><?= $value['price'] ?></span>
                                                             </span>
                                                         </td>
-                                                        <td class="product-quantity" data-title="Quantity">
-                                                            <div class="quantity row">
-                                                                <span class="woocommerce-Price-amount amount d-flex m-2" style="align-self: center">
-                                                                    <span class="woocommerce-Price-amount amount"><?= $value['count'] ?></span>
+                                                        <td class="product-quantity text-center " data-title="Quantity">
+                                                            <div class="quantity row d-flex justify-content-center">
+                                                                <span class="woocommerce-Price-amount amount  m-2" style="align-self: center">
+                                                                    <span id="quantity" class="woocommerce-Price-amount amount"><?= $value['count'] ?></span>
                                                                 </span>
                                                                 <div class="d-flex flex-column  ">
-                                                                    <a href="<?= base_url() ?>cart/plus/<?= $value['id'] ?>" class="fa fa-plus-square text-muted fa-lg p-1 pl-3 pr-3" aria-hidden="true"></a>
-                                                                    <a href="<?= base_url() ?>cart/minus/<?= $value['id'] ?>" class="fa fa-minus-square text-muted fa-lg p-1  pl-3 pr-3" aria-hidden="true"></a>
+                                                                    <a id="plus" href="<?= base_url() ?>cart/plus/<?= $value['id'] ?>" class="fa fa-chevron-up text-muted   pl-3 pr-3 quantity wow " data-wow-iteration="2" aria-hidden="true"></a>
+                                                                    <a id="minus" href="<?= base_url() ?>cart/minus/<?= $value['id'] ?>" class="fa fa-chevron-down text-muted   pl-3 pr-3 quantity wow " data-wow-iteration="2" aria-hidden="true"></a>
                                                                 </div>
+                                                                <script>
+                                                                    new WOW().init();
+                                                                </script>
                                                             </div>
                                                         </td>
-                                                        <td data-title="Total" class="product-subtotal">
+                                                        <td data-title="Total" class="product-subtotal text-center ">
                                                             <span class="woocommerce-Price-amount amount">
                                                                 <span class="woocommerce-Price-amount amount subtotal"><?= $value['count'] * $value['price'] ?></span>
                                                             </span>
@@ -152,3 +155,6 @@
     </div>
     <!-- .col-full -->
 </div>
+<?php
+include BASEPATH . "App/Views/Frontend/cart/script.php";
+?>
