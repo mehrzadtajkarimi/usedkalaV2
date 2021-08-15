@@ -160,7 +160,7 @@
             <li class="animate-dropdown dropdown ">
                 <a class="cart-contents" href="" data-toggle="dropdown" title="View your shopping cart">
                     <i class="tm tm-shopping-bag"></i>
-                    <span class="count">2</span>
+                    <span class="count"><?= $cart_count ?></span>
                     <!-- <span class="amount" dircetion="rtl">
                                         <span class="price-label">Your Cart</span>&#036;136.99</span> -->
                 </a>
@@ -171,7 +171,7 @@
                                 <ul class="woocommerce-mini-cart cart_list product_list_widget ">
                                     <?php foreach ($cart_items as $value) : ?>
                                         <li class="woocommerce-mini-cart-item mini_cart_item">
-                                            <a href="#" class="remove" aria-label="Remove this item" data-product_id="65" data-product_sku="">×</a>
+                                            <a href="<?= base_url() ?>cart/remove/<?= $value['id'] ?>" class="remove" aria-label="Remove this item" data-product_id="65" data-product_sku="">×</a>
                                             <a href="<?= base_url() ?>product/<?= $value['id'] ?>">
                                                 <img src="<?= $value['photo_path'] ?>" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt=""><?= $value['title'] ?>&nbsp;
                                             </a>
@@ -856,7 +856,7 @@
                 <!-- .site-search -->
                 <a class="handheld-header-cart-link has-icon" href="cart.html" title="View your shopping cart">
                     <i class="tm tm-shopping-bag"></i>
-                    <span class="count"><?= $cart_count ?></span>
+                    <span class="count"></span>
                 </a>
             </div>
             <!-- /.row -->

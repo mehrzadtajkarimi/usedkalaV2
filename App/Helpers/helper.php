@@ -1,6 +1,9 @@
 <?php
 
 use App\Models\Category;
+use App\Models\Discount;
+use App\Models\Photo;
+use App\Services\Basket\Basket;
 
 function base_url($route = null)
 {
@@ -27,6 +30,17 @@ function view($path, $data = [], $layout = null)
 }
 function inject_menu()
 {
+    $cart_items = Basket::items();
+    $cart_count = count($cart_items);
+    $discountModel = new Discount();
+    $productDiscounts=$discountModel->join_discount__with_productDiscounts_products();
+    $photoModel= new Photo();
+    foreach ($productDiscounts as $key => $value) {
+        $productDiscounts[$key]['photo'] = $photoModel->read_photo_by_id($value['products_id'], 'Product', TRUE)[0];
+    }
+    foreach ($cart_items as  $value) {
+        $cart_total[] = $value['count'] * $value['price'];
+    }
     $categoryModel = new Category;
     $categoryLevelOne = $categoryModel->get('*', ['parent_id' => 0]);
     foreach ($categoryLevelOne as $LevelOne) {
@@ -41,13 +55,17 @@ function inject_menu()
             "photos.entity_type='Category'",
             "categories.parent_id={$LevelOne['id']}",
             "categories.id=photos.entity_id",
-            );
+        );
     }
     // dd($categoryLevelTwo);
     if ($categoryLevelOne) {
         return  [
             'categoryLevelOne' => $categoryLevelOne,
-            'categoryLevelTwo' => $categoryLevelTwo
+            'categoryLevelTwo' => $categoryLevelTwo,
+            'productDiscounts' => $productDiscounts,
+            'cart_total' => array_sum($cart_total ?? []),
+            'cart_count' => $cart_count,
+            'cart_items' => $cart_items
         ];
     }
     return [];
@@ -84,9 +102,10 @@ function xss_clean($str)
     return filter_var(htmlspecialchars($str), FILTER_SANITIZE_STRING);
 }
 
-function dd($categoryLevelTwo){
+function dd($categoryLevelTwo)
+{
     echo '<pre style="background:#FF5722; border-radius: 10px; padding: 20PX">';
-    var_dump($categoryLevelTwo  );
+    var_dump($categoryLevelTwo);
     die();
 }
 
