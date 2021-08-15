@@ -74,25 +74,25 @@
                                                 <div class="kc_text_block">
                                                     <div class="row">
                                                         <?php foreach ($categoryLevelTwo[$valueLevelOne['id']] as $valueLevelTwo) : ?>
-                                                            <?php if( $valueLevelTwo['status']==1 ): ?>
-                                                            <div class="ml-3 mr-3 col ">
-                                                                <ul>
-                                                                    <li class="">
-                                                                        <a class="text-center d-flex justify-content-center" href="<?= base_url() ?>category/<?= $valueLevelTwo[0] ?>">
-                                                                            <div class="border-0 card " style="width: 10rem;">
-                                                                                <img class="card-img-top img-fluid rounded-circle " src="<?=  $valueLevelTwo['photo_path'] ?>" alt="<?=  $valueLevelTwo['photo_alt'] ?>">
-                                                                                <div class="pt-3 card-body">
-                                                                                    <p class="card-text">
-                                                                                        dd
-                                                                                        <?=  $valueLevelTwo['id'] ?>
-                                                                                        <?=  $valueLevelTwo['name'] ?>
-                                                                                    </p>
+                                                            <?php if ($valueLevelTwo['status'] == 1) : ?>
+                                                                <div class="ml-3 mr-3 col ">
+                                                                    <ul>
+                                                                        <li class="">
+                                                                            <a class="text-center d-flex justify-content-center" href="<?= base_url() ?>category/<?= $valueLevelTwo[0] ?>">
+                                                                                <div class="border-0 card " style="width: 10rem;">
+                                                                                    <img class="card-img-top img-fluid rounded-circle " src="<?= $valueLevelTwo['photo_path'] ?>" alt="<?= $valueLevelTwo['photo_alt'] ?>">
+                                                                                    <div class="pt-3 card-body">
+                                                                                        <p class="card-text">
+                                                                                            dd
+                                                                                            <?= $valueLevelTwo['id'] ?>
+                                                                                            <?= $valueLevelTwo['name'] ?>
+                                                                                        </p>
+                                                                                    </div>
                                                                                 </div>
-                                                                            </div>
-                                                                        </a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
+                                                                            </a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
                                                             <?php endif; ?>
                                                         <?php endforeach; ?>
                                                     </div>
@@ -169,36 +169,28 @@
                         <div class="widget woocommerce widget_shopping_cart">
                             <div class="widget_shopping_cart_content">
                                 <ul class="woocommerce-mini-cart cart_list product_list_widget ">
-                                    <li class="woocommerce-mini-cart-item mini_cart_item">
-                                        <a href="#" class="remove" aria-label="Remove this item" data-product_id="65" data-product_sku="">×</a>
-                                        <a href="single-product-sidebar.html">
-                                            <img src="<?= asset_url() ?>Frontend/images/products/mini-cart1.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">XONE Wireless Controller&nbsp;
-                                        </a>
-                                        <span class="quantity">1 ×
-                                            <span class="woocommerce-Price-amount amount" dir="rtl">
-                                                <span class="woocommerce-Price-currencySymbol">$</span>64.99</span>
-                                        </span>
-                                    </li>
-                                    <li class="woocommerce-mini-cart-item mini_cart_item">
-                                        <a href="#" class="remove" aria-label="Remove this item" data-product_id="27" data-product_sku="">×</a>
-                                        <a href="single-product-sidebar.html">
-                                            <img src="<?= asset_url() ?>Frontend/images/products/mini-cart2.jpg" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">Gear Virtual Reality 3D with Bluetooth Glasses&nbsp;
-                                        </a>
-                                        <span class="quantity">1 ×
-                                            <span class="woocommerce-Price-amount amount" dir="rtl">
-                                                <span class="woocommerce-Price-currencySymbol">$</span>72.00</span>
-                                        </span>
-                                    </li>
+                                    <?php foreach ($cart_items as $value) : ?>
+                                        <li class="woocommerce-mini-cart-item mini_cart_item">
+                                            <a href="#" class="remove" aria-label="Remove this item" data-product_id="65" data-product_sku="">×</a>
+                                            <a href="single-product-sidebar.html">
+                                                <img src="<?= $value['photo_path'] ?>" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt=""><?= $value['title'] ?>&nbsp;
+                                            </a>
+                                            <span class="quantity"><?= $value['count'] ?> ×
+                                                <span class="woocommerce-Price-amount amount" dir="rtl">
+                                                    <span class="woocommerce-Price-currencySymbol">تومان</span><?= $value['price'] ?></span>
+                                            </span>
+                                        </li>
+                                    <?php endforeach; ?>
                                 </ul>
                                 <!-- .cart_list -->
                                 <p class="woocommerce-mini-cart__total total">
-                                    <strong>Subtotal:</strong>
+                                    <strong>جمع کل:</strong>
                                     <span class="woocommerce-Price-amount amount" dir="rtl">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>136.99</span>
+                                        <span class="woocommerce-Price-currencySymbol">تومان</span><?= $cart_total ?></span>
                                 </p>
                                 <p class="woocommerce-mini-cart__buttons buttons">
-                                    <a href="<?= base_url() ?>cart" class="button wc-forward">View cart</a>
-                                    <a href="checkout.html" class="button checkout wc-forward">Checkout</a>
+                                    <a href="<?= base_url() ?>cart" class="button wc-forward">مشاهده سبد خرید</a>
+                                    <a href="/" class="button checkout wc-forward">Checkout</a>
                                 </p>
                             </div>
                             <!-- .widget_shopping_cart_content -->
@@ -864,7 +856,7 @@
                 <!-- .site-search -->
                 <a class="handheld-header-cart-link has-icon" href="cart.html" title="View your shopping cart">
                     <i class="tm tm-shopping-bag"></i>
-                    <span class="count">2</span>
+                    <span class="count"><?= $cart_count ?></span>
                 </a>
             </div>
             <!-- /.row -->

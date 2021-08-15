@@ -3,10 +3,12 @@
 namespace App\Controllers\Frontend;
 
 use App\Controllers\Controller;
+use App\Core\Request;
 use App\Models\Discount;
 use App\Models\Photo;
 use App\Models\Product;
 use App\Models\Product_discount;
+use App\Services\Basket\Basket;
 
 class HomeController extends Controller
 {
@@ -24,15 +26,22 @@ class HomeController extends Controller
 
     public function index()
     {
-        $productDiscounts = $this->discountModel->join_discount__with_productDiscounts_products();
-        foreach ($productDiscounts as $key=>$value) {
-             $productDiscounts[$key]['photo']=$this->photoModel->read_photo_by_id($value['products_id'], 'Product',TRUE)[0];
-        }
-        // echo '<pre>';
-        // var_dump($productDiscounts[0]);
-        // echo '</pre><br>';die;
+        $cart_items = Basket::items();
 
+        $productDiscounts = $this->discountModel->join_discount__with_productDiscounts_products();
+        foreach ($productDiscounts as $key => $value) {
+            $productDiscounts[$key]['photo'] = $this->photoModel->read_photo_by_id($value['products_id'], 'Product', TRUE)[0];
+        }
+
+        foreach ($cart_items as  $value) {
+            $cart_total[] = $value['count'] * $value['price'];
+        }
+
+// dd(count($cart_items));
         $data = array(
+            'cart_total' => array_sum($cart_total ?? []),
+            'cart_items' => $cart_items,
+            'cart_count' => count($cart_items),
             'productDiscounts' => $productDiscounts,
         );
         return view('Frontend.index', $data);

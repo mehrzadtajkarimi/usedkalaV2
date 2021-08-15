@@ -89,14 +89,14 @@
                                                         </td>
                                                     </tr>
                                                     <tr class="shipping">
-                                                        <th>هزینه ارسال</th>
-                                                        <td data-title="Shipping">Flat rate</td>
+                                                        <th>هزینه ارسال ( تومان )</th>
+                                                        <td data-title="Shipping">50,000</td>
                                                     </tr>
                                                     <tr class="order-total">
                                                         <th>قیمت کل</th>
                                                         <td data-title="Total">
                                                             <strong>
-                                                                <span class="woocommerce-Price-amount amount"><?= $cart_total ?></span>
+                                                                <span class="woocommerce-Price-amount amount"><?= $cart_total + 50000 ?></span>
                                                             </strong>
                                                         </td>
                                                     </tr>
