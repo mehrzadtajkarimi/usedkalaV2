@@ -18,10 +18,15 @@ class CartController  extends Controller
         foreach ($cart_items as  $value) {
             $cart_total[] = $value['count'] * $value['price'];
         }
-        $data = array(
-            'cart_items' => $cart_items,
-            'cart_total' => array_sum($cart_total)
-        );
+        if (!is_array($cart_total)) {
+            Request::redirect('');
+        }
+
+        $data = [
+            'cart_total' => array_sum($cart_total??[]),
+            'cart_items' => $cart_items
+        ];
+
         return view('Frontend.cart.index', $data);
     }
 

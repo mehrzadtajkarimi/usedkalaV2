@@ -45,7 +45,10 @@ class SessionProvider implements BasketContract
     }
     public function minus($product_id)
     {
-        $_SESSION['cart'][$product_id]['count'] -= 1;
+        if ($_SESSION['cart'][$product_id]['count']>1) {
+            $_SESSION['cart'][$product_id]['count'] -= 1;
+        }
+        return ;
     }
 
 
@@ -64,7 +67,7 @@ class SessionProvider implements BasketContract
             $total_price += $item['price'] * $item['count'];
         }
         return $total_price;
-    } //total contract
+    }
 
 
 

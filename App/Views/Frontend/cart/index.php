@@ -55,19 +55,12 @@
                                                         </td>
                                                         <td class="product-quantity" data-title="Quantity">
                                                             <div class="quantity row">
-                                                                <div>
-                                                                    <span class="woocommerce-Price-amount amount">
-                                                                        <span class="woocommerce-Price-amount amount"><?= $value['count'] ?></span>
-                                                                    </span>
-                                                                </div>
-                                                                <div>
-
-                                                                    <a href="<?= base_url() ?>cart/plus/<?= $value['id'] ?>">
-                                                                        <i class="fa fa-plus-square text-muted" aria-hidden="true"></i>
-                                                                    </a>
-                                                                    <a href="<?= base_url() ?>cart/minus/<?= $value['id'] ?>">
-                                                                        <i class="fa fa-minus-square text-muted" aria-hidden="true"></i>
-                                                                    </a>
+                                                                <span class="woocommerce-Price-amount amount d-flex m-2" style="align-self: center">
+                                                                    <span class="woocommerce-Price-amount amount"><?= $value['count'] ?></span>
+                                                                </span>
+                                                                <div class="d-flex flex-column  ">
+                                                                    <a href="<?= base_url() ?>cart/plus/<?= $value['id'] ?>" class="fa fa-plus-square text-muted fa-lg p-1 pl-3 pr-3" aria-hidden="true"></a>
+                                                                    <a href="<?= base_url() ?>cart/minus/<?= $value['id'] ?>" class="fa fa-minus-square text-muted fa-lg p-1  pl-3 pr-3" aria-hidden="true"></a>
                                                                 </div>
                                                             </div>
                                                         </td>
@@ -92,7 +85,7 @@
                                                     <tr class="cart-subtotal">
                                                         <th>مجموع کل</th>
                                                         <td data-title="Subtotal">
-                                                            <span class="woocommerce-Price-amount amount"><?= $value['count'] * $value['price'] ?></span>
+                                                            <span class="woocommerce-Price-amount amount"><?= $cart_total ?></span>
                                                         </td>
                                                     </tr>
                                                     <tr class="shipping">

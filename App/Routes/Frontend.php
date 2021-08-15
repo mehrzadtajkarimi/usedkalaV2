@@ -46,4 +46,5 @@ Route::group(function () {
     Route::post('/cart/add/{id}', 'CartController@add');
     Route::get('/cart/plus/{id}', 'CartController@plus');
     Route::get('/cart/minus/{id}', 'CartController@minus');
+    Route::get('/cart/remove/{id}', 'CartController@remove');
 });
