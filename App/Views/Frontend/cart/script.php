@@ -7,10 +7,11 @@
                 url: theURL,
                 success: function(result) {
                     $("#quantity").html(result);
+                    new WOW().init();
                 }
             });
         });
-            $('#minus').addClass("fadeOutDown");
-            $('#plus').addClass("fadeOutUp");
+
+
     });
 </script>

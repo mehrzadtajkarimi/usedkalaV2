@@ -59,12 +59,9 @@
                                                                     <span id="quantity" class="woocommerce-Price-amount amount"><?= $value['count'] ?></span>
                                                                 </span>
                                                                 <div class="d-flex flex-column  ">
-                                                                    <a id="plus" href="<?= base_url() ?>cart/plus/<?= $value['id'] ?>" class="fa fa-chevron-up text-muted   pl-3 pr-3 quantity wow " data-wow-iteration="2" aria-hidden="true"></a>
-                                                                    <a id="minus" href="<?= base_url() ?>cart/minus/<?= $value['id'] ?>" class="fa fa-chevron-down text-muted   pl-3 pr-3 quantity wow " data-wow-iteration="2" aria-hidden="true"></a>
+                                                                    <a  href="<?= base_url() ?>cart/plus/<?= $value['id'] ?>" class="fa fa-chevron-up text-muted pr-4 pl-4 pt-4 quantity  wow fadeOutUp" aria-hidden="true"></a>
+                                                                    <a  href="<?= base_url() ?>cart/minus/<?= $value['id'] ?>" class="fa fa-chevron-down text-muted pr-4 pl-4 pb-4 quantity wow fadeOutDown" aria-hidden="true"></a>
                                                                 </div>
-                                                                <script>
-                                                                    new WOW().init();
-                                                                </script>
                                                             </div>
                                                         </td>
                                                         <td data-title="Total" class="product-subtotal text-center ">
