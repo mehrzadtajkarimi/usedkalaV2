@@ -28,6 +28,14 @@ Route::group(function () {
 });
 
 Route::group(function () {
+
+    Route::get('/login', 'LoginController@login');
+    Route::post('/login', 'LoginController@is_login');
+    Route::get('/logout', 'LoginController@logout');
+    Route::get('/profile', 'ProfileController@index');
+});
+
+Route::group(function () {
     Route::get('/category/{id}', 'CategoryController@show');
 });
 
