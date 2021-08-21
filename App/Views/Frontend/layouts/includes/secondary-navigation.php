@@ -25,7 +25,7 @@
                                 </li> -->
         <!-- .dropdown-menu -->
         <li class="menu-item">
-          <a title="My Account" href="login-and-register.html">
+          <a title="login" href="<?= base_url() ?>login">
             <i class="tm tm-login-register"></i>ثبت نام یا ورود</a>
         </li>
         <li class="techmarket-flex-more-menu-item dropdown">
