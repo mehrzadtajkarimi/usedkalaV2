@@ -30,7 +30,6 @@ Route::group(function () {
 Route::group(function () {
 
     Route::get('/login', 'LoginController@login');
-    Route::get('/register', 'LoginController@register');
     Route::post('/login', 'LoginController@is_login');
     Route::get('/logout', 'LoginController@logout');
     Route::get('/profile', 'ProfileController@index');

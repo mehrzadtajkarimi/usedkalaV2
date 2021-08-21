@@ -45,11 +45,11 @@
     <!-- .techmarket-sticky-wrap -->
     <div class="row align-items-center">
         <div id="departments-menu" class="dropdown departments-menu">
-            <button class="btn dropdown-toggle btn-block" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn dropdown-toggle btn-block dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="tm tm-departments-thin"></i>
                 <span>تمامی محصولات</span>
             </button>
-            <ul id="menu-departments-menu" class="dropdown-menu yamm departments-menu-dropdown">
+            <ul id="menu-departments-menu" class="dropdown-menu yamm departments-menu-dropdown dropdowncontent">
                 <!-- inject menu as helper function -->
                 <?php if (isset($categoryLevelOne)) : ?>
 

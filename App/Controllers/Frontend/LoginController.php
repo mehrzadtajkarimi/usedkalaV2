@@ -16,18 +16,20 @@ class LoginController extends Controller
         global $request;
         return view('Frontend.user.login', ['request' => $request]);
     }
-    public function register()
-    {
-        global $request;
-        return view('Frontend.user.register', ['request' => $request]);
-    }
+
 
     public function is_login()
     {
-        $phone = $this->request->input('phone');
-        $user = Auth::login(['phone' => $phone]);
+        $request = $this->request->input('login');
+        if (is_numeric($request)) {
+           $user = Auth::login(['phone' => $request]);
+        }
+        if (is_string($request)) {
+           $user = Auth::login(['email' => $request]);
+        }
+ 
         if ($user) {
-            return $this->request->redirect('admin');
+            return $this->request->redirect('profile');
         }
     }
     public function logout()
