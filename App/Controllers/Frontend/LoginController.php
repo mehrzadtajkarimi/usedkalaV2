@@ -16,6 +16,11 @@ class LoginController extends Controller
         global $request;
         return view('Frontend.user.login', ['request' => $request]);
     }
+    public function register()
+    {
+        global $request;
+        return view('Frontend.user.register', ['request' => $request]);
+    }
 
     public function is_login()
     {

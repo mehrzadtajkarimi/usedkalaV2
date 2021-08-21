@@ -8,7 +8,7 @@
           <div class="row  mt-3 mb-3">
             <div class="col">
               <span class="">اگر در یوزدکالا حساب کاربری ندارید، ثبت نام کنید:</span>
-              <a class="btn btn-primary float-left m-0" href="/signup">ایجاد حساب کاربری</a>
+              <a class="btn btn-primary float-left m-0" href="<?= base_url() ?>register">ایجاد حساب کاربری</a>
             </div>
           </div>
         </div>
@@ -28,3 +28,4 @@
     </div>
   </div>
 </div>
+<?= include BASEPATH . "App/Views/Frontend/user/script.php" ?>
