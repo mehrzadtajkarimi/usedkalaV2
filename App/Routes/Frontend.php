@@ -31,6 +31,7 @@ Route::group(function () {
 
     Route::get('/login', 'LoginController@login');
     Route::post('/login', 'LoginController@is_login');
+    Route::post('/token', 'LoginController@token');
     Route::get('/logout', 'LoginController@logout');
     Route::get('/profile', 'ProfileController@index');
 });

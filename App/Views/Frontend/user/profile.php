@@ -7,31 +7,18 @@
           <div class="card-body p-3">
             <img src="<?= asset_url() ?>Frontend/images/users/user4-128x128.jpg" class="rounded-circle m-auto" alt="Cinque Terre">
             <div class="mt-3">
-
-
-
               <div class="list-group list-group-flush">
-                  <a href="#" class="list-group-item  list-group-item-action font-weight-bold">سفارش‌های من</a>
-                  <a href="#" class="list-group-item  list-group-item-action font-weight-bold">نظرات</a>
-                  <a href="#" class="list-group-item  list-group-item-action font-weight-bold">کارت های هدیه</a>
-                  <a href="#" class="list-group-item  list-group-item-action font-weight-bold">بازدید های اخیر</a>
-
-
+                  <a href="#" class="list-group-item  list-group-item-action font-weight-bold" >سفارش‌های من</a>
+                  <a href="#" class="list-group-item  list-group-item-action font-weight-bold" >نظرات</a>
+                  <a href="#" class="list-group-item  list-group-item-action font-weight-bold" >کارت های هدیه</a>
+                  <a href="#" class="list-group-item  list-group-item-action font-weight-bold" >بازدید های اخیر</a>
               </div>
-
-
-
-
-
-
-
-
+              <a href="<?= base_url() ?>logout" class="btn btn-primary btn-lg active btn-block mt-5" role="button" aria-pressed="true">خروج</a>
             </div>
           </div>
         </div>
       </div>
       <div class="col-9">
-
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
           <li class="nav-item">
             <a class="nav-link " id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">خانه</a>
