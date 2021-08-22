@@ -20,7 +20,7 @@ class LoginController extends Controller
     public function is_login()
     {
         $phone = $this->request->input('phone');
-        $user = Auth::login(['phone' => $phone]);
+        $user = Auth::login(['phone' => $phone],1);
         if ($user) {
             return $this->request->redirect('admin');
         }

@@ -22,12 +22,16 @@ class LoginController extends Controller
     {
         $request = $this->request->input('login');
         if (is_numeric($request)) {
-           $user = Auth::login(['phone' => $request]);
+            if (preg_match('/^[0-9]{10}+$/', $request)) {
+                $user = Auth::login(['phone' => $request]);
+            } else {
+                die('فرمت وارد شده صحیح نمی باشد');
+            }
         }
-        if (is_string($request)) {
-           $user = Auth::login(['email' => $request]);
+        if (filter_var($request, FILTER_VALIDATE_EMAIL)) {
+            $user = Auth::login(['email' => $request]);
         }
- 
+
         if ($user) {
             return $this->request->redirect('profile');
         }

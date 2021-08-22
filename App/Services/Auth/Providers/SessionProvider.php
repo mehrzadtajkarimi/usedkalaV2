@@ -12,7 +12,7 @@ class SessionProvider extends AuthProvider
     const AUTH_KEY = 'auth';
 
 
-    public  function login($data, $password = null)
+    public  function login($data, $user_level=null)
     {
         $user = $this->user_model->already_exists($data);
         if (!empty($user)) {
@@ -55,6 +55,7 @@ class SessionProvider extends AuthProvider
         $data += [
             'token'            => rand(1, 9999),
             'token_expired_at' => date('Y-m-d H:i:s', time() + 180),
+            'user_level' => $user_level,
         ];
 
         $user_id = $this->user_model->create($data);
