@@ -23,7 +23,7 @@ class CartController  extends Controller
         }
 
         $data = [
-            'cart_total' => array_sum($cart_total??[]),
+            'cart_total' => array_sum($cart_total ?? []),
             'cart_items' => $cart_items
         ];
 

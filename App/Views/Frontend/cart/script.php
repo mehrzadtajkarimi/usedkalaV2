@@ -1,17 +1,16 @@
-<script>
+<!-- <script>
     $(document).ready(function() {
-        $(".quantity").click(function(e) {
-            theURL = $(this).attr('href');
-            e.preventDefault();
-            $.ajax({
+        $(".quantity").children().click(function(e) {
+            theURL = $(this).data('href');
+            $.get({
                 url: theURL,
                 success: function(result) {
                     $("#quantity").html(result);
-                    new WOW().init();
+                    // new WOW().init();
                 }
             });
         });
 
 
     });
-</script>
+</script> -->

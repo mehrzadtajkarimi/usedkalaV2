@@ -56,12 +56,15 @@
                                                         <td class="product-quantity text-center " data-title="Quantity">
                                                             <div class="quantity row d-flex justify-content-center">
                                                                 <span class="woocommerce-Price-amount amount  m-2" style="align-self: center">
-                                                                    <span id="quantity" class="woocommerce-Price-amount amount"><?= $value['count'] ?></span>
+                                                                    <span id="ss" class="woocommerce-Price-amount amount"><?= $value['count'] ?></span>
                                                                 </span>
-                                                                <div class="d-flex flex-column  ">
-                                                                    <a  href="<?= base_url() ?>cart/plus/<?= $value['id'] ?>" class="fa fa-chevron-up text-muted pr-4 pl-4 pt-4 quantity  wow fadeOutUp" aria-hidden="true"></a>
-                                                                    <a  href="<?= base_url() ?>cart/minus/<?= $value['id'] ?>" class="fa fa-chevron-down text-muted pr-4 pl-4 pb-4 quantity wow fadeOutDown" aria-hidden="true"></a>
+                                                                <div class="d-flex flex-column quantity ">
+                                                                    <a  href="<?= base_url() ?>cart/plus/<?= $value['id'] ?>" class="fa fa-chevron-up text-muted pr-4 pl-4 pt-4" ></a>
+                                                                    <a  href="<?= base_url() ?>cart/minus/<?= $value['id'] ?>" class="fa fa-chevron-down text-muted pr-4 pl-4 pb-4 "></a>
+                                                                    <!-- <span  data-href="<?= base_url() ?>cart/plus/<?= $value['id'] ?>" class="fa fa-chevron-up text-muted pr-4 pl-4 pt-4" ></span> -->
+                                                                    <!-- <span  data-href="<?= base_url() ?>cart/minus/<?= $value['id'] ?>" class="fa fa-chevron-down text-muted pr-4 pl-4 pb-4 "></span> -->
                                                                 </div>
+
                                                             </div>
                                                         </td>
                                                         <td data-title="Total" class="product-subtotal text-center ">

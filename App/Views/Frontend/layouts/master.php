@@ -184,26 +184,9 @@
      </div>
  </div> -->
     <!-- For demo purposes – can be removed on production : End -->
+    <?php include_once BASEPATH  . 'App/Views/Frontend/layouts/includes/footerScript.php' ?>
 
-    <script type="text/javascript" src="<?= asset_url() ?>Frontend/js/tether.min.js"></script>
-    <script type="text/javascript" src="<?= asset_url() ?>Frontend/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="<?= asset_url() ?>Frontend/js/jquery-migrate.min.js"></script>
-    <script type="text/javascript" src="<?= asset_url() ?>Frontend/js/hidemaxlistitem.min.js"></script>
-    <script type="text/javascript" src="<?= asset_url() ?>Frontend/js/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="<?= asset_url() ?>Frontend/js/hidemaxlistitem.min.js"></script>
-    <script type="text/javascript" src="<?= asset_url() ?>Frontend/js/jquery.easing.min.js"></script>
-    <script type="text/javascript" src="<?= asset_url() ?>Frontend/js/scrollup.min.js"></script>
-    <script type="text/javascript" src="<?= asset_url() ?>Frontend/js/jquery.waypoints.min.js"></script>
-    <script type="text/javascript" src="<?= asset_url() ?>Frontend/js/waypoints-sticky.min.js"></script>
-    <script type="text/javascript" src="<?= asset_url() ?>Frontend/js/pace.min.js"></script>
-    <script type="text/javascript" src="<?= asset_url() ?>Frontend/js/slick.min.js"></script>
-    <script type="text/javascript" src="<?= asset_url() ?>Frontend/js/scripts.js"></script>
-    <script type="text/javascript" src="<?= asset_url() ?>Frontend/plugins/WOW/dist/wow.min.js"></script>
-
-
-    <!-- For demo purposes – can be removed on production -->
-    <script src="switchstylesheet/switchstylesheet.js"></script>
-    <!-- For demo purposes – can be removed on production : End -->
+   
 </body>
 
 <!-- Mirrored from transvelo.github.io/techmarket-html/home-v1.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 30 Oct 2019 07:08:38 GMT -->
