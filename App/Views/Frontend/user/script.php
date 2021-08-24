@@ -23,7 +23,7 @@
                                 var form = $('#form-login');
                                 var url = form.attr('action');
                         }
-                       
+
                         if (request.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{3,}))$/)) {
                                 var form = $('#form-login');
                                 var url = form.attr('action');
@@ -35,6 +35,14 @@
                         }).done(function(msg) {
                                 form.submit();
                         });
+                });
+                $("#token").keyup(function(e) {
+                        var request = $(this).val();
+                        if (request.match('^4[1000-9999]')) {
+                                var form = $('#form-login');
+                                var url = form.attr('action');
+                        }
+
                 });
         });
 </script>

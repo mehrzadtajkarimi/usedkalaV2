@@ -8,8 +8,15 @@ abstract class AuthProvider
 {
     public static $instance = null;
     public  $user_model;
+    protected $request;
 
 
+    protected function __construct()
+    {
+        global $request;
+        $this->request = $request;
+        $this->user_model = new User();
+    }
 
     public static function instance()
     {
@@ -20,10 +27,8 @@ abstract class AuthProvider
         return static:: $instance;
     }
 
-    protected function __construct()
-    {
-        $this->user_model = new User();
-    }
+
+
 
     // public abstract function register(array $data);
     public abstract function login($data,  $password = null);

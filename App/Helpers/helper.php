@@ -3,6 +3,7 @@
 use App\Models\Category;
 use App\Models\Discount;
 use App\Models\Photo;
+use App\Services\Auth\Auth;
 use App\Services\Basket\Basket;
 
 function base_url($route = null)
@@ -57,7 +58,22 @@ function inject_menu()
             "categories.id=photos.entity_id",
         );
     }
-    // dd($categoryLevelTwo);
+
+
+
+
+
+
+
+
+
+    // dd($_SESSION);
+
+
+
+
+
+
     if ($categoryLevelOne) {
         return  [
             'categoryLevelOne' => $categoryLevelOne,
@@ -65,7 +81,8 @@ function inject_menu()
             'productDiscounts' => $productDiscounts,
             'cart_total' => array_sum($cart_total ?? []),
             'cart_count' => $cart_count,
-            'cart_items' => $cart_items
+            'cart_items' => $cart_items,
+            'authenticated'=> Auth::is_login(),
         ];
     }
     return [];
@@ -102,7 +119,7 @@ function xss_clean($str)
     return filter_var(htmlspecialchars($str), FILTER_SANITIZE_STRING);
 }
 
-function dd($categoryLevelTwo)
+function dd(...$categoryLevelTwo)
 {
     echo '<pre style="background:#FF5722; border-radius: 10px; padding: 20PX">';
     var_dump($categoryLevelTwo);

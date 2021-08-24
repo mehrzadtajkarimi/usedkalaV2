@@ -3,6 +3,7 @@
 namespace App\Controllers\Frontend;
 
 use App\Controllers\Controller;
+use App\Services\Auth\Auth;
 
 class ProfileController extends Controller
 {
@@ -17,10 +18,13 @@ class ProfileController extends Controller
         }
     }
 
-    public function index()
+    public function is_login()
     {
         $data = array();
-        return view('Frontend.user.profile', $data);
+        if (Auth::is_login()) {
+            return view('Frontend.user.profile',$data);
+        }
+        return $this->request->redirect('login');
     }
 
     public function photo_edit()

@@ -12,10 +12,10 @@ class User extends MysqlBaseModel
     public function already_exists(array  $data)
     {
         if ($phone = $data['phone']) {
-            return  $this->first(['phone' => $phone]);
+            return  $this->first(['phone' => $phone])??null;
         }
         if ($email = $data['email']) {
-            return $this->first(['email' => $email]);
+            return $this->first(['email' => $email])??null;
         }
     }
 
