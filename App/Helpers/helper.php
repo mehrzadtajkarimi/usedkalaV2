@@ -1,5 +1,4 @@
 <?php
-
 use App\Models\Category;
 use App\Models\Discount;
 use App\Models\Photo;

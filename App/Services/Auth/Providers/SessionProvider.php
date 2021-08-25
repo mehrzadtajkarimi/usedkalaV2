@@ -4,26 +4,33 @@ namespace App\Services\Auth\Providers;
 
 use App\Models\User;
 use App\Services\Auth\Contract\AuthProvider;
-use App\Services\SmsIR_VerificationCode;
 use App\Utilities\FlashMessage;
-use Ghasedak\GhasedakApi;
+use App\Services\Auth\Notification;
 
 class SessionProvider extends AuthProvider
 {
     const AUTH_KEY = 'auth';
     const TIME_EXPIRED = 130;
 
+    protected $notification;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->notification = new Notification();
+    }
+
     public  function login($param, $user_level = 0)
     {
-        $code       = rand(1000, 9999);
-        $user       = $this->user_model->already_exists($param);
-        $expired_at = strtotime($user['token_expired_at']);
-        $now        = strtotime(date('Y-m-d H:i:s'));
+        $token        = rand(1000, 9999);
+        $user         = $this->user_model->already_exists($param);
+        $expired_at   = strtotime($user['token_expired_at']);
+        $now          = strtotime(date('Y-m-d H:i:s'));
+        $notification = $this->notification;
 
         $token_expired_at = $expired_at - $now;
 
         if (empty($user)) {
-            dd('(empty($user)) ** SessionProvider');
             $param += [
                 'token'            => rand(1, 9999),
                 'token_expired_at' => date('Y-m-d H:i:s', time() + self::TIME_EXPIRED),
@@ -35,6 +42,8 @@ class SessionProvider extends AuthProvider
             if ($user_id) {
 
                 $_SESSION[self::AUTH_KEY] = $user_id;
+                $result = $param['phone'] ?? $notification->send_sms_by_ghasedak($token, $user);
+                $result = $param['email'] ?? $notification->send_sms_by_email($token, $user, $param);
 
                 FlashMessage::add('ارسال با موفقیت انجام شد');
                 $this->request->redirect('token');
@@ -52,20 +61,17 @@ class SessionProvider extends AuthProvider
             FlashMessage::add(' کد ارسالی قبلی ' . gmdate("i:s", $token_expired_at) . ' ثانیه دیگر اعتبار دارد ', FlashMessage::WARNING);
             return $this->request->redirect('login');
         }
-
-        try {
-            $send_sms = new GhasedakApi($_ENV['GHASEDAK_TOKEN']);
-            $result   = $send_sms->SendSimple($user['phone'], "کدتایید usedkala\n$code", "10008566");
-        } catch (\Ghasedak\Exceptions\ApiException $e) {
-            echo $e->errorMessage();
-        } catch (\Ghasedak\Exceptions\HttpException $e) {
-            echo $e->errorMessage();
-        }
+if (isset($param['phone'])) {
+    $result = $notification->send_sms_by_ghasedak($token, $user) ;
+}
+if (isset($param['email']) ) {
+    $result = $notification->send_sms_by_email($token, $user, $param) ;
+}
         if ($result) {
 
             $become = $this->user_model->update(
                 [
-                    'token'            => $code,
+                    'token'            => $token,
                     'token_expired_at' => date('Y-m-d H:i:s', time() + self::TIME_EXPIRED),
                 ],
                 ['id' => $user['id']]

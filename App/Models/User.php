@@ -8,14 +8,13 @@ class User extends MysqlBaseModel
 {
     protected $table = 'users';
 
-
-    public function already_exists(array  $data)
+    public function already_exists($param)
     {
-        if ($phone = $data['phone']) {
-            return  $this->first(['phone' => $phone])??null;
+        if (isset($param['phone'])) {
+            return  $this->first(['phone' => $param['phone']])??null;
         }
-        if ($email = $data['email']) {
-            return $this->first(['email' => $email])??null;
+        if (isset($param['email'])) {
+            return $this->first(['email' => $param['email']])??null;
         }
     }
 
