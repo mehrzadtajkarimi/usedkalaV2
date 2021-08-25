@@ -94,9 +94,11 @@ class SessionProvider extends AuthProvider
     }
     public  function is_token($token)
     {
-        // if (isset($_SESSION[self::AUTH_KEY])) {
-        //     unset($_SESSION[self::AUTH_KEY]);
-        // }
-        return $this->user_model->has(['token' => $token]);
+        $has_token = $this->user_model->has(['token' => $token]);
+        $session = $_SESSION[self::AUTH_KEY];
+        if ($has_token && isset($session)) {
+            unset($session);
+        }
+        return $has_token;
     }
 }

@@ -9,17 +9,11 @@ use Ghasedak\GhasedakApi;
 
 class LoginController extends Controller
 {
-
-
-
-
     public function login()
     {
         global $request;
         return view('Frontend.user.login', ['request' => $request]);
     }
-
-
     public function is_login()
     {
         $request = $this->request->input('login');
@@ -34,11 +28,9 @@ class LoginController extends Controller
         FlashMessage::add('مشکلی در هنگام ثبت تام رخ داده است', FlashMessage::WARNING);
         $this->request->redirect('login');
     }
-    public function logout()
-    {
-        Auth::logout();
-        $this->request->redirect('');
-    }
+
+
+
     public function token()
     {
         global $request;
@@ -50,9 +42,18 @@ class LoginController extends Controller
 
         $is_token= Auth::is_token($request);
         if ($is_token) {
-           $this->request->redirect('profile');
+            $this->request->redirect('profile');
         }else{
             $this->request->redirect('login');
         }
     }
+
+
+
+    public function logout()
+    {
+        Auth::logout();
+        $this->request->redirect('');
+    }
+
 }
