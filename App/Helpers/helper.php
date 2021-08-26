@@ -57,21 +57,7 @@ function inject_menu()
             "categories.id=photos.entity_id",
         );
     }
-
-
-
-
-
-
-
-
-
     // dd($_SESSION);
-
-
-
-
-
 
     if ($categoryLevelOne) {
         return  [
