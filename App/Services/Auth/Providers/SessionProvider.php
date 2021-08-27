@@ -24,18 +24,16 @@ class SessionProvider extends AuthProvider
 
         if (empty($user)) {
             $param += [
-                'token'            => rand(1, 9999),
+                'token'            => rand(1000, 9999),
                 'token_expired_at' => date('Y-m-d H:i:s', time() + self::TIME_EXPIRED),
                 'user_level'       => $user_level,
             ];
 
             if (isset($param['phone'])) {
-                $result = $notification->send_sms_by_ghasedak($token, $user);
-                $_SESSION['phone'] = $param['phone'];
+                $result = $notification->send_token_by_ghasedakSms($token, $param['phone']);
             }
             if (isset($param['email'])) {
-                $result = $notification->send_sms_by_email($token, $user, $param);
-                $_SESSION['email'] = $param['email'];
+                $result = $notification->send_token_by_email($token, $param['email']);
             }
 
             if ($result) {
@@ -59,13 +57,12 @@ class SessionProvider extends AuthProvider
         }
 
         if (isset($param['phone'])) {
-            $result = $notification->send_sms_by_ghasedak($token, $user);
-            $_SESSION['phone'] = $param['phone'];
+            $result = $notification->send_token_by_ghasedakSms($token, $param['phone']);
         }
         if (isset($param['email'])) {
-            $result = $notification->send_sms_by_email($token, $user, $param);
-            $_SESSION['email'] = $param['email'];
+            $result = $notification->send_token_by_email($token, $param['email']);
         }
+
         if ($result) {
             $update = $this->user_model->update(
                 [
@@ -100,13 +97,6 @@ class SessionProvider extends AuthProvider
         $user = $this->user_model->first(['token' => $token]);
         if ($user) {
             $_SESSION[self::AUTH_KEY] ?? $_SESSION[self::AUTH_KEY] = $user['id'];
-            if (isset($_SESSION['phone'])) {
-                unset($_SESSION['phone']);
-            }
-            if (isset($_SESSION['email'])) {
-                unset($_SESSION['email']);
-            }
-
             FlashMessage::add('ثبت نام با موفقیت انجام شد');
             $this->request->redirect('profile');
         } else {
