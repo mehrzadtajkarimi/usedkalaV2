@@ -18,7 +18,7 @@ class SessionProvider extends AuthProvider
 
         $user  = $this->user_model->already_exists($param);
         do {
-            $token = rand(100000, 999999);
+            $token = rand(1000, 9999);
         } while (isset($user) ? $this->user_model->has(['token' => $token]) : '');
 
 
