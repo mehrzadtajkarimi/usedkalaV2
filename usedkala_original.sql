@@ -1,6 +1,6 @@
--- usedkalaV2.active_code definition
+-- usedkalaV2.active_codes definition
 
-CREATE TABLE `active_code` (
+CREATE TABLE `active_codes` (
   `id` int NOT NULL AUTO_INCREMENT,
   `user_id` int NOT NULL,
   `code` int NOT NULL,
@@ -425,9 +425,6 @@ CREATE TABLE `users` (
   `user_level` tinyint DEFAULT '0',
   `phone` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `token` int DEFAULT NULL,
-  `token_expired_at` timestamp NULL DEFAULT NULL,
-  `two_factor_type` enum('sms','email') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'sms',
   `first_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `last_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `company` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -447,4 +444,4 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_UN` (`phone`),
   UNIQUE KEY `users_email_IDX` (`email`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

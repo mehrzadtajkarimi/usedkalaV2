@@ -121,6 +121,11 @@ class  MysqlBaseModel extends BaseModel
         return $this->connection->has($this->table,  $where);
     }
 
+    public function select($columns = '*', $where=null)
+    {
+        return $this->connection->select($this->table, $columns , $where);
+    }
+
 
 
 

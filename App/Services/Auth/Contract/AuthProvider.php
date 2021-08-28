@@ -2,12 +2,16 @@
 
 namespace App\Services\Auth\Contract;
 
+use App\Models\Active_code;
 use App\Models\User;
+use App\Services\Auth\Notification;
 
 abstract class AuthProvider
 {
     public static $instance = null;
     public  $user_model;
+    public  $active_code_model;
+    public  $notification_model;
     protected $request;
 
 
@@ -16,6 +20,8 @@ abstract class AuthProvider
         global $request;
         $this->request = $request;
         $this->user_model = new User();
+        $this->active_code_model = new Active_code();
+        $this->notification_model = new Notification();
     }
 
     public static function instance()

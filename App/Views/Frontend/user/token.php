@@ -16,7 +16,7 @@
           <form id="form-login" action="<?= base_url() ?>token" method="post" class="m-5" autocomplete="off">
             <div class="form-group  ">
               <!-- <label class=" align-self-center mb-4" for="token">برای ورود یا ثبت نام شماره چهار رقمی ارسالی به موبایل یا ایمیل را وارد کنید: </label> -->
-              <input name="token" class="form-control" placeholder="شماره چهار رقمی ارسالی" id="token" autofocus>
+              <input name="token" class="form-control" maxlength="4" placeholder="شماره چهار رقمی ارسالی" id="token" autofocus>
             </div>
           </form>
         </div>

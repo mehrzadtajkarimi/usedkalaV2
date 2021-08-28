@@ -10,81 +10,34 @@ use App\Services\Auth\Notification;
 class SessionProvider extends AuthProvider
 {
     const AUTH_KEY = 'auth';
-    const TIME_EXPIRED = 130;
+    const TIME_EXPIRED = 10;
 
     public  function login($param, $user_level = 0)
     {
-        $notification = new Notification;
-
         $user  = $this->user_model->already_exists($param);
         do {
             $token = rand(1000, 9999);
-        } while (isset($user) ? $this->user_model->has(['token' => $token]) : '');
-
+        } while ($user ? $this->user_model->join_user_to_active_codes($user['id'], $token) : false);
 
         if (empty($user)) {
-            $param += [
-                'token'            => rand(1000, 9999),
-                'token_expired_at' => date('Y-m-d H:i:s', time() + self::TIME_EXPIRED),
-                'user_level'       => $user_level,
-            ];
-
-            if (isset($param['phone'])) {
-                $result = $notification->send_token_by_ghasedakSms($token, $param['phone']);
-            }
-            if (isset($param['email'])) {
-                $result = $notification->send_token_by_email($token, $param['email']);
-            }
-
-            if ($result) {
-                $this->user_model->create($param);
-                FlashMessage::add('ارسال با موفقیت انجام شد');
-                $this->request->redirect('token');
-            } else {
-                FlashMessage::add('مشکلی رخ داده است', FlashMessage::WARNING);
-                $this->request->redirect('login');
+            if ($this->notification_email_or_mobile($token, $param)) {
+                $user_id = $this->user_model->create($param);
+                $this->generate_active_code($user_id, $token, $param);
             }
         }
 
-
-        $expired_at       = strtotime($user['token_expired_at']);
-        $now              = strtotime(date('Y-m-d H:i:s'));
-        $token_expired_at = $expired_at - $now;
-        // dd($user['token_expired_at'], date('Y-m-d H:i:s'), $token_expired_at,  self::TIME_EXPIRED);
-        if ($token_expired_at > 0 && self::TIME_EXPIRED > $token_expired_at) {
-            FlashMessage::add(' کد ارسالی قبلی ' . gmdate("i:s", $token_expired_at) . ' ثانیه دیگر اعتبار دارد ', FlashMessage::WARNING);
-            $this->request->redirect('login');
-        }
-
-        if (isset($param['phone'])) {
-            $result = $notification->send_token_by_ghasedakSms($token, $param['phone']);
-        }
-        if (isset($param['email'])) {
-            $result = $notification->send_token_by_email($token, $param['email']);
-        }
-
-        if ($result) {
-            $update = $this->user_model->update(
-                [
-                    'token'            => $token,
-                    'token_expired_at' => date('Y-m-d H:i:s', time() + self::TIME_EXPIRED),
-                ],
-                ['id' => $user['id']]
-            );
-
-            if ($update) {
-                FlashMessage::add('ارسال با موفقیت انجام شد');
-                $this->request->redirect('token');
-            } else {
-                FlashMessage::add('مشکلی رخ داده است', FlashMessage::WARNING);
-                $this->request->redirect('login');
-            }
+        $this->has_time($user);
+        if ($this->notification_email_or_mobile($token, $param)) {
+            $this->generate_active_code($user['id'], $token, $param);
         }
     }
+
+
     public  function is_login()
     {
         return $_SESSION[self::AUTH_KEY] ?? false;
     } //id user
+
     public  function logout()
     {
         if (isset($_SESSION[self::AUTH_KEY])) {
@@ -92,10 +45,18 @@ class SessionProvider extends AuthProvider
         }
         $this->request->redirect('');
     }
+
     public  function is_token($token)
     {
-        $user = $this->user_model->first(['token' => $token]);
-        if ($user) {
+        if (isset($_SESSION['phone'])) {
+            $user = $this->user_model->first(['phone' => $_SESSION['phone']]);
+        }
+        if (isset($_SESSION['email'])) {
+            $user = $this->user_model->first(['email' => $_SESSION['email']]);
+        }
+        unset($_SESSION);
+        $is_code =  $this->active_code_model->is_code($token, $user['id']);
+        if ($is_code) {
             $_SESSION[self::AUTH_KEY] ?? $_SESSION[self::AUTH_KEY] = $user['id'];
             FlashMessage::add('ثبت نام با موفقیت انجام شد');
             $this->request->redirect('profile');
@@ -103,5 +64,83 @@ class SessionProvider extends AuthProvider
             FlashMessage::add('کد ارسالی رو مجدد بررسی و ارسال نمایید', FlashMessage::WARNING);
             $this->request->redirect('token');
         }
+    }
+
+
+
+
+
+
+
+
+
+
+
+    public function notification_email_or_mobile($token, $param)
+    {
+        $notification = $this->notification_model;
+        if (isset($param['phone'])) {
+            $send = $notification->send_token_by_ghasedakSms($token, $param['phone']);
+            return $send->result->message == 'success' ? true : false;
+        }
+        if (isset($param['email'])) {
+            $send = $notification->send_token_by_email($token, $param['email']);
+            dd($send, 'notification_email_or_mobile');
+        }
+    }
+
+    public  function set_session_for_next_request($param)
+    {
+        if (isset($param['phone'])) {
+            $_SESSION['phone'] = $param['phone'];
+        }
+        if (isset($param['email'])) {
+            $_SESSION['email'] = $param['email'];
+        }
+    }
+
+
+    public function send_message($is_active_code)
+    {
+        if ($is_active_code) {
+            FlashMessage::add('ارسال با موفقیت انجام شد');
+            $this->request->redirect('token');
+        } else {
+            FlashMessage::add('مشکلی رخ داده است', FlashMessage::WARNING);
+            $this->request->redirect('login');
+        }
+    }
+
+
+    public function create_code_active_code($user_id, $token)
+    {
+       return $this->active_code_model->create_active_code(
+            [
+                'user_id'    => $user_id,
+                'code'       => $token,
+                'expired_at' => date('Y-m-d H:i:s', time() + self::TIME_EXPIRED),
+            ]
+        );
+    }
+
+    public function has_time($user)
+    {
+        $expired_at       = strtotime($this->active_code_model->get_expired_at($user['id']));
+        $now              = strtotime(date('Y-m-d H:i:s'));
+        $token_expired_at = $expired_at - $now;
+        // dd($this->active_code_model->get_expired_at($user['id']), date('Y-m-d H:i:s'), $token_expired_at,  self::TIME_EXPIRED);
+        if ($token_expired_at > 0 && self::TIME_EXPIRED > $token_expired_at) {
+            FlashMessage::add(' کد ارسالی قبلی ' . gmdate("i:s", $token_expired_at) . ' ثانیه دیگر اعتبار دارد ', FlashMessage::WARNING);
+            $this->request->redirect('login');
+        }
+    }
+
+    public function generate_active_code($user_id, $token, $param)
+    {
+        $is_active_code = $this->create_code_active_code($user_id, $token, $param);
+        if ($is_active_code) {
+            $this->set_session_for_next_request($param);
+        }
+        $this->send_message($is_active_code);
     }
 }

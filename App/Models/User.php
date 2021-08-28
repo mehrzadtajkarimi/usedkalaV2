@@ -8,6 +8,17 @@ class User extends MysqlBaseModel
 {
     protected $table = 'users';
 
+    public function join_user_to_active_codes($id,$token)
+    {
+        return $this->inner_join(
+            "*",
+            "active_codes",
+            "id",
+            "user_id",
+            "users.id=$id",
+            "active_codes.code=$token",
+        );
+    }
     public function already_exists($param)
     {
         if (isset($param['phone'])) {
@@ -17,5 +28,6 @@ class User extends MysqlBaseModel
             return $this->first(['email' => $param['email']])??null;
         }
     }
+
 
 }
