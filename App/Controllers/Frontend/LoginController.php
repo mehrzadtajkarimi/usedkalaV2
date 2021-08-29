@@ -34,7 +34,6 @@ class LoginController extends Controller
         $token = $this->request->input('token');
         Auth::is_token($token);
     }
-
     public function logout()
     {
         Auth::logout();
