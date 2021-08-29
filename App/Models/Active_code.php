@@ -36,11 +36,10 @@ class Active_code extends MysqlBaseModel
             ['code', 'expired_at'],
             [
                 'user_id' => $user_id,
-                'ORDER' => ['expired_at'=>'DESC'],
-                'LIMIT' =>1
+                'ORDER'   => ['expired_at'=>'DESC'],
+                'LIMIT'   => 1
             ]
         );
-        $this->delete(['user_id' => $user_id]);
-        return $code[0] == $token ? true : false;
+        return $code[0]['code'] == $token ? true : false;
     }
 }

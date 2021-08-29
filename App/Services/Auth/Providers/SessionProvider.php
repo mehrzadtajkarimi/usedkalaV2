@@ -15,30 +15,25 @@ class SessionProvider extends AuthProvider
     public  function login($param, $user_level = 0)
     {
         $user  = $this->user_model->already_exists($param);
-        do {
-            $token = rand(1000, 9999);
-        } while ($user ? $this->user_model->join_user_to_active_codes($user['id'], $token) : false);
-
+        $token = rand(1000, 9999);
         if (empty($user)) {
             if ($this->notification_email_or_mobile($token, $param)) {
                 $user_id = $this->user_model->create($param);
                 $this->generate_active_code($user_id, $token, $param);
             }
         }
-
         $this->has_time($user);
         if ($this->notification_email_or_mobile($token, $param)) {
             $this->generate_active_code($user['id'], $token, $param);
         }
     }
 
-
-    public  function is_login()
+    public function is_login()
     {
         return $_SESSION[self::AUTH_KEY] ?? false;
-    } //id user
+    }
 
-    public  function logout()
+    public function logout()
     {
         if (isset($_SESSION[self::AUTH_KEY])) {
             unset($_SESSION[self::AUTH_KEY]);
@@ -46,17 +41,23 @@ class SessionProvider extends AuthProvider
         $this->request->redirect('');
     }
 
-    public  function is_token($token)
+    public function is_token($token)
     {
+        // unset($_SESSION);
+        // dd($_SESSION['phone']);
         if (isset($_SESSION['phone'])) {
             $user = $this->user_model->first(['phone' => $_SESSION['phone']]);
+            unset($_SESSION['phone']);
         }
         if (isset($_SESSION['email'])) {
             $user = $this->user_model->first(['email' => $_SESSION['email']]);
+            unset($_SESSION['email']);
         }
-        unset($_SESSION);
+        // dd($user);
+        // unset($_SESSION);
         $is_code =  $this->active_code_model->is_code($token, $user['id']);
         if ($is_code) {
+            $this->active_code_model->delete(['user_id' => $user['id']]);
             $_SESSION[self::AUTH_KEY] ?? $_SESSION[self::AUTH_KEY] = $user['id'];
             FlashMessage::add('ثبت نام با موفقیت انجام شد');
             $this->request->redirect('profile');
@@ -66,30 +67,19 @@ class SessionProvider extends AuthProvider
         }
     }
 
-
-
-
-
-
-
-
-
-
-
     public function notification_email_or_mobile($token, $param)
     {
-        $notification = $this->notification_model;
         if (isset($param['phone'])) {
-            $send = $notification->send_token_by_ghasedakSms($token, $param['phone']);
+            $send = $this->notification_model->send_token_by_ghasedakSms($token, $param['phone']);
             return $send->result->message == 'success' ? true : false;
         }
         if (isset($param['email'])) {
-            $send = $notification->send_token_by_email($token, $param['email']);
+            $send = $this->notification_model->send_token_by_email($token, $param['email']);
             dd($send, 'notification_email_or_mobile');
         }
     }
 
-    public  function set_session_for_next_request($param)
+    public function set_session_for_next_request($param)
     {
         if (isset($param['phone'])) {
             $_SESSION['phone'] = $param['phone'];
@@ -98,7 +88,6 @@ class SessionProvider extends AuthProvider
             $_SESSION['email'] = $param['email'];
         }
     }
-
 
     public function send_message($is_active_code)
     {
@@ -111,18 +100,6 @@ class SessionProvider extends AuthProvider
         }
     }
 
-
-    public function create_code_active_code($user_id, $token)
-    {
-       return $this->active_code_model->create_active_code(
-            [
-                'user_id'    => $user_id,
-                'code'       => $token,
-                'expired_at' => date('Y-m-d H:i:s', time() + self::TIME_EXPIRED),
-            ]
-        );
-    }
-
     public function has_time($user)
     {
         $expired_at       = strtotime($this->active_code_model->get_expired_at($user['id']));
@@ -133,6 +110,18 @@ class SessionProvider extends AuthProvider
             FlashMessage::add(' کد ارسالی قبلی ' . gmdate("i:s", $token_expired_at) . ' ثانیه دیگر اعتبار دارد ', FlashMessage::WARNING);
             $this->request->redirect('login');
         }
+    }
+
+    public function create_code_active_code($user_id, $token)
+    {
+        $created = $this->active_code_model->create_active_code(
+            [
+                'user_id'    => $user_id,
+                'code'       => $token,
+                'expired_at' => date('Y-m-d H:i:s', time() + self::TIME_EXPIRED),
+            ]
+        );
+        return isset($created) ? true : false;
     }
 
     public function generate_active_code($user_id, $token, $param)
