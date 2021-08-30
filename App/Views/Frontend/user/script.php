@@ -19,25 +19,24 @@
                 new WOW().init();
                 $("#login").keyup(function(e) {
                         var request = $(this).val();
-                        var email =/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{3,}))$/
+                        var ready = false;
+                        var email = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{3,}))$/
                         // var email =/^([\w-\.]+@(?!gmail.com)(?!yahoo.com)(?!hotmail.com)([\w-]+\.)+[\w-]{2,4})?$/
-                        var model ='^09(1[0-9]|3[1-9]|2[1-9])-?[0-9]{3}-?[0-9]{4}'
+                        var model = '^09(1[0-9]|3[1-9]|2[1-9])-?[0-9]{3}-?[0-9]{4}'
                         if (request.match(model)) {
                                 var form = $('#form-login');
                                 var url = form.attr('action');
+                                ready = true;
                         }
 
                         if (request.match(email)) {
                                 var form = $('#form-login');
                                 var url = form.attr('action');
+                                ready = true;
                         }
-                        $.ajax({
-                                type: 'post',
-                                url: url,
-                                data: form.serialize(), // serializes the form's elements.
-                        }).done(function(msg) {
+                        if (ready == true) {
                                 form.submit();
-                        });
+                        }
                 });
                 $("#token").keyup(function(e) {
                         var request = $(this).val();
@@ -45,14 +44,8 @@
                         if (request.match(num_4)) {
                                 var form = $('#form-login');
                                 var url = form.attr('action');
-                        }
-                        $.ajax({
-                                type: 'post',
-                                url: url,
-                                data: form.serialize(), // serializes the form's elements.
-                        }).done(function(msg) {
                                 form.submit();
-                        });
+                        }
 
                 });
         });

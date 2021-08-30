@@ -14,12 +14,12 @@ class SessionProvider extends AuthProvider
     {
         $user  = $this->user_model->already_exists($param);
         $token = rand(1000, 9999);
-        // if (empty($user)) {
-        //     $user_id = $this->user_model->create($param);
-        //     $this->generate_active_code($user_id, $token, $param);
-        //     $this->send_email_or_mobile($token, $param);
-        // }
-        // $this->token_has_time($user);
+        if (empty($user)) {
+            $user_id = $this->user_model->create($param);
+            $this->generate_active_code($user_id, $token, $param);
+            $this->send_email_or_mobile($token, $param);
+        }
+        $this->token_has_time($user);
         $this->generate_active_code($user['id'], $token, $param);
         $this->send_email_or_mobile($token, $param);
     }
