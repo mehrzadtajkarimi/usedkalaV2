@@ -10,7 +10,6 @@
             <div class="col">
 
               <span class=""> ورود/ ثبت نام:</span>
-              <!-- <a class="btn btn-primary float-left m-0" href="<?= base_url() ?>register">ایجاد حساب کاربری</a> -->
 
             </div>
           </div>

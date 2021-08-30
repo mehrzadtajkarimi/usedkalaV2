@@ -2,26 +2,24 @@
 
 namespace App\Services\Auth\Providers;
 
-use App\Models\User;
 use App\Services\Auth\Contract\AuthProvider;
 use App\Utilities\FlashMessage;
-use App\Services\Auth\Notification;
 
 class SessionProvider extends AuthProvider
 {
     const AUTH_KEY = 'auth';
-    const TIME_EXPIRED = 3;
+    const TIME_EXPIRED = 30;
 
     public  function login($param, $user_level = 0)
     {
         $user  = $this->user_model->already_exists($param);
         $token = rand(1000, 9999);
-        if (empty($user)) {
-            $user_id = $this->user_model->create($param);
-            $this->generate_active_code($user_id, $token, $param);
-            $this->send_email_or_mobile($token, $param);
-        }
-        $this->token_has_time($user);
+        // if (empty($user)) {
+        //     $user_id = $this->user_model->create($param);
+        //     $this->generate_active_code($user_id, $token, $param);
+        //     $this->send_email_or_mobile($token, $param);
+        // }
+        // $this->token_has_time($user);
         $this->generate_active_code($user['id'], $token, $param);
         $this->send_email_or_mobile($token, $param);
     }
@@ -109,7 +107,7 @@ class SessionProvider extends AuthProvider
 
     public function insert_active_code($user_id, $token)
     {
-        return $this->active_code_model->create_active_code(
+         $this->active_code_model->create_active_code(
             [
                 'user_id'    => $user_id,
                 'code'       => $token,
