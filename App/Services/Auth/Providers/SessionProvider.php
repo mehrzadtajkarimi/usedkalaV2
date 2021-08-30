@@ -15,15 +15,13 @@ class SessionProvider extends AuthProvider
     public  function login($param, $user_level = 0)
     {
         $user  = $this->user_model->already_exists($param);
-        // dd($user);
         $token = rand(1000, 9999);
         if (empty($user)) {
-            // dd('ffff');
             $user_id = $this->user_model->create($param);
             $this->generate_active_code($user_id, $token, $param);
             $this->send_email_or_mobile($token, $param);
         }
-        $this->has_time($user);
+        $this->token_has_time($user);
         $this->generate_active_code($user['id'], $token, $param);
         $this->send_email_or_mobile($token, $param);
     }
@@ -96,7 +94,7 @@ class SessionProvider extends AuthProvider
         }
     }
 
-    public function has_time($user)
+    public function token_has_time($user)
     {
         $expired_at       = strtotime($this->active_code_model->get_expired_at($user['id']));
         $now              = strtotime(date('Y-m-d H:i:s'));
