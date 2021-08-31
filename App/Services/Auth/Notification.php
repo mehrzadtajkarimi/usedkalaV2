@@ -32,12 +32,13 @@ class Notification
             $mail->Password   = $_ENV['MAIL_PASS'];
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port       = 465;
+            $mail->CharSet = 'UTF-8';
 
             $mail->SetFrom($_ENV['MAIL_USER']);
             $mail->AddAddress($email);
             $mail->isHTML(true);
 
-            $mail->Subject = "usedkala";
+            $mail->Subject = "usedkala کد تایید";
             $mail->Body    = "<html><body>این کد تاییدیه ورود است! <br><font color='#CC0000'><h3>$token</h3></font> </body></html>";
             $mail->AltBody = 'برنامه شما از این ایمیل پشتیبانی نمی کند، برای مشاهده آن لطفا از برنامه دیگری استفاده نمائید';
 
