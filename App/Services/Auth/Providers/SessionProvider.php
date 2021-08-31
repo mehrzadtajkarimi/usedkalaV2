@@ -41,13 +41,15 @@ class SessionProvider extends AuthProvider
     {
         if (isset($_SESSION['phone'])) {
             $user = $this->user_model->first(['phone' => $_SESSION['phone']]);
+
         }
         if (isset($_SESSION['email'])) {
             $user = $this->user_model->first(['email' => $_SESSION['email']]);
         }
         $is_code =  $this->active_code_model->is_code($token, $user['id']);
         if ($is_code) {
-            session_unset();
+            unset($_SESSION['phone']);
+            unset($_SESSION['email']);
             $_SESSION[self::AUTH_KEY] ?? $_SESSION[self::AUTH_KEY] = $user['id'];
             $this->active_code_model->delete(['user_id' => $user['id']]);
             FlashMessage::add('ثبت نام با موفقیت انجام شد');

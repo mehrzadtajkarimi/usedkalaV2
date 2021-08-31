@@ -8,10 +8,10 @@
             <img src="<?= asset_url() ?>Frontend/images/users/user4-128x128.jpg" class="rounded-circle m-auto" alt="Cinque Terre">
             <div class="mt-3">
               <div class="list-group list-group-flush">
-                  <a href="#" class="list-group-item  list-group-item-action font-weight-bold" >سفارش‌های من</a>
-                  <a href="#" class="list-group-item  list-group-item-action font-weight-bold" >نظرات</a>
-                  <a href="#" class="list-group-item  list-group-item-action font-weight-bold" >کارت های هدیه</a>
-                  <a href="#" class="list-group-item  list-group-item-action font-weight-bold" >بازدید های اخیر</a>
+                <a href="#" class="list-group-item  list-group-item-action font-weight-bold">سفارش‌های من</a>
+                <a href="#" class="list-group-item  list-group-item-action font-weight-bold">نظرات</a>
+                <a href="#" class="list-group-item  list-group-item-action font-weight-bold">کارت های هدیه</a>
+                <a href="#" class="list-group-item  list-group-item-action font-weight-bold">بازدید های اخیر</a>
               </div>
               <a href="<?= base_url() ?>logout" class="btn btn-primary btn-lg active btn-block mt-5" role="button" aria-pressed="true">خروج</a>
             </div>
@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="col-9">
-      <?= App\Utilities\FlashMessage::show_message(); ?>
+        <?= App\Utilities\FlashMessage::show_message(); ?>
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
           <li class="nav-item">
             <a class="nav-link " id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">خانه</a>
@@ -27,9 +27,11 @@
           <li class="nav-item">
             <a class="nav-link active" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">پروفایل</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">سوابق خرید</a>
-          </li>
+          <?php if ($_SESSION['cart']!==[]) : ?>
+            <li class="nav-item">
+              <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">سوابق خرید</a>
+            </li>
+          <?php endif; ?>
         </ul>
         <div class="tab-content" id="pills-tabContent">
           <div class="tab-pane fade " id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
@@ -75,21 +77,13 @@
 
 
           </div>
+          <?php if ($_SESSION['cart']!==[]) : ?>
           <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-
-
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, similique! Doloribus quis assumenda deserunt ut quaerat asperiores quasi unde molestias laudantium reiciendis, eos beatae ipsum voluptatum vel labore autem pariatur?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, similique! Doloribus quis assumenda deserunt ut quaerat asperiores quasi unde molestias laudantium reiciendis, eos beatae ipsum voluptatum vel labore autem pariatur?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, similique! Doloribus quis assumenda deserunt ut quaerat asperiores quasi unde molestias laudantium reiciendis, eos beatae ipsum voluptatum vel labore autem pariatur?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, similique! Doloribus quis assumenda deserunt ut quaerat asperiores quasi unde molestias laudantium reiciendis, eos beatae ipsum voluptatum vel labore autem pariatur?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, similique! Doloribus quis assumenda deserunt ut quaerat asperiores quasi unde molestias laudantium reiciendis, eos beatae ipsum voluptatum vel labore autem pariatur?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, similique! Doloribus quis assumenda deserunt ut quaerat asperiores quasi unde molestias laudantium reiciendis, eos beatae ipsum voluptatum vel labore autem pariatur?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, similique! Doloribus quis assumenda deserunt ut quaerat asperiores quasi unde molestias laudantium reiciendis, eos beatae ipsum voluptatum vel labore autem pariatur?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, similique! Doloribus quis assumenda deserunt ut quaerat asperiores quasi unde molestias laudantium reiciendis, eos beatae ipsum voluptatum vel labore autem pariatur?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, similique! Doloribus quis assumenda deserunt ut quaerat asperiores quasi unde molestias laudantium reiciendis, eos beatae ipsum voluptatum vel labore autem pariatur?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, similique! Doloribus quis assumenda deserunt ut quaerat asperiores quasi unde molestias laudantium reiciendis, eos beatae ipsum voluptatum vel labore autem pariatur?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, similique! Doloribus quis assumenda deserunt ut quaerat asperiores quasi unde molestias laudantium reiciendis, eos beatae ipsum voluptatum vel labore autem pariatur?
+            <?php
+            include BASEPATH . "/App/Views/Frontend/cart/index.php";
+            ?>
           </div>
+          <?php endif; ?>
         </div>
 
 
