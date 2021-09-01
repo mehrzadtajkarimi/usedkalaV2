@@ -16,6 +16,5 @@ $dotenv->load();
 $request = new Request;
 
 include BASEPATH . "App/Helpers/helper.php";
-include BASEPATH . "App/Services/sms.php";
 include BASEPATH . "App/Routes/Backend.php";
 include BASEPATH . "App/Routes/Frontend.php";

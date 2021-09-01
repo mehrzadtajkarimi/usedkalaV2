@@ -9,6 +9,10 @@ function base_url($route = null)
 {
     return  $_ENV['BASE_URL'] . $route;
 }
+function base_url_admin($route = null)
+{
+    return  $_ENV['BASE_URL'] . 'admin/'.$route;
+}
 function asset_url($route = null)
 {
     return  base_url('Assets/' . $route);

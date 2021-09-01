@@ -89,9 +89,13 @@ class Request
         return isset($this->params[$key]);
     }
 
-    public static  function redirect($rout)
+    public static  function redirect($route,bool $admin=false)
     {
-        header('Location: ' . base_url($rout));
+        if ($admin) {
+            header('Location: ' . base_url_admin($route));
+            exit();
+        }
+        header('Location: ' . base_url($route));
         exit();
     }
 

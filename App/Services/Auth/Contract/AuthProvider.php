@@ -37,8 +37,9 @@ abstract class AuthProvider
 
 
     // public abstract function register(array $data);
-    public abstract function login($data,  $password = null);
+    public abstract function login(array $param, bool $is_admin = false);
     public abstract function is_login(); //id user
+    public abstract function is_token($token); //id user
     public abstract function logout();
 
 

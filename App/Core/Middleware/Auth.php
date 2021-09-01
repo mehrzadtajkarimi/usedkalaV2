@@ -12,6 +12,9 @@ class Auth implements MiddlewareInterface
         global $request;
 
         if ($request->segment(1) == 'admin') {
+            if (SessionManager::has('phone') ) {
+               return ;
+            }
             if (!SessionManager::has('auth') ) {
                return $request->redirect('admin/login');
             }
