@@ -36,15 +36,19 @@
 
 
   <div class="register-box wow fadeInDown" data-wow-delay="0.5s">
+    <a href="<?= base_url() ?>admin/login" class="btn btn-primary mt-4 mb-4">بازگشت</a>
     <div class="register-logo">
       <img src="<?= asset_url() ?>Backend/dist/img/ukfav-icon.png" alt="">
 
-      <b class='text-dark'>کد ارسالی به تلفن همراه خود را وارد نمایید</b>
+      <b class='text-dark'>کد ارسالی را وارد نمایید</b>
 
-      <?= \App\Utilities\FlashMessage::show_message() ?>
     </div>
 
     <div class="shadow-lg card ">
+      <small>
+
+        <?= \App\Utilities\FlashMessage::show_message() ?>
+      </small>
       <div class="card-body register-card-body">
         <p class="login-box-msg text-muted">برای ورود یا ثبت نام کد ارسالی به تلفن همراه خود را وارد نمایید.</p>
 

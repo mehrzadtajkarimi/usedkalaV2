@@ -7,7 +7,7 @@ CREATE TABLE `active_codes` (
   `expired_at` timestamp NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `active_code_UN` (`user_id`,`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 -- usedkalaV2.activity_log definition
@@ -364,13 +364,14 @@ CREATE TABLE `site_contents` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.slider definition
+-- usedkalaV2.sliders definition
 
-CREATE TABLE `slider` (
+CREATE TABLE `sliders` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `title` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `link` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `sort` tinyint DEFAULT NULL,
+  `small_text` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `product_id` int DEFAULT NULL,
+  `category_id` int DEFAULT NULL,
+  `sort` tinyint DEFAULT '0',
   `status` tinyint(1) DEFAULT '1',
   `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -444,4 +445,4 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_UN` (`phone`),
   UNIQUE KEY `users_email_IDX` (`email`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

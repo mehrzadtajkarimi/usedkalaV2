@@ -82,6 +82,14 @@ Route::group(function () {
     Route::delete('/admin/cart/destroy/{id}', 'CartController@destroy');
 });
 
+Route::group(function () {
+    Route::get('/admin/slider', 'SliderController@index');
+    Route::get('/admin/slider/create', 'SliderController@create');
+    Route::post('/admin/slider', 'SliderController@store');
+    Route::get('/admin/slider/{id}/edit', 'SliderController@edit');
+    Route::patch('/admin/slider/{id}', 'SliderController@update');
+    Route::delete('/admin/slider/{id}', 'SliderController@destroy');
+});
 
 
 
