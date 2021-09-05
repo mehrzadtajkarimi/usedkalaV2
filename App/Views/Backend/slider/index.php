@@ -21,7 +21,7 @@
               <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="modal-body">
-                    <form action="<?= base_url() ?>admin/slider" method="post" class="p-1">
+                    <form action="<?= base_url() ?>admin/slider" method="post" class="p-1" enctype="multipart/form-data">
                       <input type="hidden" name="code" value="<?= rand(100000, 999999) ?>">
                       <div class="row">
                         <div class="col">

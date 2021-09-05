@@ -51,9 +51,7 @@ class SliderController extends Controller
             'status'      => $params['slider-status'] ?? 0,
         );
 
-
         $files                   = $this->request->files();
-        dd($files);
         $files_param             = $files['slider_image'];
         $files_param_tmp_name    = array_filter($files_param['tmp_name']);
         $check_file_param_exists = !empty($files_param_tmp_name[0]);
