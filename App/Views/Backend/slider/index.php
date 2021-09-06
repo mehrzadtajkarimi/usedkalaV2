@@ -27,8 +27,32 @@
                         <div class="col">
                           <div class="form-group ">
                             <label for="slider-small">خلاصه مطلب</label>
-                            <textarea name="slider-small"type="text" class="form-control" id="slider-small" rows="1" placeholder="" required ></textarea>
+                            <textarea name="slider-small" type="text" class="form-control" id="slider-small" rows="1" placeholder="" required></textarea>
                           </div>
+                        </div>
+                      </div>
+
+                      <small class="mb-4 mt-5">
+                        لطفا یک مورد را انتخاب نمایید:
+                      </small>
+                      <div class="row">
+                        <div class="col">
+                          <div class="form-group ">
+                            <label> دسته بندی انتخابی</label>
+                            <select name='category_id' id="slider_category" class="form-control select2 select2-hidden-accessible " style="width: 100%;text-align: right" multiple="multiple">
+                              <?php foreach ($categories as $value) : ?>
+                                <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <label>محصول انتخابی</label>
+                          <select name="product_id" id="slider_product" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
+                            <?php foreach ($products as $value) : ?>
+                              <option value="<?= $value['id'] ?>"><?= $value['title'] ?></option>
+                            <?php endforeach; ?>
+                          </select>
                         </div>
                       </div>
                       <div class="row">
@@ -41,30 +65,13 @@
                           </div>
                         </div>
                         <div class="col">
-                          <div class="form-group">
+                          <div class="form-group" id="dd">
                             <label for="slider-description" class="col-form-label"> متن مطلب</label>
-                            <textarea name="slider-description" type="text" class="form-control" id="slider-description" placeholder="" rows="7" required></textarea>
+                            <textarea name="slider-description" type="text" class="form-control" id="slider-description " placeholder="" rows="7" required></textarea>
                           </div>
                         </div>
                       </div>
-                      <div class="col">
-                        <div class="form-group ">
-                          <label> دسته بندی انتخابی</label>
-                          <select name='category_id' id="slider_category" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
-                            <?php foreach ($categories as $value) : ?>
-                              <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
-                            <?php endforeach; ?>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col">
-                        <label>محصول انتخابی</label>
-                        <select name="product_id" id="slider_product" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
-                          <?php foreach ($products as $value) : ?>
-                            <option value="<?= $value['id'] ?>"><?= $value['title'] ?></option>
-                          <?php endforeach; ?>
-                        </select>
-                      </div>
+
 
                       <div class="pt-1 pb-4 form-check disabled ">
                         <input name="slider-status" type="checkbox" class="form-check-input " id="slider-status" checked>
@@ -91,7 +98,8 @@
               <tr>
                 <th class="text-center" scope="col">#</th>
                 <th class="text-center" scope="col">موضوع</th>
-                <th class="text-center" scope="col">لینک</th>
+                <th class="text-center" scope="col">محصول</th>
+                <th class="text-center" scope="col">دسته بندی</th>
                 <th class="text-center" scope="col">توضیحات</th>
                 <th class="text-center" scope="col">وضعیت</th>
                 <th class="text-center" scope="col">مشاهده</th>
@@ -105,9 +113,10 @@
               ?>
                 <tr>
                   <td class="text-center" title="ردیف"><?= $count++ ?></td>
-                  <td class="text-center"><?= $value['slider-title'] ?></td>
-                  <td class="text-center"><?= $value['slider-link'] ?></td>
-                  <td class="text-center"><?= $value['slider-description'] ?></td>
+                  <td class="text-center"><?= $value['small_text'] ?></td>
+                  <td class="text-center"><?= $value['product_id'] ?></td>
+                  <td class="text-center"><?= $value['category_id'] ?></td>
+                  <td class="text-center"><?= $value['description'] ?></td>
                   <td>
                     <div>
                       وضــــــــــعــیـت :
@@ -143,7 +152,7 @@
 
         </div>
       </div>
-      <p class="text-muted font-italic pr-4">برای به دست آوردن نام متا - تخفیف یا وزن با موس روی نقطه مورد نظر هاور کنید</p>
+      <p class="text-muted font-italic pr-4">لیست اسلایدر صفحه اصلی</p>
     </div>
   </div>
 </div>

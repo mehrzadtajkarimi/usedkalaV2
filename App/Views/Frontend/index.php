@@ -3,8 +3,10 @@
         <div id="primary" class="content-area">
             <main id="main" class="site-main">
                 <div class="home-v1-slider home-slider">
-                    <div class="slider-1" style="background-image: url(<?= asset_url() ?>Frontend/images/slider/home-v1-background.jpg);">
-                        <img src="<?= asset_url() ?>Frontend/images/slider/home-v1-img-1.png" alt="">
+                    <?php foreach ($sliders as $value): ?>
+                    
+                        <div class="slider-1" style="background-image: url(<?= asset_url() ?>Frontend/images/slider/home-v1-background.jpg);">
+                            <img src="" alt="">
                         <div class="caption">
                             <div class="title">رایانه شخصی یکپارچه</div>
                             <div class="sub-title"> به رایانه‌های رومیزی گفته می‌شود که نمایشگر آن به کیسی
@@ -19,8 +21,9 @@
                             <div class="bottom-caption">رایانه شخصی یکپارچه</div>
                         </div>
                     </div>
+                    <?php endforeach; ?>
                     <!-- .slider-1 -->
-                    <div class="slider-1 slider-2" style="background-image: url(<?= asset_url() ?>Frontend/images/slider/home-v1-background.jpg);">
+                    <!-- <div class="slider-1 slider-2" style="background-image: url(<?= asset_url() ?>Frontend/images/slider/home-v1-background.jpg);">
                         <img src="<?= asset_url() ?>Frontend/images/slider/home-v1-img-2.png" alt="">
                         <div class="caption">
                             <div class="title">The new-tech gift you
@@ -35,7 +38,7 @@
                             </div>
                             <div class="bottom-caption">Free shipping on US Terority </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- .slider-2 -->
                 </div>
                 <!-- .home-v1-slider -->

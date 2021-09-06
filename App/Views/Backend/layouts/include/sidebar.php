@@ -118,7 +118,7 @@
                               تنظیمات
                               <i class="right fa fa-angle-left"></i>
                           </p>
-                          <i class="fa fa-shopping-cart nav-icon" aria-hidden="true"></i>
+                          <i class="fa fa-cogs  nav-icon" aria-hidden="true"></i>
                       </a>
 
                       <ul class="nav nav-treeview">
