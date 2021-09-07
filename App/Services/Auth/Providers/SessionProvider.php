@@ -52,7 +52,7 @@ class SessionProvider extends AuthProvider
             $_SESSION[self::AUTH_KEY] ?? $_SESSION[self::AUTH_KEY] = $user['id'];
             $this->active_code_model->delete(['user_id' => $user['id']]);
             FlashMessage::add('ثبت نام با موفقیت انجام شد');
-            if ($is_admin) {
+            if ($is_admin ) {
                 $this->request->redirect('admin');
             }
             $this->request->redirect('profile');

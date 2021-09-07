@@ -16,7 +16,9 @@ class LoginController extends Controller
     public function is_login()
     {
         $phone = $this->request->input('phone');
-        Auth::login(['phone' => $phone], true); // true == is_admin
+        Auth::login([
+            'phone' => $phone,
+        ], true); // true == is_admin
     }
     public function token()
     {
