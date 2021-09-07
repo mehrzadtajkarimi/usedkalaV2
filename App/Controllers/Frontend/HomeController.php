@@ -30,14 +30,16 @@ class HomeController extends Controller
     {
         $cart_items       = Basket::items();
         $productDiscounts = $this->discountModel->join_discount__with_productDiscounts_products();
-        $sliders        = $this->sliderModel->read_slider();
+        $sliders          = $this->sliderModel->read_slider();
 
 
-        foreach ($sliders as  $value) {
-            # code...
-            $sliders[] =$this->photoModel->read_photo_by_id($value['id'], 'Slider');
+        foreach ($sliders as $key => $value) {
+
+
+            $photos = $this->photoModel->read_photo_by_id($value['id'], 'Slider', true)[0];
+            $sliders[$key]['photo']  = $photos;
         }
-// dd($sliders);
+
 
         foreach ($cart_items as  $value) {
             $cart_total[] = $value['count'] * $value['price'];

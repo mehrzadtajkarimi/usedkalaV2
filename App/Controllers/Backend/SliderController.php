@@ -61,6 +61,10 @@ class SliderController extends Controller
 
         $files                   = $this->request->files();
         $files_param             = $files['slider_image'];
+        if ($files_param['size']< 150000) {
+            FlashMessage::add("حجم عکس باید بالا 150 k ", FlashMessage::WARNING);
+            return $this->request->redirect('admin/slider');
+        }
         $files_param_tmp_name    = $files_param['tmp_name'];
         $check_file_param_exists = !empty($files_param_tmp_name[0]);
         if ($check_file_param_exists) {

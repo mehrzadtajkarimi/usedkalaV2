@@ -4,20 +4,23 @@
             <main id="main" class="site-main">
                 <div class="home-v1-slider home-slider">
                     <?php foreach ($sliders as $value): ?>
-                    
                         <div class="slider-1" style="background-image: url(<?= asset_url() ?>Frontend/images/slider/home-v1-background.jpg);">
-                            <img src="" alt="">
+                            <img class="img-fluid" src="<?= $value['photo']['path'] ?>" alt="">
                         <div class="caption">
-                            <div class="title">رایانه شخصی یکپارچه</div>
-                            <div class="sub-title"> به رایانه‌های رومیزی گفته می‌شود که نمایشگر آن به کیسی
-                                که پردازشگر و دیگر قطعات اصلی رایانه در آن قرار دارد، متصل است. این نوع
-                                رایانه‌ها بیشتر از رایانه‌های رومیزی معمولی قابل حمل می‌باشند و فضای کمتری
-                                از میز را اشغال می‌کنند اما در زمینه ارتقاء کیفیت برای بالا بردن توانایی شان
-                                بسیار محدودند. گرچه تاحدودی این مشکلات در رایانه‌های یکپارچه جدیدتر رفع
-                                شده‌است. </div>
-                            <div class="button">ادامه مطلب
+                            <div class="title"><?= $value['small_text'] ?></div>
+                            <div class="sub-title"><?= $value['description'] ?></div>
+                            <a href="
+                            <?php 
+                            if ($value['category_id']) {
+                            echo  base_url().'category/'.$value['category_id'];
+                            }
+                            if ($value['product_id']) {
+                             echo    base_url().'product/'.$value['product_id'];
+                            }
+                            ?>
+                            " class="button">ادامه مطلب
                                 <i class="tm tm-long-arrow-left"></i>
-                            </div>
+                            </a>
                             <div class="bottom-caption">رایانه شخصی یکپارچه</div>
                         </div>
                     </div>

@@ -11774,7 +11774,7 @@ article.post.category-more-tag a[target=_blank] {
     .site-content .home-v1-slider .slider-1 img,
     .site-content .home-v1-slider .slider-2 img {
         right: 55.3%;
-        bottom: -45.9%;
+        /* bottom: -45.9%; */
     }
 }
 @media (min-width: 1590px) {
