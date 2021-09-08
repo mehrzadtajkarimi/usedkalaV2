@@ -3,6 +3,7 @@
 namespace App\Services\Auth\Providers;
 
 use App\Services\Auth\Contract\AuthProvider;
+use App\Services\Session\SessionManager;
 use App\Utilities\FlashMessage;
 
 class SessionProvider extends AuthProvider
@@ -12,6 +13,7 @@ class SessionProvider extends AuthProvider
 
     public function login(array $param, bool $is_admin = false)
     {
+        SessionManager::clear();
         $user  = $this->user_model->already_exists($param);
         $token = rand(1000, 9999);
         if (empty($user)) {
@@ -31,8 +33,12 @@ class SessionProvider extends AuthProvider
 
     public function logout()
     {
-        if (isset($_SESSION[self::AUTH_KEY])) {
-            unset($_SESSION[self::AUTH_KEY]);
+        // dd('fff');
+        // dd(self::AUTH_KEY);
+        dd($_SESSION);
+        dd(SessionManager::has($_SESSION[self::AUTH_KEY]));
+        if (SessionManager::has($_SESSION[self::AUTH_KEY])) {
+            SessionManager::remove($_SESSION[self::AUTH_KEY]);
         }
         $this->request->redirect('');
     }
@@ -47,12 +53,12 @@ class SessionProvider extends AuthProvider
         }
         $is_code =  $this->active_code_model->is_code($token, $user['id']);
         if ($is_code) {
-            unset($_SESSION['phone']);
-            unset($_SESSION['email']);
+            SessionManager::remove($_SESSION['phone']);
+            SessionManager::remove($_SESSION['email']);
             $_SESSION[self::AUTH_KEY] ?? $_SESSION[self::AUTH_KEY] = $user['id'];
             $this->active_code_model->delete(['user_id' => $user['id']]);
             FlashMessage::add('ثبت نام با موفقیت انجام شد');
-            if ($is_admin ) {
+            if ($is_admin) {
                 $this->request->redirect('admin');
             }
             $this->request->redirect('profile');
@@ -103,15 +109,6 @@ class SessionProvider extends AuthProvider
         $this->insert_active_code($user_id, $token);
         $this->set_session_for_next_request($param);
     }
-    private function set_session_for_next_request($param)
-    {
-        if (isset($param['phone'])) {
-            $_SESSION['phone'] = $param['phone'];
-        }
-        if (isset($param['email'])) {
-            $_SESSION['email'] = $param['email'];
-        }
-    }
     private function insert_active_code($user_id, $token)
     {
         $this->active_code_model->create_active_code(
@@ -121,5 +118,14 @@ class SessionProvider extends AuthProvider
                 'expired_at' => date('Y-m-d H:i:s', time() + self::TIME_EXPIRED),
             ]
         );
+    }
+    private function set_session_for_next_request($param)
+    {
+        if (isset($param['phone'])) {
+            $_SESSION['phone'] = $param['phone'];
+        }
+        if (isset($param['phone'])) {
+            $_SESSION['email'] = $param['phone'];
+        }
     }
 }

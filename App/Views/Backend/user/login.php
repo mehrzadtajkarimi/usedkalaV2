@@ -40,10 +40,10 @@
 
       <b class='text-dark'>ورود یه پنل</b>
 
-      <?= \App\Utilities\FlashMessage::show_message() ?>
     </div>
 
     <div class="shadow-lg card ">
+      <?= \App\Utilities\FlashMessage::show_message() ?>
       <div class="card-body register-card-body">
         <p class="login-box-msg text-muted">برای ورود یا ثبت نام کافیست شماره تماس خود را وارد کنید.</p>
 

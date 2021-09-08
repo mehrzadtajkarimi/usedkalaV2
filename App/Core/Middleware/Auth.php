@@ -5,6 +5,7 @@ namespace App\Core\Middleware;
 use App\Core\Middleware\Contract\MiddlewareInterface;
 use App\Models\User;
 use App\Services\Session\SessionManager;
+use App\Utilities\FlashMessage;
 
 class Auth extends User implements MiddlewareInterface
 {
@@ -12,16 +13,13 @@ class Auth extends User implements MiddlewareInterface
     {
         global $request;
 
-        // $this->already_exists();
-        dd($_SESSION);
         if ($request->segment(1) == 'admin') {
-            if (SessionManager::has('phone') ) {
-               return ;
+
+            if (SessionManager::get('auth') && $this->is_admin(SessionManager::get('auth'))) {
+                return;
             }
-            if (!SessionManager::has('auth') ) {
-               return $request->redirect('admin/login');
-            }
-          return ;
+            FlashMessage::add("ابتدا وارد شوید :(", FlashMessage::WARNING);
+            return $request->redirect('admin/login');
         }
     }
 }
