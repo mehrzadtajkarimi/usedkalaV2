@@ -8,19 +8,21 @@
                         if (request.match(model)) {
                                 var form = $('#form-login');
                                 var url = form.attr('action');
-                                form.submit();
-                        }
-                });
-                $("#token-number").keyup(function(e) {
+                                $.ajax({
+                                        type: 'post',
+                                        url: url,
+                                        data: form.serialize(), // serializes the form's elements.
+                                }).done(function(msg) {
+                                        alert('kkkkkkkk');
+                                        $("#token-number").keyup(function(e) {
+                                                var num_4 = '1000|[1-9][0-9][0-9][0-9]'
+                                                if (request.match(num_4)) {
+                                                        form.submit();
+                                                }
 
-                        var request = $(this).val();
-                        var num_4 = '1000|[1-9][0-9][0-9][0-9]'
-                        if (request.match(num_4)) {
-                                var form = $('#form-login');
-                                var url = form.attr('action');
-                                form.submit();
+                                        });
+                                });
                         }
-
                 });
 
         });
