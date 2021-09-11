@@ -51,6 +51,7 @@ class SessionManager implements SessionContract
         if (self::has($key)) {
             unset($_SESSION[$key]);
         }
+        return;
     }
 
     public static function clear(): void

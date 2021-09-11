@@ -42,8 +42,11 @@
 
     </div>
 
-    <div class="shadow-lg card ">
-      <?= \App\Utilities\FlashMessage::show_message() ?>
+    <div id="login" class="shadow-lg card ">
+      <small>
+
+        <?= \App\Utilities\FlashMessage::show_message() ?>
+      </small>
       <div class="card-body register-card-body">
         <p class="login-box-msg text-muted">برای ورود یا ثبت نام کافیست شماره تماس خود را وارد کنید.</p>
 
@@ -61,7 +64,27 @@
         <a href="<?= base_url() ?>admin/login" class="text-center">من قبلا ثبت نام کرده ام</a>
       </div>
       <!-- /.form-box -->
-    </div><!-- /.card -->
+    </div>
+
+    <div id="token" class="shadow-lg card d-none">
+      <small>
+
+        <?= \App\Utilities\FlashMessage::show_message() ?>
+      </small>
+      <div class="card-body register-card-body">
+        <p class="login-box-msg text-muted">برای ورود یا ثبت نام کد ارسالی به تلفن همراه خود را وارد نمایید.</p>
+
+        <form id="form-token" action="<?= base_url() ?>admin/token" method="POST">
+          <div class="mb-3 input-group ">
+            <input type="text" id="token-number" class="form-control " name="token" maxlength="4" placeholder="کد ارسالی 4 رقمی "  autocomplete="off">
+            <div class="input-group-append">
+              <span class="fa fa-phone input-group-text"></span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
   </div>
 
 

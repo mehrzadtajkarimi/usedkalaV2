@@ -3,26 +3,32 @@
 
                 new WOW().init();
                 $("#phone-number").keyup(function(e) {
-                        var request = $(this).val();
+                        var request_login = $("#phone-number").val();
                         var model = '^09(1[0-9]|3[1-9]|2[1-9])-?[0-9]{3}-?[0-9]{4}'
-                        if (request.match(model)) {
-                                var form = $('#form-login');
-                                var url = form.attr('action');
+                        if (request_login.match(model)) {
+                                var form_login = $('#form-login');
+                                var url = form_login.attr('action');
+                                // form_login.submit();
                                 $.ajax({
                                         type: 'post',
                                         url: url,
-                                        data: form.serialize(), // serializes the form's elements.
+                                        data: form_login.serialize(), // serializes the form's elements.
                                 }).done(function(msg) {
-                                        alert('kkkkkkkk');
-                                        $("#token-number").keyup(function(e) {
-                                                var num_4 = '1000|[1-9][0-9][0-9][0-9]'
-                                                if (request.match(num_4)) {
-                                                        form.submit();
-                                                }
+                                        $("#login").addClass('d-none');
+                                        $("#token").addClass('d-block');
 
-                                        });
                                 });
                         }
+                });
+                $("#token-number").keyup(function(e) {
+                        var request_token = $("#token-number").val();
+                        var num_4 = '1000|[1-9][0-9][0-9][0-9]'
+                        if (request_token.match(num_4)) {
+                                var form_token = $('#form-token');
+                                // var url = form_token.attr('action');
+                                form_token.submit();
+                        }
+
                 });
 
         });

@@ -59,14 +59,9 @@
               <span class="fa fa-phone input-group-text"></span>
             </div>
           </div>
-
-          <!-- <button class="btn btn-primary btn-block" type="submit">ارسال</button> -->
         </form>
-
-        <!-- <a href="<?= base_url() ?>admin/login" class="text-center">من قبلا ثبت نام کرده ام</a> -->
       </div>
-      <!-- /.form-box -->
-    </div><!-- /.card -->
+    </div>
   </div>
 
 

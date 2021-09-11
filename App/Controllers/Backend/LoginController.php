@@ -10,6 +10,7 @@ class LoginController extends Controller
 
     public function login()
     {
+        // die('salam');
         global $request;
         return view('Backend.user.login', ['request' => $request], true);
     }
@@ -20,11 +21,11 @@ class LoginController extends Controller
             'phone' => $phone,
         ], true); // true == is_admin
     }
-    public function token()
-    {
-        global $request;
-        return view('Backend.user.token', ['request' => $request], true);
-    }
+    // public function token()
+    // {
+    //     global $request;
+    //     return view('Backend.user.token', ['request' => $request], true);
+    // }
     public function is_token()
     {
         $token = $this->request->input('token');

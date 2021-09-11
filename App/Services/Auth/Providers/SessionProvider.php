@@ -33,12 +33,8 @@ class SessionProvider extends AuthProvider
 
     public function logout()
     {
-        // dd('fff');
-        // dd(self::AUTH_KEY);
-        dd($_SESSION);
-        dd(SessionManager::has($_SESSION[self::AUTH_KEY]));
-        if (SessionManager::has($_SESSION[self::AUTH_KEY])) {
-            SessionManager::remove($_SESSION[self::AUTH_KEY]);
+        if (SessionManager::has(self::AUTH_KEY)) {
+            SessionManager::remove(self::AUTH_KEY);
         }
         $this->request->redirect('');
     }
@@ -53,8 +49,8 @@ class SessionProvider extends AuthProvider
         }
         $is_code =  $this->active_code_model->is_code($token, $user['id']);
         if ($is_code) {
-            SessionManager::remove($_SESSION['phone']);
-            SessionManager::remove($_SESSION['email']);
+            SessionManager::remove($_SESSION['phone']??'');
+            SessionManager::remove($_SESSION['email']??'');
             $_SESSION[self::AUTH_KEY] ?? $_SESSION[self::AUTH_KEY] = $user['id'];
             $this->active_code_model->delete(['user_id' => $user['id']]);
             FlashMessage::add('ثبت نام با موفقیت انجام شد');
@@ -124,8 +120,8 @@ class SessionProvider extends AuthProvider
         if (isset($param['phone'])) {
             $_SESSION['phone'] = $param['phone'];
         }
-        if (isset($param['phone'])) {
-            $_SESSION['email'] = $param['phone'];
+        if (isset($param['email'])) {
+            $_SESSION['email'] = $param['email'];
         }
     }
 }
