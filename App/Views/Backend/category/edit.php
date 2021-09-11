@@ -19,13 +19,19 @@
                 </div>
             </div>
             <div class=" form-group row">
+                    <label for="H1" class="col-2 col-form-label">H1</label>
+                    <div class="col-10">
+                        <input name="H1" type="text" class="form-control" id="H1" placeholder="ترجیحا بین 20 تا 70 کاراکتر" required>
+                    </div>
+                </div>
+                <div class=" form-group row">
                     <label for="description" class="col-2 col-form-label"> درباره دسته بندی </label>
                     <div class="col-10">
-                        <textarea name="description" type="text" class="form-control" id="description"  placeholder="" rows="3" required><?= $category['description'] ?></textarea>
+                        <textarea name="description" type="text" class="form-control" id="description" placeholder="" rows="3" required><?= $category['description'] ?></textarea>
                     </div>
                 </div>
                 <div class="pt-2 pb-2 form-check">
-                    <input  name="status" type="checkbox" class="form-check-input" id="status" <?= $category['status'] ?  'checked' : ''  ?>>
+                    <input name="status" type="checkbox" class="form-check-input" id="status" <?= $category['status'] ?  'checked' : ''  ?>>
                     <label class="form-check-label" for="status">
                         وضعیت
                     </label>
@@ -41,7 +47,6 @@
                         </div>
                     </div>
                 <?php else : ?>
-
                     <div class="text-center">
                         <!-- Button trigger modal -->
                         <span type="button" class="btn w-50" data-toggle="modal" data-target="#form-modal-edit-photo" title="جهت ویرایش کلیک کتید">

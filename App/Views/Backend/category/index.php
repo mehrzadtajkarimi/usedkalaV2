@@ -27,7 +27,7 @@
                       <div class="form-group row">
                         <label for="category" class="col-2 col-form-label">نام</label>
                         <div class="col-10">
-                          <input name="name" type="text" class="form-control" id="category" placeholder=" دسته اصلی را وارد نمایید" required>
+                          <input name="name" type="text" class="form-control" id="category"  maxlength="68" placeholder=" دسته اصلی را وارد نمایید" required>
                         </div>
                       </div>
                       <div class="form-group row">
@@ -37,18 +37,24 @@
                         </div>
                       </div>
                       <div class="form-group row">
+                        <label for="H1" class="col-2 col-form-label">H1</label>
+                        <div class="col-10">
+                          <input name="H1" type="text" class="form-control" id="H1" placeholder="ترجیحا بین 20 تا 70 کاراکتر" required>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="description" class="col-2 col-form-label"> درباره دسته بندی </label>
+                        <div class="col-10">
+                          <textarea name="description" type="text" class="form-control" id="description"  maxlength="120"  placeholder="حد اکثر 120 کاراکتر" rows="3" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
                         <label for="slug" class="col-2 col-form-label">عکس</label>
                         <div class="col-10">
                           <div class="custom-file">
                             <input  name="image_category" type="file" class="custom-file-input" id="image" >
                             <label class="custom-file-label" for="image">Choose file</label>
                           </div>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="description" class="col-2 col-form-label"> درباره دسته بندی </label>
-                        <div class="col-10">
-                          <textarea name="description" type="text" class="form-control" id="description" placeholder="" rows="3" required></textarea>
                         </div>
                       </div>
                       <div class="pt-2 pb-2 form-check">

@@ -49,6 +49,7 @@ class CategoryController extends Controller
             'parent_id'   => $id,
             'slug'        => create_slug($params['slug']),
             'name'        => $params['name'],
+            'H1'          => $params['H1'],
             'description' => $params['description'],
             'status'      => $params['status'] ?? '0',
         );
@@ -122,6 +123,7 @@ class CategoryController extends Controller
             $this->categoryModel->update_category([
                 'slug'        => create_slug($params['slug']),
                 'name'        => $params['name'],
+                'H1'          => $params['H1'],
                 'description' => $params['description'],
                 'status'      => $params['status'] == 'on' ? 1 : 0,
             ], $id);

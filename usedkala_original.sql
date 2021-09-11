@@ -1,4 +1,4 @@
--- usedkalaV2.active_codes definition
+-- usedkalav2.active_codes definition
 
 CREATE TABLE `active_codes` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -7,10 +7,10 @@ CREATE TABLE `active_codes` (
   `expired_at` timestamp NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `active_code_UN` (`user_id`,`code`)
-) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=197 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.activity_log definition
+-- usedkalav2.activity_log definition
 
 CREATE TABLE `activity_log` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -25,7 +25,7 @@ CREATE TABLE `activity_log` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.attribute_product definition
+-- usedkalav2.attribute_product definition
 
 CREATE TABLE `attribute_product` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -37,7 +37,7 @@ CREATE TABLE `attribute_product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.attribute_values definition
+-- usedkalav2.attribute_values definition
 
 CREATE TABLE `attribute_values` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -48,7 +48,7 @@ CREATE TABLE `attribute_values` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.`attributes` definition
+-- usedkalav2.`attributes` definition
 
 CREATE TABLE `attributes` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -58,7 +58,7 @@ CREATE TABLE `attributes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.brands definition
+-- usedkalav2.brands definition
 
 CREATE TABLE `brands` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -68,10 +68,10 @@ CREATE TABLE `brands` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.carts definition
+-- usedkalav2.carts definition
 
 CREATE TABLE `carts` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -81,22 +81,23 @@ CREATE TABLE `carts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.categories definition
+-- usedkalav2.categories definition
 
 CREATE TABLE `categories` (
   `id` int NOT NULL AUTO_INCREMENT,
   `status` tinyint(1) DEFAULT NULL,
-  `description` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `description` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `H1` varchar(256) COLLATE utf8mb4_general_ci NOT NULL,
   `parent_id` int DEFAULT '0',
   `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `slug` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `categories_UN` (`slug`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.category_discounts definition
+-- usedkalav2.category_discounts definition
 
 CREATE TABLE `category_discounts` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -104,10 +105,10 @@ CREATE TABLE `category_discounts` (
   `discount_id` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `category_discounts_FK` (`category_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=245 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=247 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.category_product definition
+-- usedkalav2.category_product definition
 
 CREATE TABLE `category_product` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -117,7 +118,7 @@ CREATE TABLE `category_product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.cities definition
+-- usedkalav2.cities definition
 
 CREATE TABLE `cities` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -127,7 +128,7 @@ CREATE TABLE `cities` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.comments definition
+-- usedkalav2.comments definition
 
 CREATE TABLE `comments` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -143,7 +144,7 @@ CREATE TABLE `comments` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.discounts definition
+-- usedkalav2.discounts definition
 
 CREATE TABLE `discounts` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -159,10 +160,10 @@ CREATE TABLE `discounts` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.likes definition
+-- usedkalav2.likes definition
 
 CREATE TABLE `likes` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -174,7 +175,7 @@ CREATE TABLE `likes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.order_details definition
+-- usedkalav2.order_details definition
 
 CREATE TABLE `order_details` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -188,7 +189,7 @@ CREATE TABLE `order_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.orders definition
+-- usedkalav2.orders definition
 
 CREATE TABLE `orders` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -211,7 +212,7 @@ CREATE TABLE `orders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.permission_role definition
+-- usedkalav2.permission_role definition
 
 CREATE TABLE `permission_role` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -221,7 +222,7 @@ CREATE TABLE `permission_role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.permission_user definition
+-- usedkalav2.permission_user definition
 
 CREATE TABLE `permission_user` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -233,7 +234,7 @@ CREATE TABLE `permission_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.permissions definition
+-- usedkalav2.permissions definition
 
 CREATE TABLE `permissions` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -244,7 +245,7 @@ CREATE TABLE `permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.photos definition
+-- usedkalav2.photos definition
 
 CREATE TABLE `photos` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -255,20 +256,20 @@ CREATE TABLE `photos` (
   `alt` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.product_discounts definition
+-- usedkalav2.product_discounts definition
 
 CREATE TABLE `product_discounts` (
   `id` int NOT NULL AUTO_INCREMENT,
   `product_id` int NOT NULL,
   `discount_id` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.products definition
+-- usedkalav2.products definition
 
 CREATE TABLE `products` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -292,10 +293,10 @@ CREATE TABLE `products` (
   `started_at` timestamp NULL DEFAULT NULL,
   `end_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.provinces definition
+-- usedkalav2.provinces definition
 
 CREATE TABLE `provinces` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -304,7 +305,7 @@ CREATE TABLE `provinces` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.role_user definition
+-- usedkalav2.role_user definition
 
 CREATE TABLE `role_user` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -316,7 +317,7 @@ CREATE TABLE `role_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.roles definition
+-- usedkalav2.roles definition
 
 CREATE TABLE `roles` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -327,7 +328,7 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.sellers definition
+-- usedkalav2.sellers definition
 
 CREATE TABLE `sellers` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -339,7 +340,7 @@ CREATE TABLE `sellers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.settings definition
+-- usedkalav2.settings definition
 
 CREATE TABLE `settings` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -351,7 +352,7 @@ CREATE TABLE `settings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.site_contents definition
+-- usedkalav2.site_contents definition
 
 CREATE TABLE `site_contents` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -364,7 +365,7 @@ CREATE TABLE `site_contents` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.sliders definition
+-- usedkalav2.sliders definition
 
 CREATE TABLE `sliders` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -376,10 +377,10 @@ CREATE TABLE `sliders` (
   `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.suppliers definition
+-- usedkalav2.suppliers definition
 
 CREATE TABLE `suppliers` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -404,7 +405,7 @@ CREATE TABLE `suppliers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.tickets definition
+-- usedkalav2.tickets definition
 
 CREATE TABLE `tickets` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
@@ -418,7 +419,7 @@ CREATE TABLE `tickets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
--- usedkalaV2.users definition
+-- usedkalav2.users definition
 
 CREATE TABLE `users` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -445,4 +446,4 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_UN` (`phone`),
   UNIQUE KEY `users_email_IDX` (`email`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
