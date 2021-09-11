@@ -45,12 +45,12 @@ class  MysqlBaseModel extends BaseModel
 
     public function find($id): object
     {
-        return  $this->connection->get($this->table, '*', [$this->primaryKey => $id]) ?? new \stdClass;
-        // $record = $this->connection->get($this->table, '*', [$this->primaryKey => $id]) ?? new \stdClass;
-        // foreach ($record as $key => $value) {
-        //     $this->attributes[$key] = $value;
-        // }
-        // return $this;
+        // return  $this->connection->get($this->table, '*', [$this->primaryKey => $id]) ?? new \stdClass;
+        $record = $this->connection->get($this->table, '*', [$this->primaryKey => $id]) ?? new \stdClass;
+        foreach ($record as $key => $value) {
+            $this->attributes[$key] = $value;
+        }
+        return $this;
     }
 
     public function count_by($field, $value)
