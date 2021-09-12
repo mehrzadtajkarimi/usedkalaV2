@@ -15,6 +15,12 @@
                 reader.readAsDataURL(this.files[0]);
             }
         });
+
+
+
+        $('#robots').select2({
+            'placeholder': 'robots های مورد نظر را انتخاب کنید'
+        });
         // $('#input-edit').change(function() {
         //     $("input[type='file']").prop("files", e.originalEvent.dataTransfer.files);
         // });

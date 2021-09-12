@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Photo;
 use App\Services\Upload\UploadedFile;
 use App\Utilities\FlashMessage;
+use App\Utilities\Tinyint;
 
 class CategoryController extends Controller
 {
@@ -22,8 +23,10 @@ class CategoryController extends Controller
 
     public function index()
     {
+        // dd(Tinyint::category_robots());
         $data = array(
             'categories' => $this->categoryModel->category_tree_for_backend(),
+            'robots' => Tinyint::category_robots(),
         );
         return view('Backend.category.index', $data);
     }

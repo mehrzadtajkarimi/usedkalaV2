@@ -27,7 +27,7 @@
                       <div class="form-group row">
                         <label for="category" class="col-2 col-form-label">نام</label>
                         <div class="col-10">
-                          <input name="name" type="text" class="form-control" id="category"  maxlength="68" placeholder=" دسته اصلی را وارد نمایید" required>
+                          <input name="name" type="text" class="form-control" id="category" maxlength="68" placeholder=" دسته اصلی را وارد نمایید" required>
                         </div>
                       </div>
                       <div class="form-group row">
@@ -36,6 +36,18 @@
                           <input name="slug" type="text" class="form-control" id="slug" placeholder="نامه دسته بندی جهت نمایش در url" required>
                         </div>
                       </div>
+                        <div class="form-group row">
+                          <label for="robots" class="col-2 col-form-label">robots</label>
+                          <div class="col-10">
+                            <select name='robots[]' id="robots" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
+                              <?php foreach ($robots as $key => $value) : ?>
+                                <option value="<?= $key ?>"><?= $value ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                          </div>
+                      </div>
+
+
                       <div class="form-group row">
                         <label for="H1" class="col-2 col-form-label">H1</label>
                         <div class="col-10">
@@ -51,22 +63,22 @@
                       <div class="form-group row">
                         <label for="description" class="col-2 col-form-label"> درباره دسته بندی </label>
                         <div class="col-10">
-                          <textarea name="description" type="text" class="form-control" id="description"  maxlength="120"  placeholder="حد اکثر 120 کاراکتر" rows="3" required></textarea>
+                          <textarea name="description" type="text" class="form-control" id="description" maxlength="120" placeholder="حد اکثر 120 کاراکتر" rows="3" required></textarea>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="slug" class="col-2 col-form-label">عکس</label>
                         <div class="col-10">
                           <div class="custom-file">
-                            <input  name="image_category" type="file" class="custom-file-input" id="image" >
+                            <input name="image_category" type="file" class="custom-file-input" id="image">
                             <label class="custom-file-label" for="image">Choose file</label>
                           </div>
                         </div>
                       </div>
                       <div class="pt-2 pb-2 form-check">
                         <input value="1" name="status" type="checkbox" class="form-check-input" id="status" checked>
-                        <label class="form-check-label" for="status" >
-                           وضعیت
+                        <label class="form-check-label" for="status">
+                          وضعیت
                         </label>
                       </div>
                       <button type="submit" class="btn btn-primary float-left btn-block">ذخیره </button>
@@ -93,9 +105,9 @@
                   </div>
                   <div class="col">
                     <a href="<?= base_url() ?>admin/category/<?= $value['id'] ?>/edit" class="btn btn-warning btn-sm shadow-sm " style="padding: 0px 16px; border-radius: 18px;">ویرایش</a>
-                    <a href="<?= base_url() ?>admin/category/<?=  $value['id'] ?>/create" class="btn btn-success btn-sm shadow-sm" style="padding: 0px 20px; border-radius: 18px;">ایجاد </a>
+                    <a href="<?= base_url() ?>admin/category/<?= $value['id'] ?>/create" class="btn btn-success btn-sm shadow-sm" style="padding: 0px 20px; border-radius: 18px;">ایجاد </a>
                     <form method="post" action="<?= base_url() ?>admin/category/<?= $value['id'] ?>" class="d-inline">
-                    <input type="hidden" name="_method" value="delete" />
+                      <input type="hidden" name="_method" value="delete" />
                       <input type="submit" class="btn btn-danger btn-sm shadow-sm " style="padding: 0px 20px; border-radius: 18px;" onclick="return confirm('آیا برای حذف اطلاعات اطمینان دارید');" value="حذف">
                     </form>
                   </div>
@@ -110,3 +122,4 @@
     </div>
   </div>
 </div>
+<?php include(BASEPATH . "/App/Views/Backend/category/script.php") ?>
