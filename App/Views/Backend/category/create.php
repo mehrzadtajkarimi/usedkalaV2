@@ -19,6 +19,12 @@
                 </div>
             </div>
             <div class=" form-group row">
+                    <label for="H1" class="col-2 col-form-label">H1</label>
+                    <div class="col-10">
+                        <input name="H1" type="text" class="form-control" id="H1" placeholder="ترجیحا بین 20 تا 70 کاراکتر" required>
+                    </div>
+                </div>
+                <div class=" form-group row">
                     <label for="slug" class="col-2 col-form-label">عکس</label>
                     <div class="col-10">
                         <div class="custom-file">

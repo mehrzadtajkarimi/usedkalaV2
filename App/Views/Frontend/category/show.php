@@ -19,7 +19,7 @@
                 <main id="main" class="site-main">
                     <section class="section-product-categories">
                         <header class="section-header">
-                            <h1 class="woocommerce-products-header__title page-title">Computers &amp; Laptops Categories</h1>
+                            <h1 class="woocommerce-products-header__title page-title"><?= $description['H1'] ?></h1>
                         </header>
                         <div class="woocommerce columns-5">
                             <div class="product-loop-categories">

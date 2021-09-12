@@ -1,6 +1,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-<title>Techmarket HTML</title>
+<meta name="description" content="<?= $description['description'] ?>">
+<title><?= $description['name'] ?></title>
+
 <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>Frontend/css/bootstrap.min.css" media="all" />
 <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>Frontend/css/font-awesome.min.css" media="all" />
 <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>Frontend/css/bootstrap-grid.min.css" media="all" />
