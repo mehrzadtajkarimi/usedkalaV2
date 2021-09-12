@@ -50,6 +50,7 @@ class CategoryController extends Controller
             'slug'        => create_slug($params['slug']),
             'name'        => $params['name'],
             'H1'          => $params['H1'],
+            'canonical'   => $params['canonical'],
             'description' => $params['description'],
             'status'      => $params['status'] ?? '0',
         );
@@ -124,6 +125,7 @@ class CategoryController extends Controller
                 'slug'        => create_slug($params['slug']),
                 'name'        => $params['name'],
                 'H1'          => $params['H1'],
+                'canonical'   => $params['canonical'],
                 'description' => $params['description'],
                 'status'      => $params['status'] == 'on' ? 1 : 0,
             ], $id);

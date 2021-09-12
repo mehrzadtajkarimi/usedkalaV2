@@ -24,6 +24,12 @@
                         <input name="H1" type="text" class="form-control" id="H1" placeholder="ترجیحا بین 20 تا 70 کاراکتر" required>
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label for="Canonical" class="col-2 col-form-label">Canonical</label>
+                    <div class="col-10">
+                        <input name="canonical" type="text" class="form-control" id="Canonical" placeholder="لینک را وارد نمایی" required>
+                    </div>
+                </div>
                 <div class=" form-group row">
                     <label for="description" class="col-2 col-form-label"> درباره دسته بندی </label>
                     <div class="col-10">

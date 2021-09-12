@@ -43,6 +43,12 @@
                         </div>
                       </div>
                       <div class="form-group row">
+                        <label for="Canonical" class="col-2 col-form-label">Canonical</label>
+                        <div class="col-10">
+                          <input name="Canonical" type="text" class="form-control" id="Canonical" placeholder="لینک را وارد نمایی" required>
+                        </div>
+                      </div>
+                      <div class="form-group row">
                         <label for="description" class="col-2 col-form-label"> درباره دسته بندی </label>
                         <div class="col-10">
                           <textarea name="description" type="text" class="form-control" id="description"  maxlength="120"  placeholder="حد اکثر 120 کاراکتر" rows="3" required></textarea>
