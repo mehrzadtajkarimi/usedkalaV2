@@ -36,17 +36,6 @@
                           <input name="slug" type="text" class="form-control" id="slug" placeholder="نامه دسته بندی جهت نمایش در url" required>
                         </div>
                       </div>
-                        <div class="form-group row">
-                          <label for="robots" class="col-2 col-form-label">robots</label>
-                          <div class="col-10">
-                            <select name='robots[]' id="robots" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
-                              <?php foreach ($robots as $key => $value) : ?>
-                                <option value="<?= $key ?>"><?= $value ?></option>
-                              <?php endforeach; ?>
-                            </select>
-                          </div>
-                      </div>
-
 
                       <div class="form-group row">
                         <label for="H1" class="col-2 col-form-label">H1</label>
@@ -73,6 +62,16 @@
                             <input name="image_category" type="file" class="custom-file-input" id="image">
                             <label class="custom-file-label" for="image">Choose file</label>
                           </div>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="robots" class="col-2 col-form-label">robots</label>
+                        <div class="col-10">
+                          <select name='robot' id="robots" class="form-control ">
+                            <?php foreach ($robots as $key => $value) : ?>
+                              <option value="<?= $key ?>" ><?= $value ?></option>
+                            <?php endforeach; ?>
+                          </select>
                         </div>
                       </div>
                       <div class="pt-2 pb-2 form-check">

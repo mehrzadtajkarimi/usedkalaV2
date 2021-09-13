@@ -45,6 +45,16 @@
                         <textarea name="description" type="text" class="form-control" id="description" placeholder="" rows="3" required></textarea>
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label for="robots" class="col-2 col-form-label">robots</label>
+                    <div class="col-10">
+                        <select name='robot' id="robots" class="form-control ">
+                            <?php foreach ($robots as $key => $value) : ?>
+                                <option value="<?= $key ?>"><?= $value ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
                 <div class="pt-2 pb-2 form-check">
                     <input value="1" name="status" type="checkbox" class="form-check-input" id="status" checked>
                     <label class="form-check-label" for="status">

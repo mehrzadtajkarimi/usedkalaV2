@@ -32,9 +32,10 @@ class CategoryController extends Controller
     public function show()
     {
         $parent_id = $this->request->get_param('id');
+        $slug = $this->request->get_param('slug');
 
         $description = $this->categoryModel->read_category($parent_id);
-        $categories  = $this->categoryModel->category_tree_for_frontend($parent_id);
+        $categories  = $this->categoryModel->category_tree_for_frontend($parent_id,$slug);
         $products    = $this->productModel->join_product__with_single_photo_by_category_id($parent_id);
 
 

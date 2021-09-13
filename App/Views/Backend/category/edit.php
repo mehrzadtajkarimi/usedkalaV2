@@ -36,6 +36,16 @@
                         <textarea name="description" type="text" class="form-control" id="description" placeholder="" rows="3" required><?= $category['description'] ?></textarea>
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label for="robot" class="col-2 col-form-label">robots</label>
+                    <div class="col-10">
+                        <select name='robot' id="robot" class="form-control ">
+                            <?php foreach ($robots as $key => $value) : ?>
+                                <option value="<?= $key ?>" <?= $category['robot']==$key ?  'selected' : ''  ?>><?= $value ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
                 <div class="pt-2 pb-2 form-check">
                     <input name="status" type="checkbox" class="form-check-input" id="status" <?= $category['status'] ?  'checked' : ''  ?>>
                     <label class="form-check-label" for="status">

@@ -38,12 +38,12 @@ Route::group(function () {
 });
 
 Route::group(function () {
-    Route::get('/category/{id}', 'CategoryController@show');
+    Route::get('/category/{id}/{slug}', 'CategoryController@show');
 });
 
 Route::group(function () {
     Route::get('/product/{id}', 'ProductController@show');
-    Route::get('/product/category/{id}', 'ProductController@index');
+    Route::get('/product/category/{id}/{slug}', 'ProductController@index');
 });
 
 Route::group(function () {

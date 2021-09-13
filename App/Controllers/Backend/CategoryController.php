@@ -26,7 +26,7 @@ class CategoryController extends Controller
         // dd(Tinyint::category_robots());
         $data = array(
             'categories' => $this->categoryModel->category_tree_for_backend(),
-            'robots' => Tinyint::category_robots(),
+            'robots'     => Tinyint::category_robots(),
         );
         return view('Backend.category.index', $data);
     }
@@ -38,6 +38,7 @@ class CategoryController extends Controller
         $category = $this->categoryModel->first(['id' => $id]) ?? 0;
         $data     = array(
             'category' => $category,
+            'robots'   => Tinyint::category_robots(),
         );
         return view('Backend.category.create', $data);
     }
@@ -53,6 +54,7 @@ class CategoryController extends Controller
             'slug'        => create_slug($params['slug']),
             'name'        => $params['name'],
             'H1'          => $params['H1'],
+            'robot'       => $params['robot'],
             'canonical'   => $params['canonical'],
             'description' => $params['description'],
             'status'      => $params['status'] ?? '0',
@@ -95,6 +97,7 @@ class CategoryController extends Controller
         $data = array(
             'category' => $this->categoryModel->first(['id' => $id]),
             'photo'    => $this->photoModel->first(['entity_id' => $id]),
+            'robots'   => Tinyint::category_robots(),
         );
         return view('Backend.category.edit', $data);
     }
@@ -128,6 +131,7 @@ class CategoryController extends Controller
                 'slug'        => create_slug($params['slug']),
                 'name'        => $params['name'],
                 'H1'          => $params['H1'],
+                'robot'       => $params['robot'],
                 'canonical'   => $params['canonical'],
                 'description' => $params['description'],
                 'status'      => $params['status'] == 'on' ? 1 : 0,

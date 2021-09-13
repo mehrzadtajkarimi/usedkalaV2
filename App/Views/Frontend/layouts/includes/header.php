@@ -78,12 +78,11 @@
                                                                 <div class="ml-3 mr-3 col ">
                                                                     <ul>
                                                                         <li class="">
-                                                                            <a class="text-center d-flex justify-content-center" href="<?= base_url() ?>category/<?= $valueLevelTwo[0] ?>">
+                                                                            <a class="text-center d-flex justify-content-center" href="<?= base_url() ?>category/<?= $valueLevelTwo[0] ?>/<?= $valueLevelTwo['slug'] ?>">
                                                                                 <div class="border-0 card " style="width: 10rem;">
                                                                                     <img class="card-img-top img-fluid rounded-circle " src="<?= $valueLevelTwo['photo_path'] ?>" alt="<?= $valueLevelTwo['photo_alt'] ?>">
                                                                                     <div class="pt-3 card-body">
                                                                                         <p class="card-text">
-                                                                                            dd
                                                                                             <?= $valueLevelTwo['id'] ?>
                                                                                             <?= $valueLevelTwo['name'] ?>
                                                                                         </p>
