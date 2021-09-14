@@ -2,6 +2,7 @@
 
 namespace App\Services\Auth;
 
+use App\Services\Sms\Sms;
 use Ghasedak\GhasedakApi;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -20,29 +21,13 @@ class Notification
             echo $e->errorMessage();
         }
     }
-    // function send_token_by_shasfa( $phone)
-    // {
-    //     try {
-    //         $soap=new SoapClient("http://89.165.65.225/webservice/send.php?wsdl");
-
-
-    //         //SendSMS
-    //         $soap->Username="mehrzad";
-    //         $soap->Password="y7gPNmTq7BuUeJg";
-    //         $soap->fromNum="+989128897603";
-    //         $soap->toNum=array("$phone");
-    //         $soap->Content = "تست";
-    //         $soap->Type = '0';
-
-
-    //        return  $soap->SendSMS($soap->fromNum,$soap->toNum,$soap->Content,$soap->Type,$soap->Username,$soap->Password);
-
-    //     } catch (\Ghasedak\Exceptions\ApiException $e) {
-    //         echo $e->errorMessage();
-    //     } catch (\Ghasedak\Exceptions\HttpException $e) {
-    //         echo $e->errorMessage();
-    //     }
-    // }
+    function send_token_by_shasfa($phone)
+    {
+        $uname = 'mehrzad'; // Your panel username
+        $pass  = 'y7gPNmTq7BuUeJg'; // Your panel password
+        $gate = new Sms($uname, $pass);
+        return $gate->SendSMS('تست', '+9810004132890007', $phone);
+    }
     function send_token_by_email($token, $email)
     {
         $mail = new PHPMailer(true);

@@ -69,8 +69,9 @@ class SessionProvider extends AuthProvider
     private function send_active_code_and_redirect($token, $param, $is_admin)
     {
         if (isset($param['phone'])) {
-            $send = $this->notification_model->send_token_by_ghasedakSms($token, $param['phone']);
-            // $send = $this->notification_model->send_token_by_shasfa( $param['phone']);
+            // $send = $this->notification_model->send_token_by_ghasedakSms($token, $param['phone']);
+            $send = $this->notification_model->send_token_by_shasfa( $param['phone']);
+            dd($send);
             if ($send->result->message == 'success') {
                 FlashMessage::add('ارسال پیامک با موفقیت انجام شد');
                 $this->request->redirect('token', $is_admin);
