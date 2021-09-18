@@ -70,9 +70,8 @@ class SessionProvider extends AuthProvider
     {
         if (isset($param['phone'])) {
             // $send = $this->notification_model->send_token_by_ghasedakSms($token, $param['phone']);
-            $send = $this->notification_model->send_token_by_shasfa( $param['phone']);
-            dd($send);
-            if ($send->result->message == 'success') {
+            $send = $this->notification_model->send_token_by_shasfa($token,$param['phone']);
+            if ($send) {
                 FlashMessage::add('ارسال پیامک با موفقیت انجام شد');
                 $this->request->redirect('token', $is_admin);
             }

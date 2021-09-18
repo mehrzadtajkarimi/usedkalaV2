@@ -6,6 +6,7 @@ use App\Services\Sms\Sms;
 use Ghasedak\GhasedakApi;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
+use SoapClient;
 
 class Notification
 {
@@ -21,12 +22,22 @@ class Notification
             echo $e->errorMessage();
         }
     }
-    function send_token_by_shasfa($phone)
+    function send_token_by_shasfa($token,$phone)
     {
-        $uname = 'mehrzad'; // Your panel username
-        $pass  = 'y7gPNmTq7BuUeJg'; // Your panel password
-        $gate = new Sms($uname, $pass);
-        return $gate->SendSMS('تست', '+9810004132890007', $phone);
+        //call soap client
+        $soap = new SoapClient("http://shasfa.com/webservice/send.php?wsdl");
+
+
+        //SendSMS
+        $soap->Username = "mehrzad"; //Your Username
+        $soap->Password = "y7gPNmTq7BuUeJg"; // Your Password
+        $soap->fromNum = "+9810004132890007"; // Your Number (for example "+98100033333731")
+        $soap->toNum = array("$phone");
+        $soap->Content = "کدتایید usedkala\n$token";
+        $soap->Type = '0';
+
+
+        return $soap->SendSMS($soap->fromNum, $soap->toNum, $soap->Content, $soap->Type, $soap->Username, $soap->Password);
     }
     function send_token_by_email($token, $email)
     {
