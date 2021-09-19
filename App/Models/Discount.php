@@ -43,19 +43,31 @@ class Discount extends MysqlBaseModel
         );
     }
 
-    public function join_discount__with_productDiscounts_products()
+    public function join_discount__with_productDiscounts_products_photo()
     {
+
         return $this->connection->query("
         SELECT
-        discounts.*,
-        products.title AS products_title,
-        products.price AS products_price,
-        products.id AS products_id
+
+        discounts.title AS discount_title,
+        products.id AS product_id,
+        products.price AS product_price,
+        products.title AS product_title,
+        photos.path AS photo_path,
+        photos.alt AS photo_alt
+
          FROM discounts
+
         INNER JOIN product_discounts
         ON discounts.id = product_discounts.discount_id
         INNER JOIN products
-        ON product_discounts.product_id = products.id
+        ON products.id = product_discounts.product_id
+        INNER JOIN photos
+        ON products.id = photos.entity_id
+
+        AND photos.type=0
+        AND photos.entity_type='Product'
+
         ")->fetchAll();
     }
 }

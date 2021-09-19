@@ -36,12 +36,6 @@ function inject_menu()
 {
     $cart_items = Basket::items();
     $cart_count = count($cart_items);
-    $discountModel = new Discount();
-    $productDiscounts=$discountModel->join_discount__with_productDiscounts_products();
-    $photoModel= new Photo();
-    foreach ($productDiscounts as $key => $value) {
-        $productDiscounts[$key]['photo'] = $photoModel->read_photo_by_id($value['products_id'], 'Product', TRUE)[0];
-    }
     foreach ($cart_items as  $value) {
         $cart_total[] = $value['count'] * $value['price'];
     }
@@ -67,7 +61,6 @@ function inject_menu()
         return  [
             'categoryLevelOne' => $categoryLevelOne,
             'categoryLevelTwo' => $categoryLevelTwo,
-            'productDiscounts' => $productDiscounts,
             'cart_total' => array_sum($cart_total ?? []),
             'cart_count' => $cart_count,
             'cart_items' => $cart_items,

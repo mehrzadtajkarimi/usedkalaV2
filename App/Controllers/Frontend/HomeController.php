@@ -31,23 +31,20 @@ class HomeController extends Controller
     public function index()
     {
         $cart_items       = Basket::items();
-        $productDiscounts = $this->discountModel->join_discount__with_productDiscounts_products();
+        $product_discounts = $this->discountModel->join_discount__with_productDiscounts_products_photo();
         $sliders          = $this->sliderModel->read_slider();
         $latest_products  = $this->productModel->join_product_to_photo();
         foreach ($sliders as $key => $value) {
             $photos = $this->photoModel->read_photo_by_id($value['id'], 'Slider', true)[0];
             $sliders[$key]['photo']  = $photos;
         }
-        
-        
         foreach ($cart_items as  $value) {
             $cart_total[] = $value['count'] * $value['price'];
         }
 
-        // dd(count($cart_items));
         $data = array(
 
-            'productDiscounts' => $productDiscounts,
+            'product_discounts' => $product_discounts,
             'sliders'          => $sliders,
             'latest_products'  => $latest_products,
         );

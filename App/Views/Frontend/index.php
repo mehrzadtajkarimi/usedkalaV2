@@ -209,22 +209,22 @@
                                         <div class="container-fluid">
                                             <div class="woocommerce">
                                                 <div class="products">
-                                                    <?php foreach ($productDiscounts as $value) : ?>
+                                                    <?php foreach ($product_discounts as $value) : ?>
                                                         <div class="product">
                                                             <div class="yith-wcwl-add-to-wishlist">
                                                                 <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                             </div>
-                                                            <a href="<?= base_url() .'product/'.$value['products_id'] ?>" class="woocommerce-LoopProduct-link">
-                                                                <img src="<?= $value['photo']['path'] ?>" width="224" height="197" class="wp-post-image" alt="<?= $value['photo']['alt'] ?>">
+                                                            <a href="<?= base_url() .'product/'.$value['product_id'] ?>" class="woocommerce-LoopProduct-link">
+                                                                <img src="<?= $value['photo_path'] ?>" width="224" height="197" class="wp-post-image" alt="<?= $value['photo_alt'] ?>">
                                                                 <span class="price">
                                                                     <ins>
-                                                                        <span class="amount" dircetion="rtl"> </span>
+                                                                        <span class="amount" dircetion="rtl"></span>
                                                                     </ins>
-                                                                    <span class="amount" dircetion="rtl"><?= $value['products_price'] ?> ریال</span>
+                                                                    <span class="amount" dircetion="rtl"><?= $value['product_price'] ?> ریال</span>
                                                                 </span>
                                                                 <!-- /.price -->
                                                                 <h2 class="woocommerce-loop-product__title">
-                                                                    <?= $value['products_title'] ?>
+                                                                    <?= $value['product_title'] ?>
                                                                 </h2>
                                                             </a>
                                                             <div class="hover-area">
