@@ -19,6 +19,15 @@ class Product extends MysqlBaseModel
         }
         return $this->first(['id' => $id]);
     }
+    public function latest_product()
+    {
+        return  $this->select(
+            '*',
+            [
+                'ORDER'   => ['created_at' => 'DESC'],
+            ]
+        );
+    }
     public function read_product_by_category($id = null)
     {
         if (is_null($id)) {
@@ -44,6 +53,18 @@ class Product extends MysqlBaseModel
             "category_id",
             "id",
             "products.category_id=$id",
+        );
+    }
+    public function join_product_to_photo()
+    {
+        return $this->inner_join_order(
+            "*",
+            "photos",
+            "id",
+            "entity_id",
+            "photos.type=0",
+            "photos.entity_type='Product'",
+            "products.created_at",
         );
     }
     public function join_product_to_photo_by_category_id($category_id)

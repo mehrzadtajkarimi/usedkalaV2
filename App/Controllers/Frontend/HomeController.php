@@ -16,6 +16,7 @@ class HomeController extends Controller
     private $discountModel;
     private $sliderModel;
     private $photoModel;
+    private $productModel;
     public function __construct()
     {
         parent::__construct();
@@ -24,6 +25,7 @@ class HomeController extends Controller
         $this->photoModel            = new Photo();
         $this->product_discountModel = new Product_discount();
         $this->discountModel         = new Discount();
+        $this->productModel          = new Product();
     }
 
     public function index()
@@ -31,16 +33,13 @@ class HomeController extends Controller
         $cart_items       = Basket::items();
         $productDiscounts = $this->discountModel->join_discount__with_productDiscounts_products();
         $sliders          = $this->sliderModel->read_slider();
-
-
+        $latest_products  = $this->productModel->join_product_to_photo();
         foreach ($sliders as $key => $value) {
-
-
             $photos = $this->photoModel->read_photo_by_id($value['id'], 'Slider', true)[0];
             $sliders[$key]['photo']  = $photos;
         }
-
-
+        
+        
         foreach ($cart_items as  $value) {
             $cart_total[] = $value['count'] * $value['price'];
         }
@@ -50,6 +49,7 @@ class HomeController extends Controller
 
             'productDiscounts' => $productDiscounts,
             'sliders'          => $sliders,
+            'latest_products'  => $latest_products,
         );
         return view('Frontend.index', $data);
     }

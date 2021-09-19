@@ -121,9 +121,9 @@ class  MysqlBaseModel extends BaseModel
         return $this->connection->has($this->table,  $where);
     }
 
-    public function select($columns = '*', $where=null)
+    public function select($columns = '*', $where = null)
     {
-        return $this->connection->select($this->table, $columns , $where);
+        return $this->connection->select($this->table, $columns, $where);
     }
 
 
@@ -151,6 +151,26 @@ class  MysqlBaseModel extends BaseModel
             return $this->connection->query("$query AND $where_1 AND $where_2 AND $where_3")->fetchAll();
         }
         return $this->connection->query("$query AND $where_1")->fetchAll();
+    }
+
+
+    public function inner_join_order(
+        $column,
+        $join,
+        $columns_as,
+        $columns_to,
+        $where_1,
+        $where_2,
+        $order_by
+    ) {
+        return $this->connection->query("
+        SELECT $column FROM $this->table
+        INNER JOIN $join
+        ON $this->table.$columns_as = $join.$columns_to
+        AND $where_1
+        AND $where_2 
+        ORDER BY $order_by DESC
+        ")->fetchAll();
     }
     public function left_join(
         $column,
