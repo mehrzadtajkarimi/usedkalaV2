@@ -4,6 +4,7 @@ namespace App\Controllers\Frontend;
 
 use App\Controllers\Controller;
 use App\Core\Request;
+use App\Models\Brand;
 use App\Models\Discount;
 use App\Models\Photo;
 use App\Models\Product;
@@ -17,6 +18,7 @@ class HomeController extends Controller
     private $sliderModel;
     private $photoModel;
     private $productModel;
+    private $brandModel;
     public function __construct()
     {
         parent::__construct();
@@ -26,14 +28,21 @@ class HomeController extends Controller
         $this->product_discountModel = new Product_discount();
         $this->discountModel         = new Discount();
         $this->productModel          = new Product();
+        $this->brandModel            = new Brand();
     }
 
     public function index()
     {
-        $cart_items       = Basket::items();
+        $cart_items        = Basket::items();
         $product_discounts = $this->discountModel->join_discount__with_productDiscounts_products_photo();
-        $sliders          = $this->sliderModel->read_slider();
-        $latest_products  = $this->productModel->join_product_to_photo();
+        $sliders           = $this->sliderModel->read_slider();
+        $latest_products   = $this->productModel->join_product_to_photo();
+        $product_brand     = $this->productModel->join_product__with_brand_and_photo();
+        $read_brands       = $this->brandModel->read_brand();
+
+// dd($product_brand);
+
+
         foreach ($sliders as $key => $value) {
             $photos = $this->photoModel->read_photo_by_id($value['id'], 'Slider', true)[0];
             $sliders[$key]['photo']  = $photos;
@@ -43,10 +52,10 @@ class HomeController extends Controller
         }
 
         $data = array(
-
             'product_discounts' => $product_discounts,
-            'sliders'          => $sliders,
-            'latest_products'  => $latest_products,
+            'latest_products'   => $latest_products,
+            'read_brands'       => $read_brands,
+            'sliders'           => $sliders,
         );
         return view('Frontend.index', $data);
     }

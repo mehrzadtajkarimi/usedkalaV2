@@ -168,7 +168,7 @@ class  MysqlBaseModel extends BaseModel
         INNER JOIN $join
         ON $this->table.$columns_as = $join.$columns_to
         AND $where_1
-        AND $where_2 
+        AND $where_2
         ORDER BY $order_by DESC
         ")->fetchAll();
     }
@@ -199,30 +199,24 @@ class  MysqlBaseModel extends BaseModel
 
     public function inner_join_two(
         $column,
-        $join_table_one,
+        $join_one,
         $table_one_as,
         $table_one_to,
-        $join_table_two,
+        $join_two,
         $table_two_as,
         $table_two_to,
         $where_1,
-        $where_2 = null,
-        $where_3 = null
+        $where_2
     ) {
-        $query = "
+        return  $this->connection->query("
         SELECT $column FROM $this->table
-        INNER JOIN $join_table_one t1
-        ON $this->table.$table_one_as = t1.$table_one_to
-        INNER JOIN $join_table_two t2
-        ON $this->table.$table_two_as = t2.$table_two_to
-        ";
-        if ($where_2) {
-            return $this->connection->query("$query AND $where_1 AND $where_2")->fetchAll();
-        }
-        if ($where_3) {
-            return $this->connection->query("$query AND $where_1 AND $where_2 AND $where_3")->fetchAll();
-        }
-        return   $this->connection->query("$query AND $where_1")->fetchAll();
+        INNER JOIN $join_one
+        ON $this->table.$table_one_as = $join_one.$table_one_to
+        INNER JOIN $join_two 
+        ON $this->table.$table_two_as = $join_two.$table_two_to
+        AND $where_1
+        AND $where_2
+        ")->fetchAll();
     }
 
 
