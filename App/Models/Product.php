@@ -67,6 +67,19 @@ class Product extends MysqlBaseModel
             "products.created_at",
         );
     }
+    public function join_product_to_photo_by_brand_id($brand_id)
+    {
+        return $this->inner_join_order(
+            "*",
+            "photos",
+            "id",
+            "entity_id",
+            "photos.type=0",
+            "photos.entity_type='Product'",
+            "products.created_at",
+            "products.brand_id=$brand_id",
+        );
+    }
     public function join_product_to_photo_by_category_id($category_id)
     {
         return $this->inner_join(
@@ -149,20 +162,17 @@ class Product extends MysqlBaseModel
             "photos.entity_type='Product'",
         );
     }
-    public function join_product__with_brand_and_photo()
+    public function join_product__with_photo_by_brand_id($brand_id)
     {
-        return $this->inner_join_two(
+        return $this->inner_join(
             "products.title AS product_title,
-             brands.id AS brands_id,
-             brands.name AS brands_name,
+             products.brand_id AS brand_id,
              photos.path AS photo_path,
              photos.alt AS photo_alt",                 // column
-            "brands",                     // -- table brands
-            "brand_id",                   // products.brand_id
-            "id",                         // brands.id
             "photos",                    // -- table photos
             "id",                        // products.id
             "entity_id",                 // photos.entity_id
+            "products.brand_id=$brand_id",
             "photos.type=0",
             "photos.entity_type='Product'",
         );
@@ -192,4 +202,7 @@ class Product extends MysqlBaseModel
             "photos.entity_type='Product'",
         );
     }
+
+
+
 }

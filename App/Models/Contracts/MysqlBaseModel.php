@@ -212,7 +212,7 @@ class  MysqlBaseModel extends BaseModel
         SELECT $column FROM $this->table
         INNER JOIN $join_one
         ON $this->table.$table_one_as = $join_one.$table_one_to
-        INNER JOIN $join_two 
+        INNER JOIN $join_two
         ON $this->table.$table_two_as = $join_two.$table_two_to
         AND $where_1
         AND $where_2

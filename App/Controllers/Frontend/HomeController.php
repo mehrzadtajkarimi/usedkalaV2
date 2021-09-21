@@ -37,10 +37,34 @@ class HomeController extends Controller
         $product_discounts = $this->discountModel->join_discount__with_productDiscounts_products_photo();
         $sliders           = $this->sliderModel->read_slider();
         $latest_products   = $this->productModel->join_product_to_photo();
-        $product_brand     = $this->productModel->join_product__with_brand_and_photo();
-        $read_brands       = $this->brandModel->read_brand();
+        $brands       = $this->brandModel->read_brand();
 
-// dd($product_brand);
+
+
+
+        foreach ($brands as $key =>$value) {
+            $brands[$key]['product'] = $this->productModel->join_product__with_photo_by_brand_id($value['id']);
+
+        }
+
+
+        // echo '<br><hr><pre style="background:#FF5722; border-radius: 10px; padding: 20PX">';
+
+        // foreach ($brands as $brand) {
+        //     // var_dump($brand['name']);
+        //         foreach ($brand['product'] as  $value) {
+        //             var_dump($value['product_title']);
+        //         }
+        // }
+
+        // die('LINE' . ' => ' . __LINE__ . PHP_EOL . 'FILE' . ' => ' . __FILE__);
+
+
+
+
+
+
+
 
 
         foreach ($sliders as $key => $value) {
@@ -54,7 +78,7 @@ class HomeController extends Controller
         $data = array(
             'product_discounts' => $product_discounts,
             'latest_products'   => $latest_products,
-            'read_brands'       => $read_brands,
+            'product_brands'    => $brands,
             'sliders'           => $sliders,
         );
         return view('Frontend.index', $data);

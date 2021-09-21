@@ -1373,50 +1373,66 @@
                     <!-- /.section-header -->
                     <div class="products-carousel-with-vertical-tabs row">
                         <ul role="tablist" class="nav">
-                            <?php foreach ($read_brands as $value) : ?>
+                            <?php
+                            $counta=0;
+                            ?>
+                            <?php foreach ($product_brands as $brands) : ?>
+
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="#desktop" data-toggle="tab">
-                                        <span class="category-title"><?= $value['name'] ?></span>
+                                    <a class="nav-link <?= $counta == 0 ? 'active' :'' ?>" href="#desktop-<?= $brands['id'] ?>" data-toggle="tab">
+                                        <span class="category-title"><?= $brands['name'] ?></span>
                                         <i class="tm tm-arrow-left"></i>
                                     </a>
                                 </li>
+
                             <?php endforeach; ?>
+
+
                         </ul>
                         <div style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>Frontend/images/banner/vertical-bg.png); height: 552px;" class="tab-content">
-                            <div id="desktop-pc" class="tab-pane active" role="tabpanel">
-                                <div class="products-carousel" data-ride="tm-slick-carousel" data-wrap=".products" data-slick="{&quot;rtl&quot;:true,&quot;infinite&quot;:false,&quot;slidesToShow&quot;:6,&quot;slidesToScroll&quot;:6,&quot;dots&quot;:true,&quot;arrows&quot;:false,&quot;responsive&quot;:[{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:2,&quot;slidesToScroll&quot;:2}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesToShow&quot;:3,&quot;slidesToScroll&quot;:3}},{&quot;breakpoint&quot;:1600,&quot;settings&quot;:{&quot;slidesToShow&quot;:4,&quot;slidesToScroll&quot;:4}}]}">
-                                    <div class="container-fluid">
-                                        <div class="woocommerce columns-5">
-                                            <div class="products">
-                                                <div class="product">
-                                                    <div class="yith-wcwl-add-to-wishlist">
-                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
-                                                    </div>
-                                                    <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                        <img src="<?= asset_url() ?>Frontend/images/products/12.jpg" width="224" height="197" class="wp-post-image" alt="">
-                                                        <span class="price">
-                                                            <ins>
-                                                                <span class="amount" dircetion="rtl"> </span>
-                                                            </ins>
-                                                            <span class="amount" dircetion="rtl"> 20,000,000 ریال</span>
-                                                        </span>
-                                                        <!-- /.price -->
-                                                        <h2 class="woocommerce-loop-product__title">Bbd
-                                                            23-Inch Screen LED-Lit Monitorss Buds</h2>
-                                                    </a>
-                                                    <div class="hover-area">
-                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                        <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
-                                                    </div>
+                        <?php
+                            $countb=0;
+                            ?>
+                            <?php foreach ($product_brands as $brands) : ?>
+                                <div id="desktop-<?= $brands['id'] ?>" class="tab-pane <?= $countb == 0 ? 'active' :'' ?>" role="tabpanel">
+                                    <div class="products-carousel" data-ride="tm-slick-carousel" data-wrap=".products" data-slick="{&quot;rtl&quot;:true,&quot;infinite&quot;:false,&quot;slidesToShow&quot;:6,&quot;slidesToScroll&quot;:6,&quot;dots&quot;:true,&quot;arrows&quot;:false,&quot;responsive&quot;:[{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:2,&quot;slidesToScroll&quot;:2}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesToShow&quot;:3,&quot;slidesToScroll&quot;:3}},{&quot;breakpoint&quot;:1600,&quot;settings&quot;:{&quot;slidesToShow&quot;:4,&quot;slidesToScroll&quot;:4}}]}">
+                                        <div class="container-fluid">
+                                            <div class="woocommerce columns-5">
+                                                <div class="products">
+                                                    <?php foreach ($brands['product'] as $value) : ?>
+                                                        <div class="product">
+                                                            <div class="yith-wcwl-add-to-wishlist">
+                                                                <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                            </div>
+                                                            <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                <img src="<?= $value['photo_path'] ?>" width="224" height="197" class="wp-post-image" alt="">
+                                                                <span class="price">
+                                                                    <ins>
+                                                                        <span class="amount" dircetion="rtl"> </span>
+                                                                    </ins>
+                                                                    <span class="amount" dircetion="rtl"> 20,000,000 ریال</span>
+                                                                </span>
+                                                                <!-- /.price -->
+                                                                <h2 class="woocommerce-loop-product__title">Bbd
+                                                                    23-Inch Screen LED-Lit Monitorss Buds</h2>
+                                                            </a>
+                                                            <div class="hover-area">
+                                                                <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
+                                                            </div>
+                                                        </div>
+                                                    <?php endforeach; ?>
                                                 </div>
                                             </div>
+                                            <!-- .woocommerce-->
                                         </div>
-                                        <!-- .woocommerce-->
+                                        <!-- .container-fluid -->
                                     </div>
-                                    <!-- .container-fluid -->
+                                    <!-- .products-carousel -->
                                 </div>
-                                <!-- .products-carousel -->
-                            </div>
+                            <?php endforeach; ?>
+                            <!-- .tab-pane -->
+
                         </div>
                         <!-- .tab-content -->
                     </div>
