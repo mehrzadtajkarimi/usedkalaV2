@@ -90,6 +90,19 @@ class Product extends MysqlBaseModel
             "photos.type=0",
             "photos.entity_type='Product'",
             "products.sale=1",
+            "20",
+        );
+    }
+    public function join_product_to_photo__for_featured_product()
+    {
+        return $this->inner_join_featured(
+            "*",
+            "photos",
+            "id",
+            "entity_id",
+            "photos.type=0",
+            "photos.entity_type='Product'",
+            "products.featured=1",
             "3",
         );
     }

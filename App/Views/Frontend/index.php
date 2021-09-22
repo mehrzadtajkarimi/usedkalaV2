@@ -248,29 +248,29 @@
                                         <div class="container-fluid">
                                             <div class="woocommerce">
                                                 <div class="products">
-                                                    <?php foreach ($sale_products as $value): ?>
-                                                    <div class="product">
-                                                        <div class="yith-wcwl-add-to-wishlist">
-                                                            <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                    <?php foreach ($sale_products as $value) : ?>
+                                                        <div class="product">
+                                                            <div class="yith-wcwl-add-to-wishlist">
+                                                                <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                            </div>
+                                                            <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                                <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image" alt="<?= $value['alt'] ?>">
+                                                                <span class="price">
+                                                                    <ins>
+                                                                        <span class="amount" dircetion="rtl"> </span>
+                                                                    </ins>
+                                                                    <span class="amount" dircetion="rtl"> <?= $value['price'] ?> ریال</span>
+                                                                </span>
+                                                                <!-- /.price -->
+                                                                <h2 class="woocommerce-loop-product__title">
+                                                                    <?= $value['title'] ?>
+                                                                </h2>
+                                                            </a>
+                                                            <div class="hover-area">
+                                                                <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
+                                                            </div>
                                                         </div>
-                                                        <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                            <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image" alt="<?= $value['alt'] ?>">
-                                                            <span class="price">
-                                                                <ins>
-                                                                    <span class="amount" dircetion="rtl"> </span>
-                                                                </ins>
-                                                                <span class="amount" dircetion="rtl"> <?= $value['price'] ?> ریال</span>
-                                                            </span>
-                                                            <!-- /.price -->
-                                                            <h2 class="woocommerce-loop-product__title">
-                                                            <?= $value['title'] ?>
-                                                            </h2>
-                                                        </a>
-                                                        <div class="hover-area">
-                                                            <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                            <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
-                                                        </div>
-                                                    </div>
                                                     <?php endforeach; ?>
                                                 </div>
                                             </div>
@@ -311,114 +311,25 @@
                     <div class="product-categories-1 product-categories-carousel" data-ride="tm-slick-carousel" data-wrap=".products" data-slick='{"rtl":true, "slidesToShow":5,"slidesToScroll":1,"dots":false,"arrows":true,"prevArrow":"<a href=\"#\"><i class=\"tm tm-arrow-right\"><\/i><\/a>","nextArrow":"<a href=\"#\"><i class=\"tm tm-arrow-left\"><\/i><\/a>","appendArrows":"#categories-carousel-1 .custom-slick-nav","responsive":[{"breakpoint":1200,"settings":{"slidesToShow":2,"slidesToScroll":2}},{"breakpoint":1400,"settings":{"slidesToShow":4,"slidesToScroll":4}}]}'>
                         <div class="woocommerce columns-5">
                             <div class="products">
-                                <div class="product-category product first">
-                                    <a href="product-category.html">
-                                        <img width="224" height="197" alt="سویچ" src="<?= asset_url() ?>Frontend/images/category/16.png">
-                                        <h2 class="woocommerce-loop-category__title">
-                                            سویچ
-                                        </h2>
-                                    </a>
-                                </div>
-                                <!-- .product-category -->
-                                <div class="product-category product">
-                                    <a href="product-category.html">
-                                        <img width="224" height="197" alt="سرور" src="<?= asset_url() ?>Frontend/images/category/17.png">
-                                        <h2 class="woocommerce-loop-category__title">
-                                            سرور
-                                        </h2>
-                                    </a>
-                                </div>
-                                <!-- .product-category -->
-                                <div class="product-category product">
-                                    <a href="product-category.html">
-                                        <img width="224" height="197" alt="تلفن اینترنتی" src="<?= asset_url() ?>Frontend/images/category/18.png">
-                                        <h2 class="woocommerce-loop-category__title">
-                                            تلفن اینترنتی
-                                        </h2>
-                                    </a>
-                                </div>
-                                <!-- .product-category -->
-                                <div class="product-category product">
-                                    <a href="product-category.html">
-                                        <img width="224" height="197" alt="رک" src="<?= asset_url() ?>Frontend/images/category/19.png">
-                                        <h2 class="woocommerce-loop-category__title">
-                                            رک
-                                        </h2>
-                                    </a>
-                                </div>
-                                <!-- .product-category -->
-                                <div class="product-category product last">
-                                    <a href="product-category.html">
-                                        <img width="224" height="197" alt="Desktop PCs" src="<?= asset_url() ?>Frontend/images/category/20.png">
-                                        <h2 class="woocommerce-loop-category__title">
-                                            Desktop PCs
-                                        </h2>
-                                    </a>
-                                </div>
-                                <!-- .product-category -->
-                                <div class="product-category product first">
-                                    <a href="product-category.html">
-                                        <img width="224" height="197" alt="Digital Cameras" src="<?= asset_url() ?>Frontend/images/category/21.png">
-                                        <h2 class="woocommerce-loop-category__title">
-                                            Digital Cameras
-                                        </h2>
-                                    </a>
-                                </div>
-                                <!-- .product-category -->
-                                <div class="product-category product">
-                                    <a href="product-category.html">
-                                        <img width="224" height="197" alt="Games &amp; Consoles" src="<?= asset_url() ?>Frontend/images/category/22.png">
-                                        <h2 class="woocommerce-loop-category__title">
-                                            Games &amp; Consoles
-                                        </h2>
-                                    </a>
-                                </div>
-                                <!-- .product-category -->
-                                <div class="product-category product">
-                                    <a href="product-category.html">
-                                        <img width="224" height="197" alt="Headphones" src="<?= asset_url() ?>Frontend/images/category/23.png">
-                                        <h2 class="woocommerce-loop-category__title">
-                                            Headphones
-                                        </h2>
-                                    </a>
-                                </div>
-                                <!-- .product-category -->
-                                <div class="product-category product">
-                                    <a href="product-category.html">
-                                        <img width="224" height="197" alt="Home Entertainment" src="<?= asset_url() ?>Frontend/images/category/24.png">
-                                        <h2 class="woocommerce-loop-category__title">
-                                            Home Entertainment
-                                        </h2>
-                                    </a>
-                                </div>
-                                <!-- .product-category -->
-                                <div class="product-category product last">
+                                <?php foreach ($featured_products as $key => $value) : ?>
+                                   <div class="product-category product <?= $key === array_key_first($featured_products) ? 'first':'' ?> <?= $key === array_key_last($featured_products) ? 'last':'' ?>">
+                                        <a href="product-category.html">
+                                            <img width="224" height="197"  src="<?= $value['path'] ?>" alt="<?= $value['alt'] ?>">
+                                            <h2 class="woocommerce-loop-category__title">
+                                            <?= $value['title'] ?>
+                                            </h2>
+                                        </a>
+                                    </div>
+                                <?php endforeach; ?>
+                                <!-- <div class="product-category product last">
                                     <a href="product-category.html">
                                         <img width="224" height="197" alt="Home Theater &amp; Audio" src="<?= asset_url() ?>Frontend/images/category/25.png">
                                         <h2 class="woocommerce-loop-category__title">
                                             Home Theater &amp; Audio
                                         </h2>
                                     </a>
-                                </div>
-                                <!-- .product-category -->
-                                <div class="product-category product first">
-                                    <a href="product-category.html">
-                                        <img width="224" height="197" alt="Laptops" src="<?= asset_url() ?>Frontend/images/category/18.png">
-                                        <h2 class="woocommerce-loop-category__title">
-                                            Laptops
-                                        </h2>
-                                    </a>
-                                </div>
-                                <!-- .product-category -->
-                                <div class="product-category product">
-                                    <a href="product-category.html">
-                                        <img width="224" height="197" alt="Mac Computers" src="<?= asset_url() ?>Frontend/images/category/22.png">
-                                        <h2 class="woocommerce-loop-category__title">
-                                            Mac Computers
-                                        </h2>
-                                    </a>
-                                </div>
-                                <!-- .product-category -->
+                                </div> -->
+
                             </div>
                             <!-- .products -->
                         </div>
@@ -874,28 +785,28 @@
                                     <div class="container-fluid">
                                         <div class="woocommerce">
                                             <div class="products">
-                                                <?php foreach ($sale_products as $value): ?>
+                                                <?php foreach ($sale_products as $value) : ?>
 
-                                                <div class="product">
-                                                    <div class="yith-wcwl-add-to-wishlist">
-                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                    <div class="product">
+                                                        <div class="yith-wcwl-add-to-wishlist">
+                                                            <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                        </div>
+                                                        <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                            <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image" alt="<?= $value['alt'] ?>">
+                                                            <span class="price">
+                                                                <ins>
+                                                                    <span class="amount" dircetion="rtl"> </span>
+                                                                </ins>
+                                                                <span class="amount" dircetion="rtl"> <?= $value['price'] ?> ریال</span>
+                                                            </span>
+                                                            <!-- /.price -->
+                                                            <h2 class="woocommerce-loop-product__title"><?= $value['title'] ?></h2>
+                                                        </a>
+                                                        <div class="hover-area">
+                                                            <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                            <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
+                                                        </div>
                                                     </div>
-                                                    <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                        <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image" alt="<?= $value['alt'] ?>">
-                                                        <span class="price">
-                                                            <ins>
-                                                                <span class="amount" dircetion="rtl"> </span>
-                                                            </ins>
-                                                            <span class="amount" dircetion="rtl"> <?= $value['price'] ?> ریال</span>
-                                                        </span>
-                                                        <!-- /.price -->
-                                                        <h2 class="woocommerce-loop-product__title"><?= $value['title'] ?></h2>
-                                                    </a>
-                                                    <div class="hover-area">
-                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                        <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
-                                                    </div>
-                                                </div>
 
                                                 <?php endforeach; ?>
                                             </div>
@@ -1311,9 +1222,9 @@
                             <?php foreach ($product_brands as $brands) : ?>
                                 <li class="nav-item">
                                     <a class="nav-link <?= $count_1 == 0 ? 'active' : '' ?>" href="#desktop-<?= $brands['id'] ?>" data-toggle="tab">
-                                <?php
-                                $count_1++;
-                                ?>
+                                        <?php
+                                        $count_1++;
+                                        ?>
                                         <span class="category-title"><?= $brands['name'] ?></span>
                                         <i class="tm tm-arrow-left"></i>
                                     </a>
@@ -1324,14 +1235,14 @@
 
                         </ul>
                         <div style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>Frontend/images/banner/vertical-bg.png); height: 552px;" class="tab-content">
-                        <?php
+                            <?php
                             $count_2 = 0;
                             ?>
                             <?php foreach ($product_brands as $brands) : ?>
                                 <div id="desktop-<?= $brands['id'] ?>" class="tab-pane <?= $count_2 == 0 ? 'active' : '' ?>" role="tabpanel">
-                                <?php
-                                $count_2++;
-                                ?>
+                                    <?php
+                                    $count_2++;
+                                    ?>
                                     <div class="products-carousel" data-ride="tm-slick-carousel" data-wrap=".products" data-slick="{&quot;rtl&quot;:true,&quot;infinite&quot;:false,&quot;slidesToShow&quot;:6,&quot;slidesToScroll&quot;:6,&quot;dots&quot;:true,&quot;arrows&quot;:false,&quot;responsive&quot;:[{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:2,&quot;slidesToScroll&quot;:2}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesToShow&quot;:3,&quot;slidesToScroll&quot;:3}},{&quot;breakpoint&quot;:1600,&quot;settings&quot;:{&quot;slidesToShow&quot;:4,&quot;slidesToScroll&quot;:4}}]}">
                                         <div class="container-fluid">
                                             <div class="woocommerce columns-5">

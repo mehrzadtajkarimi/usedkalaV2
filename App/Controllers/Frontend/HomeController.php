@@ -38,7 +38,9 @@ class HomeController extends Controller
         $sliders           = $this->sliderModel->read_slider();
         $latest_products   = $this->productModel->join_product_to_photo__for_latest_product();
         $sale_products     = $this->productModel->join_product_to_photo__for_sale_product();
+        $featured_products = $this->productModel->join_product_to_photo__for_featured_product();
         $brands            = $this->brandModel->read_brand();
+
 
         foreach ($brands as $key => $value) {
             $brands[$key]['product'] = $this->productModel->join_product__with_photo_by_brand_id($value['id']);
@@ -57,6 +59,7 @@ class HomeController extends Controller
             'product_discounts' => $product_discounts,
             'latest_products'   => $latest_products,
             'sale_products'     => $sale_products,
+            'featured_products' => $featured_products,
             'product_brands'    => $brands,
             'sliders'           => $sliders,
         );
