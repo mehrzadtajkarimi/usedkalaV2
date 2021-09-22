@@ -37,22 +37,18 @@ class HomeController extends Controller
         $product_discounts = $this->discountModel->join_discount__with_productDiscounts_products_photo();
         $sliders           = $this->sliderModel->read_slider();
         $latest_products   = $this->productModel->join_product_to_photo__for_latest_product();
+        $sale_products     = $this->productModel->join_product_to_photo__for_sale_product();
         $brands            = $this->brandModel->read_brand();
 
-
-
-
-        foreach ($brands as $key =>$value) {
+        foreach ($brands as $key => $value) {
             $brands[$key]['product'] = $this->productModel->join_product__with_photo_by_brand_id($value['id']);
-
         }
-
-
 
         foreach ($sliders as $key => $value) {
             $photos = $this->photoModel->read_photo_by_id($value['id'], 'Slider', true)[0];
             $sliders[$key]['photo']  = $photos;
         }
+
         foreach ($cart_items as  $value) {
             $cart_total[] = $value['count'] * $value['price'];
         }
@@ -60,6 +56,7 @@ class HomeController extends Controller
         $data = array(
             'product_discounts' => $product_discounts,
             'latest_products'   => $latest_products,
+            'sale_products'     => $sale_products,
             'product_brands'    => $brands,
             'sliders'           => $sliders,
         );

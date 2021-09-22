@@ -80,6 +80,19 @@ class Product extends MysqlBaseModel
             "products.created_at",
         );
     }
+    public function join_product_to_photo__for_sale_product()
+    {
+        return $this->inner_join_sale(
+            "*",
+            "photos",
+            "id",
+            "entity_id",
+            "photos.type=0",
+            "photos.entity_type='Product'",
+            "products.sale=1",
+            "3",
+        );
+    }
     public function join_product_to_photo_by_brand_id($brand_id)
     {
         return $this->inner_join_order(

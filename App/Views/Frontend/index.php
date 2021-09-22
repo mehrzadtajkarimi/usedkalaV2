@@ -872,78 +872,30 @@
                                     <div class="container-fluid">
                                         <div class="woocommerce">
                                             <div class="products">
+                                                <?php foreach ($sale_products as $value): ?>
+
                                                 <div class="product">
                                                     <div class="yith-wcwl-add-to-wishlist">
                                                         <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                     </div>
                                                     <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                        <img src="<?= asset_url() ?>Frontend/images/products/12.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                        <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image" alt="<?= $value['alt'] ?>">
                                                         <span class="price">
                                                             <ins>
                                                                 <span class="amount" dircetion="rtl"> </span>
                                                             </ins>
-                                                            <span class="amount" dircetion="rtl"> 20,000,000 ریال</span>
+                                                            <span class="amount" dircetion="rtl"> <?= $value['price'] ?> ریال</span>
                                                         </span>
                                                         <!-- /.price -->
-                                                        <h2 class="woocommerce-loop-product__title">Bbd
-                                                            23-Inch Screen LED-Lit Monitorss Buds</h2>
+                                                        <h2 class="woocommerce-loop-product__title"><?= $value['title'] ?></h2>
                                                     </a>
                                                     <div class="hover-area">
                                                         <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
                                                         <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                     </div>
                                                 </div>
-                                                <!-- /.product-outer -->
-                                                <div class="product">
-                                                    <div class="yith-wcwl-add-to-wishlist">
-                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
-                                                    </div>
-                                                    <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                        <span class="onsale">
-                                                            <span class="woocommerce-Price-amount amount" dir="rtl">
-                                                                2,000,000 ریال</span>
-                                                        </span>
-                                                        <img src="<?= asset_url() ?>Frontend/images/products/14.jpg" width="224" height="197" class="wp-post-image" alt="">
-                                                        <span class="price">
-                                                            <ins>
-                                                                <span class="amount" dircetion="rtl"> 9.000.000 ریال</span>
-                                                            </ins>
-                                                            <del>
-                                                                <span class="amount" dircetion="rtl">100,000,000 ریال</span>
-                                                            </del>
-                                                            <span class="amount" dircetion="rtl"> </span>
-                                                        </span>
-                                                        <!-- /.price -->
-                                                        <h2 class="woocommerce-loop-product__title">Band
-                                                            Fitbit Flex</h2>
-                                                    </a>
-                                                    <div class="hover-area">
-                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                        <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
-                                                    </div>
-                                                </div>
-                                                <!-- /.product-outer -->
-                                                <div class="product">
-                                                    <div class="yith-wcwl-add-to-wishlist">
-                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
-                                                    </div>
-                                                    <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                        <img src="<?= asset_url() ?>Frontend/images/products/6.jpg" width="224" height="197" class="wp-post-image" alt="">
-                                                        <span class="price">
-                                                            <ins>
-                                                                <span class="amount" dircetion="rtl"> </span>
-                                                            </ins>
-                                                            <span class="amount" dircetion="rtl"> 20,000,000 ریال</span>
-                                                        </span>
-                                                        <!-- /.price -->
-                                                        <h2 class="woocommerce-loop-product__title">Gear
-                                                            Virtual Reality 3D with Bluetooth Glasses</h2>
-                                                    </a>
-                                                    <div class="hover-area">
-                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                        <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
-                                                    </div>
-                                                </div>
+
+                                                <?php endforeach; ?>
                                             </div>
                                         </div>
                                         <!-- .woocommerce -->
@@ -981,28 +933,6 @@
                                                         <!-- /.price -->
                                                         <h2 class="woocommerce-loop-product__title">
                                                             Bluetooth on-ear PureBass Headphones</h2>
-                                                    </a>
-                                                    <div class="hover-area">
-                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                        <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
-                                                    </div>
-                                                </div>
-                                                <!-- /.product-outer -->
-                                                <div class="product">
-                                                    <div class="yith-wcwl-add-to-wishlist">
-                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
-                                                    </div>
-                                                    <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                        <img src="<?= asset_url() ?>Frontend/images/products/15.jpg" width="224" height="197" class="wp-post-image" alt="">
-                                                        <span class="price">
-                                                            <ins>
-                                                                <span class="amount" dircetion="rtl"> </span>
-                                                            </ins>
-                                                            <span class="amount" dircetion="rtl"> 100,000,000 ریال</span>
-                                                        </span>
-                                                        <!-- /.price -->
-                                                        <h2 class="woocommerce-loop-product__title">Band
-                                                            Fitbit Flex</h2>
                                                     </a>
                                                     <div class="hover-area">
                                                         <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
