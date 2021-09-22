@@ -1374,12 +1374,14 @@
                     <div class="products-carousel-with-vertical-tabs row">
                         <ul role="tablist" class="nav">
                             <?php
-                            $counta=0;
+                            $count_1 = 0;
                             ?>
                             <?php foreach ($product_brands as $brands) : ?>
-
                                 <li class="nav-item">
-                                    <a class="nav-link <?= $counta == 0 ? 'active' :'' ?>" href="#desktop-<?= $brands['id'] ?>" data-toggle="tab">
+                                    <a class="nav-link <?= $count_1 == 0 ? 'active' : '' ?>" href="#desktop-<?= $brands['id'] ?>" data-toggle="tab">
+                                <?php
+                                $count_1++;
+                                ?>
                                         <span class="category-title"><?= $brands['name'] ?></span>
                                         <i class="tm tm-arrow-left"></i>
                                     </a>
@@ -1391,10 +1393,13 @@
                         </ul>
                         <div style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>Frontend/images/banner/vertical-bg.png); height: 552px;" class="tab-content">
                         <?php
-                            $countb=0;
+                            $count_2 = 0;
                             ?>
                             <?php foreach ($product_brands as $brands) : ?>
-                                <div id="desktop-<?= $brands['id'] ?>" class="tab-pane <?= $countb == 0 ? 'active' :'' ?>" role="tabpanel">
+                                <div id="desktop-<?= $brands['id'] ?>" class="tab-pane <?= $count_2 == 0 ? 'active' : '' ?>" role="tabpanel">
+                                <?php
+                                $count_2++;
+                                ?>
                                     <div class="products-carousel" data-ride="tm-slick-carousel" data-wrap=".products" data-slick="{&quot;rtl&quot;:true,&quot;infinite&quot;:false,&quot;slidesToShow&quot;:6,&quot;slidesToScroll&quot;:6,&quot;dots&quot;:true,&quot;arrows&quot;:false,&quot;responsive&quot;:[{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:2,&quot;slidesToScroll&quot;:2}},{&quot;breakpoint&quot;:1400,&quot;settings&quot;:{&quot;slidesToShow&quot;:3,&quot;slidesToScroll&quot;:3}},{&quot;breakpoint&quot;:1600,&quot;settings&quot;:{&quot;slidesToShow&quot;:4,&quot;slidesToScroll&quot;:4}}]}">
                                         <div class="container-fluid">
                                             <div class="woocommerce columns-5">
