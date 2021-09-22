@@ -36,8 +36,8 @@ class HomeController extends Controller
         $cart_items        = Basket::items();
         $product_discounts = $this->discountModel->join_discount__with_productDiscounts_products_photo();
         $sliders           = $this->sliderModel->read_slider();
-        $latest_products   = $this->productModel->join_product_to_photo();
-        $brands       = $this->brandModel->read_brand();
+        $latest_products   = $this->productModel->join_product_to_photo__for_latest_product();
+        $brands            = $this->brandModel->read_brand();
 
 
 
@@ -46,24 +46,6 @@ class HomeController extends Controller
             $brands[$key]['product'] = $this->productModel->join_product__with_photo_by_brand_id($value['id']);
 
         }
-
-
-        // echo '<br><hr><pre style="background:#FF5722; border-radius: 10px; padding: 20PX">';
-
-        // foreach ($brands as $brand) {
-        //     // var_dump($brand['name']);
-        //         foreach ($brand['product'] as  $value) {
-        //             var_dump($value['product_title']);
-        //         }
-        // }
-
-        // die('LINE' . ' => ' . __LINE__ . PHP_EOL . 'FILE' . ' => ' . __FILE__);
-
-
-
-
-
-
 
 
 

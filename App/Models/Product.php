@@ -67,6 +67,19 @@ class Product extends MysqlBaseModel
             "products.created_at",
         );
     }
+    public function join_product_to_photo__for_latest_product()
+    {
+        return $this->inner_join_limit(
+            "*",
+            "photos",
+            "id",
+            "entity_id",
+            "photos.type=0",
+            "photos.entity_type='Product'",
+            "3",
+            "products.created_at",
+        );
+    }
     public function join_product_to_photo_by_brand_id($brand_id)
     {
         return $this->inner_join_order(

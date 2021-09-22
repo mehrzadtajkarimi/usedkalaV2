@@ -172,6 +172,24 @@ class  MysqlBaseModel extends BaseModel
         ORDER BY $order_by DESC
         ")->fetchAll();
     }
+    public function inner_join_limit(
+        $column,
+        $join,
+        $columns_as,
+        $columns_to,
+        $where_1,
+        $where_2,
+        $limit_by
+    ) {
+        return $this->connection->query("
+        SELECT $column FROM $this->table
+        INNER JOIN $join
+        ON $this->table.$columns_as = $join.$columns_to
+        AND $where_1
+        AND $where_2
+        LIMIT $limit_by
+        ")->fetchAll();
+    }
     public function left_join(
         $column,
         $join,
