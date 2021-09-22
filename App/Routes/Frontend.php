@@ -59,3 +59,10 @@ Route::group(function () {
     Route::get('/cart/minus/{id}', 'CartController@minus');
     Route::get('/cart/remove/{id}', 'CartController@remove');
 });
+
+
+Route::group(function () {
+    Route::get('/about/{slug}', 'SettingController@about');
+    Route::get('/about/posts/{slug}', 'SettingController@post');
+    Route::get('/about/rules/{slug}', 'SettingController@rule');
+});
