@@ -59,6 +59,7 @@ class ProductController extends Controller
             'meta_title'  => $params['product-meta'],
             'description' => $params['product-description'],
             'featured'    => $params['product-featured'] ?? 0,
+            'sale'        => $params['product-sale'] ?? 0,
         );
 
         $files                   = $this->request->files();
@@ -112,7 +113,6 @@ class ProductController extends Controller
         $params = $this->request->params();
 
         $id = $this->request->get_param('id');
-
         $params_updated = array(
             'user_id'     => Auth::is_login(),
             'slug'        => create_slug($params['product-slug']),
@@ -126,9 +126,10 @@ class ProductController extends Controller
             'meta_title'  => $params['product-meta'],
             'description' => $params['product-description'],
             'featured'    => $params['product-featured'] == 'on' ? 1 : 0,
+            'sale'        => $params['product-sale'] == 'on' ? 1 : 0,
             'status'      => $params['product-status'] == 'on' ? 1 : 0,
         );
-
+        $this->productModel->update_product($params_updated, $id);
         $files                   = $this->request->files();
         $files_param             = $files['product_image'];
         $check_file_param_exists = !empty($files_param);
@@ -136,19 +137,17 @@ class ProductController extends Controller
             $file = new UploadedFile($files_param);
             $file_paths = $file->save();
             if ($file_paths) {
-
+                
                 $is_update_photo = $this->photoModel->update_photo('Product', $id, $file_paths[0], 'product_image');
-
+                
                 if ($is_update_photo) {
                     FlashMessage::add("ویرایش محصول بندی موفقیت انجام شد");
                 } else {
                     FlashMessage::add(" مشکلی در ویرایش محصول بندی رخ داد ", FlashMessage::ERROR);
                 }
             }
-        } else {
-            $this->productModel->update_product($params_updated, $id);
-            FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
         }
+        FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
         return $this->request->redirect('admin/product');
     }
 

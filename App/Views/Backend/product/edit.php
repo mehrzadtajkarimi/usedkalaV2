@@ -86,6 +86,16 @@
                     وضعیت
                 </label>
             </div>
+
+            <div class="form-check  row pt-2 pb-2">
+                <input name="product-sale" type="checkbox" class="form-check-input" id="product-sale" <?= $products['sale'] ?  'checked' : ''  ?>>
+                <label class="form-check-label" for="product-sale">
+                    محصول پرفروش
+                    <small class="text-danger">
+                        (جهت نمایش در صفحه اصلی قسمت پرفروشترین محصولات)
+                    </small>
+                </label>
+            </div>
             <?php if (empty($photo['path'])) : ?>
                 <div class=" form-group row">
                     <label for="slug" class="col-2 col-form-label">عکس</label>

@@ -113,22 +113,32 @@
                           $("#coba").spartanMultiImagePicker({
                             fieldName: 'product_image[]',
                             groupClassName: 'col-2',
-                            rowHeight:        '100px',
+                            rowHeight: '100px',
                           });
 
                         });
                       </script>
 
+                      <div class="pt-2 pb-2 form-check disabled ">
+                        <input name="product-status" type="checkbox" class="form-check-input " id="product-status" checked disabled>
+                        <label class="form-check-label" for="product-status">
+                          وضعیت
+                        </label>
+                      </div>
                       <div class="pt-2 pb-2 form-check">
                         <input value="1" name="product-featured" type="checkbox" class="form-check-input" id="product-featured">
                         <label class="form-check-label" for="product-featured">
                           محصول ویژه
                         </label>
                       </div>
-                      <div class="pt-2 pb-2 form-check disabled ">
-                        <input name="product-status" type="checkbox" class="form-check-input " id="product-status" checked disabled>
-                        <label class="form-check-label" for="product-status">
-                          وضعیت
+
+                      <div class="pt-2 pb-2 form-check">
+                        <input value="1" name="product-sale" type="checkbox" class="form-check-input" id="product-sale">
+                        <label class="form-check-label" for="product-sale">
+                          محصول پرفروش
+                          <small class="text-danger">
+                            (جهت نمایش در صفحه اصلی قسمت پرفروشترین محصولات)
+                          </small>
                         </label>
                       </div>
 
@@ -179,11 +189,11 @@
                 <tr>
                   <td class="text-center" title="<?= $value['sku'] ?>"><?= $count++ ?></td>
                   <td class="text-center" title="<?= $value['meta_title'] ?>"><?= $value['title'] ?></td>
-                  <td class="text-center" ><?= $value['price'] ?></td>
+                  <td class="text-center"><?= $value['price'] ?></td>
                   <td class="text-center" title="<?= $value['weight'] ?>"><?= $value['quantity'] ?></td>
                   <td>
                     <div>
-                      وضــــــــــعــیـت :
+                      وضـــــــــــــعــیـــــــــت :
                       <?php if ($value['status'] == 1) : ?>
                         <i class="fa fa-check text-success "></i>
                       <?php else : ?>
@@ -191,7 +201,15 @@
                       <?php endif; ?>
                     </div>
                     <div>
-                      محصول ویژه :
+                      محصـــــــول ویــــژه :
+                      <?php if ($value['featured'] == 1) : ?>
+                        <i class="fa fa-check text-success"></i>
+                      <?php else : ?>
+                        <i class="fa fa-times text-danger"></i>
+                      <?php endif; ?>
+                    </div>
+                    <div>
+                      محصول پرفروش :
                       <?php if ($value['featured'] == 1) : ?>
                         <i class="fa fa-check text-success"></i>
                       <?php else : ?>
