@@ -248,21 +248,22 @@
                                         <div class="container-fluid">
                                             <div class="woocommerce">
                                                 <div class="products">
+                                                    <?php foreach ($sale_products as $value): ?>
                                                     <div class="product">
                                                         <div class="yith-wcwl-add-to-wishlist">
                                                             <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                         </div>
                                                         <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                            <img src="<?= asset_url() ?>Frontend/images/products/6.jpg" width="224" height="197" class="wp-post-image" alt="">
+                                                            <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image" alt="<?= $value['alt'] ?>">
                                                             <span class="price">
                                                                 <ins>
                                                                     <span class="amount" dircetion="rtl"> </span>
                                                                 </ins>
-                                                                <span class="amount" dircetion="rtl"> 20,000,000 ریال</span>
+                                                                <span class="amount" dircetion="rtl"> <?= $value['price'] ?> ریال</span>
                                                             </span>
                                                             <!-- /.price -->
-                                                            <h2 class="woocommerce-loop-product__title">Gear
-                                                                Virtual Reality 3D with Bluetooth Glasses
+                                                            <h2 class="woocommerce-loop-product__title">
+                                                            <?= $value['title'] ?>
                                                             </h2>
                                                         </a>
                                                         <div class="hover-area">
@@ -270,6 +271,7 @@
                                                             <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                         </div>
                                                     </div>
+                                                    <?php endforeach; ?>
                                                 </div>
                                             </div>
                                             <!-- .woocommerce -->
