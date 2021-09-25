@@ -9,13 +9,13 @@
         <a title="درباره ما" data-toggle="dropdown" aria-haspopup="true" class="dropdown-toggle" href="https://usedkala.com/about">درباره ما<span class="caret"></span></a>
         <ul role="menu" class=" dropdown-menu">
             <li class="menu-item animate-dropdown">
-                <a title="روش های ارسال" href="https://usedkala.com/about/ارسال-ها">روش های ارسال</a>
+                <a title="روش های ارسال" href="<?= base_url() ?>about/ارسال-ها">روش های ارسال</a>
             </li>
             <li class="menu-item animate-dropdown">
-                <a title="قوانین و مقررات" href="https://usedkala.com/about/قوانین">قوانین و مقررات</a>
+                <a title="قوانین و مقررات" href="<?= base_url() ?>about/قوانین">قوانین و مقررات</a>
             </li>
             <li class="menu-item animate-dropdown">
-                <a title="درباره یوزدکالا" href="https://usedkala.com/about/درباره-یوزدکالا">درباره یوزدکالا</a>
+                <a title="درباره یوزدکالا" href="<?= base_url() ?>about/درباره-یوزدکالا">درباره یوزدکالا</a>
             </li>
         </ul>
     </li>

@@ -8,9 +8,9 @@ use App\Middleware\Gate;
  * add middleware example =
  * Route::get('/','exampleController@index',[Gate::class]);
  *
- * add slug example =
- * Route::get('/example/{slug}','exampleController@index');
- * Route::get('/example/{slug}/example2/{id}','exampleController@index');
+ * adexample =
+ * Route::get('/example','exampleController@index');
+ * Route::get('/example/example2/{id}','exampleController@index');
  * 
  * 
  * 
@@ -91,5 +91,11 @@ Route::group(function () {
     Route::delete('/admin/slider/{id}', 'SliderController@destroy');
 });
 
+Route::group(function () {
+    Route::get('/admin/setting', 'SettingController@index');
+    Route::post('/admin/setting', 'SettingController@store');
+    Route::get('/admin/setting/{id}/edit', 'SettingController@edit');
+    Route::patch('/admin/setting/{id}', 'SettingController@update');
 
 
+});
