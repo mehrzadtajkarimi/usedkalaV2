@@ -15,32 +15,10 @@
             </div>
 
             <!-- Button trigger modal -->
-            <a type="button" class="mr-2 shadow-sm btn btn-success " data-toggle="modal" data-target="#exampleModalCenter">
+            <a href="<?= base_url() ?>admin/setting/create" type="button" class="mr-2 shadow-sm btn btn-success "  " >
               ایجاد تنظیمات
             </a>
 
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-              <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-body">
-                    <form action="<?= base_url() ?>admin/setting" method="post" enctype="multipart/form-data">
-                      <div class="form-group ">
-                        <label for="key" class=" col-form-label"> موضوع </label>
-                        <input name="key" type="text" class="form-control" id="key" placeholder="" required>
-                      </div>
-                      <div class="form-group ">
-                        <textarea name="value" id="mytextarea">Hello, World!</textarea>
-                      </div>
-
-                      <button type="submit" class="float-left btn btn-primary btn-block">ذخیره </button>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
         </div>
       </div>

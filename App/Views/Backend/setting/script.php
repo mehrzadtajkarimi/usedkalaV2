@@ -1,25 +1,56 @@
 <script>
     $(document).ready(function() {
 
+
         tinymce.init({
             selector: '#mytextarea',
-            plugins: 'image code',
-            toolbar: 'undo redo | image code',
+            plugins: "code",
+            toolbar: "undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link code image_upload",
+            menubar: false,
+            statusbar: false,
+            content_style: ".mce-content-body {font-size:15px;font-family:Arial,sans-serif;}",
+            height: 400,
+            setup: function(ed) {
 
-            /* without images_upload_url set, Upload tab won't show up*/
-            images_upload_url: 'postAcceptor.php',
+                var fileInput = $('<input id="tinymce-uploader" type="file" name="pic" accept="image/*" style="display:none">');
+                $(ed.getElement()).parent().append(fileInput);
 
-            /* we override default upload handler to simulate successful upload*/
-            images_upload_handler: function(blobInfo, success, failure) {
-                setTimeout(function() {
-                    /* no matter what you upload, we will turn it into TinyMCE logo :)*/
-                    success('http://moxiecode.cachefly.net/tinymce/v9/images/logo.png');
-                }, 2000);
-            },
-            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
-        })
+                fileInput.on("change", function() {
+                    console.log('salam');
+                    var file = this.files[0];
+                    var reader = new FileReader();
+                    var formData = new FormData();
+                    var files = file;
+                    formData.append("file", files);
+                    formData.append('filetype', 'image');
+                    $.ajax({
+                        url: "/admin/setting",
+                        type: "post",
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        async: false,
+                        success: function(response) {
+                            var fileName = response;
+                            if (fileName) {
+                                ed.insertContent(fileName);
+                            }
+                        }
+                    });
+                    reader.readAsDataURL(file);
+                });
+
+                ed.ui.registry.addButton('image_upload', {
+                    text: 'Upload Image',
+                    icon: 'image',
+                    onAction: function() {
+                        fileInput.trigger('click');
+                    }
+                });
+            }
 
 
 
+        });
     });
 </script>
