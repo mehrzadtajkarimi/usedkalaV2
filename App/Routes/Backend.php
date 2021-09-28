@@ -93,6 +93,7 @@ Route::group(function () {
 
 Route::group(function () {
     Route::get('/admin/setting', 'SettingController@index');
+    Route::post('/admin/setting/upload', 'SettingController@upload');
     Route::get('/admin/setting/create', 'SettingController@create');
     Route::post('/admin/setting', 'SettingController@store');
     Route::get('/admin/setting/{id}/edit', 'SettingController@edit');

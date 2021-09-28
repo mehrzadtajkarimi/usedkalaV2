@@ -17,7 +17,7 @@ class Setting extends MysqlBaseModel
         if (is_null($id)) {
             return $this->all();
         }
-        return $this->find($id);
+        return $this->find_by_id($id);
     }
 
     public function update_setting(array $params , $id)

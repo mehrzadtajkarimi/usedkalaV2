@@ -3,6 +3,7 @@
 namespace App\Controllers\Backend;
 
 use App\Controllers\Controller;
+use App\Models\Photo;
 use App\Models\Setting;
 use App\Services\Upload\UploadedFile;
 use App\Utilities\FlashMessage;
@@ -11,11 +12,13 @@ class SettingController extends Controller
 {
 
     public $settingModel;
+    public $photoModel;
 
     public function __construct()
     {
         parent::__construct();
         $this->settingModel = new Setting();
+        $this->photoModel = new Photo();
     }
 
     public function index()
@@ -50,37 +53,18 @@ class SettingController extends Controller
 
 
 
+        $files = $this->request->files();
+        // dd($params);
+        if (isset($files)) {
+            foreach ($this->request->files() as  $value) {
+                $files_tmp_name    = $files['file']['tmp_name'];
 
-        $files                   = $this->request->files();
-        $files_param             = $files['setting_image'];
-        if ($files_param['size'] < 150000) {
-            FlashMessage::add("حجم عکس باید بالا 150 k ", FlashMessage::WARNING);
-            return $this->request->redirect('admin/setting');
-        }
-        $files_param_tmp_name    = $files_param['tmp_name'];
-        $check_file_param_exists = !empty($files_param_tmp_name[0]);
-        if ($check_file_param_exists) {
-            $is_create_slider = $this->sliderModel->create_slider($params_create);
-            $file = new UploadedFile($files_param);
-            $file_paths = $file->save();
-            if ($file_paths) {
-                foreach ($file_paths as $key => $path) {
-                    $is_create_photo   = $this->photoModel->create_photo('Setting', $is_create_slider, $path, 'setting_image', $key);
+                $check_file_param_exists = !empty($files_tmp_name[0]);
+                if ($check_file_param_exists) {
+                    $file = new UploadedFile($value);
+                    $file->save();
                 }
-
-                if ($is_create_slider) {
-                    FlashMessage::add("ایجاد اسلایدر با موفقیت انجام شد");
-                } elseif ($is_create_photo) {
-                    FlashMessage::add(" ایجاد تصویر موفقیت انجام شد", FlashMessage::ERROR);
-                } else {
-                    FlashMessage::add(" مشکلی در ایجاد اسلایدر رخ داد ", FlashMessage::ERROR);
-                }
-                return $this->request->redirect('admin/setting');
             }
-        } else {
-            $this->sliderModel->create_slider($params_create);
-            FlashMessage::add("مقادیر بدونه ضمیمه عکس با موفقیت در دیتابیس ذخیره شد", FlashMessage::WARNING);
-            return $this->request->redirect('admin/slider');
         }
 
 
@@ -105,5 +89,28 @@ class SettingController extends Controller
         $params = $this->request->params();
 
         dd($params);
+    }
+    public function upload()
+    {
+        // $files = $this->request->files();
+        // foreach ($this->request->files() as  $value) {
+        //     $files_tmp_name    = $files['file']['tmp_name'];
+        //     $check_file_param_exists = !empty($files_tmp_name[0]);
+        //     if ($check_file_param_exists) {
+        //         $file = new UploadedFile($value);
+        //         return $file->save();
+        //     }
+        // }
+
+        if (isset($_FILES['upload']['name'])) {
+            $file = $_FILES['upload']['name'];
+            $filetmp = $_FILES['upload']['tmp_name'];
+
+            move_uploaded_file($filetmp, 'upload/' . $file);
+            $function_number = $_GET['CKEditorFuncNum'];
+            $url = 'upload/' . $file;
+            $message = '';
+            echo "<script>window.parent.CKEDITOR.tools.callFunction('" . $function_number . "','" . $url . "','" . $message . "');</script>";
+        }
     }
 }

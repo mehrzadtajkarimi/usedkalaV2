@@ -1,4 +1,5 @@
-<script src='<?= asset_url() ?>Backend/plugins/tinymce/js/tinymce/tinymce.js'></script>
+<!-- <script src='<?= asset_url() ?>Backend/plugins/ckeditor/ckeditor.js'></script> -->
+<script src="//cdn.ckeditor.com/4.16.2/full/ckeditor.js"></script>
 <div class="card-header">
     <h5>ایجاد تنظیمات</h5>
 
@@ -14,7 +15,7 @@
             <input name="slug" type="text" class="form-control" id="slug" placeholder="" required>
         </div>
         <div class="form-group ">
-            <textarea name="value" id="mytextarea">Hello, World!</textarea>
+            <textarea name="value"  id="textarea">Hello, World!</textarea>
         </div>
 
         <button type="submit" class="float-left btn btn-primary btn-block">ذخیره </button>

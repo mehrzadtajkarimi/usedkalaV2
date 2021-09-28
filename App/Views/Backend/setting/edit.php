@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="form-group ">
-                <textarea name="value" id="mytextarea">Hello, World!</textarea>
+                <textarea name="value" id="mytextarea"><?= $setting->value ?></textarea>
             </div>
             <div class="form-group row">
                 <div class="col-sm-10">

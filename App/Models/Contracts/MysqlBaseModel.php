@@ -52,6 +52,10 @@ class  MysqlBaseModel extends BaseModel
         }
         return $this;
     }
+    public function find_by_id($id)
+    {
+        return  $this->connection->get($this->table, '*', [$this->primaryKey => $id]) ;
+    }
 
     public function count_by($field, $value)
     {
