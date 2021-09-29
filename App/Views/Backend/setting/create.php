@@ -1,5 +1,5 @@
-<!-- <script src='<?= asset_url() ?>Backend/plugins/ckeditor/ckeditor.js'></script> -->
-<script src="//cdn.ckeditor.com/4.16.2/full/ckeditor.js"></script>
+<script src='<?= asset_url() ?>Backend/plugins/ckeditor/ckeditor.js'></script>
+<!-- <script src="//cdn.ckeditor.com/4.16.2/full/ckeditor.js"></script> -->
 <div class="card-header">
     <h5>ایجاد تنظیمات</h5>
 

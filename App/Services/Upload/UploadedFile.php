@@ -76,4 +76,8 @@ class UploadedFile implements UploadContract
     {
         return $this->upload() ? $this->paths_for_database : false;
     }
+    public function get_paths_for_storage()
+    {
+        return $this->paths_for_storage;
+    }
 }

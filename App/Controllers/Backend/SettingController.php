@@ -92,23 +92,14 @@ class SettingController extends Controller
     }
     public function upload()
     {
-        // $files = $this->request->files();
-        // foreach ($this->request->files() as  $value) {
-        //     $files_tmp_name    = $files['file']['tmp_name'];
-        //     $check_file_param_exists = !empty($files_tmp_name[0]);
-        //     if ($check_file_param_exists) {
-        //         $file = new UploadedFile($value);
-        //         return $file->save();
-        //     }
-        // }
-
-        if (isset($_FILES['upload']['name'])) {
-            $file = $_FILES['upload']['name'];
-            $filetmp = $_FILES['upload']['tmp_name'];
-
-            move_uploaded_file($filetmp, 'upload/' . $file);
+        $file = $this->request->files();
+        $file_tmp_name           = $file['upload']['tmp_name'];
+        $check_file_param_exists = !empty($file_tmp_name[0]);
+        if ($check_file_param_exists) {
+            $file = new UploadedFile($file);
+            $file->save();
             $function_number = $_GET['CKEditorFuncNum'];
-            $url = 'upload/' . $file;
+            $url = $file->get_paths_for_storage();
             $message = '';
             echo "<script>window.parent.CKEDITOR.tools.callFunction('" . $function_number . "','" . $url . "','" . $message . "');</script>";
         }
