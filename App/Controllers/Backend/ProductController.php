@@ -7,6 +7,7 @@ use App\Models\Brand;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Photo;
+use App\Models\Product_category;
 use App\Services\Auth\Auth;
 use App\Services\Upload\UploadedFile;
 use App\Utilities\FlashMessage;
@@ -17,14 +18,16 @@ class ProductController extends Controller
     private $categoryModel;
     private $brandModel;
     private $photoModel;
+    private $productCategoriesModel;
 
     public function __construct()
     {
         parent::__construct();
-        $this->productModel  = new Product();
-        $this->categoryModel = new Category();
-        $this->brandModel    = new Brand();
-        $this->photoModel    = new Photo();
+        $this->productModel           = new Product();
+        $this->categoryModel          = new Category();
+        $this->brandModel             = new Brand();
+        $this->photoModel             = new Photo();
+        $this->productCategoriesModel = new Product_category();
     }
 
     public function index()
@@ -45,13 +48,11 @@ class ProductController extends Controller
     public function store()
     {
         $params = $this->request->params();
-
         $params_create = array(
             'user_id'     => Auth::is_login(),
             'slug'        => create_slug($params['product-slug']),
             'title'       => $params['product-name'],
             'price'       => $params['product-price'],
-            'category_id' => $params['product-category'],
             'brand_id'    => $params['product-brand'],
             'sku'         => $params['product-sku'],
             'weight'      => $params['product-weight'],
@@ -67,12 +68,15 @@ class ProductController extends Controller
         $files_param_tmp_name    = array_filter($files_param['tmp_name']);
         $check_file_param_exists = !empty($files_param_tmp_name[0]);
         if ($check_file_param_exists) {
-            $is_create_product = $this->productModel->create_product($params_create);
+            $product_id = $this->productModel->create_product($params_create);
+            foreach ($params['product-category'] as  $category_id) {
+              $is_create_product=  $this->productCategoriesModel->create_productCategories($product_id, $category_id);
+            }
             $file = new UploadedFile($files_param);
             $file_paths = $file->save();
             if ($file_paths) {
                 foreach ($file_paths as $key => $path) {
-                    $is_create_photo   = $this->photoModel->create_photo('Product', $is_create_product, $path, 'product_image', $key);
+                    $is_create_photo   = $this->photoModel->create_photo('Product', $product_id, $path, 'product_image', $key);
                 }
 
                 if ($is_create_product) {
@@ -85,7 +89,10 @@ class ProductController extends Controller
                 return $this->request->redirect('admin/product');
             }
         } else {
-            $this->productModel->create_product($params_create);
+            $product_id = $this->productModel->create_product($params_create);
+            foreach ($params['product-category'] as  $category_id) {
+                $this->productCategoriesModel->create_productCategories($product_id, $category_id);
+            }
             FlashMessage::add("مقادیر بدونه ضمیمه عکس با موفقیت در دیتابیس ذخیره شد", FlashMessage::WARNING);
             return $this->request->redirect('admin/product');
         }
@@ -97,12 +104,20 @@ class ProductController extends Controller
 
     public function edit()
     {
-        $id = $this->request->get_param('id');
+        $products_id = $this->request->get_param('id');
+        $category_id = $this->productCategoriesModel->read_productCategories($products_id);
+
+        if ($category_id) {
+            foreach ($category_id as  $value) {
+                $categories_selected[] = $value['id'];
+            }
+        }
         $data = array(
-            'products'   => $this->productModel->read_product($id),
-            'brands'     => $this->brandModel->read_brand(),
-            'categories' => $this->categoryModel->category_tree_for_backend(),
-            'photo'      => $this->photoModel->read_photo($id),
+            'products'            => $this->productModel->read_product($products_id),
+            'photo'               => $this->photoModel->read_photo($products_id),
+            'brands'              => $this->brandModel->read_brand(),
+            'categories'          => $this->categoryModel->category_tree_for_backend(),
+            'categories_selected' => $categories_selected ?? [],
         );
         view('Backend.product.edit', $data);
     }
@@ -112,13 +127,12 @@ class ProductController extends Controller
     {
         $params = $this->request->params();
 
-        $id = $this->request->get_param('id');
+        $product_id = $this->request->get_param('id');
         $params_updated = array(
             'user_id'     => Auth::is_login(),
             'slug'        => create_slug($params['product-slug']),
             'title'       => $params['product-name'],
             'price'       => $params['product-price'],
-            'category_id' => $params['product-category'],
             'brand_id'    => $params['product-brand'],
             'sku'         => $params['product-sku'],
             'weight'      => $params['product-weight'],
@@ -129,7 +143,11 @@ class ProductController extends Controller
             'sale'        => $params['product-sale'] == 'on' ? 1 : 0,
             'status'      => $params['product-status'] == 'on' ? 1 : 0,
         );
-        $this->productModel->update_product($params_updated, $id);
+        $this->productModel->update_product($params_updated, $product_id);
+        foreach ($params['product-category'] as  $category_id) {
+              $this->productCategoriesModel->update_productCategories($category_id, $product_id);
+          }
+        $this->productCategoriesModel->update_productCategories($params_updated, $product_id);
         $files                   = $this->request->files();
         $files_param             = $files['product_image'];
         $check_file_param_exists = !empty($files_param);
@@ -137,9 +155,9 @@ class ProductController extends Controller
             $file = new UploadedFile($files_param);
             $file_paths = $file->save();
             if ($file_paths) {
-                
-                $is_update_photo = $this->photoModel->update_photo('Product', $id, $file_paths[0], 'product_image');
-                
+
+                $is_update_photo = $this->photoModel->update_photo('Product', $product_id, $file_paths[0], 'product_image');
+
                 if ($is_update_photo) {
                     FlashMessage::add("ویرایش محصول بندی موفقیت انجام شد");
                 } else {

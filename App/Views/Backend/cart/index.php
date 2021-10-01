@@ -145,10 +145,10 @@
                     </a>
                   </td>
                   <td class="text-center ">
-                      <a href="<?= base_url() ?>admin/cart/<?= $value['id'] ?>/edit" class=" shadow-sm btn btn-warning btn-sm p-0 pr-2 pl-2" style=" border-radius: 18px;">ویــرایـش</a>
+                      <a href="<?= base_url() ?>admin/cart/<?= $value['id'] ?>/edit" class="p-0 pl-2 pr-2 shadow-sm  btn btn-warning btn-sm" style=" border-radius: 18px;">ویــرایـش</a>
                       <form method="post" action="<?= base_url() ?>admin/cart/<?= $value['id'] ?>" class="d-inline">
                         <input type="hidden" name="_method" value="delete" />
-                        <input type="submit" class=" shadow-sm btn btn-danger btn-sm p-0 pr-2 pl-2" style="border-radius: 18px;" onclick="return confirm('آیا برای حذف اطلاعات اطمینان دارید');" value="حــــــــذف">
+                        <input type="submit" class="p-0 pl-2 pr-2 shadow-sm  btn btn-danger btn-sm" style="border-radius: 18px;" onclick="return confirm('آیا برای حذف اطلاعات اطمینان دارید');" value="حــــــــذف">
                       </form>
                   </td>
                 </tr>
@@ -160,7 +160,7 @@
 
         </div>
       </div>
-      <p class="text-muted font-italic pr-4">برای به دست آوردن نام متا - تخفیف یا وزن با موس روی نقطه مورد نظر هاور کنید</p>
+      <p class="pr-4 text-muted font-italic">برای به دست آوردن نام متا - تخفیف یا وزن با موس روی نقطه مورد نظر هاور کنید</p>
     </div>
   </div>
 </div>

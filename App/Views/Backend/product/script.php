@@ -23,7 +23,9 @@
         });
 
 
-
+        $('#product_category').select2({
+            'placeholder': 'دسته بندی های مورد نظر را انتخاب کنید'
+        });
 
 
     });

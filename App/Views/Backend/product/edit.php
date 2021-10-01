@@ -14,11 +14,11 @@
             <div class="form-group row">
                 <label class="col-2 col-form-label" for="product-category">دسته </label>
                 <div class="col-10">
-                    <select name='product-category' class="form-control" id="product-category">
-                        <?php foreach ($categories as $value) : ?>
-                            <option value="<?= $value['id'] ?>" <?= $products['category_id'] == $value['id'] ? 'selected' : '' ?>><?= $value['name'] ?></option>
-                        <?php endforeach; ?>
-                    </select>
+                    <select name='product-category[]' id="product_category" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
+                            <?php foreach ($categories as $value) : ?>
+                                <option value="<?= $value['id'] ?>" <?= in_array($value['id'], $categories_selected) ? 'selected' : ''  ?>><?= $value['name'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
                 </div>
             </div>
             <div class="form-group row">
@@ -74,20 +74,20 @@
                     <textarea name="product-description" type="text" class="form-control" id="product-description" rows="3" required><?= $products['description']  ?></textarea>
                 </div>
             </div>
-            <div class="form-check row pt-2 pb-2">
+            <div class="pt-2 pb-2 form-check row">
                 <input name="product-featured" type="checkbox" class="form-check-input" id="product-featured" <?= $products['featured'] ?  'checked' : ''  ?>>
                 <label class="form-check-label" for="product-featured">
                     محصول ویژه
                 </label>
             </div>
-            <div class="form-check row pt-2 pb-2">
+            <div class="pt-2 pb-2 form-check row">
                 <input name="product-status" type="checkbox" class="form-check-input" id="product-status" <?= $products['status'] ?  'checked' : ''  ?>>
                 <label class="form-check-label" for="product-status">
                     وضعیت
                 </label>
             </div>
 
-            <div class="form-check  row pt-2 pb-2">
+            <div class="pt-2 pb-2 form-check row">
                 <input name="product-sale" type="checkbox" class="form-check-input" id="product-sale" <?= $products['sale'] ?  'checked' : ''  ?>>
                 <label class="form-check-label" for="product-sale">
                     محصول پرفروش
@@ -137,3 +137,4 @@
         </form>
     </div>
 </div>
+<?php include(BASEPATH . "/App/Views/Backend/product/script.php") ?>

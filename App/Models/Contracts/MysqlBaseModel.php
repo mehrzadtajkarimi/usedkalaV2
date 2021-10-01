@@ -108,6 +108,18 @@ class  MysqlBaseModel extends BaseModel
             echo '<h1>مشکلی در ارتباط با دیتابیس رخ داد </h1>';
         }
     }
+    public function update_delete(array $data, array $where): int
+    {
+        try {
+            $exists = $this->get($where);
+            foreach ($exists as  $value) {
+                    return  $this->delete($value['id']);
+            }
+            return $this->update($data, $where);
+        } catch (\PDOException $e) {
+            echo '<h1>مشکلی در ارتباط با دیتابیس رخ داد </h1>';
+        }
+    }
 
     public function delete(array $where): int
     {

@@ -33,8 +33,8 @@
    <script src="<?= asset_url() ?>Backend/dist/js/pages/dashboard3.js"></script>
    <script src="<?= asset_url() ?>Backend/plugins/Multiple-Image-Picker-jQuery/spartan-multi-image-picker-min.js"></script>
    <script src="<?= asset_url() ?>Backend/plugins/datepicker/persian-date.min.js"></script>
+   <script src="<?= asset_url() ?>Backend/plugins/select2/select2.full.min.js"></script>
    <script src="<?= asset_url() ?>Backend/plugins/datepicker/persian-datepicker.min.js"></script>
-   <script src="<?= asset_url() ?>Backend/plugins/select2/select2.min.js"></script>
    <script src="<?= asset_url() ?>Backend/dist/js/pages/my.js"></script>
 
 

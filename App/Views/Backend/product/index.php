@@ -74,9 +74,9 @@
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label class="col-2 col-form-label" for="product-category">دسته </label>
+                        <label class="col-2 col-form-label" for="product_category"> دسته بندی</label>
                         <div class="col-10">
-                          <select name='product-category' class="form-control" id="product-category">
+                          <select name='product-category[]' id="product_category" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
                             <?php foreach ($categories as $value) : ?>
                               <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
                             <?php endforeach; ?>
@@ -233,7 +233,8 @@
 
         </div>
       </div>
-      <p class="text-muted font-italic pr-4">برای به دست آوردن نام متا - تخفیف یا وزن با موس روی نقطه مورد نظر هاور کنید</p>
+      <p class="pr-4 text-muted font-italic">برای به دست آوردن نام متا - تخفیف یا وزن با موس روی نقطه مورد نظر هاور کنید</p>
     </div>
   </div>
 </div>
+<?php include(BASEPATH . "/App/Views/Backend/product/script.php") ?>
