@@ -2,10 +2,9 @@
     $(document).ready(function() {
 
         CKEDITOR.replace('textarea', {
-            height: 300,
             extraPlugins: 'filebrowser',
-            filebrowserBrowseUrl:'browser.php?type=Images',
-            filebrowserUploadUrl: "/admin/setting/upload",
+            height: 300,
+            filebrowserUploadUrl: "/upload.php",
             filebrowserUploadMethod: "form"
         });
 

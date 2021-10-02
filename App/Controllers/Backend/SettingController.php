@@ -92,11 +92,12 @@ class SettingController extends Controller
     }
     public function upload()
     {
-        $file = $this->request->files();
+        $file   = $this->request->files();
+        $fileUploadedCkeditor    = $file['upload'];
         $file_tmp_name           = $file['upload']['tmp_name'];
         $check_file_param_exists = !empty($file_tmp_name[0]);
         if ($check_file_param_exists) {
-            $file = new UploadedFile($file);
+            $file = new UploadedFile($fileUploadedCkeditor);
             $file->save();
             $function_number = $_GET['CKEditorFuncNum'];
             $url = $file->get_paths_for_storage();
