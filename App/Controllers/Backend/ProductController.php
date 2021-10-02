@@ -70,7 +70,10 @@ class ProductController extends Controller
         if ($check_file_param_exists) {
             $product_id = $this->productModel->create_product($params_create);
             foreach ($params['product-category'] as  $category_id) {
-              $is_create_product=  $this->productCategoriesModel->create_productCategories($product_id, $category_id);
+                $is_create_product =  $this->productCategoriesModel->create_productCategories([
+                    'product_id'  => $product_id,
+                    'category_id' => $category_id
+                ]);
             }
             $file = new UploadedFile($files_param);
             $file_paths = $file->save();
@@ -91,7 +94,10 @@ class ProductController extends Controller
         } else {
             $product_id = $this->productModel->create_product($params_create);
             foreach ($params['product-category'] as  $category_id) {
-                $this->productCategoriesModel->create_productCategories($product_id, $category_id);
+                $this->productCategoriesModel->create_productCategories([
+                  'product_id'  => $product_id,
+                  'category_id' => $category_id
+                ]);
             }
             FlashMessage::add("مقادیر بدونه ضمیمه عکس با موفقیت در دیتابیس ذخیره شد", FlashMessage::WARNING);
             return $this->request->redirect('admin/product');
@@ -144,15 +150,23 @@ class ProductController extends Controller
             'status'      => $params['product-status'] == 'on' ? 1 : 0,
         );
         $this->productModel->update_product($params_updated, $product_id);
-        foreach ($params['product-category'] as  $category_id) {
-              $this->productCategoriesModel->update_productCategories($category_id, $product_id);
-          }
-        $this->productCategoriesModel->update_productCategories($params_updated, $product_id);
+
+
+        if (!empty($params['product-category'])) {
+            $this->productCategoriesModel->delete_productCategories_by_product_id($product_id);
+            foreach ($params['product-category'] as  $category_id) {
+                $this->productCategoriesModel->create_productCategories([
+                    'product_id'  => $product_id,
+                    'category_id' => $category_id,
+                ]);
+            }
+        }
+
         $files                   = $this->request->files();
         $files_param             = $files['product_image'];
         $check_file_param_exists = !empty($files_param);
         if ($check_file_param_exists) {
-            $file = new UploadedFile($files_param);
+            $file       = new UploadedFile($files_param);
             $file_paths = $file->save();
             if ($file_paths) {
 
@@ -173,12 +187,24 @@ class ProductController extends Controller
     public function destroy()
     {
         $id = $this->request->get_param('id');
-        $is_deleted_product = $this->productModel->delete($id);
-        $is_deleted_photo   = $this->photoModel->delete_photo($id);
-        if ($is_deleted_product && $is_deleted_photo) {
-            # code...
-            FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
+        $is_deleted_productCategories = $this->productCategoriesModel->delete_productCategories_by_product_id($id);
+        $is_deleted_photo             = $this->photoModel->delete_photo($id);
+        $is_deleted_product           = $this->productModel->delete_product($id);
+
+
+
+
+        if ($is_deleted_productCategories &&  $is_deleted_product && $is_deleted_photo) {
+            FlashMessage::add("مقادیر  با موفقیت از دیتابیس حذف شد");
             return $this->request->redirect('admin/product');
+        }
+        if ( $is_deleted_product && $is_deleted_photo) {
+            FlashMessage::add("مقادیر (بدون دسته بندی )  با موفقیت از دیتابیس حذف شد");
+            return $this->request->redirect('admin/product', FlashMessage::WARNING);
+        }
+        if ( $is_deleted_product ) {
+            FlashMessage::add("مقادیر (بدون دسته بندی و عکس )  با موفقیت از دیتابیس حذف شد");
+            return $this->request->redirect('product', FlashMessage::WARNING);
         }
         FlashMessage::add(" مشکلی در حذف محصول پیش آمده است", FlashMessage::ERROR);
         return $this->request->redirect('admin/product');
