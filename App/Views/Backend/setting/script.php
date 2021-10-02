@@ -2,10 +2,12 @@
     $(document).ready(function() {
 
         CKEDITOR.replace('textarea', {
-                height: 300,
-                filebrowserUploadUrl: "/admin/setting/upload",
-                filebrowserUploadMethod: "form"
-            });
+            height: 300,
+            extraPlugins: 'filebrowser',
+            filebrowserBrowseUrl:'browser.php?type=Images',
+            filebrowserUploadUrl: "/admin/setting/upload",
+            filebrowserUploadMethod: "form"
+        });
 
         // tinymce.init({
         //     selector: '#mytextarea',
