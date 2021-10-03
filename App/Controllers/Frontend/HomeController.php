@@ -9,6 +9,7 @@ use App\Models\Discount;
 use App\Models\Photo;
 use App\Models\Product;
 use App\Models\Product_discount;
+use App\Models\Setting;
 use App\Models\Slider;
 use App\Services\Basket\Basket;
 
@@ -19,6 +20,7 @@ class HomeController extends Controller
     private $photoModel;
     private $productModel;
     private $brandModel;
+    private $settingModel;
     public function __construct()
     {
         parent::__construct();
@@ -29,6 +31,7 @@ class HomeController extends Controller
         $this->discountModel         = new Discount();
         $this->productModel          = new Product();
         $this->brandModel            = new Brand();
+        $this->settingModel          = new Setting();
     }
 
     public function index()
@@ -40,6 +43,7 @@ class HomeController extends Controller
         $sale_products     = $this->productModel->join_product_to_photo__for_sale_product();
         $featured_products = $this->productModel->join_product_to_photo__for_featured_product();
         $brands            = $this->brandModel->read_brand();
+        $setting           = $this->settingModel->read_setting();
 
 
         foreach ($brands as $key => $value) {
@@ -62,6 +66,7 @@ class HomeController extends Controller
             'featured_products' => $featured_products,
             'product_brands'    => $brands,
             'sliders'           => $sliders,
+            'setting'           => $setting,
         );
         return view('Frontend.index', $data);
     }

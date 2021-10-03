@@ -19,6 +19,13 @@ class Setting extends MysqlBaseModel
         }
         return $this->find_by_id($id);
     }
+    public function read_setting_by_key($key=null)
+    {
+        if (is_null($key)) {
+            return $this->all();
+        }
+        return $this->get('*',['key'=>$key]);
+    }
 
     public function update_setting(array $params , $id)
     {
@@ -31,16 +38,6 @@ class Setting extends MysqlBaseModel
     }
 
 
-    public function join_setting_to_photo()
-    {
-        return $this->inner_join(
-            "*",
-            "photos",
-            "id",
-            "entity_id",
-            "photos.type=0",
-            "photos.entity_type='Setting'",
-        );
-    }
+
 
 }

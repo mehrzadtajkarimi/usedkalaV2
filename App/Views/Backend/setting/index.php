@@ -1,4 +1,5 @@
-<script src="<?= asset_url() ?>Backend/plugins/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+<script src='<?= asset_url() ?>Backend/plugins/ckeditor/ckeditor.js'></script>
+
 <div class="card ">
   <div class="p-0 shadow-sm card-body">
     <div class="card-header">

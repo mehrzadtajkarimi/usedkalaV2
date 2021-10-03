@@ -65,4 +65,5 @@ Route::group(function () {
     Route::get('/about/{slug}', 'SettingController@about');
     Route::get('/about/posts/{slug}', 'SettingController@post');
     Route::get('/about/rules/{slug}', 'SettingController@rule');
+    Route::get('/contact/{slug}', 'SettingController@contact');
 });

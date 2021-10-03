@@ -12,14 +12,14 @@
                 <a title="روش های ارسال" href="<?= base_url() ?>about/ارسال-ها">روش های ارسال</a>
             </li>
             <li class="menu-item animate-dropdown">
-                <a title="قوانین و مقررات" href="<?= base_url() ?>about/قوانین">قوانین و مقررات</a>
+                <a title="قوانین و مقررات" href="<?= base_url() ?>about/posts/قوانین">قوانین و مقررات</a>
             </li>
             <li class="menu-item animate-dropdown">
-                <a title="درباره یوزدکالا" href="<?= base_url() ?>about/درباره-یوزدکالا">درباره یوزدکالا</a>
+                <a title="درباره یوزدکالا" href="<?= base_url() ?>about/rules/دربادرباره-یوزدکالا">ره یوزدکالا</a>
             </li>
         </ul>
     </li>
     <li class="menu-item animate-dropdown">
-        <a title="تماس با ما" href="https://usedkala.com/contact">تماس با ما</a>
+        <a title="تماس با ما" href="<?= base_url() ?>contact/تماس با ما">تماس با ما</a>
     </li>
 </ul>
