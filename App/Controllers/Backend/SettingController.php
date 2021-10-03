@@ -99,8 +99,9 @@ class SettingController extends Controller
         if ($check_file_param_exists) {
             $file = new UploadedFile($fileUploadedCkeditor);
             $file->save();
-            $function_number = $_GET['CKEditorFuncNum'];
-            $url = $file->get_paths_for_storage();
+            $function_number = 1;
+            // $function_number = $_GET['CKEditorFuncNum'];
+            $url = $file->get_paths_for_database();
             $message = '';
             echo "<script>window.parent.CKEDITOR.tools.callFunction('" . $function_number . "','" . $url . "','" . $message . "');</script>";
         }
