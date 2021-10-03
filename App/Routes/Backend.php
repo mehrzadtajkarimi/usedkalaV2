@@ -98,6 +98,7 @@ Route::group(function () {
     Route::post('/admin/setting', 'SettingController@store');
     Route::get('/admin/setting/{id}/edit', 'SettingController@edit');
     Route::patch('/admin/setting/{id}', 'SettingController@update');
+    Route::delete('/admin/setting/{id}', 'SettingController@destroy');
 
 
 });

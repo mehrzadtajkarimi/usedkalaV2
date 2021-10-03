@@ -39,9 +39,13 @@
               <tr>
                 <td class="text-center"><?= $value['key'] ?></td>
                 <td class="text-center">
-                  <a href="<?= base_url() ?>admin/setting/<?= $value['id'] ?>/edit" type="button" class="btn btn-success shadow-sm mr-2  ">
+                  <a href="<?= base_url() ?>admin/setting/<?= $value['id'] ?>/edit" type="button" class="shadow-sm btn btn-success btn-sm " style="padding: 0px 20px; border-radius: 18px;">
                     ویرایش
                   </a>
+                  <form method="post" action="<?= base_url() ?>admin/setting/<?= $value['id'] ?>" class="d-inline">
+                      <input type="hidden" name="_method" value="delete" />
+                      <input type="submit" class="shadow-sm btn btn-danger btn-sm " style="padding: 0px 20px; border-radius: 18px;" onclick="return confirm('آیا برای حذف اطلاعات اطمینان دارید');" value="حـــــذف">
+                    </form>
                 </td>
               </tr>
             <?php endforeach; ?>

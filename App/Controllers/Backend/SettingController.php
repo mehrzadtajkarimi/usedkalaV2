@@ -41,17 +41,11 @@ class SettingController extends Controller
     {
         $params = $this->request->params();
 
-
-
-
-
         $params_create = array(
             'key'   => $params['key'],
             'value' => $params['value'],
             'slug'  => $params['slug'],
         );
-
-
 
         $files = $this->request->files();
         // dd($params);
@@ -66,8 +60,6 @@ class SettingController extends Controller
                 }
             }
         }
-
-
 
         $this->settingModel->create_setting($params_create);
 
@@ -86,9 +78,15 @@ class SettingController extends Controller
     }
     public function update()
     {
-        $params = $this->request->params();
+        $param = $this->request->params();
+        $id = $this->request->get_param('id');
 
-        dd($params);
+        $this->settingModel->update([
+            'key'   => $param['key'],
+            'value' => $param['value']
+        ],['id' => $id]);
+        FlashMessage::add("مقادیر باموفقیت  ضمیمه شد ");
+        return $this->request->redirect('admin/setting');
     }
     public function upload()
     {
@@ -105,5 +103,20 @@ class SettingController extends Controller
             $message = '';
             echo "<script>window.parent.CKEDITOR.tools.callFunction('" . $function_number . "','" . $url . "','" . $message . "');</script>";
         }
+    }
+
+
+    public function destroy()
+    {
+        $id = $this->request->get_param('id');
+
+        $is_deleted_setting=  $this->settingModel->delete_setting($id);
+
+        if ($is_deleted_setting) {
+            FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
+            return $this->request->redirect('admin/setting');
+        }
+        FlashMessage::add(" مشکلی در حذف محصول پیش آمده است", FlashMessage::ERROR);
+        return $this->request->redirect('admin/setting');
     }
 }
