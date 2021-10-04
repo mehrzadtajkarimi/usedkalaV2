@@ -4,37 +4,37 @@ namespace App\Controllers\Backend;
 
 use App\Controllers\Controller;
 use App\Models\Photo;
-use App\Models\Setting;
+use App\Models\Blog;
 use App\Services\Upload\UploadedFile;
 use App\Utilities\FlashMessage;
 
-class SettingController extends Controller
+class BlogController extends Controller
 {
 
-    public $settingModel;
+    public $blogModel;
     public $photoModel;
 
     public function __construct()
     {
         parent::__construct();
-        $this->settingModel = new Setting();
+        $this->blogModel = new Blog();
         $this->photoModel = new Photo();
     }
 
     public function index()
     {
         $data = array(
-            'settings'    => $this->settingModel->read_setting(),
+            'blogs'    => $this->blogModel->read_blog(),
         );
-        return view('Backend.setting.index', $data);
+        return view('Backend.blog.index', $data);
     }
 
     public function create()
     {
         $data = array(
-            'settings'    => $this->settingModel->read_setting(),
+            'blogs'    => $this->blogModel->read_blog(),
         );
-        return view('Backend.setting.create', $data);
+        return view('Backend.blog.create', $data);
     }
 
     public function store()
@@ -61,33 +61,33 @@ class SettingController extends Controller
             }
         }
 
-        $this->settingModel->create_setting($params_create);
+        $this->blogModel->create_blog($params_create);
 
         FlashMessage::add("مقادیر با موفقیت در دیتابیس ذخیره شد");
-        return $this->request->redirect('admin/setting');
+        return $this->request->redirect('admin/blog');
     }
 
     public function edit()
     {
         $id = $this->request->get_param('id');
         $data = array(
-            'setting' => $this->settingModel->read_setting($id),
+            'blog' => $this->blogModel->read_blog($id),
 
         );
-        view('Backend.setting.edit', $data);
+        view('Backend.blog.edit', $data);
     }
     public function update()
     {
         $param = $this->request->params();
         $id = $this->request->get_param('id');
 
-        $this->settingModel->update([
+        $this->blogModel->update([
             'key'   => $param['key'],
             'value' => $param['value'],
             'slug'  => $param['slug'],
-        ], ['id' => $id]);
+        ],['id' => $id]);
         FlashMessage::add("مقادیر باموفقیت  ضمیمه شد ");
-        return $this->request->redirect('admin/setting');
+        return $this->request->redirect('admin/blog');
     }
     public function upload()
     {
@@ -111,13 +111,13 @@ class SettingController extends Controller
     {
         $id = $this->request->get_param('id');
 
-        $is_deleted_setting =  $this->settingModel->delete_setting($id);
+        $is_deleted_blog=  $this->blogModel->delete_blog($id);
 
-        if ($is_deleted_setting) {
+        if ($is_deleted_blog) {
             FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
-            return $this->request->redirect('admin/setting');
+            return $this->request->redirect('admin/blog');
         }
         FlashMessage::add(" مشکلی در حذف محصول پیش آمده است", FlashMessage::ERROR);
-        return $this->request->redirect('admin/setting');
+        return $this->request->redirect('admin/blog');
     }
 }

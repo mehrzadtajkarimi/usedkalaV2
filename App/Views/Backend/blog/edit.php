@@ -1,34 +1,34 @@
 <script src='<?= asset_url() ?>Backend/plugins/ckeditor/ckeditor.js'></script>
 <div class="card">
     <div class="card-header">
-        <h5>ویرایش (( <?= $setting['key'] ?> ))</h5>
+        <h5>ویرایش (( <?= $blog['key'] ?> ))</h5>
 
     </div>
     <div class="card-body">
-        <form action="<?= base_url() ?>admin/setting/<?= $setting['id'] ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= base_url() ?>admin/blog/<?= $blog['id'] ?>" method="post" enctype="multipart/form-data">
             <input type="hidden" name="_method" value="patch" />
             <div class="form-group row">
                 <label for="key" class="col-sm-2 col-form-label">موضوع</label>
                 <div class="col-sm-10">
-                    <input name="key" type="text" class="form-control" id="key" value="<?= $setting['key'] ?? '' ?>" placeholder="نام زیر دسته را وارد نمایید" autofocus>
+                    <input name="key" type="text" class="form-control" id="key" value="<?= $blog['key'] ?? '' ?>" placeholder="نام زیر دسته را وارد نمایید" autofocus>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="slug" class="col-sm-2 col-form-label"> slug </label>
                 <div class="col-sm-10">
-                    <input name="slug" type="text" class="form-control" id="slug" placeholder="" required>
+                    <input name="slug" type="text" class="form-control" id="slug" value="<?= $blog['slug'] ?? '' ?>" placeholder="" required>
                 </div>
             </div>
             <div class="form-group ">
-                <textarea name="value" id="textarea"><?= $setting['value'] ?></textarea>
+                <textarea name="value" id="textarea"><?= $blog['value'] ?></textarea>
             </div>
             <div class="form-group row">
                 <div class="col-sm-10">
                     <button type="submit" class="btn btn-primary">ذخیره</button>
-                    <a href="<?= base_url() ?>admin/setting" class="btn btn-danger">انصراف</a>
+                    <a href="<?= base_url() ?>admin/blog" class="btn btn-danger">انصراف</a>
                 </div>
             </div>
         </form>
     </div>
 </div>
-<?php include(BASEPATH . "/App/Views/Backend/setting/script.php") ?>
+<?php include(BASEPATH . "/App/Views/Backend/blog/script.php") ?>

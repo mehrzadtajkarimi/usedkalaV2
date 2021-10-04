@@ -99,6 +99,14 @@ Route::group(function () {
     Route::get('/admin/setting/{id}/edit', 'SettingController@edit');
     Route::patch('/admin/setting/{id}', 'SettingController@update');
     Route::delete('/admin/setting/{id}', 'SettingController@destroy');
+});
 
-
+Route::group(function () {
+    Route::get('/admin/blog', 'BlogController@index');
+    Route::get('/admin/blog/create', 'BlogController@create');
+    Route::post('/admin/blog', 'BlogController@store');
+    Route::get('/admin/blog/{id}', 'BlogController@show');
+    Route::get('/admin/blog/{id}/edit', 'BlogController@edit');
+    Route::patch('/admin/blog/{id}', 'BlogController@update');
+    Route::delete('/admin/blog/{id}', 'BlogController@destroy');
 });

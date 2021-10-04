@@ -1,9 +1,9 @@
 <ul id="menu-primary-menu" class="nav yamm">
     <li class="sale-clr menu-item animate-dropdown">
-        <a title="صفحه نخست" href="https://usedkala.com/shop">فروشگاه</a>
+        <a title="صفحه نخست" href="<?= base_url() ?>">فروشگاه</a>
     </li>
     <li class="yamm-fw menu-item animate-dropdown">
-        <a title="وبلاگ" href="https://usedkala.com/blog">وبلاگ</a>
+        <a title="وبلاگ" href="<?= base_url() ?>blog/وبلاگ">وبلاگ</a>
     </li>
     <li class="menu-item menu-item-has-children animate-dropdown dropdown">
         <a title="درباره ما" data-toggle="dropdown" aria-haspopup="true" class="dropdown-toggle" href="https://usedkala.com/about">درباره ما<span class="caret"></span></a>
