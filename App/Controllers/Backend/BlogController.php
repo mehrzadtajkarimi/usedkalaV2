@@ -47,21 +47,20 @@ class BlogController extends Controller
             'slug'  => $params['slug'],
         );
 
-        $files = $this->request->files();
-        // dd($params);
-        if (isset($files)) {
-            foreach ($this->request->files() as  $value) {
-                $files_tmp_name    = $files['file']['tmp_name'];
+        $file = $this->request->files();
+        if (isset($file)) {
+            $file_tmp_name = $file['image_blog']['tmp_name'];
+            $files_param   = $file['image_blog'];
 
-                $check_file_param_exists = !empty($files_tmp_name[0]);
-                if ($check_file_param_exists) {
-                    $file = new UploadedFile($value);
-                    $file->save();
-                }
+            $check_file_param_exists = !empty($file_tmp_name[0]);
+            if ($check_file_param_exists) {
+                $file       = new UploadedFile($files_param);
+                $file_paths = $file->save();
             }
         }
 
-        $this->blogModel->create_blog($params_create);
+        $blog_id=$this->blogModel->create_blog($params_create);
+        $this->photoModel->create_photo('Blog', $blog_id, $file_paths[0], 'image_blog');
 
         FlashMessage::add("مقادیر با موفقیت در دیتابیس ذخیره شد");
         return $this->request->redirect('admin/blog');
@@ -72,6 +71,7 @@ class BlogController extends Controller
         $id = $this->request->get_param('id');
         $data = array(
             'blog' => $this->blogModel->read_blog($id),
+            'photo' => $this->photoModel->read_photo($id),
 
         );
         view('Backend.blog.edit', $data);
@@ -79,13 +79,13 @@ class BlogController extends Controller
     public function update()
     {
         $param = $this->request->params();
-        $id = $this->request->get_param('id');
+        $id    = $this->request->get_param('id');
 
         $this->blogModel->update([
             'key'   => $param['key'],
             'value' => $param['value'],
             'slug'  => $param['slug'],
-        ],['id' => $id]);
+        ], ['id' => $id]);
         FlashMessage::add("مقادیر باموفقیت  ضمیمه شد ");
         return $this->request->redirect('admin/blog');
     }
@@ -111,7 +111,7 @@ class BlogController extends Controller
     {
         $id = $this->request->get_param('id');
 
-        $is_deleted_blog=  $this->blogModel->delete_blog($id);
+        $is_deleted_blog =  $this->blogModel->delete_blog($id);
 
         if ($is_deleted_blog) {
             FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");

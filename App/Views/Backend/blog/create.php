@@ -15,7 +15,14 @@
             <input name="slug" type="text" class="form-control" id="slug" placeholder="" required>
         </div>
         <div class="form-group ">
-            <textarea name="value"  id="textarea">Hello, World!</textarea>
+            <label for="image" class=" col-form-label">عکس</label>
+            <div class="custom-file">
+                <input name="image_blog" type="file" class="custom-file-input" id="image">
+                <label class="custom-file-label" for="image">Choose file</label>
+            </div>
+        </div>
+        <div class="form-group ">
+            <textarea name="value" id="textarea">Hello, World!</textarea>
         </div>
 
         <button type="submit" class="float-left btn btn-primary btn-block">ذخیره </button>
