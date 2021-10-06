@@ -110,3 +110,13 @@ Route::group(function () {
     Route::patch('/admin/blog/{id}', 'BlogController@update');
     Route::delete('/admin/blog/{id}', 'BlogController@destroy');
 });
+
+Route::group(function () {
+    Route::get('/admin/sample', 'SampleController@index');
+    Route::get('/admin/sample/create', 'SampleController@create');
+    Route::post('/admin/sample', 'SampleController@store');
+    Route::get('/admin/sample/{id}', 'SampleController@show');
+    Route::get('/admin/sample/{id}/edit', 'SampleController@edit');
+    Route::patch('/admin/sample/{id}', 'SampleController@update');
+    Route::delete('/admin/sample/{id}', 'SampleController@destroy');
+});

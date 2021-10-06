@@ -1,5 +1,5 @@
           <!-- Sidebar user panel (optional) -->
-          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="pb-3 mt-3 mb-3 user-panel d-flex">
               <a href="<?= base_url() ?>admin/profile" class="image">
                   <img src="<?= asset_url() ?>Backend/dist/img/user.png" class="img-circle elevation-2" alt="User Image">
                   <img src="<?= asset_url() ?>Backend/dist/img/user.png" class="img-circle elevation-2" alt="User Image">
@@ -7,7 +7,7 @@
               </a>
               <div class="info">
                   <a href="<?= base_url() ?>admin/logout" class="position-absolute " style="right: 195px">
-                      <i class="fa fa-sign-out p-1"></i>
+                      <i class="p-1 fa fa-sign-out"></i>
                   </a>
               </div>
           </div>
@@ -92,6 +92,12 @@
                                   <i class="fa fa-circle-o nav-icon"></i>
                               </a>
                           </li>
+                          <li class="nav-item">
+                              <a href="<?= base_url() ?>admin/sample" class="nav-link">
+                                  <p>لیست اشانتیون</p>
+                                  <i class="fa fa-circle-o nav-icon"></i>
+                              </a>
+                          </li>
                       </ul>
                   </li>
                   <li class="nav-item has-treeview">
@@ -118,7 +124,7 @@
                               تنظیمات
                               <i class="right fa fa-angle-left"></i>
                           </p>
-                          <i class="fa fa-cogs  nav-icon" aria-hidden="true"></i>
+                          <i class="fa fa-cogs nav-icon" aria-hidden="true"></i>
                       </a>
 
                       <ul class="nav nav-treeview">

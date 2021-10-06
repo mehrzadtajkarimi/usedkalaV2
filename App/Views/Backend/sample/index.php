@@ -3,7 +3,7 @@
     <div class="card-header">
       <div class="row">
         <div class="col-4">
-          <h3 class="p-3 card-title"> لیست تخفیفات</h3>
+          <h3 class="p-3 card-title"> لیست اشانتیون</h3>
         </div>
         <div class="offset-4"> </div>
         <div class="col-4">
@@ -13,7 +13,7 @@
               <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
             </div>
             <!-- Button trigger modal -->
-            <a href="<?= base_url() ?>admin/discount/create" type="button" class="mr-2 shadow-sm btn btn-success ">
+            <a href="<?= base_url() ?>admin/sample/create" type="button" class="mr-2 shadow-sm btn btn-success ">
               ایجاد کوپن تخفیف
             </a>
           </div>
@@ -42,7 +42,7 @@
             <tbody>
               <?php
               $count = 0;
-              foreach ($discounts as $value) :
+              foreach ($samples as $value) :
               ?>
                 <tr>
                   <td class="text-center" title="ردیف"><?= $count++ ?></td>
@@ -72,8 +72,8 @@
                     </a>
                   </td>
                   <td class="text-center ">
-                      <a href="<?= base_url() ?>admin/discount/<?= $value['id'] ?>/edit" class="p-0 pl-2 pr-2 shadow-sm btn btn-warning btn-sm" style=" border-radius: 18px;">ویــرایـش</a>
-                      <form method="post" action="<?= base_url() ?>admin/discount/<?= $value['id'] ?>" class="d-inline">
+                      <a href="<?= base_url() ?>admin/sample/<?= $value['id'] ?>/edit" class="p-0 pl-2 pr-2 shadow-sm btn btn-warning btn-sm" style=" border-radius: 18px;">ویــرایـش</a>
+                      <form method="post" action="<?= base_url() ?>admin/sample/<?= $value['id'] ?>" class="d-inline">
                         <input type="hidden" name="_method" value="delete" />
                         <input type="submit" class="p-0 pl-2 pr-2 shadow-sm btn btn-danger btn-sm" style="border-radius: 18px;" onclick="return confirm('آیا برای حذف اطلاعات اطمینان دارید');" value="حــــــــذف">
                       </form>
@@ -91,4 +91,4 @@
     </div>
   </div>
 </div>
-<?php include(BASEPATH . "/App/Views/Backend/discount/script.php") ?>
+<?php include(BASEPATH . "/App/Views/Backend/sample/script.php") ?>

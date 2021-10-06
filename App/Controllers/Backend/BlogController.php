@@ -59,7 +59,7 @@ class BlogController extends Controller
             }
         }
 
-        $blog_id=$this->blogModel->create_blog($params_create);
+        $blog_id = $this->blogModel->create_blog($params_create);
         $this->photoModel->create_photo('Blog', $blog_id, $file_paths[0], 'image_blog');
 
         FlashMessage::add("مقادیر با موفقیت در دیتابیس ذخیره شد");
@@ -76,6 +76,7 @@ class BlogController extends Controller
         );
         view('Backend.blog.edit', $data);
     }
+
     public function update()
     {
         $param = $this->request->params();
@@ -89,6 +90,7 @@ class BlogController extends Controller
         FlashMessage::add("مقادیر باموفقیت  ضمیمه شد ");
         return $this->request->redirect('admin/blog');
     }
+
     public function upload()
     {
         $file   = $this->request->files();
@@ -105,7 +107,6 @@ class BlogController extends Controller
             echo "<script>window.parent.CKEDITOR.tools.callFunction('" . $function_number . "','" . $url . "','" . $message . "');</script>";
         }
     }
-
 
     public function destroy()
     {

@@ -41,6 +41,12 @@ class DiscountController extends Controller
 
     public function create()
     {
+        $data = array(
+            'products'          => $this->productModel->read_product(),
+            'discounts'         => $this->discountModel->read_discount(),
+            'categories'        => $this->categoryModel->category_tree_for_backend(),
+        );
+        view('Backend.discount.create', $data);
     }
 
     public function store()

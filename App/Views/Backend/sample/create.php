@@ -1,11 +1,11 @@
 <div class="card">
     <div class="card-header">
-        <h5>ایجاد تخفیف</h5>
+        <h5>ایجاد اشانتیون</h5>
 
     </div>
     <div class="card-body">
 
-        <form action="<?= base_url() ?>admin/discount" method="post" class="p-1">
+        <form action="<?= base_url() ?>admin/sample" method="post" class="p-1">
             <input type="hidden" name="code" value="<?= rand(100000, 999999) ?>">
             <div class="row">
                 <div class="col">
@@ -26,23 +26,23 @@
             <div class="row">
                 <div class="col">
                     <div class="form-group ">
-                        <label for="discount-title">موضوع</label>
-                        <input name="discount-title" type="text" class="form-control" id="discount-title" placeholder="" required>
+                        <label for="sample-title">موضوع</label>
+                        <input name="sample-title" type="text" class="form-control" id="sample-title" placeholder="" required>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <div class="form-group ">
-                        <label for="discount-percent">میزان تخفیف %</label>
-                        <input name="discount-percent" type="text" maxlength="3" class="form-control" id="discount-percent" placeholder="" required>
+                        <label for="sample-percent">میزان تخفیف %</label>
+                        <input name="sample-percent" type="text" maxlength="3" class="form-control" id="sample-percent" placeholder="" required>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="form-group ">
                     <label> دسته بندی انتخابی</label>
-                    <select name='discount-category[]' id="discount_category" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
+                    <select name='sample-category[]' id="sample_category" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
                         <?php foreach ($categories as $value) : ?>
                             <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
                         <?php endforeach; ?>
@@ -51,19 +51,19 @@
             </div>
             <div class="col">
                 <label>محصول انتخابی</label>
-                <select name="discount-product[]" id="discount_product" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
+                <select name="sample-product[]" id="sample_product" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
                     <?php foreach ($products as $value) : ?>
                         <option value="<?= $value['id'] ?>"><?= $value['title'] ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
             <div class="form-group">
-                <label for="discount-description" class="col-form-label"> توضیحات</label>
-                <textarea name="discount-description" type="text" class="form-control" id="discount-description" placeholder="" rows="2" required></textarea>
+                <label for="sample-description" class="col-form-label"> توضیحات</label>
+                <textarea name="sample-description" type="text" class="form-control" id="sample-description" placeholder="" rows="2" required></textarea>
             </div>
             <div class="pt-1 pb-4 form-check disabled ">
-                <input name="discount-status" type="checkbox" class="form-check-input " id="discount-status" checked>
-                <label class="form-check-label" for="discount-status">
+                <input name="sample-status" type="checkbox" class="form-check-input " id="sample-status" checked>
+                <label class="form-check-label" for="sample-status">
                     وضعیت
                 </label>
             </div>
@@ -71,4 +71,4 @@
         </form>
     </div>
 </div>
-<?php include(BASEPATH . "/App/Views/Backend/discount/script.php") ?>
+<?php include(BASEPATH . "/App/Views/Backend/sample/script.php") ?>
