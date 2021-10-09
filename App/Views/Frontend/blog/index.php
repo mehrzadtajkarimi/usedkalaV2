@@ -8,58 +8,9 @@
                 </span>
                 وبلاگ
             </nav>
-            <!-- .woocommerce-breadcrumb -->
-            <div id="primary" class="content-area">
-                <main id="main" class="site-main">
-                    <?php foreach ($blogs as $value): ?>
-                    <article class="post format-image hentry">
-                        <div class="media-attachment">
-                            <div class="post-thumbnail">
-                                <a href="https://usedkala.com/blog/test-news">
-                                    <img alt="" class="wp-post-image" src="https://usedkala.com/uploads/2020/08/1_thumb.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <!-- .media-attachment -->
-                        <div class="content-body">
-                            <header class="entry-header">
-                                <h1 class="entry-title">
-                                    <a rel="bookmark" href="https://usedkala.com/blog/test-news">خبر آزمایشی دوم</a>
-                                </h1>
-                                <!-- .entry-title -->
-                                <div class="entry-meta">
-									<span class="cat-links">
-										<a href="blog-single.html" rel="category tag">اخبار HPE</a>
-									</span>
-									<span class="posted-on">
-										<a href="blog-single.html" rel="bookmark">
-											<time datetime="2017-03-23T08:06:09+00:00" class="entry-date published">23 آذر 1398</time>
-											<time datetime="2017-06-22T10:40:23+00:00" class="updated">24 آذر 1398</time>
-										</a>
-									</span>
-									<span class="author">
-										<a title="Posts by Jane Smith" href="#" rel="author">فاطمه محمدی</a>
-									</span>
-								</div-->
-                                <!-- .entry-meta -->
-                            </header>
-                            <!-- .entry-header -->
-                            <div class="entry-content">
-                                <p>لورم ایپسوم سمینت منطزرنمت بوئزر همقت رویمن</p>
-                            </div>
-                            <!-- .post-excerpt -->
-                            <div class="post-readmore">
-                                <a class="btn btn-primary" href="https://usedkala.com/blog/test-news">ادامه مطلب</a>
-                            </div>
-                            <!-- .comments-link -->
-                        </div>
-                    </article>
-                    <?php endforeach; ?>
-                </main>
-                <!-- #main -->
-            </div>
-            <!-- #primary -->
-            <div id="secondary" class="sidebar-blog widget-area" role="complementary">
+        </div>
+        <div class="row">
+            <div class="col-3">
                 <div class="widget widget_text" id="text-2">
                     <span class="gamma widget-title">درباره بلاگ یوزدکالا</span>
                     <div class="textwidget">
@@ -68,16 +19,67 @@
                     <!-- .textwidget -->
                 </div>
                 <!-- .widget_text -->
-                <div class="widget widget_categories" id="categories-2">
+                <hr>
+                <div class="widget widget_categories " id="categories-2">
                     <span class="gamma widget-title">دسته بندی ها</span>
                     <ul>
                         <li>دسته بندی یافت نشد.</li>
                     </ul>
                 </div>
             </div>
-            <!-- .sidebar-blog -->
+            <div class="col-9">
+                <main id="main" class="site-main">
+                    <?php foreach ($blogs as $value) : ?>
+                        <div class=" m-5 p-5 card shadow">
+                            <div class="card-body">
+                                <article class="post format-image hentry">
+                                    <div class="media-attachment">
+                                        <div class="post-thumbnail">
+                                            <a href="https://usedkala.com/blog/test-news">
+                                                <img alt="" class="wp-post-image" src="<?= $value['path'] ?>">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- .media-attachment -->
+                                    <div class="content-body">
+                                        <header class="entry-header">
+                                            <h1 class="entry-title">
+                                                <a rel="bookmark" href="https://usedkala.com/blog/test-news"><?= $value['key'] ?></a>
+                                            </h1>
+                                            <!-- .entry-title -->
+                                            <div class="entry-meta">
+                                                <span class="cat-links">
+                                                    <a href="blog-single.html" rel="category tag">اخبار HPE</a>
+                                                </span>
+                                                <span class="posted-on">
+                                                    <a href="blog-single.html" rel="bookmark">
+                                                        <time datetime="2017-03-23T08:06:09+00:00" class="entry-date published">23 آذر 1398</time>
+                                                        <time datetime="2017-06-22T10:40:23+00:00" class="updated">24 آذر 1398</time>
+                                                    </a>
+                                                </span>
+                                                <span class="author">
+                                                    <a title="Posts by Jane Smith" href="#" rel="author">فاطمه محمدی</a>
+                                                </span>
+                                                </div-->
+                                                <!-- .entry-meta -->
+                                        </header>
+                                        <!-- .entry-header -->
+                                        <!-- <div class="entry-content">
+                                            <p><?= $value['value'] ?></p>
+                                        </div> -->
+                                        <!-- .post-excerpt -->
+                                        <div class="post-readmore">
+                                            <a class="btn btn-primary" href="/blog/<?= $value['blog_id'] ?>/<?= $value['slug'] ?>">ادامه مطلب</a>
+                                        </div>
+                                        <!-- .comments-link -->
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </main>
+                <!-- #main -->
+            </div>
         </div>
-        <!-- .row -->
     </div>
-    <!-- .col-full -->
 </div>

@@ -39,7 +39,21 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="Input3" class=""> از مبلغ</label>
+                        <input type="number" name="start_price" class="form-control " id="Input3" required>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="Input4" class=""> تا مبلغ</label>
+                        <input type="number" name="finish_price" class="form-control " id="Input4" disabled>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col">
                 <div class="form-group ">
                     <label> دسته بندی انتخابی</label>
                     <select name='sample-category[]' id="sample_category" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
@@ -48,10 +62,10 @@
                         <?php endforeach; ?>
                     </select>
                 </div>
-            </div>
+            </div> -->
             <div class="col">
                 <label>محصول انتخابی</label>
-                <select name="sample-product[]" id="sample_product" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
+                <select name="sample-product[]" id="sample_product" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple" disabled>
                     <?php foreach ($products as $value) : ?>
                         <option value="<?= $value['id'] ?>"><?= $value['title'] ?></option>
                     <?php endforeach; ?>

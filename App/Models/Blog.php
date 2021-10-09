@@ -36,4 +36,25 @@ class Blog extends MysqlBaseModel
     {
         return $this->delete(['id' => $id]);
     }
+    public function join_blog_to_photo()
+    {
+        return $this->inner_join(
+            "blogs.id AS blog_id , blogs.* , photos.*",
+            "photos",
+            "id",
+            "entity_id",
+            "photos.entity_type='Blog'",
+        );
+    }
+    public function join_blog_to_photo_by_blog_id($blog_id = null)
+    {
+        return $this->inner_join(
+            "blogs.id AS blog_id , blogs.* , photos.*",
+            "photos",
+            "id",
+            "entity_id",
+            "blogs.id=$blog_id",
+            "photos.entity_type='Blog'",
+        );
+    }
 }

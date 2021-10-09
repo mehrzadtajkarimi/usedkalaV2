@@ -48,6 +48,10 @@ class SampleController extends Controller
         );
         view('Backend.sample.create', $data);
     }
+    public function create_ajax($start_price,$finish_price)
+    {
+          return $this->productModel->read_product_limit_by_price($start_price,$finish_price);
+    }
 
     public function store()
     {
@@ -142,7 +146,7 @@ class SampleController extends Controller
             }
         }
         if (!empty($params['sample-product'])) {
-            $this->productSampleModel->delete_productSample_by_category_id($id);
+            $this->productSampleModel->delete_productSample_by_sample_id($id);
             foreach ($params['sample-product'] as  $value) {
                 $this->productSampleModel->create_productSample([
                     'sample_id'  => $id,
@@ -160,7 +164,7 @@ class SampleController extends Controller
         $id = $this->request->get_param('id');
 
         $is_deleted_categorySample = $this->categorySampleModel->delete_categorySample_by_sample_id($id);
-        $is_deleted_productSample  = $this->productSampleModel->delete_productSample_by_category_id($id);
+        $is_deleted_productSample  = $this->productSampleModel->delete_productSample_by_sample_id($id);
         $is_deleted_sample         = $this->sampleModel->delete_sample($id);
 
         if ($is_deleted_categorySample && $is_deleted_productSample && $is_deleted_sample) {

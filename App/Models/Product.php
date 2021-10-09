@@ -19,6 +19,16 @@ class Product extends MysqlBaseModel
         }
         return $this->first(['id' => $id]);
     }
+    public function read_product_limit_by_price($start_price, $finish_price)
+    {
+
+        return $this->get(
+            '*',
+            [
+                'price[<>]' => [$start_price, $finish_price]
+            ],
+        );
+    }
     public function latest_product()
     {
         return  $this->select(
@@ -241,7 +251,4 @@ class Product extends MysqlBaseModel
             "photos.entity_type='Product'",
         );
     }
-
-
-
 }

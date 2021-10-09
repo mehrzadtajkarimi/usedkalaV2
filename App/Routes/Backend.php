@@ -114,6 +114,7 @@ Route::group(function () {
 Route::group(function () {
     Route::get('/admin/sample', 'SampleController@index');
     Route::get('/admin/sample/create', 'SampleController@create');
+    Route::post('/admin/sample/create', 'SampleController@create_ajax');
     Route::post('/admin/sample', 'SampleController@store');
     Route::get('/admin/sample/{id}', 'SampleController@show');
     Route::get('/admin/sample/{id}/edit', 'SampleController@edit');
