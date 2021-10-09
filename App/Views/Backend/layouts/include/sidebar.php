@@ -45,7 +45,13 @@
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
                               <a href="<?= base_url() ?>admin/category" class="nav-link">
-                                  <p>لیست دسته بندی ها</p>
+                                  <p>لیست دسته بندی محصول</p>
+                                  <i class="fa fa-circle-o nav-icon"></i>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="<?= base_url() ?>admin/category/blog" class="nav-link">
+                                  <p>لیست دسته بندی وبـــــلاگ</p>
                                   <i class="fa fa-circle-o nav-icon"></i>
                               </a>
                           </li>

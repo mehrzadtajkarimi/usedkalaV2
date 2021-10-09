@@ -42,6 +42,7 @@ Route::group(function () {
 
 Route::group(function () {
     Route::get('/admin/category', 'CategoryController@index');
+    Route::get('/admin/category/{blog}', 'CategoryController@index');
     Route::get('/admin/category/{id}/create', 'CategoryController@create');
     Route::post('/admin/category/{id}', 'CategoryController@store');
     Route::get('/admin/category/{id}/edit', 'CategoryController@edit');

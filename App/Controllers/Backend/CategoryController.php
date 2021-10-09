@@ -23,12 +23,20 @@ class CategoryController extends Controller
 
     public function index()
     {
-        // dd(Tinyint::category_robots());
+        $blog = $this->request->get_param() ? $this->request->get_param('blog') == 'blog' : false;
+        if ($blog) {
+            $data = array(
+                'categories' => $this->categoryModel->category_tree_for_backend(),
+                'robots'     => Tinyint::category_robots(),
+            );
+            return view('Backend.category.product.index', $data);
+        }
+
         $data = array(
-            'categories' => $this->categoryModel->category_tree_for_backend(),
+            'categories' => $this->categoryModel->category_tree_for_backend($blog),
             'robots'     => Tinyint::category_robots(),
         );
-        return view('Backend.category.index', $data);
+        return view('Backend.category.blog.index', $data);
     }
 
 

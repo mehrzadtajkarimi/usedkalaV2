@@ -15,6 +15,14 @@
             <input name="slug" type="text" class="form-control" id="slug" placeholder="" required>
         </div>
         <div class="form-group ">
+            <label class=" col-form-label" for="blog-category"> دسته بندی</label>
+            <select name='blog-category[]' id="blog-category" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
+                <?php foreach ($blogs as $value) : ?>
+                    <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="form-group ">
             <label for="image" class=" col-form-label">عکس</label>
             <div class="custom-file">
                 <input name="image_blog" type="file" class="custom-file-input" id="image">
