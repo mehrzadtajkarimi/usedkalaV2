@@ -3,7 +3,7 @@
     <div class="card-header">
       <div class="row">
         <div class="col-4">
-          <h3 class="p-3 card-title"> لیست دسته بندی ها</h3>
+          <h3 class="p-3 card-title"> لیست دسته بندی های محصولات</h3>
         </div>
         <div class="offset-4"> </div>
         <div class="col-4">

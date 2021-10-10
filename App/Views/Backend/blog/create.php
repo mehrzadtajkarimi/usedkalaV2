@@ -18,7 +18,7 @@
             <label class=" col-form-label" for="blog-category"> دسته بندی</label>
             <select name='blog-category[]' id="blog-category" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
                 <?php foreach ($blogs as $value) : ?>
-                    <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
+                    <option value="<?= $value['id'] ?>"><?= $value['key'] ?></option>
                 <?php endforeach; ?>
             </select>
         </div>

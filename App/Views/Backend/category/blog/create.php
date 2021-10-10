@@ -6,6 +6,7 @@
     <div class="card-body">
 
         <form action="<?= base_url() ?>admin/category/<?= $category['id'] ?>" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="blog" value="1">
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">نام</label>
                 <div class="col-sm-10">

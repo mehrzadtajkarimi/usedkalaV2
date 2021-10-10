@@ -7,7 +7,7 @@ CREATE TABLE `active_codes` (
   `expired_at` timestamp NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `active_code_UN` (`user_id`,`code`)
-) ENGINE=InnoDB AUTO_INCREMENT=225 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=227 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 -- usedkalav2.activity_log definition
@@ -100,7 +100,7 @@ CREATE TABLE `carts` (
 CREATE TABLE `categories` (
   `id` int NOT NULL AUTO_INCREMENT,
   `status` tinyint(1) DEFAULT NULL,
-  `blog` tinyint DEFAULT '0',
+  `type` tinyint unsigned DEFAULT NULL COMMENT '0=product 1=blog',
   `robot` tinyint unsigned DEFAULT NULL COMMENT '0=Index 1=Noindex 2=Nofollow 3=Follow 4=None 5=Noimageindex 6=Noarchive 7=Nocache',
   `description` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `H1` varchar(256) COLLATE utf8mb4_general_ci NOT NULL,

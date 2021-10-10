@@ -29,26 +29,42 @@ class CategoryController extends Controller
                 'categories' => $this->categoryModel->category_tree_for_backend(),
                 'robots'     => Tinyint::category_robots(),
             );
-            return view('Backend.category.product.index', $data);
+            return view('Backend.category.blog.index', $data);
         }
 
         $data = array(
             'categories' => $this->categoryModel->category_tree_for_backend($blog),
             'robots'     => Tinyint::category_robots(),
         );
-        return view('Backend.category.blog.index', $data);
+        return view('Backend.category.product.index', $data);
     }
 
 
     public function create()
     {
-        $id       = $this->request->get_param('id');
-        $category = $this->categoryModel->first(['id' => $id]) ?? 0;
-        $data     = array(
+        $id   = $this->request->get_param('id');
+        $blog = $this->request->get_param() ? $this->request->get_param('blog') == 'blog' : false;
+
+        if ($blog) {
+            $category = $this->categoryModel->first([
+                'id'   => $id,
+                'blog' => 1,
+            ]) ?? 0;
+            $data     = array(
+                'category' => $category,
+                'robots'   => Tinyint::category_robots(),
+            );
+            return view('Backend.category.blog.create', $data);
+        }
+
+        $category = $this->categoryModel->first([
+            'id' => $id
+        ]) ?? 0;
+        $data = array(
             'category' => $category,
             'robots'   => Tinyint::category_robots(),
         );
-        return view('Backend.category.create', $data);
+        return view('Backend.category.product.create', $data);
     }
 
 
@@ -57,6 +73,7 @@ class CategoryController extends Controller
         $params = $this->request->params();
 
         $id = $this->request->get_param('id');
+
         $request = array(
             'parent_id'   => $id,
             'slug'        => create_slug($params['slug']),
@@ -66,6 +83,7 @@ class CategoryController extends Controller
             'canonical'   => $params['canonical'],
             'description' => $params['description'],
             'status'      => $params['status'] ?? '0',
+            'blog'        => $params['blog'],
         );
         $files                = $this->request->files();
         $files_param          = $files['image_category'];
@@ -84,7 +102,7 @@ class CategoryController extends Controller
                     FlashMessage::add("ایجاد محصول موفقیت انجام شد");
                 } elseif ($is_create_photo) {
                     FlashMessage::add(" ایجاد تصویر موفقیت انجام شد", FlashMessage::ERROR);
-                } else {
+                } else {,
                     FlashMessage::add(" مشکلی در ایجاد محصول رخ داد ", FlashMessage::ERROR);
                 }
                 return $this->request->redirect('admin/category');

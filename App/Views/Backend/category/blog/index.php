@@ -3,7 +3,7 @@
     <div class="card-header">
       <div class="row">
         <div class="col-4">
-          <h3 class="p-3 card-title"> لیست دسته بندی ها</h3>
+          <h3 class="p-3 card-title"> لیست دسته بندی های وبلاگ</h3>
         </div>
         <div class="offset-4"> </div>
         <div class="col-4">
@@ -14,7 +14,7 @@
             </div>
 
             <!-- Button trigger modal -->
-            <a href="<?= base_url() ?>admin/category/0/create" type="button" class="btn btn-success shadow-sm mr-2  " data-toggle="modal" data-target="#exampleModalCenter">
+            <a href="<?= base_url() ?>admin/category/0/create/blog" type="button" class="btn btn-success shadow-sm mr-2  " data-toggle="modal" data-target="#exampleModalCenter">
               ایجاد دسته اصلی
             </a>
 
@@ -23,7 +23,7 @@
               <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="modal-body">
-                    <form action="<?= base_url() ?>admin/category/0" method="post" enctype="multipart/form-data">
+                    <form action="<?= base_url() ?>admin/category/0/blog" method="post" enctype="multipart/form-data">
                       <div class="form-group row">
                         <label for="category" class="col-2 col-form-label">نام</label>
                         <div class="col-10">
@@ -71,6 +71,7 @@
                             <?php foreach ($robots as $key => $value) : ?>
                               <option value="<?= $key ?>" ><?= $value ?></option>
                             <?php endforeach; ?>
+    Route::get('/admin/category/{blog}', 'CategoryController@index');
                           </select>
                         </div>
                       </div>
@@ -105,7 +106,7 @@
                   <div class="col">
                     <a href="<?= base_url() ?>admin/category/<?= $value['id'] ?>/edit" class="btn btn-warning btn-sm shadow-sm " style="padding: 0px 16px; border-radius: 18px;">ویرایش</a>
                     <a href="<?= base_url() ?>admin/category/<?= $value['id'] ?>/create" class="btn btn-success btn-sm shadow-sm" style="padding: 0px 20px; border-radius: 18px;">ایجاد </a>
-                    <form method="post" action="<?= base_url() ?>admin/category/<?= $value['id'] ?>" class="d-inline">
+                    <form method="post" action="<?= base_url() ?>admin/category/<?= $value['id'] ?>/blog" class="d-inline">
                       <input type="hidden" name="_method" value="delete" />
                       <input type="submit" class="btn btn-danger btn-sm shadow-sm " style="padding: 0px 20px; border-radius: 18px;" onclick="return confirm('آیا برای حذف اطلاعات اطمینان دارید');" value="حذف">
                     </form>

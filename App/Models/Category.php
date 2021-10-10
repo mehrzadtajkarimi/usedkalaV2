@@ -12,7 +12,7 @@ class Category extends MysqlBaseModel
     public $property_category_tree_for_frontend = [];
     public $children                            = [];
 
-    public function category_tree_for_backend($parent_id = 0, $sub_mark = '',$blog=null)
+    public function category_tree_for_backend($parent_id = 0, $sub_mark = '')
     {
         $get_categories = $this->get('*', ['parent_id' => $parent_id]);
         if (is_array($get_categories)) {
