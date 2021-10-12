@@ -6,7 +6,6 @@ class Request
 {
     private  $params;
     private  $files;
-    private  $rout_params;
     private  $form_method;
     private  $method;
     private  $ip;
@@ -27,12 +26,15 @@ class Request
     // get from router  method regex_matched
     public function set_param($key, $value)
     {
-        $this->rout_params[$key] = $value;
+        $this->params[$key] = $value;
     }
 
     public function get_param($key = null)
     {
-        return is_null($key) ? $this->rout_params : $this->rout_params[$key];
+        if (is_null($key)) {
+            return  $this->params;
+        }
+        return $this->params ?? in_array('type',$this->params);
     }
 
     public function segment($key)
@@ -89,7 +91,7 @@ class Request
         return isset($this->params[$key]);
     }
 
-    public static  function redirect($route,bool $admin=false)
+    public static  function redirect($route, bool $admin = false)
     {
         if ($admin) {
             header('Location: ' . base_url_admin($route));
@@ -98,5 +100,4 @@ class Request
         header('Location: ' . base_url($route));
         exit();
     }
-
 }

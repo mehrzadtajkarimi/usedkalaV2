@@ -42,20 +42,20 @@ Route::group(function () {
 
 Route::group(function () {
     Route::get('/admin/category', 'CategoryController@index');
-    Route::get('/admin/category/{blog}', 'CategoryController@index');
+    Route::get('/admin/category/{type}', 'CategoryController@index');
 
     Route::get('/admin/category/{id}/create', 'CategoryController@create');
-    Route::get('/admin/category/{id}/create/{blog}', 'CategoryController@create');
+    Route::get('/admin/category/{id}/create/{type}', 'CategoryController@create');
 
     Route::post('/admin/category/{id}', 'CategoryController@store');
 
     Route::get('/admin/category/{id}/edit', 'CategoryController@edit');
-    Route::get('/admin/category/{id}/edit/{blog}', 'CategoryController@edit');
+    Route::get('/admin/category/{id}/edit/{type}', 'CategoryController@edit');
 
     Route::patch('/admin/category/{id}', 'CategoryController@update');
 
     Route::delete('/admin/category/{id}', 'CategoryController@destroy');
-    Route::delete('/admin/category/{id}/{blog}', 'CategoryController@destroy');
+    Route::delete('/admin/category/{id}/{type}', 'CategoryController@destroy');
 });
 
 Route::group(function () {

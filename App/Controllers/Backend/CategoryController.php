@@ -13,27 +13,31 @@ class CategoryController extends Controller
 {
     private $categoryModel;
     private $photoModel;
+    private $type_amounts;
+    private $type;
 
     public function __construct()
     {
         parent::__construct();
         $this->categoryModel = new Category;
         $this->photoModel    = new Photo;
+        $this->type          = $this->request->get_param() ? $this->request->get_param('type')  : false;
+        $this->type_amounts  = $this->type_amounts($this->type);
     }
 
     public function index()
     {
-        $blog = $this->request->get_param() ? $this->request->get_param('blog') == 'blog' : false;
-        if ($blog) {
+        $type = $this->type;
+        if ($type) {
             $data = array(
                 'categories' => $this->categoryModel->category_tree_for_backend(),
                 'robots'     => Tinyint::category_robots(),
             );
-            return view('Backend.category.blog.index', $data);
+            return view("Backend.category.$type.index", $data);
         }
 
         $data = array(
-            'categories' => $this->categoryModel->category_tree_for_backend($blog),
+            'categories' => $this->categoryModel->category_tree_for_backend($type),
             'robots'     => Tinyint::category_robots(),
         );
         return view('Backend.category.product.index', $data);
@@ -43,18 +47,20 @@ class CategoryController extends Controller
     public function create()
     {
         $id   = $this->request->get_param('id');
-        $blog = $this->request->get_param() ? $this->request->get_param('blog') == 'blog' : false;
+        $type = $this->type;
 
-        if ($blog) {
+
+        if ($type) {
             $category = $this->categoryModel->first([
                 'id'   => $id,
-                'blog' => 1,
+                'type' => $this->type_amounts,
             ]) ?? 0;
-            $data     = array(
+            dd( $category);
+            $data = array(
                 'category' => $category,
                 'robots'   => Tinyint::category_robots(),
             );
-            return view('Backend.category.blog.create', $data);
+            return view("Backend.category.$type.create", $data);
         }
 
         $category = $this->categoryModel->first([
@@ -102,7 +108,7 @@ class CategoryController extends Controller
                     FlashMessage::add("ایجاد محصول موفقیت انجام شد");
                 } elseif ($is_create_photo) {
                     FlashMessage::add(" ایجاد تصویر موفقیت انجام شد", FlashMessage::ERROR);
-                } else {,
+                } else {
                     FlashMessage::add(" مشکلی در ایجاد محصول رخ داد ", FlashMessage::ERROR);
                 }
                 return $this->request->redirect('admin/category');
@@ -182,5 +188,14 @@ class CategoryController extends Controller
         }
         FlashMessage::add("به دلیل وجود زیر دسته امکان حذف وجود ندارد", FlashMessage::ERROR);
         return $this->request->redirect('admin/category');
+    }
+
+
+    public function type_amounts($type)
+    {
+      $amounts = array(
+            1 => 'blog'
+        );
+        return in_array($type,$amounts);
     }
 }
