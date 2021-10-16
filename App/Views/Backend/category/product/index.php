@@ -14,7 +14,7 @@
             </div>
 
 
-            <button  type="button" class="btn btn-success shadow-sm mr-2  " data-toggle="modal" data-target="#exampleModalCenter">
+            <button type="button" class="btn btn-success shadow-sm mr-2  " data-toggle="modal" data-target="#exampleModalCenter">
               ایجاد دسته اصلی
             </button>
 
@@ -25,9 +25,9 @@
                   <div class="modal-body">
                     <form action="<?= base_url() ?>admin/category/0" method="post" enctype="multipart/form-data">
                       <div class="form-group row">
-                        <label for="category" class="col-2 col-form-label">نام</label>
-                        <div class="col-10">
-                          <input name="name" type="text" class="form-control" id="category" maxlength="68" placeholder=" دسته اصلی را وارد نمایید" required>
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">نام</label>
+                        <div class="col-sm-10">
+                          <input name="name" type="text" class="form-control" id="inputEmail3" placeholder="نام زیر دسته را وارد نمایید" autofocus>
                         </div>
                       </div>
                       <div class="form-group row">
@@ -69,7 +69,7 @@
                         <div class="col-10">
                           <select name='robot' id="robots" class="form-control ">
                             <?php foreach ($robots as $key => $value) : ?>
-                              <option value="<?= $key ?>" ><?= $value ?></option>
+                              <option value="<?= $key ?>"><?= $value ?></option>
                             <?php endforeach; ?>
                           </select>
                         </div>
