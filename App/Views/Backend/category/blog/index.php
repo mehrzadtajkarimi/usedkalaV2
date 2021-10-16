@@ -14,9 +14,9 @@
             </div>
 
             <!-- Button trigger modal -->
-            <a href="<?= base_url() ?>admin/category/0/create/blog" type="button" class="btn btn-success shadow-sm mr-2  " data-toggle="modal" data-target="#exampleModalCenter">
+            <button type="button" class="btn btn-success shadow-sm mr-2  " data-toggle="modal" data-target="#exampleModalCenter">
               ایجاد دسته اصلی
-            </a>
+            </button>
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -69,9 +69,8 @@
                         <div class="col-10">
                           <select name='robot' id="robots" class="form-control ">
                             <?php foreach ($robots as $key => $value) : ?>
-                              <option value="<?= $key ?>" ><?= $value ?></option>
+                              <option value="<?= $key ?>"><?= $value ?></option>
                             <?php endforeach; ?>
-    Route::get('/admin/category/{blog}', 'CategoryController@index');
                           </select>
                         </div>
                       </div>
@@ -87,6 +86,7 @@
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
@@ -104,8 +104,8 @@
                     <span class="ml-4"><?= $value['name'] ?></span>
                   </div>
                   <div class="col">
-                    <a href="<?= base_url() ?>admin/category/<?= $value['id'] ?>/edit" class="btn btn-warning btn-sm shadow-sm " style="padding: 0px 16px; border-radius: 18px;">ویرایش</a>
-                    <a href="<?= base_url() ?>admin/category/<?= $value['id'] ?>/create" class="btn btn-success btn-sm shadow-sm" style="padding: 0px 20px; border-radius: 18px;">ایجاد </a>
+                    <a href="<?= base_url() ?>admin/category/<?= $value['id'] ?>/edit/blog" class="btn btn-warning btn-sm shadow-sm " style="padding: 0px 16px; border-radius: 18px;">ویرایش</a>
+                    <a href="<?= base_url() ?>admin/category/<?= $value['id'] ?>/create/blog" class="btn btn-success btn-sm shadow-sm" style="padding: 0px 20px; border-radius: 18px;">ایجاد </a>
                     <form method="post" action="<?= base_url() ?>admin/category/<?= $value['id'] ?>/blog" class="d-inline">
                       <input type="hidden" name="_method" value="delete" />
                       <input type="submit" class="btn btn-danger btn-sm shadow-sm " style="padding: 0px 20px; border-radius: 18px;" onclick="return confirm('آیا برای حذف اطلاعات اطمینان دارید');" value="حذف">

@@ -13,31 +13,34 @@ class CategoryController extends Controller
 {
     private $categoryModel;
     private $photoModel;
-    private $type_amounts;
-    private $type;
+    private $get_param;
 
     public function __construct()
     {
         parent::__construct();
         $this->categoryModel = new Category;
         $this->photoModel    = new Photo;
-        $this->type          = $this->request->get_param() ? $this->request->get_param('type')  : false;
-        $this->type_amounts  = $this->type_amounts($this->type);
+        $this->get_param     = $this->request->get_param();
     }
 
     public function index()
     {
-        $type = $this->type;
-        if ($type) {
+        $get_param = $this->get_param;
+        $get_type  = $get_param['type'] ?? false;
+        $type_key  = $get_type ? $this->type_amounts($get_type) : false;
+
+
+        $folder_type = is_array($get_param) ? implode($get_param) : $get_param;
+        if ($type_key) {
             $data = array(
-                'categories' => $this->categoryModel->category_tree_for_backend(),
+                'categories' => $this->categoryModel->category_tree_for_backend_by_type($type_key),
                 'robots'     => Tinyint::category_robots(),
             );
-            return view("Backend.category.$type.index", $data);
+            return view("Backend.category.$folder_type.index", $data);
         }
 
         $data = array(
-            'categories' => $this->categoryModel->category_tree_for_backend($type),
+            'categories' => $this->categoryModel->category_tree_for_backend(),
             'robots'     => Tinyint::category_robots(),
         );
         return view('Backend.category.product.index', $data);
@@ -46,25 +49,26 @@ class CategoryController extends Controller
 
     public function create()
     {
-        $id   = $this->request->get_param('id');
-        $type = $this->type;
+        $get_param = $this->get_param;
+        $get_type  = $get_param['type'] ?? false;
+        $type_key  = $get_type ?: $this->type_amounts($get_type) ;
 
 
-        if ($type) {
+
+        if ($get_type) {
             $category = $this->categoryModel->first([
-                'id'   => $id,
-                'type' => $this->type_amounts,
+                'id'   => $get_param['id'],
             ]) ?? 0;
-            dd( $category);
+
             $data = array(
                 'category' => $category,
                 'robots'   => Tinyint::category_robots(),
             );
-            return view("Backend.category.$type.create", $data);
+            return view("Backend.category.$get_type.create", $data);
         }
 
         $category = $this->categoryModel->first([
-            'id' => $id
+            'id' => $get_param['id']
         ]) ?? 0;
         $data = array(
             'category' => $category,
@@ -76,20 +80,21 @@ class CategoryController extends Controller
 
     public function store()
     {
-        $params = $this->request->params();
+        $get_param = $this->get_param;
+        $get_type  = $get_param['type'] ?? false;
+        $type_key  = $get_type ? $this->type_amounts($get_type) : 0;
 
-        $id = $this->request->get_param('id');
 
         $request = array(
-            'parent_id'   => $id,
-            'slug'        => create_slug($params['slug']),
-            'name'        => $params['name'],
-            'H1'          => $params['H1'],
-            'robot'       => $params['robot'],
-            'canonical'   => $params['canonical'],
-            'description' => $params['description'],
-            'status'      => $params['status'] ?? '0',
-            'blog'        => $params['blog'],
+            'type'        => $type_key,
+            'parent_id'   => $get_param['id'],
+            'name'        => $get_param['name'],
+            'H1'          => $get_param['H1'],
+            'robot'       => $get_param['robot'],
+            'canonical'   => $get_param['canonical'],
+            'description' => $get_param['description'],
+            'status'      => $get_param['status'] ?? '0',
+            'slug'        => create_slug($get_param['slug']),
         );
         $files                = $this->request->files();
         $files_param          = $files['image_category'];
@@ -111,11 +116,17 @@ class CategoryController extends Controller
                 } else {
                     FlashMessage::add(" مشکلی در ایجاد محصول رخ داد ", FlashMessage::ERROR);
                 }
+                if ($get_type) {
+                    return $this->request->redirect("admin/category/$get_type");
+                }
                 return $this->request->redirect('admin/category');
             }
         } else {
             $this->categoryModel->create_category($request);
             FlashMessage::add("مقادیر بدونه ضمیمه عکس با موفقیت در دیتابیس ذخیره شد", FlashMessage::WARNING);
+            if ($get_type) {
+                return $this->request->redirect("admin/category/$get_type");
+            }
             return $this->request->redirect('admin/category');
         }
     }
@@ -193,9 +204,14 @@ class CategoryController extends Controller
 
     public function type_amounts($type)
     {
-      $amounts = array(
-            1 => 'blog'
+        $amounts = array(
+            1 => 'blog',
+            2 => 'comment'
         );
-        return in_array($type,$amounts);
+        if (in_array($type, $amounts)) {
+            $key = array_keys($amounts, $type);
+            return $key[0];
+        }
+        return 0;
     }
 }

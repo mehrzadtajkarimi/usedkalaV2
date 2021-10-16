@@ -13,10 +13,10 @@
               <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
             </div>
 
-            <!-- Button trigger modal -->
-            <a href="<?= base_url() ?>admin/category/0/create" type="button" class="btn btn-success shadow-sm mr-2  " data-toggle="modal" data-target="#exampleModalCenter">
+
+            <button  type="button" class="btn btn-success shadow-sm mr-2  " data-toggle="modal" data-target="#exampleModalCenter">
               ایجاد دسته اصلی
-            </a>
+            </button>
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

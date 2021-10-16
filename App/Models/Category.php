@@ -8,13 +8,17 @@ class Category extends MysqlBaseModel
 {
     protected $table = 'categories';
 
-    public $property_category_tree_for_backend  = [];
-    public $property_category_tree_for_frontend = [];
-    public $children                            = [];
+    public $property_category_tree_for_backend_by_type = [];
+    public $property_category_tree_for_backend         = [];
+    public $property_category_tree_for_frontend        = [];
+    public $children                                   = [];
 
     public function category_tree_for_backend($parent_id = 0, $sub_mark = '')
     {
-        $get_categories = $this->get('*', ['parent_id' => $parent_id]);
+        $get_categories = $this->get('*',[
+            'parent_id' => $parent_id,
+            'type'      => 0,
+        ]);
         if (is_array($get_categories)) {
             foreach ($get_categories as  $value) {
                 array_push(
@@ -24,7 +28,6 @@ class Category extends MysqlBaseModel
                         'id'     => $value['id'],
                         'parent' => $value['parent_id'],
                         'slug'   => $value['slug'],
-                        // 'is_cat' =>  $this->count(['parent_id'=> $value['parent_id']])  ? 'd-block' : 'd-none',
                     )
                 );
                 $this->category_tree_for_backend($value['id'], $sub_mark . ' <b> &#10010; </b> ');
@@ -32,8 +35,30 @@ class Category extends MysqlBaseModel
         }
         return $this->property_category_tree_for_backend;
     }
+    public function category_tree_for_backend_by_type($type,$parent_id = 0, $sub_mark = '')
+    {
+        $get_categories = $this->get('*', [
+            'parent_id' => $parent_id,
+            'type'      => $type,
+        ]);
+        if (is_array($get_categories)) {
+            foreach ($get_categories as  $value) {
+                array_push(
+                    $this->property_category_tree_for_backend_by_type,
+                    array(
+                        'name'   => $sub_mark . $value['name'],
+                        'id'     => $value['id'],
+                        'parent' => $value['parent_id'],
+                        'slug'   => $value['slug'],
+                    )
+                );
+                $this->category_tree_for_backend_by_type($type,$value['id'], $sub_mark . ' <b> &#10010; </b> ');
+            }
+        }
+        return $this->property_category_tree_for_backend_by_type;
+    }
 
-    public function category_tree_for_frontend($parent_id = 0,$slug=NULL)
+    public function category_tree_for_frontend($parent_id = 0, $slug = NULL)
     {
         global $request;
         $value = $this->inner_join("categories.*,photos.path,photos.alt", "photos", "id", "entity_id", "categories.parent_id={$parent_id}",  "categories.id=photos.entity_id");
@@ -69,7 +94,7 @@ class Category extends MysqlBaseModel
     }
     public function replace_categoryDiscount(array $params, $id)
     {
-       $this->connection->delete('category_discounts', ['discount_id'=>$id]);
+        $this->connection->delete('category_discounts', ['discount_id' => $id]);
         return  $this->connection->insert('category_discounts', $params);
     }
     public function read_category($id = null)
