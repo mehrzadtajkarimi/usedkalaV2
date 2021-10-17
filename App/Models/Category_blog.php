@@ -16,9 +16,14 @@ class Category_blog extends MysqlBaseModel
     {
         return   $this->delete(['blog_id' => $discount_id]);
     }
-    public function create_categoryBlog(array $params)
+    public function create_categoryBlog($blog_id, $categories_id)
     {
-        return  $this->create($params);
+        foreach ($categories_id as $category_id) {
+            $this->create([
+                'blog_id'     => $blog_id,
+                'category_id' => $category_id,
+            ]);
+        }
     }
 
     public function read_categoryBlog($id = null)

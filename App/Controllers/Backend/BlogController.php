@@ -5,6 +5,8 @@ namespace App\Controllers\Backend;
 use App\Controllers\Controller;
 use App\Models\Photo;
 use App\Models\Blog;
+use App\Models\Category;
+use App\Models\Category_blog;
 use App\Services\Upload\UploadedFile;
 use App\Utilities\FlashMessage;
 
@@ -13,18 +15,23 @@ class BlogController extends Controller
 
     public $blogModel;
     public $photoModel;
+    public $categoryModel;
+    public $category_blogModel;
 
     public function __construct()
     {
         parent::__construct();
-        $this->blogModel = new Blog();
-        $this->photoModel = new Photo();
+        $this->blogModel          = new Blog();
+        $this->categoryModel      = new Category();
+        $this->photoModel         = new Photo();
+        $this->category_blogModel = new Category_blog();
     }
 
     public function index()
     {
         $data = array(
-            'blogs'    => $this->blogModel->read_blog(),
+            'blogs'      => $this->blogModel->read_blog(),
+
         );
         return view('Backend.blog.index', $data);
     }
@@ -33,6 +40,7 @@ class BlogController extends Controller
     {
         $data = array(
             'blogs'    => $this->blogModel->read_blog(),
+            'categories' => $this->categoryModel->read_category_by_type(1), //1=blog
         );
         return view('Backend.blog.create', $data);
     }
@@ -58,11 +66,18 @@ class BlogController extends Controller
                 $file_paths = $file->save();
             }
         }
+        $categories_id = $params['blog-category'];
 
         $blog_id = $this->blogModel->create_blog($params_create);
-        $this->photoModel->create_photo('Blog', $blog_id, $file_paths[0], 'image_blog');
+        $this->category_blogModel->create_categoryBlog($blog_id, $categories_id);
 
-        FlashMessage::add("مقادیر با موفقیت در دیتابیس ذخیره شد");
+        if ($file_paths) {
+            $this->photoModel->create_photo('Blog', $blog_id, $file_paths[0], 'image_blog');
+
+            FlashMessage::add("مقادیر با موفقیت در دیتابیس ذخیره شد");
+            return $this->request->redirect('admin/blog');
+        }
+        FlashMessage::add("مقادیر بدونه عکس با موفقیت در دیتابیس ذخیره شد", FlashMessage::WARNING);
         return $this->request->redirect('admin/blog');
     }
 
@@ -115,7 +130,7 @@ class BlogController extends Controller
         $is_deleted_blog =  $this->blogModel->delete_blog($id);
 
         if ($is_deleted_blog) {
-            FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
+            FlashMessage::add("مقادیر  با موفقیت از دیتابیس حذف شد");
             return $this->request->redirect('admin/blog');
         }
         FlashMessage::add(" مشکلی در حذف محصول پیش آمده است", FlashMessage::ERROR);

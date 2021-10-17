@@ -104,6 +104,10 @@ class Category extends MysqlBaseModel
         }
         return $this->first(['id' => $id]);
     }
+    public function read_category_by_type($type)
+    {
+        return $this->get('*',['type' => $type]);
+    }
 
     public function update_category(array $params, $id)
     {
