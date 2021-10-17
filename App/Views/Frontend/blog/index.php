@@ -23,7 +23,9 @@
                 <div class="widget widget_categories " id="categories-2">
                     <span class="gamma widget-title">دسته بندی ها</span>
                     <ul>
-                        <li>دسته بندی یافت نشد.</li>
+                        <?php foreach ($categories as $value): ?>
+                            <li><a href=""><?= $value['name'] ?></a></li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>

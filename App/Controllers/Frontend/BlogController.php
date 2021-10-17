@@ -4,16 +4,20 @@ namespace App\Controllers\Frontend;
 
 use App\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\Category;
 
 class BlogController extends Controller
 {
 
     public $blogModel;
+    public $categoryModel;
 
     public function __construct()
     {
         parent::__construct();
         $this->blogModel = new Blog();
+        $this->categoryModel      = new Category();
+
     }
 
     public function index()
@@ -26,6 +30,8 @@ class BlogController extends Controller
         if (is_array($blog)) {
             $data = array(
                 'blogs'    => $blog,
+                'categories' => $this->categoryModel->read_category_by_type(1), //1=blog
+
             );
             return view('Frontend.blog.index', $data);
         }
