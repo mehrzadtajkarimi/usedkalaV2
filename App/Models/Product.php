@@ -138,7 +138,6 @@ class Product extends MysqlBaseModel
             "photos",
             "id",
             "entity_id",
-            "products.category_id=$category_id",
             "photos.type=0",
             "photos.entity_type='Product'",
         );

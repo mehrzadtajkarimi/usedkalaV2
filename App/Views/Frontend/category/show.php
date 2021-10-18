@@ -26,7 +26,7 @@
                                 <?php foreach ($categories as $value) : ?>
                                     <div class="product-category product ">
                                         <!-- change  id categories rename categories_id -->
-                                        <a href="<?= base_url() ?>category/<?= $value['id'] ?>">
+                                        <a href="<?= base_url() ?>category/<?= $value['id'] ?>/<?= $value['slug'] ?>">
                                             <img src="<?= $value['path'] ?>" alt="Ultrabooks" width="224" height="197">
                                             <h2 class="woocommerce-loop-category__title">
                                                 <?= $value['name'] ?>
