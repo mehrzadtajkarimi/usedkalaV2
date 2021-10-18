@@ -51,4 +51,19 @@ class BlogController extends Controller
             return view('Frontend.blog.show', $data);
         }
     }
+    public function category()
+    {
+        $slug = $this->request->get_param('slug');
+        $category_id = $this->request->get_param('id');
+
+
+        $blog = $this->blogModel->join_blog_to_photo_and_category_blog($category_id);
+
+        if (is_array($blog)) {
+            $data = array(
+                'blog'    => $blog[0],
+            );
+            return view('Frontend.blog.show', $data);
+        }
+    }
 }

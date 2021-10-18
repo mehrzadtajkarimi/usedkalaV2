@@ -57,4 +57,21 @@ class Blog extends MysqlBaseModel
             "photos.entity_type='Blog'",
         );
     }
+    public function join_blog_to_photo_and_category_blog($category_id = null)
+    {
+        return $this->inner_join_two(
+            "blogs.id AS blog_id ,
+            category_blogs.category_id AS category_blog_id ,
+            blogs.* ,
+            photos.*",
+            "photos",
+            "id",
+            "entity_id",
+            "category_blogs",
+            "id",
+            "blog_id",
+            "category_blogs.category_id={$category_id['id']}",
+            "photos.entity_type='Blog'",
+        );
+    }
 }

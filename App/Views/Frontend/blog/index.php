@@ -24,7 +24,7 @@
                     <span class="gamma widget-title">دسته بندی ها</span>
                     <ul>
                         <?php foreach ($categories as $value): ?>
-                            <li><a href=""><?= $value['name'] ?></a></li>
+                            <li><a href="<?= base_url() ?>blog/category/<?= $value['id'] ?>/<?= $value['slug'] ?>"><?= $value['name'] ?></a></li>
                         <?php endforeach; ?>
                     </ul>
                 </div>
