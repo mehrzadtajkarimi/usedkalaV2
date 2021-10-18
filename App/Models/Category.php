@@ -15,7 +15,7 @@ class Category extends MysqlBaseModel
 
     public function category_tree_for_backend($parent_id = 0, $sub_mark = '')
     {
-        $get_categories = $this->get('*',[
+        $get_categories = $this->get('*', [
             'parent_id' => $parent_id,
             'type'      => 0,
         ]);
@@ -35,7 +35,7 @@ class Category extends MysqlBaseModel
         }
         return $this->property_category_tree_for_backend;
     }
-    public function category_tree_for_backend_by_type($type,$parent_id = 0, $sub_mark = '')
+    public function category_tree_for_backend_by_type($type, $parent_id = 0, $sub_mark = '')
     {
         $get_categories = $this->get('*', [
             'parent_id' => $parent_id,
@@ -52,7 +52,7 @@ class Category extends MysqlBaseModel
                         'slug'   => $value['slug'],
                     )
                 );
-                $this->category_tree_for_backend_by_type($type,$value['id'], $sub_mark . ' <b> &#10010; </b> ');
+                $this->category_tree_for_backend_by_type($type, $value['id'], $sub_mark . ' <b> &#10010; </b> ');
             }
         }
         return $this->property_category_tree_for_backend_by_type;
@@ -61,7 +61,14 @@ class Category extends MysqlBaseModel
     public function category_tree_for_frontend($parent_id = 0, $slug = NULL)
     {
         global $request;
-        $value = $this->inner_join("categories.*,photos.path,photos.alt", "photos", "id", "entity_id", "categories.parent_id={$parent_id}",  "categories.id=photos.entity_id");
+        $value = $this->inner_join(
+            "categories.*,photos.path,photos.alt",
+            "photos",
+            "id",
+            "entity_id",
+            "categories.parent_id={$parent_id['id']}",
+            "categories.id=photos.entity_id"
+        );
         if (!empty($value)) {
             array_push(
                 $this->property_category_tree_for_frontend,
@@ -106,7 +113,7 @@ class Category extends MysqlBaseModel
     }
     public function read_category_by_type($type)
     {
-        return $this->get('*',['type' => $type]);
+        return $this->get('*', ['type' => $type]);
     }
 
     public function update_category(array $params, $id)
