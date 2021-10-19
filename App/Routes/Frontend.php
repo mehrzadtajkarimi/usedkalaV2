@@ -34,7 +34,10 @@ Route::group(function () {
     Route::get('/token', 'LoginController@token');
     Route::post('/token', 'LoginController@is_token');
     Route::get('/logout', 'LoginController@logout');
+});
+Route::group(function () {
     Route::get('/profile', 'ProfileController@is_login');
+    Route::patch('/profile/{id}', 'ProfileController@update');
 });
 
 Route::group(function () {

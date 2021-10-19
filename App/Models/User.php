@@ -34,4 +34,22 @@ class User extends MysqlBaseModel
             return $user['user_level'] == 0;
         }
     }
+    public function update_user(array $params, $id)
+    {
+        return $this->update($params, ['id' => $id]);
+    }
+
+
+    public function join_user_to_photo(string $user_id)
+    {
+        return $this->inner_join(
+            "*",
+            "photos",
+            "id",
+            "entity_id",
+            "photos.type=0",
+            "photos.entity_type='User'",
+            "users.id=$user_id",
+        )[0] ??  $this->first(['id' => $user_id]);
+    }
 }
