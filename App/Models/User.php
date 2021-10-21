@@ -40,16 +40,16 @@ class User extends MysqlBaseModel
     }
 
 
-    public function join_user_to_photo(string $user_id)
+    public function join_user_to_photo(int $user_id)
     {
         return $this->inner_join(
-            "*",
+            "photos.*,users.*,users.id AS user_id",
             "photos",
             "id",
             "entity_id",
+            "users.id=$user_id",
             "photos.type=0",
             "photos.entity_type='User'",
-            "users.id=$user_id",
         )[0] ??  $this->first(['id' => $user_id]);
     }
 }

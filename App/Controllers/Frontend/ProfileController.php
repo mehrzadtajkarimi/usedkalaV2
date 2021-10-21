@@ -34,6 +34,7 @@ class ProfileController extends Controller
     public function is_login()
     {
         $user_id = SessionManager::get('auth');
+        // dd($user_id);
         if (Auth::is_login()) {
             $data = array(
                 'data' => $this->userModel->join_user_to_photo($user_id),
@@ -45,38 +46,33 @@ class ProfileController extends Controller
 
     public function update()
     {
+        $id = $this->request->get_param('id');
         $params = $this->request->params();
-
-        $user_id = $this->request->get_param('id');
-
-
-        $params_updated = array(
-            'first_name' => $params['profile-name'],
-            'last_name'  => $params['profile-family'],
-            'phone'      => $params['profile-phone'],
-            'email'      => $params['profile-email'],
-
-        );
-        $this->userModel->update_user($params_updated, $user_id['id']);
-
-        $files                   = $this->request->files();
-        $files_param             = $files['user_image'];
-        $check_file_param_exists = !empty($files_param);
+        $files = $this->request->files();
+        $files_param             = $files['profile_image'];
+        $files_param_tmp_name    = $files_param['tmp_name'];
+        $check_file_param_exists = !empty($files_param_tmp_name[0]);
         if ($check_file_param_exists) {
-            $file       = new UploadedFile($files_param);
+            $file = new UploadedFile($files_param);
             $file_paths = $file->save();
             if ($file_paths) {
-
-                $is_update_photo = $this->photoModel->update_photo('User', $user_id, $file_paths[0], 'user_image');
+                $is_update_photo = $this->photoModel->update_photo('User', $id['id'], $file_paths[0], 'profile_image');
 
                 if ($is_update_photo) {
-                    FlashMessage::add("ویرایش پروفایل با موفقیت انجام شد");
+                    FlashMessage::add("ویرایش برند بندی موفقیت انجام شد");
                 } else {
-                    FlashMessage::add(" مشکلی در ویرایش پروفایل رخ داد ", FlashMessage::ERROR);
+                    FlashMessage::add(" مشکلی در ویرایش برند بندی رخ داد ", FlashMessage::ERROR);
                 }
             }
+        } else {
+            $this->userModel->update_user([
+                'first_name' => $params['profile-name'],
+                'last_name'  => $params['profile-family'],
+                'phone'      => $params['profile-phone'],
+                'email'      => $params['profile-email'],
+            ], $id);
+            FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
         }
-        FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
         return $this->request->redirect('profile');
     }
 
@@ -84,5 +80,4 @@ class ProfileController extends Controller
     {
         echo 'open modal photo_edit';
     }
-
 }
