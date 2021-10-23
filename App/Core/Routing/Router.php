@@ -47,7 +47,7 @@ class Router
     private function regex_matched($route)
     {
         global $request;
-
+        -dispatch_404()
         // explode pattern '/^\/post\/(?<slog>[-%\w]+)$/'
         $pattern = "/^" . str_replace(['/', '{', '}'], ['\/', '(?<', '>[-%\w]+)'], $route['uri']) . "$/";
         $result = preg_match($pattern, $this->request->uri(), $matches);
