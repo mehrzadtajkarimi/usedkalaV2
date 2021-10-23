@@ -6,6 +6,7 @@ use App\Controllers\Controller;
 use App\Models\Photo;
 use App\Models\User;
 use App\Services\Auth\Auth;
+use App\Services\Basket\Basket;
 use App\Services\Session\SessionManager;
 use App\Services\Upload\UploadedFile;
 use App\Utilities\FlashMessage;
@@ -34,10 +35,24 @@ class ProfileController extends Controller
     public function is_login()
     {
         $user_id = SessionManager::get('auth');
-        // dd($user_id);
+
+
+        $cart_items = Basket::items();
+
+
+
+        foreach ($cart_items as  $value) {
+            $cart_total[] = $value['count'] * $value['price'];
+        }
+        if (!is_array($cart_total)) {
+            $this->request->redirect('');
+        }
+
         if (Auth::is_login()) {
             $data = array(
                 'data' => $this->userModel->join_user_to_photo($user_id),
+                'cart_total' => array_sum($cart_total ?? []),
+                'cart_items' => $cart_items
             );
             return view('Frontend.user.profile', $data);
         }
@@ -70,7 +85,8 @@ class ProfileController extends Controller
                 'last_name'  => $params['profile-family'],
                 'phone'      => $params['profile-phone'],
                 'email'      => $params['profile-email'],
-            ], $id);
+                'address'    => $params['profile-address'],
+            ], $id['id']);
             FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
         }
         return $this->request->redirect('profile');

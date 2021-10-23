@@ -49,13 +49,14 @@ class CartController  extends Controller
     public function plus()
     {
         $product_id = $this->request->get_param('id');
-        Basket::plus($product_id);
+
+        Basket::plus($product_id['id']);
         Request::redirect('cart');
     }
     public function minus()
     {
         $product_id = $this->request->get_param('id');
-        Basket::minus($product_id);
+        Basket::minus($product_id['id']);
         Request::redirect('cart');
     }
 

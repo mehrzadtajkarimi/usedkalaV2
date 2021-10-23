@@ -36,15 +36,15 @@ class HomeController extends Controller
 
     public function index()
     {
-        $cart_items        = Basket::items();
-        $product_discounts = $this->discountModel->join_discount__with_productDiscounts_products_photo();
-        $sliders           = $this->sliderModel->read_slider();
-        $latest_products   = $this->productModel->join_product_to_photo__for_latest_product();
-        $sale_products     = $this->productModel->join_product_to_photo__for_sale_product();
-        $featured_products = $this->productModel->join_product_to_photo__for_featured_product();
-        $brands            = $this->brandModel->read_brand();
-        $setting           = $this->settingModel->read_setting();
-
+        $cart_items            = Basket::items();
+        $product_discounts     = $this->discountModel->join_discount__with_productDiscounts_products_photo();
+        $sliders               = $this->sliderModel->read_slider();
+        $latest_products       = $this->productModel->join_product_to_photo__for_latest_product();
+        $sale_products         = $this->productModel->join_product_to_photo__for_sale_product();
+        $featured_products     = $this->productModel->join_product_to_photo__for_featured_product();
+        $brands                = $this->brandModel->read_brand();
+        $setting               = $this->settingModel->read_setting();
+        $home_page_active_menu = 'page-template-template-homepage-v1';
 
         foreach ($brands as $key => $value) {
             $brands[$key]['product'] = $this->productModel->join_product__with_photo_by_brand_id($value['id']);
@@ -60,13 +60,14 @@ class HomeController extends Controller
         }
 
         $data = array(
-            'product_discounts' => $product_discounts,
-            'latest_products'   => $latest_products,
-            'sale_products'     => $sale_products,
-            'featured_products' => $featured_products,
-            'product_brands'    => $brands,
-            'sliders'           => $sliders,
-            'setting'           => $setting,
+            'product_discounts'     => $product_discounts,
+            'latest_products'       => $latest_products,
+            'sale_products'         => $sale_products,
+            'featured_products'     => $featured_products,
+            'product_brands'        => $brands,
+            'sliders'               => $sliders,
+            'setting'               => $setting,
+            'home_page_active_menu' => $home_page_active_menu,
         );
         return view('Frontend.index', $data);
     }

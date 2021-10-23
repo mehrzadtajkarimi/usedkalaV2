@@ -11,7 +11,7 @@
 
 </head>
 
-<body dir="rtl" class="woocommerce-active page-template-template-homepage-v1 can-uppercase">
+<body dir="rtl" class="woocommerce-active <?= $home_page_active_menu ??'' ?>  can-uppercase">
     <div id="page" class="hfeed site">
         <div class="top-bar top-bar-v1">
             <div class="col-full">
