@@ -53,7 +53,7 @@ class Blog extends MysqlBaseModel
             "photos",
             "id",
             "entity_id",
-            "blogs.id=$blog_id",
+            "blogs.id={$blog_id['id']}",
             "photos.entity_type='Blog'",
         );
     }
