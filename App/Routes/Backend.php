@@ -131,3 +131,13 @@ Route::group(function () {
     Route::patch('/admin/sample/{id}', 'SampleController@update');
     Route::delete('/admin/sample/{id}', 'SampleController@destroy');
 });
+
+Route::group(function () {
+    Route::get('/admin/comment', 'CommentController@index');
+    Route::get('/admin/comment/create', 'CommentController@create');
+    Route::post('/admin/comment', 'CommentController@store');
+    Route::get('/admin/comment/{id}', 'CommentController@show');
+    Route::get('/admin/comment/{id}/edit', 'CommentController@edit');
+    Route::patch('/admin/comment/{id}', 'CommentController@update');
+    Route::delete('/admin/comment/{id}', 'CommentController@destroy');
+});

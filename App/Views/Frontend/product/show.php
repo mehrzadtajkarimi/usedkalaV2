@@ -79,12 +79,12 @@
                                 <?php endif; ?>
                             </p>
                             <!-- .single-product-header -->
-                            <form action="<?= base_url()?>cart/add/<?= $product['id'] ?>" enctype="multipart/form-data" method="post" class="cart">
-                            <input type="hidden" name="photo_path" value="<?= $photo['path']  ?>">
+                            <form action="<?= base_url() ?>cart/add/<?= $product['id'] ?>" enctype="multipart/form-data" method="post" class="cart">
+                                <input type="hidden" name="photo_path" value="<?= $photo['path']  ?>">
                                 <div class="row">
                                     <div class="col-3 quantity">
                                         <label for="quantity-input">تعداد</label>
-                                        <input name="product_quantity"  type="number" size="4" class="input-text qty text" title="Qty" value="1" id="quantity-input">
+                                        <input name="product_quantity" type="number" size="4" class="input-text qty text" title="Qty" value="1" id="quantity-input">
                                     </div>
                                     <!-- .quantity -->
                                     <button class="col-4 btn btn-outline-success" name="add-to-cart" type="submit">افزودن به سبد خرید</button>
@@ -104,9 +104,49 @@
                 </div>
                 <!-- .entry-summary -->
             </div>
-
         </div>
         <!-- .product -->
     </main>
     <!-- #main -->
+</div>
+<div class="container-fluid">
+    <hr>
+    <?php if ($comments) : ?>
+        <h5 class="card-title m-3">نظرات :</h5>
+        <?php foreach ($comments as $value) : ?>
+            <?= $value['message'] ?>
+        <?php endforeach; ?>
+    <?php else : ?>
+        <form id="theForm" action="<?= base_url() ?>product/comment/<?= $product['id'] ?>" method="post">
+            <div class="form-group mr-5 ml-5 mb-5">
+                <label for="my-textarea">
+                    <h5 class="card-title m-3">اولین نفری باشید که در مورد این محصول نظر میدهد :</h5>
+                </label>
+                <textarea id="my-textarea" class="form-control" name="comment" rows="5"></textarea>
+                <button class="btn btn-primary mt-3 ml-2" type="submit">ارسال</button>
+            </div>
+        </form>
+        <script>
+            $(document).ready(function() {
+                $("#theForm").submit(function(e) {
+
+                    e.preventDefault(); // avoid to execute the actual submit of the form.
+
+                    var form = $(this);
+                    var url = form.attr('action');
+
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        data: form.serialize(), // serializes the form's elements.
+                        success: function(data) {
+                            alert(data); // show response from the php script.
+                        }
+                    });
+
+
+                });
+            });
+        </script>
+    <?php endif; ?>
 </div>
