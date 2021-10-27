@@ -17,3 +17,8 @@
 <!-- For demo purposes – can be removed on production -->
 <script src="switchstylesheet/switchstylesheet.js"></script>
 <!-- For demo purposes – can be removed on production : End -->
+<script>
+    $(document).ready(function() {
+        new WOW().init();
+    });
+</script>

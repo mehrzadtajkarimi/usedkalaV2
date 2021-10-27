@@ -151,7 +151,7 @@ class  MysqlBaseModel extends BaseModel
         $join,
         $columns_as,
         $columns_to,
-        $where_1 = null,
+        $where_1,
         $where_2 = null,
         $where_3 = null
     ) {
@@ -160,16 +160,13 @@ class  MysqlBaseModel extends BaseModel
         INNER JOIN $join
         ON $this->table.$columns_as = $join.$columns_to
         ";
-        if ($where_1) {
-            return $this->connection->query("$query AND $where_1")->fetchAll();
-        }
         if ($where_2) {
             return $this->connection->query("$query AND $where_1 AND $where_2")->fetchAll();
         }
         if ($where_3) {
             return $this->connection->query("$query AND $where_1 AND $where_2 AND $where_3")->fetchAll();
         }
-        return $this->connection->query("$query")->fetchAll();
+        return $this->connection->query("$query AND $where_1")->fetchAll();
     }
 
 

@@ -36,13 +36,15 @@ class Comment extends MysqlBaseModel
     {
         return $this->delete(['id' => $id]);
     }
-    public function join_comment_to_user()
+    public function join_comment_to_user($type)
     {
         return $this->inner_join(
-            "comments.id AS comment_id , comments.* , users.*",
+            "*",
             "users",
             "entity_id",
             "id",
+            "comments.status=1",
+            "comments.entity_type=$type",
         );
     }
     public function join_comment_to_user_by_type($type)

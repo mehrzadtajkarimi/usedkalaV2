@@ -38,37 +38,33 @@ class ProductController extends Controller
     public function show()
     {
         $id = $this->request->get_param('id');
-
         $photos          = $this->photoModel->read_photo_by_id($id, 'Product');
         $photo           = $this->photoModel->read_single_photo_by_id('0', $id, 'Product')[0];
         $product         = $this->productModel->read_product($id);
         $productDiscount = $this->productModel->join_product__with_productDiscounts_discounts($id)[0] ?? '';
+        $productComment  = $this->productModel->join_product__with_comment($id['id'])?? '';
         // dd(empty($productDiscount) ? $product : $productDiscount['discounts_status']);
         $data    = array(
-            'comments' => $this->commentModel->join_comment_to_user() ?? [],
+            'comments' => $productComment ?? [],
             'product'  => empty($productDiscount) ? $product : $productDiscount,
             'photos'   => $photos,
             'photo'    => $photo,
+            'auth'     => SessionManager::get('auth')??null,
         );
         return view('Frontend.product.show', $data);
     }
-    
+
     public function add_comment()
     {
-        dd($_POST);
         $id = $this->request->get_param('id');
-        $param = $this->request->params();
 
-       $is_comment= $this->commentModel->create([
-            'entity_id'   => $id,
+        $this->commentModel->create([
+            'entity_id'   => $id['id'],
             'entity_type' => 'Product',
             'user_id'     => SessionManager::get('auth'),
-            'message'     => $param['comment'],
+            'message'     => $this->request->params()['comment'],
             'ip'          => $this->request->ip(),
         ]);
-        if ($is_comment) {
-            return FlashMessage::add(" کامنت با موفقیت ارسال شد بعد از تایید مدیر نمایش داده می شود");
-        }
-        return FlashMessage::add(" مشکلی در ویرایش برند بندی رخ داد ", FlashMessage::ERROR);
+        return true;
     }
 }

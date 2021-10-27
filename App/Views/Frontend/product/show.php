@@ -111,11 +111,28 @@
 </div>
 <div class="container-fluid">
     <hr>
+    <div id="myForm" class="alert alert-success alert-dismissible  mr-5 ml-5  d-none" data-wow-duration="2s" data-wow-offset="10" role="alert">
+        <strong>" کامنت با موفقیت ارسال شد بعد از تایید مدیر نمایش داده می شود"</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
     <?php if ($comments) : ?>
         <h5 class="card-title m-3">نظرات :</h5>
         <?php foreach ($comments as $value) : ?>
+            <p>
             <?= $value['message'] ?>
+            </p>
         <?php endforeach; ?>
+        <form id="theForm" action="<?= base_url() ?>product/comment/<?= $product['id'] ?>" method="post">
+            <div class="form-group mr-5 ml-5 mb-5">
+                <label for="my-textarea">
+                    <h5 class="card-title m-3"> ثبت نظر:</h5>
+                </label>
+                <textarea id="my-textarea" class="form-control" name="comment"  rows="5" <?= is_null($auth) ? 'readonly  placeholder="برای درج نظر ابتدا با نام کاربری وارد شوید"':'' ?> ></textarea>
+                <button class="btn btn-primary mt-3 ml-2" type="submit">ارسال</button>
+            </div>
+        </form>
     <?php else : ?>
         <form id="theForm" action="<?= base_url() ?>product/comment/<?= $product['id'] ?>" method="post">
             <div class="form-group mr-5 ml-5 mb-5">
@@ -126,27 +143,7 @@
                 <button class="btn btn-primary mt-3 ml-2" type="submit">ارسال</button>
             </div>
         </form>
-        <script>
-            $(document).ready(function() {
-                $("#theForm").submit(function(e) {
-
-                    e.preventDefault(); // avoid to execute the actual submit of the form.
-
-                    var form = $(this);
-                    var url = form.attr('action');
-
-                    $.ajax({
-                        type: "POST",
-                        url: url,
-                        data: form.serialize(), // serializes the form's elements.
-                        success: function(data) {
-                            alert(data); // show response from the php script.
-                        }
-                    });
-
-
-                });
-            });
-        </script>
     <?php endif; ?>
+
 </div>
+<?php include(BASEPATH . "/App/Views/Frontend/product/script.php") ?>

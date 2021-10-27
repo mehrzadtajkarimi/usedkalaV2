@@ -46,7 +46,7 @@ Route::group(function () {
 
 Route::group(function () {
     Route::get('/product/{id}', 'ProductController@show');
-    Route::get('/product/comment/{id}', 'ProductController@add_comment');
+    Route::post('/product/comment/{id}', 'ProductController@add_comment');
     Route::get('/product/category/{id}/{slug}', 'ProductController@index');
 });
 
