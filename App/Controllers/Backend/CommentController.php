@@ -28,7 +28,7 @@ class CommentController extends Controller
     public function index()
     {
         $data = array(
-            'comments'=> $this->commentModel->join_comment_to_user()??[],
+            'comments'=> $this->commentModel->join_all_comment_to_user()??[],
 
         );
         return view('Backend.comment.index', $data);

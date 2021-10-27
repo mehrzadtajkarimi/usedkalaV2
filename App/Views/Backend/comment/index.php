@@ -31,7 +31,6 @@
           <table class="table table--vertical_middle ">
             <thead>
               <tr>
-                <th class="text-center" scope="col">نام</th>
                 <th class="text-center" scope="col">قسمت</th>
                 <th class="text-center" scope="col">موضوع</th>
                 <th class="text-center" scope="col">وضعیت</th>
@@ -41,7 +40,6 @@
             <tbody>
               <?php foreach ($comments as $value) : ?>
                 <tr>
-                  <td class="text-center"><?= $value['key'] ?></td>
                   <td class="text-center"><?= $value['entity_type'] ?></td>
                   <td class="text-center"><?= $value['message'] ?></td>
                   <td class="text-center"><?= $value['status'] ?></td>

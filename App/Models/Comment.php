@@ -47,15 +47,17 @@ class Comment extends MysqlBaseModel
             "comments.entity_type=$type",
         );
     }
-    public function join_comment_to_user_by_type($type)
+    public function join_all_comment_to_user()
     {
-        return $this->inner_join(
-            "comments.id AS comment_id , comments.* , users.*",
-            "users",
-            "id",
-            "entity_id",
-            "comments.entity_type={$type}",
-        );
+        return  $this->connection->query("
+        SELECT
+        *
+        FROM users
+        INNER JOIN comments
+        ON  users.id=comments.user_id
+        ORDER BY
+        comments.id DESC
+        ")->fetchAll();
     }
     public function join_comment_to_user_by_comment_id($comment_id = null)
     {
@@ -68,5 +70,4 @@ class Comment extends MysqlBaseModel
             "comments.entity_type='comment'",
         );
     }
-
 }
