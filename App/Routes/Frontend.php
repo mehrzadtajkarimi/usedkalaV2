@@ -74,5 +74,6 @@ Route::group(function () {
 Route::group(function () {
     Route::get('/blog/{slug}', 'BlogController@index');
     Route::get('/blog/{id}/{slug}', 'BlogController@show');
+    Route::post('/blog/comment/{id}', 'BlogController@add_comment');
     Route::get('/blog/category/{id}/{slug}', 'BlogController@category');
 });
