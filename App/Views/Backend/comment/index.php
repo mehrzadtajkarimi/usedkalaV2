@@ -41,7 +41,7 @@
               <?php foreach ($comments as $value) : ?>
                 <tr>
                   <td class="text-center"><?= $value['entity_type'] ?></td>
-                  <td class="text-center"><?= $value['message'] ?></td>
+                  <td class="text-center"><?= $value['title'] ?></td>
                   <td class="text-center"><?= $value['status'] ?></td>
                   <td class="text-center">
                     <a href="<?= base_url() ?>admin/comment/<?= $value['id'] ?>/edit" type="button" class="shadow-sm btn btn-success btn-sm " style="padding: 0px 20px; border-radius: 18px;">

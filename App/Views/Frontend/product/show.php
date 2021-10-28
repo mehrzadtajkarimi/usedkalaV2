@@ -120,16 +120,20 @@
     <?php if ($comments) : ?>
         <h5 class="card-title m-3">نظرات :</h5>
         <?php foreach ($comments as $value) : ?>
-            <p>
-            <?= $value['message'] ?>
-            </p>
+            <div class="ml-4 mb-2" >
+                <small> <?= $value['title'] ?> </small>
+                <p>
+                <?= $value['message'] ?>
+                </p>
+            </div>
         <?php endforeach; ?>
         <form class="theForm" action="<?= base_url() ?>product/comment/<?= $product['id'] ?>" method="post">
             <div class="form-group mr-5 ml-5 mb-5">
                 <label for="my-textarea">
                     <h5 class="card-title m-3"> ثبت نظر:</h5>
                 </label>
-                <textarea id="my-textarea" class="form-control" name="comment"  rows="5" <?= is_null($auth) ? 'readonly  placeholder="برای درج نظر ابتدا با نام کاربری وارد شوید"':'' ?> ></textarea>
+                <input class="form-control mb-3" type="text" name="product_title" placeholder="موضوع متن خود را بنویسید" minlength="5" required >
+                <textarea id="my-textarea" class="form-control" name="product_comment"  rows="5" <?= is_null($auth) ? 'readonly  placeholder="برای درج نظر ابتدا با نام کاربری وارد شوید"':'' ?>minlength="15" required></textarea>
                 <button class="btn btn-primary mt-3 ml-2" type="submit">ارسال</button>
             </div>
         </form>
@@ -139,7 +143,8 @@
                 <label for="my-textarea">
                     <h5 class="card-title m-3">اولین نفری باشید که در مورد این محصول نظر میدهد :</h5>
                 </label>
-                <textarea id="my-textarea" class="form-control" name="comment" rows="5"></textarea>
+                <input class="form-control mb-3" type="text" name="product_title" placeholder="موضوع متن خود را بنویسید" minlength="5" required >
+                <textarea id="my-textarea" class="form-control" name="product_comment" rows="5"></textarea>
                 <button class="btn btn-primary mt-3 ml-2" type="submit">ارسال</button>
             </div>
         </form>

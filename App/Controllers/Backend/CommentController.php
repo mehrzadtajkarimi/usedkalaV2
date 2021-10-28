@@ -96,30 +96,13 @@ class CommentController extends Controller
         $id    = $this->request->get_param('id');
 
         $this->commentModel->update([
-            'key'   => $param['key'],
-            'value' => $param['value'],
-            'slug'  => $param['slug'],
+            'title'   => $param['title'],
+            'message' => $param['message'],
         ], ['id' => $id]);
         FlashMessage::add("مقادیر باموفقیت  ضمیمه شد ");
         return $this->request->redirect('admin/comment');
     }
 
-    public function upload()
-    {
-        $file   = $this->request->files();
-        $fileUploadedCkeditor    = $file['upload'];
-        $file_tmp_name           = $file['upload']['tmp_name'];
-        $check_file_param_exists = !empty($file_tmp_name[0]);
-        if ($check_file_param_exists) {
-            $file = new UploadedFile($fileUploadedCkeditor);
-            $file->save();
-            $function_number = 1;
-            // $function_number = $_GET['CKEditorFuncNum'];
-            $url = $file->get_paths_for_database();
-            $message = '';
-            echo "<script>window.parent.CKEDITOR.tools.callFunction('" . $function_number . "','" . $url . "','" . $message . "');</script>";
-        }
-    }
 
     public function destroy()
     {

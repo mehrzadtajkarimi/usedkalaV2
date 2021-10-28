@@ -67,7 +67,8 @@ class BlogController extends Controller
             'entity_id'   => $id['id'],
             'entity_type' => 'Blog',
             'user_id'     => SessionManager::get('auth'),
-            'message'     => $this->request->params()['comment'],
+            'message'     => $this->request->params()['blog_title'],
+            'title'       => $this->request->params()['blog_title'],
             'ip'          => $this->request->ip(),
         ]);
         return true;

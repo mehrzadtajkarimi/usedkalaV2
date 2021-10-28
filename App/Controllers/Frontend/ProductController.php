@@ -62,7 +62,8 @@ class ProductController extends Controller
             'entity_id'   => $id['id'],
             'entity_type' => 'Product',
             'user_id'     => SessionManager::get('auth'),
-            'message'     => $this->request->params()['comment'],
+            'message'     => $this->request->params()['product_comment'],
+            'title'       => $this->request->params()['product_title'],
             'ip'          => $this->request->ip(),
         ]);
         return true;
