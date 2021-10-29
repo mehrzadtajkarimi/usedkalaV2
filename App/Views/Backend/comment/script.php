@@ -22,6 +22,19 @@
                 reader.readAsDataURL(this.files[0]);
             }
         });
+        $('#status').click(function() {
+            $.ajax({
+                type: "post",
+                url: '<?= base_url() ?>admin/comment/status/<?= $value['id'] ?>',
+                data: {status:<?= $value['status'] ?>},
+                success: function(data) {
+                    window.location.reload(true);
+                }
+            });
+
+        });
+
+
 
         $('#comment-category').select2({
             'placeholder': 'دسته بندی های مورد نظر را انتخاب کنید'

@@ -3,6 +3,7 @@
 namespace App\Controllers\Backend;
 
 use App\Controllers\Controller;
+use App\Core\Request;
 use App\Models\Photo;
 use App\Models\Comment;
 use App\Models\Category;
@@ -28,7 +29,7 @@ class CommentController extends Controller
     public function index()
     {
         $data = array(
-            'comments'=> $this->commentModel->join_all_comment_to_user()??[],
+            'comments' => $this->commentModel->join_all_comment_to_user() ?? [],
 
         );
         return view('Backend.comment.index', $data);
@@ -116,5 +117,17 @@ class CommentController extends Controller
         }
         FlashMessage::add(" مشکلی در حذف محصول پیش آمده است", FlashMessage::ERROR);
         return $this->request->redirect('admin/comment');
+    }
+
+    public function status()
+    {
+        $id = $this->request->get_param('id');
+        $status = $this->request->params();
+
+        $param = array(
+            'status' => $status['status'] ? 0 : 1
+        );
+        $this->commentModel->status_down($param, $id);
+        return  Request::redirect('admin/comment');
     }
 }

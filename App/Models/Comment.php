@@ -31,6 +31,14 @@ class Comment extends MysqlBaseModel
     {
         return $this->update($params, ['id' => $id]);
     }
+    public function status_down(array $param, $id)
+    {
+        return $this->update($param, ['id' => $id]);
+    }
+    public function status_up(array $params, $id)
+    {
+        return $this->update($params, ['id' => $id]);
+    }
 
     public function delete_comment($id)
     {

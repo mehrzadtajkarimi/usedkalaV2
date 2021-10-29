@@ -16,6 +16,9 @@
 }
 
 
+.pointer{
+  cursor:pointer;
+}
 
 
 .select2-container--default.select2-container--focus, .select2-container--default:focus, .select2-container--default:active,
