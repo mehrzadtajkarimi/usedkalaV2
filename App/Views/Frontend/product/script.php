@@ -16,5 +16,37 @@
                 });
             }
         });
+
+
+        $('.like').click(function() {
+            var that = this;
+            var id = $(this).data('id');
+            $.ajax({
+                type: "post",
+                url: '<?= base_url() ?>product/comment/' + id + '/like',
+                data: {
+                    'like': +1
+                },
+                success: function(data) {
+                    $('.dislike').removeClass('text-danger')
+                    $(that).addClass('text-success')
+                }
+            });
+        });
+        $('.dislike').click(function() {
+            var that = this;
+            var id = $(this).data('id');
+            $.ajax({
+                type: "post",
+                url: '<?= base_url() ?>product/comment/' + id + '/dislike',
+                data: {
+                    'dislike': -1
+                },
+                success: function(data) {
+                    $('.like').removeClass('text-success ')
+                    $(that).addClass('text-danger ')
+                }
+            });
+        });
     });
 </script>

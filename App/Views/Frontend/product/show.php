@@ -120,11 +120,22 @@
     <?php if ($comments) : ?>
         <h5 class="card-title m-3">نظرات :</h5>
         <?php foreach ($comments as $value) : ?>
-            <div class="ml-4 mb-2" >
+            <div class="ml-4 mb-2">
                 <small> <?= $value['title'] ?> </small>
                 <p>
-                <?= $value['message'] ?>
+                    <?= $value['message'] ?>
                 </p>
+                <span>
+                    <span>آیا این دیدگاه برایتان مفید بود؟</span>
+                    <span class="m-2 pointer">
+                        <small><?= $value['dislike'] ?></small>
+                        <i  class=" dislike fa fa-thumbs-down text-muted fa-1x " data-id="<?= $value['id'] ?>"  title="کلیک کنید تا وضعیت تغییر کند"></i>
+                    </span>
+                    <span class="m-2 pointer">
+                        <small><?= $value['like'] ?></small>
+                        <i  class=" like fa fa-thumbs-up  fa-1x " data-id="<?= $value['id'] ?>"  title="کلیک کنید تا وضعیت تغییر کند"></i>
+                    </span>
+                </span>
             </div>
         <?php endforeach; ?>
         <form class="theForm" action="<?= base_url() ?>product/comment/<?= $product['id'] ?>" method="post">
@@ -132,8 +143,8 @@
                 <label for="my-textarea">
                     <h5 class="card-title m-3"> ثبت نظر:</h5>
                 </label>
-                <input class="form-control mb-3" type="text" name="product_title" placeholder="موضوع متن خود را بنویسید" minlength="5" required >
-                <textarea id="my-textarea" class="form-control" name="product_comment"  rows="5" <?= is_null($auth) ? 'readonly  placeholder="برای درج نظر ابتدا با نام کاربری وارد شوید"':'' ?>minlength="15" required></textarea>
+                <input class="form-control mb-3" type="text" name="product_title" placeholder="موضوع متن خود را بنویسید" minlength="5" required>
+                <textarea id="my-textarea" class="form-control" name="product_comment" rows="5" <?= is_null($auth) ? 'readonly  placeholder="برای درج نظر ابتدا با نام کاربری وارد شوید"' : '' ?>minlength="15" required></textarea>
                 <button class="btn btn-primary mt-3 ml-2" type="submit">ارسال</button>
             </div>
         </form>
@@ -143,7 +154,7 @@
                 <label for="my-textarea">
                     <h5 class="card-title m-3">اولین نفری باشید که در مورد این محصول نظر میدهد :</h5>
                 </label>
-                <input class="form-control mb-3" type="text" name="product_title" placeholder="موضوع متن خود را بنویسید" minlength="5" required >
+                <input class="form-control mb-3" type="text" name="product_title" placeholder="موضوع متن خود را بنویسید" minlength="5" required>
                 <textarea id="my-textarea" class="form-control" name="product_comment" rows="5"></textarea>
                 <button class="btn btn-primary mt-3 ml-2" type="submit">ارسال</button>
             </div>

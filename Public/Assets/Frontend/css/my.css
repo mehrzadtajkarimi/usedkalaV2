@@ -3,3 +3,7 @@
 }
 
 .dropdown:hover .dropdowncontent{display:block !important;} */
+
+.pointer{
+    cursor:pointer;
+  }

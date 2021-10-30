@@ -47,6 +47,8 @@ Route::group(function () {
 Route::group(function () {
     Route::get('/product/{id}', 'ProductController@show');
     Route::post('/product/comment/{id}', 'ProductController@add_comment');
+    Route::post('/product/comment/{id}/dislike', 'ProductController@dislike_comment');
+    Route::post('/product/comment/{id}/like', 'ProductController@like_comment');
     Route::get('/product/category/{id}/{slug}', 'ProductController@index');
 });
 

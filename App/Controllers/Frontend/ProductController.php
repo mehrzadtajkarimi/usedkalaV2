@@ -42,14 +42,14 @@ class ProductController extends Controller
         $photo           = $this->photoModel->read_single_photo_by_id('0', $id, 'Product')[0];
         $product         = $this->productModel->read_product($id);
         $productDiscount = $this->productModel->join_product__with_productDiscounts_discounts($id)[0] ?? '';
-        $productComment  = $this->productModel->join_product__with_comment($id['id'])?? '';
+        $productComment  = $this->productModel->join_product__with_comment($id['id']) ?? '';
         // dd(empty($productDiscount) ? $product : $productDiscount['discounts_status']);
         $data    = array(
             'comments' => $productComment ?? [],
             'product'  => empty($productDiscount) ? $product : $productDiscount,
             'photos'   => $photos,
             'photo'    => $photo,
-            'auth'     => SessionManager::get('auth')??null,
+            'auth'     => SessionManager::get('auth') ?? null,
         );
         return view('Frontend.product.show', $data);
     }
@@ -66,6 +66,23 @@ class ProductController extends Controller
             'title'       => $this->request->params()['product_title'],
             'ip'          => $this->request->ip(),
         ]);
+        return true;
+    }
+
+    public function dislike_comment()
+    {
+        $id = $this->request->get_param('id');
+        $this->commentModel->update([
+            'dislike'   => 'dislike' - 1,
+        ], ['id' => $id]);
+        return true;
+    }
+    public function like_comment()
+    {
+        $id = $this->request->get_param('id');
+        $this->commentModel->update([
+            'like'   => 'like' + 1,
+        ], ['id' => $id]);
         return true;
     }
 }

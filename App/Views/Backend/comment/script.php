@@ -22,17 +22,19 @@
                 reader.readAsDataURL(this.files[0]);
             }
         });
-        
+
         $('.status').click(function() {
-            var that   = this;
+            var that = this;
             var status = $(this).data('status');
-            var id     = $(this).data('id');
+            var id = $(this).data('id');
             $.ajax({
                 type: "post",
-                url: '<?= base_url() ?>admin/comment/status/'+id,
-                data: {'status':status},
+                url: '<?= base_url() ?>admin/comment/status/' + id,
+                data: {
+                    'status': status
+                },
                 success: function(data) {
-                   $(that).toggleClass('fa-thumbs-down text-danger fa-thumbs-up text-success')
+                    $(that).toggleClass('fa-thumbs-down text-danger fa-thumbs-up text-success')
                 }
             });
 
