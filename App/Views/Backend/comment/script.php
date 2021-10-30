@@ -22,13 +22,17 @@
                 reader.readAsDataURL(this.files[0]);
             }
         });
-        $('#status').click(function() {
+        
+        $('.status').click(function() {
+            var that   = this;
+            var status = $(this).data('status');
+            var id     = $(this).data('id');
             $.ajax({
                 type: "post",
-                url: '<?= base_url() ?>admin/comment/status/<?= $value['id'] ?>',
-                data: {status:<?= $value['status'] ?>},
+                url: '<?= base_url() ?>admin/comment/status/'+id,
+                data: {'status':status},
                 success: function(data) {
-                    window.location.reload(true);
+                   $(that).toggleClass('fa-thumbs-down text-danger fa-thumbs-up text-success')
                 }
             });
 

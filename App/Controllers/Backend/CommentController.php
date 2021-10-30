@@ -128,6 +128,6 @@ class CommentController extends Controller
             'status' => $status['status'] ? 0 : 1
         );
         $this->commentModel->status_down($param, $id);
-        return  Request::redirect('admin/comment');
+        return  true;
     }
 }

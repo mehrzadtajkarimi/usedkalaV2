@@ -43,7 +43,7 @@
                   <td class="text-center"><?= $value['entity_type'] ?></td>
                   <td class="text-center"><?= $value['title'] ?></td>
                   <td class="text-center">
-                      <i id="status" class="fa <?= $value['status']?'fa-thumbs-up text-success': 'fa-thumbs-down text-danger' ?> fa-2x pointer p-2" title="کلیک کنید تا وضعیت تغییر کند" ></i>
+                      <i id="status" class="status fa <?= $value['status']?'fa-thumbs-up text-success': 'fa-thumbs-down text-danger' ?> fa-2x pointer p-2" data-id="<?= $value['id'] ?>" data-status="<?= $value['status'] ?>" title="کلیک کنید تا وضعیت تغییر کند" ></i>
                   </td>
                   <td class="text-center">
                     <a href="<?= base_url() ?>admin/comment/<?= $value['id'] ?>/edit" type="button" class="shadow-sm btn btn-success btn-sm " style="padding: 0px 20px; border-radius: 18px;">
