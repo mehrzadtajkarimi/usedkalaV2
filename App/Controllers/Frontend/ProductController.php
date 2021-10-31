@@ -74,7 +74,6 @@ class ProductController extends Controller
         $id = $this->request->get_param('id');
         $this->commentModel->update([
             'dislike[+]' => 1,
-            'like[+]'    => 1,
         ], ['id' => $id]);
         return true;
     }
@@ -82,7 +81,6 @@ class ProductController extends Controller
     {
         $id = $this->request->get_param('id');
         $this->commentModel->update([
-            'dislike[+]' => 1,
             'like[+]'    => 1,
         ], ['id' => $id]);
         return true;

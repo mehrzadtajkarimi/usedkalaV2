@@ -23,7 +23,7 @@
                     کاربران
                     <i class="right fa fa-angle-left"></i>
                 </p>
-                <i class="nav-icon fa fa-dashboard"></i>
+                <i class="nav-icon fa fa-tachometer"></i>
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
