@@ -153,7 +153,8 @@ class  MysqlBaseModel extends BaseModel
         $columns_to,
         $where_1,
         $where_2 = null,
-        $where_3 = null
+        $where_3 = null,
+        $where_4 = null,
     ) {
         $query = "
         SELECT $column FROM $this->table
@@ -165,6 +166,9 @@ class  MysqlBaseModel extends BaseModel
         }
         if ($where_3) {
             return $this->connection->query("$query AND $where_1 AND $where_2 AND $where_3")->fetchAll();
+        }
+        if ($where_4) {
+            return $this->connection->query("$query AND $where_1 AND $where_2 AND $where_3 AND $where_4")->fetchAll();
         }
         return $this->connection->query("$query AND $where_1")->fetchAll();
     }

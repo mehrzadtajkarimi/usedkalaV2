@@ -90,7 +90,7 @@ class CategoryController extends Controller
             'parent_id'   => $get_param['id'],
             'name'        => $get_param['name'],
             'H1'          => $get_param['H1'],
-            'robots'      => $get_param['robot'],
+            'robot'      => $get_param['robot'],
             'canonical'   => $get_param['canonical'],
             'description' => $get_param['description'],
             'status'      => $get_param['status'] ?? '0',

@@ -52,10 +52,11 @@
             <ul id="menu-departments-menu" class="dropdown-menu yamm departments-menu-dropdown dropdowncontent">
                 <!-- inject menu as helper function -->
                 <?php if (isset($categoryLevelOne)) : ?>
-
+                    
                     <?php foreach ($categoryLevelOne as $valueLevelOne) : ?>
+                        <?php if ($valueLevelOne['status'] == 1 &&  $valueLevelOne['type'] == 0) : ?>
                         <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown dropdown-submenu">
-                            <a title="دسته اصلی" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" href="#"><?= $valueLevelOne['status'] == 1 ?  $valueLevelOne['name'] : '' ?> <span class="caret"></span></a>
+                            <a title="دسته اصلی" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" href="#"><?= $valueLevelOne['name']  ?> <span class="caret"></span></a>
                             <ul role="menu" class=" dropdown-menu">
                                 <li class="menu-item menu-item-object-static_block animate-dropdown">
                                     <div class="yamm-content">
@@ -106,6 +107,7 @@
                                 </li>
                             </ul>
                         </li>
+                        <?php endif; ?>
                     <?php endforeach; ?>
 
                 <?php endif; ?>

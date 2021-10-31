@@ -127,17 +127,25 @@
                 </p>
                 <span>
                     <span>آیا این دیدگاه برایتان مفید بود؟</span>
-                    <span class="m-2 pointer">
+                    <span class="m-2 pointer dislike">
                         <small><?= $value['dislike'] ?></small>
-                        <i  class=" dislike fa fa-thumbs-down text-muted fa-1x " data-id="<?= $value['id'] ?>"  title="کلیک کنید تا وضعیت تغییر کند"></i>
+                        <i class=" fa fa-thumbs-down text-muted fa-1x " data-id="<?= $value['id'] ?>" title="کلیک کنید تا وضعیت تغییر کند"></i>
                     </span>
-                    <span class="m-2 pointer">
+                    <span class="m-2 pointer like">
                         <small><?= $value['like'] ?></small>
-                        <i  class=" like fa fa-thumbs-up  fa-1x " data-id="<?= $value['id'] ?>"  title="کلیک کنید تا وضعیت تغییر کند"></i>
+                        <i class=" fa fa-thumbs-up  fa-1x " data-id="<?= $value['id'] ?>" title="کلیک کنید تا وضعیت تغییر کند"></i>
                     </span>
                 </span>
             </div>
         <?php endforeach; ?>
+        <!-- <script>
+            $(document).ready(function() {
+                $('.like').click(function() {
+                    alert('like');
+
+                });
+            });
+        </script> -->
         <form class="theForm" action="<?= base_url() ?>product/comment/<?= $product['id'] ?>" method="post">
             <div class="form-group mr-5 ml-5 mb-5">
                 <label for="my-textarea">
