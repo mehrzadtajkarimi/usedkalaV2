@@ -111,7 +111,7 @@ class BrandController extends Controller
             $file = new UploadedFile($files_param);
             $file_paths = $file->save();
             if ($file_paths) {
-                $is_update_photo = $this->photoModel->update_photo('Brand', $id, $file_paths[0], 'brand_image');
+                $is_update_photo = $this->photoModel->update_photo('Brand', $id['id'], $file_paths[0], 'brand_image');
 
                 if ($is_update_photo) {
                     FlashMessage::add("ویرایش برند بندی موفقیت انجام شد");
