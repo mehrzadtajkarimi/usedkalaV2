@@ -20,8 +20,7 @@
 
         $('.like').click(function() {
             var that = this;
-            var id   = $(this).data('id');
-            alert( $(this.i).data('id'));
+            var id   = $(this).children('i').data('id');
             $.ajax({
                 type: "post",
                 url: '<?= base_url() ?>product/comment/' + id + '/like',
@@ -33,7 +32,7 @@
         });
         $('.dislike').click(function() {
             var that = this;
-            var id   = $(this).data('id');
+            var id   = $(this).children('i').data('id');
             alert( $(this).data('id'));
             $.ajax({
                 type: "post",
