@@ -131,8 +131,7 @@
                         <small><?= $value['dislike'] ?></small>
                         <i  class=" fa fa-thumbs-down fa-1x " data-id="<?= $value['id'] ?>" title="کلیک کنید تا وضعیت تغییر کند"></i>
                     </span>
-                    <span class="m-2 pointer like text-dark
-                    0 ">
+                    <span class="m-2 pointer like text-dark">
                         <small><?= $value['like'] ?></small>
                         <i class=" fa fa-thumbs-up  fa-1x " data-id="<?= $value['id'] ?>" title="کلیک کنید تا وضعیت تغییر کند"></i>
                     </span>

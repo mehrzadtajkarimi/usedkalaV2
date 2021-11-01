@@ -38,6 +38,8 @@ class ProductController extends Controller
     public function show()
     {
         $id = $this->request->get_param('id');
+
+
         $photos          = $this->photoModel->read_photo_by_id($id, 'Product');
         $photo           = $this->photoModel->read_single_photo_by_id('0', $id, 'Product')[0];
         $product         = $this->productModel->read_product($id);
@@ -71,24 +73,36 @@ class ProductController extends Controller
 
     public function dislike_comment()
     {
-        $ObjSessionManager = SessionManager::set('dislike_comment', 1);
-        $id = $this->request->get_param('id');
+        $param_id = $this->request->get_param('id');
+        $comment  = $this->commentModel->read_comment($param_id['id']) ?? '';
 
-        dd($id['id']);
+        if (SessionManager::has('dislike_comment')) {
+            return;
+        }
+        $ObjSessionManager = SessionManager::set('dislike_comment', 1);
+
         $this->commentModel->update_comment([
-            'like[-]'    => $ObjSessionManager->remove('like_comment') ? 1:0,
+            'like[-]'    => $ObjSessionManager->remove('like_comment') ? 1 : 0,
             'dislike[+]' => $ObjSessionManager->get('dislike_comment'),
-        ], $id['id']);
-        return true;
+        ], $param_id['id']);
+
+        echo  $comment['dislike'];
     }
     public function like_comment()
     {
+        $param_id = $this->request->get_param('id');
+        $comment  = $this->commentModel->read_comment($param_id['id']) ?? '';
+
+        if (SessionManager::has('like_comment')) {
+            return;
+        }
         $ObjSessionManager = SessionManager::set('like_comment', 1);
-        $id = $this->request->get_param('id');
+
         $this->commentModel->update_comment([
-            'dislike[-]' => $ObjSessionManager->remove('dislike_comment') ? 1:0,
+            'dislike[-]' => $ObjSessionManager->remove('dislike_comment') ? 1 : 0,
             'like[+]'    => $ObjSessionManager->get('like_comment'),
-        ], $id['id']);
-        return true;
+        ], $param_id['id']);
+
+        echo  $comment['like'];
     }
 }
