@@ -167,7 +167,7 @@ class CategoryController extends Controller
             $file_paths = $file->save();
             if ($file_paths) {
 
-                $is_update_photo = $this->photoModel->update_photo('Category', $id, $file_paths[0], 'image_category');
+                $is_update_photo = $this->photoModel->update_photo('Category', $id['id'], $file_paths[0], 'image_category');
 
                 if ($is_update_photo) {
                     FlashMessage::add("ویرایش دسته بندی موفقیت انجام شد");
