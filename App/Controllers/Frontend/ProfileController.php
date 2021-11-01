@@ -40,14 +40,14 @@ class ProfileController extends Controller
         $cart_items = Basket::items();
 
 
-
         foreach ($cart_items as  $value) {
             $cart_total[] = $value['count'] * $value['price'];
         }
-        if (!is_array($cart_total)) {
-            $this->request->redirect('');
-        }
-
+        // if (!is_array($cart_total)) {
+        //     $this->request->redirect('profile');
+        // }
+        // dd($user_id);
+        
         if (Auth::is_login()) {
             $data = array(
                 'data' => $this->userModel->join_user_to_photo($user_id),
