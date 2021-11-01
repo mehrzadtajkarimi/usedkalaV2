@@ -95,8 +95,8 @@ class ProductController extends Controller
             $product_id = $this->productModel->create_product($params_create);
             foreach ($params['product-category'] as  $category_id) {
                 $this->productCategoriesModel->create_productCategories([
-                  'product_id'  => $product_id,
-                  'category_id' => $category_id
+                    'product_id'  => $product_id,
+                    'category_id' => $category_id
                 ]);
             }
             FlashMessage::add("مقادیر بدونه ضمیمه عکس با موفقیت در دیتابیس ذخیره شد", FlashMessage::WARNING);
@@ -111,13 +111,12 @@ class ProductController extends Controller
     public function edit()
     {
         $products_id = $this->request->get_param('id');
-        $category_id = $this->productCategoriesModel->read_productCategories($products_id);
 
-        if ($category_id) {
-            foreach ($category_id as  $value) {
-                $categories_selected[] = $value['id'];
-            }
-        }
+        $categories_selected = $this->productCategoriesModel->read_productCategories($products_id['id']);
+
+dd($this->categoryModel->category_tree_for_backend()[0]);
+dd($categories_selected[0]);
+    
         $data = array(
             'products'            => $this->productModel->read_product($products_id),
             'photo'               => $this->photoModel->read_photo($products_id),
@@ -145,15 +144,15 @@ class ProductController extends Controller
             'quantity'    => $params['product-quantity'],
             'meta_title'  => $params['product-meta'],
             'description' => $params['product-description'],
-            'featured'    => $params['product-featured'] == 'on' ? 1 : 0,
-            'sale'        => $params['product-sale'] == 'on' ? 1 : 0,
-            'status'      => $params['product-status'] == 'on' ? 1 : 0,
+            'featured'    => $params['product-featured'] ?? 1,
+            'sale'        => $params['product-sale'] ?? 1,
+            'status'      => $params['product-status'] ?? 1,
         );
-        $this->productModel->update_product($params_updated, $product_id);
+        $this->productModel->update_product($params_updated, $product_id['id']);
 
 
         if (!empty($params['product-category'])) {
-            $this->productCategoriesModel->delete_productCategories_by_product_id($product_id);
+            $this->productCategoriesModel->delete_productCategories_by_product_id($product_id['id']);
             foreach ($params['product-category'] as  $category_id) {
                 $this->productCategoriesModel->create_productCategories([
                     'product_id'  => $product_id,
@@ -170,7 +169,7 @@ class ProductController extends Controller
             $file_paths = $file->save();
             if ($file_paths) {
 
-                $is_update_photo = $this->photoModel->update_photo('Product', $product_id, $file_paths[0], 'product_image');
+                $is_update_photo = $this->photoModel->update_photo('Product', $product_id['id'], $file_paths[0], 'product_image');
 
                 if ($is_update_photo) {
                     FlashMessage::add("ویرایش محصول بندی موفقیت انجام شد");
@@ -198,11 +197,11 @@ class ProductController extends Controller
             FlashMessage::add("مقادیر  با موفقیت از دیتابیس حذف شد");
             return $this->request->redirect('admin/product');
         }
-        if ( $is_deleted_product && $is_deleted_photo) {
+        if ($is_deleted_product && $is_deleted_photo) {
             FlashMessage::add("مقادیر (بدون دسته بندی )  با موفقیت از دیتابیس حذف شد");
             return $this->request->redirect('admin/product', FlashMessage::WARNING);
         }
-        if ( $is_deleted_product ) {
+        if ($is_deleted_product) {
             FlashMessage::add("مقادیر (بدون دسته بندی و عکس )  با موفقیت از دیتابیس حذف شد");
             return $this->request->redirect('product', FlashMessage::WARNING);
         }

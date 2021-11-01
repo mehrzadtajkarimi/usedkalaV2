@@ -15,10 +15,10 @@
                 <label class="col-2 col-form-label" for="product-category">دسته </label>
                 <div class="col-10">
                     <select name='product-category[]' id="product_category" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
-                            <?php foreach ($categories as $value) : ?>
-                                <option value="<?= $value['id'] ?>" <?= in_array($value['id'], $categories_selected) ? 'selected' : ''  ?>><?= $value['name'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
+                        <?php foreach ($categories as $key => $value) : ?>
+                            <option value="<?= $value['id'] ?>" <?= in_array($value['id'], $categories_selected[$key]['id']) ? 'selected' : ''  ?>><?= $value['name'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
             </div>
             <div class="form-group row">
