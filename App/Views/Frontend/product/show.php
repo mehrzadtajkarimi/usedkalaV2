@@ -127,9 +127,9 @@
                 </p>
                 <span>
                     <span>آیا این دیدگاه برایتان مفید بود؟</span>
-                    <span class="m-2 pointer dislike">
+                    <span class="m-2 pointer dislike text-muted ">
                         <small><?= $value['dislike'] ?></small>
-                        <i class=" fa fa-thumbs-down text-muted fa-1x " data-id="<?= $value['id'] ?>" title="کلیک کنید تا وضعیت تغییر کند"></i>
+                        <i  class=" fa fa-thumbs-down fa-1x " data-id="<?= $value['id'] ?>" title="کلیک کنید تا وضعیت تغییر کند"></i>
                     </span>
                     <span class="m-2 pointer like">
                         <small><?= $value['like'] ?></small>

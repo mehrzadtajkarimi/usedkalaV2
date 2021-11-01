@@ -17,7 +17,7 @@ interface SessionContract
      */
     public static function set(string $key, $value): self;
 
-    public static function remove(string $key): void;
+    public static function remove(string $key): bool;
 
     public static function clear(): void;
 

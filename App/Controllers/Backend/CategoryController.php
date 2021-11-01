@@ -136,13 +136,19 @@ class CategoryController extends Controller
     public function edit()
     {
         $id = $this->request->get_param('id');
+        $get_type  = $get_param['type'] ?? false;
+        $type_key  = $get_type ? $this->type_amounts($get_type) : 0;
 
         $data = array(
             'category' => $this->categoryModel->first(['id' => $id]),
             'photo'    => $this->photoModel->first(['entity_id' => $id]),
             'robots'   => Tinyint::category_robots(),
         );
-        return view('Backend.category.edit', $data);
+        if ($get_type) {
+            return view("Backend.category.$type_key.edit", $data);
+
+        }
+        return view('Backend.category.product.edit', $data);
     }
 
 

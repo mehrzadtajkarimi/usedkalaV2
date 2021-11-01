@@ -71,18 +71,24 @@ class ProductController extends Controller
 
     public function dislike_comment()
     {
+        $ObjSessionManager = SessionManager::set('dislike_comment', 1);
         $id = $this->request->get_param('id');
-        $this->commentModel->update([
-            'dislike[+]' => 1,
-        ], ['id' => $id]);
+
+        dd($id['id']);
+        $this->commentModel->update_comment([
+            'like[-]'    => $ObjSessionManager->remove('like_comment') ? 1:0,
+            'dislike[+]' => $ObjSessionManager->get('dislike_comment'),
+        ], $id['id']);
         return true;
     }
     public function like_comment()
     {
+        $ObjSessionManager = SessionManager::set('like_comment', 1);
         $id = $this->request->get_param('id');
-        $this->commentModel->update([
-            'like[+]'    => 1,
-        ], ['id' => $id]);
+        $this->commentModel->update_comment([
+            'dislike[-]' => $ObjSessionManager->remove('dislike_comment') ? 1:0,
+            'like[+]'    => $ObjSessionManager->get('like_comment'),
+        ], $id['id']);
         return true;
     }
 }
