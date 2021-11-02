@@ -93,7 +93,7 @@ class CategoryController extends Controller
             'name'            => $get_param['name'],
             'H1'              => $get_param['H1'],
             'robot'           => $get_param['robot'],
-            'canonical'       => $get_param['canonical'],
+            'canonical'       => $get_param['Canonical'],
             'description'     => $get_param['description'],
             'status'          => $get_param['status'] ?? '0',
             'slug'            => create_slug($get_param['slug']),
