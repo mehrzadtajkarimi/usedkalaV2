@@ -1,3 +1,5 @@
+<script src='<?= asset_url() ?>Backend/plugins/ckeditor/ckeditor.js'></script>
+
 <div class="card">
     <div class="card-header">
         <h5>ویرایش زیر دسته (( <?= $category['name'] ?> ))</h5>
@@ -6,6 +8,18 @@
     <div class="card-body">
         <form action="<?= base_url() ?>admin/category/<?= $category['id'] ?>" method="post" enctype="multipart/form-data">
             <input type="hidden" name="_method" value="patch" />
+            <div class="form-group row">
+                <label for="title" class="col-sm-2 col-form-label">title</label>
+                <div class="col-sm-10">
+                    <input name="seo_title" type="text" class="form-control" id="title" value="<?= $category['seo_title'] ?? '' ?>" placeholder="جهت نمایش در title جستجو " autofocus>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="description" class="col-sm-2 col-form-label">description</label>
+                <div class="col-sm-10">
+                    <input name="seo_description" type="text" class="form-control" id="description" value="<?= $category['seo_description'] ?? '' ?>" placeholder="جهت نمایش در description جستجو " autofocus>
+                </div>
+            </div>
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">نام</label>
                 <div class="col-sm-10">
@@ -21,19 +35,20 @@
             <div class=" form-group row">
                     <label for="H1" class="col-2 col-form-label">H1</label>
                     <div class="col-10">
-                        <input name="H1" type="text" class="form-control" id="H1"  value="<?= $category['H1'] ?? '' ?>" placeholder="ترجیحا بین 20 تا 70 کاراکتر" required>
+                        <input name="H1" type="text" class="form-control" id="H1" value="<?= $category['H1'] ?? '' ?>" placeholder="ترجیحا بین 20 تا 70 کاراکتر" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="Canonical" class="col-2 col-form-label">Canonical</label>
                     <div class="col-10">
-                        <input name="canonical" type="text" class="form-control" id="Canonical" value="<?= $category['canonical'] ?? '' ?>" placeholder="لینک را وارد نمایی" required>
+                        <input name="canonical" type="text" class="form-control" id="Canonical" value="<?= $category['canonical'] ?? '' ?>" placeholder="لینک را وارد نمایی">
                     </div>
                 </div>
+
                 <div class=" form-group row">
-                    <label for="description" class="col-2 col-form-label"> درباره دسته بندی </label>
+                    <label for="textarea" class="col-2 col-form-label"> درباره دسته بندی </label>
                     <div class="col-10">
-                        <textarea name="description" type="text" class="form-control" id="description" placeholder="" rows="3" required><?= $category['description'] ?></textarea>
+                        <textarea name="description" type="text" class="form-control" id="textarea" placeholder="" rows="3" required><?= $category['description'] ?></textarea>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -41,7 +56,7 @@
                     <div class="col-10">
                         <select name='robot' id="robot" class="form-control ">
                             <?php foreach ($robots as $key => $value) : ?>
-                                <option value="<?= $key ?>" <?= $category['robot']==$key ?  'selected' : ''  ?>><?= $value ?></option>
+                                <option value="<?= $key ?>" <?= $category['robot'] == $key ?  'selected' : ''  ?>><?= $value ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -81,15 +96,15 @@
                                 </div>
                             </div>
                         </div>
-                        <?php include(BASEPATH . "App/Views/Backend/category/script.php") ?>
                     </div>
-                <?php endif; ?>
-                <div class="form-group row">
-                    <div class="col-sm-10">
-                        <button type="submit" class="btn btn-primary">ذخیره</button>
-                        <a href="<?= base_url() ?>admin/category" class="btn btn-danger">انصراف</a>
+                    <?php endif; ?>
+                    <div class="form-group row">
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary">ذخیره</button>
+                            <a href="<?= base_url() ?>admin/category" class="btn btn-danger">انصراف</a>
+                        </div>
                     </div>
-                </div>
-        </form>
-    </div>
-</div>
+                </form>
+            </div>
+        </div>
+        <?php include(BASEPATH . "App/Views/Backend/category/script.php") ?>

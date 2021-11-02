@@ -61,14 +61,14 @@ class Category extends MysqlBaseModel
     public function category_tree_for_frontend($parent_id = 0, $slug = NULL)
     {
         global $request;
-        $value = $this->inner_join(
+        $value = $this->left_join(
             "categories.*,photos.path,photos.alt",
             "photos",
             "id",
             "entity_id",
             "categories.parent_id={$parent_id['id']}",
-            "categories.id=photos.entity_id"
         );
+        return $value;
         if (!empty($value)) {
             array_push(
                 $this->property_category_tree_for_frontend,
@@ -82,7 +82,7 @@ class Category extends MysqlBaseModel
                     'description' => $value[0]['description'],
                 )
             );
-            return $this->property_category_tree_for_frontend;
+            // return       $this->property_category_tree_for_frontend;
         } else {
 
             return $request::redirect("product/category/$parent_id/$slug");

@@ -248,7 +248,7 @@ class Product extends MysqlBaseModel
             "products.id=$id",
         );
     }
-    public function join_product__with_single_photo_by_category_id($category_id)
+    public function join_product__with_single_photo_by_category_id()
     {
         return $this->inner_join(
             "products.*,

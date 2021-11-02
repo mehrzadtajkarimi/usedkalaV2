@@ -1,3 +1,5 @@
+<script src='<?= asset_url() ?>Backend/plugins/ckeditor/ckeditor.js'></script>
+
 <div class="card">
     <div class="card-header">
         <h5>ایجاد زیر دسته (( <?= $category['name'] ?> ))</h5>
@@ -6,6 +8,18 @@
     <div class="card-body">
 
         <form action="<?= base_url() ?>admin/category/<?= $category['id'] ?>" method="post" enctype="multipart/form-data">
+            <div class="form-group row">
+                <label for="title" class="col-sm-2 col-form-label">title</label>
+                <div class="col-sm-10">
+                    <input name="seo_title" type="text" class="form-control" id="title" placeholder="جهت نمایش در title جستجو " autofocus>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="seo_description" class="col-sm-2 col-form-label">description</label>
+                <div class="col-sm-10">
+                    <input name="seo_description" type="text" class="form-control" id="seo_description" placeholder="جهت نمایش در description جستجو " autofocus>
+                </div>
+            </div>
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">نام</label>
                 <div class="col-sm-10">
@@ -27,7 +41,7 @@
                 <div class="form-group row">
                     <label for="Canonical" class="col-2 col-form-label">Canonical</label>
                     <div class="col-10">
-                        <input name="Canonical" type="text" class="form-control" id="Canonical" placeholder="لینک را وارد نمایی" required>
+                        <input name="Canonical" type="text" class="form-control" id="Canonical" placeholder="لینک را وارد نمایی" >
                     </div>
                 </div>
                 <div class=" form-group row">
@@ -42,7 +56,9 @@
                 <div class="form-group row">
                     <label for="description" class="col-2 col-form-label"> درباره دسته بندی </label>
                     <div class="col-10">
-                        <textarea name="description" type="text" class="form-control" id="description" placeholder="" rows="3" required></textarea>
+                    <textarea name="description" class="form-control"  id="textarea"rows="3" required></textarea>
+
+                        <!-- <textarea name="description" type="text" class="form-control" id="textarea" placeholder="" rows="3" required></textarea> -->
                     </div>
                 </div>
                 <div class="form-group row">
@@ -69,3 +85,4 @@
         </form>
     </div>
 </div>
+<?php include(BASEPATH . "App/Views/Backend/category/script.php") ?>
