@@ -265,12 +265,12 @@ class  MysqlBaseModel extends BaseModel
         ON $this->table.$columns_as = $join.$columns_to
         ";
         if ($where_2) {
-            return $this->connection->query("$query AND $where_1 AND $where_2")->fetchAll();
+            return $this->connection->query("$query WHERE $where_1 AND $where_2")->fetchAll();
         }
         if ($where_3) {
-            return $this->connection->query("$query AND $where_1 AND $where_2 AND $where_3")->fetchAll();
+            return $this->connection->query("$query WHERE $where_1 AND $where_2 AND $where_3")->fetchAll();
         }
-        return $this->connection->query("$query AND $where_1")->fetchAll();
+        return $this->connection->query("$query WHERE $where_1")->fetchAll();
     }
 
 

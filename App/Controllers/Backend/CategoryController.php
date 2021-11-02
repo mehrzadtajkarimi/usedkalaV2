@@ -86,15 +86,17 @@ class CategoryController extends Controller
 
 
         $request = array(
-            'type'        => $type_key,
-            'parent_id'   => $get_param['id'],
-            'name'        => $get_param['name'],
-            'H1'          => $get_param['H1'],
-            'robot'      => $get_param['robot'],
-            'canonical'   => $get_param['canonical'],
-            'description' => $get_param['description'],
-            'status'      => $get_param['status'] ?? '0',
-            'slug'        => create_slug($get_param['slug']),
+            'type'            => $type_key,
+            'seo_description' => $get_param['seo_description'],
+            'seo_title'       => $get_param['seo_title'],
+            'parent_id'       => $get_param['id'],
+            'name'            => $get_param['name'],
+            'H1'              => $get_param['H1'],
+            'robot'           => $get_param['robot'],
+            'canonical'       => $get_param['canonical'],
+            'description'     => $get_param['description'],
+            'status'          => $get_param['status'] ?? '0',
+            'slug'            => create_slug($get_param['slug']),
         );
         $files                = $this->request->files();
         $files_param          = $files['image_category'];
@@ -177,13 +179,15 @@ class CategoryController extends Controller
             }
         } else {
             $this->categoryModel->update_category([
-                'slug'        => create_slug($params['slug']),
-                'name'        => $params['name'],
-                'H1'          => $params['H1'],
-                'robot'       => $params['robot'],
-                'canonical'   => $params['canonical'],
-                'description' => $params['description'],
-                'status'      => $params['status'] == 'on' ? 1 : 0,
+                'slug'            => create_slug($params['slug']),
+                'seo_description' => $params['seo_description'],
+                'seo_title'       => $params['seo_title'],
+                'name'            => $params['name'],
+                'H1'              => $params['H1'],
+                'robot'           => $params['robot'],
+                'canonical'       => $params['canonical'],
+                'description'     => $params['description'],
+                'status'          => $params['status'] == 'on' ? 1 : 0,
             ], $id);
             FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
         }
