@@ -1,5 +1,6 @@
 .env
 /vendor/
 /Public/Storage/*
-
+.htaccess
+php.ini
 
