@@ -1,4 +1,5 @@
 <?php
+
 use App\Models\Category;
 use App\Models\Discount;
 use App\Models\Photo;
@@ -11,7 +12,7 @@ function base_url($route = null)
 }
 function base_url_admin($route = null)
 {
-    return  $_ENV['BASE_URL'] . 'admin/'.$route;
+    return  $_ENV['BASE_URL'] . 'admin/' . $route;
 }
 function asset_url($route = null)
 {
@@ -40,22 +41,33 @@ function inject_menu()
         $cart_total[] = $value['count'] * $value['price'];
     }
     $categoryModel = new Category;
+    $photoModel    = new Photo;
     $categoryLevelOne = $categoryModel->get('*', ['parent_id' => 0]);
     foreach ($categoryLevelOne as $LevelOne) {
-        $categoryLevelTwo[$LevelOne['id']] =  $categoryModel->inner_join(
-            "categories.*,
-            photos.id AS photo_id,
-            photos.alt AS photo_alt,
-            photos.path AS photo_path",
-            "photos",
-            "id",
-            "entity_id",
-            "photos.entity_type='Category'",
-            "categories.parent_id={$LevelOne['id']}",
-            "categories.id=photos.entity_id",
-        );
+        $has_photo_level_two = $categoryModel->get('id', ['parent_id' => $LevelOne['id']]);
+        foreach ($has_photo_level_two as  $value_level_two) {
+            $has_photos = $photoModel->get('id', ['entity_id' => $value_level_two, 'entity_type' => 'Category']);
+            if (!empty($has_photos)) {
+                foreach ($has_photos  as  $value) {
+
+
+                    $categoryLevelTwo[$LevelOne['id']]  =  $categoryModel->inner_join(
+                        "categories.*,
+                            photos.id AS photo_id,
+                            photos.alt AS photo_alt,
+                            photos.path AS photo_path",
+                        "photos",
+                        "id",
+                        "entity_id",
+                        "photos.entity_type='Category'",
+                        "categories.parent_id={$value}",
+                        "categories.id=photos.entity_id",
+                    );
+                }
+            }
+            $categoryLevelTwo[$LevelOne['id']] = $categoryModel->get('*', ['parent_id' => $LevelOne['id']]);
+        }
     }
-    // dd($_SESSION);
 
     if ($categoryLevelOne) {
         return  [
@@ -64,7 +76,7 @@ function inject_menu()
             'cart_total' => array_sum($cart_total ?? []),
             'cart_count' => $cart_count,
             'cart_items' => $cart_items,
-            'authenticated'=> Auth::is_login(),
+            'authenticated' => Auth::is_login(),
         ];
     }
     return [];
