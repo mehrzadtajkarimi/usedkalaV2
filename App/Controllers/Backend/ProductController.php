@@ -112,15 +112,22 @@ class ProductController extends Controller
     {
         $products_id = $this->request->get_param('id');
 
-        $categories_selected = $this->productCategoriesModel->read_productCategories($products_id['id']);
+        $categories_selected = $this->productCategoriesModel->read_productCategories($products_id);
 
-        
-        
-        
+        // dd($categories_selected);
+        // dd($this->categoryModel->category_tree_for_backend());
+
+        // [
+        // ["ID"=>4]
+        // ]
+
         // foreach ($this->categoryModel->category_tree_for_backend() as $key => $value) {
         //     echo '<pre>';
-        //     var_dump(in_array($value['id'],$categories_selected));
+        //     // var_dump(in_array($value['id'], $categories_selected[$key]['id']));
+        //     // $needle=[[]];
+        //     // $categories_selected[]
         //     echo '</pre><br>';
+        //     die;
         // }
 
 

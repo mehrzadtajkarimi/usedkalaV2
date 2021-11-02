@@ -23,12 +23,13 @@ class Product_category extends MysqlBaseModel
 
     public function read_productCategories($product_id = null)
     {
-        $category_id =  $this->get('category_id', ['product_id' => $product_id]);
-
-        foreach ($category_id as $value) {
-            $categories[] =$this->connection->select('categories', ['id', 'name'], ['id' => $value])[0];
-        }
-
+        $categories =  $this->inner_join(
+            '*',
+            'categories',
+            'category_id',
+            'id',
+            "product_categories.product_id={$product_id['id']}",
+        );
         return $categories;
     }
 
