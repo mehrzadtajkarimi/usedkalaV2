@@ -114,9 +114,18 @@ class ProductController extends Controller
 
         $categories_selected = $this->productCategoriesModel->read_productCategories($products_id['id']);
 
-dd($this->categoryModel->category_tree_for_backend()[0]);
-dd($categories_selected[0]);
-    
+        
+        
+        
+        // foreach ($this->categoryModel->category_tree_for_backend() as $key => $value) {
+        //     echo '<pre>';
+        //     var_dump(in_array($value['id'],$categories_selected));
+        //     echo '</pre><br>';
+        // }
+
+
+        // dd($categories_selected,$this->categoryModel->category_tree_for_backend() );
+
         $data = array(
             'products'            => $this->productModel->read_product($products_id),
             'photo'               => $this->photoModel->read_photo($products_id),
