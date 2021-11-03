@@ -40,7 +40,7 @@
                         <div class="col">
                           <div class="form-group ">
                             <label> دسته بندی انتخابی</label>
-                            <select name='category_id' id="slider_category" class="form-control select2 select2-hidden-accessible " style="width: 100%;text-align: right" multiple="multiple">
+                            <select name='category_id' id="slider_category" class=" form-control select2 select2-hidden-accessible " style="width: 100%;text-align: right" multiple="multiple">
                               <?php foreach ($categories as $value) : ?>
                                 <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
                               <?php endforeach; ?>
