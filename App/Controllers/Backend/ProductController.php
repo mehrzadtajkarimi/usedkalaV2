@@ -111,34 +111,17 @@ class ProductController extends Controller
     public function edit()
     {
         $products_id = $this->request->get_param('id');
-
         $categories_selected = $this->productCategoriesModel->read_productCategories($products_id);
-
-        // dd($categories_selected);
-        // dd($this->categoryModel->category_tree_for_backend());
-
-        // [
-        // ["ID"=>4]
-        // ]
-
-        // foreach ($this->categoryModel->category_tree_for_backend() as $key => $value) {
-        //     echo '<pre>';
-        //     // var_dump(in_array($value['id'], $categories_selected[$key]['id']));
-        //     // $needle=[[]];
-        //     // $categories_selected[]
-        //     echo '</pre><br>';
-        //     die;
-        // }
-
-
-        // dd($categories_selected,$this->categoryModel->category_tree_for_backend() );
-
+		$selectedCats=[];
+        foreach ($categories_selected as $selectedCatRow) {
+            $selectedCats[$selectedCatRow['id']]=$selectedCatRow;
+        }
         $data = array(
             'products'            => $this->productModel->read_product($products_id),
             'photo'               => $this->photoModel->read_photo($products_id),
             'brands'              => $this->brandModel->read_brand(),
             'categories'          => $this->categoryModel->category_tree_for_backend(),
-            'categories_selected' => $categories_selected ?? [],
+            'categories_selected' => $selectedCats,
         );
         view('Backend.product.edit', $data);
     }

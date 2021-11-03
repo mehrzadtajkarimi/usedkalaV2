@@ -2,5 +2,6 @@
 /vendor/
 /Public/Storage/*
 .htaccess
+/Public/.htaccess
 php.ini
 
