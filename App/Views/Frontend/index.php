@@ -176,7 +176,7 @@
                                                             <div class="yith-wcwl-add-to-wishlist">
                                                                 <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                             </div>
-                                                            <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                            <a href="<?= base_url() . 'product/' . $value['product_id'] ?>" class="woocommerce-LoopProduct-link">
                                                                 <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image" alt="">
                                                                 <span class="price">
                                                                     <ins>
@@ -253,7 +253,7 @@
                                                             <div class="yith-wcwl-add-to-wishlist">
                                                                 <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                             </div>
-                                                            <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                            <a href="<?= base_url() . 'product/' . $value['product_id'] ?>" class="woocommerce-LoopProduct-link">
                                                                 <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image" alt="<?= $value['alt'] ?>">
                                                                 <span class="price">
                                                                     <ins>
@@ -312,11 +312,11 @@
                         <div class="woocommerce columns-5">
                             <div class="products">
                                 <?php foreach ($featured_products as $key => $value) : ?>
-                                   <div class="product-category product <?= $key === array_key_first($featured_products) ? 'first':'' ?> <?= $key === array_key_last($featured_products) ? 'last':'' ?>">
+                                    <div class="product-category product <?= $key === array_key_first($featured_products) ? 'first' : '' ?> <?= $key === array_key_last($featured_products) ? 'last' : '' ?>">
                                         <a href="product-category.html">
-                                            <img width="224" height="197"  src="<?= $value['path'] ?>" alt="<?= $value['alt'] ?>">
+                                            <img width="224" height="197" src="<?= $value['path'] ?>" alt="<?= $value['alt'] ?>">
                                             <h2 class="woocommerce-loop-category__title">
-                                            <?= $value['title'] ?>
+                                                <?= $value['title'] ?>
                                             </h2>
                                         </a>
                                     </div>
@@ -785,13 +785,13 @@
                                     <div class="container-fluid">
                                         <div class="woocommerce">
                                             <div class="products">
-                                                <?php foreach ($sale_products as $value) : ?>
+                                                <?php foreach ($product_servers as $value) : ?>
 
                                                     <div class="product">
                                                         <div class="yith-wcwl-add-to-wishlist">
                                                             <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                         </div>
-                                                        <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                        <a href="<?= base_url() . 'product/' . $value['id'] ?>" class="woocommerce-LoopProduct-link">
                                                             <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image" alt="<?= $value['alt'] ?>">
                                                             <span class="price">
                                                                 <ins>
@@ -823,35 +823,36 @@
                                     <div class="container-fluid">
                                         <div class="woocommerce">
                                             <div class="products">
-                                                <div class="product">
-                                                    <div class="yith-wcwl-add-to-wishlist">
-                                                        <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                <?php foreach ($product_switch as $value) : ?>
+                                                    <div class="product">
+                                                        <div class="yith-wcwl-add-to-wishlist">
+                                                            <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                        </div>
+                                                        <a href="<?= base_url() . 'product/' . $value['id'] ?>" class="woocommerce-LoopProduct-link">
+                                                            <span class="onsale">
+                                                                <span class="woocommerce-Price-amount amount" dir="rtl">
+                                                                    2,000,000 ریال</span>
+                                                            </span>
+                                                            <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image" alt="<?= $value['alt'] ?>">
+                                                            <span class="price">
+                                                                <ins>
+                                                                    <span class="amount" dircetion="rtl"> 150,000,000
+                                                                        ریال</span>
+                                                                </ins>
+                                                                <del>
+                                                                    <span class="amount" dircetion="rtl">200,000,000 ریال</span>
+                                                                </del>
+                                                                <span class="amount" dircetion="rtl"> </span>
+                                                            </span>
+                                                            <h2 class="woocommerce-loop-product__title">
+                                                                Bluetooth on-ear PureBass Headphones</h2>
+                                                        </a>
+                                                        <div class="hover-area">
+                                                            <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                            <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
+                                                        </div>
                                                     </div>
-                                                    <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
-                                                        <span class="onsale">
-                                                            <span class="woocommerce-Price-amount amount" dir="rtl">
-                                                                2,000,000 ریال</span>
-                                                        </span>
-                                                        <img src="<?= asset_url() ?>Frontend/images/products/7.jpg" width="224" height="197" class="wp-post-image" alt="">
-                                                        <span class="price">
-                                                            <ins>
-                                                                <span class="amount" dircetion="rtl"> 150,000,000
-                                                                    ریال</span>
-                                                            </ins>
-                                                            <del>
-                                                                <span class="amount" dircetion="rtl">200,000,000 ریال</span>
-                                                            </del>
-                                                            <span class="amount" dircetion="rtl"> </span>
-                                                        </span>
-                                                        <!-- /.price -->
-                                                        <h2 class="woocommerce-loop-product__title">
-                                                            Bluetooth on-ear PureBass Headphones</h2>
-                                                    </a>
-                                                    <div class="hover-area">
-                                                        <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
-                                                        <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
-                                                    </div>
-                                                </div>
+                                                <?php endforeach; ?>
                                             </div>
                                             <!-- .woocommerce -->
                                         </div>
@@ -920,270 +921,39 @@
                         <div class="container-fluid" dir="ltr">
                             <div class="woocommerce columns-5">
                                 <div class="products">
-                                    <div class="landscape-product product">
-                                        <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                            <div class="media">
-                                                <img class="wp-post-image" src="<?= asset_url() ?>Frontend/images/products/card-2.jpg" alt="">
-                                                <div class="media-body" style="direction: rtl;">
-                                                    <span class="price">
-                                                        <ins>
-                                                            <span class="amount" dircetion="rtl"> </span>
-                                                        </ins>
-                                                        <span class="amount" dircetion="rtl">500.000.000 ریال</span>
-                                                    </span>
-                                                    <!-- .price -->
-                                                    <h2 class="woocommerce-loop-product__title">Headset 3D
-                                                        Glasses VR for Android</h2>
-                                                    <div class="techmarket-product-rating">
-                                                        <div title="Rated 0 out of 5" class="star-rating">
-                                                            <span style="width:0%">
-                                                                <strong class="rating">0</strong> out of
-                                                                5</span>
+                                    <?php foreach ($product_servers as $value) : ?>
+                                        <div class="landscape-product product">
+                                            <a class="woocommerce-LoopProduct-link" href="<?= base_url() . 'product/' . $value['id'] ?>">
+                                                <div class="media">
+                                                    <img class="wp-post-image" src="<?= $value['path'] ?>" alt="<?= $value['alt'] ?>">
+                                                    <div class="media-body" style="direction: rtl;">
+                                                        <span class="price">
+                                                            <ins>
+                                                                <span class="amount" dircetion="rtl"> </span>
+                                                            </ins>
+                                                            <span class="amount" dircetion="rtl">500.000.000 ریال</span>
+                                                        </span>
+                                                        <!-- .price -->
+                                                        <h2 class="woocommerce-loop-product__title">Headset 3D
+                                                            Glasses VR for Android</h2>
+                                                        <div class="techmarket-product-rating">
+                                                            <div title="Rated 0 out of 5" class="star-rating">
+                                                                <span style="width:0%">
+                                                                    <strong class="rating">0</strong> out of
+                                                                    5</span>
+                                                            </div>
+                                                            <span class="review-count">(0)</span>
                                                         </div>
-                                                        <span class="review-count">(0)</span>
+                                                        <!-- .techmarket-product-rating -->
                                                     </div>
-                                                    <!-- .techmarket-product-rating -->
+                                                    <!-- .media-body -->
                                                 </div>
-                                                <!-- .media-body -->
-                                            </div>
-                                            <!-- .media -->
-                                        </a>
-                                        <!-- .woocommerce-LoopProduct-link -->
-                                    </div>
-                                    <!-- .landscape-product -->
-                                    <div class="landscape-product product">
-                                        <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                            <div class="media">
-                                                <img class="wp-post-image" src="<?= asset_url() ?>Frontend/images/products/card-6.jpg" alt="">
-                                                <div class="media-body" style="direction: rtl;">
-                                                    <span class="price">
-                                                        <ins>
-                                                            <span class="amount" dircetion="rtl"> </span>
-                                                        </ins>
-                                                        <span class="amount" dircetion="rtl"> $600</span>
-                                                    </span>
-                                                    <!-- .price -->
-                                                    <h2 class="woocommerce-loop-product__title">ZenBook 3
-                                                        Ultrabook 8GB 512SSD W10</h2>
-                                                    <div class="techmarket-product-rating">
-                                                        <div title="Rated 0 out of 5" class="star-rating">
-                                                            <span style="width:0%">
-                                                                <strong class="rating">0</strong> out of
-                                                                5</span>
-                                                        </div>
-                                                        <span class="review-count">(0)</span>
-                                                    </div>
-                                                    <!-- .techmarket-product-rating -->
-                                                </div>
-                                                <!-- .media-body -->
-                                            </div>
-                                            <!-- .media -->
-                                        </a>
-                                        <!-- .woocommerce-LoopProduct-link -->
-                                    </div>
-                                    <!-- .landscape-product -->
-                                    <div class="landscape-product product">
-                                        <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                            <div class="media">
-                                                <img class="wp-post-image" src="<?= asset_url() ?>Frontend/images/products/card-3.jpg" alt="">
-                                                <div class="media-body" style="direction: rtl;">
-                                                    <span class="price">
-                                                        <ins>
-                                                            <span class="amount" dircetion="rtl"> 66.000.000 ریال</span>
-                                                        </ins>
-                                                        <br>
-                                                        <del>
-                                                            <span class="amount" dircetion="rtl">74.000.000 ریال</span>
-                                                        </del>
-                                                        <span class="amount" dircetion="rtl"> </span>
-                                                    </span>
-                                                    <!-- .price -->
-                                                    <h2 class="woocommerce-loop-product__title">PowerBank
-                                                        4400</h2>
-                                                    <div class="techmarket-product-rating">
-                                                        <div title="Rated 0 out of 5" class="star-rating">
-                                                            <span style="width:0%">
-                                                                <strong class="rating">0</strong> out of
-                                                                5</span>
-                                                        </div>
-                                                        <span class="review-count">(0)</span>
-                                                    </div>
-                                                    <!-- .techmarket-product-rating -->
-                                                </div>
-                                                <!-- .media-body -->
-                                            </div>
-                                            <!-- .media -->
-                                        </a>
-                                        <!-- .woocommerce-LoopProduct-link -->
-                                    </div>
-                                    <!-- .landscape-product -->
-                                    <div class="landscape-product product">
-                                        <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                            <div class="media">
-                                                <img class="wp-post-image" src="<?= asset_url() ?>Frontend/images/products/card-3.jpg" alt="">
-                                                <div class="media-body" style="direction: rtl;">
-                                                    <span class="price">
-                                                        <ins>
-                                                            <span class="amount" dircetion="rtl"> 66.000.000 ریال</span>
-                                                        </ins>
-                                                        <br>
-                                                        <del>
-                                                            <span class="amount" dircetion="rtl">74.000.000 ریال</span>
-                                                        </del>
-                                                        <span class="amount" dircetion="rtl"> </span>
-                                                    </span>
-                                                    <!-- .price -->
-                                                    <h2 class="woocommerce-loop-product__title">PowerBank
-                                                        4400</h2>
-                                                    <div class="techmarket-product-rating">
-                                                        <div title="Rated 0 out of 5" class="star-rating">
-                                                            <span style="width:0%">
-                                                                <strong class="rating">0</strong> out of
-                                                                5</span>
-                                                        </div>
-                                                        <span class="review-count">(0)</span>
-                                                    </div>
-                                                    <!-- .techmarket-product-rating -->
-                                                </div>
-                                                <!-- .media-body -->
-                                            </div>
-                                            <!-- .media -->
-                                        </a>
-                                        <!-- .woocommerce-LoopProduct-link -->
-                                    </div>
-                                    <!-- .landscape-product -->
-                                    <div class="landscape-product product">
-                                        <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                            <div class="media">
-                                                <img class="wp-post-image" src="<?= asset_url() ?>Frontend/images/products/card-5.jpg" alt="">
-                                                <div class="media-body" style="direction: rtl;">
-                                                    <span class="price">
-                                                        <ins>
-                                                            <span class="amount" dircetion="rtl"> 66.000.000 ریال</span>
-                                                        </ins>
-                                                        <br>
-                                                        <del>
-                                                            <span class="amount" dircetion="rtl">74.000.000 ریال</span>
-                                                        </del>
-                                                        <span class="amount" dircetion="rtl"> </span>
-                                                    </span>
-                                                    <!-- .price -->
-                                                    <h2 class="woocommerce-loop-product__title">Smart
-                                                        Watches 3 SWR50</h2>
-                                                    <div class="techmarket-product-rating">
-                                                        <div title="Rated 0 out of 5" class="star-rating">
-                                                            <span style="width:0%">
-                                                                <strong class="rating">0</strong> out of
-                                                                5</span>
-                                                        </div>
-                                                        <span class="review-count">(0)</span>
-                                                    </div>
-                                                    <!-- .techmarket-product-rating -->
-                                                </div>
-                                                <!-- .media-body -->
-                                            </div>
-                                            <!-- .media -->
-                                        </a>
-                                        <!-- .woocommerce-LoopProduct-link -->
-                                    </div>
-                                    <!-- .landscape-product -->
-                                    <div class="landscape-product product">
-                                        <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                            <div class="media">
-                                                <img class="wp-post-image" src="<?= asset_url() ?>Frontend/images/products/card-1.jpg" alt="">
-                                                <div class="media-body" style="direction: rtl;">
-                                                    <span class="price">
-                                                        <ins>
-                                                            <span class="amount" dircetion="rtl"> 66.000.000 ریال</span>
-                                                        </ins>
-                                                        <br>
-                                                        <del>
-                                                            <span class="amount" dircetion="rtl">74.000.000 ریال</span>
-                                                        </del>
-                                                        <span class="amount" dircetion="rtl"> </span>
-                                                    </span>
-                                                    <!-- .price -->
-                                                    <h2 class="woocommerce-loop-product__title">Unlocked
-                                                        Android 6″ Inch 4.4.2 Dual Core</h2>
-                                                    <div class="techmarket-product-rating">
-                                                        <div title="Rated 0 out of 5" class="star-rating">
-                                                            <span style="width:0%">
-                                                                <strong class="rating">0</strong> out of
-                                                                5</span>
-                                                        </div>
-                                                        <span class="review-count">(0)</span>
-                                                    </div>
-                                                    <!-- .techmarket-product-rating -->
-                                                </div>
-                                                <!-- .media-body -->
-                                            </div>
-                                            <!-- .media -->
-                                        </a>
-                                        <!-- .woocommerce-LoopProduct-link -->
-                                    </div>
-                                    <!-- .landscape-product -->
-                                    <div class="landscape-product product">
-                                        <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                            <div class="media">
-                                                <img class="wp-post-image" src="<?= asset_url() ?>Frontend/images/products/card-4.jpg" alt="">
-                                                <div class="media-body" style="direction: rtl;">
-                                                    <span class="price">
-                                                        <ins>
-                                                            <span class="amount" dircetion="rtl"> </span>
-                                                        </ins>
-                                                        <span class="amount" dircetion="rtl"> 80.000.000 ریال</span>
-                                                    </span>
-                                                    <!-- .price -->
-                                                    <h2 class="woocommerce-loop-product__title">Snap White
-                                                        Instant Digital Camera in White</h2>
-                                                    <div class="techmarket-product-rating">
-                                                        <div title="Rated 0 out of 5" class="star-rating">
-                                                            <span style="width:0%">
-                                                                <strong class="rating">0</strong> out of
-                                                                5</span>
-                                                        </div>
-                                                        <span class="review-count">(0)</span>
-                                                    </div>
-                                                    <!-- .techmarket-product-rating -->
-                                                </div>
-                                                <!-- .media-body -->
-                                            </div>
-                                            <!-- .media -->
-                                        </a>
-                                        <!-- .woocommerce-LoopProduct-link -->
-                                    </div>
-                                    <!-- .landscape-product -->
-                                    <div class="landscape-product product">
-                                        <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                            <div class="media">
-                                                <img class="wp-post-image" src="<?= asset_url() ?>Frontend/images/products/card-4.jpg" alt="">
-                                                <div class="media-body" style="direction: rtl;">
-                                                    <span class="price">
-                                                        <ins>
-                                                            <span class="amount" dircetion="rtl"> </span>
-                                                        </ins>
-                                                        <span class="amount" dircetion="rtl"> 80.000.000 ریال</span>
-                                                    </span>
-                                                    <!-- .price -->
-                                                    <h2 class="woocommerce-loop-product__title">Snap White
-                                                        Instant Digital Camera in White</h2>
-                                                    <div class="techmarket-product-rating">
-                                                        <div title="Rated 0 out of 5" class="star-rating">
-                                                            <span style="width:0%">
-                                                                <strong class="rating">0</strong> out of
-                                                                5</span>
-                                                        </div>
-                                                        <span class="review-count">(0)</span>
-                                                    </div>
-                                                    <!-- .techmarket-product-rating -->
-                                                </div>
-                                                <!-- .media-body -->
-                                            </div>
-                                            <!-- .media -->
-                                        </a>
-                                        <!-- .woocommerce-LoopProduct-link -->
-                                    </div>
-                                    <!-- .landscape-product -->
+                                                <!-- .media -->
+                                            </a>
+                                            <!-- .woocommerce-LoopProduct-link -->
+                                        </div>
+                                    <?php endforeach; ?>
+
                                 </div>
                             </div>
                             <!-- /.woocommerce -->
@@ -1252,7 +1022,7 @@
                                                             <div class="yith-wcwl-add-to-wishlist">
                                                                 <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
                                                             </div>
-                                                            <a href="single-product-fullwidth.html" class="woocommerce-LoopProduct-link">
+                                                            <a href="<?= base_url() . 'product/' . $value['id'] ?>" class="woocommerce-LoopProduct-link">
                                                                 <img src="<?= $value['photo_path'] ?>" width="224" height="197" class="wp-post-image" alt="">
                                                                 <span class="price">
                                                                     <ins>
@@ -1295,174 +1065,29 @@
                         <div class="container-fluid">
                             <div class="woocommerce columns-5">
                                 <div class="products">
-                                    <div class="landscape-product product">
-                                        <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                            <div class="media">
-                                                <img class="wp-post-image" src="<?= asset_url() ?>Frontend/images/products/card-3.jpg" alt="">
-                                                <div class="media-body" style="direction: rtl;">
-                                                    <span class="price">
-                                                        <ins>
-                                                            <span class="amount" dircetion="rtl"> جدید ترین هاردها رسید</span>
-                                                        </ins>
-                                                        <br>
-                                                        <span style="color:#acacac;font-size: 0.8em;">25 آبان 1398</span>
-                                                    </span>
-                                                    <h2 class="woocommerce-loop-product__title">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. </h2>
+                                    <?php foreach ($latest_blogs as $value) : ?>
+                                        <div class="landscape-product product">
+                                            <a class="woocommerce-LoopProduct-link" href="<?= base_url() . 'product/' . $value['id'] ?>">
+                                                <div class="media">
+                                                    <img class="wp-post-image" src="<?= $value['path'] ?>" alt="">
+                                                    <div class="media-body" style="direction: rtl;">
+                                                        <span class="price">
+                                                            <ins>
+                                                                <span class="amount" dircetion="rtl"> جدید ترین هاردها رسید</span>
+                                                            </ins>
+                                                            <br>
+                                                            <span style="color:#acacac;font-size: 0.8em;">25 آبان 1398</span>
+                                                        </span>
+                                                        <h2 class="woocommerce-loop-product__title">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. </h2>
+                                                    </div>
+                                                    <!-- .media-body -->
                                                 </div>
-                                                <!-- .media-body -->
-                                            </div>
-                                            <!-- .media -->
-                                        </a>
-                                        <!-- .woocommerce-LoopProduct-link -->
-                                    </div>
-                                    <!-- .landscape-product -->
-                                    <div class="landscape-product product">
-                                        <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                            <div class="media">
-                                                <img class="wp-post-image" src="<?= asset_url() ?>Frontend/images/products/card-2.jpg" alt="">
-                                                <div class="media-body" style="direction: rtl;">
-                                                    <span class="price">
-                                                        <ins>
-                                                            <span class="amount" dircetion="rtl"> محصولات جدید HPE رسید </span>
-                                                        </ins>
-                                                        <br>
-                                                        <span style="color:#acacac;font-size: 0.8em;">25 آبان 1398</span>
-                                                    </span>
-                                                    <h2 class="woocommerce-loop-product__title">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. </h2>
-                                                </div>
-                                                <!-- .media-body -->
-                                            </div>
-                                            <!-- .media -->
-                                        </a>
-                                        <!-- .woocommerce-LoopProduct-link -->
-                                    </div>
-                                    <!-- .landscape-product -->
-                                    <div class="landscape-product product">
-                                        <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                            <div class="media">
-                                                <img class="wp-post-image" src="<?= asset_url() ?>Frontend/images/products/card-3.jpg" alt="">
-                                                <div class="media-body" style="direction: rtl;">
-                                                    <span class="price">
-                                                        <ins>
-                                                            <span class="amount" dircetion="rtl"> جدید ترین هاردها رسید</span>
-                                                        </ins>
-                                                        <br>
-                                                        <span style="color:#acacac;font-size: 0.8em;">25 آبان 1398</span>
-                                                    </span>
-                                                    <h2 class="woocommerce-loop-product__title">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. </h2>
-                                                </div>
-                                                <!-- .media-body -->
-                                            </div>
-                                            <!-- .media -->
-                                        </a>
-                                        <!-- .woocommerce-LoopProduct-link -->
-                                    </div>
-                                    <!-- .landscape-product -->
-                                    <div class="landscape-product product">
-                                        <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                            <div class="media">
-                                                <img class="wp-post-image" src="<?= asset_url() ?>Frontend/images/products/card-3.jpg" alt="">
-                                                <div class="media-body" style="direction: rtl;">
-                                                    <span class="price">
-                                                        <ins>
-                                                            <span class="amount" dircetion="rtl"> جدید ترین هاردها رسید</span>
-                                                        </ins>
-                                                        <br>
-                                                        <span style="color:#acacac;font-size: 0.8em;">25 آبان 1398</span>
-                                                    </span>
-                                                    <h2 class="woocommerce-loop-product__title">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. </h2>
-                                                </div>
-                                                <!-- .media-body -->
-                                            </div>
-                                            <!-- .media -->
-                                        </a>
-                                        <!-- .woocommerce-LoopProduct-link -->
-                                    </div>
-                                    <!-- .landscape-product -->
-                                    <div class="landscape-product product">
-                                        <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                            <div class="media">
-                                                <img class="wp-post-image" src="<?= asset_url() ?>Frontend/images/products/card-3.jpg" alt="">
-                                                <div class="media-body" style="direction: rtl;">
-                                                    <span class="price">
-                                                        <ins>
-                                                            <span class="amount" dircetion="rtl"> جدید ترین هاردها رسید</span>
-                                                        </ins>
-                                                        <br>
-                                                        <span style="color:#acacac;font-size: 0.8em;">25 آبان 1398</span>
-                                                    </span>
-                                                    <h2 class="woocommerce-loop-product__title">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. </h2>
-                                                </div>
-                                                <!-- .media-body -->
-                                            </div>
-                                            <!-- .media -->
-                                        </a>
-                                        <!-- .woocommerce-LoopProduct-link -->
-                                    </div>
-                                    <!-- .landscape-product -->
-                                    <div class="landscape-product product">
-                                        <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                            <div class="media">
-                                                <img class="wp-post-image" src="<?= asset_url() ?>Frontend/images/products/card-3.jpg" alt="">
-                                                <div class="media-body" style="direction: rtl;">
-                                                    <span class="price">
-                                                        <ins>
-                                                            <span class="amount" dircetion="rtl"> جدید ترین هاردها رسید</span>
-                                                        </ins>
-                                                        <br>
-                                                        <span style="color:#acacac;font-size: 0.8em;">25 آبان 1398</span>
-                                                    </span>
-                                                    <h2 class="woocommerce-loop-product__title">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. </h2>
-                                                </div>
-                                                <!-- .media-body -->
-                                            </div>
-                                            <!-- .media -->
-                                        </a>
-                                        <!-- .woocommerce-LoopProduct-link -->
-                                    </div>
-                                    <!-- .landscape-product -->
-                                    <div class="landscape-product product">
-                                        <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                            <div class="media">
-                                                <img class="wp-post-image" src="<?= asset_url() ?>Frontend/images/products/card-3.jpg" alt="">
-                                                <div class="media-body" style="direction: rtl;">
-                                                    <span class="price">
-                                                        <ins>
-                                                            <span class="amount" dircetion="rtl"> جدید ترین هاردها رسید</span>
-                                                        </ins>
-                                                        <br>
-                                                        <span style="color:#acacac;font-size: 0.8em;">25 آبان 1398</span>
-                                                    </span>
-                                                    <h2 class="woocommerce-loop-product__title">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. </h2>
-                                                </div>
-                                                <!-- .media-body -->
-                                            </div>
-                                            <!-- .media -->
-                                        </a>
-                                        <!-- .woocommerce-LoopProduct-link -->
-                                    </div>
-                                    <!-- .landscape-product -->
-                                    <div class="landscape-product product">
-                                        <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                            <div class="media">
-                                                <img class="wp-post-image" src="<?= asset_url() ?>Frontend/images/products/card-3.jpg" alt="">
-                                                <div class="media-body" style="direction: rtl;">
-                                                    <span class="price">
-                                                        <ins>
-                                                            <span class="amount" dircetion="rtl"> جدید ترین هاردها رسید</span>
-                                                        </ins>
-                                                        <br>
-                                                        <span style="color:#acacac;font-size: 0.8em;">25 آبان 1398</span>
-                                                    </span>
-                                                    <h2 class="woocommerce-loop-product__title">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. </h2>
-                                                </div>
-                                                <!-- .media-body -->
-                                            </div>
-                                            <!-- .media -->
-                                        </a>
-                                        <!-- .woocommerce-LoopProduct-link -->
-                                    </div>
-                                    <!-- .landscape-product -->
+                                                <!-- .media -->
+                                            </a>
+                                            <!-- .woocommerce-LoopProduct-link -->
+                                        </div>
+                                    <?php endforeach; ?>
+
                                 </div>
                             </div>
                             <!-- .woocommerce -->

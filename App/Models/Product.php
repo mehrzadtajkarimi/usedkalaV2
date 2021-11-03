@@ -80,7 +80,7 @@ class Product extends MysqlBaseModel
     public function join_product_to_photo__for_latest_product()
     {
         return $this->inner_join_limit(
-            "*",
+            "products.*,products.id AS product_id,photos.path,photos.alt",
             "photos",
             "id",
             "entity_id",
@@ -93,7 +93,10 @@ class Product extends MysqlBaseModel
     public function join_product_to_photo__for_sale_product()
     {
         return $this->inner_join_sale(
-            "*",
+            "products.*,
+            products.id AS product_id,
+            photos.path,
+            photos.alt",
             "photos",
             "id",
             "entity_id",
@@ -152,8 +155,8 @@ class Product extends MysqlBaseModel
             "id",
             "entity_id",
             "products.id=$product_id",
-            "photos.type=0",
             "photos.entity_type='Product'",
+            "photos.type=0",
         );
     }
     public function join_product_to_brand($id)
@@ -226,8 +229,8 @@ class Product extends MysqlBaseModel
     public function join_product__with_photo_by_brand_id($brand_id)
     {
         return $this->inner_join(
-            "products.title AS product_title,
-             products.brand_id AS brand_id,
+            "products.id ,
+             products.title AS product_title,
              photos.path AS photo_path,
              photos.alt AS photo_alt",                 // column
             "photos",                    // -- table photos

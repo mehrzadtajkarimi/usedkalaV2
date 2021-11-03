@@ -19,6 +19,15 @@ class Blog extends MysqlBaseModel
         }
         return $this->find_by_id($id);
     }
+    public function join_blog_to_photo_by_limit($limit)
+    {
+        return $this->connection->query("
+        SELECT blogs.id AS blog_id , blogs.* , photos.* FROM blogs
+        INNER JOIN photos
+        ON blogs.id = photos.entity_id
+        LIMIT $limit
+        ")->fetchAll();
+    }
     public function read_blog_by_key($key = null)
     {
         if (is_null($key)) {

@@ -137,6 +137,24 @@ class Category extends MysqlBaseModel
 
         );
     }
+    public function join_category_to_product_categories($id)
+    {
+        $products = $this->inner_join(
+            "product_categories.product_id",
+            "product_categories",
+            "id",
+            "category_id",
+            "categories.id=$id",
+        );
+
+
+        $productModel = new Product();
+        foreach ($products as  $value) {
+            $product[] = $productModel->join_product_to_photo_by_id($value['product_id'])[0];
+        }
+
+        return  $product??[];
+    }
     public function left_join_category_to_photo($id)
     {
         return $this->left_join(
