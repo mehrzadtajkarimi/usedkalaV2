@@ -16,11 +16,10 @@
             }
         });
         $('#slider_category').change(function() {
-            var url = this.value;
-
-
-
-
+            $('#slider_product').attr('readonly');
+        });
+        $('#slider_category').change(function() {
+            $('#slider_product').attr('readonly');
         });
 
         $('#slider_product').select2({
