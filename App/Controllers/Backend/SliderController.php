@@ -53,18 +53,19 @@ class SliderController extends Controller
         }
         $params_create = array(
             'small_text'  => $params['slider-small'],
-            'product_id'  => $params['product_id']??'',
-            'category_id' => $params['category_id']??'',
+            'link'        => $params['slider-link'],
             'description' => $params['slider-description'],
             'status'      => $params['slider-status'] ?? 0,
+            'product_id'  => $params['product_id']??'',
+            'category_id' => $params['category_id']??'',
         );
 
         $files                   = $this->request->files();
         $files_param             = $files['slider_image'];
-        if ($files_param['size']< 150000) {
-            FlashMessage::add("حجم عکس باید بالا 150 k ", FlashMessage::WARNING);
-            return $this->request->redirect('admin/slider');
-        }
+        // if ($files_param['size']< 150000) {
+        //     FlashMessage::add("حجم عکس باید بالا 150 k ", FlashMessage::WARNING);
+        //     return $this->request->redirect('admin/slider');
+        // }
         $files_param_tmp_name    = $files_param['tmp_name'];
         $check_file_param_exists = !empty($files_param_tmp_name[0]);
         if ($check_file_param_exists) {
@@ -118,14 +119,17 @@ class SliderController extends Controller
         $params = $this->request->params();
         $id = $this->request->get_param('id');
 
+
+
         $params_update = array(
             'small_text'  => $params['slider-small'],
-            'product_id'  => $params['product_id'],
-            'category_id' => $params['category_id'],
+            'link'        => $params['slider-link'],
             'description' => $params['slider-description'],
             'status'      => $params['slider-status'] == 'on' ? 1 : 0,
+            'product_id'  => $params['product_id']??'',
+            'category_id' => $params['category_id']??'',
         );
-        $this->sliderModel->update_slider($params_update, $id);
+        $this->sliderModel->update_slider($params_update, $id['id']);
 
 
 

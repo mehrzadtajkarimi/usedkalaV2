@@ -33,7 +33,7 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-body">
-                                            <input name="product_image" id="input-edit" type="file">
+                                            <input name="slider_image" id="input-edit" type="file">
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-success" data-dismiss="modal">تایید</button>
@@ -68,9 +68,17 @@
                     <?php endforeach; ?>
                 </select>
             </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group ">
+                        <label for="slider-link">لینک مطلب</label>
+                        <input name="slider-link" type="text" class="form-control" id="slider-link" value="<?= $slider['link'] ?>"placeholder="link">
+                    </div>
+                </div>
+            </div>
             <div class="form-check row pt-2 pb-2">
-                <input name="product-status" type="checkbox" class="form-check-input" id="product-status" <?= $slider['status'] ?  'checked' : ''  ?>>
-                <label class="form-check-label" for="product-status">
+                <input name="slider-status" type="checkbox" class="form-check-input" id="slider-status" <?= $slider['status'] ?  'checked' : ''  ?>>
+                <label class="form-check-label" for="slider-status">
                     وضعیت
                 </label>
             </div>

@@ -23,11 +23,12 @@
                   <div class="modal-body">
                     <form action="<?= base_url() ?>admin/slider" method="post" class="p-1" enctype="multipart/form-data">
                       <input type="hidden" name="code" value="<?= rand(100000, 999999) ?>">
+
                       <div class="row">
                         <div class="col">
                           <div class="form-group ">
                             <label for="slider-small">خلاصه مطلب</label>
-                            <textarea name="slider-small" type="text" class="form-control" id="slider-small" rows="1" placeholder="" required></textarea>
+                            <textarea name="slider-small" type="text" class="form-control" id="slider-small" rows="1" placeholder=""></textarea>
                           </div>
                         </div>
                       </div>
@@ -67,11 +68,18 @@
                         <div class="col">
                           <div class="form-group" id="dd">
                             <label for="slider-description" class="col-form-label"> متن مطلب</label>
-                            <textarea name="slider-description" type="text" class="form-control" id="slider-description " placeholder="" rows="7" required></textarea>
+                            <textarea name="slider-description" type="text" class="form-control" id="slider-description " placeholder="" rows="7"></textarea>
                           </div>
                         </div>
                       </div>
-
+                      <div class="row">
+                        <div class="col">
+                          <div class="form-group ">
+                            <label for="slider-link">لینک مطلب</label>
+                            <input name="slider-link" type="text" class="form-control" id="slider-link" rows="1" placeholder="link"></input>
+                          </div>
+                        </div>
+                      </div>
 
                       <div class="pt-1 pb-4 form-check disabled ">
                         <input name="slider-status" type="checkbox" class="form-check-input " id="slider-status" checked>
