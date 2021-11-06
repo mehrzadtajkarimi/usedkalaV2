@@ -15,13 +15,19 @@
                 reader.readAsDataURL(this.files[0]);
             }
         });
+        $('#slider_product').select2({
+            'placeholder': ' محصول مورد نظر را انتخاب کنید',
+            'maximumSelectionLength': 1,
+        });
+
+        $('#slider_category').click(function(){
+            alert('slider_category')
+            // $('#slider_product').prop('disabled', true)
+        });
 
         $('#slider_product').click(function(){
-            $('#slider_category').prop('disabled', true)
-            $('#slider_product').select2({
-                'placeholder': ' محصول مورد نظر را انتخاب کنید',
-                'maximumSelectionLength': 1,
-            });
+            alert('slider_product')
+            // $('#slider_category').prop('disabled', true)
         });
 
         $('#slider_category').select2({
