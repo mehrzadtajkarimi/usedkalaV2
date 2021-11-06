@@ -84,8 +84,8 @@ class SliderController extends Controller
                 return $this->request->redirect('admin/slider');
             }
         } else {
-            $this->sliderModel->create_slider($params_create);
-            FlashMessage::add("مقادیر بدونه ضمیمه عکس با موفقیت در دیتابیس ذخیره شد", FlashMessage::WARNING);
+            // $this->sliderModel->create_slider($params_create);
+            FlashMessage::add("مقادیر بدونه ضمیمه عکس مقدور نیست", FlashMessage::WARNING);
             return $this->request->redirect('admin/slider');
         }
 

@@ -2,7 +2,12 @@
         $(document).ready(function() {
 
                 new WOW().init();
+                $("#form-login").submit(function(e) {
+                        e.preventDefault();
+                });
+
                 $("#phone-number").keyup(function(e) {
+                        e.preventDefault();
                         var request_login = $("#phone-number").val();
                         var model = '^09(1[0-9]|3[1-9]|2[1-9])-?[0-9]{3}-?[0-9]{4}'
                         if (request_login.match(model)) {

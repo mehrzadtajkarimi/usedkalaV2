@@ -43,10 +43,12 @@
                       <div class="row">
                         <div class="col">
                           <div class="form-group ">
-                            <label for="slug" class="col-form-label">عکس</label>
-                            <div class="card-block row">
-                              <div class="flex-row d-flex w-100 " id="coba"></div>
-                            </div>
+                            <label for="slider_image" class="col-form-label">عکس</label>
+                            <input name="slider_image" id="slider_image" type="file" class="form-control" required >
+
+                            <!-- <div class="card-block row">
+                              <div class="flex-row d-flex w-100 " id="coba" ></div>
+                            </div> -->
                           </div>
                         </div>
                       </div>
