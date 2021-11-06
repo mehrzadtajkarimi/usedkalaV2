@@ -9,7 +9,7 @@ use App\Utilities\FlashMessage;
 class SessionProvider extends AuthProvider
 {
     const AUTH_KEY = 'auth';
-    const TIME_EXPIRED = 120;
+    const TIME_EXPIRED = 3000;
 
     public function login(array $param, bool $is_admin = false)
     {
