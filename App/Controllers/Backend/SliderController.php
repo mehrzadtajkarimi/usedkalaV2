@@ -104,7 +104,7 @@ class SliderController extends Controller
             'slider'     => $this->sliderModel->read_slider($id),
             'photo'      => $this->photoModel->read_photo($id),
             'categories' => $this->categoryModel->read_category(),
-            'products'   => $this->productModel->read_product($id),
+            'products'   => $this->productModel->read_product(),
 
         );
         view('Backend.slider.edit', $data);
@@ -121,10 +121,10 @@ class SliderController extends Controller
         $params_update = array(
             'small_text'  => $params['slider-small'],
             'link'        => $params['slider-link'],
-            'description' => $params['slider-description'],
-            'status'      => $params['slider-status'] == 'on' ? 1 : 0,
             'product_id'  => $params['product_id']??'',
             'category_id' => $params['category_id']??'',
+            'description' => $params['slider-description'],
+            'status'      => $params['slider-status'] == 'on' ? 1 : 0,
         );
         $this->sliderModel->update_slider($params_update, $id['id']);
 

@@ -8,8 +8,16 @@
             <div class="row">
                 <div class="col">
                     <div class="form-group ">
-                        <label for="slider-small">خلاصه مطلب</label>
+                        <label for="slider-small">موضوع</label>
                         <textarea name="slider-small" type="text" class="form-control" id="slider-small" rows="1" placeholder="" required><?= $slider['small_text'] ?> </textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="slider-description" class="col-form-label"> متن </label>
+                        <textarea name="slider-description" type="text" class="form-control" id="slider-description" placeholder="" rows="7" required><?= $slider['description'] ?></textarea>
                     </div>
                 </div>
             </div>
@@ -45,44 +53,78 @@
                         </div>
                     <?php endif; ?>
                 </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label for="slider-description" class="col-form-label"> متن مطلب</label>
-                        <textarea name="slider-description" type="text" class="form-control" id="slider-description" placeholder="" rows="7" required><?= $slider['description'] ?></textarea>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-3">
+                    <div class="pt-1 pb-4  form-check">
+                        <input class="form-check-input" type="radio" name="slider-status-link" id="slider-status-link" value="link" checked>
+                        <label class="form-check-label" for="slider-status-link">
+                            لینک
+                        </label>
+                    </div>
+                </div>
+                <div class=" col-9">
+                    <div class="form-group ">
+                        <input name="slider-link" type="text" class="form-control" value="<?= $slider['link'] ?>" id="input_slider-link" required>
                     </div>
                 </div>
             </div>
-            <div class="form-group ">
-                <label> دسته بندی انتخابی</label>
-                <select name='category_id' id="slider_category" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
-                    <?php foreach ($categories as $value) : ?>
-                        <option value="<?= $value['id'] ?>" <?= $slider['category_id'] == $value['id'] ? 'selected' : '' ?>><?= $value['name'] ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
-            <div class="form-group ">
-                <label>محصول </label>
-                <select name='product_id' id="slider_product" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
-                    <?php foreach ($products as $value) : ?>
-                        <option value="<?= $value['id'] ?>" <?= $slider['product_id'] == $value['id'] ? 'selected' : '' ?>><?= $value['name'] ?></option>
-                    <?php endforeach; ?>
-                </select>
+
+            <div class="row">
+                <div class="col-3">
+                    <div class="pt-1 pb-4  form-check">
+                        <input class="form-check-input" type="radio" name="slider-status-category" id="slider-status-category" value="category">
+                        <label class="form-check-label" for="slider-status-category">
+                            دسته بندی انتخابی
+                        </label>
+                    </div>
+                </div>
+                <div class=" col-9">
+                    <div class="form-group ">
+                        <select name='category_id' id="slider_category" class=" form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
+                            <?php foreach ($categories as $value) : ?>
+                                <option value="<?= $value['id'] ?>" <?= $slider['category_id'] == $value['id'] ? 'selected' : '' ?>><?= $value['name'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
             </div>
             <div class="row">
-                <div class="col">
-                    <div class="form-group ">
-                        <label for="slider-link">لینک مطلب</label>
-                        <input name="slider-link" type="text" class="form-control" id="slider-link" value="<?= $slider['link'] ?>"placeholder="link">
+                <div class="col-3">
+                    <div class="pt-1 pb-4  form-check">
+                        <input class="form-check-input" type="radio" name="slider-status-product" id="slider-status-product" value="product">
+                        <label class="form-check-label" for="slider-status-product">
+                            محصول انتخابی
+                        </label>
                     </div>
                 </div>
+                <div class=" col-9">
+                    <select name="product_id" id="slider_product" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
+                        <?php foreach ($products as $value) : ?>
+                            <option value="<?= $value['id'] ?>" <?= $slider['product_id'] == $value['id'] ? 'selected' : '' ?>><?= $value['title'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
             </div>
-            <div class="form-check row pt-2 pb-2">
-                <input name="slider-status" type="checkbox" class="form-check-input" id="slider-status" <?= $slider['status'] ?  'checked' : ''  ?>>
-                <label class="form-check-label" for="slider-status">
-                    وضعیت
-                </label>
+            <div class="row">
+                <div class="form-check row pt-2 pb-2">
+                    <input name="slider-status" type="checkbox" class="form-check-input" id="slider-status" <?= $slider['status'] ?  'checked' : ''  ?>>
+                    <label class="form-check-label" for="slider-status">
+                        وضعیت
+                    </label>
+                </div>
             </div>
             <button type="submit" class="float-left btn btn-primary btn-block">ذخیره </button>
         </form>
+
+
+
+
+
+
+
     </div>
 </div>
