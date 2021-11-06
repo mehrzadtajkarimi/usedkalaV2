@@ -47,17 +47,14 @@ class SliderController extends Controller
     public function store()
     {
         $params = $this->request->params();
-        if ($params['product_id'] && $params['category_id'] ) {
-            FlashMessage::add("ذخیره سازی انجام نشد  فقط یک مورد قابلیت انتخاب دارد محصول یا دسته بندی !! ", FlashMessage::ERROR);
-            return $this->request->redirect('admin/slider');
-        }
+
         $params_create = array(
             'small_text'  => $params['slider-small'],
             'link'        => $params['slider-link'],
-            'description' => $params['slider-description'],
-            'status'      => $params['slider-status'] ?? 0,
             'product_id'  => $params['product_id']??'',
             'category_id' => $params['category_id']??'',
+            'description' => $params['slider-description'],
+            'status'      => $params['slider-status'] ?? 0,
         );
 
         $files                   = $this->request->files();

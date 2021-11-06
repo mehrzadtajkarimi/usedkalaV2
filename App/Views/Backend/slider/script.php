@@ -20,14 +20,28 @@
             'maximumSelectionLength': 1,
         });
 
-        $('#slider_category').click(function(){
-            alert('slider_category')
-            // $('#slider_product').prop('disabled', true)
+        $('#slider-status-link').click(function(event) {
+            // $('#slider-link').prop('disabled', false);
+            // $('#slider_category').prop('disabled', true);
+            // $('#input_slider-link').prop('disabled', true);
+            $("#slider_category,#slider_product").removeAttr("required");
+            $("#input_slider-link").attr("required", "required");
         });
 
-        $('#slider_product').click(function(){
-            alert('slider_product')
-            // $('#slider_category').prop('disabled', true)
+        $('#slider-status-product').click(function(event) {
+            // $('#slider_product').prop('disabled', false);
+            // $('#slider_category').prop('disabled', true);
+            // $('#input_slider-link').prop('disabled', true);
+            $("#slider_category,#input_slider-link").removeAttr("required");
+            $("#slider_product").attr("required", "required");
+        });
+
+        $('#slider-status-category').click(function(event) {
+            // $('#slider_category').prop('disabled', false);
+            // $('#slider_product').prop('disabled', true);
+            // $('#input_slider-link').prop('disabled', true);
+            $("#slider_product,#input_slider-link").removeAttr("required");
+            $("#slider_category").attr("required", "required");
         });
 
         $('#slider_category').select2({
