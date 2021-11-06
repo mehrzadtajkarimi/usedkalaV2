@@ -16,7 +16,7 @@
                 <div class="col-10">
                     <select name='product-category[]' id="product_category" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
                         <?php foreach ($categories as $key => $value) : ?>
-                            <option value="<?= $value['id'] ?>" <?= $value['id']== $categories_selected[$key]['id'] ? 'selected' : ''  ?>><?= $value['name'] ?></option>
+                            <option value="<?= $value['id'] ?>" <?php if (isset($categories_selected[$value['id']])) echo 'selected'; ?>><?= $value['name'] ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>

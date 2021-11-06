@@ -39,6 +39,7 @@
       </section>
     </div>
     <?php include_once BASEPATH  . 'App/Views/Backend/layouts/include/footer.php' ?>
+	<link rel="stylesheet" href="<?= base_url() ?>Assets/Backend/dist/css/meftahstyles.css">
 </body>
 
 </html>
