@@ -42,11 +42,11 @@
 
     </div>
 
-    <div id="login" class="shadow-lg card ">
-      <small>
+    <small>
 
-        <?= \App\Utilities\FlashMessage::show_message() ?>
-      </small>
+      <?= \App\Utilities\FlashMessage::show_message() ?>
+    </small>
+    <div id="login" class="shadow-lg card ">
       <div class="card-body register-card-body">
         <p class="login-box-msg text-muted">برای ورود یا ثبت نام کافیست شماره تماس خود را وارد کنید.</p>
 

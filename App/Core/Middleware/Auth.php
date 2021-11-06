@@ -18,7 +18,7 @@ class Auth extends User implements MiddlewareInterface
             if (isset($_POST['token']) || SessionManager::get('auth') && $this->is_admin(SessionManager::get('auth'))) {
                 return;
             }
-            FlashMessage::add("ابتدا وارد شوید :(", FlashMessage::WARNING);
+            // FlashMessage::add("ابتدا وارد شوید :(", FlashMessage::WARNING);
             return $request->redirect('admin/login');
         }
     }

@@ -13,6 +13,7 @@ class SessionProvider extends AuthProvider
 
     public function login(array $param, bool $is_admin = false)
     {
+        // dd($param);
         SessionManager::clear();
         $user  = $this->user_model->already_exists($param);
         $token = rand(1000, 9999);

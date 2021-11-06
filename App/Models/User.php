@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Contracts\MysqlBaseModel;
+use App\Utilities\FlashMessage;
 
 class User extends MysqlBaseModel
 {
@@ -31,7 +32,8 @@ class User extends MysqlBaseModel
     public function is_admin($user_id)
     {
         if ($user = $this->first(['id' => $user_id])) {
-            return $user['user_level'] == 0;
+
+            return $user['user_level'] == 0 ?: FlashMessage::add("  لطفا از ادمین سایت بخواهید دسترسی به پنل  را برای شما ایجاد کند! ", FlashMessage::WARNING);
         }
     }
     public function update_user(array $params, $id)

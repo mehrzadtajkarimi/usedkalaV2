@@ -19,13 +19,11 @@ class LoginController extends Controller
         if (is_numeric($request)) {
             Auth::login([
                 'phone'      => $request,
-                'user_level' => 1
             ]);
         }
         if (filter_var($request, FILTER_VALIDATE_EMAIL)) {
             Auth::login([
                 'email'      => $request,
-                'user_level' => 1
             ]);
         }
     }
