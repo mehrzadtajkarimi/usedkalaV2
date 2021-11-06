@@ -9,10 +9,11 @@ use App\Utilities\FlashMessage;
 class SessionProvider extends AuthProvider
 {
     const AUTH_KEY = 'auth';
-    const TIME_EXPIRED = 300;
+    const TIME_EXPIRED = 120;
 
     public function login(array $param, bool $is_admin = false)
     {
+        // dd($param);
         SessionManager::clear();
         $user  = $this->user_model->already_exists($param);
         $token = rand(1000, 9999);

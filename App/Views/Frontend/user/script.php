@@ -1,6 +1,14 @@
 <script>
         $(document).ready(function() {
+                $("#register").click(function(e) {
+                        url = $(this).attr('data-href');
+                        e.preventDefault();
+                        $.get(url, function() {
+                                alert("Data: ");
+                        });
 
+
+                });
 
                 $('#input-edit').change(function() {
                         var url = this.value;
@@ -22,54 +30,34 @@
 
 
                 new WOW().init();
-
-
-                $("#form-login").submit(function(e) {
-                        e.preventDefault();
-                });
-                // $("#form-token").submit(function(e) {
-                //         e.preventDefault();
-                // });
-
-
-                $("#login_input").keyup(function(e) {
+                $("#login").keyup(function(e) {
                         var request = $(this).val();
+                        var ready = false;
                         var email = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{3,}))$/
+                        // var email =/^([\w-\.]+@(?!gmail.com)(?!yahoo.com)(?!hotmail.com)([\w-]+\.)+[\w-]{2,4})?$/
                         var model = '^09(1[0-9]|3[1-9]|2[1-9])-?[0-9]{3}-?[0-9]{4}'
                         if (request.match(model)) {
-                                var form_login = $('#form-login');
-                                var url = form_login.attr('action');
-                                $.ajax({
-                                        type: 'post',
-                                        url: url,
-                                        data: form_login.serialize(), // serializes the form's elements.
-                                }).done(function(msg) {
-                                        $("#login").addClass('d-none');
-                                        $("#token").addClass('d-block');
-                                });
-                        }
-                        if (request.match(email)) {
-                                var form_login = $('#form-login');
-                                var url = form_login.attr('action');
-                                $.ajax({
-                                        type: 'post',
-                                        url: url,
-                                        data: form_login.serialize(), // serializes the form's elements.
-                                }).done(function(msg) {
-                                        $("#login").addClass('d-none');
-                                        $("#token").addClass('d-block');
-                                });
+                                var form = $('#form-login');
+                                var url = form.attr('action');
+                                ready = true;
                         }
 
+                        if (request.match(email)) {
+                                var form = $('#form-login');
+                                var url = form.attr('action');
+                                ready = true;
+                        }
+                        if (ready == true) {
+                                form.submit();
+                        }
                 });
-                $("#token_input").keyup(function(e) {
+                $("#token").keyup(function(e) {
                         var request = $(this).val();
                         var num_4 = '1000|[1-9][0-9][0-9][0-9]'
                         if (request.match(num_4)) {
-                                var form_token = $('#form-token');
-
-                                form_token.submit();
-
+                                var form = $('#form-login');
+                                var url = form.attr('action');
+                                form.submit();
                         }
 
                 });

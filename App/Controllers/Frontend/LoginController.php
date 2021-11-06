@@ -28,11 +28,11 @@ class LoginController extends Controller
         }
     }
 
-    // public function token()
-    // {
-    //     global $request;
-    //     return view('Frontend.user.token', ['request' => $request]);
-    // }
+    public function token()
+    {
+        global $request;
+        return view('Frontend.user.token', ['request' => $request]);
+    }
     public function is_token()
     {
         $token = $this->request->input('token');
