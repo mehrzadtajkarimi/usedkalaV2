@@ -97,7 +97,7 @@ class SessionProvider extends AuthProvider
         $token_expired_at = $expired_at - $now;
         if ($token_expired_at > 0 && self::TIME_EXPIRED > $token_expired_at) {
             FlashMessage::add(' کد ارسالی قبلی ' . gmdate("i:s", $token_expired_at) . ' ثانیه دیگر اعتبار دارد ', FlashMessage::WARNING);
-            $this->request->redirect('login');
+            $this->request->redirect('token');
         }
         return;
     }
