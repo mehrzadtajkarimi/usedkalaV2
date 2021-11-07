@@ -86,7 +86,7 @@
                       <div class="form-group row">
                         <label class="col-2 col-form-label" for="product_tag">تگ </label>
                         <div class="col-10">
-                        <select name='product-tag[]' id="product_tag" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
+                          <select name='product-tag[]' id="product_tag" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
                             <?php foreach ($tags as $value) : ?>
                               <option value="<?= $value['id'] ?>"><?= $value['tag'] ?></option>
                             <?php endforeach; ?>
@@ -128,6 +128,34 @@
 
                         });
                       </script>
+                      <div class="form-group row">
+                        <label for="H1" class="col-2 col-form-label">H1</label>
+                        <div class="col-10">
+                          <input name="seo-H1" type="text" class="form-control" id="H1" placeholder="ترجیحا بین 20 تا 70 کاراکتر" required>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="Canonical" class="col-2 col-form-label">Canonical</label>
+                        <div class="col-10">
+                          <input name="seo-canonical" type="text" class="form-control" id="Canonical" placeholder="لینک را وارد نمایی" required>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="robots" class="col-2 col-form-label">robots</label>
+                        <div class="col-10">
+                          <select name='seo-robot' id="robots" class="form-control ">
+                            <?php foreach ($robots as $key => $value) : ?>
+                              <option value="<?= $key ?>"><?= $value ?></option>
+                            <?php endforeach; ?>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="seo-description" class="col-2 col-form-label"> درباره محصول </label>
+                        <div class="col-10">
+                          <textarea name="seo-description" type="text" class="form-control" id="seo-description" placeholder="" rows="3" required></textarea>
+                        </div>
+                      </div>
 
                       <div class="pt-2 pb-2 form-check disabled ">
                         <input name="product-status" type="checkbox" class="form-check-input " id="product-status" checked disabled>

@@ -13,6 +13,7 @@ use App\Models\Tag;
 use App\Services\Auth\Auth;
 use App\Services\Upload\UploadedFile;
 use App\Utilities\FlashMessage;
+use App\Utilities\Tinyint;
 
 class ProductController extends Controller
 {
@@ -44,6 +45,7 @@ class ProductController extends Controller
             'categories' => $this->categoryModel->category_tree_for_backend(),
             'photo'      => $this->photoModel->read_photo(),
             'tags'       => $this->tagModel->read_tag()??'',
+            'robots'     => Tinyint::category_robots(),
         );
         view('Backend.product.index', $data);
     }
