@@ -45,6 +45,26 @@
                 </div>
             </div>
             <div class="form-group row">
+                <label class="col-2  col-form-label" for="blog-category"> دسته بندی</label>
+                <div class="col-10">
+                    <select name='blog-category[]' id="blog-category" class="col-10 form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
+                        <?php foreach ($categories as $value) : ?>
+                            <option value="<?= $value['id'] ?>" <?php if (isset($categories_selected[$value['id']])) echo 'selected'; ?>><?= $value['name'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-2  col-form-label" for="blog-tag"> تگ</label>
+                <div class="col-10">
+                    <select name='blog-tag[]' id="blog-tag" class=" form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
+                        <?php foreach ($tags as $value) : ?>
+                            <option value="<?= $value['id'] ?>" <?php if (isset($tags_selected[$value['id']])) echo 'selected'; ?>><?= $value['tag'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
                 <label for="slug" class="col-sm-2 col-form-label"> slug </label>
                 <div class="col-sm-10">
                     <input name="slug" type="text" class="form-control" id="slug" value="<?= $blog['slug'] ?? '' ?>" placeholder="" required>

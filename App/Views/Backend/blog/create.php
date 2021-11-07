@@ -23,6 +23,14 @@
             </select>
         </div>
         <div class="form-group ">
+            <label class=" col-form-label" for="blog-tag">  تگ</label>
+            <select name='blog-tag[]' id="blog-tag" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
+                <?php foreach ($tags as $value) : ?>
+                    <option value="<?= $value['id'] ?>"><?= $value['tag'] ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="form-group ">
             <label for="image" class=" col-form-label">عکس</label>
             <div class="custom-file">
                 <input name="image_blog" type="file" class="custom-file-input" id="image">
