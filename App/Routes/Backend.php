@@ -78,6 +78,15 @@ Route::group(function () {
 });
 
 Route::group(function () {
+    Route::get('/admin/tag', 'TagController@index');
+    Route::get('/admin/tag/create', 'TagController@create');
+    Route::post('/admin/tag', 'TagController@store');
+    Route::get('/admin/tag/{id}/edit', 'TagController@edit');
+    Route::patch('/admin/tag/{id}', 'TagController@update');
+    Route::delete('/admin/tag/{id}', 'TagController@destroy');
+});
+
+Route::group(function () {
     Route::get('/admin/discount', 'DiscountController@index');
     Route::get('/admin/discount/create', 'DiscountController@create');
     Route::post('/admin/discount', 'DiscountController@store');
