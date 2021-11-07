@@ -4,6 +4,7 @@ namespace App\Controllers\Frontend;
 
 use App\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\Blog_tag;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Services\Session\SessionManager;
@@ -14,6 +15,7 @@ class BlogController extends Controller
     private $blogModel;
     private $categoryModel;
     private $commentModel;
+    private $blogTagModel;
 
     public function __construct()
     {
@@ -21,6 +23,7 @@ class BlogController extends Controller
         $this->blogModel     = new Blog();
         $this->categoryModel = new Category();
         $this->commentModel  = new Comment();
+        $this->blogTagModel  = new Blog_tag();
 
     }
 
@@ -50,10 +53,18 @@ class BlogController extends Controller
 
         $blog        = $this->blogModel->join_blog_to_photo_by_blog_id($blog_id);
         $blogComment = $this->blogModel->join_blog__with_comment($blog_id['id'])?? '';
+        $blogTag     = $this->blogTagModel->join_blog__with_tag($blog_id['id'])?? '';
+
+
+
+
+        // dd($blogTag);
+
 
         if (is_array($blog)) {
             $data = array(
                 'comments' => $blogComment ?? [],
+                'tags'     => $blogTag ?? [],
                 'blog'     => $blog[0],
                 'auth'     => SessionManager::get('auth')??null,
             );

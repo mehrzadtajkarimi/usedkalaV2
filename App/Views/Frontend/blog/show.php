@@ -3,12 +3,12 @@
         <article class="post format-image">
             <div class="media-attachment">
                 <div class="post-thumbnail">
-                    <img alt="" class="wp-post-image img-thumbnail img-fluid" src="<?= $blog['path'] ?>" >
+                    <img alt="" class="wp-post-image img-thumbnail img-fluid" src="<?= $blog['path'] ?>">
                 </div>
             </div>
             <header class="entry-header">
                 <h1 class="entry-title">
-                <?= $blog['key'] ?>
+                    <?= $blog['key'] ?>
                 </h1>
                 <!-- .entry-title -->
                 <div class="entry-meta">
@@ -32,6 +32,13 @@
             <!-- .entry-header -->
             <div class="entry-content" itemprop="articleBody">
                 <p><?= $blog['value'] ?></p>
+                <?php foreach ($tags as $value) : ?>
+                    <div class="ml-4 mb-2">
+                        <small>
+                            <a href="#">#<?= $value['tag'] ?></a>
+                        </small>
+                    </div>
+                <?php endforeach; ?>
             </div>
             <!-- .entry-content -->
         </article>
@@ -65,10 +72,10 @@
     <?php if ($comments) : ?>
         <h5 class="card-title m-3">نظرات :</h5>
         <?php foreach ($comments as $value) : ?>
-            <div class="ml-4 mb-2" >
+            <div class="ml-4 mb-2">
                 <small> <?= $value['title'] ?> </small>
                 <p>
-                <?= $value['message'] ?>
+                    <?= $value['message'] ?>
                 </p>
             </div>
         <?php endforeach; ?>
@@ -77,8 +84,8 @@
                 <label for="my-textarea">
                     <h5 class="card-title m-3"> ثبت نظر:</h5>
                 </label>
-                <input class="form-control mb-3" type="text" name="blog_title" placeholder="موضوع متن خود را بنویسید" minlength="5" required >
-                <textarea id="my-textarea" class="form-control" name="blog_comment"  rows="5" <?= is_null($auth) ? 'readonly  placeholder="برای درج نظر ابتدا با نام کاربری وارد شوید"':'' ?> ></textarea>
+                <input class="form-control mb-3" type="text" name="blog_title" placeholder="موضوع متن خود را بنویسید" minlength="5" required>
+                <textarea id="my-textarea" class="form-control" name="blog_comment" rows="5" <?= is_null($auth) ? 'readonly  placeholder="برای درج نظر ابتدا با نام کاربری وارد شوید"' : '' ?>></textarea>
                 <button class="btn btn-primary mt-3 ml-2" type="submit">ارسال</button>
             </div>
         </form>
@@ -88,7 +95,7 @@
                 <label for="my-textarea">
                     <h5 class="card-title m-3">اولین نفری باشید که در مورد این مقاله نظر ثبت می کنید :</h5>
                 </label>
-                <input class="form-control mb-3" type="text" name="blog_title" placeholder="موضوع متن خود را بنویسید" minlength="5" required >
+                <input class="form-control mb-3" type="text" name="blog_title" placeholder="موضوع متن خود را بنویسید" minlength="5" required>
                 <textarea id="my-textarea" class="form-control" name="blog_comment" rows="5"></textarea>
                 <button class="btn btn-primary mt-3 ml-2" type="submit">ارسال</button>
             </div>

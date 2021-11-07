@@ -25,4 +25,14 @@ class Blog_tag extends MysqlBaseModel
     {
         return   $this->delete(['blog_id' => $blog_id]);
     }
+    public function join_blog__with_tag($blog_id)
+    {
+        return $this->inner_join(
+            "*",
+            "tags",
+            "tag_id",
+            "id",
+            "blog_tags.blog_id=$blog_id",
+        );
+    }
 }
