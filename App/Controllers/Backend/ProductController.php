@@ -8,6 +8,8 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Photo;
 use App\Models\Product_category;
+use App\Models\Product_tag;
+use App\Models\Tag;
 use App\Services\Auth\Auth;
 use App\Services\Upload\UploadedFile;
 use App\Utilities\FlashMessage;
@@ -18,7 +20,9 @@ class ProductController extends Controller
     private $categoryModel;
     private $brandModel;
     private $photoModel;
+    private $tagModel;
     private $productCategoriesModel;
+    private $productTagModel;
 
     public function __construct()
     {
@@ -27,7 +31,9 @@ class ProductController extends Controller
         $this->categoryModel          = new Category();
         $this->brandModel             = new Brand();
         $this->photoModel             = new Photo();
+        $this->tagModel               = new Tag();
         $this->productCategoriesModel = new Product_category();
+        $this->productTagModel        = new Product_tag();
     }
 
     public function index()
@@ -37,6 +43,7 @@ class ProductController extends Controller
             'brands'     => $this->brandModel->read_brand(),
             'categories' => $this->categoryModel->category_tree_for_backend(),
             'photo'      => $this->photoModel->read_photo(),
+            'tags'       => $this->tagModel->read_tag(),
         );
         view('Backend.product.index', $data);
     }
@@ -75,6 +82,12 @@ class ProductController extends Controller
                     'category_id' => $category_id
                 ]);
             }
+            foreach ($params['product-tag'] as  $tag_id) {
+                $is_create_product =  $this->productTagModel->create_productTag([
+                    'product_id'  => $product_id,
+                    'tag_id' => $tag_id
+                ]);
+            }
             $file = new UploadedFile($files_param);
             $file_paths = $file->save();
             if ($file_paths) {
@@ -99,6 +112,12 @@ class ProductController extends Controller
                     'category_id' => $category_id
                 ]);
             }
+            foreach ($params['product-tag'] as  $tag_id) {
+                $is_create_product =  $this->productTagModel->create_productTag([
+                    'product_id'  => $product_id,
+                    'tag_id' => $tag_id
+                ]);
+            }
             FlashMessage::add("مقادیر بدونه ضمیمه عکس با موفقیت در دیتابیس ذخیره شد", FlashMessage::WARNING);
             return $this->request->redirect('admin/product');
         }
@@ -112,16 +131,23 @@ class ProductController extends Controller
     {
         $products_id = $this->request->get_param('id');
         $categories_selected = $this->productCategoriesModel->read_productCategories($products_id);
-		$selectedCats=[];
+        $tags_selected       = $this->productTagModel->read_productTag($products_id);
+        $selectedCats = [];
         foreach ($categories_selected as $selectedCatRow) {
-            $selectedCats[$selectedCatRow['id']]=$selectedCatRow;
+            $selectedCats[$selectedCatRow['id']] = $selectedCatRow;
+        }
+        $selectedTags = [];
+        foreach ($tags_selected as $selectedTagRow) {
+            $selectedTags[$selectedTagRow['id']] = $selectedTagRow;
         }
         $data = array(
             'products'            => $this->productModel->read_product($products_id),
             'photo'               => $this->photoModel->read_photo($products_id),
             'brands'              => $this->brandModel->read_brand(),
+            'tags'                => $this->tagModel->read_tag(),
             'categories'          => $this->categoryModel->category_tree_for_backend(),
             'categories_selected' => $selectedCats,
+            'tags_selected'       => $selectedTags,
         );
         view('Backend.product.edit', $data);
     }
@@ -154,8 +180,17 @@ class ProductController extends Controller
             $this->productCategoriesModel->delete_productCategories_by_product_id($product_id['id']);
             foreach ($params['product-category'] as  $category_id) {
                 $this->productCategoriesModel->create_productCategories([
-                    'product_id'  => $product_id,
+                    'product_id'  => $product_id['id'],
                     'category_id' => $category_id,
+                ]);
+            }
+        }
+        if (!empty($params['product-tag'])) {
+            $this->productTagModel->delete_productTag_by_product_id($product_id['id']);
+            foreach ($params['product-tag'] as  $tag_id) {
+                $this->productTagModel->create_productTag([
+                    'product_id' => $product_id['id'],
+                    'tag_id'     => $tag_id,
                 ]);
             }
         }
@@ -185,23 +220,28 @@ class ProductController extends Controller
     public function destroy()
     {
         $id = $this->request->get_param('id');
-        $is_deleted_productCategories = $this->productCategoriesModel->delete_productCategories_by_product_id($id);
+        $is_deleted_productCategories = $this->productCategoriesModel->delete_productCategories_by_product_id($id['id']);
+        $is_deleted_productTags       = $this->productTagModel->delete_productTag_by_product_id($id['id']);
         $is_deleted_photo             = $this->photoModel->delete_photo($id);
         $is_deleted_product           = $this->productModel->delete_product($id);
 
 
 
 
-        if ($is_deleted_productCategories &&  $is_deleted_product && $is_deleted_photo) {
+        if ($is_deleted_productCategories && $is_deleted_productTags &&  $is_deleted_product && $is_deleted_photo) {
             FlashMessage::add("مقادیر  با موفقیت از دیتابیس حذف شد");
             return $this->request->redirect('admin/product');
         }
+        if ($is_deleted_productCategories &&  $is_deleted_product && $is_deleted_photo) {
+            FlashMessage::add("مقادیر ( تگ )  با موفقیت از دیتابیس حذف شد");
+            return $this->request->redirect('admin/product');
+        }
         if ($is_deleted_product && $is_deleted_photo) {
-            FlashMessage::add("مقادیر (بدون دسته بندی )  با موفقیت از دیتابیس حذف شد");
+            FlashMessage::add("مقادیر (بدون دسته بندی و تگ )  با موفقیت از دیتابیس حذف شد");
             return $this->request->redirect('admin/product', FlashMessage::WARNING);
         }
         if ($is_deleted_product) {
-            FlashMessage::add("مقادیر (بدون دسته بندی و عکس )  با موفقیت از دیتابیس حذف شد");
+            FlashMessage::add("مقادیر (بدون دسته بندی و عکس و تگ )  با موفقیت از دیتابیس حذف شد");
             return $this->request->redirect('product', FlashMessage::WARNING);
         }
         FlashMessage::add(" مشکلی در حذف محصول پیش آمده است", FlashMessage::ERROR);

@@ -22,6 +22,16 @@
                 </div>
             </div>
             <div class="form-group row">
+                <label class="col-2 col-form-label" for="product-tag">تگ </label>
+                <div class="col-10">
+                    <select name='product-tag[]' id="product_tag" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
+                        <?php foreach ($tags as $key => $value) : ?>
+                            <option value="<?= $value['id'] ?>" <?php if (isset($tags_selected[$value['id']])) echo 'selected'; ?>><?= $value['tag'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
                 <label class="col-2 col-form-label" for="product-brand">برند </label>
                 <div class="col-10">
                     <select name='product-brand' class="form-control" id="product-brand">

@@ -26,6 +26,9 @@
         $('#product_category').select2({
             'placeholder': 'دسته بندی های مورد نظر را انتخاب کنید'
         });
+        $('#product_tag').select2({
+            'placeholder': ' تگ های مورد نظر را انتخاب کنید'
+        });
 
 
     });
