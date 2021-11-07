@@ -23,7 +23,7 @@ class BlogController extends Controller
 
     public function __construct()
     {
-        parent:: __construct();
+        parent::__construct();
         $this->tagModel           = new Tag();
         $this->photoModel         = new Photo();
         $this->blogModel          = new Blog();
@@ -150,6 +150,27 @@ class BlogController extends Controller
             'value' => $param['value'],
             'slug'  => $param['slug'],
         ], ['id' => $id['id']]);
+
+
+
+
+        $files                   = $this->request->files();
+        $files_param             = $files['image_blog'];
+        $check_file_param_exists = !empty($files_param);
+        if ($check_file_param_exists) {
+            $file       = new UploadedFile($files_param);
+            $file_paths = $file->save();
+            if ($file_paths) {
+
+                $is_update_photo = $this->photoModel->update_photo('Blog', $id['id'], $file_paths[0], 'image_blog');
+
+                if ($is_update_photo) {
+                    FlashMessage::add("ویرایش محصول بندی موفقیت انجام شد");
+                } else {
+                    FlashMessage::add(" مشکلی در ویرایش محصول بندی رخ داد ", FlashMessage::ERROR);
+                }
+            }
+        }
         FlashMessage::add("مقادیر باموفقیت  ضمیمه شد ");
         return $this->request->redirect('admin/blog');
     }
