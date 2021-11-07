@@ -7,6 +7,7 @@ use App\Models\Comment;
 use App\Models\Photo;
 use App\Models\Product;
 use App\Models\Product_discount;
+use App\Models\Product_tag;
 use App\Services\Session\SessionManager;
 use App\Utilities\FlashMessage;
 
@@ -15,6 +16,7 @@ class ProductController extends Controller
     private $productModel;
     private $photoModel;
     private $commentModel;
+    private $ProductTagModel;
 
     public function __construct()
     {
@@ -23,6 +25,7 @@ class ProductController extends Controller
         $this->productModel         = new Product();
         $this->photoModel           = new Photo();
         $this->ProductDiscountModel = new Product_discount();
+        $this->ProductTagModel      = new Product_tag();
     }
 
     public function index()
@@ -45,9 +48,13 @@ class ProductController extends Controller
         $product         = $this->productModel->read_product($id);
         $productDiscount = $this->productModel->join_product__with_productDiscounts_discounts($id)[0] ?? '';
         $productComment  = $this->productModel->join_product__with_comment($id['id']) ?? '';
+        $productTag      = $this->ProductTagModel->read_productTag($id) ?? '';
         // dd(empty($productDiscount) ? $product : $productDiscount['discounts_status']);
+
+
         $data    = array(
             'comments' => $productComment ?? [],
+            'tags'     => $productTag ?? [],
             'product'  => empty($productDiscount) ? $product : $productDiscount,
             'photos'   => $photos,
             'photo'    => $photo,

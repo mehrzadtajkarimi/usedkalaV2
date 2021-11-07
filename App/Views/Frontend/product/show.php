@@ -97,6 +97,13 @@
                                     <p class="card-text"><?= $product['description'] ?></p>
                                 </div>
                             </div>
+                            <?php foreach ($tags as $value) : ?>
+                                <div class="ml-4 mb-2">
+                                    <small>
+                                        <a href="#">#<?= $value['tag'] ?></a>
+                                    </small>
+                                </div>
+                            <?php endforeach; ?>
                         </div>
                         <!-- .product-actions -->
                     </div>
@@ -129,7 +136,7 @@
                     <span>آیا این دیدگاه برایتان مفید بود؟</span>
                     <span class="m-2 pointer dislike text-muted ">
                         <small><?= $value['dislike'] ?></small>
-                        <i  class=" fa fa-thumbs-down fa-1x " data-id="<?= $value['id'] ?>" title="کلیک کنید تا وضعیت تغییر کند"></i>
+                        <i class=" fa fa-thumbs-down fa-1x " data-id="<?= $value['id'] ?>" title="کلیک کنید تا وضعیت تغییر کند"></i>
                     </span>
                     <span class="m-2 pointer like text-darkBrandController">
                         <small><?= $value['like'] ?></small>
