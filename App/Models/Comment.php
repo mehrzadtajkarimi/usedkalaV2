@@ -67,6 +67,32 @@ class Comment extends MysqlBaseModel
         comments.id DESC
         ")->fetchAll();
     }
+    public function join_all_comment_to_user_by_comment_id($id = null)
+    {
+        return  $this->connection->query("
+        SELECT
+        *
+        FROM users
+        INNER JOIN comments
+        ON  users.id=comments.user_id
+        WHERE comments.id =$id
+        ORDER BY
+        comments.id DESC
+        ")->fetchAll();
+    }
+    public function join_all_comment_to_user_by_comment_parent_id($parent_id = null)
+    {
+        return  $this->connection->query("
+        SELECT
+        *
+        FROM users
+        INNER JOIN comments
+        ON  users.id=comments.user_id
+        WHERE comments.parent_id =$parent_id
+        ORDER BY
+        comments.id DESC
+        ")->fetchAll();
+    }
     public function join_comment_to_user_by_comment_id($comment_id = null)
     {
         return $this->inner_join(

@@ -7,6 +7,7 @@ use App\Core\Request;
 use App\Models\Photo;
 use App\Models\Comment;
 use App\Models\Category;
+use App\Services\Auth\Auth;
 use App\Services\Upload\UploadedFile;
 use App\Utilities\FlashMessage;
 
@@ -35,6 +36,7 @@ class CommentController extends Controller
         return view('Backend.comment.index', $data);
     }
 
+
     public function create()
     {
         $data = array(
@@ -49,35 +51,30 @@ class CommentController extends Controller
         $params = $this->request->params();
 
         $params_create = array(
-            'key'   => $params['key'],
-            'value' => $params['value'],
-            'slug'  => $params['slug'],
+            'user_id'     => Auth::is_login(),
+            'parent_id'   => $params['comment_id'],
+            'message'     => $params['message'],
+            'entity_type' => $params['entity_type'],
+            'entity_id'   => $params['entity_id'],
         );
 
-        $file = $this->request->files();
-        if (isset($file)) {
-            $file_tmp_name = $file['image_comment']['tmp_name'];
-            $files_param   = $file['image_comment'];
+        $this->commentModel->create_comment($params_create);
 
-            $check_file_param_exists = !empty($file_tmp_name[0]);
-            if ($check_file_param_exists) {
-                $file       = new UploadedFile($files_param);
-                $file_paths = $file->save();
-            }
-        }
-        $categories_id = $params['comment-category'];
-
-        $comment_id = $this->commentModel->create_comment($params_create);
-        $this->category_commentModel->create_categorycomment($comment_id, $categories_id);
-
-        if ($file_paths) {
-            $this->photoModel->create_photo('comment', $comment_id, $file_paths[0], 'image_comment');
-
-            FlashMessage::add("مقادیر با موفقیت در دیتابیس ذخیره شد");
-            return $this->request->redirect('admin/comment');
-        }
-        FlashMessage::add("مقادیر بدونه عکس با موفقیت در دیتابیس ذخیره شد", FlashMessage::WARNING);
+        FlashMessage::add("مقادیر با موفقیت در دیتابیس ذخیره شد");
         return $this->request->redirect('admin/comment');
+    }
+
+    public function show()
+    {
+        $id      = $this->request->get_param('id');
+        $comment = $this->commentModel->join_all_comment_to_user_by_comment_id($id['id'])[0];
+        $reply   = $this->commentModel->join_all_comment_to_user_by_comment_parent_id($comment['parent_id']);
+
+        $data = array(
+            'comment' => $comment,
+            'reply'   => $reply,
+        );
+        view('Backend.comment.show', $data);
     }
 
     public function edit()

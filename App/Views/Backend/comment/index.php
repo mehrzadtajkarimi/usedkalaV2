@@ -46,6 +46,9 @@
                       <i id="status" class="status fa <?= $value['status']?'fa-thumbs-up text-success': 'fa-thumbs-down text-danger' ?> fa-2x pointer p-2" data-id="<?= $value['id'] ?>" data-status="<?= $value['status'] ?>" title="کلیک کنید تا وضعیت تغییر کند" ></i>
                   </td>
                   <td class="text-center">
+                    <a href="<?= base_url() ?>admin/comment/<?= $value['id'] ?>" type="button" class="shadow-sm btn btn-info btn-sm " style="padding: 0px 20px; border-radius: 18px;">
+                      پــــاســــــخ
+                    </a>
                     <a href="<?= base_url() ?>admin/comment/<?= $value['id'] ?>/edit" type="button" class="shadow-sm btn btn-success btn-sm " style="padding: 0px 20px; border-radius: 18px;">
                       ویرایش
                     </a>
@@ -58,22 +61,7 @@
               <?php endforeach; ?>
 
             </tbody>
-        $('.status').click(function() {
-            var that = this;
-            var status = $(this).data('status');
-            var id = $(this).data('id');
-            $.ajax({
-                type: "post",
-                url: '<?= base_url() ?>admin/comment/status/' + id,
-                data: {
-                    'status': status
-                },
-                success: function(data) {
-                    $(that).toggleClass('fa-thumbs-down text-danger fa-thumbs-up text-success')
-                }
-            });
 
-        });
           </table>
         </div>
       </div>

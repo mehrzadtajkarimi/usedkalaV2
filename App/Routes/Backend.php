@@ -145,6 +145,7 @@ Route::group(function () {
     Route::get('/admin/comment', 'CommentController@index');
     Route::get('/admin/comment/create', 'CommentController@create');
     Route::post('/admin/comment', 'CommentController@store');
+    Route::get('/admin/comment/{id}', 'CommentController@show');
     Route::post('/admin/comment/status/{id}', 'CommentController@status');
     Route::get('/admin/comment/{id}', 'CommentController@show');
     Route::get('/admin/comment/{id}/edit', 'CommentController@edit');
