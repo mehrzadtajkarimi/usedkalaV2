@@ -44,7 +44,7 @@ class ProductController extends Controller
             'brands'     => $this->brandModel->read_brand(),
             'categories' => $this->categoryModel->category_tree_for_backend(),
             'photo'      => $this->photoModel->read_photo(),
-            'tags'       => $this->tagModel->read_tag()??'',
+            'tags'       => $this->tagModel->read_tag() ?? '',
             'robots'     => Tinyint::category_robots(),
         );
         view('Backend.product.index', $data);
@@ -58,18 +58,22 @@ class ProductController extends Controller
     {
         $params = $this->request->params();
         $params_create = array(
-            'user_id'     => Auth::is_login(),
-            'slug'        => create_slug($params['product-slug']),
-            'title'       => $params['product-name'],
-            'price'       => $params['product-price'],
-            'brand_id'    => $params['product-brand'],
-            'sku'         => $params['product-sku'],
-            'weight'      => $params['product-weight'],
-            'quantity'    => $params['product-quantity'],
-            'meta_title'  => $params['product-meta'],
-            'description' => $params['product-description'],
-            'featured'    => $params['product-featured'] ?? 0,
-            'sale'        => $params['product-sale'] ?? 0,
+            'user_id'       => Auth::is_login(),
+            'slug'          => create_slug($params['product-slug']),
+            'title'         => $params['product-name'],
+            'price'         => $params['product-price'],
+            'brand_id'      => $params['product-brand'],
+            'sku'           => $params['product-sku'],
+            'weight'        => $params['product-weight'],
+            'quantity'      => $params['product-quantity'],
+            'meta_title'    => $params['product-meta'],
+            'description'   => $params['product-description'],
+            'featured'      => $params['product-featured'] ?? 0,
+            'sale'          => $params['product-sale'] ?? 0,
+            'seo_H1'        => $params['seo-H1'],
+            'seo_canonical' => $params['seo-canonical'],
+            'seo_title'     => $params['seo-title'],
+            'seo_robots'    => $params['seo-robots'],
         );
 
         $files                   = $this->request->files();
@@ -150,6 +154,7 @@ class ProductController extends Controller
             'categories'          => $this->categoryModel->category_tree_for_backend(),
             'categories_selected' => $selectedCats,
             'tags_selected'       => $selectedTags,
+            'robots'              => Tinyint::category_robots(),
         );
         view('Backend.product.edit', $data);
     }
@@ -161,19 +166,24 @@ class ProductController extends Controller
 
         $product_id = $this->request->get_param('id');
         $params_updated = array(
-            'user_id'     => Auth::is_login(),
-            'slug'        => create_slug($params['product-slug']),
-            'title'       => $params['product-name'],
-            'price'       => $params['product-price'],
-            'brand_id'    => $params['product-brand'],
-            'sku'         => $params['product-sku'],
-            'weight'      => $params['product-weight'],
-            'quantity'    => $params['product-quantity'],
-            'meta_title'  => $params['product-meta'],
-            'description' => $params['product-description'],
-            'featured'    => $params['product-featured'] ?? 1,
-            'sale'        => $params['product-sale'] ?? 1,
-            'status'      => $params['product-status'] ?? 1,
+            'user_id'         => Auth::is_login(),
+            'slug'            => create_slug($params['product-slug']),
+            'title'           => $params['product-name'],
+            'price'           => $params['product-price'],
+            'brand_id'        => $params['product-brand'],
+            'sku'             => $params['product-sku'],
+            'weight'          => $params['product-weight'],
+            'quantity'        => $params['product-quantity'],
+            'meta_title'      => $params['product-meta'],
+            'description'     => $params['product-description'],
+            'featured'        => $params['product-featured'] ?? 1,
+            'sale'            => $params['product-sale'] ?? 1,
+            'status'          => $params['product-status'] ?? 1,
+            'seo_H1'          => $params['seo-H1'],
+            'seo_canonical'   => $params['seo-canonical'],
+            'seo_title'       => $params['seo-title'],
+            'seo_robot'       => $params['seo-robot'],
+            'seo_description' => $params['seo-description'],
         );
         $this->productModel->update_product($params_updated, $product_id['id']);
 

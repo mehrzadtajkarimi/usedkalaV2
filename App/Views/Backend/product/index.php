@@ -62,18 +62,6 @@
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="product-meta" class="col-2 col-form-label"> متن متا</label>
-                        <div class="col-10">
-                          <textarea name="product-meta" type="text" class="form-control" id="product-meta" placeholder="" rows="2" required></textarea>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="product-description" class="col-2 col-form-label"> درباره محصول </label>
-                        <div class="col-10">
-                          <textarea name="product-description" type="text" class="form-control" id="product-description" placeholder="" rows="3" required></textarea>
-                        </div>
-                      </div>
-                      <div class="form-group row">
                         <label class="col-2 col-form-label" for="product_category"> دسته بندی</label>
                         <div class="col-10">
                           <select name='product-category[]' id="product_category" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
@@ -105,6 +93,61 @@
                       </div>
 
                       <div class="form-group row">
+                        <label for="product-meta" class="col-2 col-form-label"> متن متا</label>
+                        <div class="col-10">
+                          <textarea name="product-meta" type="text" class="form-control" id="product-meta" placeholder="" rows="2" required></textarea>
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="product-description" class="col-2 col-form-label"> درباره محصول </label>
+                        <div class="col-10">
+                          <textarea name="product-description" type="text" class="form-control" id="product-description" placeholder="" rows="3" required></textarea>
+                        </div>
+                      </div>
+                      <hr>
+
+                      <div class="form-group row">
+                        <label for="H1" class="col-2 col-form-label">H1</label>
+                        <div class="col-10">
+                          <input name="seo-H1" type="text" class="form-control" id="H1" placeholder="ترجیحا بین 20 تا 70 کاراکتر" required>
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="Canonical" class="col-2 col-form-label">Canonical</label>
+                        <div class="col-10">
+                          <input name="seo-canonical" type="text" class="form-control" id="Canonical" placeholder="لینک را وارد نمایی" required>
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="seo-robots" class="col-2 col-form-label">robots</label>
+                        <div class="col-10">
+                          <select name='seo-robot' id="robots" class="form-control ">
+                            <?php foreach ($robots as $key => $value) : ?>
+                              <option value="<?= $key ?>"><?= $value ?></option>
+                            <?php endforeach; ?>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="title" class="col-2 col-form-label">title</label>
+                        <div class="col-10">
+                          <input name="seo-title" type="text" class="form-control" id="title" placeholder="title را وارد نمایی" required>
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="seo-description" class="col-2 col-form-label"> درباره محصول </label>
+                        <div class="col-10">
+                          <textarea name="seo-description" type="text" class="form-control" id="seo-description" placeholder="" rows="3" required></textarea>
+                        </div>
+                      </div>
+                      <hr>
+
+                      <div class="form-group row">
                         <label for="slug" class="col-2 col-form-label">عکس</label>
                         <div class="col-10">
                           <!-- <div class="custom-file">
@@ -128,35 +171,7 @@
 
                         });
                       </script>
-                      <div class="form-group row">
-                        <label for="H1" class="col-2 col-form-label">H1</label>
-                        <div class="col-10">
-                          <input name="seo-H1" type="text" class="form-control" id="H1" placeholder="ترجیحا بین 20 تا 70 کاراکتر" required>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="Canonical" class="col-2 col-form-label">Canonical</label>
-                        <div class="col-10">
-                          <input name="seo-canonical" type="text" class="form-control" id="Canonical" placeholder="لینک را وارد نمایی" required>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="robots" class="col-2 col-form-label">robots</label>
-                        <div class="col-10">
-                          <select name='seo-robot' id="robots" class="form-control ">
-                            <?php foreach ($robots as $key => $value) : ?>
-                              <option value="<?= $key ?>"><?= $value ?></option>
-                            <?php endforeach; ?>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="seo-description" class="col-2 col-form-label"> درباره محصول </label>
-                        <div class="col-10">
-                          <textarea name="seo-description" type="text" class="form-control" id="seo-description" placeholder="" rows="3" required></textarea>
-                        </div>
-                      </div>
-
+                      <hr>
                       <div class="pt-2 pb-2 form-check disabled ">
                         <input name="product-status" type="checkbox" class="form-check-input " id="product-status" checked disabled>
                         <label class="form-check-label" for="product-status">

@@ -12,6 +12,39 @@
                 </div>
             </div>
             <div class="form-group row">
+                <label for="product-slug" class="col-2 col-form-label"> slug </label>
+                <div class="col-10">
+                    <input name="product-slug" type="text" class="form-control" id="product-slug" value="<?= $products['slug']  ?>" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="product-price" class="col-2 col-form-label"> قیمت </label>
+                <div class="col-10">
+                    <input name="product-price" type="number" class="form-control" id="product-price" value="<?= $products['price']  ?>" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="product-quantity" class="col-2 col-form-label"> موجودی </label>
+                <div class="col-10">
+                    <input name="product-quantity" type="number" class="form-control" id="product-quantity" value="<?= $products['quantity']  ?>" required>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="product-weight" class="col-2 col-form-label"> وزن </label>
+                <div class="col-10">
+                    <input name="product-weight" type="number" class="form-control" id="product-weight" value="<?= $products['weight']  ?>" required>
+                </div>
+            </div>
+
+            <div class="form-group row" title="شناسه منحصر به فرد محصول">
+                <label for="product-sku" class="col-2 col-form-label"> SKU </label>
+                <div class="col-10">
+                    <input name="product-sku" type="text" class="form-control" id="product-sku" value="<?= $products['sku']  ?>" required>
+                </div>
+            </div>
+            <div class="form-group row">
                 <label class="col-2 col-form-label" for="product-category">دسته </label>
                 <div class="col-10">
                     <select name='product-category[]' id="product_category" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
@@ -41,37 +74,9 @@
                     </select>
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="product-slug" class="col-2 col-form-label"> slug </label>
-                <div class="col-10">
-                    <input name="product-slug" type="text" class="form-control" id="product-slug" value="<?= $products['slug']  ?>" required>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="product-price" class="col-2 col-form-label"> قیمت </label>
-                <div class="col-10">
-                    <input name="product-price" type="number" class="form-control" id="product-price" value="<?= $products['price']  ?>" required>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="product-quantity" class="col-2 col-form-label"> موجودی </label>
-                <div class="col-10">
-                    <input name="product-quantity" type="number" class="form-control" id="product-quantity" value="<?= $products['quantity']  ?>" required>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="product-weight" class="col-2 col-form-label"> وزن </label>
-                <div class="col-10">
-                    <input name="product-weight" type="number" class="form-control" id="product-weight" value="<?= $products['weight']  ?>" required>
-                </div>
-            </div>
 
-            <div class="form-group row" title="شناسه منحصر به فرد محصول">
-                <label for="product-sku" class="col-2 col-form-label"> SKU </label>
-                <div class="col-10">
-                    <input name="product-sku" type="text" class="form-control" id="product-sku" value="<?= $products['sku']  ?>" required>
-                </div>
-            </div>
+
+
             <div class="form-group row">
                 <label for="product-meta" class="col-2 col-form-label"> متن متا</label>
                 <div class="col-10">
@@ -84,28 +89,44 @@
                     <textarea name="product-description" type="text" class="form-control" id="product-description" rows="3" required><?= $products['description']  ?></textarea>
                 </div>
             </div>
-            <div class="pt-2 pb-2 form-check row">
-                <input name="product-featured" type="checkbox" class="form-check-input" id="product-featured" <?= $products['featured'] ?  'checked' : ''  ?>>
-                <label class="form-check-label" for="product-featured">
-                    محصول ویژه
-                </label>
-            </div>
-            <div class="pt-2 pb-2 form-check row">
-                <input name="product-status" type="checkbox" class="form-check-input" id="product-status" <?= $products['status'] ?  'checked' : ''  ?>>
-                <label class="form-check-label" for="product-status">
-                    وضعیت
-                </label>
-            </div>
+            <hr>
 
-            <div class="pt-2 pb-2 form-check row">
-                <input name="product-sale" type="checkbox" class="form-check-input" id="product-sale" <?= $products['sale'] ?  'checked' : ''  ?>>
-                <label class="form-check-label" for="product-sale">
-                    محصول پرفروش
-                    <small class="text-danger">
-                        (جهت نمایش در صفحه اصلی قسمت پرفروشترین محصولات)
-                    </small>
-                </label>
+            <div class="form-group row">
+                <label for="H1" class="col-2 col-form-label">H1</label>
+                <div class="col-10">
+                    <input name="seo-H1" type="text" class="form-control" id="H1" value="<?= $products['seo_H1'] ?>" placeholder="ترجیحا بین 20 تا 70 کاراکتر" required>
+                </div>
             </div>
+            <div class="form-group row">
+                <label for="Canonical" class="col-2 col-form-label">Canonical</label>
+                <div class="col-10">
+                    <input name="seo-canonical" type="text" class="form-control" id="Canonical" value="<?= $products['seo_canonical'] ?>" placeholder="لینک را وارد نمایی" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="robots" class="col-2 col-form-label">robots</label>
+                <div class="col-10">
+                    <select name='seo-robot' id="robots" class="form-control ">
+                        <?php foreach ($robots as $key => $value) : ?>
+                            <option value="<?= $key ?>" <?= $key == $products['seo_robot'] ? 'selected' : '' ?>><?= $value ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="title" class="col-2 col-form-label">title</label>
+                <div class="col-10">
+                    <input name="seo-title" type="text" class="form-control" id="title" value="<?= $products['seo_title'] ?>" placeholder="title را وارد نمایی" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="seo-description" class="col-2 col-form-label"> درباره محصول </label>
+                <div class="col-10">
+                    <textarea name="seo-description" type="text" class="form-control" id="seo-description" rows="3" required><?= $products['seo_description'] ?></textarea>
+                </div>
+            </div>
+            <hr>
+
             <?php if (empty($photo['path'])) : ?>
                 <div class=" form-group row">
                     <label for="slug" class="col-2 col-form-label">عکس</label>
@@ -138,6 +159,31 @@
                     <?php include(BASEPATH . "App/Views/Backend/product/script.php") ?>
                 </div>
             <?php endif; ?>
+            <hr>
+            <div class="pt-2 pb-2 form-check row">
+                <input name="product-featured" type="checkbox" class="form-check-input" id="product-featured" <?= $products['featured'] ?  'checked' : ''  ?>>
+                <label class="form-check-label" for="product-featured">
+                    محصول ویژه
+                </label>
+            </div>
+            <div class="pt-2 pb-2 form-check row">
+                <input name="product-status" type="checkbox" class="form-check-input" id="product-status" <?= $products['status'] ?  'checked' : ''  ?>>
+                <label class="form-check-label" for="product-status">
+                    وضعیت
+                </label>
+            </div>
+
+            <div class="pt-2 pb-2 form-check row">
+                <input name="product-sale" type="checkbox" class="form-check-input" id="product-sale" <?= $products['sale'] ?  'checked' : ''  ?>>
+                <label class="form-check-label" for="product-sale">
+                    محصول پرفروش
+                    <small class="text-danger">
+                        (جهت نمایش در صفحه اصلی قسمت پرفروشترین محصولات)
+                    </small>
+                </label>
+            </div>
+
+
             <div class="form-group row">
                 <div class="col-sm-10">
                     <button type="submit" class="btn btn-primary">ذخیره</button>
