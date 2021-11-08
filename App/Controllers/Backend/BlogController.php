@@ -11,6 +11,7 @@ use App\Models\Category_blog;
 use App\Models\Tag;
 use App\Services\Upload\UploadedFile;
 use App\Utilities\FlashMessage;
+use App\Utilities\Tinyint;
 
 class BlogController extends Controller
 {
@@ -24,11 +25,11 @@ class BlogController extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->tagModel           = new Tag();
-        $this->photoModel         = new Photo();
-        $this->blogModel          = new Blog();
-        $this->blogTagModel      = new Blog_tag();
-        $this->categoryModel      = new Category();
+        $this->tagModel            = new Tag();
+        $this->photoModel          = new Photo();
+        $this->blogModel           = new Blog();
+        $this->blogTagModel        = new Blog_tag();
+        $this->categoryModel       = new Category();
         $this->blogCategoriesModel = new Category_blog();
     }
 
@@ -47,6 +48,7 @@ class BlogController extends Controller
             'blogs'      => $this->blogModel->read_blog(),
             'tags'       => $this->tagModel->read_tag(),
             'categories' => $this->categoryModel->read_category_by_type(1),   //1=blog
+            'robots'     => Tinyint::category_robots(),
         );
         return view('Backend.blog.create', $data);
     }
@@ -56,9 +58,14 @@ class BlogController extends Controller
         $params = $this->request->params();
 
         $params_create = array(
-            'key'   => $params['key'],
-            'value' => $params['value'],
-            'slug'  => $params['slug'],
+            'key'             => $params['key'],
+            'value'           => $params['value'],
+            'slug'            => $params['slug'],
+            'seo_H1'          => $params['seo-H1'],
+            'seo_canonical'   => $params['seo-canonical'],
+            'seo_title'       => $params['seo-title'],
+            'seo_robot'       => $params['seo-robot'],
+            'seo_description' => $params['seo-description'],
         );
 
         $file = $this->request->files();
@@ -75,9 +82,25 @@ class BlogController extends Controller
         $categories_id = $params['blog-category'];
         $tags_id       = $params['blog-tag'];
 
+
+        // dd($categories_id,$tags_id);
+
         $blog_id = $this->blogModel->create_blog($params_create);
-        $this->category_blogModel->create_categoryBlog($blog_id, $categories_id);
-        $this->tag_blogModel->create_tagBlog($blog_id, $tags_id);
+
+        foreach ($categories_id as $category_id) {
+            # code...
+            $this->blogCategoriesModel->create_blogCategories([
+                'blog_id'     => $blog_id,
+                'category_id' => $category_id,
+            ]);
+        }
+        foreach ($tags_id as  $tag_id ) {
+            # code...
+            $this->blogTagModel->create_blogTag([
+                'blog_id' => $blog_id,
+                'tag_id'  => $tag_id,
+            ]);
+        }
 
         if ($file_paths) {
             $this->photoModel->create_photo('Blog', $blog_id, $file_paths[0], 'image_blog');
@@ -92,9 +115,8 @@ class BlogController extends Controller
     public function edit()
     {
         $id = $this->request->get_param('id');
-        $categories_selected = $this->blogCategoriesModel->read_categoryBlog($id);
-        $tags_selected       = $this->blogTagModel->read_tagBlog($id);
-
+        $categories_selected = $this->blogCategoriesModel->read_categoryBlog($id) ?: [];
+        $tags_selected       = $this->blogTagModel->read_tagBlog($id) ?: [];
 
 
         $selectedCats = [];
@@ -114,6 +136,7 @@ class BlogController extends Controller
             'photo'               => $this->photoModel->read_photo($id),
             'categories_selected' => $selectedCats,
             'tags_selected'       => $selectedTags,
+            'robots'              => Tinyint::category_robots(),
 
         );
         view('Backend.blog.edit', $data);
@@ -146,9 +169,14 @@ class BlogController extends Controller
         }
 
         $this->blogModel->update([
-            'key'   => $param['key'],
-            'value' => $param['value'],
-            'slug'  => $param['slug'],
+            'key'             => $param['key'],
+            'value'           => $param['value'],
+            'slug'            => $param['slug'],
+            'seo_H1'          => $param['seo-H1'],
+            'seo_canonical'   => $param['seo-canonical'],
+            'seo_title'       => $param['seo-title'],
+            'seo_robot'       => $param['seo-robot'],
+            'seo_description' => $param['seo-description'],
         ], ['id' => $id['id']]);
 
 

@@ -70,6 +70,43 @@
                     <input name="slug" type="text" class="form-control" id="slug" value="<?= $blog['slug'] ?? '' ?>" placeholder="" required>
                 </div>
             </div>
+            <hr>
+
+            <div class="form-group row">
+                <label for="H1" class="col-2 col-form-label">H1</label>
+                <div class="col-10">
+                    <input name="seo-H1" type="text" class="form-control" id="H1" value="<?= $blog['seo_H1'] ?>" placeholder="ترجیحا بین 20 تا 70 کاراکتر" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="Canonical" class="col-2 col-form-label">Canonical</label>
+                <div class="col-10">
+                    <input name="seo-canonical" type="text" class="form-control" id="Canonical" value="<?= $blog['seo_canonical'] ?>" placeholder="لینک را وارد نمایی" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="robots" class="col-2 col-form-label">robots</label>
+                <div class="col-10">
+                    <select name='seo-robot' id="robots" class="form-control ">
+                        <?php foreach ($robots as $key => $value) : ?>
+                            <option value="<?= $key ?>" <?= $key == $blog['seo_robot'] ? 'selected' : '' ?>><?= $value ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="title" class="col-2 col-form-label">title</label>
+                <div class="col-10">
+                    <input name="seo-title" type="text" class="form-control" id="title" value="<?= $blog['seo_title'] ?>" placeholder="title را وارد نمایی" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="seo-description" class="col-2 col-form-label"> درباره محصول </label>
+                <div class="col-10">
+                    <textarea name="seo-description" type="text" class="form-control" id="seo-description" rows="3" required><?= $blog['seo_description'] ?></textarea>
+                </div>
+            </div>
+            <hr>
             <div class="form-group ">
                 <textarea name="value" id="textarea"><?= $blog['value'] ?></textarea>
             </div>

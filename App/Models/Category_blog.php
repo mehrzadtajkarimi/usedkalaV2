@@ -18,7 +18,7 @@ class Category_blog extends MysqlBaseModel
     }
     public function create_blogCategories($params)
     {
-            $this->create($params);
+        $this->create($params);
     }
 
     public function read_categoryBlog($id = null)
