@@ -63,9 +63,22 @@ class Blog extends MysqlBaseModel
             "comments",                // -- table categories
             "id",                        // categories.id
             "entity_id",               // products.category_id
+            "comments.status='1'",
             "comments.entity_id=$id",
             "comments.entity_type='Blog'",
+        );
+    }
+
+    public function join_blog__with_comment_replies($id)
+    {
+        return $this->inner_join(
+            "*", // column
+            "comment_replies",                // -- table categories
+            "id",                        // categories.id
+            "entity_id",               // products.category_id
             "comments.status='1'",
+            "comments.parent_id=$id",
+            "comments.entity_type='Blog'",
         );
     }
     public function join_blog_to_photo_by_blog_id($blog_id = null)

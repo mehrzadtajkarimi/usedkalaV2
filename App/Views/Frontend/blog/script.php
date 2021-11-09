@@ -14,5 +14,38 @@
                 }
             });
         });
+
+        $('.like').click(function() {
+            var that = this;
+            var id = $(this).children('i').data('id');
+            $.ajax({
+                type: "post",
+                url: '<?= base_url() ?>product/comment/' + id + '/like',
+                success: function(response) {
+                    console.log(response);
+                    if (response != "") {
+                        $(this).children('i').html(response);
+                    }
+                    $('.dislike').removeClass('text-danger')
+                    $(that).addClass('text-success')
+                }
+            });
+        });
+        $('.dislike').click(function() {
+            var that = this;
+            var id = $(this).children('i').data('id');
+            $.ajax({
+                type: "post",
+                url: '<?= base_url() ?>product/comment/' + id + '/dislike',
+                success: function(response) {
+                    console.log(response);
+                    if (response != "") {
+                        $(this).children('i').html(response);
+                    }
+                    $('.like').removeClass('text-success')
+                    $(that).addClass('text-danger')
+                }
+            });
+        });
     });
 </script>

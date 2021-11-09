@@ -63,6 +63,7 @@ class Comment extends MysqlBaseModel
         FROM users
         INNER JOIN comments
         ON  users.id=comments.user_id
+        AND comments.parent_id='0'
         ORDER BY
         comments.id DESC
         ")->fetchAll();

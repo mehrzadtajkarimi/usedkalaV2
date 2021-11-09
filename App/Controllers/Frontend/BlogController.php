@@ -48,18 +48,14 @@ class BlogController extends Controller
         $slug    = $this->request->get_param('slug');
         $blog_id = $this->request->get_param('id');
 
-
-
-
         $blog        = $this->blogModel->join_blog_to_photo_by_blog_id($blog_id);
         $blogComment = $this->blogModel->join_blog__with_comment($blog_id['id'])?? '';
+            foreach ($blogComment as $key => $value) {
+                $blogCommentReply = $this->blogModel->join_blog__with_comment_replies($value['id'])?? '';
+            }
         $blogTag     = $this->blogTagModel->join_blog__with_tag($blog_id['id'])?? '';
 
-
-
-
-        // dd($blogTag);
-
+        dd($blogCommentTwo);
 
         if (is_array($blog)) {
             $data = array(
@@ -78,7 +74,7 @@ class BlogController extends Controller
             'entity_id'   => $id['id'],
             'entity_type' => 'Blog',
             'user_id'     => SessionManager::get('auth'),
-            'message'     => $this->request->params()['blog_title'],
+            'message'     => $this->request->params()['blog_comment'],
             'title'       => $this->request->params()['blog_title'],
             'ip'          => $this->request->ip(),
         ]);

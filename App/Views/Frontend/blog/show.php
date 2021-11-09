@@ -73,10 +73,24 @@
         <h5 class="card-title m-3">نظرات :</h5>
         <?php foreach ($comments as $value) : ?>
             <div class="ml-4 mb-2">
-                <small> <?= $value['title'] ?> </small>
-                <p>
-                    <?= $value['message'] ?>
-                </p>
+                <div class="card">
+                    <div class="card-body p-3">
+                        <h5 class="card-title"><?= $value['title'] ?> </h5>
+                        <p class="card-text"><?= $value['message'] ?></p>
+                    </div>
+
+                </div>
+                <span>آیا این دیدگاه برایتان مفید بود؟</span>
+                <span class="m-2 pointer dislike text-muted ">
+                    <small><?= $value['dislike'] ?></small>
+                    <i class=" fa fa-thumbs-down fa-1x " data-id="<?= $value['id'] ?>" title="کلیک کنید تا وضعیت تغییر کند"></i>
+                </span>
+                <span class="m-2 pointer like text-darkBrandController">
+                    <small><?= $value['like'] ?></small>
+                    <i class=" fa fa-thumbs-up  fa-1x " data-id="<?= $value['id'] ?>" title="کلیک کنید تا وضعیت تغییر کند"></i>
+                </span>
+                </span>
+
             </div>
         <?php endforeach; ?>
         <form class="theForm" action="<?= base_url() ?>blog/comment/<?= $blog['blog_id'] ?>" method="post">
