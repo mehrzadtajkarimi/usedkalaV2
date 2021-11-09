@@ -68,6 +68,7 @@ class ProductController extends Controller
             'quantity'      => $params['product-quantity'],
             'meta_title'    => $params['product-meta'],
             'description'   => $params['product-description'],
+
             'seo_H1'        => $params['seo-H1'],
             'seo_canonical' => $params['seo-canonical'],
             'seo_title'     => $params['seo-title'],
