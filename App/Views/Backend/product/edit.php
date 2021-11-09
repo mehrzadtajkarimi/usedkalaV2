@@ -160,29 +160,13 @@
                 </div>
             <?php endif; ?>
             <hr>
-            <div class="pt-2 pb-2 form-check row">
-                <input name="product-featured" type="checkbox" class="form-check-input" id="product-featured" <?= $products['featured'] ?  'checked' : ''  ?>>
-                <label class="form-check-label" for="product-featured">
-                    محصول ویژه
-                </label>
-            </div>
+
             <div class="pt-2 pb-2 form-check row">
                 <input name="product-status" type="checkbox" class="form-check-input" id="product-status" <?= $products['status'] ?  'checked' : ''  ?>>
                 <label class="form-check-label" for="product-status">
                     وضعیت
                 </label>
             </div>
-
-            <div class="pt-2 pb-2 form-check row">
-                <input name="product-sale" type="checkbox" class="form-check-input" id="product-sale" <?= $products['sale'] ?  'checked' : ''  ?>>
-                <label class="form-check-label" for="product-sale">
-                    محصول پرفروش
-                    <small class="text-danger">
-                        (جهت نمایش در صفحه اصلی قسمت پرفروشترین محصولات)
-                    </small>
-                </label>
-            </div>
-
 
             <div class="form-group row">
                 <div class="col-sm-10">

@@ -178,7 +178,7 @@
                           وضعیت
                         </label>
                       </div>
-                      <div class="pt-2 pb-2 form-check">
+                      <!-- <div class="pt-2 pb-2 form-check">
                         <input value="1" name="product-featured" type="checkbox" class="form-check-input" id="product-featured">
                         <label class="form-check-label" for="product-featured">
                           محصول ویژه
@@ -193,7 +193,7 @@
                             (جهت نمایش در صفحه اصلی قسمت پرفروشترین محصولات)
                           </small>
                         </label>
-                      </div>
+                      </div> -->
 
 
 
