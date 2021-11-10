@@ -182,11 +182,10 @@
                                                                     <ins>
                                                                         <span class="amount" dircetion="rtl"> </span>
                                                                     </ins>
-                                                                    <span class="amount" dircetion="rtl"> 20,000,000 ریال</span>
+                                                                    <span class="amount" dircetion="rtl"> <?= number_format($value['price']) ?> ریال</span>
                                                                 </span>
                                                                 <!-- /.price -->
-                                                                <h2 class="woocommerce-loop-product__title">
-                                                                    سرور ایستاده</h2>
+                                                                <h2 class="woocommerce-loop-product__title"><?= $value['title'] ?></h2>
                                                             </a>
                                                             <div class="hover-area">
                                                                 <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
@@ -1303,3 +1302,7 @@
     </div>
     <!-- .row -->
 </div>
+<?php
+if (isset($onLoadMsg))
+	echo '<script>alert("'.$onLoadMsg.'")</script>';
+?>

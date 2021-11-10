@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Nov 10, 2021 at 11:22 AM
--- Server version: 8.0.27-0ubuntu0.20.04.1
--- PHP Version: 8.0.11
+-- Host: 127.0.0.1
+-- Generation Time: Nov 10, 2021 at 04:53 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `usedkalaV2`
+-- Database: `usedkalav2`
 --
 
 -- --------------------------------------------------------
@@ -28,11 +28,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `active_codes` (
-  `id` int NOT NULL,
-  `user_id` int NOT NULL,
-  `code` int NOT NULL,
-  `expired_at` timestamp NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `code` int(11) NOT NULL,
+  `expired_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -41,15 +41,15 @@ CREATE TABLE `active_codes` (
 --
 
 CREATE TABLE `activity_log` (
-  `id` int NOT NULL,
-  `user_id` int NOT NULL,
-  `ip` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `referer` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `type` enum('create','read','update','delete') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `subject` json NOT NULL,
-  `uri` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `ip` varchar(16) NOT NULL,
+  `referer` varchar(512) NOT NULL,
+  `type` enum('create','read','update','delete') NOT NULL,
+  `subject` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`subject`)),
+  `uri` varchar(256) NOT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -58,10 +58,10 @@ CREATE TABLE `activity_log` (
 --
 
 CREATE TABLE `attributes` (
-  `id` int NOT NULL,
-  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -70,11 +70,11 @@ CREATE TABLE `attributes` (
 --
 
 CREATE TABLE `attribute_product` (
-  `id` int NOT NULL,
-  `attribute_id` int NOT NULL,
-  `product_id` int NOT NULL,
-  `value_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int(11) NOT NULL,
+  `attribute_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `value_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -83,11 +83,11 @@ CREATE TABLE `attribute_product` (
 --
 
 CREATE TABLE `attribute_values` (
-  `id` int NOT NULL,
-  `attrebute_id` int NOT NULL,
-  `value` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int(11) NOT NULL,
+  `attrebute_id` int(11) NOT NULL,
+  `value` varchar(100) NOT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -96,17 +96,17 @@ CREATE TABLE `attribute_values` (
 --
 
 CREATE TABLE `blogs` (
-  `id` int NOT NULL,
-  `slug` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `key` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `value` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `seo_robot` tinyint NOT NULL COMMENT '0=Index 1=Noindex 2=Nofollow 3=Follow 4=None 5=Noimageindex 6=Noarchive 7=Nocache',
+  `id` int(11) NOT NULL,
+  `slug` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `key` varchar(64) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `value` text CHARACTER SET utf8mb4 NOT NULL,
+  `seo_robot` tinyint(4) NOT NULL COMMENT '0=Index 1=Noindex 2=Nofollow 3=Follow 4=None 5=Noimageindex 6=Noarchive 7=Nocache',
   `seo_canonical` varchar(128) COLLATE utf8mb4_persian_ci NOT NULL,
   `seo_H1` varchar(256) COLLATE utf8mb4_persian_ci NOT NULL,
   `seo_description` varchar(512) COLLATE utf8mb4_persian_ci NOT NULL,
   `seo_title` varchar(128) COLLATE utf8mb4_persian_ci NOT NULL,
   `meta_title` varchar(512) COLLATE utf8mb4_persian_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -133,9 +133,9 @@ INSERT INTO `blogs` (`id`, `slug`, `key`, `value`, `seo_robot`, `seo_canonical`,
 --
 
 CREATE TABLE `blog_tags` (
-  `id` int NOT NULL,
-  `blog_id` int NOT NULL,
-  `tag_id` int NOT NULL
+  `id` int(11) NOT NULL,
+  `blog_id` int(11) NOT NULL,
+  `tag_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -155,21 +155,21 @@ INSERT INTO `blog_tags` (`id`, `blog_id`, `tag_id`) VALUES
 --
 
 CREATE TABLE `brands` (
-  `id` int NOT NULL,
-  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `logo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `sort` int DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `logo` varchar(100) DEFAULT NULL,
+  `sort` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `brands`
 --
 
 INSERT INTO `brands` (`id`, `name`, `logo`, `sort`, `created_at`, `updated_at`) VALUES
-(8, 'Wilma Randall', NULL, 0, '2021-09-12 06:39:20', NULL),
-(9, 'Hyacinth Mckay', NULL, 1, '2021-09-21 08:37:27', NULL);
+(8, 'Dell EMC', NULL, 0, '2021-09-12 06:39:20', NULL),
+(9, 'HPE', NULL, 1, '2021-09-21 08:37:27', NULL);
 
 -- --------------------------------------------------------
 
@@ -178,10 +178,10 @@ INSERT INTO `brands` (`id`, `name`, `logo`, `sort`, `created_at`, `updated_at`) 
 --
 
 CREATE TABLE `carts` (
-  `id` int NOT NULL,
-  `product_id` int NOT NULL,
-  `token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'session save'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `token` varchar(100) NOT NULL COMMENT 'session save'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -190,29 +190,33 @@ CREATE TABLE `carts` (
 --
 
 CREATE TABLE `categories` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `status` tinyint(1) DEFAULT NULL,
-  `description` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `type` tinyint UNSIGNED DEFAULT '0' COMMENT '0=product 1=blog',
-  `H1` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `canonical` varchar(256) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `robots` tinyint DEFAULT '0' COMMENT '0=Noindex 1=Index 2=Nofollow 3=Follow 4=None 5=Noimageindex 6=Noarchive 7=Nocache',
-  `parent_id` int DEFAULT '0',
-  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `slug` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `description` longtext DEFAULT NULL,
+  `type` tinyint(3) UNSIGNED DEFAULT 0 COMMENT '0=product 1=blog',
+  `H1` varchar(256) NOT NULL,
+  `canonical` varchar(256) DEFAULT NULL,
+  `robots` tinyint(4) DEFAULT 0 COMMENT '0=Noindex 1=Index 2=Nofollow 3=Follow 4=None 5=Noimageindex 6=Noarchive 7=Nocache',
+  `parent_id` int(11) DEFAULT 0,
+  `name` varchar(100) NOT NULL,
+  `slug` varchar(100) NOT NULL,
+  `seo_title` varchar(500) DEFAULT '',
+  `seo_description` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id`, `status`, `description`, `type`, `H1`, `canonical`, `robots`, `parent_id`, `name`, `slug`, `created_at`) VALUES
-(51, 1, 'Cillum blanditiis accusantium impedit facere', 0, 'Sed numquam rem rati', NULL, 0, 0, 'Shellie Hurst', 'Mollit-et-ad-culpa-a', '2021-09-12 06:39:43'),
-(52, 1, 'Quia aliquip est cul', 0, 'Dolor at voluptatibu', NULL, 0, 51, 'lejuf@mailinator.com', 'Quam-assumenda-tempo', '2021-09-12 06:42:30'),
-(53, 1, 'Cupidatat sit harum', 1, 'Quia consequat Quam', NULL, 0, 52, 'madysumus@mailinator.com', 'Consequatur-est-it', '2021-09-12 06:42:46'),
-(54, 0, 'Nostrum est cumque architecto explicabo Est consectetur in et exercitationem sequi sed dolor consequuntur temporibus ', 1, 'Nostrud qui qui poss', 'Et qui vel dicta ex ', 0, 0, 'Alden Mcmillan', 'Esse-quibusdam-obcae', '2021-10-18 12:24:55'),
-(55, 1, 'Incididunt consequuntur incididunt dolores non provident', 1, 'At cupidatat numquam', 'Enim fugiat aut labo', 5, 0, 'Hyacinth Britt', 'Dolor-labore-odio-pl', '2021-10-18 12:25:26');
+INSERT INTO `categories` (`id`, `status`, `description`, `type`, `H1`, `canonical`, `robots`, `parent_id`, `name`, `slug`, `seo_title`, `seo_description`, `created_at`) VALUES
+(51, 1, '<p><strong>نکاتی که در زمان خرید سرور دست دوم باید به آن توجه کنیم!</strong></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>افزایش روز افزون قطعات سخت افزاری از جمله سرور موجب شده تا بسیاری از شرکت ها توانایی تامین بودجه زیاد برای خرید آن را نداشته باشند به خصوص اگر سرور مورد نظرشان توسط کمپانی های بزرگ و معروفی نیز ساخته شده باشد از این رو اغلب خریداران سرورها به بازارهایی که سرور کارکرده به فروش می رسانند مراجعه می کنند زیرا دیگر مجبور نیستند که هزینه بالایی را برای خرید سرور پرداخت کنند.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>سرورهای کارکرده قبلا مدت زمان بسیار اندکی توسط سایر سازمان ها و یا شرکت ها استفاده شده اند، این سازمان ها سرور های خود را با توجه به پیشرفت تکنولوژی فورا تعویض می کنند از این رو سرورهای کارکرده خود را به بازار سرورهای دسته دوم می سپارند تا با قیمتی معقولانه به فروش برسد.انتخاب و خرید سرور دست دوم بسیار حساس می باشد و لازم است که در این زمینه از اطلاعات لازم و کافی&nbsp; برخوردار باشید، زیرا سرورها اصلی ترین و مهم ترین زیر ساختار شبکه محسوب می شوند، از جمله مهم ترین مواردی که در زمان خرید سرور کارکرده باید مدنظر قرار دهید شامل: میزان فضای مورد استفاده در هارد دیسک- حافظه داخلی و کارت گرافیکی- مدل CPU است، لازم است که بدانید ویژگی های فنی مذکور قابلیت ارتقا با توجه به نیاز مشتری را دارد.</p>\r\n\r\n<p><strong>در زمان خرید سرور دست دوم باید به چه نکاتی توجه کنیم؟</strong> <strong>از فروشنده قابل اعتماد سرور خریداری کنید</strong></p>\r\n\r\n<p>- در زمان انتخاب سرور به نوع هارد دقت کنید زیرا که نوع هارد در این زمینه بسیار مهم می باشد اگر سرور مورد نظر شما دارای هارد و یا درایورهای ۲.۵ اینچی باشد هزینه ای که برای خرید آن باید بپردازید بالا می باشد، حتما به این نکته نیز توجه داشته باشید که آیا سرور قابلیت راه اندازی بدون رید کنترلر را دارد؟ زیرا برخی سرورهای کارکرده دارای رید کنترل هایی با پهنای باند اندک هستند از این رو می بایست حتما سرور با رید راه اندازی شود که این امر موجب کاهش کیفیت درایورهای SSD می شود.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>- حتما مدت زمانی که سرور مورد استفاده قرار گرفته است را در نظر بگیرید که این امر را براساس سال تولید سرور باید بسنجید به عنوان مثال سرور مدل G۶ شرکت HP در سال ۲۰۱۱ &nbsp;وارد بازار شده است.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>- برای بررسی کردن پارت نامبر- فرکانس و... می توانید از طریق ILO این کار را انجام دهید، پارت نامبر را در لیست شرکت تولید کننده رک سرور مشاهده کیند تا اطمینان کسب کنید که مدل CPU- میزان حافظه و سایر مشخصات آن صحیح درج شده است.</p>\r\n\r\n<p><strong>سرور دست دوم رده پایین</strong></p>\r\n\r\n<p>- برخی سرور های دسته دوم در بازار وجود دارد که قیمت پایینی دارند که می توانند پاسخگوی برخی نیاز ها مانند اشتراک گذاری انواع فایل ها- ایمیل ها و پرینتر برای حدود ۱۰ کاربر می باشد.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>این سرورها معمولا به صورت ایستاده هستند که به آن رکمونت نیز می گویند و دارای ۴ هارد دیسک از نوع SATA می باشند، لازم است که بدانید حداقل حافظه سرورهای کارکرده ۴ گیگابایت می باشد که می توانید آن ها را تا ۶۴ گیگابایت نیز ارتقا دهید.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>- بهتر است مدلی را انتخاب نمایید که ۳ الی ۴ هاردو درایور اضافی داشته باشد معمولا سرور دست دوم با کمترین قیمت دارای ۵ اسلات می باشد که ریدکنترلرهای ۶۴ بیتی یا آداپتور پرسرعت روی ۲ اسلات آن قرار گرفته است.</p>\r\n\r\n<p><strong>سرور دست دوم رده متوسط</strong></p>\r\n\r\n<p>- این سرور ها به صورت ایستاده بوده و دارای ارتفاع ۱ الی ۴ یونیت می باشند و &nbsp;این قابلیت را دارند که مدیریت چندین کار را به صورت همزمان برعهده بگیرند.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>- همچنین می توان از چندین سرور دست دوم یا کارکرده به صورت همزمان استفاده کرد در این حالت سرورها به صورت خوشه ای عمل سرویس دهی را انجام می دهند.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>- سرورهای دسته دوم رده متوسط قابلیت پشتیبانی از دو یا چهار پردازنده را به صورت همزمان دارند و حافظه رم آن ها در حد ۳ ترابایت می باشد.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>- در زمان خرید توجه داشته باشید که این مدل سرور می بایست دارای هارددیسک- فن و منبع تغذیه نیز باشد همچنین امکان اضافه کردن سخت افزارهای اکسترنال به این مدل سرورها وجود دارد.</p>\r\n\r\n<p><strong>آیا عملکرد سرور دست دوم برای برآورده کردن نیاز کسب و کار مناسب می باشد؟</strong></p>\r\n\r\n<p>برخی افراد تصور می کنند که سرور های دسته دوم قادر به برآورده کردن نیاز کسب و کارها نمی باشند در حالی این تصور کاملا غلط است بلکه یک سرور دست دوم می تواند مانند یک سرور جدید فعالیت و راندمانی تاثیر گذار داشته باشد، زیرا که سخت افزارهایی که در سرورها وجود دارد را می توانید ارتقا دهید به عنوان مثال می توانید پردازنده سرور خود را با مدل بالاتری که در بازار موجود است تعویض کنید و از این طریق قدرت پردازش را افزایش دهید.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>نکته ای که لازم است بدانید این است که شرکت های بزرگ براساس قراردادی که با شرکت های تامین کننده تجهیزات سخت افزاری دارند می بایست هر چند سال یک بار به صورت کامل سرور خود را با مدل جدیدتر تعویض کنند، تعویض این سرورها به این معنا نیست که سرور های قبلی دچار مشکل و یا خرابی شده اند بلکه این کار هدف تجاری دارد.اغلب سرورهایی که با نام دسته دوم وارد بازار می شوند می توانند حداقل تا ۱۰ سال آینده به خوبی کار کنند.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>حتما در زمان خرید سرور کارکرده دقت کنید که از نظر ظاهری و سخت افزاری بدون نقص و ایراد باشد در این حالت سرور شما می تواند تا چندین سال بدون هیچگونه مشکلی نیازهای کسب و کار شما را از نظر عملکردی برآورده سازد.اگر سروری که خریدداری می کنید یک الی دو نسل با نسل جدید که در بازار وجود دارد فاصله داشته باشد به راحتی می توانید قطعات سخت افزاری آن را در بازار خریداری کرده و آن را ارتقا دهید از این رو در صورتی که سرور دست دوم در سال های بعد دچار خرابی نیز شود به راحتی می توانید با تعویض قطعات آن را تعمیر کنید.اغلب شرکت های بزرگ احتمال خرابی برخی قطعات سرور را از قبل می دهند از این رو آن قطعات را خریداری و انبار می کنند و در صورت خرابی قطعات مورد نیاز در دسترشان می باشد و کسب و کار آن ها هرگز با خرابی&nbsp; سرور مواجه نمی شود.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n', 0, 'سرور', '', 1, 0, 'سرور', 'server', '', NULL, '2021-09-12 06:39:43'),
+(52, 1, '<p>سرورهای باندلی در یوزدکالا</p>\r\n', 0, 'سرور باندلی - BTO', '', 0, 51, 'سرور باندلی - BTO', 'bto-servers', 'سرور باندلی - BTO', 'سرور باندلی - BTO', '2021-09-12 06:42:30'),
+(53, 1, 'Cupidatat sit harum', 1, 'Quia consequat Quam', NULL, 0, 52, 'madysumus@mailinator.com', 'Consequatur-est-it', '', NULL, '2021-09-12 06:42:46'),
+(54, 0, 'Nostrum est cumque architecto explicabo Est consectetur in et exercitationem sequi sed dolor consequuntur temporibus ', 1, 'Nostrud qui qui poss', 'Et qui vel dicta ex ', 0, 0, 'Alden Mcmillan', 'Esse-quibusdam-obcae', '', NULL, '2021-10-18 12:24:55'),
+(55, 1, 'Incididunt consequuntur incididunt dolores non provident', 1, 'At cupidatat numquam', 'Enim fugiat aut labo', 5, 0, 'Hyacinth Britt', 'Dolor-labore-odio-pl', '', NULL, '2021-10-18 12:25:26'),
+(63, 1, '', 0, 'قطعات داخل سرور', '', 0, 51, 'قطعات داخل سرور', 'قطعات-داخل-سرور', 'قطعات داخل سرور', 'قطعات داخل سرور', '2021-11-10 13:50:32'),
+(64, 1, ' ', 0, 'ذخیره ساز', NULL, 0, 0, 'ذخیره ساز', 'ذخیره-ساز', NULL, NULL, '2021-11-10 14:02:25');
 
 -- --------------------------------------------------------
 
@@ -221,9 +225,9 @@ INSERT INTO `categories` (`id`, `status`, `description`, `type`, `H1`, `canonica
 --
 
 CREATE TABLE `category_blogs` (
-  `id` int NOT NULL,
-  `category_id` int NOT NULL,
-  `blog_id` int NOT NULL
+  `id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `blog_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -245,10 +249,10 @@ INSERT INTO `category_blogs` (`id`, `category_id`, `blog_id`) VALUES
 --
 
 CREATE TABLE `category_discounts` (
-  `id` int NOT NULL,
-  `category_id` int NOT NULL,
-  `discount_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `discount_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `category_discounts`
@@ -268,10 +272,10 @@ INSERT INTO `category_discounts` (`id`, `category_id`, `discount_id`) VALUES
 --
 
 CREATE TABLE `category_samples` (
-  `id` int NOT NULL,
-  `sample_id` int NOT NULL,
-  `category_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int(11) NOT NULL,
+  `sample_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `category_samples`
@@ -287,10 +291,10 @@ INSERT INTO `category_samples` (`id`, `sample_id`, `category_id`) VALUES
 --
 
 CREATE TABLE `cities` (
-  `id` int NOT NULL,
-  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `province_id` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int(11) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `province_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -299,19 +303,19 @@ CREATE TABLE `cities` (
 --
 
 CREATE TABLE `comments` (
-  `id` int NOT NULL,
-  `entity_id` int DEFAULT NULL,
-  `entity_type` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `user_id` int DEFAULT NULL,
-  `parent_id` int NOT NULL DEFAULT '0',
-  `message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `ip` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `status` tinyint(1) DEFAULT '0',
-  `like` int NOT NULL DEFAULT '0',
-  `dislike` int NOT NULL DEFAULT '0',
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int(11) NOT NULL,
+  `entity_id` int(11) DEFAULT NULL,
+  `entity_type` varchar(64) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `parent_id` int(11) NOT NULL DEFAULT 0,
+  `message` text NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `ip` varchar(16) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT 0,
+  `like` int(11) NOT NULL DEFAULT 0,
+  `dislike` int(11) NOT NULL DEFAULT 0,
+  `created_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `comments`
@@ -337,10 +341,14 @@ INSERT INTO `comments` (`id`, `entity_id`, `entity_type`, `user_id`, `parent_id`
 (92, 2, 'Blog', 73, 0, 'FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF', '', NULL, 0, 0, 0, '2021-11-09 12:46:35'),
 (93, 2, 'Blog', 73, 0, 'GGGGGGGG', 'GGGGGGGG', '127.0.0.1', 1, 0, 0, '2021-11-09 12:48:03'),
 (94, 2, 'Blog', 73, 0, 'GGGGGGGGGGGGGGGGGGGGGGGGGGGGG', '', NULL, 0, 0, 0, '2021-11-09 12:48:30'),
-(95, 14, 'Product', 73, 0, 'asdfasdf', 'sdfasdf', '127.0.0.1', 0, 0, 1, '2021-11-09 13:10:07'),
+(95, 14, 'Product', 73, 0, 'asdfasdf', 'sdfasdf', '127.0.0.1', 0, 1, 1, '2021-11-09 13:10:07'),
 (96, 14, 'Product', 73, 0, 'asdfasdf', 'sdfasdf', '127.0.0.1', 0, 0, 0, '2021-11-09 13:10:15'),
 (98, 2, 'Blog', 73, 0, 'لطفا دز موزد این مورد نظرتون رو بدهید', ' این موضوع مقاله شمازه 2 هستش ', '127.0.0.1', 0, 0, 0, '2021-11-09 14:24:33'),
-(99, 2, 'Blog', 73, 0, 'این پاسخ متعلق از به دیدگاه شماره 2', '', NULL, 0, 0, 0, '2021-11-09 14:25:44');
+(99, 2, 'Blog', 73, 0, 'این پاسخ متعلق از به دیدگاه شماره 2', '', NULL, 0, 0, 0, '2021-11-09 14:25:44'),
+(100, 14, 'Product', 73, 0, 'لورم ایپسوم دلر سیت آمت', 'asdasd', '::1', 0, 0, 0, '2021-11-10 11:59:23'),
+(101, 14, 'Product', 73, 0, 'لورم ایپسوم دلر سیت آمت', 'asdasd', '::1', 0, 0, 0, '2021-11-10 11:59:29'),
+(102, 14, 'Product', 73, 0, 'لورم ایپسوم دلر سیت آمت', 'asdasd', '::1', 0, 0, 0, '2021-11-10 11:59:48'),
+(103, 14, 'Product', 73, 0, 'لورم ایپسوم دلر سیت آمت', 'asdasd', '::1', 0, 0, 0, '2021-11-10 11:59:57');
 
 -- --------------------------------------------------------
 
@@ -349,19 +357,19 @@ INSERT INTO `comments` (`id`, `entity_id`, `entity_type`, `user_id`, `parent_id`
 --
 
 CREATE TABLE `discounts` (
-  `id` int NOT NULL,
-  `title` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `user_id` int NOT NULL,
-  `code` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `type` tinyint DEFAULT NULL,
-  `percent` tinyint DEFAULT NULL COMMENT '%',
-  `description` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `status` tinyint(1) DEFAULT '1',
-  `start_at` timestamp NOT NULL,
-  `finish_at` timestamp NOT NULL,
+  `id` int(11) NOT NULL,
+  `title` varchar(128) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `code` varchar(128) NOT NULL,
+  `type` tinyint(4) DEFAULT NULL,
+  `percent` tinyint(4) DEFAULT NULL COMMENT '%',
+  `description` varchar(512) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT 1,
+  `start_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `finish_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `discounts`
@@ -379,12 +387,12 @@ INSERT INTO `discounts` (`id`, `title`, `user_id`, `code`, `type`, `percent`, `d
 --
 
 CREATE TABLE `likes` (
-  `id` int NOT NULL,
-  `entity_id` int DEFAULT NULL,
-  `entity_type` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `ip` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int(11) NOT NULL,
+  `entity_id` int(11) DEFAULT NULL,
+  `entity_type` varchar(64) DEFAULT NULL,
+  `ip` varchar(16) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -393,22 +401,22 @@ CREATE TABLE `likes` (
 --
 
 CREATE TABLE `orders` (
-  `id` int NOT NULL,
-  `user_id` int UNSIGNED DEFAULT NULL,
-  `city_id` int UNSIGNED DEFAULT NULL,
-  `token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `order_number` int NOT NULL,
-  `status` enum('pending','processing','completed','decline') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `weight` enum('tiny','normal','big') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `item_count` int UNSIGNED DEFAULT NULL,
+  `id` int(11) NOT NULL,
+  `user_id` int(10) UNSIGNED DEFAULT NULL,
+  `city_id` int(10) UNSIGNED DEFAULT NULL,
+  `token` varchar(100) NOT NULL,
+  `order_number` int(11) NOT NULL,
+  `status` enum('pending','processing','completed','decline') DEFAULT NULL,
+  `weight` enum('tiny','normal','big') DEFAULT NULL,
+  `item_count` int(10) UNSIGNED DEFAULT NULL,
   `grand_total` float DEFAULT NULL,
   `discount_total` float DEFAULT NULL,
-  `shipping_cost` int DEFAULT NULL,
+  `shipping_cost` int(11) DEFAULT NULL,
   `payment_status` tinyint(1) DEFAULT NULL,
-  `payment_method` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `notes` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `payment_method` varchar(100) DEFAULT NULL,
+  `notes` varchar(512) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -417,14 +425,14 @@ CREATE TABLE `orders` (
 --
 
 CREATE TABLE `order_details` (
-  `id` int NOT NULL,
-  `order_id` int DEFAULT NULL,
-  `product_id` int DEFAULT NULL,
-  `quantity` int DEFAULT NULL,
-  `price` int DEFAULT NULL,
+  `id` int(11) NOT NULL,
+  `order_id` int(11) DEFAULT NULL,
+  `product_id` int(11) DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
   `discount` float DEFAULT NULL,
   `cerated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -433,11 +441,11 @@ CREATE TABLE `order_details` (
 --
 
 CREATE TABLE `permissions` (
-  `id` int NOT NULL,
-  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `label` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `label` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -446,10 +454,10 @@ CREATE TABLE `permissions` (
 --
 
 CREATE TABLE `permission_role` (
-  `id` int NOT NULL,
-  `permission_id` int DEFAULT NULL,
-  `role_id` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int(11) NOT NULL,
+  `permission_id` int(11) DEFAULT NULL,
+  `role_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -458,12 +466,12 @@ CREATE TABLE `permission_role` (
 --
 
 CREATE TABLE `permission_user` (
-  `id` int NOT NULL,
-  `user_id` int DEFAULT NULL,
-  `permission_id` int DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `permission_id` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -472,33 +480,27 @@ CREATE TABLE `permission_user` (
 --
 
 CREATE TABLE `photos` (
-  `id` int NOT NULL,
-  `entity_id` int DEFAULT NULL,
-  `entity_type` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `type` tinyint DEFAULT '0',
-  `path` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `alt` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int(11) NOT NULL,
+  `entity_id` int(11) DEFAULT NULL,
+  `entity_type` varchar(64) DEFAULT NULL,
+  `type` tinyint(4) DEFAULT 0,
+  `path` varchar(256) DEFAULT NULL,
+  `alt` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `photos`
 --
 
 INSERT INTO `photos` (`id`, `entity_id`, `entity_type`, `type`, `path`, `alt`, `created_at`) VALUES
-(54, 8, 'Brands', 0, 'http://usedkalaV2.me/Storage/202109/38.---e2374a9e.jpg', 'brand_image', '2021-09-12 06:39:20'),
-(55, 52, 'Category', 0, 'http://usedkalaV2.me/Storage/202109/33.---5b2abf50.jpg', 'image_category', '2021-09-12 06:42:30'),
+(54, 8, 'Brand', 0, 'http://usedkalaV2.me/Storage/202111/dell emc.---d288f7c6.png', 'brand_image', '2021-09-12 06:39:20'),
+(55, 52, 'Category', 0, 'http://usedkalaV2.me/Storage/202111/bl460.---7d04f960.jpg', 'image_category', '2021-09-12 06:42:30'),
 (56, 53, 'Category', 0, 'http://usedkalaV2.me/Storage/202109/34.---eafcb17b.jpg', 'image_category', '2021-09-12 06:42:46'),
 (57, 13, 'Product', 0, 'http://usedkalaV2.me/Storage/202109/32.---96cc9fc9.jpg', 'product_image', '2021-09-12 06:43:43'),
 (58, 13, 'Product', 1, 'http://usedkalaV2.me/Storage/202109/31.---b883b373.jpg', 'product_image', '2021-09-12 06:43:43'),
-(59, 9, 'Brands', 0, 'http://usedkalaV2.me/Storage/202109/37.---a1689502.jpg', 'brand_image', '2021-09-21 08:37:27'),
-(60, 14, 'Product', 0, 'http://usedkalaV2.me/Storage/202109/36.---0f2ca4b1.jpg', 'product_image', '2021-09-21 09:22:50'),
-(61, 14, 'Product', 1, 'http://usedkalaV2.me/Storage/202109/32.---d112408f.jpg', 'product_image', '2021-09-21 09:22:50'),
-(62, 15, 'Product', 0, 'http://usedkalaV2.me/Storage/202109/36.---26fe3780.jpg', 'product_image', '2021-09-21 09:26:18'),
-(63, 15, 'Product', 1, 'http://usedkalaV2.me/Storage/202109/33.---3ed86b23.jpg', 'product_image', '2021-09-21 09:26:18'),
-(64, 16, 'Product', 0, 'http://usedkalaV2.me/Storage/202109/34.---5956f222.jpg', 'product_image', '2021-09-22 05:23:50'),
+(59, 9, 'Brand', 0, 'http://usedkalaV2.me/Storage/202111/hpe.---76c7deb3.png', 'brand_image', '2021-09-21 08:37:27'),
 (65, 70, 'User', 0, 'http://usedkalaV2.me/Storage/202109/33.---06e07e5d.jpg', 'product_image', '2021-09-22 05:23:50'),
-(66, 31, 'Product', 0, 'http://usedkalaV2.me/Storage/202109/Screenshot from 2021-09-14 13-00-39.---edd3aa75.png', 'product_image', '2021-09-29 12:11:00'),
 (67, 2, 'Blog', 0, NULL, 'image_blog', '2021-10-04 12:22:27'),
 (68, 3, 'Blog', 0, 'http://usedkalaV2.me/Storage/202110/Screenshot from 2021-09-14 13-14-21.---4dc7ef1f.png', 'image_blog', '2021-10-04 12:24:57'),
 (69, 4, 'Blog', 0, 'http://usedkalaV2.me/Storage/202110/Screenshot from 2021-09-14 19-43-10.---29d7782a.png', 'image_blog', '2021-10-18 12:20:37'),
@@ -506,11 +508,15 @@ INSERT INTO `photos` (`id`, `entity_id`, `entity_type`, `type`, `path`, `alt`, `
 (71, 55, 'Category', 0, 'http://usedkalaV2.me/Storage/202110/Screenshot from 2021-09-21 12-52-00.---31acca35.png', 'image_category', '2021-10-18 12:25:26'),
 (72, 5, 'Blog', 0, 'http://usedkalaV2.me/Storage/202110/Screenshot from 2021-09-28 20-00-46.---21c940ae.png', 'image_blog', '2021-10-18 12:25:49'),
 (73, 72, 'User', 0, 'http://usedkalaV2.me/Storage/202110/PHOTO-2021-06-23-10-49-09.---fccfb516.jpg', 'profile_image', '2021-10-21 07:50:41'),
-(74, 32, 'Product', 0, 'http://usedkalaV2.me/Storage/202111/Screenshot from 2021-10-29 16-12-59.---15ae8351.png', 'product_image', '2021-11-08 05:50:48'),
-(75, 33, 'Product', 0, 'http://usedkalaV2.me/Storage/202111/2fb7065f9329c0c.---1f6eac80.jpg', 'product_image', '2021-11-08 05:59:23'),
-(76, 9, 'Blog', 0, 'http://usedkalaV2.me/Storage/202111/Screenshot from 2021-10-29 16-12-59.---b4b3bde7.png', 'image_blog', '2021-11-08 10:26:32'),
+(74, 32, 'Product', 0, 'http://usedkalaV2.me/Storage/202111/D3000-Disk-Enclosures.---e3304d71.jpg', 'product_image', '2021-11-08 05:50:48'),
+(75, 33, 'Product', 0, 'http://usedkalaV2.me/Storage/202111/D8000.---013972dd.jpg', 'product_image', '2021-11-08 05:59:23'),
+(76, 9, 'Brand', 0, 'http://usedkalaV2.me/Storage/202111/hpe.---76c7deb3.png', 'brand_image', '2021-11-08 10:26:32'),
 (77, 10, 'Blog', 0, 'http://usedkalaV2.me/Storage/202111/2fb7065f9329c0c.---62c7b202.jpg', 'image_blog', '2021-11-08 10:27:00'),
-(78, 11, 'Blog', 0, 'http://usedkalaV2.me/Storage/202111/PHOTO-2021-06-23-10-49-09.---9eefbbbc.jpg', 'image_blog', '2021-11-08 11:29:28');
+(78, 11, 'Blog', 0, 'http://usedkalaV2.me/Storage/202111/PHOTO-2021-06-23-10-49-09.---9eefbbbc.jpg', 'image_blog', '2021-11-08 11:29:28'),
+(79, 73, 'User', 0, 'http://usedkalaV2.me/Storage/202111/F5.---5f12ec19.png', 'profile_image', '2021-11-10 11:31:40'),
+(81, 63, 'Category', 0, 'http://usedkalaV2.me/Storage/202111/bios.---61cf9b60.jpg', 'image_category', '2021-11-10 13:50:32'),
+(82, 64, 'Category', 0, 'http://usedkalaV2.me/Storage/202111/3par.---51b9c9f0.jpg', 'image_category', '2021-11-10 14:02:25'),
+(83, 30, 'Product', 0, 'http://usedkalaV2.me/Storage/202111/LD0003959506_2_0003959562_0005140614.---b626f7c5.jpg', 'product_image', '2021-11-10 15:01:52');
 
 -- --------------------------------------------------------
 
@@ -519,58 +525,41 @@ INSERT INTO `photos` (`id`, `entity_id`, `entity_type`, `type`, `path`, `alt`, `
 --
 
 CREATE TABLE `products` (
-  `id` int NOT NULL,
-  `brand_id` int DEFAULT NULL,
-  `user_id` int NOT NULL,
-  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `seo_robot` tinyint DEFAULT NULL COMMENT '''0=Index 1=Noindex 2=Nofollow 3=Follow 4=None 5=Noimageindex 6=Noarchive 7=Nocache''',
-  `seo_canonical` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `seo_H1` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `seo_description` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `seo_title` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `meta_title` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `price` bigint NOT NULL,
+  `id` int(11) NOT NULL,
+  `brand_id` int(11) DEFAULT NULL,
+  `user_id` int(11) NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `seo_robot` tinyint(4) DEFAULT NULL COMMENT '''0=Index 1=Noindex 2=Nofollow 3=Follow 4=None 5=Noimageindex 6=Noarchive 7=Nocache''',
+  `seo_canonical` varchar(100) DEFAULT NULL,
+  `seo_H1` varchar(256) DEFAULT NULL,
+  `seo_description` varchar(256) DEFAULT NULL,
+  `seo_title` varchar(128) DEFAULT NULL,
+  `meta_title` varchar(512) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `price` bigint(20) NOT NULL,
   `featured` tinyint(1) DEFAULT NULL,
-  `image` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `slug` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `sale` tinyint(1) DEFAULT '0',
-  `status` tinyint(1) DEFAULT '1',
-  `sku` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT 'Stock Keeping Unit',
-  `quantity` int NOT NULL,
+  `image` varchar(100) DEFAULT NULL,
+  `slug` varchar(256) NOT NULL,
+  `sale` tinyint(1) DEFAULT 0,
+  `status` tinyint(1) DEFAULT 1,
+  `sku` varchar(100) DEFAULT NULL COMMENT 'Stock Keeping Unit',
+  `quantity` int(11) NOT NULL,
   `weight` float DEFAULT NULL COMMENT 'kg',
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL,
   `published_at` timestamp NULL DEFAULT NULL,
   `started_at` timestamp NULL DEFAULT NULL,
   `end_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`id`, `brand_id`, `user_id`, `title`, `seo_robot`, `seo_canonical`, `seo_H1`, `seo_description`, `seo_title`, `meta_title`, `description`, `price`, `featured`, `image`, `slug`, `sale`, `status`, `sku`, `quantity`, `weight`, `created_at`, `updated_at`, `published_at`, `started_at`, `end_at`) VALUES
-(14, 8, 70, 'Noah Gross', NULL, NULL, NULL, NULL, NULL, 'Earum sed placeat f', 'Aut maxime in offici', 647, 1, NULL, 'Tenetur-ea-dolores-e', 0, 1, 'Earum quas reiciendi', 119, 21, '2021-09-21 09:22:50', NULL, NULL, NULL, NULL),
-(15, 9, 70, 'Baker Cox', NULL, NULL, NULL, NULL, NULL, 'Sequi rerum dolores ', 'Voluptas qui animi ', 215, 1, NULL, 'Aliquip-aut-aut-et-q', 0, 1, 'Nobis perspiciatis ', 157, 30, '2021-09-21 09:26:18', NULL, NULL, NULL, NULL),
-(16, 9, 70, 'dfsdfsdf1', NULL, NULL, NULL, NULL, NULL, '۱', '۱', 1500, 1, NULL, 'Voluptates-est-rerum', 1, 1, '1', 1, 1, '2021-09-22 05:23:50', NULL, NULL, NULL, NULL),
-(17, 9, 70, 'Patrick Perry', NULL, NULL, NULL, NULL, NULL, 'Aut dolores quia aut', 'Odit cupiditate temp', 207, 0, NULL, 'In-ullam-itaque-dolo', 0, 1, 'Qui cum dolorem nisi', 436, 56, '2021-09-29 11:22:52', NULL, NULL, NULL, NULL),
-(18, 8, 70, 'Edward Britt', NULL, NULL, NULL, NULL, NULL, 'Proident consectetu', 'Beatae duis explicab', 810, 0, NULL, 'Aute-excepturi-est-s', 0, 1, 'Sed harum amet null', 842, 79, '2021-09-29 11:40:35', NULL, NULL, NULL, NULL),
-(19, 8, 70, 'Castor Blackburn', NULL, NULL, NULL, NULL, NULL, 'Aliquip blanditiis d', 'Non qui tenetur alia', 607, 1, NULL, 'Deserunt-esse-et-ex', 1, 1, 'Officiis proident f', 124, 90, '2021-09-29 11:42:08', NULL, NULL, NULL, NULL),
-(20, 8, 70, 'Castor Blackburn', NULL, NULL, NULL, NULL, NULL, 'Aliquip blanditiis d', 'Non qui tenetur alia', 607, 1, NULL, 'Deserunt-esse-et-ex', 1, 1, 'Officiis proident f', 124, 90, '2021-09-29 11:42:21', NULL, NULL, NULL, NULL),
-(21, 9, 70, 'Malcolm Mcguire', NULL, NULL, NULL, NULL, NULL, 'Non labore perspicia', 'Eum recusandae Temp', 52, 1, NULL, 'Nesciunt-fugit-com', 1, 1, 'Similique ipsam veli', 143, 57, '2021-09-29 11:45:12', NULL, NULL, NULL, NULL),
-(22, 9, 70, 'Malcolm Mcguire', NULL, NULL, NULL, NULL, NULL, 'Non labore perspicia', 'Eum recusandae Temp', 52, 1, NULL, 'Nesciunt-fugit-com', 1, 1, 'Similique ipsam veli', 143, 57, '2021-09-29 11:47:05', NULL, NULL, NULL, NULL),
-(23, 8, 70, 'Carter Hancock', NULL, NULL, NULL, NULL, NULL, 'Quibusdam animi nis', 'Ut quod consectetur', 610, 1, NULL, 'Voluptate-quis-beata', 0, 1, 'Eligendi fugit dolo', 694, 3, '2021-09-29 11:48:23', NULL, NULL, NULL, NULL),
-(24, 9, 70, 'Duncan Roth', NULL, NULL, NULL, NULL, NULL, 'Voluptates aliquip e', 'Rerum labore facilis', 125, 0, NULL, 'Aut-fugiat-vitae-mi', 1, 1, 'Laborum incidunt ip', 501, 71, '2021-09-29 11:49:13', NULL, NULL, NULL, NULL),
-(25, 9, 70, 'Fulton Pacheco', NULL, NULL, NULL, NULL, NULL, 'Sed esse ad duis eu', 'Nihil consequuntur e', 607, 1, NULL, 'A-obcaecati-eu-eum-v', 0, 1, 'Consequatur Fugiat ', 573, 12, '2021-09-29 11:50:41', NULL, NULL, NULL, NULL),
-(26, 9, 70, 'Cullen Houston', NULL, NULL, NULL, NULL, NULL, 'Cum beatae porro eu ', 'Quidem consequatur ', 314, 1, NULL, 'Reiciendis-similique', 1, 1, 'Eos aut consequat Q', 711, 95, '2021-09-29 11:54:25', NULL, NULL, NULL, NULL),
-(27, 9, 70, 'Cullen Houston', NULL, NULL, NULL, NULL, NULL, 'Cum beatae porro eu ', 'Quidem consequatur ', 314, 1, NULL, 'Reiciendis-similique', 1, 1, 'Eos aut consequat Q', 711, 95, '2021-09-29 11:55:08', NULL, NULL, NULL, NULL),
-(28, 9, 70, 'Cullen Houston', NULL, NULL, NULL, NULL, NULL, 'Cum beatae porro eu ', 'Quidem consequatur ', 314, 1, NULL, 'Reiciendis-similique', 1, 1, 'Eos aut consequat Q', 711, 95, '2021-09-29 11:55:23', NULL, NULL, NULL, NULL),
-(29, 9, 70, 'Latifah Wiggins', NULL, NULL, NULL, NULL, NULL, 'Excepturi dolore sus', 'Ullamco autem dolor ', 121, 0, NULL, 'Porro-autem-amet-ex', 0, 1, 'Esse omnis quaerat c', 521, 39, '2021-09-29 11:56:47', NULL, NULL, NULL, NULL),
-(30, 9, 70, 'Matthew Lawson', NULL, NULL, NULL, NULL, NULL, 'Debitis id dolor sae', 'Ipsa nulla est arch', 777, 0, NULL, 'Dolor-eu-quo-quas-si', 0, 1, 'Non eum veritatis ei', 37, 28, '2021-09-29 11:57:54', NULL, NULL, NULL, NULL),
-(31, 8, 70, 'Kelsie Rocha', NULL, NULL, NULL, NULL, NULL, 'Sed excepteur velit', 'Nesciunt dolorum du', 616, 0, NULL, 'Voluptas-ex-est-sapi', 0, 1, 'Et exercitation repe', 962, 16, '2021-09-29 12:11:00', NULL, NULL, NULL, NULL),
-(32, 8, 73, 'Chaney Jimenez', NULL, NULL, NULL, NULL, NULL, 'Quibusdam eveniet d', 'Voluptas dolore sed ', 36, 0, NULL, 'Debitis-magnam-delec', 0, 1, 'Qui delectus neque ', 508, 62, '2021-11-08 05:50:48', NULL, NULL, NULL, NULL),
-(33, 9, 73, 'ximawyxe@mailinator.com', 4, 'Tempore soluta quos', 'Quaerat suscipit omn', 'aaaaaaaaaa', 'aaaaaaaa', 'Culpa odio omnis au', 'Culpa est quis quid', 75, 1, NULL, 'Facere-sed-iure-est-', 1, 1, 'Voluptatem est tenet', 523, 1, '2021-11-08 05:59:23', NULL, NULL, NULL, NULL);
+(30, 9, 73, 'Cisco IP Phone', 0, '', 'Cisco IP Phone', 'Cisco IP Phone', 'Cisco IP Phone', 'Cisco IP Phone', 'Cisco IP Phone', 120000000, 1, NULL, 'Cisco-IP-Phone', 1, 0, '', 37, 3, '2021-09-29 11:57:54', NULL, NULL, NULL, NULL),
+(32, 9, 73, 'HPE Proliant DL580', 0, '', 'HPE Proliant DL580', 'HPE Proliant DL۵۸۰', 'HPE Proliant DL580', 'HPE Proliant DL۵۸۰', 'HPE Proliant DL۵۸۰', 850000000, 1, NULL, 'HPE-Proliant-DL580', 1, 1, ' ', 508, 62, '2021-11-08 05:50:48', NULL, NULL, NULL, NULL),
+(33, 9, 73, 'Hpe Proliant DL380', 0, '', 'Hpe Proliant DL380', 'Hpe Proliant DL۳۸۰', 'Hpe Proliant DL380', 'Hpe Proliant DL۳۸۰', 'Hpe Proliant DL۳۸۰', 750000000, 1, NULL, 'Hpe-Proliant-DL380', 1, 0, '', 200, 30, '2021-11-08 05:59:23', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -579,20 +568,20 @@ INSERT INTO `products` (`id`, `brand_id`, `user_id`, `title`, `seo_robot`, `seo_
 --
 
 CREATE TABLE `product_categories` (
-  `id` int NOT NULL,
-  `product_id` int NOT NULL,
-  `category_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `product_categories`
 --
 
 INSERT INTO `product_categories` (`id`, `product_id`, `category_id`) VALUES
-(1, 30, 52),
-(2, 30, 53),
-(5, 32, 52),
-(9, 33, 52);
+(16, 30, 52),
+(17, 33, 51),
+(18, 33, 52),
+(19, 32, 52);
 
 -- --------------------------------------------------------
 
@@ -601,10 +590,10 @@ INSERT INTO `product_categories` (`id`, `product_id`, `category_id`) VALUES
 --
 
 CREATE TABLE `product_discounts` (
-  `id` int NOT NULL,
-  `product_id` int NOT NULL,
-  `discount_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `discount_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `product_discounts`
@@ -627,10 +616,10 @@ INSERT INTO `product_discounts` (`id`, `product_id`, `discount_id`) VALUES
 --
 
 CREATE TABLE `product_samples` (
-  `id` int NOT NULL,
-  `sample_id` int NOT NULL,
-  `product_id` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int(11) NOT NULL,
+  `sample_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `product_samples`
@@ -648,9 +637,9 @@ INSERT INTO `product_samples` (`id`, `sample_id`, `product_id`) VALUES
 --
 
 CREATE TABLE `product_tags` (
-  `id` int NOT NULL,
-  `product_id` int NOT NULL,
-  `tag_id` int NOT NULL
+  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `tag_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -658,9 +647,9 @@ CREATE TABLE `product_tags` (
 --
 
 INSERT INTO `product_tags` (`id`, `product_id`, `tag_id`) VALUES
-(1, 32, 2),
-(2, 32, 1),
-(6, 33, 1);
+(13, 33, 1),
+(14, 32, 2),
+(15, 32, 1);
 
 -- --------------------------------------------------------
 
@@ -669,9 +658,9 @@ INSERT INTO `product_tags` (`id`, `product_id`, `tag_id`) VALUES
 --
 
 CREATE TABLE `provinces` (
-  `id` int NOT NULL,
-  `title` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int(11) NOT NULL,
+  `title` varchar(64) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -680,11 +669,11 @@ CREATE TABLE `provinces` (
 --
 
 CREATE TABLE `roles` (
-  `id` int NOT NULL,
-  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `label` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `label` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -693,12 +682,12 @@ CREATE TABLE `roles` (
 --
 
 CREATE TABLE `role_user` (
-  `id` int NOT NULL,
-  `role_id` int DEFAULT NULL,
-  `user_id` int DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `id` int(11) NOT NULL,
+  `role_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -707,18 +696,18 @@ CREATE TABLE `role_user` (
 --
 
 CREATE TABLE `samples` (
-  `id` int NOT NULL,
-  `title` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `user_id` int NOT NULL,
-  `code` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `type` tinyint DEFAULT NULL,
-  `percent` tinyint DEFAULT NULL COMMENT '%',
-  `description` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `status` tinyint(1) DEFAULT '1',
-  `start_at` timestamp NOT NULL,
-  `finish_at` timestamp NOT NULL,
+  `id` int(11) NOT NULL,
+  `title` varchar(128) CHARACTER SET utf8mb4 NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `code` varchar(128) CHARACTER SET utf8mb4 NOT NULL,
+  `type` tinyint(4) DEFAULT NULL,
+  `percent` tinyint(4) DEFAULT NULL COMMENT '%',
+  `description` varchar(512) CHARACTER SET utf8mb4 DEFAULT NULL,
+  `status` tinyint(1) DEFAULT 1,
+  `start_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `finish_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -735,12 +724,12 @@ INSERT INTO `samples` (`id`, `title`, `user_id`, `code`, `type`, `percent`, `des
 --
 
 CREATE TABLE `sellers` (
-  `id` int NOT NULL,
-  `user_id` int NOT NULL,
-  `order_id` int NOT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -749,12 +738,12 @@ CREATE TABLE `sellers` (
 --
 
 CREATE TABLE `settings` (
-  `id` int NOT NULL,
-  `slug` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `key` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `value` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int(11) NOT NULL,
+  `slug` varchar(100) DEFAULT NULL,
+  `key` varchar(64) DEFAULT NULL,
+  `value` text NOT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `settings`
@@ -776,13 +765,13 @@ INSERT INTO `settings` (`id`, `slug`, `key`, `value`, `created_at`) VALUES
 --
 
 CREATE TABLE `site_contents` (
-  `id` int NOT NULL,
-  `tag` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `key` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `value` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `id` int(11) NOT NULL,
+  `tag` varchar(100) DEFAULT NULL,
+  `key` varchar(100) DEFAULT NULL,
+  `value` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
   `update_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -791,15 +780,15 @@ CREATE TABLE `site_contents` (
 --
 
 CREATE TABLE `sliders` (
-  `id` int NOT NULL,
-  `small_text` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `product_id` int DEFAULT NULL,
-  `category_id` int DEFAULT NULL,
-  `sort` tinyint DEFAULT '0',
-  `status` tinyint(1) DEFAULT '1',
-  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int(11) NOT NULL,
+  `small_text` varchar(256) DEFAULT NULL,
+  `product_id` int(11) DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL,
+  `sort` tinyint(4) DEFAULT 0,
+  `status` tinyint(1) DEFAULT 1,
+  `description` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -808,25 +797,25 @@ CREATE TABLE `sliders` (
 --
 
 CREATE TABLE `suppliers` (
-  `id` int NOT NULL,
-  `city_id` int UNSIGNED DEFAULT NULL,
-  `suppliers_lavel` tinyint DEFAULT '0',
-  `logo` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `company` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `first_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `last_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `side` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `address` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `postal_code` int DEFAULT NULL,
-  `phone` int NOT NULL,
-  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `url` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `payment_methods` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `notes` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `status` tinyint(1) DEFAULT '1',
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `id` int(11) NOT NULL,
+  `city_id` int(10) UNSIGNED DEFAULT NULL,
+  `suppliers_lavel` tinyint(4) DEFAULT 0,
+  `logo` varchar(128) DEFAULT NULL,
+  `company` varchar(100) NOT NULL,
+  `first_name` varchar(100) NOT NULL,
+  `last_name` varchar(100) NOT NULL,
+  `side` varchar(100) DEFAULT NULL,
+  `address` varchar(512) NOT NULL,
+  `postal_code` int(11) DEFAULT NULL,
+  `phone` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `url` varchar(100) DEFAULT NULL,
+  `payment_methods` varchar(100) DEFAULT NULL,
+  `notes` varchar(512) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -835,9 +824,9 @@ CREATE TABLE `suppliers` (
 --
 
 CREATE TABLE `tags` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `tag` varchar(100) COLLATE utf8mb4_persian_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -846,7 +835,8 @@ CREATE TABLE `tags` (
 
 INSERT INTO `tags` (`id`, `tag`, `created_at`) VALUES
 (1, 'سرور', '2021-11-08 05:50:01'),
-(2, 'هارد ', '2021-11-08 05:50:16');
+(2, 'هارد ', '2021-11-08 05:50:16'),
+(3, 'تلفن تحت شبکه', '2021-11-10 15:00:03');
 
 -- --------------------------------------------------------
 
@@ -855,14 +845,14 @@ INSERT INTO `tags` (`id`, `tag`, `created_at`) VALUES
 --
 
 CREATE TABLE `tickets` (
-  `id` int UNSIGNED NOT NULL,
-  `token` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT 'session save',
-  `message` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `status` tinyint(1) DEFAULT '1',
-  `type` tinyint(1) DEFAULT '1' COMMENT 'question = 1 &&  answer = 0',
-  `ip` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id` int(10) UNSIGNED NOT NULL,
+  `token` varchar(10) NOT NULL COMMENT 'session save',
+  `message` varchar(512) NOT NULL,
+  `status` tinyint(1) DEFAULT 1,
+  `type` tinyint(1) DEFAULT 1 COMMENT 'question = 1 &&  answer = 0',
+  `ip` varchar(16) NOT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -871,35 +861,35 @@ CREATE TABLE `tickets` (
 --
 
 CREATE TABLE `users` (
-  `id` int NOT NULL,
-  `city_id` int UNSIGNED DEFAULT NULL,
-  `user_level` tinyint DEFAULT '0',
-  `phone` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `first_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `last_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `company` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `jobtitle` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `national_code` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `postal_code` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `address` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `birthday` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `id` int(11) NOT NULL,
+  `city_id` int(10) UNSIGNED DEFAULT NULL,
+  `user_level` tinyint(4) DEFAULT 0,
+  `phone` varchar(100) NOT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `first_name` varchar(100) DEFAULT NULL,
+  `last_name` varchar(100) DEFAULT NULL,
+  `company` varchar(100) DEFAULT NULL,
+  `jobtitle` varchar(100) DEFAULT NULL,
+  `national_code` varchar(100) DEFAULT NULL,
+  `postal_code` varchar(100) DEFAULT NULL,
+  `address` varchar(256) DEFAULT NULL,
+  `birthday` varchar(100) DEFAULT NULL,
   `gender` tinyint(1) DEFAULT NULL,
-  `status` tinyint(1) DEFAULT '1',
-  `bank_name` tinyint UNSIGNED DEFAULT NULL,
-  `bank_number` bigint UNSIGNED DEFAULT NULL,
-  `ip` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `status` tinyint(1) DEFAULT 1,
+  `bank_name` tinyint(3) UNSIGNED DEFAULT NULL,
+  `bank_number` bigint(20) UNSIGNED DEFAULT NULL,
+  `ip` varchar(16) DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `city_id`, `user_level`, `phone`, `email`, `first_name`, `last_name`, `company`, `jobtitle`, `national_code`, `postal_code`, `address`, `birthday`, `gender`, `status`, `bank_name`, `bank_number`, `ip`, `email_verified_at`, `created_at`, `updated_at`) VALUES
-(73, NULL, 0, '09128897603', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, '2021-10-26 09:17:57', NULL);
+(73, NULL, 0, '09128897603', 'sn7091@yahoo.com', 'سیاوش', 'نوروزی', NULL, NULL, NULL, NULL, '', NULL, NULL, 1, NULL, NULL, NULL, NULL, '2021-10-26 09:17:57', NULL);
 
 --
 -- Indexes for dumped tables
@@ -1160,241 +1150,241 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `active_codes`
 --
 ALTER TABLE `active_codes`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=291;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=291;
 
 --
 -- AUTO_INCREMENT for table `activity_log`
 --
 ALTER TABLE `activity_log`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `attributes`
 --
 ALTER TABLE `attributes`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `attribute_product`
 --
 ALTER TABLE `attribute_product`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `attribute_values`
 --
 ALTER TABLE `attribute_values`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `blog_tags`
 --
 ALTER TABLE `blog_tags`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `category_blogs`
 --
 ALTER TABLE `category_blogs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `category_discounts`
 --
 ALTER TABLE `category_discounts`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=252;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=252;
 
 --
 -- AUTO_INCREMENT for table `category_samples`
 --
 ALTER TABLE `category_samples`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `cities`
 --
 ALTER TABLE `cities`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
 --
 -- AUTO_INCREMENT for table `discounts`
 --
 ALTER TABLE `discounts`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `permission_role`
 --
 ALTER TABLE `permission_role`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `permission_user`
 --
 ALTER TABLE `permission_user`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `product_categories`
 --
 ALTER TABLE `product_categories`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `product_discounts`
 --
 ALTER TABLE `product_discounts`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
 
 --
 -- AUTO_INCREMENT for table `product_samples`
 --
 ALTER TABLE `product_samples`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `product_tags`
 --
 ALTER TABLE `product_tags`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `provinces`
 --
 ALTER TABLE `provinces`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `role_user`
 --
 ALTER TABLE `role_user`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `samples`
 --
 ALTER TABLE `samples`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `sellers`
 --
 ALTER TABLE `sellers`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `site_contents`
 --
 ALTER TABLE `site_contents`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `suppliers`
 --
 ALTER TABLE `suppliers`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tickets`
 --
 ALTER TABLE `tickets`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

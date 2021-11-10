@@ -54,7 +54,7 @@
             <div class="form-group col">
                 <label for="Canonical" class="c col-form-label">Canonical</label>
                 <div class="">
-                    <input name="seo-canonical" type="text" class="form-control" id="Canonical" placeholder="لینک را وارد نمایی" required>
+                    <input name="seo-canonical" type="text" class="form-control" id="Canonical" placeholder="لینک را وارد نمایید">
                 </div>
             </div>
         </div>
@@ -72,7 +72,7 @@
             <div class="form-group col">
                 <label for="title" class=" col-form-label">title</label>
                 <div class="">
-                    <input name="seo-title" type="text" class="form-control" id="title" placeholder="title را وارد نمایی" required>
+                    <input name="seo-title" type="text" class="form-control" id="title" placeholder="title را وارد نمایید" required>
                 </div>
             </div>
         </div>

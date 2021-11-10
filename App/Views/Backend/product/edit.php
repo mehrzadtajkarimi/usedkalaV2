@@ -41,7 +41,7 @@
             <div class="form-group row" title="شناسه منحصر به فرد محصول">
                 <label for="product-sku" class="col-2 col-form-label"> SKU </label>
                 <div class="col-10">
-                    <input name="product-sku" type="text" class="form-control" id="product-sku" value="<?= $products['sku']  ?>" required>
+                    <input name="product-sku" type="text" class="form-control" id="product-sku" value="<?= $products['sku']  ?>">
                 </div>
             </div>
             <div class="form-group row">
@@ -100,7 +100,7 @@
             <div class="form-group row">
                 <label for="Canonical" class="col-2 col-form-label">Canonical</label>
                 <div class="col-10">
-                    <input name="seo-canonical" type="text" class="form-control" id="Canonical" value="<?= $products['seo_canonical'] ?>" placeholder="لینک را وارد نمایی" required>
+                    <input name="seo-canonical" type="text" class="form-control" id="Canonical" value="<?= $products['seo_canonical'] ?>" placeholder="لینک را وارد نمایید">
                 </div>
             </div>
             <div class="form-group row">
@@ -116,7 +116,7 @@
             <div class="form-group row">
                 <label for="title" class="col-2 col-form-label">title</label>
                 <div class="col-10">
-                    <input name="seo-title" type="text" class="form-control" id="title" value="<?= $products['seo_title'] ?>" placeholder="title را وارد نمایی" required>
+                    <input name="seo-title" type="text" class="form-control" id="title" value="<?= $products['seo_title'] ?>" placeholder="title را وارد نمایید" required>
                 </div>
             </div>
             <div class="form-group row">

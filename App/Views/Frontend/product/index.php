@@ -1,4 +1,9 @@
+<div class="col-full">
+    <div class="row">
+        <div id="primary" class="content-area">
+		
 <main id="main" class="site-main">
+	<?php /*
     <div class="shop-control-bar">
         <div class="handheld-sidebar-toggle">
             <button type="button" class="btn sidebar-toggler">
@@ -68,6 +73,7 @@
         <!-- .techmarket-advanced-pagination -->
     </div>
     <!-- .shop-control-bar -->
+	*/ ?>
     <div class="tab-content">
         <div id="grid" class="tab-pane active" role="tabpanel">
             <div class="woocommerce columns-7">
@@ -75,7 +81,7 @@
                     <?php foreach ($products as $value) : ?>
                         <div class="product first">
                             <div class="yith-wcwl-add-to-wishlist">
-                                <a href="" rel="nofollow" class="add_to_wishlist"> Add to Wishlist</a>
+                                <a href="" rel="nofollow" class="add_to_wishlist"> افزودن به علاقه‌مندی‌ها</a>
                             </div>
                             <!-- .yith-wcwl-add-to-wishlist -->
                             <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" href="<?= base_url() ?>product/<?= $value['id'] ?>">
@@ -92,7 +98,7 @@
                             <!-- .woocommerce-LoopProduct-link -->
                             <div class="hover-area">
                                 <a href="<?= base_url() ?>cart/add/<?= $value['id'] ?>" class="button" >افزودن به سبد خرید</a>
-                                <a class="add-to-compare-link" href="compare.html">Add to compare</a>
+                                <a class="add-to-compare-link" href="compare.html">مقایسه</a>
                             </div>
                             <!-- .hover-area -->
                         </div>
@@ -345,6 +351,7 @@
         <!-- .tab-pane -->
     </div>
     <!-- .tab-content -->
+	<?php /*
     <div class="shop-control-bar-bottom">
         <form class="form-techmarket-wc-ppp" method="POST">
             <select class="techmarket-wc-wppp-select c-select" onchange="this.form.submit()" name="ppp">
@@ -377,4 +384,9 @@
         <!-- .woocommerce-pagination -->
     </div>
     <!-- .shop-control-bar-bottom -->
+	*/ ?>
 </main>
+
+		</div>
+	</div>
+</div>

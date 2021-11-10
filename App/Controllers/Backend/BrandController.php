@@ -123,7 +123,7 @@ class BrandController extends Controller
             $this->brandModel->update_brand([
                 'name'      => $params['brand-name'],
                 'sort'      => $params['brand-sort'],
-            ], $id);
+            ], $id['id']);
             FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
         }
         return $this->request->redirect('admin/brand');

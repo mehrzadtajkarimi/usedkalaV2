@@ -145,9 +145,12 @@ class ProductController extends Controller
         foreach ($tags_selected as $selectedTagRow) {
             $selectedTags[$selectedTagRow['id']] = $selectedTagRow;
         }
+		$photo=$this->photoModel->read_photo($products_id);
+		// var_dump($photo);
+		// die();
         $data = array(
             'products'            => $this->productModel->read_product($products_id),
-            'photo'               => $this->photoModel->read_photo($products_id),
+            'photo'               => $photo,
             'brands'              => $this->brandModel->read_brand(),
             'tags'                => $this->tagModel->read_tag(),
             'categories'          => $this->categoryModel->category_tree_for_backend(),
@@ -217,9 +220,9 @@ class ProductController extends Controller
                 $is_update_photo = $this->photoModel->update_photo('Product', $product_id['id'], $file_paths[0], 'product_image');
 
                 if ($is_update_photo) {
-                    FlashMessage::add("ویرایش محصول بندی موفقیت انجام شد");
+                    FlashMessage::add("ویرایش محصول با موفقیت انجام شد");
                 } else {
-                    FlashMessage::add(" مشکلی در ویرایش محصول بندی رخ داد ", FlashMessage::ERROR);
+                    FlashMessage::add(" مشکلی در ویرایش محصول رخ داد ", FlashMessage::ERROR);
                 }
             }
         }

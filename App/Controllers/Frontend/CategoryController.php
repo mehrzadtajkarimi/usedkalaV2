@@ -38,7 +38,6 @@ class CategoryController extends Controller
         $categories  = $this->categoryModel->category_tree_for_frontend($parent_id,$slug);
         $products    = $this->productModel->join_product__with_single_photo_by_category_id();
 
-
         if (is_array($categories)) {
             $data = array(
                 'categories'  => $categories,

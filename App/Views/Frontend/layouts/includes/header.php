@@ -190,7 +190,9 @@
                                 </p>
                                 <p class="woocommerce-mini-cart__buttons buttons">
                                     <a href="<?= base_url() ?>cart" class="button wc-forward">مشاهده سبد خرید</a>
+									<?php /*
                                     <a href="/" class="button checkout wc-forward">Checkout</a>
+									*/ ?>
                                 </p>
                             </div>
                             <!-- .widget_shopping_cart_content -->

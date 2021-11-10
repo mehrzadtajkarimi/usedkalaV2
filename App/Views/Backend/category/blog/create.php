@@ -27,7 +27,7 @@
                 <div class="form-group row">
                     <label for="Canonical" class="col-2 col-form-label">Canonical</label>
                     <div class="col-10">
-                        <input name="Canonical" type="text" class="form-control" id="Canonical" placeholder="لینک را وارد نمایی" required>
+                        <input name="Canonical" type="text" class="form-control" id="Canonical" placeholder="لینک را وارد نمایید">
                     </div>
                 </div>
                 <div class=" form-group row">

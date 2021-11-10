@@ -1,4 +1,7 @@
-<div id="primary" class="mt-5">
+<div class="col-full">
+    <div class="row">
+	
+<div id="primary" class="mt-5 content-area">
     <main id="main" class="site-main">
         <div class="product product-type-simple">
             <div class="row single-product-wrapper">
@@ -39,9 +42,12 @@
                 <!-- .product-images-wrapper -->
                 <div class="col summary entry-summary">
                     <div class="single-product-header">
-                        <h1 class="product_title entry-title">Cisco 8000 Series Router</h1>
+                        <h1 class="product_title entry-title"><?= $product['seo_H1']!=""?$product['seo_H1']:$product['title'] ?></h1>
                     </div>
                     <div class="single-product-meta">
+						<?php
+						print_r($brand);
+						?>
                         <div class="brand">
                             <a href="#">
                                 <img alt="galaxy" class="img-fluid" width="180" height="180" src="<?= base_url() ?>Assets/Frontend/images/brands/5.png">
@@ -49,17 +55,17 @@
                         </div>
                         <div class="cat-and-sku">
                             <span class="posted_in categories">
-                                <a rel="tag" href="product-category.html">روتر</a>
+                                <a rel="tag" href="<?= base_url() ?>Category/<?= $cats[0]['id'] ?>/<?= $cats[0]['slug'] ?>"><?= $cats[0]['name'] ?></a>
                             </span>
-                            <span class="sku_wrapper">شماره شناسه کالا:
+                            <?php /* <span class="sku_wrapper">شماره شناسه کالا:
                                 <span class="sku">5487FB8/11</span>
-                            </span>
+                            </span> */ ?>
                         </div>
-                        <div class="product-label">
+                        <?php /* <div class="product-label">
                             <div class="ribbon label green-label">
                                 <span>A+</span>
                             </div>
-                        </div>
+                        </div> */ ?>
                     </div>
 
                     <div class="product-actions-wrapper">
@@ -67,14 +73,14 @@
                             <p class="price" dir="rtl">
                                 <?php if (!empty($product['discounts_status']) && $product['discounts_status'] == 1) : ?>
                                     <del>
-                                        <span class="woocommerce-Price-amount amount"><?= $product['price'] ?> ریال</span>
+                                        <span class="woocommerce-Price-amount amount"><?= number_format($product['price']) ?> ریال</span>
                                     </del>
                                     <ins>
                                         <span class="woocommerce-Price-amount amount"><?= round($product['price'] / $product['discounts_percent'] - $product['price'], 0, PHP_ROUND_HALF_UP) ?>ریال</span>
                                     </ins>
                                 <?php else : ?>
                                     <ins>
-                                        <span class="woocommerce-Price-amount amount"><?= $product['price'] ?> ریال</span>
+                                        <span class="woocommerce-Price-amount amount"><?= number_format($product['price']) ?> ریال</span>
                                     </ins>
                                 <?php endif; ?>
                             </p>
@@ -116,14 +122,24 @@
     </main>
     <!-- #main -->
 </div>
-<div class="container-fluid">
+
+	</div>
+</div>
+
+<div class="col-full">
+    <div class="row">
+		<div class="content-area" style="width: 100%;">
+		
+<!--div class="container-fluid"-->
     <hr>
+	<?php /*
     <div class="myForm" class="alert alert-success alert-dismissible  mr-5 ml-5  d-none" data-wow-duration="2s" data-wow-offset="10" role="alert">
-        <strong>" کامنت با موفقیت ارسال شد بعد از تایید مدیر نمایش داده می شود"</strong>
+        <strong>نظرات پس از بازبینی و تایید، منتشر خواهند شد.</strong>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
+	 */ ?>
     <?php if ($comments) : ?>
         <h5 class="card-title m-3">نظرات :</h5>
         <?php foreach ($comments as $value) : ?>
@@ -175,6 +191,9 @@
             </div>
         </form>
     <?php endif; ?>
+<!--/div-->
 
+		</div>
+	</div>
 </div>
 <?php include(BASEPATH . "/App/Views/Frontend/product/script.php") ?>

@@ -39,7 +39,8 @@ class  MysqlBaseModel extends BaseModel
             $this->connection->insert($this->table, $data);
             return  $this->connection->id();
         } catch (\PDOException $e) {
-            echo 'مشکلی در هنگام ذخیره اطلاعات رخ داد/n' . $e->getMessage();
+            echo 'مشکلی در هنگام ذخیره اطلاعات رخ داد/n' . $e['message'];
+			var_dump($e);
         }
     }
 
@@ -93,6 +94,7 @@ class  MysqlBaseModel extends BaseModel
             return $result->rowCount();
         } catch (\PDOException $e) {
             echo '<h1>مشکلی در ارتباط با دیتابیس رخ داد </h1>';
+			var_dump($e);
         }
     }
 
@@ -140,6 +142,13 @@ class  MysqlBaseModel extends BaseModel
     public function select($columns = '*', $where = null)
     {
         return $this->connection->select($this->table, $columns, $where);
+    }
+    public function query($query = null)
+    {
+		if ($query!=NULL)
+			return $this->connection->query($query)->fetchAll();
+		else
+			return false;
     }
 
 
@@ -265,9 +274,11 @@ class  MysqlBaseModel extends BaseModel
         ON $this->table.$columns_as = $join.$columns_to
         ";
         if ($where_2) {
+			die("$query WHERE $where_1 AND $where_2");
             return $this->connection->query("$query WHERE $where_1 AND $where_2")->fetchAll();
         }
         if ($where_3) {
+			die('3: '.$query);
             return $this->connection->query("$query WHERE $where_1 AND $where_2 AND $where_3")->fetchAll();
         }
         return $this->connection->query("$query WHERE $where_1")->fetchAll();

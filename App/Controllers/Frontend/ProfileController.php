@@ -74,9 +74,9 @@ class ProfileController extends Controller
                 $is_update_photo = $this->photoModel->update_photo('User', $id['id'], $file_paths[0], 'profile_image');
 
                 if ($is_update_photo) {
-                    FlashMessage::add("ویرایش برند بندی موفقیت انجام شد");
+                    FlashMessage::add("ویرایش اطلاعات کاربری با موفقیت انجام شد.");
                 } else {
-                    FlashMessage::add(" مشکلی در ویرایش برند بندی رخ داد ", FlashMessage::ERROR);
+                    FlashMessage::add(" مشکلی در ویرایش اطلاعات کاربری رخ داد. ", FlashMessage::ERROR);
                 }
             }
         } else {
@@ -87,7 +87,7 @@ class ProfileController extends Controller
                 'email'      => $params['profile-email'],
                 'address'    => $params['profile-address'],
             ], $id['id']);
-            FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
+            FlashMessage::add("مقادیر  با موفقیت ذخیره شد.");
         }
         return $this->request->redirect('profile');
     }

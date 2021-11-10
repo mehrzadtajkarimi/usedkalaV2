@@ -61,13 +61,18 @@ class Category extends MysqlBaseModel
     public function category_tree_for_frontend($parent_id = 0, $slug = NULL)
     {
         global $request;
-        $value = $this->left_join(
-            "categories.*,photos.path,photos.alt",
-            "photos",
-            "id",
-            "entity_id",
-            "categories.parent_id={$parent_id['id']}",
-        );
+        // $value = $this->left_join(
+            // "categories.*,photos.path,photos.alt",
+            // "photos",
+            // "id",
+            // "entity_id",
+            // "categories.parent_id={$parent_id['id']}"
+        // );
+		
+		$value=$this->query("SELECT * FROM `categories` as cat LEFT JOIN `photos` as photo
+		ON photo.`entity_type` = 'Category' AND photo.`entity_id` = cat.`id`
+		WHERE cat.`type` = 0 AND cat.`parent_id` = ".$parent_id['id']);
+		
         return $value;
         if (!empty($value)) {
             array_push(

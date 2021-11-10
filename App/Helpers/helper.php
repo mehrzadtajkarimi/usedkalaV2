@@ -99,7 +99,40 @@ function inject_menu()
 }
 function create_slug($string)
 {
-    $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $string);
+    // $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $string);
+	$slug=str_replace([
+		"+",
+		"(",
+		")",
+		".",
+		",",
+		";",
+		"/",
+		"&",
+		" ",
+		"'",
+		'"',
+		"،",
+		"؛",
+		"\r\n",
+		"\n"
+	],[
+		"",
+		"",
+		"",
+		"",
+		"",
+		"",
+		"",
+		"",
+		"-",
+		"",
+		"",
+		"",
+		"",
+		"",
+		""
+	],strip_tags($string));
     return $slug;
 }
 function buffering($full_path_view, $data, $dir = null)

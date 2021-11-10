@@ -92,7 +92,7 @@ class CategoryController extends Controller
             'parent_id'       => $get_param['id'],
             'name'            => $get_param['name'],
             'H1'              => $get_param['H1'],
-            'robot'           => $get_param['robot'],
+            'robots'           => $get_param['robot'],
             'canonical'       => $get_param['Canonical'],
             'description'     => $get_param['description'],
             'status'          => $get_param['status'] ?? '0',
@@ -125,7 +125,7 @@ class CategoryController extends Controller
             }
         } else {
             $this->categoryModel->create_category($request);
-            FlashMessage::add("مقادیر بدونه ضمیمه عکس با موفقیت در دیتابیس ذخیره شد", FlashMessage::WARNING);
+            FlashMessage::add("مقادیر بدونه ضمیمه عکس با موفقیت  ذخیره شد", FlashMessage::WARNING);
             if ($get_type) {
                 return $this->request->redirect("admin/category/$get_type");
             }
@@ -184,7 +184,7 @@ class CategoryController extends Controller
                 'seo_title'       => $params['seo_title'],
                 'name'            => $params['name'],
                 'H1'              => $params['H1'],
-                'robot'           => $params['robot'],
+                'robots'           => $params['robot'],
                 'canonical'       => $params['canonical'],
                 'description'     => $params['description'],
                 'status'          => $params['status'] == 'on' ? 1 : 0,
@@ -199,15 +199,15 @@ class CategoryController extends Controller
     public function destroy()
     {
         $id     = $this->request->get_param('id');
-        $is_cat = $this->categoryModel->has(['parent_id' => $id]);
+        $is_cat = $this->categoryModel->has(['parent_id' => $id['id']]);
         if ($is_cat == false) {
             $this->categoryModel->delete_category($id);
             $this->photoModel->delete_photo($id);
 
-            FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
+            FlashMessage::add("دسته بندی با موفقیت حذف شد.");
             return $this->request->redirect('admin/category');
         }
-        FlashMessage::add("به دلیل وجود زیر دسته امکان حذف وجود ندارد", FlashMessage::ERROR);
+        FlashMessage::add("به دلیل وجود زیر دسته امکان حذف وجود ندارد.", FlashMessage::ERROR);
         return $this->request->redirect('admin/category');
     }
 

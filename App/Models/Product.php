@@ -19,6 +19,15 @@ class Product extends MysqlBaseModel
         }
         return $this->first(['id' => $id]);
     }
+	public function product_brand($id=null)
+	{
+		if ($id!=null)
+			return $this->query("SELECT * FROM `products` as pro INNER JOIN `brands` as brand ON brand.`id` = pro.`brand_id`
+			LEFT JOIN `photos` as photo ON photo.`entity_type` = 'Brand' AND photo.`entity_id` = brand.`id`
+			WHERE pro.`id` = $id");
+		else
+			return false;
+	}
     public function read_product_limit_by_price($start_price, $finish_price)
     {
 

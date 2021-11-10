@@ -14,6 +14,7 @@ use App\Models\Product_discount;
 use App\Models\Setting;
 use App\Models\Slider;
 use App\Services\Basket\Basket;
+use App\Services\Session\SessionManager;
 
 class HomeController extends Controller
 {
@@ -69,7 +70,6 @@ class HomeController extends Controller
             $cart_total[] = $value['count'] * $value['price'];
         }
 
-
         $data = array(
 
             'product_servers'       => $product_category_server,
@@ -84,7 +84,9 @@ class HomeController extends Controller
             'setting'               => $setting,
             'latest_blogs'          => $latest_blogs,
             'home_page_active_menu' => $home_page_active_menu,
+			'onLoadMsg'				=> SessionManager::get('onLoadMsg')
         );
+		SessionManager::remove('onLoadMsg');
         return view('Frontend.index', $data);
     }
 }

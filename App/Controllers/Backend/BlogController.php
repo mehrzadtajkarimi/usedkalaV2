@@ -193,9 +193,9 @@ class BlogController extends Controller
                 $is_update_photo = $this->photoModel->update_photo('Blog', $id['id'], $file_paths[0], 'image_blog');
 
                 if ($is_update_photo) {
-                    FlashMessage::add("ویرایش محصول بندی موفقیت انجام شد");
+                    FlashMessage::add("ویرایش محصول با موفقیت انجام شد");
                 } else {
-                    FlashMessage::add(" مشکلی در ویرایش محصول بندی رخ داد ", FlashMessage::ERROR);
+                    FlashMessage::add(" مشکلی در ویرایش محصول رخ داد ", FlashMessage::ERROR);
                 }
             }
         }

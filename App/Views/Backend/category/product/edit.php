@@ -41,7 +41,7 @@
                 <div class="form-group row">
                     <label for="Canonical" class="col-2 col-form-label">Canonical</label>
                     <div class="col-10">
-                        <input name="canonical" type="text" class="form-control" id="Canonical" value="<?= $category['canonical'] ?? '' ?>" placeholder="لینک را وارد نمایی">
+                        <input name="canonical" type="text" class="form-control" id="Canonical" value="<?= $category['canonical'] ?? '' ?>" placeholder="لینک را وارد نمایید">
                     </div>
                 </div>
 
@@ -56,7 +56,7 @@
                     <div class="col-10">
                         <select name='robot' id="robot" class="form-control ">
                             <?php foreach ($robots as $key => $value) : ?>
-                                <option value="<?= $key ?>" <?= $category['robot'] == $key ?  'selected' : ''  ?>><?= $value ?></option>
+                                <option value="<?= $key ?>" <?= $category['robots'] == $key ?  'selected' : ''  ?>><?= $value ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>

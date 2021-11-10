@@ -3,11 +3,13 @@
 namespace App\Controllers\Frontend;
 
 use App\Controllers\Controller;
+use App\Core\Request;
 use App\Models\Comment;
 use App\Models\Photo;
 use App\Models\Product;
 use App\Models\Product_discount;
 use App\Models\Product_tag;
+use App\Models\Product_category;
 use App\Services\Session\SessionManager;
 use App\Utilities\FlashMessage;
 
@@ -26,6 +28,7 @@ class ProductController extends Controller
         $this->photoModel           = new Photo();
         $this->ProductDiscountModel = new Product_discount();
         $this->ProductTagModel      = new Product_tag();
+        $this->ProductCatModel      = new Product_category();
     }
 
     public function index()
@@ -46,11 +49,13 @@ class ProductController extends Controller
         $photos          = $this->photoModel->read_photo_by_id($id, 'Product');
         $photo           = $this->photoModel->read_single_photo_by_id('0', $id, 'Product')[0];
         $product         = $this->productModel->read_product($id);
+		$productBrand	 = $this->productModel->product_brand($id['id']);
+		if (count($product)==0) Request::redirect('');
         $productDiscount = $this->productModel->join_product__with_productDiscounts_discounts($id)[0] ?? '';
         $productComment  = $this->productModel->join_product__with_comment($id['id']) ?? '';
         $productTag      = $this->ProductTagModel->read_productTag($id) ?? '';
         // dd(empty($productDiscount) ? $product : $productDiscount['discounts_status']);
-
+		$productCat		 = $this->ProductCatModel->read_productCategories($id);
 
         $data    = array(
             'comments' => $productComment ?? [],
@@ -59,6 +64,8 @@ class ProductController extends Controller
             'photos'   => $photos,
             'photo'    => $photo,
             'auth'     => SessionManager::get('auth') ?? null,
+			'cats'	   => $productCat,
+			'brand'    => $productBrand
         );
         return view('Frontend.product.show', $data);
     }

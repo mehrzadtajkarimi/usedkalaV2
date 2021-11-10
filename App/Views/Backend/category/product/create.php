@@ -9,13 +9,13 @@
 
         <form action="<?= base_url() ?>admin/category/<?= $category['id'] ?>" method="post" enctype="multipart/form-data">
             <div class="form-group row">
-                <label for="title" class="col-sm-2 col-form-label">title</label>
+                <label for="title" class="col-sm-2 col-form-label">HTML Title</label>
                 <div class="col-sm-10">
                     <input name="seo_title" type="text" class="form-control" id="title" placeholder="جهت نمایش در title جستجو " autofocus>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="seo_description" class="col-sm-2 col-form-label">description</label>
+                <label for="seo_description" class="col-sm-2 col-form-label">HTML Description</label>
                 <div class="col-sm-10">
                     <input name="seo_description" type="text" class="form-control" id="seo_description" placeholder="جهت نمایش در description جستجو " autofocus>
                 </div>
@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="inputPassword3" class="col-sm-2 col-form-label">slug</label>
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Slug</label>
                 <div class="col-sm-10">
                     <input name="slug" type="text" class="form-control" id="inputPassword3" placeholder="نامه دسته بندی جهت نمایش در url"">
                 </div>
@@ -41,7 +41,7 @@
                 <div class="form-group row">
                     <label for="Canonical" class="col-2 col-form-label">Canonical</label>
                     <div class="col-10">
-                        <input name="Canonical" type="text" class="form-control" id="Canonical" placeholder="لینک را وارد نمایی" >
+                        <input name="Canonical" type="text" class="form-control" id="Canonical" placeholder="لینک را وارد نمایید">
                     </div>
                 </div>
                 <div class=" form-group row">

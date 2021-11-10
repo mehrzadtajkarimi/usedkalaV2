@@ -81,7 +81,7 @@
             <div class="form-group row">
                 <label for="Canonical" class="col-2 col-form-label">Canonical</label>
                 <div class="col-10">
-                    <input name="seo-canonical" type="text" class="form-control" id="Canonical" value="<?= $blog['seo_canonical'] ?>" placeholder="لینک را وارد نمایی" required>
+                    <input name="seo-canonical" type="text" class="form-control" id="Canonical" value="<?= $blog['seo_canonical'] ?>" placeholder="لینک را وارد نمایید">
                 </div>
             </div>
             <div class="form-group row">
@@ -97,7 +97,7 @@
             <div class="form-group row">
                 <label for="title" class="col-2 col-form-label">title</label>
                 <div class="col-10">
-                    <input name="seo-title" type="text" class="form-control" id="title" value="<?= $blog['seo_title'] ?>" placeholder="title را وارد نمایی" required>
+                    <input name="seo-title" type="text" class="form-control" id="title" value="<?= $blog['seo_title'] ?>" placeholder="title را وارد نمایید" required>
                 </div>
             </div>
             <div class="form-group row">

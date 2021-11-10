@@ -6,6 +6,7 @@ use App\Controllers\Controller;
 use App\Core\Request;
 use App\Models\Product;
 use App\Services\Basket\Basket;
+use App\Services\Session\SessionManager;
 
 class CartController  extends Controller
 {
@@ -19,6 +20,7 @@ class CartController  extends Controller
             $cart_total[] = $value['count'] * $value['price'];
         }
         if (!is_array($cart_total)) {
+			SessionManager::set('onLoadMsg','سبد خرید خالیست!');
             Request::redirect('');
         }
 
@@ -37,7 +39,7 @@ class CartController  extends Controller
 
         $product_id = $this->request->get_param('id');
         $params     = $this->request->params();
-        $product    = $product_model->first(['id' => $product_id]);
+        $product    = $product_model->first(['id' => $product_id['id']]);
         $product['product_quantity'] = $params['product_quantity'];
         $product['photo_path']       = $params['photo_path'];
 
@@ -63,7 +65,7 @@ class CartController  extends Controller
     public function remove()
     {
         $product_id = $this->request->get_param('id');
-        Basket::remove($product_id);
+        Basket::remove($product_id['id']);
         Request::redirect('cart');
     }
 }

@@ -15,7 +15,7 @@
 
             <!-- Button trigger modal -->
             <a href="<?= base_url() ?>admin/product/create" type="button" class="mr-2 shadow-sm btn btn-success " data-toggle="modal" data-target="#exampleModalCenter">
-              ایجاد حصول
+              ایجاد محصول
             </a>
 
 
@@ -58,7 +58,7 @@
                       <div class="form-group row" title="شناسه منحصر به فرد محصول">
                         <label for="product-sku" class="col-2 col-form-label"> SKU </label>
                         <div class="col-10">
-                          <input name="product-sku" type="text" class="form-control" id="product-sku" placeholder="" required>
+                          <input name="product-sku" type="text" class="form-control" id="product-sku" placeholder="">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -117,7 +117,7 @@
                       <div class="form-group row">
                         <label for="Canonical" class="col-2 col-form-label">Canonical</label>
                         <div class="col-10">
-                          <input name="seo-canonical" type="text" class="form-control" id="Canonical" placeholder="لینک را وارد نمایی" required>
+                          <input name="seo-canonical" type="text" class="form-control" id="Canonical" placeholder="لینک را وارد نمایید">
                         </div>
                       </div>
 
@@ -135,7 +135,7 @@
                       <div class="form-group row">
                         <label for="title" class="col-2 col-form-label">title</label>
                         <div class="col-10">
-                          <input name="seo-title" type="text" class="form-control" id="title" placeholder="title را وارد نمایی" required>
+                          <input name="seo-title" type="text" class="form-control" id="title" placeholder="title را وارد نمایید" required>
                         </div>
                       </div>
 
@@ -242,7 +242,7 @@
                 <tr>
                   <td class="text-center" title="<?= $value['sku'] ?>"><?= $count++ ?></td>
                   <td class="text-center" title="<?= $value['meta_title'] ?>"><?= $value['title'] ?></td>
-                  <td class="text-center"><?= $value['price'] ?></td>
+                  <td class="text-center"><?= number_format($value['price']) ?> ریال</td>
                   <td class="text-center" title="<?= $value['weight'] ?>"><?= $value['quantity'] ?></td>
                   <td>
                     <div>

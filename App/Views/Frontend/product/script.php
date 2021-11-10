@@ -12,6 +12,7 @@
                     data: form.serialize(), // serializes the form's elements.
                     success: function(data) {
                         $("#myForm").addClass('WOW slideInLeft d-block');
+						alert('دیدگاه با موفقیت ارسال شد.');
                     }
                 });
             }
