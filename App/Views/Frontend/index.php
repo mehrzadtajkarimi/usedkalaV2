@@ -1,50 +1,60 @@
+<?php
+$slideCount=count($sliders);
+?>
 <div class="col-full">
     <div class="row">
         <div id="primary" class="content-area">
             <main id="main" class="site-main">
-                <div class="home-v1-slider home-slider">
-                    <?php foreach ($sliders as $value) : ?>
-                        <div class="slider-1" style="background-image: url(<?= asset_url() ?>Frontend/images/slider/home-v1-background.jpg);">
-                            <img class="img-fluid" src="<?= $value['photo']['path'] ?>" alt="">
-                            <div class="caption">
-                                <div class="title"><?= $value['small_text'] ?></div>
-                                <div class="sub-title"><?= $value['description'] ?></div>
-                                <a href="
-                            <?php
-                            if ($value['category_id']) {
-                                echo  base_url() . 'category/' . $value['category_id'];
-                            }
-                            if ($value['product_id']) {
-                                echo    base_url() . 'product/' . $value['product_id'];
-                            }
-                            ?>
-                            " class="button">ادامه مطلب
-                                    <i class="tm tm-long-arrow-left"></i>
-                                </a>
-                                <div class="bottom-caption">رایانه شخصی یکپارچه</div>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                    <!-- .slider-1 -->
-                    <!-- <div class="slider-1 slider-2" style="background-image: url(<?= asset_url() ?>Frontend/images/slider/home-v1-background.jpg);">
-                        <img src="<?= asset_url() ?>Frontend/images/slider/home-v1-img-2.png" alt="">
-                        <div class="caption">
-                            <div class="title">The new-tech gift you
-                                <br> are wishing for is
-                                <br> left here
-                            </div>
-                            <div class="sub-title">Big screens in incredibly slim designs
-                                <br>that in your hand.
-                            </div>
-                            <div class="button">Browse now
-                                <i class="tm tm-long-arrow-left"></i>
-                            </div>
-                            <div class="bottom-caption">Free shipping on US Terority </div>
-                        </div>
-                    </div> -->
-                    <!-- .slider-2 -->
-                </div>
-                <!-- .home-v1-slider -->
+				<div class="usedkalaslide">
+					<div class="scrollthis" style="width: <?= $slideCount ?>00%">
+						<?php
+						$i=1;
+						foreach($sliders as $id=>$slider)
+						{
+							if ($slider['linktype']=="link" && trim($slider['link']!="")) $sliderLink=trim($slider['link']);
+							else if ($slider['linktype']=="category" && $slider['category_id']!=0) $sliderLink=base_url()."category/".$slider['category_id'];
+							else if ($slider['linktype']=="product" && $slider['product_id']!=0) $sliderLink=base_url()."product/".$slider['product_id'];
+							else $sliderLink="";
+						?>
+							<?php if ($sliderLink!="") echo '<a href="'.$sliderLink.'">'; ?><div class="item" style="width: <?= 100/$slideCount ?>%; background-image: url(<?= $slider['photo']['path'] ?>)"></div><?php if ($sliderLink!="") echo '</a>'; ?>
+							<script type="text/javascript">
+							slides[<?= $i ?>]={
+								"title": "<?= trim($slider['small_text']) ?>",
+								"desc": "<?= trim($slider['description']) ?>",
+								"link": "<?= $sliderLink ?>"
+							}
+							</script>
+						<?php
+							$i++;
+						}
+						?>
+					</div>
+					<div class="content">
+						<div class="title"></div>
+						<div class="desc"></div>
+					</div>
+					<div class="progress"></div>
+				</div>
+				<div class="slide_btns">
+					<?php
+					for($j=1;$j<$i;$j++)
+						echo '<div id="slide_btn'.$j.'" onclick="changeslide('.$j.')"></div>';
+					?>
+				</div>
+				<script type="text/javascript">
+				slideCount=<?= $i-1 ?>;
+				$(".usedkalaslide .title").html(slides[1].title);
+				$(".usedkalaslide .desc").html(slides[1].desc);
+				if (slides[1].title=="" && slides[1].desc=="")
+					$(".usedkalaslide .content").addClass('hide');
+
+				$("#slide_btn1").addClass('active');
+				slideintval=setInterval(slideintvalstep,10);
+
+				$(".usedkalaslide").mouseenter(function(){clearInterval(slideintval)});
+				$(".usedkalaslide").mouseleave(function(){slideintval=setInterval(slideintvalstep,10);});
+				</script>
+				
                 <div class="features-list">
                     <div class="features">
                         <div class="feature">
@@ -864,6 +874,7 @@
                             <!-- .tab-content -->
                         </div>
                         <!-- .section-products-carousel-tabs-wrap -->
+					</div>
                 </section>
                 <!-- .section-products-carousel-tabs -->
                 <div class="banners">

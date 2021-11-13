@@ -24,7 +24,7 @@ class Product extends MysqlBaseModel
 		if ($id!=null)
 			return $this->query("SELECT * FROM `products` as pro INNER JOIN `brands` as brand ON brand.`id` = pro.`brand_id`
 			LEFT JOIN `photos` as photo ON photo.`entity_type` = 'Brand' AND photo.`entity_id` = brand.`id`
-			WHERE pro.`id` = $id");
+			WHERE pro.`id` = $id ORDER BY photo.`created_at` DESC LIMIT 0,1");
 		else
 			return false;
 	}

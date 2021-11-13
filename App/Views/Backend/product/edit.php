@@ -1,3 +1,4 @@
+<script src='<?= asset_url() ?>Backend/plugins/ckeditor/ckeditor.js'></script>
 <div class="card">
     <div class="card-header">
         <h5>ویرایش محصول (( <?= $products['title'] ?> ))</h5>

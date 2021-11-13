@@ -2,7 +2,7 @@
     <div class="col-full">
         <div class="row">
             <nav class="woocommerce-breadcrumb">
-                <a href="home-v1.html">خانه</a>
+                <a href="<?= base_url() ?>">خانه</a>
                 <span class="delimiter">
                     <i class="fa fa-arrow-left"></i>
                 </span>
@@ -44,13 +44,13 @@
                                                                     <img width="180" height="180" alt="" class="wp-post-image" src="<?= $value['photo_path'] ?>">
                                                                 </a>
                                                                 <div class="media-body align-self-center ">
-                                                                    <a href="single-product-fullwidth.html "><?= $value['title'] ?></a>
+                                                                    <a href="<?= base_url() ?>product/<?= $value['id'] ?>"><?= $value['title'] ?></a>
                                                                 </div>
                                                             </div>
                                                         </td>
                                                         <td data-title="Price" class="product-price text-center ">
                                                             <span class="woocommerce-Price-amount amount">
-                                                                <span class="woocommerce-Price-amount amount "><?= $value['price'] ?></span>
+                                                                <span class="woocommerce-Price-amount amount "><?= number_format($value['price']) ?> ریال</span>
                                                             </span>
                                                         </td>
                                                         <td class="product-quantity text-center " data-title="Quantity">
@@ -69,7 +69,7 @@
                                                         </td>
                                                         <td data-title="Total" class="product-subtotal text-center ">
                                                             <span class="woocommerce-Price-amount amount">
-                                                                <span class="woocommerce-Price-amount amount subtotal"><?= $value['count'] * $value['price'] ?></span>
+                                                                <span class="woocommerce-Price-amount amount subtotal"><?= number_format($value['count'] * $value['price']) ?> ریال</span>
                                                             </span>
                                                             <a title="Remove this item" class="remove" href="<?= base_url() ?>cart/remove/<?= $value['id'] ?>">×</a>
                                                         </td>
@@ -88,18 +88,18 @@
                                                     <tr class="cart-subtotal">
                                                         <th>مجموع کل</th>
                                                         <td data-title="Subtotal">
-                                                            <span class="woocommerce-Price-amount amount"><?= $cart_total ?></span>
+                                                            <span class="woocommerce-Price-amount amount"><?= number_format($cart_total) ?> ریال</span>
                                                         </td>
                                                     </tr>
                                                     <tr class="shipping">
-                                                        <th>هزینه ارسال ( تومان )</th>
-                                                        <td data-title="Shipping">50,000</td>
+                                                        <th>هزینه ارسال</th>
+                                                        <td data-title="Shipping">۵۰۰،۰۰۰ ریال</td>
                                                     </tr>
                                                     <tr class="order-total">
                                                         <th>قیمت کل</th>
                                                         <td data-title="Total">
                                                             <strong>
-                                                                <span class="woocommerce-Price-amount amount"><?= $cart_total + 50000 ?></span>
+                                                                <span class="woocommerce-Price-amount amount"><?= number_format($cart_total + 500000) ?> ریال</span>
                                                             </strong>
                                                         </td>
                                                     </tr>

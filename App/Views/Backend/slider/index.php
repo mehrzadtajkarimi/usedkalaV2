@@ -54,7 +54,7 @@
                       <div class="row">
                         <div class="col-3">
                           <div class="pt-1 pb-4  form-check">
-                            <input class="form-check-input" type="radio" name="slider-status-link" id="slider-status-link" value="link" checked>
+                            <input class="form-check-input" type="radio" name="linktype" id="slider-status-link" value="link" checked>
                             <label class="form-check-label" for="slider-status-link">
                               لینک
                             </label>
@@ -70,7 +70,7 @@
                         <div class="row">
                           <div class="col-3">
                             <div class="pt-1 pb-4  form-check">
-                              <input class="form-check-input" type="radio" name="slider-status-category" id="slider-status-category" value="category">
+                              <input class="form-check-input" type="radio" name="linktype" id="slider-status-category" value="category">
                               <label class="form-check-label" for="slider-status-category">
                             دسته بندی انتخابی
                             </label>
@@ -89,7 +89,7 @@
                           <div class="row">
                             <div class="col-3">
                               <div class="pt-1 pb-4  form-check">
-                                <input class="form-check-input" type="radio" name="slider-status-product" id="slider-status-product" value="product">
+                                <input class="form-check-input" type="radio" name="linktype" id="slider-status-product" value="product">
                                 <label class="form-check-label" for="slider-status-product">
                                 محصول انتخابی
                             </label>

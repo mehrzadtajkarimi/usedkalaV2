@@ -26,7 +26,8 @@ class CartController  extends Controller
 
         $data = [
             'cart_total' => array_sum($cart_total ?? []),
-            'cart_items' => $cart_items
+            'cart_items' => $cart_items,
+			'home_page_active_menu' => "page home page-template-default"
         ];
 
         return view('Frontend.cart.index', $data);

@@ -1,4 +1,4 @@
-function msgbox(msgtext,dir)
+/* function msgbox(msgtext,dir)
 {
 	if (dir=="ltr") {document.getElementById('msgboxnote').style.direction='ltr'; document.getElementById('msgboxnote').style.textAlign='left';}
 	document.getElementById('msgboxnote').innerHTML=msgtext;
@@ -20,120 +20,113 @@ function replaceAll(str)
 	str=str.replace(/9/g,"۹");
 	
 	return str;
-}
-function acc_signup()
-{
-	var first_name=document.getElementById('signup_first_name').value;
-	var last_name=document.getElementById('signup_last_name').value;
-	var company=document.getElementById('signup_company').value;
-	var mail=document.getElementById('signup_mail').value;
-	var tell=document.getElementById('signup_cell').value;
-	var pass=document.getElementById('signup_pass1').value;
-	var pass2=document.getElementById('signup_pass2').value;
-	
-	var rules=1;
-	
-	msgbox('در حال ارسال اطلاعات، لطفا شکیبا باشید...');
-	
-	var dacon=new XMLHttpRequest();
-	dacon.onreadystatechange=function()
-	{
-		if (dacon.readyState==4 && dacon.status==200)
-		{
-			if (dacon.responseText!="1") msgbox(dacon.responseText);
-			else document.location=rootPath+"account/verify";
-		}
+} */
+
+slides={
+	1:{
+		"title":"",
+		"desc":"",
+		"link":""
+	},
+	2:{
+		"title":"",
+		"desc":"",
+		"link":""
+	},
+	3:{
+		"title":"",
+		"desc":"",
+		"link":""
 	}
-	dacon.open("POST",rootPath+"acc_signup.php",true);
-	dacon.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	dacon.send("tell="+tell + "&first_name="+first_name + "&last_name="+last_name + "&company="+company + "&mail="+mail + "&pass="+pass + "&pass2="+pass2 + "&rules="+rules);
-}
-function acc_forgot()
+};
+changing=0;
+var slide=1;
+function changeslide(id)
 {
-	msgbox('در حال ارسال اطلاعات، لطفا شکیبا باشید...');
-	var daEmail=$("#forgotinput").val();
-	var dacon=new XMLHttpRequest();
-	dacon.onreadystatechange=function()
+	if (slide!=id && changing==0)
 	{
-		if (dacon.readyState==4 && dacon.status==200)
-		{
-			if (dacon.responseText!="1") msgbox(dacon.responseText);
-			else document.location=rootPath+"account/verify";
-		}
+		changing=1;
+		step=0;
+		// slideintvalstep();
+		$("#slide_btn"+slide).removeClass("active");
+		slide=id;
+		$(".usedkalaslide .content").addClass("hide");
+		$("#slide_btn"+id).addClass("active");
+		setTimeout(function(){
+			$(".usedkalaslide .scrollthis").animate({right: ((id-1)*(-100))+"%"},1000,function(){
+				$(".usedkalaslide .title").html(slides[id].title);
+				$(".usedkalaslide .desc").html(slides[id].desc);
+				if (slides[id].title!="" || slides[id].desc!="")
+					$(".usedkalaslide .content").removeClass("hide");
+				changing=0;
+			});
+		},300);
 	}
-	dacon.open("GET",rootPath+"acc_resetpass.php?m="+daEmail,true);
-	dacon.send();
 }
-function acc_newpass()
+var slideCount=3;
+function nextslide()
 {
-	document.location=rootPath+"account/newpass/"+$("#accountVerifyEmail").val()+"/"+$("#accountVerifyInput").val();
+	if (slide<slideCount) changeslide(slide+1);
+	else changeslide(1);
 }
-var vfcd, resetpassmail;
-function acc_resetpass()
+function prevslide()
 {
-	msgbox('در حال ارسال اطلاعات، لطفا شکیبا باشید...');
-	var pass1=$("#newpass_pass1").val();
-	var pass2=$("#newpass_pass2").val();
-	var dacon=new XMLHttpRequest();
-	dacon.onreadystatechange=function()
-	{
-		if (dacon.readyState==4 && dacon.status==200)
-		{
-			msgbox(dacon.responseText);
-		}
-	}
-	dacon.open("POST",rootPath+"acc_resetpass_do.php",true);
-	dacon.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	dacon.send("m="+resetpassmail+"&vfcd="+vfcd+"&pass1="+pass1+"&pass2="+pass2);
-}
-function acc_signin()
-{
-	msgbox('در حال ارسال اطلاعات، لطفا شکیبا باشید...');
-	var user=$("#signin_user").val();
-	var pass=$("#signin_pass").val();
-	if ($("#signin_remember")[0].checked) var remember=1;
-	else var remember=0;
-	
-	var dacon=new XMLHttpRequest();
-	dacon.onreadystatechange=function()
-	{
-		if (dacon.readyState==4 && dacon.status==200)
-		{
-			if (dacon.responseText!="1") msgbox(dacon.responseText);
-			else document.location=rootPath+"account";
-		}
-	}
-	dacon.open("POST",rootPath+"acc_signin.php",true);
-	dacon.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-	dacon.send("username="+user+"&pass="+pass+"&rememberme="+remember);
+	if (slide>1) changeslide(slide-1);
+	else changeslide(slideCount);
 }
 
-function add_to_cart(id)
+step=0;
+function slideintvalstep()
 {
-	msgbox('در حال ارسال اطلاعات، لطفاً شکیبا باشید...');
-	$.ajax({
-		method: "POST",
-		url: rootPath+"add_to_cart.php",
-		data: {
-			"id": id
-		}
-	})
-	.done(function( msg ) {
-		msgbox('افزودن به سبد خرید با موفقیت انجام شد.');
-	});
+	step+=0.2;
+	if (step>=100) 
+		nextslide();
+	$(".usedkalaslide .progress").css("width",step+"%");
+	// step2=1+((100-step)/500);
+	// if (step2<1) step2=1;
+	// $("#slide"+slide).css("transform","scale("+step2+")");
 }
-function checkout_province_change(id)
+
+
+
+
+
+
+
+
+var clicked=0;
+var clickedX, clickedY, clickedTop, globx, globy;
+function mover(event)
 {
-	$("#billing_state").val(0);
-	$("#checkout_city_label").text("در حال بارگزاری...");
-	$.ajax({
-		method: "POST",
-		url: rootPath+"checkout_province_change.php",
-		data: {
-			"id": id
-		}
-	})
-	.done(function( msg ) {
-		$("#billing_state").html(msg);
-	});
+	globy=event.pageY;
+	globx=event.pageX;
+	if (clicked==3)
+	{
+		$(".usedkala_product_enlarge").show();
+		$(".usedkala_product_enlarge div").css("background-image","url("+$($(".techmarket-wc-product-gallery__image.slick-current").children().children()[0]).attr("src")+")");		
+		
+		var difLeft=globx-$(".usedkala_product_enlarge").offset().left;
+		var difLeftDomain=$(".usedkala_product_enlarge").width();
+		var domain_x=$(".usedkala_product_enlarge div").width()-difLeftDomain;
+		$(".usedkala_product_enlarge div").css("left",-(domain_x*difLeft/difLeftDomain));
+		
+		var difTop=globy-$(".usedkala_product_enlarge").offset().top;
+		var difTopDomain=$(".usedkala_product_enlarge").height();
+		var domain_y=$(".usedkala_product_enlarge div").height()-difTopDomain;
+		$(".usedkala_product_enlarge div").css("top",-(domain_y*difTop/difTopDomain));
+	}
+	else
+	{
+		$(".usedkala_product_enlarge").hide();
+	}
 }
+function toggle_responsive()
+{
+	var ratioHeight=$($(".techmarket-wc-product-gallery__image.slick-current").children().children()[0]).height();
+	var ratioWidth=$($(".techmarket-wc-product-gallery__image.slick-current").children().children()[0]).width();
+	$(".usedkala_product_enlarge").css("height",($(".usedkala_product_enlarge").width()*ratioHeight)/ratioWidth);
+	$(".usedkala_product_enlarge div").css("height",($(".usedkala_product_enlarge div").width()*ratioHeight)/ratioWidth);
+}
+window.onresize=function(){toggle_responsive();};
+toggle_responsive();
+setInterval(toggle_responsive,1000);

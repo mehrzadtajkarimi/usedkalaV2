@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 10, 2021 at 04:53 PM
+-- Generation Time: Nov 13, 2021 at 02:39 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -216,7 +216,8 @@ INSERT INTO `categories` (`id`, `status`, `description`, `type`, `H1`, `canonica
 (54, 0, 'Nostrum est cumque architecto explicabo Est consectetur in et exercitationem sequi sed dolor consequuntur temporibus ', 1, 'Nostrud qui qui poss', 'Et qui vel dicta ex ', 0, 0, 'Alden Mcmillan', 'Esse-quibusdam-obcae', '', NULL, '2021-10-18 12:24:55'),
 (55, 1, 'Incididunt consequuntur incididunt dolores non provident', 1, 'At cupidatat numquam', 'Enim fugiat aut labo', 5, 0, 'Hyacinth Britt', 'Dolor-labore-odio-pl', '', NULL, '2021-10-18 12:25:26'),
 (63, 1, '', 0, 'قطعات داخل سرور', '', 0, 51, 'قطعات داخل سرور', 'قطعات-داخل-سرور', 'قطعات داخل سرور', 'قطعات داخل سرور', '2021-11-10 13:50:32'),
-(64, 1, ' ', 0, 'ذخیره ساز', NULL, 0, 0, 'ذخیره ساز', 'ذخیره-ساز', NULL, NULL, '2021-11-10 14:02:25');
+(64, 1, ' ', 0, 'ذخیره ساز', NULL, 0, 0, 'ذخیره ساز', 'ذخیره-ساز', NULL, NULL, '2021-11-10 14:02:25'),
+(65, 1, '', 0, 'همه ذخیره‌سازها', '', 0, 64, 'همه ذخیره‌سازها', 'همه-ذخیره‌سازها', 'همه ذخیره‌سازها', 'همه ذخیره‌سازها', '2021-11-13 07:52:36');
 
 -- --------------------------------------------------------
 
@@ -516,7 +517,12 @@ INSERT INTO `photos` (`id`, `entity_id`, `entity_type`, `type`, `path`, `alt`, `
 (79, 73, 'User', 0, 'http://usedkalaV2.me/Storage/202111/F5.---5f12ec19.png', 'profile_image', '2021-11-10 11:31:40'),
 (81, 63, 'Category', 0, 'http://usedkalaV2.me/Storage/202111/bios.---61cf9b60.jpg', 'image_category', '2021-11-10 13:50:32'),
 (82, 64, 'Category', 0, 'http://usedkalaV2.me/Storage/202111/3par.---51b9c9f0.jpg', 'image_category', '2021-11-10 14:02:25'),
-(83, 30, 'Product', 0, 'http://usedkalaV2.me/Storage/202111/LD0003959506_2_0003959562_0005140614.---b626f7c5.jpg', 'product_image', '2021-11-10 15:01:52');
+(83, 30, 'Product', 0, 'http://usedkalaV2.me/Storage/202111/LD0003959506_2_0003959562_0005140614.---b626f7c5.jpg', 'product_image', '2021-11-10 15:01:52'),
+(84, 34, 'Product', 0, 'http://usedkalaV2.me/Storage/202111/3par.---552500df.jpg', 'product_image', '2021-11-13 07:50:32'),
+(85, 34, 'Product', 1, 'http://usedkalaV2.me/Storage/202111/3par8000.---db4a9d67.jpg', 'product_image', '2021-11-13 07:50:32'),
+(86, 65, 'Category', 0, 'http://usedkalaV2.me/Storage/202111/3par.---253b6f9a.jpg', 'image_category', '2021-11-13 07:52:36'),
+(87, 6, 'Slider', 0, 'http://usedkalaV2.me/Storage/202111/20_.---95962910.jpg', 'slider_image', '2021-11-13 09:44:50'),
+(88, 7, 'Slider', 0, 'http://usedkalaV2.me/Storage/202111/khordadgan.---07bb3664.jpg', 'slider_image', '2021-11-13 09:55:20');
 
 -- --------------------------------------------------------
 
@@ -558,8 +564,9 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id`, `brand_id`, `user_id`, `title`, `seo_robot`, `seo_canonical`, `seo_H1`, `seo_description`, `seo_title`, `meta_title`, `description`, `price`, `featured`, `image`, `slug`, `sale`, `status`, `sku`, `quantity`, `weight`, `created_at`, `updated_at`, `published_at`, `started_at`, `end_at`) VALUES
 (30, 9, 73, 'Cisco IP Phone', 0, '', 'Cisco IP Phone', 'Cisco IP Phone', 'Cisco IP Phone', 'Cisco IP Phone', 'Cisco IP Phone', 120000000, 1, NULL, 'Cisco-IP-Phone', 1, 0, '', 37, 3, '2021-09-29 11:57:54', NULL, NULL, NULL, NULL),
-(32, 9, 73, 'HPE Proliant DL580', 0, '', 'HPE Proliant DL580', 'HPE Proliant DL۵۸۰', 'HPE Proliant DL580', 'HPE Proliant DL۵۸۰', 'HPE Proliant DL۵۸۰', 850000000, 1, NULL, 'HPE-Proliant-DL580', 1, 1, ' ', 508, 62, '2021-11-08 05:50:48', NULL, NULL, NULL, NULL),
-(33, 9, 73, 'Hpe Proliant DL380', 0, '', 'Hpe Proliant DL380', 'Hpe Proliant DL۳۸۰', 'Hpe Proliant DL380', 'Hpe Proliant DL۳۸۰', 'Hpe Proliant DL۳۸۰', 750000000, 1, NULL, 'Hpe-Proliant-DL380', 1, 0, '', 200, 30, '2021-11-08 05:59:23', NULL, NULL, NULL, NULL);
+(32, 9, 73, 'HPE Proliant DL580', 0, '', 'سرور HPE مدل Proliant DL580 G10', 'HPE Proliant DL۵۸۰', 'سرور HPE مدل Proliant DL580 G10', 'HPE Proliant DL۵۸۰', '<p>سرور HPE ProLiant DL۵۸۰ Gen۱۰ یک سرور ۴P مطمئن، با کارایی، قابلیت ارتقاء، مقیاس پذیری و دسترس پذیری بالا در شاسی ۴U است. سرور HPE ProLiant DL۵۸۰ Gen۱۰ با پشتیبانی از پردازنده های مقیاس پذیر &reg;Intel&reg; Xeon، قدرت پردازش بیشتری را نسبت به نسل های قبلی ارائه می دهد و سروری ایده آل برای بارهای کاری مهم و برنامه های کاربردی با فشرده سازی داده های عمومی ۴P است که عملکرد مناسب آنها بسیار مهم است.</p>\r\n\r\n<p>سرور HPE ProLiant DL۵۶۰ Gen۱۰ یک سرور ۴P با چگالی، کارایی، مقیاس پذیری و قابلیت اطمینان زیاد در شاسی ۲U است. سرور HPE ProLiant DL۵۶۰ Gen۱۰ با پشتیبانی از پردازنده های مقیاس پذیر Intel&reg; Xeon&reg; سروری ایده آل برای بارهای کاری مهم، مجازی سازی، ادغام سرور، بانک اطلاعاتی، پردازش مشاغل و برنامه های کاربردی عمومی است.</p>\r\n', 850000000, 1, NULL, 'HPE-Proliant-DL580', 1, 1, ' ', 508, 62, '2021-11-08 05:50:48', NULL, NULL, NULL, NULL),
+(33, 9, 73, 'Hpe Proliant DL380', 0, '', 'Hpe Proliant DL380', 'Hpe Proliant DL۳۸۰', 'Hpe Proliant DL380', 'Hpe Proliant DL۳۸۰', 'Hpe Proliant DL۳۸۰', 750000000, 1, NULL, 'Hpe-Proliant-DL380', 1, 0, '', 200, 30, '2021-11-08 05:59:23', NULL, NULL, NULL, NULL),
+(34, 8, 73, 'Dell EMC Unity 480 XT', 0, '', 'Dell EMC Unity 480 XT', 'همه ذخیره‌سازها', 'Dell EMC Unity 480 XT', 'Dell EMC Unity ۴۸۰ XT', '<p>Dell EMC Unity ۴۸۰ XT</p>\r\n', 500000000, 1, NULL, 'Dell-EMC-Unity-480-XT', 1, 0, '', 1, 1, '2021-11-13 07:50:31', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -581,7 +588,9 @@ INSERT INTO `product_categories` (`id`, `product_id`, `category_id`) VALUES
 (16, 30, 52),
 (17, 33, 51),
 (18, 33, 52),
-(19, 32, 52);
+(22, 32, 52),
+(24, 34, 64),
+(25, 34, 65);
 
 -- --------------------------------------------------------
 
@@ -648,8 +657,9 @@ CREATE TABLE `product_tags` (
 
 INSERT INTO `product_tags` (`id`, `product_id`, `tag_id`) VALUES
 (13, 33, 1),
-(14, 32, 2),
-(15, 32, 1);
+(20, 32, 2),
+(21, 32, 1),
+(23, 34, 1);
 
 -- --------------------------------------------------------
 
@@ -782,6 +792,8 @@ CREATE TABLE `site_contents` (
 CREATE TABLE `sliders` (
   `id` int(11) NOT NULL,
   `small_text` varchar(256) DEFAULT NULL,
+  `linktype` varchar(255) DEFAULT '',
+  `link` varchar(1000) DEFAULT '',
   `product_id` int(11) DEFAULT NULL,
   `category_id` int(11) DEFAULT NULL,
   `sort` tinyint(4) DEFAULT 0,
@@ -789,6 +801,14 @@ CREATE TABLE `sliders` (
   `description` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sliders`
+--
+
+INSERT INTO `sliders` (`id`, `small_text`, `linktype`, `link`, `product_id`, `category_id`, `sort`, `status`, `description`, `created_at`) VALUES
+(6, '  ', 'category', 'http://google.com', 0, 64, 0, 1, '', '2021-11-13 09:44:50'),
+(7, ' جشن خردادگان مبارک باد! ', 'link', 'http://google.com', 0, 0, 0, 0, 'جشن خردادگان یکی از جشنهای اساطیری و کهنِ ایران‌زمین می‌باشد.', '2021-11-13 09:55:20');
 
 -- --------------------------------------------------------
 
@@ -1204,7 +1224,7 @@ ALTER TABLE `carts`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `category_blogs`
@@ -1282,19 +1302,19 @@ ALTER TABLE `permission_user`
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `product_categories`
 --
 ALTER TABLE `product_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `product_discounts`
@@ -1312,7 +1332,7 @@ ALTER TABLE `product_samples`
 -- AUTO_INCREMENT for table `product_tags`
 --
 ALTER TABLE `product_tags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `provinces`
@@ -1360,7 +1380,7 @@ ALTER TABLE `site_contents`
 -- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `suppliers`

@@ -55,7 +55,7 @@ class BlogController extends Controller
             }
         $blogTag     = $this->blogTagModel->join_blog__with_tag($blog_id['id'])?? '';
 
-        dd($blogCommentTwo);
+        // dd($blogCommentTwo);
 
         if (is_array($blog)) {
             $data = array(

@@ -55,6 +55,7 @@ class SliderController extends Controller
             'category_id' => $params['category_id']??'',
             'description' => $params['slider-description'],
             'status'      => $params['slider-status'] ?? 0,
+            'linktype'    => $params['linktype']
         );
 
         $files                   = $this->request->files();
@@ -125,6 +126,7 @@ class SliderController extends Controller
             'category_id' => $params['category_id']??'',
             'description' => $params['slider-description'],
             'status'      => $params['slider-status'] == 'on' ? 1 : 0,
+			'linktype'	  => $params['linktype']
         );
         $this->sliderModel->update_slider($params_update, $id['id']);
 

@@ -39,7 +39,7 @@ class  MysqlBaseModel extends BaseModel
             $this->connection->insert($this->table, $data);
             return  $this->connection->id();
         } catch (\PDOException $e) {
-            echo 'مشکلی در هنگام ذخیره اطلاعات رخ داد/n' . $e['message'];
+            echo 'مشکلی در هنگام ذخیره اطلاعات رخ داد/n';
 			var_dump($e);
         }
     }

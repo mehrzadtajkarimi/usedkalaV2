@@ -1,59 +1,93 @@
 <div class="col-full">
     <div class="row">
 	
-<div id="primary" class="mt-5 content-area">
+<div id="primary" class="content-area">
     <main id="main" class="site-main">
         <div class="product product-type-simple">
-            <div class="row single-product-wrapper">
-                <div class="col product-images-wrapper thumb-count-4" dir="ltr">
+            <div class="single-product-wrapper">
+                <div class="product-images-wrapper thumb-count-4" dir="ltr">
                     <div id="techmarket-single-product-gallery" class="techmarket-single-product-gallery techmarket-single-product-gallery--with-images techmarket-single-product-gallery--columns-4 images" data-columns="4">
-                        <div class="row">
-                            <div class="col-10 techmarket-single-product-gallery-images" data-ride="tm-slick-carousel" data-wrap=".woocommerce-product-gallery__wrapper" data-slick="{&quot;infinite&quot;:false,&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;dots&quot;:false,&quot;arrows&quot;:false,&quot;asNavFor&quot;:&quot;#techmarket-single-product-gallery .techmarket-single-product-gallery-thumbnails__wrapper&quot;}">
-                                <div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images" data-columns="4">
-                                    <!-- <a href="#" class="woocommerce-product-gallery__trigger">🔍</a> -->
-                                    <figure class="woocommerce-product-gallery__wrapper ">
-                                        <div data-thumb="<?= base_url() ?>Assets/Frontend/images/products/1-6.jpg" class="woocommerce-product-gallery__image">
-                                            <a href="assets/images/products/1-6.jpg" tabindex="0">
-                                                <img width="600" height="600" src="<?= $photo['path']  ?>" class="attachment-shop_single size-shop_single wp-post-image" alt="<?= $photo['alt']  ?>">
-                                            </a>
-                                        </div>
-                                    </figure>
-                                </div>
-                                <!-- .woocommerce-product-gallery -->
-                            </div>
-                            <!-- .techmarket-single-product-gallery-images -->
-                            <div class="col-2 techmarket-single-product-gallery-thumbnails" style="position: absolute;right: 0;" data-ride="tm-slick-carousel" data-wrap=".techmarket-single-product-gallery-thumbnails__wrapper" data-slick="{&quot;infinite&quot;:false,&quot;slidesToShow&quot;:4,&quot;slidesToScroll&quot;:1,&quot;dots&quot;:false,&quot;arrows&quot;:true,&quot;vertical&quot;:true,&quot;verticalSwiping&quot;:true,&quot;focusOnSelect&quot;:true,&quot;touchMove&quot;:true,&quot;asNavFor&quot;:&quot;#techmarket-single-product-gallery .woocommerce-product-gallery__wrapper&quot;,&quot;responsive&quot;:[{&quot;breakpoint&quot;:765,&quot;settings&quot;:{&quot;vertical&quot;:false,&quot;horizontal&quot;:true,&quot;verticalSwiping&quot;:false,&quot;slidesToShow&quot;:4}}]}">
-                                <figure class="techmarket-single-product-gallery-thumbnails__wrapper">
-                                    <figure data-thumb="<?= base_url() ?>Assets/Frontend/images/products/1-1.jpg" class="techmarket-wc-product-gallery__image">
-                                        <?php foreach ($photos as $value) : ?>
-                                            <a href="#">
-                                                <img width="180" height="180" src="<?= $value['path'] ?>" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt="">
-                                            </a>
-                                        <?php endforeach; ?>
-                                    </figure>
-                                </figure>
-                                <!-- .techmarket-single-product-gallery-thumbnails__wrapper -->
-                            </div>
-                            <!-- .techmarket-single-product-gallery-thumbnails -->
-                        </div>
+						<div class="techmarket-single-product-gallery-images" data-ride="tm-slick-carousel" data-wrap=".woocommerce-product-gallery__wrapper" data-slick="{&quot;infinite&quot;:false,&quot;slidesToShow&quot;:1,&quot;slidesToScroll&quot;:1,&quot;dots&quot;:false,&quot;arrows&quot;:false,&quot;asNavFor&quot;:&quot;#techmarket-single-product-gallery .techmarket-single-product-gallery-thumbnails__wrapper&quot;}">
+							<div class="woocommerce-product-gallery woocommerce-product-gallery--with-images woocommerce-product-gallery--columns-4 images" data-columns="4">
+								<!-- <a href="#" class="woocommerce-product-gallery__trigger">🔍</a> -->
+								<figure class="woocommerce-product-gallery__wrapper ">
+									<?php
+									$count=0;
+									foreach ($photos as $i=>$photo)
+									{
+										$count++;
+										if ($count==1)
+										{
+											$tabIndexStr=0;
+											$classStr="wp-post-image";
+										}
+										else
+										{
+											$tabIndexStr=-1;
+											$classStr="";
+										}
+									?>
+									<div data-thumb="<?= $photo['path']  ?>" class="woocommerce-product-gallery__image">
+										<a href="<?= $photo['path'] ?>" target="_blank" tabindex="<?= $tabIndexStr  ?>">
+											<img width="600" height="600" src="<?= $photo['path']  ?>" class="attachment-shop_single size-shop_single <?= $classStr ?>" alt="<?= $photo['alt']  ?>">
+										</a>
+									</div>
+									<?php
+									}
+									?>
+								</figure>
+							</div>
+							<!-- .woocommerce-product-gallery -->
+						</div>
+						<!-- .techmarket-single-product-gallery-images -->
+						<div class="techmarket-single-product-gallery-thumbnails" style="position: absolute;right: 0;" data-ride="tm-slick-carousel" data-wrap=".techmarket-single-product-gallery-thumbnails__wrapper" data-slick="{&quot;infinite&quot;:false,&quot;slidesToShow&quot;:4,&quot;slidesToScroll&quot;:1,&quot;dots&quot;:false,&quot;arrows&quot;:true,&quot;vertical&quot;:true,&quot;verticalSwiping&quot;:true,&quot;focusOnSelect&quot;:true,&quot;touchMove&quot;:true,&quot;asNavFor&quot;:&quot;#techmarket-single-product-gallery .woocommerce-product-gallery__wrapper&quot;,&quot;responsive&quot;:[{&quot;breakpoint&quot;:765,&quot;settings&quot;:{&quot;vertical&quot;:false,&quot;horizontal&quot;:true,&quot;verticalSwiping&quot;:false,&quot;slidesToShow&quot;:4}}]}">
+							<figure class="techmarket-single-product-gallery-thumbnails__wrapper">
+								<?php
+								foreach (array_reverse($photos) as $i=>$photo)
+								{
+									if ($i==0)
+									{
+										$classStr="wp-post-image";
+									}
+									else
+									{
+										$classStr="";
+									}
+								?>
+								<figure data-thumb="<?= $photo['path'] ?>" class="techmarket-wc-product-gallery__image">
+									<a href="#">
+										<img width="180" height="180" src="<?= $photo['path'] ?>" class="attachment-shop_thumbnail size-shop_thumbnail <?= $classStr ?>" alt="">
+									</a>
+								</figure>
+								<?php
+								}
+								?>
+							</figure>
+							<!-- .techmarket-single-product-gallery-thumbnails__wrapper -->
+						</div>
+						<!-- .techmarket-single-product-gallery-thumbnails -->
                     </div>
                     <!-- .techmarket-single-product-gallery -->
+					<div class="usedkala_product_enlarge">
+						<div style="background-image: url(<?= $rootPath."dj_products/".$prophotoRow['ID'].".jpg" ?>)"></div>
+					</div>
+					<script type="text/javascript">
+					$(".techmarket-single-product-gallery-images").mouseenter(function(){clicked=3});
+					$(".usedkala_product_enlarge").mouseout(function(){clicked=0});
+					</script>
                 </div>
                 <!-- .product-images-wrapper -->
                 <div class="col summary entry-summary">
                     <div class="single-product-header">
                         <h1 class="product_title entry-title"><?= $product['seo_H1']!=""?$product['seo_H1']:$product['title'] ?></h1>
+						<?php if ($product['seo_H1']!="" && $product['title']!="" && $product['seo_H1']!=$product['title']) echo '<h2 class="product_title entry-title">'.$product['title'].'</h2>'; ?>
                     </div>
                     <div class="single-product-meta">
-						<?php
-						print_r($brand);
-						?>
                         <div class="brand">
-                            <a href="#">
-                                <img alt="galaxy" class="img-fluid" width="180" height="180" src="<?= base_url() ?>Assets/Frontend/images/brands/5.png">
-                            </a>
+							<img alt="galaxy" class="img-fluid" width="180" height="180" src="<?= $brand['path'] ?>">
                         </div>
                         <div class="cat-and-sku">
+							دسته‌بندی:
                             <span class="posted_in categories">
                                 <a rel="tag" href="<?= base_url() ?>Category/<?= $cats[0]['id'] ?>/<?= $cats[0]['slug'] ?>"><?= $cats[0]['name'] ?></a>
                             </span>
@@ -61,11 +95,11 @@
                                 <span class="sku">5487FB8/11</span>
                             </span> */ ?>
                         </div>
-                        <?php /* <div class="product-label">
+                        <div class="product-label">
                             <div class="ribbon label green-label">
                                 <span>A+</span>
                             </div>
-                        </div> */ ?>
+                        </div>
                     </div>
 
                     <div class="product-actions-wrapper">
@@ -87,31 +121,29 @@
                             <!-- .single-product-header -->
                             <form action="<?= base_url() ?>cart/add/<?= $product['id'] ?>" enctype="multipart/form-data" method="post" class="cart">
                                 <input type="hidden" name="photo_path" value="<?= $photo['path']  ?>">
-                                <div class="row">
-                                    <div class="col-3 quantity">
-                                        <label for="quantity-input">تعداد</label>
-                                        <input name="product_quantity" type="number" size="4" class="input-text qty text" title="Qty" value="1" id="quantity-input">
-                                    </div>
-                                    <!-- .quantity -->
-                                    <button class="col-4 btn btn-outline-success" name="add-to-cart" type="submit">افزودن به سبد خرید</button>
-                                </div>
+								<div class="quantity">
+									<label for="quantity-input">تعداد</label>
+									<input name="product_quantity" type="number" size="4" class="input-text qty text" title="Qty" value="1" id="quantity-input">
+								</div>
+								<!-- .quantity -->
+								<button class="single_add_to_cart_button button alt" value="185" name="add-to-cart" type="submit">افزودن به سبد خرید</button>
                             </form>
                             <!-- .cart -->
                             <a class="add-to-compare-link" href="compare.html">مقایسه</a>
-                            <div class="card  border-0 pt-5">
-                                <div class="card-body">
-                                    <p class="card-text"><?= $product['description'] ?></p>
-                                </div>
-                            </div>
-                            <?php foreach ($tags as $value) : ?>
-                                <div class="ml-4 mb-2">
-                                    <small>
-                                        <a href="#">#<?= $value['tag'] ?></a>
-                                    </small>
-                                </div>
-                            <?php endforeach; ?>
                         </div>
                         <!-- .product-actions -->
+						<div class="card  border-0 pt-5">
+							<div class="card-body">
+								<p class="card-text"><?= $product['description'] ?></p>
+							</div>
+						</div>
+						<?php foreach ($tags as $value) : ?>
+							<div class="ml-4 mb-2">
+								<small>
+									<a href="#">#<?= $value['tag'] ?></a>
+								</small>
+							</div>
+						<?php endforeach; ?>
                     </div>
                     <!-- .product-actions-wrapper -->
                 </div>

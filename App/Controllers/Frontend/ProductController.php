@@ -65,7 +65,8 @@ class ProductController extends Controller
             'photo'    => $photo,
             'auth'     => SessionManager::get('auth') ?? null,
 			'cats'	   => $productCat,
-			'brand'    => $productBrand
+			'brand'    => $productBrand[0],
+			'home_page_active_menu' => "single-product full-width normal",
         );
         return view('Frontend.product.show', $data);
     }
