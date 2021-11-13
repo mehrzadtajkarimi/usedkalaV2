@@ -45,9 +45,6 @@
                         <h1 class="product_title entry-title"><?= $product['seo_H1']!=""?$product['seo_H1']:$product['title'] ?></h1>
                     </div>
                     <div class="single-product-meta">
-						<?php
-						print_r($brand);
-						?>
                         <div class="brand">
                             <a href="#">
                                 <img alt="galaxy" class="img-fluid" width="180" height="180" src="<?= base_url() ?>Assets/Frontend/images/brands/5.png">

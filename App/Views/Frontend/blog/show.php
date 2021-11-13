@@ -78,7 +78,15 @@
                         <h5 class="card-title"><?= $value['title'] ?> </h5>
                         <p class="card-text"><?= $value['message'] ?></p>
                     </div>
+                    <small class=" pl-5 text-muted">
 
+                        <p>نمایش پاسخ :</p>
+                        <div class="">
+                            <h5 class=""><?= $value['reply']['title'] ?> </h5>
+                            <p class="pl-3"><?= $value['reply']['message'] ?></p>
+                        </div>
+                    </small>
+                    
                 </div>
                 <span>آیا این دیدگاه برایتان مفید بود؟</span>
                 <span class="m-2 pointer dislike text-muted ">
