@@ -18,16 +18,16 @@
         <!-- Add icons to the links using the .nav-icon class
         with font-awesome or any other icon font library -->
         <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link <?= is_active('/admin/users') ?> ">
                 <p>
                     کاربران
                     <i class="right fa fa-angle-left"></i>
                 </p>
                 <i class="nav-icon fa fa-tachometer"></i>
             </a>
-            <ul class="nav nav-treeview">
+            <ul class="nav nav-treeview <?= is_active('/admin/users') ?>">
                 <li class="nav-item">
-                    <a href="<?= base_url() ?>admin/users" class="nav-link">
+                    <a href="<?= base_url() ?>admin/users" class="nav-link  <?= is_active('/admin/users') ?>">
                         <p>لیست کاربران</p>
                         <i class="fa fa-circle-o nav-icon"></i>
                     </a>
@@ -35,22 +35,22 @@
             </ul>
         </li>
         <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link <?= is_active(['/admin/category','admin/category/blog']) ?> ">
                 <p>
                     دسته بندی ها
                     <i class="right fa fa-angle-left"></i>
                 </p>
                 <i class="nav-icon fa fa-book"></i>
             </a>
-            <ul class="nav nav-treeview">
+            <ul class="nav nav-treeview <?= is_active(['/admin/category','admin/category/blog']) ?> ">
                 <li class="nav-item">
-                    <a href="<?= base_url() ?>admin/category" class="nav-link">
+                    <a href="<?= base_url() ?>admin/category" class="nav-link <?= is_active('/admin/category')?>">
                         <p>لیست دسته بندی محصول</p>
                         <i class="fa fa-circle-o nav-icon"></i>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= base_url() ?>admin/category/blog" class="nav-link">
+                    <a href="<?= base_url() ?>admin/category/blog" class="nav-link <?= is_active('/admin/category/blog')?>">
                         <p>لیست دسته بندی وبـــــلاگ</p>
                         <i class="fa fa-circle-o nav-icon"></i>
                     </a>
@@ -58,16 +58,16 @@
             </ul>
         </li>
         <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link <?= is_active(['/admin/product','admin/brand']) ?> ">
                 <p>
                     محصولات
                     <i class="right fa fa-angle-left"></i>
                 </p>
                 <i class="nav-icon fa fa-product-hunt"></i>
             </a>
-            <ul class="nav nav-treeview">
+            <ul class="nav nav-treeview <?= is_active(['/admin/product','admin/brand']) ?>">
                 <li class="nav-item">
-                    <a href="<?= base_url() ?>admin/product" class="nav-link">
+                    <a href="<?= base_url() ?>admin/product" class="nav-link <?= is_active('/admin/product')?>">
                         <p>لیست محصولات </p>
                         <i class="fa fa-circle-o nav-icon"></i>
                     </a>
@@ -75,7 +75,7 @@
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="<?= base_url() ?>admin/brand" class="nav-link">
+                    <a href="<?= base_url() ?>admin/brand" class="nav-link <?= is_active('/admin/brand')?>">
                         <p>لیست برند ها </p>
                         <i class="fa fa-circle-o nav-icon"></i>
                     </a>
@@ -83,16 +83,16 @@
             </ul>
         </li>
         <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link  <?= is_active(['/admin/blog']) ?>">
                 <p>
                     بلاگها
                     <i class="right fa fa-angle-left"></i>
                 </p>
                 <i class="nav-icon fa fa-rss-square"></i>
             </a>
-            <ul class="nav nav-treeview">
+            <ul class="nav nav-treeview <?= is_active(['/admin/blog']) ?>">
                 <li class="nav-item">
-                    <a href="<?= base_url() ?>admin/blog" class="nav-link">
+                    <a href="<?= base_url() ?>admin/blog" class="nav-link <?= is_active('/admin/blog')?>">
                         <p>لیست بلاگ </p>
                         <i class="fa fa-circle-o nav-icon"></i>
                     </a>
@@ -100,7 +100,7 @@
             </ul>
         </li>
         <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link <?= is_active(['/admin/discount','admin/sample']) ?>">
                 <p>
                     تخفیفات
                     <i class="right fa fa-angle-left"></i>
@@ -108,15 +108,15 @@
                 <i class="fa fa-bullhorn nav-icon"></i>
             </a>
 
-            <ul class="nav nav-treeview">
+            <ul class="nav nav-treeview <?= is_active(['/admin/discount','admin/sample']) ?>">
                 <li class="nav-item">
-                    <a href="<?= base_url() ?>admin/discount" class="nav-link">
+                    <a href="<?= base_url() ?>admin/discount" class="nav-link  <?= is_active('/admin/discount')?>">
                         <p>لیست تخفیفات</p>
                         <i class="fa fa-circle-o nav-icon"></i>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= base_url() ?>admin/sample" class="nav-link">
+                    <a href="<?= base_url() ?>admin/sample" class="nav-link  <?= is_active('/admin/sample')?>">
                         <p>لیست اشانتیون</p>
                         <i class="fa fa-circle-o nav-icon"></i>
                     </a>
@@ -124,7 +124,7 @@
             </ul>
         </li>
         <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link <?= is_active(['/admin/cart']) ?>">
                 <p>
                     سبد خرید
                     <i class="right fa fa-angle-left"></i>
@@ -132,9 +132,9 @@
                 <i class="fa fa-shopping-cart nav-icon" aria-hidden="true"></i>
             </a>
 
-            <ul class="nav nav-treeview">
+            <ul class="nav nav-treeview  <?= is_active(['/admin/cart']) ?>">
                 <li class="nav-item">
-                    <a href="<?= base_url() ?>admin/cart" class="nav-link">
+                    <a href="<?= base_url() ?>admin/cart" class="nav-link  <?= is_active('/admin/cart')?>">
                         <p>لیست سفارشات</p>
                         <i class="fa fa-circle-o nav-icon"></i>
                     </a>
@@ -142,7 +142,7 @@
             </ul>
         </li>
         <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link <?= is_active(['/admin/setting','/admin/slider']) ?>">
                 <p>
                     تنظیمات
                     <i class="right fa fa-angle-left"></i>
@@ -150,15 +150,15 @@
                 <i class="fa fa-cogs nav-icon" aria-hidden="true"></i>
             </a>
 
-            <ul class="nav nav-treeview">
+            <ul class="nav nav-treeview <?= is_active(['/admin/setting','/admin/slider']) ?>">
                 <li class="nav-item">
-                    <a href="<?= base_url() ?>admin/setting" class="nav-link">
+                    <a href="<?= base_url() ?>admin/setting" class="nav-link  <?= is_active('/admin/setting')?>">
                         <p>لیست تنظیمات</p>
                         <i class="fa fa-circle-o nav-icon"></i>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= base_url() ?>admin/slider" class="nav-link">
+                    <a href="<?= base_url() ?>admin/slider" class="nav-link  <?= is_active('/admin/slider')?>">
                         <p>اسلایدر</p>
                         <i class="fa fa-circle-o nav-icon"></i>
                     </a>
@@ -166,7 +166,7 @@
             </ul>
         </li>
         <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link <?= is_active(['/admin/comment']) ?>">
                 <p>
                     نظرات
                     <i class="right fa fa-angle-left"></i>
@@ -174,9 +174,9 @@
                 <i class="fa fa-comments-o nav-icon" aria-hidden="true"></i>
             </a>
 
-            <ul class="nav nav-treeview">
+            <ul class="nav nav-treeview <?= is_active(['/admin/comment']) ?>">
                 <li class="nav-item">
-                    <a href="<?= base_url() ?>admin/comment" class="nav-link">
+                    <a href="<?= base_url() ?>admin/comment" class="nav-link <?= is_active('/admin/comment')?>">
                         <p>لیست نظرات</p>
                         <i class="fa fa-circle-o nav-icon"></i>
                     </a>
@@ -184,7 +184,7 @@
             </ul>
         </li>
         <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link  <?= is_active(['/admin/tag']) ?>">
                 <p>
                     (برچسب) تگ
                     <i class="right fa fa-angle-left"></i>
@@ -192,9 +192,9 @@
                 <i class="fa fa-tags nav-icon" aria-hidden="true"></i>
             </a>
 
-            <ul class="nav nav-treeview">
+            <ul class="nav nav-treeview  <?= is_active(['/admin/tag']) ?>">
                 <li class="nav-item">
-                    <a href="<?= base_url() ?>admin/tag" class="nav-link">
+                    <a href="<?= base_url() ?>admin/tag" class="nav-link <?= is_active('/admin/tag')?>">
                         <p>لیست تگ ها</p>
                         <i class="fa fa-circle-o nav-icon"></i>
                     </a>
