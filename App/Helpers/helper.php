@@ -1,5 +1,6 @@
 <?php
 
+use App\Core\Request;
 use App\Models\Category;
 use App\Models\Discount;
 use App\Models\Photo;
@@ -100,39 +101,39 @@ function inject_menu()
 function create_slug($string)
 {
     // $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $string);
-	$slug=str_replace([
-		"+",
-		"(",
-		")",
-		".",
-		",",
-		";",
-		"/",
-		"&",
-		" ",
-		"'",
-		'"',
-		"،",
-		"؛",
-		"\r\n",
-		"\n"
-	],[
-		"",
-		"",
-		"",
-		"",
-		"",
-		"",
-		"",
-		"",
-		"-",
-		"",
-		"",
-		"",
-		"",
-		"",
-		""
-	],strip_tags($string));
+    $slug = str_replace([
+        "+",
+        "(",
+        ")",
+        ".",
+        ",",
+        ";",
+        "/",
+        "&",
+        " ",
+        "'",
+        '"',
+        "،",
+        "؛",
+        "\r\n",
+        "\n"
+    ], [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "-",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+    ], strip_tags($string));
     return $slug;
 }
 function buffering($full_path_view, $data, $dir = null)
@@ -196,4 +197,15 @@ function storage_url($filename)
 function storage_path($filename)
 {
     return base_url() . $filename;
+}
+
+
+
+function is_active($routeName, $activeClassName = 'active menu-open d-block')
+{
+    $request = new  Request();
+    if (is_array($routeName)) {
+        return in_array($request->uri(), $routeName) ? $activeClassName : '';
+    }
+    return $request->uri() == $routeName ? $activeClassName : '';
 }

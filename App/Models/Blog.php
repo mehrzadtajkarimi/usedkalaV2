@@ -19,6 +19,13 @@ class Blog extends MysqlBaseModel
         }
         return $this->find_by_id($id);
     }
+    public function read_comment_replies($id = null)
+    {
+        if (is_null($id)) {
+            return $this->all();
+        }
+        return $this->find_by_id($id);
+    }
     public function join_blog_to_photo_by_limit($limit)
     {
         return $this->connection->query("

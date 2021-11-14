@@ -24,7 +24,6 @@ class BlogController extends Controller
         $this->categoryModel = new Category();
         $this->commentModel  = new Comment();
         $this->blogTagModel  = new Blog_tag();
-
     }
 
     public function index()
@@ -49,20 +48,18 @@ class BlogController extends Controller
         $blog_id = $this->request->get_param('id');
 
         $blog        = $this->blogModel->join_blog_to_photo_by_blog_id($blog_id);
-        $blogComment = $this->blogModel->join_blog__with_comment($blog_id['id'])?? '';
-            foreach ($blogComment as $key => $value) {
-                $blogCommentReply = $this->blogModel->join_blog__with_comment_replies($value['id'])?? '';
-            }
-        $blogTag     = $this->blogTagModel->join_blog__with_tag($blog_id['id'])?? '';
-
-        // dd($blogCommentTwo);
+        $blogComment = $this->blogModel->join_blog__with_comment($blog_id['id']) ?? '';
+        foreach ($blogComment as $key => $comment) {
+            $blogComment[$key]['reply'] = $this->commentModel->read_comment_replies($comment['id'], $blog_id['id'], 'Blog')[0];
+        }
+        $blogTag     = $this->blogTagModel->join_blog__with_tag($blog_id['id']) ?? '';
 
         if (is_array($blog)) {
             $data = array(
-                'comments' => $blogComment ?? [],
-                'tags'     => $blogTag ?? [],
-                'blog'     => $blog[0],
-                'auth'     => SessionManager::get('auth')??null,
+                'comments'       => $blogComment ?? [],
+                'tags'           => $blogTag ?? [],
+                'blog'           => $blog[0],
+                'auth'           => SessionManager::get('auth') ?? null,
             );
             return view('Frontend.blog.show', $data);
         }
