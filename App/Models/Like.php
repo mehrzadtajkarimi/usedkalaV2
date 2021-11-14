@@ -19,6 +19,10 @@ class Like extends MysqlBaseModel
         }
         return $this->find_by_id($id);
     }
+    public function count_like($where)
+    {
+        return $this->count($where);
+    }
     public function read_like_by_key($key = null)
     {
         if (is_null($key)) {

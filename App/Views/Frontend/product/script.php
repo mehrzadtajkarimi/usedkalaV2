@@ -12,7 +12,7 @@
                     data: form.serialize(), // serializes the form's elements.
                     success: function(data) {
                         $("#myForm").addClass('WOW slideInLeft d-block');
-						alert('دیدگاه با موفقیت ارسال شد.');
+                        alert('دیدگاه با موفقیت ارسال شد.');
                     }
                 });
             }
@@ -22,9 +22,10 @@
         $('.like').click(function() {
             var that = this;
             var id = $(this).children('i').data('id');
+            var type = $(this).children('i').data('type');
             $.ajax({
                 type: "post",
-                url: '<?= base_url() ?>product/comment/' + id + '/like',
+                url: '<?= base_url() ?>like/' + id + '/' + type + ,
                 success: function(response) {
                     console.log(response);
                     if (response != "") {
@@ -38,9 +39,10 @@
         $('.dislike').click(function() {
             var that = this;
             var id = $(this).children('i').data('id');
+            var type = $(this).children('i').data('type');
             $.ajax({
                 type: "post",
-                url: '<?= base_url() ?>product/comment/' + id + '/dislike',
+                url: '<?= base_url() ?>dislike/' + id + '/' + type + ,
                 success: function(response) {
                     console.log(response);
                     if (response != "") {

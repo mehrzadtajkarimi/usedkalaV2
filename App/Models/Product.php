@@ -19,15 +19,15 @@ class Product extends MysqlBaseModel
         }
         return $this->first(['id' => $id]);
     }
-	public function product_brand($id=null)
-	{
-		if ($id!=null)
-			return $this->query("SELECT * FROM `products` as pro INNER JOIN `brands` as brand ON brand.`id` = pro.`brand_id`
+    public function product_brand($id = null)
+    {
+        if ($id != null)
+            return $this->query("SELECT * FROM `products` as pro INNER JOIN `brands` as brand ON brand.`id` = pro.`brand_id`
 			LEFT JOIN `photos` as photo ON photo.`entity_type` = 'Brand' AND photo.`entity_id` = brand.`id`
 			WHERE pro.`id` = $id");
-		else
-			return false;
-	}
+        else
+            return false;
+    }
     public function read_product_limit_by_price($start_price, $finish_price)
     {
 
@@ -223,16 +223,21 @@ class Product extends MysqlBaseModel
         );
     }
 
-    public function join_product__with_comment($id)
+    public function join_product__with_comment_and_like($id)
     {
-        return $this->inner_join(
+        return $this->inner_join_two(
             "*", // column
             "comments",                // -- table categories
+            "id",                        // categories.id
+            "entity_id",               // products.category_id
+            "likes",                // -- table categories
             "id",                        // categories.id
             "entity_id",               // products.category_id
             "comments.entity_id=$id",
             "comments.entity_type='Product'",
             "comments.status='1'",
+            "likes.entity_id=$id",
+            "likes.entity_type='Product'",
         );
     }
     public function join_product__with_photo_by_brand_id($brand_id)

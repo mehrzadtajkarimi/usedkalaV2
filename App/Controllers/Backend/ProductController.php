@@ -145,9 +145,9 @@ class ProductController extends Controller
         foreach ($tags_selected as $selectedTagRow) {
             $selectedTags[$selectedTagRow['id']] = $selectedTagRow;
         }
-		$photo=$this->photoModel->read_photo($products_id);
-		// var_dump($photo);
-		// die();
+        $photo = $this->photoModel->read_photo($products_id);
+        // var_dump($photo);
+        // die();
         $data = array(
             'products'            => $this->productModel->read_product($products_id),
             'photo'               => $photo,

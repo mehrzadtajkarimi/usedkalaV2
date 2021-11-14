@@ -46,77 +46,28 @@ class ProductController extends Controller
         $id = $this->request->get_param('id');
 
 
-        $photos          = $this->photoModel->read_photo_by_id($id, 'Product');
-        $photo           = $this->photoModel->read_single_photo_by_id('0', $id, 'Product')[0];
-        $product         = $this->productModel->read_product($id);
-		$productBrand	 = $this->productModel->product_brand($id['id']);
-		if (count($product)==0) Request::redirect('');
-        $productDiscount = $this->productModel->join_product__with_productDiscounts_discounts($id)[0] ?? '';
-        $productComment  = $this->productModel->join_product__with_comment($id['id']) ?? '';
-        $productTag      = $this->ProductTagModel->read_productTag($id) ?? '';
-        // dd(empty($productDiscount) ? $product : $productDiscount['discounts_status']);
-		$productCat		 = $this->ProductCatModel->read_productCategories($id);
+        $photos             = $this->photoModel->read_photo_by_id($id, 'Product');
+        $photo              = $this->photoModel->read_single_photo_by_id('0', $id, 'Product')[0];
+        $product            = $this->productModel->read_product($id);
+        $productBrand       = $this->productModel->product_brand($id['id']);
+        $productDiscount    = $this->productModel->join_product__with_productDiscounts_discounts($id)[0] ?? '';
+        $productCommentLike = $this->productModel->join_product__with_comment_and_like($id['id']) ?? '';
+        $productTag         = $this->ProductTagModel->read_productTag($id) ?? '';
 
-        $data    = array(
-            'comments' => $productComment ?? [],
+        if (count($product) == 0) Request::redirect('');
+        // dd(empty($productDiscount) ? $product : $productDiscount['discounts_status']);
+        $productCat = $this->ProductCatModel->read_productCategories($id);
+
+        $data = array(
+            'comments' => $productCommentLike ?? [],
             'tags'     => $productTag ?? [],
-            'product'  => empty($productDiscount) ? $product : $productDiscount,
             'photos'   => $photos,
+            'product'  => empty($productDiscount) ? $product : $productDiscount,
             'photo'    => $photo,
             'auth'     => SessionManager::get('auth') ?? null,
-			'cats'	   => $productCat,
-			'brand'    => $productBrand
+            'cats'       => $productCat,
+            'brand'    => $productBrand
         );
         return view('Frontend.product.show', $data);
-    }
-
-    public function add_comment()
-    {
-        $id = $this->request->get_param('id');
-
-        $this->commentModel->create([
-            'entity_id'   => $id['id'],
-            'entity_type' => 'Product',
-            'user_id'     => SessionManager::get('auth'),
-            'message'     => $this->request->params()['product_comment'],
-            'title'       => $this->request->params()['product_title'],
-            'ip'          => $this->request->ip(),
-        ]);
-        return true;
-    }
-
-    public function dislike_comment()
-    {
-        $param_id = $this->request->get_param('id');
-        $comment  = $this->commentModel->read_comment($param_id['id']) ?? '';
-
-        if (SessionManager::has('dislike_comment')) {
-            return;
-        }
-        $ObjSessionManager = SessionManager::set('dislike_comment', 1);
-
-        $this->commentModel->update_comment([
-            'like[-]'    => $ObjSessionManager->remove('like_comment') ? 1 : 0,
-            'dislike[+]' => $ObjSessionManager->get('dislike_comment'),
-        ], $param_id['id']);
-
-        echo  $comment['dislike'];
-    }
-    public function like_comment()
-    {
-        $param_id = $this->request->get_param('id');
-        $comment  = $this->commentModel->read_comment($param_id['id']) ?? '';
-
-        if (SessionManager::has('like_comment')) {
-            return;
-        }
-        $ObjSessionManager = SessionManager::set('like_comment', 1);
-
-        $this->commentModel->update_comment([
-            'dislike[-]' => $ObjSessionManager->remove('dislike_comment') ? 1 : 0,
-            'like[+]'    => $ObjSessionManager->get('like_comment'),
-        ], $param_id['id']);
-
-        echo  $comment['like'];
     }
 }

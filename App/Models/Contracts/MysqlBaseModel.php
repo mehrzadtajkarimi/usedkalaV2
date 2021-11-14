@@ -295,9 +295,11 @@ class  MysqlBaseModel extends BaseModel
         $table_two_as,
         $table_two_to,
         $where_1,
-        $where_2
+        $where_2 = null,
+        $where_3 = null,
+        $where_4 = null
     ) {
-        return  $this->connection->query("
+        $query="
         SELECT $column FROM $this->table
         INNER JOIN $join_one
         ON $this->table.$table_one_as = $join_one.$table_one_to
@@ -305,7 +307,19 @@ class  MysqlBaseModel extends BaseModel
         ON $this->table.$table_two_as = $join_two.$table_two_to
         AND $where_1
         AND $where_2
-        ")->fetchAll();
+        AND $where_3
+        AND $where_4
+        ";
+        if ($where_2) {
+            return $this->connection->query("$query AND $where_1 AND $where_2")->fetchAll();
+        }
+        if ($where_3) {
+            return $this->connection->query("$query AND $where_1 AND $where_2 AND $where_3")->fetchAll();
+        }
+        if ($where_4) {
+            return $this->connection->query("$query AND $where_1 AND $where_2 AND $where_3 AND $where_4")->fetchAll();
+        }
+        return $this->connection->query("$query AND $where_1")->fetchAll();
     }
 
 

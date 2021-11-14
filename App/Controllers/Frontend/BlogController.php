@@ -48,7 +48,7 @@ class BlogController extends Controller
         $blog_id = $this->request->get_param('id');
 
         $blog        = $this->blogModel->join_blog_to_photo_by_blog_id($blog_id);
-        $blogComment = $this->blogModel->join_blog__with_comment($blog_id['id']) ?? '';
+        $blogComment = $this->blogModel->join_blog__with_comment_and_like($blog_id['id']) ?? '';
         foreach ($blogComment as $key => $comment) {
             $blogComment[$key]['reply'] = $this->commentModel->read_comment_replies($comment['id'], $blog_id['id'], 'Blog')[0];
         }
@@ -59,7 +59,7 @@ class BlogController extends Controller
         // foreach ($blogComment as $key => $value) {
 
         //     dd($value);
-            
+
         // }
 
         if (is_array($blog)) {
@@ -72,19 +72,7 @@ class BlogController extends Controller
             return view('Frontend.blog.show', $data);
         }
     }
-    public function add_comment()
-    {
-        $id = $this->request->get_param('id');
-        $this->commentModel->create([
-            'entity_id'   => $id['id'],
-            'entity_type' => 'Blog',
-            'user_id'     => SessionManager::get('auth'),
-            'message'     => $this->request->params()['blog_comment'],
-            'title'       => $this->request->params()['blog_title'],
-            'ip'          => $this->request->ip(),
-        ]);
-        return true;
-    }
+
     public function category()
     {
         $slug        = $this->request->get_param('slug');

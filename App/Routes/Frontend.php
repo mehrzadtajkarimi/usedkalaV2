@@ -46,9 +46,6 @@ Route::group(function () {
 
 Route::group(function () {
     Route::get('/product/{id}', 'ProductController@show');
-    Route::post('/product/comment/{id}', 'ProductController@add_comment');
-    Route::post('/product/comment/{id}/dislike', 'ProductController@dislike_comment');
-    Route::post('/product/comment/{id}/like', 'ProductController@like_comment');
     Route::get('/product/category/{id}/{slug}', 'ProductController@index');
 });
 
@@ -73,9 +70,19 @@ Route::group(function () {
     Route::get('/about/rules/{slug}', 'SettingController@rule');
     Route::get('/contact/{slug}', 'SettingController@contact');
 });
+
 Route::group(function () {
     Route::get('/blog/{slug}', 'BlogController@index');
     Route::get('/blog/{id}/{slug}', 'BlogController@show');
-    Route::post('/blog/comment/{id}', 'BlogController@add_comment');
     Route::get('/blog/category/{id}/{slug}', 'BlogController@category');
 });
+
+Route::group(function () {
+    Route::post('/like/{id}/{type}', 'LikeController@like');
+    Route::post('/dislike/{id}/{type}', 'LikeController@dislike');
+});
+
+Route::group(function () {
+    Route::post('/comment/{id}/{type}', 'CommentController@add');
+});
+
