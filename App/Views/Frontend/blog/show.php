@@ -72,7 +72,7 @@
     <?php if ($comments) : ?>
         <h5 class="card-title m-3">نظرات :</h5>
         <?php foreach ($comments as $value) : ?>
-            <div class="ml-4 mb-2">
+            <div class="ml-4 mb-5">
                 <div class="card">
                     <div class="card-body p-3">
                         <h5 class="card-title"><?= $value['title'] ?> </h5>
@@ -80,30 +80,33 @@
                     </div>
                     <small class=" pl-5 text-muted">
 
-                        <p>نمایش پاسخ :</p>
-                        <div class="">
-                            <h5 class=""><?= $value['reply']['title'] ?> </h5>
-                            <p class="pl-3"><?= $value['reply']['message'] ?></p>
-                        </div>
+                        <?php if(!empty($value['reply'])): ?>
+                            <p>نمایش پاسخ :</p>
+                            <div class="">
+                                <h5 class=""><?= $value['reply']['title'] ?> </h5>
+                                <p class="pl-3"><?= $value['reply']['message'] ?></p>
+                            </div>
+                        <?php endif; ?>
                     </small>
 
                 </div>
-                <span>آیا این دیدگاه برایتان مفید بود؟</span>
+                <small>آیا این دیدگاه برایتان مفید بود؟</small>
                 <span class="m-2 pointer dislike text-muted ">
                     <small><?= $value['dislike'] ?></small>
-                    <i class=" fa fa-thumbs-down fa-1x " data-id="<?= $value['id'] ?>" data-type="Blog" title="کلیک کنید تا وضعیت تغییر کند"></i>
+                    <i class=" fa fa-thumbs-down fa-1x " data-id="<?= $value['blog_id'] ?>" data-type="Comment" title="کلیک کنید تا وضعیت تغییر کند"></i>
                 </span>
                 <span class="m-2 pointer like text-darkBrandController">
                     <small><?= $value['like'] ?></small>
-                    <i class=" fa fa-thumbs-up  fa-1x " data-id="<?= $value['id'] ?>" data-type="Blog" title="کلیک کنید تا وضعیت تغییر کند"></i>
+                    <i class=" fa fa-thumbs-up  fa-1x " data-id="<?= $value['blog_id'] ?>" data-type="Comment" title="کلیک کنید تا وضعیت تغییر کند"></i>
                 </span>
                 </span>
 
             </div>
         <?php endforeach; ?>
         <form class="theForm" action="<?= base_url() ?>comment/<?= $blog['blog_id'] ?>/Blog" method="post">
-            <div class="form-group mr-5 ml-5 mb-5">
-                <label for="my-textarea">
+        <input type="hidden" name="slug" value="<?= $blog['slug'] ?>">
+        <div class="form-group mr-5 ml-5 mb-5">
+            <label for="my-textarea">
                     <h5 class="card-title m-3"> ثبت نظر:</h5>
                 </label>
                 <input class="form-control mb-3" type="text" name="title" placeholder="موضوع متن خود را بنویسید" minlength="5" required>
@@ -111,8 +114,9 @@
                 <button class="btn btn-primary mt-3 ml-2" type="submit">ارسال</button>
             </div>
         </form>
-    <?php else : ?>
-        <form class="theForm" action="<?= base_url() ?>comment/<?= $blog['blog_id'] ?>/Blog" method="post">
+        <?php else : ?>
+            <form class="theForm" action="<?= base_url() ?>comment/<?= $blog['blog_id'] ?>/Blog" method="post">
+                <input type="hidden" name="slug" value="<?= $blog['slug'] ?>">
             <div class="form-group mr-5 ml-5 mb-5">
                 <label for="my-textarea">
                     <h5 class="card-title m-3">اولین نفری باشید که در مورد این مقاله نظر ثبت می کنید :</h5>

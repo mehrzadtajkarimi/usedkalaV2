@@ -50,15 +50,14 @@ class BlogController extends Controller
         $blog        = $this->blogModel->join_blog_to_photo_by_blog_id($blog_id);
         $blogComment = $this->blogModel->join_blog__with_comment_and_like($blog_id['id']) ?? '';
         foreach ($blogComment as $key => $comment) {
-            $blogComment[$key]['reply'] = $this->commentModel->read_comment_replies($comment['id'], $blog_id['id'], 'Blog')[0];
+            $blogComment[$key]['reply'] = $this->commentModel->read_comment_replies($comment['comment_id'], $blog_id['id'], 'Blog');
         }
         $blogTag     = $this->blogTagModel->join_blog__with_tag($blog_id['id']) ?? '';
 
 
-
         // foreach ($blogComment as $key => $value) {
 
-        //     dd($value);
+        //     dd($value,empty($value['reply']), is_array($value['reply'][0]));
 
         // }
 

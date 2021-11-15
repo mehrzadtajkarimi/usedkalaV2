@@ -18,15 +18,15 @@ class LikeController extends Controller
 
     public function like()
     {
-        dd('like');
         $id   = $this->request->get_param('id');
         $type = $this->request->get_param('type');
+
 
         if (SessionManager::has('like')) {
             return;
         }
 
-        $where= [
+        $where = [
             'entity_id'   => $id['id'],
             'entity_type' => $type['type'],
             'user_id'     => SessionManager::get('auth'),
@@ -35,7 +35,7 @@ class LikeController extends Controller
 
         $ObjSessionManager = SessionManager::set('like', 1);
 
-        $alreadyExists=$this->likeModel->count_like($where);
+        $alreadyExists = $this->likeModel->count_like($where);
 
         if (!$alreadyExists) {
             $this->likeModel->create_like([
@@ -56,15 +56,15 @@ class LikeController extends Controller
 
     public function dislike()
     {
-        dd('dislike');
         $id   = $this->request->get_param('id');
         $type = $this->request->get_param('type');
+
 
         if (SessionManager::has('dislike')) {
             return;
         }
 
-        $where= [
+        $where = [
             'entity_id'   => $id['id'],
             'entity_type' => $type['type'],
             'user_id'     => SessionManager::get('auth'),
@@ -73,7 +73,7 @@ class LikeController extends Controller
 
         $ObjSessionManager = SessionManager::set('dislike', 1);
 
-        $alreadyExists=$this->likeModel->count_like($where);
+        $alreadyExists = $this->likeModel->count_like($where);
 
         if (!$alreadyExists) {
             $this->likeModel->create_like([
@@ -90,6 +90,5 @@ class LikeController extends Controller
         ], $where);
 
         echo  $like['dislike'];
-        
     }
 }

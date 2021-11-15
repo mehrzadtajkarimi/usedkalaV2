@@ -78,11 +78,10 @@ Route::group(function () {
 });
 
 Route::group(function () {
-    Route::post('/like/{id}/{type}', 'LikeController@like');
-    Route::post('/dislike/{id}/{type}', 'LikeController@dislike');
+    Route::post('/like', 'LikeController@like');
+    Route::post('/dislike', 'LikeController@dislike');
 });
 
 Route::group(function () {
     Route::post('/comment/{id}/{type}', 'CommentController@add');
 });
-

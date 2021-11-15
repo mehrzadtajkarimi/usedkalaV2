@@ -21,13 +21,11 @@ class Comment extends MysqlBaseModel
     }
     public function read_comment_replies($comment_id, $blog_id, $entity_type)
     {
-        $comment = $this->find_by_id($comment_id);
-
         return $this->get('*', [
             'entity_type' => $entity_type,
             'entity_id'   => $blog_id,
-            'parent_id'   => $comment['id'],
-        ]);
+            'parent_id'   => $comment_id,
+        ])[0]??[];
     }
     public function read_comment_by_key($key = null)
     {

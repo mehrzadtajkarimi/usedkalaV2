@@ -66,16 +66,25 @@ class Blog extends MysqlBaseModel
     public function join_blog__with_comment_and_like($id)
     {
         return $this->inner_join_two(
-            "*", // column
-            "comments",                // -- table categories
-            "id",                        // categories.id
-            "entity_id",               // products.category_id
-            "likes",                // -- table categories
-            "id",                        // categories.id
-            "entity_id",               // products.category_id
+            "
+            likes.like,
+            likes.dislike,
+            blogs.id AS blog_id,
+            comments.id AS comment_id,
+            comments.author AS author,
+            comments.message AS message,
+            comments.title AS title,
+            comments.created_at AS comment_created_at
+            ", // column
+            "likes",
+            "id",
+            "entity_id",
+            "comments",
+            "id",
+            "entity_id",
+            "comments.status='1'",
             "comments.entity_id=$id",
             "comments.entity_type='Blog'",
-            "comments.status='1'",
             "likes.entity_id=$id",
             "likes.entity_type='Blog'",
         );

@@ -20,18 +20,15 @@ class CommentController extends Controller
     public function add()
     {
         $params =$this->request->params();
-        $id   = $this->request->get_param('id');
-        $type = $this->request->get_param('type');
-
 
         $this->commentModel->create([
-            'entity_id'   => $id['id'],
-            'entity_type' => $type['type'],
+            'entity_id'   => $params['id'],
+            'entity_type' => $params['type'],
             'message'     => $params['comment'],
             'title'       => $params['title'],
             'user_id'     => SessionManager::get('auth'),
         ]);
         FlashMessage::add(" با موفقیت انجام شد.");
-        return $this->request->redirect( lcfirst($type['type']).'/'.$id['id'].'/slog');;
+        return $this->request->redirect( lcfirst($params['type']).'/'.$params['id'].'/' .$params['slug']);
     }
 }

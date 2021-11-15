@@ -305,10 +305,6 @@ class  MysqlBaseModel extends BaseModel
         ON $this->table.$table_one_as = $join_one.$table_one_to
         INNER JOIN $join_two
         ON $this->table.$table_two_as = $join_two.$table_two_to
-        AND $where_1
-        AND $where_2
-        AND $where_3
-        AND $where_4
         ";
         if ($where_2) {
             return $this->connection->query("$query AND $where_1 AND $where_2")->fetchAll();
