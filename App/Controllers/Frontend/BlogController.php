@@ -44,29 +44,27 @@ class BlogController extends Controller
     }
     public function show()
     {
-        $slug    = $this->request->get_param('slug');
-        $blog_id = $this->request->get_param('id');
+        $params = $this->request->params();
 
-        $blog        = $this->blogModel->join_blog_to_photo_by_blog_id($blog_id);
-        $blogComment = $this->blogModel->join_blog__with_comment_and_like($blog_id['id']) ?? '';
+        $blog        = $this->blogModel->join_blog_to_photo_by_blog_id($params['id']);
+        $blogComment = $this->blogModel->join_blog__with_comment($params['id']) ?? '';
         foreach ($blogComment as $key => $comment) {
-            $blogComment[$key]['reply'] = $this->commentModel->read_comment_replies($comment['comment_id'], $blog_id['id'], 'Blog');
+            $blogComment[$key]['reply'] = $this->commentModel->read_comment_replies($comment['id'], $params['id'], 'Blog');
         }
-        $blogTag     = $this->blogTagModel->join_blog__with_tag($blog_id['id']) ?? '';
+        $blogTag     = $this->blogTagModel->join_blog__with_tag($params['id']) ?? '';
 
 
         // foreach ($blogComment as $key => $value) {
 
-        //     dd($value['like']);
+        //     dd($value);
 
         // }
-
         if (is_array($blog)) {
             $data = array(
                 'comments'       => $blogComment ?? [],
                 'tags'           => $blogTag ?? [],
                 'blog'           => $blog[0],
-                'auth'           => SessionManager::get('auth') ?? null,
+                'auth'           => SessionManager::get('auth') ?? false,
             );
             return view('Frontend.blog.show', $data);
         }

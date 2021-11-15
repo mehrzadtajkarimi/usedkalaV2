@@ -63,30 +63,19 @@ class Blog extends MysqlBaseModel
         );
     }
 
-    public function join_blog__with_comment_and_like($id)
+    public function join_blog__with_comment($blog_id)
     {
-        return $this->inner_join_two(
+        return $this->inner_join(
             "
-            likes.like,
-            likes.dislike,
-            blogs.id AS blog_id,
-            comments.id AS comment_id,
-            comments.author AS author,
-            comments.message AS message,
-            comments.title AS title,
-            comments.created_at AS comment_created_at
+            comments.*,
+            blogs.id AS blog_id
             ", // column
-            "likes",
-            "id",
-            "entity_id",
             "comments",
             "id",
             "entity_id",
             "comments.status='1'",
-            "comments.entity_id=$id",
+            "comments.entity_id=$blog_id",
             "comments.entity_type='Blog'",
-            "likes.entity_id=$id",
-            "likes.entity_type='Blog'",
         );
     }
 
@@ -109,7 +98,7 @@ class Blog extends MysqlBaseModel
             "photos",
             "id",
             "entity_id",
-            "blogs.id={$blog_id['id']}",
+            "blogs.id=$blog_id",
             "photos.entity_type='Blog'",
         );
     }

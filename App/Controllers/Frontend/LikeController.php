@@ -23,7 +23,7 @@ class LikeController extends Controller
             'entity_id'   => $params['entity_id'],
             'entity_type' => $params['entity_type'],
             'user_id'     => SessionManager::get('auth'),
-            'like'        => 1,
+            'like'        => true,
         ];
         $alreadyExists = $this->likeModel->count_like($data);
 
@@ -31,9 +31,14 @@ class LikeController extends Controller
             $this->likeModel->create_like($data);
         }
 
-        $class_name = '\App\Models\\' . $params['entity_type'];
+        $class_name = '\\App\\Models\\' . $params['entity_type'];
+
+
         $entity_model = new $class_name;
-        $method_update = "update_" . ucfirst($params['entity_type']);
+
+
+        $method_update = "update_" . lcfirst($params['entity_type']);
+        $method_read = "read_" . lcfirst($params['entity_type']);
         $entity_model->$method_update(
             [
                 'likes[+]' => 1
@@ -53,8 +58,7 @@ class LikeController extends Controller
         //     'like[+]'    => $ObjSessionManager->get('dislike'),
         //     'dislike[-]' => $ObjSessionManager->remove('like') ? 1 : 0,
         // ], $where);
-
-        echo  $this->likeModel->read_like($data)['like'];
+        echo  $this->$entity_model->$method_read($params['entity_id'])['likes'];
     }
 
     public function dislike()

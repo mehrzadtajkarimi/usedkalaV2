@@ -8,16 +8,21 @@
             var like_btn = $(this);
             var dislike_btn = $('.dislike_btn');
             var count_box = $(this).parent().find('.count');
+            if (!like_btn.data('auth')) {
+                alert('ابتدا باید وارد بشوید')
+                return
+            }
             count_box.html('..loading..');
             $.ajax({
                 type: "post",
                 url: action,
                 data: {
-                    entity_id: btn.data('id'),
-                    entity_type: btn.data('type'),
+                    entity_id: like_btn.data('id'),
+                    entity_type: like_btn.data('type'),
                 },
                 timeout: 10000,
                 success: function(response) {
+                    console.log()
                     count_box.html(response);
                     dislike_btn.removeClass('text-danger')
                     like_btn.addClass('text-success')
@@ -32,13 +37,17 @@
             var dislike_btn = $(this);
             var like_btn = $('.like_btn');
             var count_box = $(this).parent().find('.count');
+            if (!dislike_btn.data('auth')) {
+                alert('ابتدا باید وارد بشوید')
+                return
+            }
             count_box.html('..loading..');
             $.ajax({
                 type: "post",
                 url: action,
                 data: {
-                    entity_id: btn.data('id'),
-                    entity_type: btn.data('type')
+                    entity_id: dislike_btn.data('id'),
+                    entity_type: dislike_btn.data('type')
                 },
                 success: function(response) {
                     count_box.html(response);
