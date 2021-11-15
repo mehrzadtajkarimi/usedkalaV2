@@ -18,58 +18,58 @@ class LikeController extends Controller
 
     public function like()
     {
-        $id   = $this->request->get_param('id');
-        $type = $this->request->get_param('type');
-
-
-        if (SessionManager::has('like')) {
-            return;
-        }
-
-        $where = [
-            'entity_id'   => $id['id'],
-            'entity_type' => $type['type'],
+        $params   = $this->request->params();
+        $data = [
+            'entity_id'   => $params['entity_id'],
+            'entity_type' => $params['entity_type'],
             'user_id'     => SessionManager::get('auth'),
+            'like'        => 1,
         ];
-        $like  = $this->likeModel->read_like($where) ?? '';
-
-        $ObjSessionManager = SessionManager::set('like', 1);
-
-        $alreadyExists = $this->likeModel->count_like($where);
+        $alreadyExists = $this->likeModel->count_like($data);
 
         if (!$alreadyExists) {
-            $this->likeModel->create_like([
-                'entity_id'   => $id['id'],
-                'entity_type' => $type['type'],
-                'user_id'     => SessionManager::get('auth'),
-                '_like[+]'    => $ObjSessionManager->get('like'),
-            ]);
+            $this->likeModel->create_like($data);
         }
 
-        $this->likeModel->update_like([
-            '_like[+]'    => $ObjSessionManager->get('dislike'),
-            '_dislike[-]' => $ObjSessionManager->remove('like') ? 1 : 0,
-        ], $where);
+        $class_name = '\App\Models\\' . $params['entity_type'];
+        $entity_model = new $class_name;
+        $method_update = "update_" . ucfirst($params['entity_type']);
+        $entity_model->$method_update(
+            [
+                'likes[+]' => 1
+            ],
+            $params['entity_id']
+        );
 
-        echo  $like['like'];
+        // if (SessionManager::has('like')) {
+        //     return ;
+        // }
+
+
+        // $ObjSessionManager = SessionManager::set('like', 1);
+
+
+        // $this->likeModel->update_like([
+        //     'like[+]'    => $ObjSessionManager->get('dislike'),
+        //     'dislike[-]' => $ObjSessionManager->remove('like') ? 1 : 0,
+        // ], $where);
+
+        echo  $this->likeModel->read_like($data)['like'];
     }
 
     public function dislike()
     {
-        $id   = $this->request->get_param('id');
-        $type = $this->request->get_param('type');
-
+        $params   = $this->request->params();
 
         if (SessionManager::has('dislike')) {
             return;
         }
 
         $where = [
-            'entity_id'   => $id['id'],
-            'entity_type' => $type['type'],
+            'entity_id'   => $params['entity_id'],
+            'entity_type' => $params['entity_type'],
             'user_id'     => SessionManager::get('auth'),
         ];
-        $like  = $this->likeModel->read_like($where) ?? '';
 
         $ObjSessionManager = SessionManager::set('dislike', 1);
 
@@ -77,18 +77,18 @@ class LikeController extends Controller
 
         if (!$alreadyExists) {
             $this->likeModel->create_like([
-                'entity_id'   => $id['id'],
-                'entity_type' => $type['type'],
+                'entity_id'   => $params['entity_id'],
+                'entity_type' => $params['entity_type'],
                 'user_id'     => SessionManager::get('auth'),
-                '_dislike[+]' => $ObjSessionManager->get('dislike'),
+                'dislike[+]' => $ObjSessionManager->get('dislike'),
             ]);
         }
 
         $this->likeModel->update_like([
-            '_like[-]'    => $ObjSessionManager->remove('like') ? 1 : 0,
-            '_dislike[+]' => $ObjSessionManager->get('dislike'),
+            'like[-]'    => $ObjSessionManager->remove('like') ? 1 : 0,
+            'dislike[+]' => $ObjSessionManager->get('dislike'),
         ], $where);
 
-        echo  $like['dislike'];
+        echo  $this->likeModel->read_like($where)['dislike'];
     }
 }

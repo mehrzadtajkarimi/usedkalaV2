@@ -3,49 +3,52 @@
         new WOW().init();
 
 
-        $('.like').click(function() {
-            alert('like')
-            var action = '<?= base_url() ?>like/';
-            var id = $(this).children('i').data('id');
-            var type = $(this).children('i').data('type');
+        $('.like_btn').click(function() {
+            var action = '<?= base_url() ?>like';
+            var like_btn = $(this);
+            var dislike_btn = $('.dislike_btn');
+            var count_box = $(this).parent().find('.count');
+            count_box.html('..loading..');
             $.ajax({
                 type: "post",
                 url: action,
                 data: {
-                    entity_id: id,
-                    entity_type: type
+                    entity_id: btn.data('id'),
+                    entity_type: btn.data('type'),
                 },
+                timeout: 10000,
                 success: function(response) {
-                    console.log(response);
-                    if (response != "") {
-                        $(this).children('i').html(response);
-                    }
-                    $('.dislike').removeClass('text-danger')
-                    $(this).addClass('text-success')
+                    count_box.html(response);
+                    dislike_btn.removeClass('text-danger')
+                    like_btn.addClass('text-success')
+                },
+                error: function(response) {
+                    count_box.html("Err!");
                 }
             });
         });
-        $('.dislike').click(function() {
-            alert('dislike')
-            var that = this;
-            var action = '<?= base_url() ?>dislike/';
-            var id = $(this).children('i').data('id');
-            var type = $(this).children('i').data('type');
+        $('.dislike_btn').click(function() {
+            var action = '<?= base_url() ?>dislike';
+            var dislike_btn = $(this);
+            var like_btn = $('.like_btn');
+            var count_box = $(this).parent().find('.count');
+            count_box.html('..loading..');
             $.ajax({
                 type: "post",
-                url: action ,
+                url: action,
                 data: {
-                    entity_id: id,
-                    entity_type: type
+                    entity_id: btn.data('id'),
+                    entity_type: btn.data('type')
                 },
                 success: function(response) {
-                    console.log(response);
-                    if (response != "") {
-                        $(this).children('i').html(response);
-                    }
-                    $('.like').removeClass('text-success')
-                    $(this).addClass('text-danger')
+                    count_box.html(response);
+                    like_btn.removeClass('text-success')
+                    dislike_btn.addClass('text-danger')
+                },
+                error: function(response) {
+                    count_box.html("Err!");
                 }
+
             });
         });
     });

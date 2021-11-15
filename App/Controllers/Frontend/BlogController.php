@@ -57,7 +57,7 @@ class BlogController extends Controller
 
         // foreach ($blogComment as $key => $value) {
 
-        //     dd($value,empty($value['reply']), is_array($value['reply'][0]));
+        //     dd($value['like']);
 
         // }
 

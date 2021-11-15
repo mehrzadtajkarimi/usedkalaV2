@@ -92,12 +92,12 @@
                 </div>
                 <small>آیا این دیدگاه برایتان مفید بود؟</small>
                 <span class="m-2 pointer dislike text-muted ">
-                    <small><?= $value['dislike'] ?></small>
-                    <i class=" fa fa-thumbs-down fa-1x " data-id="<?= $value['blog_id'] ?>" data-type="Comment" title="کلیک کنید تا وضعیت تغییر کند"></i>
+                    <small class="count"><?= $value['dislike'] ?></small>
+                    <i class="dislike_btn fa fa-thumbs-down fa-1x " data-id="<?= $value['blog_id'] ?>" data-type="Comment" title="کلیک کنید تا وضعیت تغییر کند"></i>
                 </span>
-                <span class="m-2 pointer like text-darkBrandController">
-                    <small><?= $value['like'] ?></small>
-                    <i class=" fa fa-thumbs-up  fa-1x " data-id="<?= $value['blog_id'] ?>" data-type="Comment" title="کلیک کنید تا وضعیت تغییر کند"></i>
+                <span class="m-2 pointer  text-darkBrandController">
+                    <small class="count"><?= $value['like'] ?></small>
+                    <i class="like_btn fa fa-thumbs-up  fa-1x " data-id="<?= $value['blog_id'] ?>" data-type="Comment" title="کلیک کنید تا وضعیت تغییر کند"></i>
                 </span>
                 </span>
 
