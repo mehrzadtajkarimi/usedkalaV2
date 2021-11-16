@@ -7,7 +7,7 @@ CREATE TABLE `active_codes` (
   `expired_at` timestamp NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `active_code_UN` (`user_id`,`code`)
-) ENGINE=InnoDB AUTO_INCREMENT=296 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=299 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 -- usedkalaV2.activity_log definition
@@ -218,7 +218,7 @@ CREATE TABLE `likes` (
   `like` tinyint(1) NOT NULL COMMENT '0= dislike , 1=like',
   `ctreated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 
 -- usedkalaV2.order_details definition
@@ -559,3 +559,15 @@ CREATE TABLE `users` (
   UNIQUE KEY `users_UN` (`phone`),
   UNIQUE KEY `users_email_IDX` (`email`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+-- usedkalaV2.wish_lists definition
+
+CREATE TABLE `wish_lists` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `entity_id` int NOT NULL,
+  `entity_type` varchar(64) COLLATE utf8mb4_persian_ci NOT NULL,
+  `ctreated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;

@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\Blog_tag;
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Wish_list;
 use App\Services\Session\SessionManager;
 
 class BlogController extends Controller
@@ -16,6 +17,7 @@ class BlogController extends Controller
     private $categoryModel;
     private $commentModel;
     private $blogTagModel;
+    private $wishListModel;
 
     public function __construct()
     {
@@ -24,6 +26,7 @@ class BlogController extends Controller
         $this->categoryModel = new Category();
         $this->commentModel  = new Comment();
         $this->blogTagModel  = new Blog_tag();
+        $this->wishListModel = new Wish_list();
     }
 
     public function index()
@@ -51,8 +54,8 @@ class BlogController extends Controller
         foreach ($blogComment as $key => $comment) {
             $blogComment[$key]['reply'] = $this->commentModel->read_comment_replies($comment['id'], $params['id'], 'Blog');
         }
-        $blogTag     = $this->blogTagModel->join_blog__with_tag($params['id']) ?? '';
-
+        $blogTag   = $this->blogTagModel->join_blog__with_tag($params['id']) ?? '';
+        $wish_list = $this->wishListModel->read_wishList($params['id'], 'Blog');
 
         // foreach ($blogComment as $key => $value) {
 
@@ -61,10 +64,11 @@ class BlogController extends Controller
         // }
         if (is_array($blog)) {
             $data = array(
-                'comments'       => $blogComment ?? [],
-                'tags'           => $blogTag ?? [],
-                'blog'           => $blog[0],
-                'auth'           => SessionManager::get('auth') ?? false,
+                'comments'  => $blogComment ?? [],
+                'tags'      => $blogTag ?? [],
+                'blog'      => $blog[0],
+                'wish_list' => !empty($wish_list) ? $wish_list :[],
+                'auth'      => SessionManager::get('auth') ?? false,
             );
             return view('Frontend.blog.show', $data);
         }

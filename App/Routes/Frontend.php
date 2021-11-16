@@ -85,3 +85,13 @@ Route::group(function () {
 Route::group(function () {
     Route::post('/comment/{id}/{type}', 'CommentController@add');
 });
+Route::group(function () {
+    Route::post('/whishList', 'WishListController@add');
+    // Route::get('/whishList', 'WishListController@index');
+    // Route::get('/whishList/create', 'WishListController@create');
+    // Route::post('/whishList', 'WishListController@store');
+    // Route::get('/whishList/{id}', 'WishListController@show');
+    // Route::get('/whishList/{id}/edit', 'WishListController@edit');
+    // Route::put('/whishList/{id}', 'WishListController@update');
+    // Route::delete('/whishList/{id}', 'WishListController@destroy');
+});

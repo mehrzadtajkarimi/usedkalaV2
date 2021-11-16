@@ -32,6 +32,7 @@
             <!-- .entry-header -->
             <div class="entry-content" itemprop="articleBody">
                 <p><?= $blog['value'] ?></p>
+
                 <?php foreach ($tags as $value) : ?>
                     <div class="ml-4 mb-2">
                         <small>
@@ -39,6 +40,13 @@
                         </small>
                     </div>
                 <?php endforeach; ?>
+            </div>
+            <div class=" p-3 pointer">
+                <?php if (!empty($wish_list)) : ?>
+                    <i class="wish_list_btn  fa fa-heart text-danger" aria-hidden="true" data-id="<?= $blog['blog_id'] ?>" data-type="Blog" data-auth="<?= $auth ? TRUE : FALSE ?>"></i>
+                <?php else : ?>
+                    <i class="wish_list_btn  fa fa-heart-o" aria-hidden="true" data-id="<?= $blog['blog_id'] ?>" data-type="Blog" data-auth="<?= $auth ? TRUE : FALSE ?>"></i>
+                <?php endif; ?>
             </div>
             <!-- .entry-content -->
         </article>
@@ -80,7 +88,7 @@
                     </div>
                     <small class=" pl-5 text-muted">
 
-                        <?php if(!empty($value['reply'])): ?>
+                        <?php if (!empty($value['reply'])) : ?>
                             <p>نمایش پاسخ :</p>
                             <div class="">
                                 <h5 class=""><?= $value['reply']['title'] ?> </h5>
@@ -92,9 +100,9 @@
                 </div>
                 <small>آیا این دیدگاه برایتان مفید بود؟</small>
 
-                <span class="m-2 pointer dislike text-muted " >
+                <span class="m-2 pointer dislike text-muted ">
                     <small class="count"><?= $value['dislikes'] ?></small>
-                    <i class="dislike_btn fa fa-thumbs-down fa-1x " data-id="<?= $value['id'] ?>" data-type="Comment" data-auth="<?= $auth ?: FALSE ?>" data" title="کلیک کنید تا وضعیت تغییر کند" ></i>
+                    <i class="dislike_btn fa fa-thumbs-down fa-1x " data-id="<?= $value['id'] ?>" data-type="Comment" data-auth="<?= $auth ?: FALSE ?>" data" title="کلیک کنید تا وضعیت تغییر کند"></i>
                 </span>
                 <span class="m-2 pointer  text-darkBrandController">
                     <small class="count"><?= $value['likes'] ?></small>
@@ -105,9 +113,9 @@
             </div>
         <?php endforeach; ?>
         <form class="theForm" action="<?= base_url() ?>comment/<?= $blog['blog_id'] ?>/Blog" method="post">
-        <input type="hidden" name="slug" value="<?= $blog['slug'] ?>">
-        <div class="form-group mr-5 ml-5 mb-5">
-            <label for="my-textarea">
+            <input type="hidden" name="slug" value="<?= $blog['slug'] ?>">
+            <div class="form-group mr-5 ml-5 mb-5">
+                <label for="my-textarea">
                     <h5 class="card-title m-3"> ثبت نظر:</h5>
                 </label>
                 <input class="form-control mb-3" type="text" name="title" placeholder="موضوع متن خود را بنویسید" minlength="5" required>
@@ -115,9 +123,9 @@
                 <button class="btn btn-primary mt-3 ml-2" type="submit">ارسال</button>
             </div>
         </form>
-        <?php else : ?>
-            <form class="theForm" action="<?= base_url() ?>comment/<?= $blog['blog_id'] ?>/Blog" method="post">
-                <input type="hidden" name="slug" value="<?= $blog['slug'] ?>">
+    <?php else : ?>
+        <form class="theForm" action="<?= base_url() ?>comment/<?= $blog['blog_id'] ?>/Blog" method="post">
+            <input type="hidden" name="slug" value="<?= $blog['slug'] ?>">
             <div class="form-group mr-5 ml-5 mb-5">
                 <label for="my-textarea">
                     <h5 class="card-title m-3">اولین نفری باشید که در مورد این مقاله نظر ثبت می کنید :</h5>
