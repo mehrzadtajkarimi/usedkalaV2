@@ -22,8 +22,9 @@
                 },
                 timeout: 10000,
                 success: function(response) {
-                    console.log()
-                    count_box.html(response);
+                    response = JSON.parse(response)
+                    console.log(response.count)
+                    count_box.html(response.count);
                     dislike_btn.removeClass('text-danger')
                     like_btn.addClass('text-success')
                 },

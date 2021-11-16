@@ -27,8 +27,11 @@ class LikeController extends Controller
         ];
         $alreadyExists = $this->likeModel->count_like($data);
 
+        $result = [];
+        $result['status'] = 'already';
         if (!$alreadyExists) {
             $this->likeModel->create_like($data);
+            $result['status'] = 'created';
         }
 
         $class_name = '\\App\\Models\\' . $params['entity_type'];
@@ -45,20 +48,9 @@ class LikeController extends Controller
             ],
             $params['entity_id']
         );
+        $result['count'] = $entity_model->$method_read($params['entity_id'])['likes'];
 
-        // if (SessionManager::has('like')) {
-        //     return ;
-        // }
-
-
-        // $ObjSessionManager = SessionManager::set('like', 1);
-
-
-        // $this->likeModel->update_like([
-        //     'like[+]'    => $ObjSessionManager->get('dislike'),
-        //     'dislike[-]' => $ObjSessionManager->remove('like') ? 1 : 0,
-        // ], $where);
-        echo  $this->$entity_model->$method_read($params['entity_id'])['likes'];
+        echo json_encode($result);
     }
 
     public function dislike()
