@@ -1,3 +1,4 @@
+<script src='<?= asset_url() ?>Backend/plugins/ckeditor/ckeditor.js'></script>
 <div class="card ">
   <div class="p-0 shadow-sm card-body">
     <div class="card-header">
@@ -122,9 +123,9 @@
                       </div>
 
                       <div class="form-group row">
-                        <label for="seo-robots" class="col-2 col-form-label">robots</label>
+                        <label for="input_robot" class="col-2 col-form-label">robots</label>
                         <div class="col-10">
-                          <select name='seo-robot' id="robots" class="form-control ">
+                          <select name='seo-robot' id="input_robot" class="form-control ">
                             <?php foreach ($robots as $key => $value) : ?>
                               <option value="<?= $key ?>"><?= $value ?></option>
                             <?php endforeach; ?>
@@ -154,7 +155,6 @@
                             <label class="custom-file-label" for="product-image">Choose file</label>
                             <input name="product_image" type="file" class="custom-file-input" id="product-image" required>
                           </div> -->
-                          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
                           <div class="card-block">
                             <div class="flex-row d-flex" id="coba"></div>
                           </div>

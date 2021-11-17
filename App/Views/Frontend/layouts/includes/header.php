@@ -113,16 +113,13 @@
             </ul>
         </div>
         <!-- .departments-menu -->
-        <form class="navbar-search" method="get" action="https://transvelo.github.io/techmarket-html/home-v1.html">
+        <form class="navbar-search" method="get" action="javascript:void(0)">
             <label class="sr-only screen-reader-text" for="search">جستجو:</label>
             <div class="input-group">
                 <input type="text" id="search" class="form-control search-field product-search-field" dir="ltr" value="" name="s" placeholder="جستجوی محصول" style='font-family: "IRANSans";direction: rtl;' />
                 <div class="input-group-addon search-categories">
                     <select name='product_cat' id='product_cat' class='postform resizeselect' style='font-family: "IRANSans"'>
-                        <option value='0' selected='selected' style='font-family: "IRANSans"'>تمامی محصولات
-                        </option>
-                        <option class="level-0" value="television">Televisions</option>
-
+                        <option value='0' selected='selected' style='font-family: "IRANSans"'>تمامی محصولات</option>
                     </select>
                 </div>
                 <!-- .input-group-addon -->

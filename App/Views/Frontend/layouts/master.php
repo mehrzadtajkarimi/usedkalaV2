@@ -11,7 +11,7 @@
 
 </head>
 
-<body dir="rtl" class="woocommerce-active <?= $home_page_active_menu ??'' ?>  can-uppercase">
+<body dir="rtl" class="woocommerce-active <?= $home_page_active_menu ??'' ?>  can-uppercase" onmousemove="mover(event)">
     <div id="page" class="hfeed site">
         <div class="top-bar top-bar-v1">
             <div class="col-full">

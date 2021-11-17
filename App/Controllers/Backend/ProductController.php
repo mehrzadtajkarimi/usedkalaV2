@@ -58,20 +58,22 @@ class ProductController extends Controller
     {
         $params = $this->request->params();
         $params_create = array(
-            'user_id'       => Auth::is_login(),
-            'slug'          => create_slug($params['product-slug']),
-            'title'         => $params['product-name'],
-            'price'         => $params['product-price'],
-            'brand_id'      => $params['product-brand'],
-            'sku'           => $params['product-sku'],
-            'weight'        => $params['product-weight'],
-            'quantity'      => $params['product-quantity'],
-            'meta_title'    => $params['product-meta'],
-            'description'   => $params['product-description'],
-            'seo_H1'        => $params['seo-H1'],
-            'seo_canonical' => $params['seo-canonical'],
-            'seo_title'     => $params['seo-title'],
-            'seo_robot'     => $params['seo-robot'],
+            'user_id'       	=> Auth::is_login(),
+            'slug'         		=> create_slug($params['product-slug']),
+            'title'         	=> $params['product-name'],
+            'price'         	=> $params['product-price'],
+            'brand_id'      	=> $params['product-brand'],
+            'sku'           	=> $params['product-sku'],
+            'weight'        	=> $params['product-weight'],
+            'quantity'      	=> $params['product-quantity'],
+            'meta_title'    	=> $params['product-meta'],
+            'description'   	=> $params['product-description'],
+
+            'seo_H1'        	=> $params['seo-H1'],
+            'seo_canonical' 	=> $params['seo-canonical'],
+            'seo_title'     	=> $params['seo-title'],
+            'seo_description'   => $params['seo-description'],
+            'seo_robot'    		=> $params['seo-robot'],
         );
 
         $files                   = $this->request->files();

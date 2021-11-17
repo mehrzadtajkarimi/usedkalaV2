@@ -31385,10 +31385,4 @@ form.track_order input[type="submit"] {
     display: flex;
 }
 
-.attachment-shop_single{
-    transition: all 1s;
-}
-.attachment-shop_single:hover{
-transform: scale(1.5);
-}
 

@@ -17,6 +17,7 @@ body
 	background-color: #fff;
 
 	margin: 20px;
+	direction: rtl;
 }
 
 .cke_editable

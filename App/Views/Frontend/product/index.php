@@ -88,7 +88,7 @@
                                 <img alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image" src="<?= $value['path'] ?>" width="224" height="197">
                                 <span class="price">
                                     <span class="woocommerce-Price-amount amount">
-                                        <?= $value['price'] ?>
+                                        <?= number_format($value['price']) ?> ریال
                                     </span>
                                 </span>
                                 <h2 class="woocommerce-loop-product__title">
