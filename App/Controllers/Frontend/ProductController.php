@@ -10,6 +10,7 @@ use App\Models\Product;
 use App\Models\Product_discount;
 use App\Models\Product_tag;
 use App\Models\Product_category;
+use App\Models\Wish_list;
 use App\Services\Session\SessionManager;
 use App\Utilities\FlashMessage;
 
@@ -19,6 +20,7 @@ class ProductController extends Controller
     private $photoModel;
     private $commentModel;
     private $ProductTagModel;
+    private $wishListModel;
 
     public function __construct()
     {
@@ -29,6 +31,7 @@ class ProductController extends Controller
         $this->ProductDiscountModel = new Product_discount();
         $this->ProductTagModel      = new Product_tag();
         $this->ProductCatModel      = new Product_category();
+        $this->wishListModel        = new Wish_list();
     }
 
     public function index()
@@ -53,21 +56,23 @@ class ProductController extends Controller
         $productDiscount    = $this->productModel->join_product__with_productDiscounts_discounts($id)[0] ?? '';
         $productCommentLike = $this->productModel->join_product__with_comment_and_like($id['id']) ?? '';
         $productTag         = $this->ProductTagModel->read_productTag($id) ?? '';
+        $wish_list          = $this->wishListModel->read_wishList($id['id'], 'Product');
 
         if (count($product) == 0) Request::redirect('');
         // dd(empty($productDiscount) ? $product : $productDiscount['discounts_status']);
         $productCat = $this->ProductCatModel->read_productCategories($id);
 
         $data = array(
-            'comments' => $productCommentLike ?? [],
-            'tags'     => $productTag ?? [],
-            'photos'   => $photos,
-            'product'  => empty($productDiscount) ? $product : $productDiscount,
-            'photo'    => $photo,
-            'auth'     => SessionManager::get('auth') ?? null,
-			'cats'	   => $productCat,
-			'brand'    => $productBrand[0],
-			'home_page_active_menu' => "single-product full-width normal",
+            'comments'              => $productCommentLike ?? [],
+            'tags'                  => $productTag ?? [],
+            'photos'                => $photos,
+            'product'               => empty($productDiscount) ? $product : $productDiscount,
+            'photo'                 => $photo,
+            'auth'                  => SessionManager::get('auth') ?? null,
+            'cats'                  => $productCat,
+            'wish_list'             => $wish_list,
+            'brand'                 => $productBrand[0],
+            'home_page_active_menu' => "single-product full-width normal",
         );
         return view('Frontend.product.show', $data);
     }
