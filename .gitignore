@@ -1,6 +1,6 @@
 .env
 /vendor/
-/Public/Storage/*
+# /Public/Storage/*
 .htaccess
 /Public/.htaccess
 php.ini
