@@ -90,10 +90,10 @@ function inject_menu()
         return  [
             'categoryLevelOne' => $categoryLevelOne,
             'categoryLevelTwo' => $categoryLevelTwo,
-            'cart_total' => array_sum($cart_total ?? []),
-            'cart_count' => $cart_count,
-            'cart_items' => $cart_items,
-            'authenticated' => Auth::is_login(),
+            'cart_total'       => array_sum($cart_total ?? []),
+            'cart_count'       => $cart_count,
+            'cart_items'       => $cart_items ??[],
+            'authenticated'    => Auth::is_login(),
         ];
     }
     return [];

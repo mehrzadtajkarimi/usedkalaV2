@@ -156,6 +156,7 @@
             </li>
         </ul>
         <!-- .header-wishlist -->
+        <?php if(isset($cart_items)): ?>
         <ul id="site-header-cart" class="site-header-cart menu">
             <li class="animate-dropdown dropdown ">
                 <a class="cart-contents" href="" data-toggle="dropdown" title="View your shopping cart">
@@ -169,6 +170,8 @@
                         <div class="widget woocommerce widget_shopping_cart">
                             <div class="widget_shopping_cart_content">
                                 <ul class="woocommerce-mini-cart cart_list product_list_widget ">
+
+
                                     <?php foreach ($cart_items as $value) : ?>
                                         <li class="woocommerce-mini-cart-item mini_cart_item">
                                             <a href="<?= base_url() ?>cart/remove/<?= $value['id'] ?>" class="remove" aria-label="Remove this item" data-product_id="65" data-product_sku="">×</a>
@@ -187,7 +190,7 @@
                                     <strong>جمع کل:</strong>
                                     <span class="woocommerce-Price-amount amount" dir="rtl">
                                         <span class="woocommerce-Price-currencySymbol">تومان</span><?= $cart_total ?></span>
-                                </p>
+                                    </p>
                                 <p class="woocommerce-mini-cart__buttons buttons">
                                     <a href="<?= base_url() ?>cart" class="button wc-forward">مشاهده سبد خرید</a>
 									<?php /*
@@ -203,6 +206,7 @@
                 <!-- .dropdown-menu-mini-cart -->
             </li>
         </ul>
+        <?php endif; ?>
         <!-- .site-header-cart -->
     </div>
     <!-- /.row -->

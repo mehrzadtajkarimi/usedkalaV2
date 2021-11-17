@@ -43,7 +43,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $cart_items              = Basket::items();
+        // $cart_items              = Basket::items();
         $product_category_server = $this->categoryModel->join_category_to_product_categories(122);               //id server name
         $product_category_rack   = $this->categoryModel->join_category_to_product_categories(126);               //id rack name
         $product_category_switch = $this->categoryModel->join_category_to_product_categories(128);               //id switch name
@@ -66,9 +66,9 @@ class HomeController extends Controller
             $sliders[$key]['photo']  = $photos;
         }
 
-        foreach ($cart_items as  $value) {
-            $cart_total[] = $value['count'] * $value['price'];
-        }
+        // foreach ($cart_items as  $value) {
+        //     $cart_total[] = $value['count'] * $value['price'];
+        // }
 
         $data = array(
 

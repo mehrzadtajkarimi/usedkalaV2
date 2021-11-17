@@ -25,17 +25,17 @@
                                 </li> -->
     <!-- .dropdown-menu -->
     <li class="menu-item">
-        <?php if ($authenticated) : ?>
+        <?php if ($authenticated ?? false) :?>
             <a title="login" href="<?= base_url() ?>profile" class="p-1">
                 <i class="tm tm-login-register "></i>
                 <b>پروفایل</b>
             </a>
-        <?php else : ?>
+        <?php else :?>
             <a title="login" href="<?= base_url() ?>login">
                 <i class="tm tm-login-register"></i>
                 <b>ثبت نام یا ورود</b>
             </a>
-        <?php endif; ?>
+        <?php endif;?>
     </li>
     <!-- <li class="techmarket-flex-more-menu-item dropdown">
         <a title="..." href="#" data-toggle="dropdown" class="dropdown-toggle">...</a>

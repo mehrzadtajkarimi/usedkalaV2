@@ -1,7 +1,7 @@
 <?php if(!is_null($description)): ?>
     <div class="card border-0  p-3 ">
         <div class="card-body">
-            <p class="card-text"><?= $description['description'] ?></p>
+            <p class="card-text"><?= $description['description'] ??''?></p>
         </div>
     </div>
 <?php endif; ?>
@@ -19,7 +19,7 @@
                 <main id="main" class="site-main">
                     <section class="section-product-categories">
                         <header class="section-header">
-                            <h1 class="woocommerce-products-header__title page-title"><?= $description['H1'] ?></h1>
+                            <h1 class="woocommerce-products-header__title page-title"><?= $description['H1']??'' ?></h1>
                         </header>
                         <div class="woocommerce columns-5">
                             <div class="product-loop-categories">
