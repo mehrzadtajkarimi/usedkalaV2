@@ -25,6 +25,18 @@
                   <div class="modal-body">
                     <form action="<?= base_url() ?>admin/category/0" method="post" enctype="multipart/form-data">
                       <div class="form-group row">
+                        <label for="title" class="col-sm-2 col-form-label">Title</label>
+                        <div class="col-sm-10">
+                          <input name="seo_title" type="text" class="form-control" id="title" placeholder="جهت نمایش در title جستجو " autofocus>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="seo_description" class="col-sm-2 col-form-label">Description</label>
+                        <div class="col-sm-10">
+                          <input name="seo_description" type="text" class="form-control" id="seo_description" placeholder="جهت نمایش در description جستجو " autofocus>
+                        </div>
+                      </div>
+                      <div class="form-group row">
                         <label for="inputEmail3" class="col-sm-2 col-form-label">نام</label>
                         <div class="col-sm-10">
                           <input name="name" type="text" class="form-control" id="inputEmail3" placeholder="نام زیر دسته را وارد نمایید" autofocus>
@@ -44,7 +56,7 @@
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="Canonical" class="col-2 col-form-label">Canonical</label>
+                        <label for="canonical" class="col-2 col-form-label">Canonical</label>
                         <div class="col-10">
                           <input name="canonical" type="text" class="form-control" id="Canonical" placeholder="لینک را وارد نمایید">
                         </div>

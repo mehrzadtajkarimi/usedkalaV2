@@ -56,7 +56,7 @@
                     <div class="col-10">
                         <select name='robot' id="robot" class="form-control ">
                             <?php foreach ($robots as $key => $value) : ?>
-                                <option value="<?= $key ?>" <?= $category['robots'] == $key ?  'selected' : ''  ?>><?= $value ?></option>
+                                <option value="<?= $key ?>" <?= $category['robot'] == $key ?  'selected' : ''  ?>><?= $value ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
