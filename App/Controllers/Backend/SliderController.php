@@ -141,7 +141,8 @@ class SliderController extends Controller
             $file_paths = $file->save();
             if ($file_paths) {
 
-                $is_update_photo = $this->photoModel->update_photo('Slider', $id, $file_paths[0], 'slider_image');
+                $is_update_photo = $this->photoModel->update_photo('Slider', $id['id'], $file_paths[0], 'slider_image');
+
 
                 if ($is_update_photo) {
                     FlashMessage::add("ویرایش اسلایدر بندی موفقیت انجام شد");

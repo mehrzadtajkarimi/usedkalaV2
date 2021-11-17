@@ -43,9 +43,16 @@ function inject_menu()
     }
     $categoryModel = new Category;
     $photoModel    = new Photo;
-    $categoryLevelOne = $categoryModel->get('*', ['parent_id' => 0]);
+    $categoryLevelOne = $categoryModel->get('*', [
+        'parent_id' => 0,
+        'type'      => 0,
+    ]);
+
     foreach ($categoryLevelOne as $LevelOne) {
-        $has_photo_level_two = $categoryModel->get('id', ['parent_id' => $LevelOne['id']]);
+        $has_photo_level_two = $categoryModel->get('id', [
+            'parent_id' => $LevelOne['id'],
+            'type'      => 0,
+        ]);
         // echo "va rdump0\r\n";
         // var_dump($has_photo_level_two);
         $categoryLevelTwo[$LevelOne['id']] = array();
@@ -92,7 +99,7 @@ function inject_menu()
             'categoryLevelTwo' => $categoryLevelTwo,
             'cart_total'       => array_sum($cart_total ?? []),
             'cart_count'       => $cart_count,
-            'cart_items'       => $cart_items ??[],
+            'cart_items'       => $cart_items ?? [],
             'authenticated'    => Auth::is_login(),
         ];
     }
