@@ -7,6 +7,18 @@
 
         <form action="<?= base_url() ?>admin/category/<?= $category['id'] ?>/blog" method="post" enctype="multipart/form-data">
             <div class="form-group row">
+                <label for="seo_title" class="col-2 col-form-label">Title</label>
+                <div class="col-10">
+                    <input name="seo_title" type="text" class="form-control" id="seo_title" placeholder="جهت نمایش در title جستجو " autofocus>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="seo_description" class="col-2 col-form-label">Description</label>
+                <div class="col-10">
+                    <input name="seo_description" type="text" class="form-control" id="seo_description" placeholder="جهت نمایش در description جستجو ">
+                </div>
+            </div>
+            <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">نام</label>
                 <div class="col-sm-10">
                     <input name="name" type="text" class="form-control" id="inputEmail3" placeholder="نام زیر دسته را وارد نمایید" autofocus>

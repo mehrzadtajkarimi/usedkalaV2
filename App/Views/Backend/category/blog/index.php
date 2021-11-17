@@ -24,6 +24,19 @@
                 <div class="modal-content">
                   <div class="modal-body">
                     <form action="<?= base_url() ?>admin/category/0/blog" method="post" enctype="multipart/form-data">
+
+                      <div class="form-group row">
+                        <label for="seo_title" class="col-2 col-form-label">Title</label>
+                        <div class="col-10">
+                          <input name="seo_title" type="text" class="form-control" id="seo_title" placeholder="جهت نمایش در title جستجو " autofocus>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="seo_description" class="col-2 col-form-label">Description</label>
+                        <div class="col-10">
+                          <input name="seo_description" type="text" class="form-control" id="seo_description" placeholder="جهت نمایش در description جستجو " >
+                        </div>
+                      </div>
                       <div class="form-group row">
                         <label for="category" class="col-2 col-form-label">نام</label>
                         <div class="col-10">

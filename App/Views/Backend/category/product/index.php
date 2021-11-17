@@ -27,7 +27,7 @@
                       <div class="form-group row">
                         <label for="title" class="col-sm-2 col-form-label">Title</label>
                         <div class="col-sm-10">
-                          <input name="seo_title" type="text" class="form-control" id="title" placeholder="جهت نمایش در title جستجو " autofocus>
+                          <input name="seo_title" type="text" class="form-control" id="title" placeholder="جهت نمایش در title جستجو " >
                         </div>
                       </div>
                       <div class="form-group row">

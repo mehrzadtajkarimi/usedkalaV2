@@ -83,6 +83,24 @@
             </ul>
         </li>
         <li class="nav-item has-treeview">
+            <a href="#" class="nav-link  <?= is_active(['/admin/tag']) ?>">
+                <p>
+                    (برچسب) تگ
+                    <i class="right fa fa-angle-left"></i>
+                </p>
+                <i class="fa fa-tags nav-icon" aria-hidden="true"></i>
+            </a>
+
+            <ul class="nav nav-treeview  <?= is_active(['/admin/tag']) ?>">
+                <li class="nav-item">
+                    <a href="<?= base_url() ?>admin/tag" class="nav-link <?= is_active('/admin/tag')?>">
+                        <p>لیست تگ ها</p>
+                        <i class="fa fa-circle-o nav-icon"></i>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item has-treeview">
             <a href="#" class="nav-link  <?= is_active(['/admin/blog']) ?>">
                 <p>
                     بلاگها
@@ -141,30 +159,7 @@
                 </li>
             </ul>
         </li>
-        <li class="nav-item has-treeview">
-            <a href="#" class="nav-link <?= is_active(['/admin/setting','/admin/slider']) ?>">
-                <p>
-                    تنظیمات
-                    <i class="right fa fa-angle-left"></i>
-                </p>
-                <i class="fa fa-cogs nav-icon" aria-hidden="true"></i>
-            </a>
 
-            <ul class="nav nav-treeview <?= is_active(['/admin/setting','/admin/slider']) ?>">
-                <li class="nav-item">
-                    <a href="<?= base_url() ?>admin/setting" class="nav-link  <?= is_active('/admin/setting')?>">
-                        <p>لیست تنظیمات</p>
-                        <i class="fa fa-circle-o nav-icon"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?= base_url() ?>admin/slider" class="nav-link  <?= is_active('/admin/slider')?>">
-                        <p>اسلایدر</p>
-                        <i class="fa fa-circle-o nav-icon"></i>
-                    </a>
-                </li>
-            </ul>
-        </li>
         <li class="nav-item has-treeview">
             <a href="#" class="nav-link <?= is_active(['/admin/comment']) ?>">
                 <p>
@@ -184,18 +179,24 @@
             </ul>
         </li>
         <li class="nav-item has-treeview">
-            <a href="#" class="nav-link  <?= is_active(['/admin/tag']) ?>">
+            <a href="#" class="nav-link <?= is_active(['/admin/setting','/admin/slider']) ?>">
                 <p>
-                    (برچسب) تگ
+                    تنظیمات
                     <i class="right fa fa-angle-left"></i>
                 </p>
-                <i class="fa fa-tags nav-icon" aria-hidden="true"></i>
+                <i class="fa fa-cogs nav-icon" aria-hidden="true"></i>
             </a>
 
-            <ul class="nav nav-treeview  <?= is_active(['/admin/tag']) ?>">
+            <ul class="nav nav-treeview <?= is_active(['/admin/setting','/admin/slider']) ?>">
                 <li class="nav-item">
-                    <a href="<?= base_url() ?>admin/tag" class="nav-link <?= is_active('/admin/tag')?>">
-                        <p>لیست تگ ها</p>
+                    <a href="<?= base_url() ?>admin/setting" class="nav-link  <?= is_active('/admin/setting')?>">
+                        <p>لیست تنظیمات</p>
+                        <i class="fa fa-circle-o nav-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= base_url() ?>admin/slider" class="nav-link  <?= is_active('/admin/slider')?>">
+                        <p>اسلایدر</p>
                         <i class="fa fa-circle-o nav-icon"></i>
                     </a>
                 </li>
