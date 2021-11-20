@@ -49,7 +49,7 @@
                 <div class="col-10">
                     <select name='blog-category[]' id="blog-category" class="col-10 form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
                         <?php foreach ($categories as $value) : ?>
-                            <option value="<?= $value['id'] ?>" <?php if (isset($categories_selected[$value['id']])) echo 'selected'; ?>><?= $value['name'] ?></option>
+                            <option value="<?= $value['id'] ?>" <?= isset($categories_selected[$value['id']]) ? 'selected' : '' ?>><?= $value['name'] ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>
@@ -59,7 +59,7 @@
                 <div class="col-10">
                     <select name='blog-tag[]' id="blog-tag" class=" form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
                         <?php foreach ($tags as $value) : ?>
-                            <option value="<?= $value['id'] ?>" <?php if (isset($tags_selected[$value['id']])) echo 'selected'; ?>><?= $value['tag'] ?></option>
+                            <option value="<?= $value['id'] ?>" <?= isset($tags_selected[$value['id']]) == $value['id'] ? 'selected' : '' ?>><?= $value['tag'] ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>
@@ -104,6 +104,12 @@
                 <label for="seo-description" class="col-2 col-form-label"> درباره محصول </label>
                 <div class="col-10">
                     <textarea name="seo-description" type="text" class="form-control" id="seo-description" rows="3" required><?= $blog['seo_description'] ?></textarea>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="blog-meta" class="col-2 col-form-label"> متن متا</label>
+                <div class="col-10">
+                    <textarea name="blog-meta" type="text" class="form-control" id="blog-meta" placeholder="" rows="2" required><?= $blog['meta_title'] ?></textarea>
                 </div>
             </div>
             <hr>

@@ -86,6 +86,9 @@ Route::group(function () {
     Route::post('/comment/{id}/{type}', 'CommentController@add');
 });
 Route::group(function () {
+    Route::get('/tags/{id}/{type}', 'TagController@show');
+});
+Route::group(function () {
     Route::post('/whishList', 'WishListController@add');
     // Route::get('/whishList', 'WishListController@index');
     // Route::get('/whishList/create', 'WishListController@create');

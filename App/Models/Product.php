@@ -74,6 +74,20 @@ class Product extends MysqlBaseModel
             "products.category_id=$id",
         );
     }
+    public function read_productTag($product_id )
+    {
+        $tags =  $this->inner_join_two_relation(
+            '*',
+            'product_tags',
+            'id',
+            'product_id',
+            'tags',
+            'tag_id',
+            'id',
+            "product_tags.product_id={$product_id['id']}",
+        );
+        return $tags;
+    }
     public function join_product_to_photo()
     {
         return $this->inner_join_order(

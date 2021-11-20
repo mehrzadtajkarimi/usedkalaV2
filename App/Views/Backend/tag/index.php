@@ -27,15 +27,11 @@
                     <form action="<?= base_url() ?>admin/tag" method="post" class="p-1" enctype="multipart/form-data">
                       <input type="hidden" name="code" value="<?= rand(100000, 999999) ?>">
 
-                      <div class="row">
-                        <div class="col">
-                          <div class="form-group ">
-                            <label for="tag"> نام تگ</label>
-                            <input name="tag" type="text" class="form-control" id="tag" rows="1" placeholder="">
-                          </div>
-                        </div>
-                      </div>
 
+                      <div class="form-group row">
+                        <label for="tag" class="col-2"> نام تگ</label>
+                        <input name="tag" type="text" class="form-control col-10" id="tag" rows="1" placeholder="">
+                      </div>
                       <button type="submit" class="float-left btn btn-primary btn-block">ذخیره </button>
                     </form>
                   </div>

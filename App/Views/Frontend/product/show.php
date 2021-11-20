@@ -121,7 +121,7 @@
                                 <?php foreach ($tags as $value) : ?>
                                     <div class="ml-4 mb-2">
                                         <small>
-                                            <a href="#">#<?= $value['tag'] ?></a>
+                                            <a href="<?= base_url() .'tags/'. $value['id'].'/product'?>">#<?= $value['tag'] ?></a>
                                         </small>
                                     </div>
                                 <?php endforeach; ?>

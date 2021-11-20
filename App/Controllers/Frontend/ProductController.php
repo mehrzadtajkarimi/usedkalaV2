@@ -10,6 +10,7 @@ use App\Models\Product;
 use App\Models\Product_discount;
 use App\Models\Product_tag;
 use App\Models\Product_category;
+use App\Models\Tag;
 use App\Models\Wish_list;
 use App\Services\Session\SessionManager;
 use App\Utilities\FlashMessage;
@@ -21,6 +22,7 @@ class ProductController extends Controller
     private $commentModel;
     private $ProductTagModel;
     private $wishListModel;
+    private $tagModel;
 
     public function __construct()
     {

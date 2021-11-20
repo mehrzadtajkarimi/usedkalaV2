@@ -82,6 +82,10 @@
                 <textarea name="seo-description" type="text" class="form-control" id="seo-description" placeholder="" rows="3" required></textarea>
             </div>
         </div>
+        <div class="form-group ">
+            <label for="blog-meta" class=" col-form-label"> متن متا</label>
+            <textarea name="blog-meta" type="text" class="form-control" id="blog-meta" placeholder="" rows="2" required></textarea>
+        </div>
         <hr class="mt-5">
 
         <div class="form-group ">

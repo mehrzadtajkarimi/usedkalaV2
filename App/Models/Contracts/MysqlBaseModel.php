@@ -318,6 +318,38 @@ class  MysqlBaseModel extends BaseModel
         return $this->connection->query("$query AND $where_1")->fetchAll();
     }
 
+    public function inner_join_two_relation(
+        $column,
+        $join_one,
+        $table_one_as,
+        $table_one_to,
+        $join_two,
+        $table_two_as,
+        $table_two_to,
+        $where_1,
+        $where_2 = null,
+        $where_3 = null,
+        $where_4 = null
+    ) {
+        $query="
+        SELECT $column FROM $this->table
+        INNER JOIN $join_one
+        ON $this->table.$table_one_as = $join_one.$table_one_to
+        INNER JOIN $join_two
+        ON $join_one.$table_two_as = $join_two.$table_two_to
+        ";
+        if ($where_2) {
+            return $this->connection->query("$query AND $where_1 AND $where_2")->fetchAll();
+        }
+        if ($where_3) {
+            return $this->connection->query("$query AND $where_1 AND $where_2 AND $where_3")->fetchAll();
+        }
+        if ($where_4) {
+            return $this->connection->query("$query AND $where_1 AND $where_2 AND $where_3 AND $where_4")->fetchAll();
+        }
+        return $this->connection->query("$query AND $where_1")->fetchAll();
+    }
+
 
     // SELECT product.id, product.name,
     // (SELECT group_concat(CONCAT('["',images.url, '",',  images.order_number,']')) FROM images WHERE images.product_id = product.id GROUP BY (product.id)) AS IMAGES_LIST,

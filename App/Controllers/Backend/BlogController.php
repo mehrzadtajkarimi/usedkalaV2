@@ -9,6 +9,7 @@ use App\Models\Blog_tag;
 use App\Models\Category;
 use App\Models\Category_blog;
 use App\Models\Tag;
+use App\Models\Taggable;
 use App\Services\Upload\UploadedFile;
 use App\Utilities\FlashMessage;
 use App\Utilities\Tinyint;
@@ -20,15 +21,16 @@ class BlogController extends Controller
     public $photoModel;
     public $categoryModel;
     public $blogCategoriesModel;
-    public $blogTagModel;
+    public $tagModel;
+    public $taggableModel;
 
     public function __construct()
     {
         parent::__construct();
-        $this->tagModel            = new Tag();
         $this->photoModel          = new Photo();
         $this->blogModel           = new Blog();
-        $this->blogTagModel        = new Blog_tag();
+        $this->taggableModel       = new Taggable();
+        $this->tagModel            = new Tag();
         $this->categoryModel       = new Category();
         $this->blogCategoriesModel = new Category_blog();
     }
@@ -59,13 +61,14 @@ class BlogController extends Controller
 
         $params_create = array(
             'key'             => $params['key'],
-            'value'           => $params['value'],
             'slug'            => $params['slug'],
+            'value'           => $params['value'],
             'seo_H1'          => $params['seo-H1'],
             'seo_canonical'   => $params['seo-canonical'],
             'seo_title'       => $params['seo-title'],
             'seo_robot'       => $params['seo-robot'],
             'seo_description' => $params['seo-description'],
+            'meta_title'      => $params['blog-meta'],
         );
 
         $file = $this->request->files();
@@ -81,24 +84,19 @@ class BlogController extends Controller
         }
         $categories_id = $params['blog-category'];
         $tags_id       = $params['blog-tag'];
-
-
-        // dd($categories_id,$tags_id);
-
-        $blog_id = $this->blogModel->create_blog($params_create);
+        $blog_id       = $this->blogModel->create_blog($params_create);
 
         foreach ($categories_id as $category_id) {
-            # code...
             $this->blogCategoriesModel->create_blogCategories([
                 'blog_id'     => $blog_id,
                 'category_id' => $category_id,
             ]);
         }
-        foreach ($tags_id as  $tag_id ) {
-            # code...
-            $this->blogTagModel->create_blogTag([
-                'blog_id' => $blog_id,
-                'tag_id'  => $tag_id,
+        foreach ($tags_id as  $tag_id) {
+            $this->taggableModel->create_taggable([
+                'tag_id'      => $tag_id,
+                'entity_id'   => $blog_id,
+                'entity_type' => 'Blog'
             ]);
         }
 
@@ -116,18 +114,20 @@ class BlogController extends Controller
     {
         $id = $this->request->get_param('id');
         $categories_selected = $this->blogCategoriesModel->read_categoryBlog($id) ?: [];
-        $tags_selected       = $this->blogTagModel->read_tagBlog($id) ?: [];
+        $tags_selected       = $this->taggableModel->read_taggable($id['id']) ?: [];
+
+
 
 
         $selectedCats = [];
         foreach ($categories_selected as $selectedCatRow) {
             $selectedCats[$selectedCatRow['id']] = $selectedCatRow;
         }
+
         $selectedTags = [];
         foreach ($tags_selected as $selectedTagRow) {
-            $selectedTags[$selectedTagRow['id']] = $selectedTagRow;
+            $selectedTags[$selectedTagRow['tag_id']] = $selectedTagRow;
         }
-
 
         $data = array(
             'tags'                => $this->tagModel->read_tag(),
@@ -159,11 +159,12 @@ class BlogController extends Controller
             }
         }
         if (!empty($param['blog-tag'])) {
-            $this->blogTagModel->delete_blogTags_by_blog_id($id['id']);
+            $this->taggableModel->delete_taggable($id['id']);
             foreach ($param['blog-tag'] as  $tag_id) {
-                $this->blogTagModel->create_blogTag([
-                    'blog_id' => $id['id'],
-                    'tag_id'  => $tag_id,
+                $this->taggableModel->create_taggable([
+                    'tag_id'      => $tag_id,
+                    'entity_id'   => $id['id'],
+                    'entity_type' => 'Blog',
                 ]);
             }
         }
@@ -177,6 +178,7 @@ class BlogController extends Controller
             'seo_title'       => $param['seo-title'],
             'seo_robot'       => $param['seo-robot'],
             'seo_description' => $param['seo-description'],
+            'meta_title'      => $param['blog-meta'],
         ], ['id' => $id['id']]);
 
 
@@ -224,9 +226,10 @@ class BlogController extends Controller
     {
         $id = $this->request->get_param('id');
 
-        $is_deleted_blog =  $this->blogModel->delete_blog($id);
+        $is_deleted_blog = $this->blogModel->delete_blog($id);
+        $is_deleted_tag  = $this->taggableModel->delete_taggable($id);
 
-        if ($is_deleted_blog) {
+        if ($is_deleted_blog && $is_deleted_tag) {
             FlashMessage::add("مقادیر  با موفقیت از دیتابیس حذف شد");
             return $this->request->redirect('admin/blog');
         }

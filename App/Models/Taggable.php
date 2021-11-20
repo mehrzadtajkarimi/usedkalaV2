@@ -4,31 +4,38 @@ namespace App\Models;
 
 use App\Models\Contracts\MysqlBaseModel;
 
-class Tag extends MysqlBaseModel
+class Taggable extends MysqlBaseModel
 {
-    protected $table = 'tags';
+    protected $table = 'taggables';
 
-    public function create_tag(array $params)
+    public function create_taggable(array $params)
     {
         return $this->create($params);
     }
-    public function read_tag($id=null)
+    public function read_taggable($entity_id=null)
     {
-        if (is_null($id)) {
+        if (is_null($entity_id)) {
             return $this->all();
         }
+
+        return $this->get('*', [
+            'entity_id' => $entity_id,
+        ]);
+    }
+    public function read_taggable_id($id)
+    {
         return  $this->get( '*', [
             'id'   => $id,
         ]);
     }
-    public function read_tag_entity($entity_id, $entity_type)
+    public function read_taggable_entity($entity_id, $entity_type)
     {
         return  $this->get( '*', [
             'entity_id'   => $entity_id,
             'entity_type' => $entity_type,
         ]);
     }
-    public function join_tag_to_photo_by_limit($limit)
+    public function join_taggable_to_photo_by_limit($limit)
     {
         return $this->connection->query("
         SELECT tags.id AS tag_id , tags.* , photos.* FROM tags
@@ -37,7 +44,7 @@ class Tag extends MysqlBaseModel
         LIMIT $limit
         ")->fetchAll();
     }
-    public function read_tag_by_key($key = null)
+    public function read_taggable_by_key($key = null)
     {
         if (is_null($key)) {
             return $this->all();
@@ -45,16 +52,16 @@ class Tag extends MysqlBaseModel
         return $this->get('*', ['key' => $key]);
     }
 
-    public function update_tag(array $params, $id)
+    public function update_taggable(array $params, $id)
     {
         return $this->update($params, ['id' => $id]);
     }
 
-    public function delete_tag($id)
+    public function delete_taggable($id)
     {
-        return $this->delete(['id' => $id]);
+        return $this->delete(['entity_id' => $id]);
     }
-    public function join_tag_to_photo()
+    public function join_taggable_to_photo()
     {
         return $this->inner_join(
             "tags.id AS tag_id , tags.* , photos.*",
@@ -65,7 +72,7 @@ class Tag extends MysqlBaseModel
         );
     }
 
-    public function join_tag__with_comment($id)
+    public function join_taggable__with_comment($id)
     {
         return $this->inner_join(
             "*", // column
@@ -77,7 +84,7 @@ class Tag extends MysqlBaseModel
             "comments.status='1'",
         );
     }
-    public function join_tag_to_photo_by_tag_id($tag_id = null)
+    public function join_taggable_to_photo_by_taggable_id($tag_id = null)
     {
         return $this->inner_join(
             "tags.id AS tag_id , tags.* , photos.*",
@@ -88,20 +95,20 @@ class Tag extends MysqlBaseModel
             "photos.entity_type='tag'",
         );
     }
-    public function join_tag_to_photo_and_category_tag($category_id = null)
+    public function join_taggable_to_photo_and_category_taggable($category_id = null)
     {
         return $this->inner_join_two(
             "tags.id AS tag_id ,
-            category_tags.category_id AS category_tag_id ,
+            category_taggables.category_id AS category_taggable_id ,
             tags.* ,
             photos.*",
             "photos",
             "id",
             "entity_id",
-            "category_tags",
+            "category_taggables",
             "id",
             "tag_id",
-            "category_tags.category_id={$category_id['id']}",
+            "category_taggables.category_id={$category_id['id']}",
             "photos.entity_type='tag'",
         );
     }
