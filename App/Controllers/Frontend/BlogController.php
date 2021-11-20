@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\Blog_tag;
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Taggable;
 use App\Models\Wish_list;
 use App\Services\Session\SessionManager;
 
@@ -16,7 +17,7 @@ class BlogController extends Controller
     private $blogModel;
     private $categoryModel;
     private $commentModel;
-    private $blogTagModel;
+    private $taggableModel;
     private $wishListModel;
 
     public function __construct()
@@ -25,7 +26,7 @@ class BlogController extends Controller
         $this->blogModel     = new Blog();
         $this->categoryModel = new Category();
         $this->commentModel  = new Comment();
-        $this->blogTagModel  = new Blog_tag();
+        $this->taggableModel = new Taggable();
         $this->wishListModel = new Wish_list();
     }
 
@@ -54,7 +55,7 @@ class BlogController extends Controller
         foreach ($blogComment as $key => $comment) {
             $blogComment[$key]['reply'] = $this->commentModel->read_comment_replies($comment['id'], $params['id'], 'Blog');
         }
-        $blogTag   = $this->blogTagModel->join_blog__with_tag($params['id']) ?? '';
+        $blogTag   = $this->taggableModel->join_taggable('blogs',$params['id']) ?? '';
         $wish_list = $this->wishListModel->read_wishList($params['id'], 'Blog');
 
         // foreach ($blogComment as $key => $value) {
@@ -62,6 +63,8 @@ class BlogController extends Controller
         //     dd($value);
 
         // }
+
+
         if (is_array($blog)) {
             $data = array(
                 'comments'  => $blogComment ?? [],

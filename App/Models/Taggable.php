@@ -61,55 +61,20 @@ class Taggable extends MysqlBaseModel
     {
         return $this->delete(['entity_id' => $id]);
     }
-    public function join_taggable_to_photo()
+    public function join_taggable($entity_type , $entity_id)
     {
-        return $this->inner_join(
-            "tags.id AS tag_id , tags.* , photos.*",
-            "photos",
-            "id",
-            "entity_id",
-            "photos.entity_type='tag'",
-        );
+        $queryStr="
+        SELECT * 
+        FROM taggables
+        INNER JOIN $entity_type
+        ON taggables.`entity_id` = $entity_type.`id`
+        INNER JOIN tags
+        ON taggables.`tag_id` = tags.`id`
+        AND $entity_type.`id`='$entity_id'
+        ";
+        
+        return $this->connection->query($queryStr);
+
     }
 
-    public function join_taggable__with_comment($id)
-    {
-        return $this->inner_join(
-            "*", // column
-            "comments",                // -- table categories
-            "id",                        // categories.id
-            "entity_id",               // products.category_id
-            "comments.entity_id=$id",
-            "comments.entity_type='tag'",
-            "comments.status='1'",
-        );
-    }
-    public function join_taggable_to_photo_by_taggable_id($tag_id = null)
-    {
-        return $this->inner_join(
-            "tags.id AS tag_id , tags.* , photos.*",
-            "photos",
-            "id",
-            "entity_id",
-            "tags.id={$tag_id['id']}",
-            "photos.entity_type='tag'",
-        );
-    }
-    public function join_taggable_to_photo_and_category_taggable($category_id = null)
-    {
-        return $this->inner_join_two(
-            "tags.id AS tag_id ,
-            category_taggables.category_id AS category_taggable_id ,
-            tags.* ,
-            photos.*",
-            "photos",
-            "id",
-            "entity_id",
-            "category_taggables",
-            "id",
-            "tag_id",
-            "category_taggables.category_id={$category_id['id']}",
-            "photos.entity_type='tag'",
-        );
-    }
 }
