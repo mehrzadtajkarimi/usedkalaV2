@@ -200,6 +200,12 @@
                         <i class="fa fa-circle-o nav-icon"></i>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="<?= base_url() ?>admin/permission" class="nav-link  <?= is_active('/admin/permission')?>">
+                        <p>(مجوزها) سطوح دسترسی</p>
+                        <i class="fa fa-circle-o nav-icon"></i>
+                    </a>
+                </li>
             </ul>
         </li>
     </ul>

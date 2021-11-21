@@ -20,14 +20,16 @@
                 </div>
                 <!-- .widget_text -->
                 <hr>
-                <div class="widget widget_categories " id="categories-2">
-                    <span class="gamma widget-title">دسته بندی ها</span>
-                    <ul>
-                        <?php foreach ($categories as $value): ?>
-                            <li><a href="<?= base_url() ?>blog/category/<?= $value['id'] ?>/<?= $value['slug'] ?>"><?= $value['name'] ?></a></li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
+                <?php if($categories): ?>
+                    <div class="widget widget_categories " id="categories-2">
+                        <span class="gamma widget-title">دسته بندی ها</span>
+                        <ul>
+                            <?php foreach ($categories as $value): ?>
+                                <li><a href="<?= base_url() ?>blog/category/<?= $value['id'] ?>/<?= $value['slug'] ?>"><?= $value['name'] ?></a></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endif; ?>
             </div>
             <div class="col-9">
                 <main id="main" class="site-main">

@@ -121,6 +121,16 @@ Route::group(function () {
 });
 
 Route::group(function () {
+    Route::get('/admin/permission', 'PermissionController@index');
+    Route::post('/admin/permission/upload', 'PermissionController@upload');
+    Route::get('/admin/permission/create', 'PermissionController@create');
+    Route::post('/admin/permission', 'PermissionController@store');
+    Route::get('/admin/permission/{id}/edit', 'PermissionController@edit');
+    Route::patch('/admin/permission/{id}', 'PermissionController@update');
+    Route::delete('/admin/permission/{id}', 'PermissionController@destroy');
+});
+
+Route::group(function () {
     Route::get('/admin/blog', 'BlogController@index');
     Route::get('/admin/blog/create', 'BlogController@create');
     Route::post('/admin/blog', 'BlogController@store');
