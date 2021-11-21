@@ -45,7 +45,7 @@ Route::group(function () {
 });
 
 Route::group(function () {
-    Route::get('/product/{id}', 'ProductController@show');
+    Route::get('/product/{id}/{slug}', 'ProductController@show');
     Route::get('/product/category/{id}/{slug}', 'ProductController@index');
 });
 
@@ -85,9 +85,12 @@ Route::group(function () {
 Route::group(function () {
     Route::post('/comment/{id}/{type}', 'CommentController@add');
 });
+
 Route::group(function () {
-    Route::get('/tags/{id}/{type}', 'TagController@show');
+    Route::get('/tags/{id}/{type}', 'TagController@index');
+    Route::get('/tags/{id}/{type}/{slug}', 'TagController@show');
 });
+
 Route::group(function () {
     Route::post('/whishList', 'WishListController@add');
     // Route::get('/whishList', 'WishListController@index');

@@ -60,15 +60,14 @@
                                 <div class="brand">
                                     <img alt="galaxy" class="img-fluid" width="180" height="180" src="<?= $brand['path'] ?>">
                                 </div>
-                                <div class="cat-and-sku">
-                                    دسته‌بندی:
-                                    <span class="posted_in categories">
-                                        <a rel="tag" href="<?= base_url() ?>Category/<?= $cats[0]['id'] ?>/<?= $cats[0]['slug'] ?>"><?= $cats[0]['name'] ?></a>
-                                    </span>
-                                    <?php /* <span class="sku_wrapper">شماره شناسه کالا:
-                                <span class="sku">5487FB8/11</span>
-                            </span> */ ?>
-                                </div>
+                                <?php if ($cats) : ?>
+                                    <div class="cat-and-sku">
+                                        دسته‌بندی:
+                                        <span class="posted_in categories">
+                                            <a rel="tag" href="<?= base_url() ?>Category/<?= $cats[0]['id'] ?>/<?= $cats[0]['slug'] ?>"><?= $cats[0]['name'] ?></a>
+                                        </span>
+                                    </div>
+                                <?php endif; ?>
                                 <div class="product-label">
                                     <div class="ribbon label green-label">
                                         <span>A+</span>
@@ -104,9 +103,9 @@
                                     </form>
                                     <div class=" p-3 pointer">
                                         <?php if (!empty($wish_list)) : ?>
-                                            <i class="wish_list_btn  fa fa-heart text-danger"  data-id="<?= $product['id'] ?>" data-type="Product" data-auth="<?= $auth ? TRUE : FALSE ?>"></i>
+                                            <i class="wish_list_btn  fa fa-heart text-danger" data-id="<?= $product['id'] ?>" data-type="Product" data-auth="<?= $auth ? TRUE : FALSE ?>"></i>
                                         <?php else : ?>
-                                            <i class="wish_list_btn  fa fa-heart-o"  data-id="<?= $product['id'] ?>" data-type="Product" data-auth="<?= $auth ? TRUE : FALSE ?>"></i>
+                                            <i class="wish_list_btn  fa fa-heart-o" data-id="<?= $product['id'] ?>" data-type="Product" data-auth="<?= $auth ? TRUE : FALSE ?>"></i>
                                         <?php endif; ?>
                                     </div>
                                     <!-- .cart -->
@@ -121,7 +120,7 @@
                                 <?php foreach ($tags as $value) : ?>
                                     <div class="ml-4 mb-2">
                                         <small>
-                                            <a href="<?= base_url() .'tags/'. $value['id'].'/product'?>">#<?= $value['tag'] ?></a>
+                                            <a href="<?= base_url() . 'tags/' . $value['id'] . '/products' ?>">#<?= $value['tag'] ?></a>
                                         </small>
                                     </div>
                                 <?php endforeach; ?>

@@ -84,7 +84,7 @@
                                 <a href="" rel="nofollow" class="add_to_wishlist"> افزودن به علاقه‌مندی‌ها</a>
                             </div>
                             <!-- .yith-wcwl-add-to-wishlist -->
-                            <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" href="<?= base_url() ?>product/<?= $value['id'] ?>">
+                            <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" href="<?= base_url() ?>product/<?= $value['id'] ?>/<?= $value['slug'] ?>">
                                 <img alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image" src="<?= $value['path'] ?>" width="224" height="197">
                                 <span class="price">
                                     <span class="woocommerce-Price-amount amount">

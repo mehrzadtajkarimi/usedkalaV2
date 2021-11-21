@@ -46,7 +46,7 @@
                                     <div class="content-body">
                                         <header class="entry-header">
                                             <h1 class="entry-title">
-                                                <a rel="bookmark" href="https://usedkala.com/blog/test-news"><?= $value['key'] ?></a>
+                                                <a rel="bookmark" href="https://usedkala.com/blog/test-news"><?= $value['title'] ?></a>
                                             </h1>
                                             <!-- .entry-title -->
                                             <div class="entry-meta">

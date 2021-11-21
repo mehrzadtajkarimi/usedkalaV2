@@ -60,7 +60,7 @@ class BlogController extends Controller
         $params = $this->request->params();
 
         $params_create = array(
-            'key'             => $params['key'],
+            'title'           => $params['title'],
             'slug'            => $params['slug'],
             'value'           => $params['value'],
             'seo_H1'          => $params['seo-H1'],
@@ -170,7 +170,7 @@ class BlogController extends Controller
         }
 
         $this->blogModel->update([
-            'key'             => $param['key'],
+            'title'           => $param['title'],
             'value'           => $param['value'],
             'slug'            => $param['slug'],
             'seo_H1'          => $param['seo-H1'],

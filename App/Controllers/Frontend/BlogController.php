@@ -50,14 +50,16 @@ class BlogController extends Controller
     {
         $params = $this->request->params();
 
+        $blogTag     = $this->taggableModel->join_taggable('blogs',$params['id']) ?? '';
         $blog        = $this->blogModel->join_blog_to_photo_by_blog_id($params['id']);
         $blogComment = $this->blogModel->join_blog__with_comment($params['id']) ?? '';
+
         foreach ($blogComment as $key => $comment) {
             $blogComment[$key]['reply'] = $this->commentModel->read_comment_replies($comment['id'], $params['id'], 'Blog');
         }
-        $blogTag   = $this->taggableModel->join_taggable('blogs',$params['id']) ?? '';
         $wish_list = $this->wishListModel->read_wishList($params['id'], 'Blog');
-
+        
+        // dd($blogTag[0]['entity_id']);
         // foreach ($blogComment as $key => $value) {
 
         //     dd($value);

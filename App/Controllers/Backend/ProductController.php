@@ -10,6 +10,7 @@ use App\Models\Photo;
 use App\Models\Product_category;
 use App\Models\Product_tag;
 use App\Models\Tag;
+use App\Models\Taggable;
 use App\Services\Auth\Auth;
 use App\Services\Upload\UploadedFile;
 use App\Utilities\FlashMessage;
@@ -23,7 +24,7 @@ class ProductController extends Controller
     private $photoModel;
     private $tagModel;
     private $productCategoriesModel;
-    private $productTagModel;
+    private $taggableModel;
 
     public function __construct()
     {
@@ -34,7 +35,7 @@ class ProductController extends Controller
         $this->photoModel             = new Photo();
         $this->tagModel               = new Tag();
         $this->productCategoriesModel = new Product_category();
-        $this->productTagModel        = new Product_tag();
+        $this->taggableModel        = new Taggable();
     }
 
     public function index()
@@ -58,22 +59,22 @@ class ProductController extends Controller
     {
         $params = $this->request->params();
         $params_create = array(
-            'user_id'       	=> Auth::is_login(),
-            'slug'         		=> create_slug($params['product-slug']),
-            'title'         	=> $params['product-name'],
-            'price'         	=> $params['product-price'],
-            'brand_id'      	=> $params['product-brand'],
-            'sku'           	=> $params['product-sku'],
-            'weight'        	=> $params['product-weight'],
-            'quantity'      	=> $params['product-quantity'],
-            'meta_title'    	=> $params['product-meta'],
-            'description'   	=> $params['product-description'],
+            'user_id'           => Auth::is_login(),
+            'slug'                 => create_slug($params['product-slug']),
+            'title'             => $params['product-name'],
+            'price'             => $params['product-price'],
+            'brand_id'          => $params['product-brand'],
+            'sku'               => $params['product-sku'],
+            'weight'            => $params['product-weight'],
+            'quantity'          => $params['product-quantity'],
+            'meta_title'        => $params['product-meta'],
+            'description'       => $params['product-description'],
 
-            'seo_H1'        	=> $params['seo-H1'],
-            'seo_canonical' 	=> $params['seo-canonical'],
-            'seo_title'     	=> $params['seo-title'],
+            'seo_H1'            => $params['seo-H1'],
+            'seo_canonical'     => $params['seo-canonical'],
+            'seo_title'         => $params['seo-title'],
             'seo_description'   => $params['seo-description'],
-            'seo_robot'    		=> $params['seo-robot'],
+            'seo_robot'            => $params['seo-robot'],
         );
 
         $files                   = $this->request->files();
@@ -89,9 +90,10 @@ class ProductController extends Controller
                 ]);
             }
             foreach ($params['product-tag'] as  $tag_id) {
-                $is_create_product =  $this->productTagModel->create_productTag([
-                    'product_id'  => $product_id,
-                    'tag_id' => $tag_id
+                $is_create_product =  $this->taggableModel->create_taggable([
+                    'entity_type' => 'Product',
+                    'entity_id'   => $product_id,
+                    'tag_id'      => $tag_id
                 ]);
             }
             $file = new UploadedFile($files_param);
@@ -119,9 +121,10 @@ class ProductController extends Controller
                 ]);
             }
             foreach ($params['product-tag'] as  $tag_id) {
-                $is_create_product =  $this->productTagModel->create_productTag([
-                    'product_id'  => $product_id,
-                    'tag_id' => $tag_id
+                $is_create_product =  $this->taggableModel->create_taggable([
+                    'entity_type' => 'Product',
+                    'entity_id'   => $product_id,
+                    'tag_id'      => $tag_id
                 ]);
             }
             FlashMessage::add("مقادیر بدونه ضمیمه عکس با موفقیت در دیتابیس ذخیره شد", FlashMessage::WARNING);
@@ -203,9 +206,10 @@ class ProductController extends Controller
         if (!empty($params['product-tag'])) {
             $this->productTagModel->delete_productTag_by_product_id($product_id['id']);
             foreach ($params['product-tag'] as  $tag_id) {
-                $this->productTagModel->create_productTag([
-                    'product_id' => $product_id['id'],
-                    'tag_id'     => $tag_id,
+                $this->taggableModel->create_taggable([
+                    'entity_type' => 'Product',
+                    'entity_id'   => $product_id,
+                    'tag_id'      => $tag_id
                 ]);
             }
         }

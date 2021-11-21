@@ -8,7 +8,7 @@
             </div>
             <header class="entry-header">
                 <h1 class="entry-title">
-                    <?= $blog['key'] ?>
+                    <?= $blog['key']??'' ?>
                 </h1>
                 <!-- .entry-title -->
                 <div class="entry-meta">
@@ -31,12 +31,12 @@
             </header>
             <!-- .entry-header -->
             <div class="entry-content" itemprop="articleBody">
-                <p><?= $blog['value'] ?></p>
+                <p><?= $blog['value'] ??'' ?></p>
 
                 <?php foreach ($tags as $value) : ?>
                     <div class="ml-4 mb-2">
                         <small>
-                            <a href="#">#<?= $value['tag'] ?></a>
+                            <a href="<?= base_url(). 'tags/'.$value['id'].'/'.lcfirst($value['entity_type']).'s' ?>">#<?= $value['tag'] ?></a>
                         </small>
                     </div>
                 <?php endforeach; ?>

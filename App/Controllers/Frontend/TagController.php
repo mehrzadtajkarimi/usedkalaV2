@@ -7,25 +7,35 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Product_tag;
 use App\Models\Tag;
+use App\Models\Taggable;
 
 class TagController extends Controller
 {
     private $categoryModel;
     private $productModel;
-    private $tagModel;
-    private $ProductTagModel;
+    private $taggableModel;
 
     public function __construct()
     {
         parent::__construct();
-        $this->categoryModel   = new Category;
-        $this->productModel    = new Product;
-        $this->tagModel        = new Tag;
-        $this->ProductTagModel = new Product_tag;
+        $this->categoryModel = new Category;
+        $this->productModel  = new Product;
+        $this->taggableModel = new Taggable();
     }
 
     public function index()
     {
+        $params = $this->request->params();
+
+        $taggable = $this->taggableModel->join_taggable_by_tag_id($params['type'],$params['id']) ?? '';
+
+
+        // dd($taggable);
+
+        $data = array(
+            'tags' => $taggable,
+        );
+        return view('Frontend.tag.index', $data);
     }
     public function create()
     {
@@ -36,17 +46,7 @@ class TagController extends Controller
 
     public function show()
     {
-        $params = $this->request->params();
 
-        $productTag = $this->ProductTagModel->read_productTag($params['id']) ?? '';
-
-
-        dd($productTag);
-
-        $data = array(
-            'tags' => $productTag,
-        );
-        return view('Frontend.tag.show', $data);
     }
 
     public function edit()

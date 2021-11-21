@@ -9,8 +9,8 @@
         <div class="row">
 
             <div class="form-group col">
-                <label for="key" class=" col-form-label"> موضوع </label>
-                <input name="key" type="text" class="form-control" id="key" placeholder="" required>
+                <label for="title" class=" col-form-label"> موضوع </label>
+                <input name="title" type="text" class="form-control" id="title" placeholder="" required>
             </div>
             <div class="form-group col">
                 <label for="slug" class=" col-form-label"> slug </label>

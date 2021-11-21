@@ -11,6 +11,7 @@ use App\Models\Product_discount;
 use App\Models\Product_tag;
 use App\Models\Product_category;
 use App\Models\Tag;
+use App\Models\Taggable;
 use App\Models\Wish_list;
 use App\Services\Session\SessionManager;
 use App\Utilities\FlashMessage;
@@ -20,9 +21,9 @@ class ProductController extends Controller
     private $productModel;
     private $photoModel;
     private $commentModel;
-    private $ProductTagModel;
+    private $ProductCatModel;
     private $wishListModel;
-    private $tagModel;
+    private $taggableModel;
 
     public function __construct()
     {
@@ -31,7 +32,7 @@ class ProductController extends Controller
         $this->productModel         = new Product();
         $this->photoModel           = new Photo();
         $this->ProductDiscountModel = new Product_discount();
-        $this->ProductTagModel      = new Product_tag();
+        $this->taggableModel        = new Taggable();
         $this->ProductCatModel      = new Product_category();
         $this->wishListModel        = new Wish_list();
     }
@@ -48,21 +49,21 @@ class ProductController extends Controller
 
     public function show()
     {
-        $id = $this->request->get_param('id');
+        $params = $this->request->params();
 
 
-        $photos             = $this->photoModel->read_photo_by_id($id, 'Product');
-        $photo              = $this->photoModel->read_single_photo_by_id('0', $id, 'Product')[0];
-        $product            = $this->productModel->read_product($id);
-        $productBrand       = $this->productModel->product_brand($id['id']);
-        $productDiscount    = $this->productModel->join_product__with_productDiscounts_discounts($id)[0] ?? '';
-        $productCommentLike = $this->productModel->join_product__with_comment_and_like($id['id']) ?? '';
-        $productTag         = $this->ProductTagModel->read_productTag($id) ?? '';
-        $wish_list          = $this->wishListModel->read_wishList($id['id'], 'Product');
+        $photos             = $this->photoModel->read_photo_by_id($params['id'], 'Product');
+        $photo              = $this->photoModel->read_single_photo_by_id('0', $params['id'], 'Product')[0];
+        $product            = $this->productModel->read_product($params['id']);
+        $productBrand       = $this->productModel->product_brand($params['id']);
+        $productDiscount    = $this->productModel->join_product__with_productDiscounts_discounts($params)[0] ?? '';
+        $productCommentLike = $this->productModel->join_product__with_comment_and_like($params['id']) ?? '';
+        $productTag         = $this->taggableModel->join_taggable('products',$params['id']) ?? '';
+        $wish_list          = $this->wishListModel->read_wishList($params['id'], 'Product');
 
         if (count($product) == 0) Request::redirect('');
-        // dd(empty($productDiscount) ? $product : $productDiscount['discounts_status']);
-        $productCat = $this->ProductCatModel->read_productCategories($id);
+        $productCat = $this->ProductCatModel->read_productCategories($params);
+
 
         $data = array(
             'comments'              => $productCommentLike ?? [],

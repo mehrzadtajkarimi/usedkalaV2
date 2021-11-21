@@ -38,7 +38,7 @@
           <tbody>
             <?php foreach ($blogs as $value) : ?>
               <tr>
-                <td class="text-center"><?= $value['key'] ?></td>
+                <td class="text-center"><?= $value['title'] ?></td>
                 <td class="text-center">
                   <a href="<?= base_url() ?>admin/blog/<?= $value['id'] ?>/edit" type="button" class="shadow-sm btn btn-success btn-sm " style="padding: 0px 20px; border-radius: 18px;">
                     ویرایش

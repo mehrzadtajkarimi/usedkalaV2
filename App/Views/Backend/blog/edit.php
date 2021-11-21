@@ -1,7 +1,7 @@
 <script src='<?= asset_url() ?>Backend/plugins/ckeditor/ckeditor.js'></script>
 <div class="card">
     <div class="card-header">
-        <h5>ویرایش (( <?= $blog['key'] ?> ))</h5>
+        <h5>ویرایش (( <?= $blog['title'] ?> ))</h5>
     </div>
     <div class="card-body">
         <form action="<?= base_url() ?>admin/blog/<?= $blog['id'] ?>" method="post" enctype="multipart/form-data">

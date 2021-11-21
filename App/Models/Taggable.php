@@ -12,7 +12,7 @@ class Taggable extends MysqlBaseModel
     {
         return $this->create($params);
     }
-    public function read_taggable($entity_id=null)
+    public function read_taggable($entity_id = null)
     {
         if (is_null($entity_id)) {
             return $this->all();
@@ -24,13 +24,13 @@ class Taggable extends MysqlBaseModel
     }
     public function read_taggable_id($id)
     {
-        return  $this->get( '*', [
+        return  $this->get('*', [
             'id'   => $id,
         ]);
     }
     public function read_taggable_entity($entity_id, $entity_type)
     {
-        return  $this->get( '*', [
+        return  $this->get('*', [
             'entity_id'   => $entity_id,
             'entity_type' => $entity_type,
         ]);
@@ -61,20 +61,40 @@ class Taggable extends MysqlBaseModel
     {
         return $this->delete(['entity_id' => $id]);
     }
-    public function join_taggable($entity_type , $entity_id)
+    public function join_taggable($entity_type, $entity_id)
     {
-        $queryStr="
-        SELECT * 
+        return $this->query("
+        SELECT *
         FROM taggables
         INNER JOIN $entity_type
-        ON taggables.`entity_id` = $entity_type.`id`
+        ON taggables.entity_id = $entity_type.id
         INNER JOIN tags
-        ON taggables.`tag_id` = tags.`id`
-        AND $entity_type.`id`='$entity_id'
-        ";
-        
-        return $this->connection->query($queryStr);
-
+        ON taggables.tag_id = tags.id
+        AND $entity_type.id=$entity_id
+        ");
     }
-
+    public function join_taggable_by_tag_id($entity_type, $entity_id)
+    {
+        $rtrim_entity = ucfirst(rtrim($entity_type, 's'));
+        return $this->query("
+        SELECT 
+        taggables.entity_type,
+        photos.path,
+        photos.alt,
+        photos.entity_type,
+        tags.tag AS tag_name,
+        tags.id AS tag_id,
+        $entity_type.*
+        FROM taggables
+        INNER JOIN $entity_type
+        ON taggables.entity_id = $entity_type.id
+        INNER JOIN tags
+        ON taggables.tag_id = tags.id
+        INNER JOIN photos
+        ON $entity_type.id = photos.entity_id
+        AND taggables.tag_id = $entity_id
+        AND photos.entity_type = '$rtrim_entity'
+        AND photos.type = 0
+        ");
+    }
 }
