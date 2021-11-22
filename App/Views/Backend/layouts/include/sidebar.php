@@ -208,6 +208,30 @@
                 </li>
             </ul>
         </li>
+        <li class="nav-item has-treeview">
+            <a href="#" class="nav-link <?= is_active(['/admin/permission','/admin/slider']) ?>">
+                <p>
+                سطوح دسترسی
+                    <i class="right fa fa-angle-left"></i>
+                </p>
+                <i class="fa fa-users nav-icon" aria-hidden="true"></i>
+            </a>
+
+            <ul class="nav nav-treeview <?= is_active(['/admin/permission','/admin/role']) ?>">
+                <li class="nav-item">
+                    <a href="<?= base_url() ?>admin/permission" class="nav-link  <?= is_active('/admin/permission')?>">
+                        <p>(مجوزها) لیست دسترسی</p>
+                        <i class="fa fa-circle-o nav-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= base_url() ?>admin/role" class="nav-link  <?= is_active('/admin/role')?>">
+                        <p>(سمت ها) لیست مقام ها</p>
+                        <i class="fa fa-circle-o nav-icon"></i>
+                    </a>
+                </li>
+            </ul>
+        </li>
     </ul>
 </nav>
 <!-- /.sidebar-menu -->

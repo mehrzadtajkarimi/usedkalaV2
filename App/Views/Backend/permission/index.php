@@ -32,7 +32,13 @@
                           <input name="permission-name" type="text" class="form-control" id="permission-name" placeholder="" required>
                         </div>
                       </div>
-                     
+                      <div class="form-group row">
+                        <label for="permission-name" class="col-2 col-form-label"> توضیح </label>
+                        <div class="col-10">
+                          <input name="permission-label" type="text" class="form-control" id="permission-name" placeholder="" required>
+                        </div>
+                      </div>
+
                       <hr>
                       <div class="pt-2 pb-2 form-check disabled ">
                         <input name="permission-status" type="checkbox" class="form-check-input " id="permission-status" checked disabled>
@@ -59,14 +65,28 @@
             <thead>
               <tr>
                 <th class="text-center" scope="col">#</th>
+                <th class="text-center" scope="col">نام</th>
+                <th class="text-center" scope="col">توضیح</th>
+                <th class="text-center" scope="col">اقدامات</th>
 
               </tr>
             </thead>
             <tbody>
 
-                <tr>
-                  <td class="text-center" title=""></td>
-                </tr>
+              <tr>
+                <?php foreach ($permissions as $value) : ?>
+                  <td class="text-center" title=""><?= $value['id'] ?></td>
+                  <td class="text-center" title=""><?= $value['name'] ?></td>
+                  <td class="text-center" title=""><?= $value['label'] ?></td>
+                  <td class="text-center">
+                    <a href="<?= base_url() ?>admin/permission/<?= $value['id'] ?>/edit" class="shadow-sm btn btn-warning btn-sm " style="padding: 0px 16px; border-radius: 18px;">ویرایش</a>
+                    <form method="post" action="<?= base_url() ?>admin/permission/<?= $value['id'] ?>" class="d-inline">
+                      <input type="hidden" name="_method" value="delete" />
+                      <input type="submit" class="shadow-sm btn btn-danger btn-sm " style="padding: 0px 20px; border-radius: 18px;" onclick="return confirm('آیا برای حذف اطلاعات اطمینان دارید');" value="حذف">
+                    </form>
+                  </td>
+                <?php endforeach; ?>
+              </tr>
 
             </tbody>
           </table>

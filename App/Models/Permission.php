@@ -9,19 +9,26 @@ class Permission extends MysqlBaseModel
 {
     protected $table = 'permissions';
 
-    public function create_permission()
+    public function create_permission($params)
     {
+        return $this->create($params);
     }
 
-    public function read_permission()
+    public function read_permission($id=null)
     {
+        if (is_null($id)) {
+            return $this->all();
+        }
+        return $this->first(['id' => $id]);
     }
 
-    public function update_permission()
+    public function update_permission($params ,$id)
     {
+        return $this->update($params, ['id' => $id]);
     }
 
     public function delete_permission($id)
     {
+        return $this->delete(['id' => $id]);
     }
 }

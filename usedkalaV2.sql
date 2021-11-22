@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 17, 2021 at 11:38 AM
+-- Generation Time: Nov 22, 2021 at 02:21 PM
 -- Server version: 8.0.27-0ubuntu0.20.04.1
 -- PHP Version: 8.0.12
 
@@ -98,7 +98,7 @@ CREATE TABLE `attribute_values` (
 CREATE TABLE `blogs` (
   `id` int NOT NULL,
   `slug` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `key` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `title` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `value` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `seo_robot` tinyint NOT NULL COMMENT '0=Index 1=Noindex 2=Nofollow 3=Follow 4=None 5=Noimageindex 6=Noarchive 7=Nocache',
   `seo_canonical` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
@@ -113,7 +113,7 @@ CREATE TABLE `blogs` (
 -- Dumping data for table `blogs`
 --
 
-INSERT INTO `blogs` (`id`, `slug`, `key`, `value`, `seo_robot`, `seo_canonical`, `seo_H1`, `seo_description`, `seo_title`, `meta_title`, `created_at`) VALUES
+INSERT INTO `blogs` (`id`, `slug`, `title`, `value`, `seo_robot`, `seo_canonical`, `seo_H1`, `seo_description`, `seo_title`, `meta_title`, `created_at`) VALUES
 (1, 'sdgfasgfssssssssss', 'بیشلسیبل', '<p><img alt=\"\" src=\"http://usedkalaV2.me/Storage/202110/Screenshot from 2021-09-14 19-40-43.---b84d2a26.png\" style=\"height:99px; width:512px\" />Hello, World!fffffffffffffffffff</p>\r\n', 0, '', '', '', '', '', '2021-10-04 09:46:54'),
 (2, 'Irure anim maiores q', 'Suscipit sit quia s', '<p>Hello, World!</p>\r\n', 0, '', '', '', '', '', '2021-10-04 12:22:27'),
 (4, 'Cumque dolor dolorum', 'Cillum laboriosam u', '<p>Hello, World!</p>\r\n', 0, '', '', '', '', '', '2021-10-18 12:20:37'),
@@ -349,7 +349,8 @@ INSERT INTO `comments` (`id`, `entity_id`, `entity_type`, `user_id`, `parent_id`
 (100, 14, 'Product', 73, 0, 'لورم ایپسوم دلر سیت آمت', 'asdasd', '::1', 0, 0, 0, '2021-11-10 11:59:23'),
 (101, 14, 'Product', 73, 0, 'لورم ایپسوم دلر سیت آمت', 'asdasd', '::1', 0, 0, 0, '2021-11-10 11:59:29'),
 (102, 14, 'Product', 73, 0, 'لورم ایپسوم دلر سیت آمت', 'asdasd', '::1', 0, 0, 0, '2021-11-10 11:59:48'),
-(103, 14, 'Product', 73, 0, 'لورم ایپسوم دلر سیت آمت', 'asdasd', '::1', 0, 0, 0, '2021-11-10 11:59:57');
+(103, 14, 'Product', 73, 0, 'لورم ایپسوم دلر سیت آمت', 'asdasd', '::1', 0, 0, 0, '2021-11-10 11:59:57'),
+(104, 33, 'Product', 73, 0, 'در مورد  Hpe Proliant DL380در مورد  Hpe Proliant DL380در مورد  Hpe Proliant DL380در مورد  Hpe Proliant DL380', 'در مورد  Hpe Proliant DL380', NULL, 1, 0, 0, '2021-11-17 13:19:50');
 
 -- --------------------------------------------------------
 
@@ -445,7 +446,8 @@ CREATE TABLE `permissions` (
   `id` int NOT NULL,
   `name` varchar(100) NOT NULL,
   `label` varchar(100) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL
+  `status` tinyint NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -682,6 +684,7 @@ CREATE TABLE `roles` (
   `id` int NOT NULL,
   `name` varchar(100) NOT NULL,
   `label` varchar(100) DEFAULT NULL,
+  `status` tinyint NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -931,7 +934,8 @@ CREATE TABLE `wish_lists` (
 --
 
 INSERT INTO `wish_lists` (`id`, `user_id`, `entity_id`, `entity_type`, `ctreated_at`) VALUES
-(1, 73, 2, 'Blog', '2021-11-17 11:34:36');
+(1, 73, 2, 'Blog', '2021-11-17 11:34:36'),
+(2, 73, 33, 'Product', '2021-11-17 13:28:45');
 
 --
 -- Indexes for dumped tables
@@ -1198,7 +1202,7 @@ ALTER TABLE `wish_lists`
 -- AUTO_INCREMENT for table `active_codes`
 --
 ALTER TABLE `active_codes`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=293;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=298;
 
 --
 -- AUTO_INCREMENT for table `activity_log`
@@ -1282,7 +1286,7 @@ ALTER TABLE `cities`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT for table `discounts`
@@ -1312,7 +1316,7 @@ ALTER TABLE `order_details`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `permission_role`
@@ -1438,7 +1442,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `wish_lists`
 --
 ALTER TABLE `wish_lists`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -29,6 +29,14 @@ class User extends MysqlBaseModel
             return $this->first(['email' => $param['email']]) ?? null;
         }
     }
+    public function has_permissions($param)
+    {
+
+    }
+    public function has_roles($param)
+    {
+
+    }
     public function is_admin($user_id)
     {
         if ($user = $this->first(['id' => $user_id])) {

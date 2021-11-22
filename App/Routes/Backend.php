@@ -131,6 +131,16 @@ Route::group(function () {
 });
 
 Route::group(function () {
+    Route::get('/admin/role', 'RoleController@index');
+    Route::post('/admin/role/upload', 'RoleController@upload');
+    Route::get('/admin/role/create', 'RoleController@create');
+    Route::post('/admin/role', 'RoleController@store');
+    Route::get('/admin/role/{id}/edit', 'RoleController@edit');
+    Route::patch('/admin/role/{id}', 'RoleController@update');
+    Route::delete('/admin/role/{id}', 'RoleController@destroy');
+});
+
+Route::group(function () {
     Route::get('/admin/blog', 'BlogController@index');
     Route::get('/admin/blog/create', 'BlogController@create');
     Route::post('/admin/blog', 'BlogController@store');
