@@ -140,7 +140,7 @@ class ProductController extends Controller
     {
         $products_id = $this->request->get_param('id');
         $categories_selected = $this->productCategoriesModel->read_productCategories($products_id);
-        $tags_selected       = $this->productTagModel->read_productTag($products_id);
+        $tags_selected       = $this->taggableModel->read_taggable($products_id['id']);
         $selectedCats = [];
         foreach ($categories_selected as $selectedCatRow) {
             $selectedCats[$selectedCatRow['id']] = $selectedCatRow;
@@ -203,13 +203,13 @@ class ProductController extends Controller
                 ]);
             }
         }
-        if (!empty($params['product-tag'])) {
-            $this->productTagModel->delete_productTag_by_product_id($product_id['id']);
-            foreach ($params['product-tag'] as  $tag_id) {
+        if (!empty($param['product-tag'])) {
+            $this->taggableModel->delete_taggable($product_id['id']);
+            foreach ($param['product-tag'] as  $tag_id) {
                 $this->taggableModel->create_taggable([
-                    'entity_type' => 'Product',
-                    'entity_id'   => $product_id,
-                    'tag_id'      => $tag_id
+                    'tag_id'      => $tag_id,
+                    'entity_id'   => $product_id['id'],
+                    'entity_type' => 'Blog',
                 ]);
             }
         }
@@ -238,16 +238,16 @@ class ProductController extends Controller
 
     public function destroy()
     {
-        $id = $this->request->get_param('id');
+        $id                           = $this->request->get_param('id');
         $is_deleted_productCategories = $this->productCategoriesModel->delete_productCategories_by_product_id($id['id']);
-        $is_deleted_productTags       = $this->productTagModel->delete_productTag_by_product_id($id['id']);
+        $is_deleted_tag               = $this->taggableModel->delete_taggable($id);
         $is_deleted_photo             = $this->photoModel->delete_photo($id);
         $is_deleted_product           = $this->productModel->delete_product($id);
 
 
 
 
-        if ($is_deleted_productCategories && $is_deleted_productTags &&  $is_deleted_product && $is_deleted_photo) {
+        if ($is_deleted_productCategories && $is_deleted_tag &&  $is_deleted_product && $is_deleted_photo) {
             FlashMessage::add("مقادیر  با موفقیت از دیتابیس حذف شد");
             return $this->request->redirect('admin/product');
         }

@@ -73,8 +73,8 @@
             </thead>
             <tbody>
 
-              <tr>
-                <?php foreach ($permissions as $value) : ?>
+              <?php foreach ($permissions as $value) : ?>
+                <tr>
                   <td class="text-center" title=""><?= $value['id'] ?></td>
                   <td class="text-center" title=""><?= $value['name'] ?></td>
                   <td class="text-center" title=""><?= $value['label'] ?></td>
@@ -85,8 +85,8 @@
                       <input type="submit" class="shadow-sm btn btn-danger btn-sm " style="padding: 0px 20px; border-radius: 18px;" onclick="return confirm('آیا برای حذف اطلاعات اطمینان دارید');" value="حذف">
                     </form>
                   </td>
-                <?php endforeach; ?>
-              </tr>
+                </tr>
+              <?php endforeach; ?>
 
             </tbody>
           </table>

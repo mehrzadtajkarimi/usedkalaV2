@@ -7,21 +7,28 @@ use App\Utilities\FlashMessage;
 
 class Role extends MysqlBaseModel
 {
-    protected $table = 'Roles';
+    protected $table = 'roles';
 
-    public function create_example()
+    public function create_role($params)
     {
+        return $this->create($params);
     }
 
-    public function read_example()
+    public function read_role($id=null)
     {
+        if (is_null($id)) {
+            return $this->all();
+        }
+        return $this->first(['id' => $id]);
     }
 
-    public function update_example()
+    public function update_role($params ,$id)
     {
+        return $this->update($params, ['id' => $id]);
     }
 
-    public function delete_example()
+    public function delete_role($id)
     {
+        return $this->delete(['id' => $id]);
     }
 }
