@@ -141,6 +141,16 @@ Route::group(function () {
 });
 
 Route::group(function () {
+    Route::get('/admin/access', 'AccessController@index');
+    Route::post('/admin/access/upload', 'AccessController@upload');
+    Route::get('/admin/access/create', 'AccessController@create');
+    Route::post('/admin/access', 'AccessController@store');
+    Route::get('/admin/access/{id}/edit', 'AccessController@edit');
+    Route::patch('/admin/access/{id}', 'AccessController@update');
+    Route::delete('/admin/access/{id}', 'AccessController@destroy');
+});
+
+Route::group(function () {
     Route::get('/admin/blog', 'BlogController@index');
     Route::get('/admin/blog/create', 'BlogController@create');
     Route::post('/admin/blog', 'BlogController@store');
