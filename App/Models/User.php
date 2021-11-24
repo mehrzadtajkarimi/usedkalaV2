@@ -29,36 +29,31 @@ class User extends MysqlBaseModel
             return $this->first(['email' => $param['email']]) ?? null;
         }
     }
-    public function has_permissions($param)
+    public function read_user($id)
     {
+        return $this->first(['id' => $id]);
     }
     public function has_roles($param)
     {
     }
-    public function is_admin($user_id)
+    public function is_admin($user_id = null)
     {
+        if (is_null($user_id)) {
+            return $this->get('*', [
+                'user_level' =>  0
+            ]);
+        }
         if ($user = $this->first(['id' => $user_id])) {
 
             return $user['user_level'] == 0 ?: FlashMessage::add("  لطفا از ادمین سایت بخواهید دسترسی به پنل  را برای شما ایجاد کند! ", FlashMessage::WARNING);
         }
     }
-    public function is_admin_by_phone($phone)
-    {
-        if ($user = $this->first(['phone' => $phone])) {
-            if ( $user['user_level'] == 0 ) {
-                return FlashMessage::add("دسترسی ادمین قبلا ایجاد شده! ", FlashMessage::INFO);
-            }
-            if ( $user['user_level'] > 0 ) {
-                return FlashMessage::add(" استعلام موفقیت آمیز بود میتونید برای ایجاد دسترسی ادمین اقدام کنید! ");
-            }
-        }
-        return FlashMessage::add(" شماره مورد نظر موجود نمی باشد! ", FlashMessage::WARNING);
-    }
+
+
     public function update_user(array $params, $id)
     {
         return $this->update($params, ['id' => $id]);
     }
-
 
     public function join_user_to_photo(int $user_id)
     {

@@ -4,90 +4,72 @@ namespace App\Controllers\Backend;
 
 use App\Controllers\Controller;
 use App\Models\Permission;
+use App\Models\Permission_user;
 use App\Models\Role;
 use App\Models\Role_permission;
+use App\Models\Role_user;
 use App\Models\User;
 use App\Utilities\FlashMessage;
 
 class AccessController  extends Controller
 {
     private $permissionModel;
+    private $permissionUserModel;
     private $roleModel;
     private $rolePermissionModel;
+    private $roleUserModel;
     private $userModel;
 
     public function __construct()
     {
         parent::__construct();
         $this->permissionModel     = new Permission();
-        $this->roleModel           = new Role();
+        $this->permissionUserModel = new Permission_user();
         $this->rolePermissionModel = new Role_permission();
+        $this->roleUserModel       = new Role_user();
+        $this->roleModel           = new Role();
         $this->userModel           = new User();
     }
     public function index()
     {
         $params = $this->request->params();
-        $research       = $this->userModel->is_admin_by_phone($params['phone']);
         $roles       = $this->roleModel->read_role();
         $permissions = $this->permissionModel->read_permission();
+        $admins = $this->userModel->is_admin();
+
+
         $data = array(
-            'accesses' => $roles,
+            'accesses'    => $roles,
             'permissions' => $permissions,
+            'admins'      => $admins,
         );
         return view('Backend.access.index', $data);
     }
-    public function is_phone()
-    {
-        $params   = $this->request->params();
-        $research = $this->userModel->is_admin_by_phone($params['phone']);
-
-        return $research ;
-    }
-
-    public function store()
-    {
-        $params = $this->request->params();
-
-        $params_create = array(
-            'name'  => $params['access-name'],
-            'label' => $params['access-label'],
-        );
-        $role_id = $this->roleModel->create_role($params_create);
-        if (!empty($params['access-permission'])) {
-            foreach ($params['access-permission'] as  $permission_id) {
-                $rolePermission_id = $this->rolePermissionModel->create_rolePermission([
-                    'access_id'       => $role_id,
-                    'permission_id' => $permission_id,
-                ]);
-            }
-        }
-        if ($role_id && $rolePermission_id) {
-            FlashMessage::add("ایجاد دسترسی موفقیت انجام شد");
-        } else {
-            FlashMessage::add(" مشکلی در ایجاد دسترسی رخ داد ", FlashMessage::ERROR);
-        }
-        return $this->request->redirect('admin/access');
-    }
-
-
 
     public function edit()
     {
-        $id                   = $this->request->get_param('id');
-        $role                 = $this->roleModel->read_role($id);
-        $permissions          = $this->permissionModel->read_permission();
-        $permissions_selected = $this->rolePermissionModel->read_rolePermission($id) ?: [];
+        $id = $this->request->get_param('id');
+        $admin = $this->userModel->read_user($id);
 
-        $selectedPermissions = [];
-        foreach ($permissions_selected as $selectedPermissionRow) {
-            $selectedPermissions[$selectedPermissionRow['id']] = $selectedPermissionRow;
-        }
+
+
         $data = array(
-            'access'                 => $role,
-            'permissions'          => $permissions,
-            'permissions_selected' => $selectedPermissions,
+            'admin'    => $admin,
         );
-        view('Backend.role.edit', $data);
+        return view('Backend.access.edit', $data);
+    }
+
+    public function get_access()
+    {
+        $user_id = $this->request->params()['id'];
+
+        $result = [];
+
+        $result['permission'] = $this->permissionUserModel->join_permissionUser_permission($user_id);
+        $result['role'] = $this->roleUserModel->join_roleUser_role($user_id);
+
+
+        echo json_encode($result);
     }
 
 
