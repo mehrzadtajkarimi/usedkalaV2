@@ -44,11 +44,14 @@
                       <input type="hidden" name="_method" value="delete" />
                       <input type="submit" class="shadow-sm btn btn-danger btn-sm " style="padding: 0px 40px; border-radius: 18px;" onclick="return confirm('آیا برای حذف اطلاعات اطمینان دارید');" value="حـــــــذف">
                     </form>
-                    <a data-id="<?= $value['id'] ?>" type="button" id="access-show" class="shadow-sm btn btn-warning btn-sm " style="padding: 0px 16px; border-radius: 18px;" data-toggle="collapse" data-target="#more<?= $value['id'] ?>" aria-expanded="false" aria-controls="more">نمایش و ویرایش</a>
+                    <a data-id="<?= $value['id'] ?>" type="button" id="access-show" class="shadow-sm btn btn-warning btn-sm " style="padding: 0px 16px; border-radius: 18px;" data-toggle="collapse" data-target="#more<?= $value['id'] ?>" aria-expanded="false" aria-controls="more">ایجاد و ویرایش</a>
                   </td>
                 </tr>
                 <tr class="collapse multi-collapse " id="more<?= $value['id'] ?>">
                   <td colspan="10" id="attr">
+                    <div class="row">
+                    <i class="fa fa-plus-square text-success "></i> aria-hidden="true"></i>
+                    </div>
                     <div class="row">
                       <div class="col" id="response-permission">
                         <ul class="list-group list-group-flush">

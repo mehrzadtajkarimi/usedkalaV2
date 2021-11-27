@@ -7,15 +7,14 @@ use App\Models\Contracts\MysqlBaseModel;
 class Role_permission extends MysqlBaseModel
 {
     protected $table = 'role_permissions';
-
     public function create_rolePermission($params)
     {
         return $this->create($params);
     }
 
-    public function read_rolePermission($id=null)
+    public function read_rolePermission($role_id=null)
     {
-        $permission_id =  $this->get('permission_id', ['role_id' => $id]) ?? '';
+        $permission_id =  $this->get('permission_id', ['role_id' => $role_id]) ?? '';
         return $permission_id ? $this->connection->select('permissions', ['id'], ['id' => $permission_id]) : false;
     }
 

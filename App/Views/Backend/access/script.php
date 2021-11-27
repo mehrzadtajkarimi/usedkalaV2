@@ -20,9 +20,11 @@
                     console.log(data);
 
                     $(data.permission).each( function(key, value) {
+                        console.log(value);
                         $("#response-permission ul li").append(value[1]);
                     });
                     $(data.role).each( function(key, value) {
+                        console.log(value);
                         $("#response-role ul li").html(value[1]);
                     });
                 },

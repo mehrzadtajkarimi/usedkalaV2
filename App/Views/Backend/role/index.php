@@ -25,17 +25,17 @@
               <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="modal-body">
-                  <form action="<?= base_url() ?>admin/role" method="post" enctype="multipart/form-data">
+                  <form action="<?= base_url() ?>admin/role"  method="post" enctype="multipart/form-data">
                       <div class="form-group row">
                         <label for="role-name" class="col-2 col-form-label"> نام </label>
                         <div class="col-10">
-                          <input name="role-name" type="text" class="form-control" id="role-name" placeholder="" required>
+                          <input name="role-name" type="text" class="form-control" id="role-name" placeholder="" autocomplete="on" required>
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="role-name" class="col-2 col-form-label"> توضیح </label>
+                        <label for="role-label" class="col-2 col-form-label"> توضیح </label>
                         <div class="col-10">
-                          <input name="role-label" type="text" class="form-control" id="role-name" placeholder="" required>
+                          <input name="role-label" type="text" class="form-control" id="role-label" placeholder="" autocomplete="on" required>
                         </div>
                       </div>
                       <div class="form-group row">

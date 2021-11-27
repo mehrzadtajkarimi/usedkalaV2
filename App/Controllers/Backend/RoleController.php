@@ -40,6 +40,9 @@ class RoleController  extends Controller
             'name'  => $params['role-name'],
             'label' => $params['role-label'],
         );
+
+        
+        
         $role_id = $this->roleModel->create_role($params_create);
         if (!empty($params['role-permission'])) {
             foreach ($params['role-permission'] as  $permission_id) {
@@ -49,6 +52,7 @@ class RoleController  extends Controller
                 ]);
             }
         }
+
         if ($role_id && $rolePermission_id) {
             FlashMessage::add("ایجاد دسترسی موفقیت انجام شد");
         } else {
