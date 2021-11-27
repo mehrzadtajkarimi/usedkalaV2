@@ -24,6 +24,8 @@ class Notification
     }
     function send_token_by_shasfa($token,$phone)
     {
+		// die('token: '.$token);
+		/*
         //call soap client
         $soap = new SoapClient("http://shasfa.com/webservice/send.php?wsdl");
 
@@ -36,8 +38,23 @@ class Notification
         $soap->Content = "کدتایید usedkala\n$token";
         $soap->Type = '0';
 
-
         return $soap->SendSMS($soap->fromNum, $soap->toNum, $soap->Content, $soap->Type, $soap->Username, $soap->Password);
+		*/
+		$postData = [
+			'gateway' => 1000475569,
+			'to' => $phone,
+			'text' => "کدتایید usedkala\n$token"
+		];
+		$ch = curl_init('https://api.sabanovin.com/v1/sa2195500806:y9icLoW5N9pkWVc3qvOgWMNUwtZlF9UjwM7V/sms/send.json');
+		// curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json','x-sms-ir-secure-token: '.$result['TokenKey']]);
+		// curl_setopt($ch, CURLOPT_HEADER, false);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($postData));
+		$result = curl_exec($ch);
+		curl_close($ch);
+		return($result);
     }
     function send_token_by_email($token, $email)
     {
