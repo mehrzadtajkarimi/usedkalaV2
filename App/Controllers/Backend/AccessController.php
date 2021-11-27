@@ -9,6 +9,7 @@ use App\Models\Role;
 use App\Models\Role_permission;
 use App\Models\Role_user;
 use App\Models\User;
+use App\Services\Auth\Auth;
 use App\Utilities\FlashMessage;
 
 class AccessController  extends Controller
@@ -36,7 +37,6 @@ class AccessController  extends Controller
         $roles       = $this->roleModel->read_role();
         $permissions = $this->permissionModel->read_permission();
         $admins = $this->userModel->is_admin();
-
 
         $data = array(
             'accesses'    => $roles,

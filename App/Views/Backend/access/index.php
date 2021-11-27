@@ -50,27 +50,25 @@
                 <tr class="collapse multi-collapse " id="more<?= $value['id'] ?>">
                   <td colspan="10" id="attr">
                     <div class="row">
-                    <i class="fa fa-plus-square text-success "></i> aria-hidden="true"></i>
+                      <i class="fa fa-plus-square text-success" aria-hidden="true"></i>
                     </div>
                     <div class="row">
-                      <div class="col" id="response-permission">
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item">
-
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="col" id="response-role">
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item">
-
-                          </li>
-                        </ul>
-                      </div>
-                      <pre class="ltr text-left col">
-  dd
-                      </pre>
+                        <div class="col" id="response-permission">
+                          <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+  
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="col" id="response-role">
+                          <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+  
+                            </li>
+                          </ul>
+                        </div>
                     </div>
+
                   </td>
                 </tr>
 

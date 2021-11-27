@@ -18,14 +18,16 @@
                     data = JSON.parse(response);
                     // alert(response.message);
                     console.log(data);
-
+                    
+                    $("#response-permission ul li").empty();
                     $(data.permission).each( function(key, value) {
                         console.log(value);
-                        $("#response-permission ul li").append(value[1]);
+                        $("#response-permission ul li").append("<div>"+ value[1]+"</div>");
                     });
+                    $("#response-role ul li").empty();
                     $(data.role).each( function(key, value) {
                         console.log(value);
-                        $("#response-role ul li").html(value[1]);
+                        $("#response-role ul li").append(value[1]);
                     });
                 },
             });
