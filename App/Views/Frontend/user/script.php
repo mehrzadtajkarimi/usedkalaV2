@@ -61,5 +61,17 @@
                         }
 
                 });
+
+                $('#profile-province').select2({
+                        'placeholder': 'استان مورد نظر را انتخاب کنید',
+                });
+
+                $.ajax({
+                        type: "post",
+                        url: "<?= base_url() ?>profile/city",
+                        success: function (response) {
+                                
+                        }
+                });
         });
 </script>

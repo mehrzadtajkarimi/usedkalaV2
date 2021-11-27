@@ -4,6 +4,14 @@
 
 .dropdown:hover .dropdowncontent{display:block !important;} */
 
-.pointer{
-    cursor:pointer;
-  }
+.pointer {
+    cursor: pointer;
+}
+
+.profile-postalCode {
+    width: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+}

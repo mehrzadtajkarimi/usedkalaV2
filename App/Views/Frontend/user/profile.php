@@ -103,7 +103,31 @@
               </div>
             </div>
             <div class="tab-pane fade " id="pills-address" role="tabpanel" aria-labelledby="pills-address-tab">
-
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="profile-province">استان:</label>
+                    <select name="profile-province" class="form-select" id="profile-province">
+                      <option value="">انتخاب کنید</option>
+                      <?php foreach ($provinces as $value): ?>
+                        <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
+                      <?php endforeach ?>
+                    </select>
+                  </div>
+                </div>
+                <div class="col">
+                    <label for="profile-city">شهر:</label>
+                    <select name="profile-city" id="profile-city">
+                      <option value=""></option>
+                    </select>
+                </div>
+                <div class="col">
+                  <div class="form-group d-flex">
+                    <label for="profile-postalCode" class="profile-postalCode">کد پستی:</label>
+                    <input type="number" name="profile-postalCode" class="form-control" id="profile-postalCode">
+                  </div>
+                </div>
+              </div>
               <div class="row">
                 <div class="col">
                   <div class="form-group">

@@ -5,6 +5,7 @@ namespace App\Controllers\Frontend;
 use App\Controllers\Controller;
 use App\Models\Photo;
 use App\Models\User;
+use App\Models\Province;
 use App\Services\Auth\Auth;
 use App\Services\Basket\Basket;
 use App\Services\Session\SessionManager;
@@ -15,12 +16,14 @@ class ProfileController extends Controller
 {
     private $userModel;
     private $photoModel;
+    private $provinceModel;
 
     public function __construct()
     {
         parent::__construct();
         $this->userModel = new User();
         $this->photoModel = new Photo();
+        $this->provinceModel = new Province();
     }
     public function manege_two_factor()
     {
@@ -52,7 +55,8 @@ class ProfileController extends Controller
             $data = array(
                 'data' => $this->userModel->join_user_to_photo($user_id),
                 'cart_total' => array_sum($cart_total ?? []),
-                'cart_items' => $cart_items
+                'cart_items' => $cart_items,
+                'provinces' => $this->provinceModel->read_province()
             );
             return view('Frontend.user.profile', $data);
         }
