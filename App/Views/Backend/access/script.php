@@ -1,6 +1,9 @@
 <script>
     $(document).ready(function() {
-        $('#role_permission').select2({
+        $('#access-permission').select2({
+            'placeholder': 'دسته بندی های مورد نظر را انتخاب کنید'
+        });
+        $('#access-role').select2({
             'placeholder': 'دسته بندی های مورد نظر را انتخاب کنید'
         });
 
@@ -16,18 +19,34 @@
                 },
                 success: function(response) {
                     data = JSON.parse(response);
-                    // alert(response.message);
-                    console.log(data);
                     
-                    $("#response-permission ul li").empty();
-                    $(data.permission).each( function(key, value) {
+                    var response_role = $("#response-role ul li");
+                    var response_permission = $("#response-permission ul li");
+                    // alert(response.message);
+
+                    response_permission.empty();
+                    $(data.permission).each(function(key, value) {
                         console.log(value);
-                        $("#response-permission ul li").append("<div>"+ value[1]+"</div>");
+                        response_permission.append(`
+                        <div>
+                        <a href='<?= base_url() ?>admin/access/delete_access/permission/` + value[2] + `' onclick="return confirm('آیا برای حذف اطلاعات اطمینان دارید');">
+                        <i class='fa fa-times-circle text-danger fa-lg ml-3'></i>
+                        </a>    
+                        ` + value[1] + `
+                        </div>  
+                        `);
                     });
-                    $("#response-role ul li").empty();
-                    $(data.role).each( function(key, value) {
+                    response_role.empty();
+                    $(data.role).each(function(key, value) {
                         console.log(value);
-                        $("#response-role ul li").append(value[1]);
+                        response_role.append(`
+                        <div>
+                        <a href='<?= base_url() ?>admin/access/delete_access/role/` + value[2] + `' onclick="return confirm('آیا برای حذف اطلاعات اطمینان دارید');">
+                        <i class='fa fa-times-circle text-danger fa-lg ml-3'></i>
+                        </a>
+                        ` + value[1] + `
+                        </div>
+                        `);
                     });
                 },
             });

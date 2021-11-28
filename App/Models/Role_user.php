@@ -24,15 +24,15 @@ class Role_user extends MysqlBaseModel
         return $this->update($params, ['role_id' => $role_id]);
     }
 
-    public function delete_roleUser($role_id)
+    public function delete_roleUser($id)
     {
-        return $this->delete(['role_id' => $role_id]);
+        return $this->delete(['id' => $id]);
     }
 
     public function join_roleUser_role($id)
     {
         return $this->inner_join(
-            'roles.name,roles.label',
+            'roles.name,roles.label,role_users.id',
             'roles',
             'role_id',
             'id',

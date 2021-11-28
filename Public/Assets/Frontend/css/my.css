@@ -4,6 +4,12 @@
 
 .dropdown:hover .dropdowncontent{display:block !important;} */
 
-.pointer{
-    cursor:pointer;
-  }
+.pointer {
+    cursor: pointer;
+}
+
+
+.table.table--vertical_middle td,
+.table.table--vertical_middle th {
+    vertical-align: middle;
+}

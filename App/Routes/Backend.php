@@ -149,7 +149,9 @@ Route::group(function () {
     Route::patch('/admin/access/{id}', 'AccessController@update');
     Route::delete('/admin/access/{id}', 'AccessController@destroy');
 
+    Route::post('/admin/access/add_access/{type}/{admin_id}', 'AccessController@add_access');
     Route::post('/admin/access/get_access', 'AccessController@get_access');
+    Route::get('/admin/access/delete_access/{type}/{id}', 'AccessController@delete_access');
 });
 
 Route::group(function () {
