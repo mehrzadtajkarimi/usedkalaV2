@@ -1,7 +1,8 @@
 <?php
 
-// **************************************************************** add namespace
+namespace App\Controllers\Frontend;
 
+// **************************************************************** add namespace
 use App\Controllers\Controller;
 use App\Models\City;
 use App\Utilities\FlashMessage;
@@ -18,7 +19,10 @@ class CityController  extends Controller
 
     public function index()
     {
-        dd($this->cityModel->join_city__with_province());
+        $province_id = $this->request->get_param('id');
+        $city = $this->cityModel->get_city_by_province_id($province_id);
+        $city= json_encode($city);
+        echo $city;
         // $data = array(
         //     'Examples' => 'Examples',
         // );

@@ -38,7 +38,7 @@ Route::group(function () {
 Route::group(function () {
     Route::get('/profile', 'ProfileController@is_login');
     Route::patch('/profile/{id}', 'ProfileController@update');
-    Route::post('/profile/city', 'CityController@index');
+    Route::post('/profile/city/{id}', 'CityController@index');
 });
 
 Route::group(function () {
@@ -101,4 +101,8 @@ Route::group(function () {
     // Route::get('/whishList/{id}/edit', 'WishListController@edit');
     // Route::put('/whishList/{id}', 'WishListController@update');
     // Route::delete('/whishList/{id}', 'WishListController@destroy');
+});
+
+Route::group(function () {
+    Route::post('/order/create', 'OrderController@create');
 });

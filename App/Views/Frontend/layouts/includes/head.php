@@ -19,6 +19,7 @@
 <link rel="shortcut icon" href="<?= asset_url() ?>Frontend/images/ukfav-icon.png">
 <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>Frontend/css/my.css" media="all" />
 <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>Backend/plugins/select2/select2.min.css">
+<link rel="stylesheet" type="text/css" href="<?= asset_url() ?>Frontend/plugins/select2-bootstrap4.min.css">
 
 <script type="text/javascript" src="<?= asset_url() ?>Frontend/js/jquery.min.js"></script>
 <script type="text/javascript" src="<?= asset_url() ?>Frontend/js/ukscripts.js"></script>

@@ -10,8 +10,29 @@
 
 .profile-postalCode {
     width: 90px;
+    margin: 0;
+}
+
+.profile-label {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0;
+}
+
+.select2-selection__arrow {
+    top: -20% !important;
+    left: 3px !important;
+}
+
+.profile-img {
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.order-form {
+    display: flex;
+    flex: 1 !important;
+    max-width: 100% !important;
 }

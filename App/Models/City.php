@@ -16,9 +16,8 @@ class City extends MysqlBaseModel
         return $this->first(['id' => $id]);
     }
 
-    public function join_city__with_province()
+    public function get_city_by_province_id($province_id)
     {
-
-        return $this->inner_join("*",'provinces','province_id','id');
+        return $this->get_all(['province_id' => $province_id]);
     }
 }

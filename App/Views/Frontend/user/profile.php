@@ -11,8 +11,8 @@
 
 
               <!-- Button trigger modal -->
-              <span type="button" class="btn w-50" data-toggle="modal" data-target="#form-modal-edit-photo" title="جهت ویرایش کلیک کتید">
-                <img id="img-edit" src="<?= $data['path'] ??  asset_url() . 'Frontend/images/users/user4-128x128.jpg' ?> " class="rounded img-fluid " data-img-name="" alt="<?= $data['alt'] ?? '' ?>" />
+              <span type="button" class="btn" data-toggle="modal" data-target="#form-modal-edit-photo" title="جهت ویرایش کلیک کتید">
+                <img id="img-edit" src="<?= $data['path'] ??  asset_url() . 'Frontend/images/users/user4-128x128.jpg' ?> " class="rounded img-fluid profile-img" data-img-name="" alt="<?= $data['alt'] ?? '' ?>" />
               </span>
               <!-- Modal -->
               <div id="form-modal-edit-photo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -57,7 +57,7 @@
             </li>
             <?php if ($_SESSION['cart'] !== []) : ?>
               <li class="nav-item">
-                <a class="nav-link" id="pills-cart-tab" data-toggle="pill" href="#pills-cart" role="tab" aria-controls="pills-cart" aria-selected="false">سوابق خرید</a>
+                <a class="nav-link" id="pills-cart-tab" data-toggle="pill" href="#pills-cart" role="tab" aria-controls="pills-cart" aria-selected="false">سبد خرید</a>
               </li>
             <?php endif; ?>
           </ul>
@@ -105,26 +105,30 @@
             <div class="tab-pane fade " id="pills-address" role="tabpanel" aria-labelledby="pills-address-tab">
               <div class="row">
                 <div class="col">
-                  <div class="form-group">
-                    <label for="profile-province">استان:</label>
-                    <select name="profile-province" class="form-select" id="profile-province">
-                      <option value="">انتخاب کنید</option>
-                      <?php foreach ($provinces as $value): ?>
-                        <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
-                      <?php endforeach ?>
+                  <div class="form-group d-flex">
+                    <label for="profile-province" class="mr-2 profile-label">استان:</label>
+                    <select name="profile-province" class="form-select" data-width="80%" id="profile-province">
+                        <?php if(!isset($data['province_id'])): ?>
+                          <option value="" disabled selected>انتخاب کنید</option>
+                        <?php endif; ?>
+                        <?php foreach ($provinces as $value): ?>
+                          <option value="<?= $value['id'] ?>"  <?= $data['province_id'] == $value['id'] ?  'selected' : ''  ?>><?= $value['name'] ?></option>
+                        <?php endforeach ?>
                     </select>
                   </div>
                 </div>
-                <div class="col">
+                <div class="col profile-city-placeholder">
                     <label for="profile-city">شهر:</label>
-                    <select name="profile-city" id="profile-city">
-                      <option value=""></option>
+                    <select name="profile-city" id="profile-city" data-city-id="<?= $data['city_id'] ?? $data['city_id'] ?>">
+                      <?php if(!isset($data['city_id'])): ?>
+                        <option value="" disabled selected>ابتدا استان را انتخاب کنید</option>
+                      <?php endif; ?>
                     </select>
                 </div>
                 <div class="col">
                   <div class="form-group d-flex">
-                    <label for="profile-postalCode" class="profile-postalCode">کد پستی:</label>
-                    <input type="number" name="profile-postalCode" class="form-control" id="profile-postalCode">
+                    <label for="profile-postalCode" class="profile-postalCode profile-label">کد پستی:</label>
+                    <input type="number" name="profile-postalCode" class="form-control" id="profile-postalCode" value="<?= $data['postal_code'] ?>">
                   </div>
                 </div>
               </div>

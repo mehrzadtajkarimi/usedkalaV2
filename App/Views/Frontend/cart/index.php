@@ -15,7 +15,7 @@
                         <div class="entry-content">
                             <div class="woocommerce">
                                 <div class="cart-wrapper">
-                                    <form method="post" action="#" class="woocommerce-cart-form">
+                                    <form method="post" action="<?= base_url() ?>order/create" class="woocommerce-cart-form order-form">
                                         <table class="shop_table shop_table_responsive cart ">
                                             <thead>
                                                 <tr>
@@ -59,8 +59,8 @@
                                                                     <span id="ss" class="woocommerce-Price-amount amount"><?= $value['count'] ?></span>
                                                                 </span>
                                                                 <div class="d-flex flex-column quantity ">
-                                                                    <a  href="<?= base_url() ?>cart/plus/<?= $value['id'] ?>" class="fa fa-chevron-up text-muted pr-4 pl-4 pt-4" ></a>
-                                                                    <a  href="<?= base_url() ?>cart/minus/<?= $value['id'] ?>" class="fa fa-chevron-down text-muted pr-4 pl-4 pb-4 "></a>
+                                                                    <a href="<?= base_url() ?>cart/plus/<?= $value['id'] ?>" class="fa fa-chevron-up text-muted pr-4 pl-4 pt-4"></a>
+                                                                    <a href="<?= base_url() ?>cart/minus/<?= $value['id'] ?>" class="fa fa-chevron-down text-muted pr-4 pl-4 pb-4 "></a>
                                                                     <!-- <span  data-href="<?= base_url() ?>cart/plus/<?= $value['id'] ?>" class="fa fa-chevron-up text-muted pr-4 pl-4 pt-4" ></span> -->
                                                                     <!-- <span  data-href="<?= base_url() ?>cart/minus/<?= $value['id'] ?>" class="fa fa-chevron-down text-muted pr-4 pl-4 pb-4 "></span> -->
                                                                 </div>
@@ -78,66 +78,45 @@
                                             </tbody>
                                         </table>
                                         <!-- .shop_table shop_table_responsive -->
-                                    </form>
-                                    <!-- .woocommerce-cart-form -->
-                                    <div class="cart-collaterals">
-                                        <div class="cart_totals">
-                                            <h2>قیمت نهایی</h2>
-                                            <table class="shop_table shop_table_responsive">
-                                                <tbody>
-                                                    <tr class="cart-subtotal">
-                                                        <th>مجموع کل</th>
-                                                        <td data-title="Subtotal">
-                                                            <span class="woocommerce-Price-amount amount"><?= number_format($cart_total) ?> ریال</span>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="shipping">
-                                                        <th>هزینه ارسال</th>
-                                                        <td data-title="Shipping">۵۰۰،۰۰۰ ریال</td>
-                                                    </tr>
-                                                    <tr class="order-total">
-                                                        <th>قیمت کل</th>
-                                                        <td data-title="Total">
-                                                            <strong>
-                                                                <span class="woocommerce-Price-amount amount"><?= number_format($cart_total + 500000) ?> ریال</span>
-                                                            </strong>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <!-- .shop_table shop_table_responsive -->
-                                            <div class="wc-proceed-to-checkout">
-
-
-                                                <form action="<?= base_url('payment') ?>" method="post">
-                                                    <div class='comments pay-type mb-4'>
-                                                        <div>
-                                                            <label for="pay-w">
-                                                                <input type="radio" id="pay-w" name="payType" value='Wallet'> پرداخت کیف پول
-                                                            </label>
-                                                        </div>
-                                                        <div>
-                                                            <label for="pay-o">
-                                                                <input type="radio" id="pay-o" name="payType" value='Online'> پرداخت آنلاین
-                                                            </label>
-                                                        </div>
-                                                        <div>
-                                                            <label for="pay-o">
-                                                                <input type="radio" id="pay-o" name="payType" value='COD' checked> پرداخت در محل
-                                                            </label>
-                                                        </div>
-                                                    </div>
+                                        <!-- .woocommerce-cart-form -->
+                                        <div class="cart-collaterals">
+                                            <div class="cart_totals">
+                                                <h2>قیمت نهایی</h2>
+                                                <table class="shop_table shop_table_responsive">
+                                                    <tbody>
+                                                        <tr class="cart-subtotal">
+                                                            <th>مجموع کل</th>
+                                                            <td data-title="Subtotal">
+                                                                <span class="woocommerce-Price-amount amount"><?= number_format($cart_total) ?> ریال</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="shipping">
+                                                            <th>هزینه ارسال</th>
+                                                            <td data-title="Shipping">۵۰۰،۰۰۰ ریال</td>
+                                                        </tr>
+                                                        <tr class="order-total">
+                                                            <th>قیمت کل</th>
+                                                            <td data-title="Total">
+                                                                <strong>
+                                                                    <span class="woocommerce-Price-amount amount"><?= number_format($cart_total + 500000) ?> ریال</span>
+                                                                </strong>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <!-- .shop_table shop_table_responsive -->
+                                                <div class="wc-proceed-to-checkout">
                                                     <div class='cart-buttons'>
-                                                        <button type='submit' class='checkout-button button alt wc-forward'>پرداخت نهایی</button>
+                                                        <button type='submit' class='checkout-button button alt wc-forward'>ثبت سفارش</button>
                                                         <a class='back-to-shopping' href="<?= base_url('') ?>">ادامه خرید</a>
                                                     </div>
-                                                </form>
+                                                </div>
+                                                <!-- .wc-proceed-to-checkout -->
                                             </div>
-                                            <!-- .wc-proceed-to-checkout -->
+                                            <!-- .cart_totals -->
                                         </div>
-                                        <!-- .cart_totals -->
-                                    </div>
-                                    <!-- .cart-collaterals -->
+                                        <!-- .cart-collaterals -->
+                                    </form>
                                 </div>
                                 <!-- .cart-wrapper -->
                             </div>
