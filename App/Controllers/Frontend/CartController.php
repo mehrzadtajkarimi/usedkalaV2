@@ -44,7 +44,7 @@ class CartController  extends Controller
         if(isset($params['product_quantity'])){
             $product['product_quantity'] = $params['product_quantity'];
         } else {
-            $product['product_quantity'] = 1;
+            $product['product_quantity'] += 1;
         }
         if(isset($params['photo_path'])){
             $product['photo_path'] = $params['photo_path'];

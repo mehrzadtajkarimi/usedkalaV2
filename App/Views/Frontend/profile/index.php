@@ -33,7 +33,8 @@
 
               <div class="mt-3">
                 <div class="list-group list-group-flush">
-                  <a href="#" class="list-group-item list-group-item-action font-weight-bold">سفارش‌های من</a>
+                <a href="<?= base_url() ?>profile" class="list-group-item list-group-item-action font-weight-bold">ویرایش پروفایل</a>
+                  <a href="<?= base_url() ?>profile/orders" class="list-group-item list-group-item-action font-weight-bold">سفارش‌های من</a>
                   <a href="#" class="list-group-item list-group-item-action font-weight-bold">نظرات</a>
                   <a href="#" class="list-group-item list-group-item-action font-weight-bold">کارت های هدیه</a>
                   <a href="#" class="list-group-item list-group-item-action font-weight-bold">بازدید های اخیر</a>
@@ -182,7 +183,7 @@
                               </td>
                               <td data-title="Price" class="product-price text-center ">
                                 <span class="woocommerce-Price-amount amount">
-                                  <span class="woocommerce-Price-amount amount "><?= $value['price'] ?></span>
+                                  <span class="woocommerce-Price-amount amount "><?= number_format($value['price']) ?> ریال</span>
                                 </span>
                               </td>
                               <td class="product-quantity text-center " data-title="Quantity">
@@ -195,7 +196,7 @@
                               </td>
                               <td data-title="Total" class="product-subtotal text-center ">
                                 <span class="woocommerce-Price-amount amount">
-                                  <span class="woocommerce-Price-amount amount subtotal"><?= $value['count'] * $value['price'] ?></span>
+                                  <span class="woocommerce-Price-amount amount subtotal"><?= number_format($value['count'] * $value['price']) ?> ریال</span>
                                 </span>
                               </td>
                             </tr>

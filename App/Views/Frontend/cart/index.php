@@ -54,7 +54,7 @@
                                                             </span>
                                                         </td>
                                                         <td class="product-quantity text-center " data-title="Quantity">
-                                                            <div class="quantity row d-flex justify-content-center">
+                                                            <div class=" row d-flex justify-content-center">
                                                                 <span class="woocommerce-Price-amount amount  m-2" style="align-self: center">
                                                                     <span id="ss" class="woocommerce-Price-amount amount"><?= $value['count'] ?></span>
                                                                 </span>
