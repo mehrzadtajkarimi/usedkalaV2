@@ -36,3 +36,8 @@
     flex: 1 !important;
     max-width: 100% !important;
 }
+
+.table.table--vertical_middle td,
+.table.table--vertical_middle th {
+    vertical-align: middle;
+}

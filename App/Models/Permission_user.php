@@ -19,6 +19,11 @@ class Permission_user extends MysqlBaseModel
         return $this->first(['id' => $id]);
     }
 
+    public function exist_permissionUser($id)
+    {
+        return $this->first(['id' => $id]);
+    }
+
     public function update_permissionUser($params ,$id)
     {
         return $this->update($params, ['id' => $id]);
@@ -31,7 +36,7 @@ class Permission_user extends MysqlBaseModel
     public function join_permissionUser_permission($id)
     {
         return $this->inner_join(
-            'permissions.name,permissions.label',
+            'permissions.name,permissions.label,permission_users.id',
             'permissions',
             'permission_id',
             'id',
