@@ -7,7 +7,8 @@ use App\Models\Order;
 use App\Models\User;
 use App\Services\Auth\Auth;
 use App\Utilities\FlashMessage;
-
+use App\Core\Request;
+use App\Services\Session\SessionManager;
 class OrderController  extends Controller
 {
     private $orderModel;
@@ -30,15 +31,26 @@ class OrderController  extends Controller
 
     public function create()
     {
-        $totalPrice = 0;
-        $totalCount = 0;
-        $user_id = Auth::is_login();
-        $user_info = $this->userModel->read_user($user_id);
-        foreach($_SESSION['cart'] as $value){
-            var_dump($value['weight']);
-            $totalCount += $value['count'];
-            $totalPrice += $value['count'] * $value['price'];
+        if(Auth::is_login()){
+            $totalPrice  = 0;
+            $totalCount  = 0;
+            $totalWeight = 0;
+            $user_id     = Auth::is_login();
+            $user_info   = $this->userModel->read_user($user_id);
+            foreach($_SESSION['cart'] as $value){
+                $totalCount  += $value['count'];
+                $totalPrice  += $value['count'] * $value['price'];
+                $totalWeight += $value['weight'];
+    
+            }
+            echo "<pre>";
+            var_dump($_SESSION['cart']);
+            echo "</pre>";
+        } else {
+            FlashMessage::add(" لطفا برای تکمیل ثبت سفارش ابتدا وارد پروفایل خود شوید. ", FlashMessage::ERROR);
+            return $this->request->redirect('login');
         }
+
 
         // $params = $this->request->params();
         // $params = [

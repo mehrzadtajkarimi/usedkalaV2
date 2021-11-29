@@ -41,9 +41,17 @@ class CartController  extends Controller
         $product_id = $this->request->get_param('id');
         $params     = $this->request->params();
         $product    = $product_model->first(['id' => $product_id['id']]);
-        $product['product_quantity'] = $params['product_quantity'];
-        $product['photo_path']       = $params['photo_path'];
-
+        if(isset($params['product_quantity'])){
+            $product['product_quantity'] = $params['product_quantity'];
+        } else {
+            $product['product_quantity'] = 1;
+        }
+        if(isset($params['photo_path'])){
+            $product['photo_path'] = $params['photo_path'];
+        } else {
+            $product['photo_path'] = $product_model->join_product_to_photo_by_id($product_id['id']);
+            $product['photo_path'] = $product['photo_path'][0]['path'];
+        }
         if ($product) {
             Basket::add($product);
         }

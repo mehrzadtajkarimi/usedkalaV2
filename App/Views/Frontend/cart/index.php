@@ -106,6 +106,10 @@
                                                 </table>
                                                 <!-- .shop_table shop_table_responsive -->
                                                 <div class="wc-proceed-to-checkout">
+                                                    <div class="form-group">
+                                                        <label for="order-notes">اطلاعات تکمیلی سفارش</label>
+                                                        <textarea class="form-control" name="order-notes" id="order-notes" placeholder="اطلاعات تکمیلی سفارش"></textarea>
+                                                    </div>
                                                     <div class='cart-buttons'>
                                                         <button type='submit' class='checkout-button button alt wc-forward'>ثبت سفارش</button>
                                                         <a class='back-to-shopping' href="<?= base_url('') ?>">ادامه خرید</a>
