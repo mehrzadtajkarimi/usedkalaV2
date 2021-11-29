@@ -38,7 +38,6 @@ class AccessController  extends Controller
         $admins      = $this->userModel->is_admin();
 
         $data = array(
-            'accesses'    => $roles,
             'permissions' => $permissions,
             'roles'       => $roles,
             'admins'      => $admins,
@@ -52,23 +51,30 @@ class AccessController  extends Controller
     {
         $params = $this->request->params();
         $user_id = Auth::is_login();
-        $permission_exists = $this->permissionUserModel->exist_permissionUser($params['access-permission']);
-        $role_exists = $this->roleUserModel->create_roleUser($params['access-permission']);
-        if ($permission_exists) {
-            # code...
+        $permission_exists = $this->permissionUserModel->exist_permissionUser($params['access-permission'], $user_id);
+        $role_exists = $this->roleUserModel->exist_roleUser($params['access-permission'], $user_id);
+        if (!$permission_exists) {
+            foreach ($params['access-permission'] as  $permission_id) {
+                $permissionUser_created = $this->permissionUserModel->create_permissionUser([
+                    'permission_id' => $permission_id,
+                    'user_id'       => $user_id,
+                ]);
+            }
         }
-        foreach ($params['access-permission'] as  $permission_id) {
-            $this->permissionUserModel->create_permissionUser([
-                'permission_id' => $permission_id,
-                'user_id'       => $user_id,
-            ]);
+        if (!$role_exists) {
+            foreach ($params['access-role'] as  $role_id) {
+                $roleUser_created =  $this->roleUserModel->create_roleUser([
+                    'role_id' => $role_id,
+                    'user_id' => $user_id,
+                ]);
+            }
         }
-        foreach ($params['access-role'] as  $role_id) {
-            $this->roleUserModel->create_roleUser([
-                'role_id' => $role_id,
-                'user_id' => $user_id,
-            ]);
+        if ($permissionUser_created ||  $roleUser_created) {
+            FlashMessage::add("مقادیر  با موفقیت از دیتابیس اضافه شد");
+            return $this->request->redirect('admin/access');
         }
+        FlashMessage::add(" مشکلی در حذف پیش آمده است", FlashMessage::ERROR);
+        return $this->request->redirect('admin/access');
     }
 
     public function get_access()
@@ -100,7 +106,7 @@ class AccessController  extends Controller
             FlashMessage::add("مقادیر  با موفقیت از دیتابیس حذف شد");
             return $this->request->redirect('admin/access');
         }
-        FlashMessage::add(" مشکلی در حذف نقش پیش آمده است", FlashMessage::ERROR);
+        FlashMessage::add(" مشکلی در حذف  پیش آمده است", FlashMessage::ERROR);
         return $this->request->redirect('admin/access');
     }
 
