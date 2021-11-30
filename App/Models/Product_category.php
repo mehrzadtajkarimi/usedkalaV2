@@ -33,6 +33,18 @@ class Product_category extends MysqlBaseModel
         return $categories;
     }
 
+    public function read_products_by_category_id($category_id = null)
+    {
+        $products =  $this->inner_join(
+            '*',
+            'products',
+            'product_id',
+            'id',
+            "product_categories.category_id={$category_id}",
+        );
+        return $products;
+    }
+
 
 
     public function update_productCategories($category_id, $product_id)

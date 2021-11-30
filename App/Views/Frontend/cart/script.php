@@ -1,12 +1,14 @@
 <script>
     $(document).ready(function() {
         $(".quantity").children().click(function(e) {
-            theURL = $(this).data('href');
+            e.preventDefault();
+            theURL = $(this).attr('href');
             $.get({
                 url: theURL,
                 success: function(result) {
-                    $(".quantity").html(result);
-                    // new WOW().init();
+                    result = JSON.parse(result);
+                    $("#product-quantity").html(result.count);
+                    $("#product-total-price").html(result.total);
                 }
             });
         });

@@ -42,13 +42,14 @@ class SessionProvider implements BasketContract
     public function plus($product_id)
     {
         $_SESSION['cart'][$product_id]['count'] += 1;
+        return $_SESSION['cart'][$product_id]['count'];
     }
     public function minus($product_id)
     {
         if ($_SESSION['cart'][$product_id]['count']>1) {
             $_SESSION['cart'][$product_id]['count'] -= 1;
         }
-        return ;
+        return $_SESSION['cart'][$product_id]['count'];
     }
 
 

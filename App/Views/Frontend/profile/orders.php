@@ -1,5 +1,6 @@
 <section class="content">
     <div class="col-full desktop-only">
+    <?= App\Utilities\FlashMessage::show_message(); ?>
         <div class="mt-4 row">
             <div class="col-2">
                 <div class="card">
@@ -47,8 +48,10 @@
                         <thead>
                             <tr>
                                 <th class="text-center">شماره سفارش</th>
-                                <th class="text-center">تعداد</th>
+                                <th class="text-center">تعداد اقلام سفارش داده شده</th>
                                 <th class="text-center">قیمت کل</th>
+                                <th class="text-center">وضعیت</th>
+                                <th class="text-center">تاریخ ایجاد</th>
                                 <th class="text-center">&nbsp;</th>
                             </tr>
                         </thead>
@@ -64,6 +67,22 @@
                                     <td class="text-center">
                                         <span class="woocommerce-Price-amount amount">
                                             <?= number_format($value['grand_total']) ?> ریال
+                                        </span>
+                                    </td>
+                                    <td class="text-center">
+                                        <?php if($value['status'] == 1): ?>
+                                            در حال بررسی
+                                        <?php endif; ?>
+                                        <?php if($value['status'] == 2): ?>
+                                            ارسال شده
+                                        <?php endif; ?>
+                                        <?php if($value['status'] == 3): ?>
+                                            تکمیل شده
+                                        <?php endif; ?>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="woocommerce-Price-amount amount">
+                                            <?= $value['created_at'] ?>
                                         </span>
                                     </td>
                                     <td class="text-center">

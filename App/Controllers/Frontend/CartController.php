@@ -59,16 +59,25 @@ class CartController  extends Controller
     }
     public function plus()
     {
-        $product_id = $this->request->get_param('id');
-
-        Basket::plus($product_id['id']);
-        Request::redirect('cart');
+        $product_id   = $this->request->get_param('id');
+        $plus_product = $this->convert_numbers('fa', Basket::plus($product_id['id']));
+        $total        = $this->convert_numbers('fa', number_format(Basket::total()));
+        $result       = [
+            'count' => $plus_product,
+            'total' => $total
+        ];
+        echo json_encode($result, JSON_UNESCAPED_UNICODE);
     }
     public function minus()
     {
-        $product_id = $this->request->get_param('id');
-        Basket::minus($product_id['id']);
-        Request::redirect('cart');
+        $product_id    = $this->request->get_param('id');
+        $minus_product = $this->convert_numbers('fa', Basket::minus($product_id['id']));
+        $total         = $this->convert_numbers('fa', number_format(Basket::total()));
+        $result        = [
+            'count' => $minus_product,
+            'total' => $total
+        ];
+        echo json_encode($result, JSON_UNESCAPED_UNICODE);
     }
 
     public function remove()

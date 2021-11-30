@@ -55,8 +55,8 @@
                                                         </td>
                                                         <td class="product-quantity text-center " data-title="Quantity">
                                                             <div class=" row d-flex justify-content-center">
-                                                                <span class="woocommerce-Price-amount amount  m-2" style="align-self: center">
-                                                                    <span id="ss" class="woocommerce-Price-amount amount"><?= $value['count'] ?></span>
+                                                                <span class="woocommerce-Price-amount amount  m-2" id="product-quantity"  style="align-self: center">
+                                                                    <span class="woocommerce-Price-amount amount"><?= $value['count'] ?></span>
                                                                 </span>
                                                                 <div class="d-flex flex-column quantity ">
                                                                     <a href="<?= base_url() ?>cart/plus/<?= $value['id'] ?>" class="fa fa-chevron-up text-muted pr-4 pl-4 pt-4"></a>
@@ -68,7 +68,7 @@
                                                             </div>
                                                         </td>
                                                         <td data-title="Total" class="product-subtotal text-center ">
-                                                            <span class="woocommerce-Price-amount amount">
+                                                            <span class="woocommerce-Price-amount amount" id="product-total-price">
                                                                 <span class="woocommerce-Price-amount amount subtotal"><?= number_format($value['count'] * $value['price']) ?> ریال</span>
                                                             </span>
                                                             <a title="Remove this item" class="remove" href="<?= base_url() ?>cart/remove/<?= $value['id'] ?>">×</a>

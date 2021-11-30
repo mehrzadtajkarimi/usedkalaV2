@@ -92,7 +92,12 @@ class ProfileController extends Controller
                 'address'     => $params['profile-address'],
                 'province_id' => $params['profile-province'],
                 'city_id'     => $params['profile-city'],
-                'postal_code' => $params['profile-postalCode']
+                'postal_code' => $params['profile-postalCode'],
+                'national_code' => $params['profile-national-code'],
+                'birthday' => $params['profile-birthday'],
+                'gender' => $params['profile-gender'],
+                'jobtitle' => $params['profile-job-title'],
+                'company' => $params['profile-company'],
             ], $id['id']);
             FlashMessage::add("مقادیر  با موفقیت ذخیره شد.");
         }
