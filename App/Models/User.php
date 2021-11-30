@@ -33,9 +33,7 @@ class User extends MysqlBaseModel
     {
         return $this->first(['id' => $id]);
     }
-    public function has_roles($param)
-    {
-    }
+
     public function is_admin($user_id = null)
     {
         if (is_null($user_id)) {
@@ -47,6 +45,13 @@ class User extends MysqlBaseModel
 
             return $user['user_level'] == 0 ?: FlashMessage::add("  لطفا از ادمین سایت بخواهید دسترسی به پنل  را برای شما ایجاد کند! ", FlashMessage::WARNING);
         }
+    }
+    public function get_admin($user_id)
+    {
+        return $this->first([
+            'user_level' => 0,
+            'id'         => $user_id
+        ]);
     }
 
 

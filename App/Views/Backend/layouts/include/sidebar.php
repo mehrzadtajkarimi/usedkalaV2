@@ -2,8 +2,7 @@
 <div class="pb-3 mt-3 mb-3 user-panel d-flex">
     <a href="<?= base_url() ?>admin/profile" class="image">
         <img src="<?= asset_url() ?>Backend/dist/img/user.png" class="img-circle elevation-2" alt="User Image">
-        <img src="<?= asset_url() ?>Backend/dist/img/user.png" class="img-circle elevation-2" alt="User Image">
-        <span class="">مهرزاد</span>
+        <span class=""><?= admin_name('first_name') . ' ' .  admin_name('last_name')  ?></span>
     </a>
     <div class="info">
         <a href="<?= base_url() ?>admin/logout" class="position-absolute " style="right: 195px">

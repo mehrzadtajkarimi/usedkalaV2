@@ -28,16 +28,16 @@
                 <th class="text-center" scope="col">توضیح</th>
                 <th class="text-center" scope="col">اقدامات</th>
               </tr>
-              <?php foreach ($admins as $value) : ?>
+              <?php foreach ($admins as $admin) : ?>
                 <tr>
-                  <td class="text-center" title=""><?= $value['id'] ?></td>
-                  <td class="text-center" title=""><?= $value['first_name'] . ' ' . $value['last_name'] ?></td>
-                  <td class="text-center" title=""><?= $value['phone'] ?></td>
+                  <td class="text-center" title=""><?= $admin['id'] ?></td>
+                  <td class="text-center" title=""><?= $admin['first_name'] . ' ' . $admin['last_name'] ?></td>
+                  <td class="text-center" title=""><?= $admin['phone'] ?></td>
                   <td class="text-center">
                     <!-- Button trigger modal -->
                     <!-- <div> -->
 
-                    <div>
+                    <div class="mb-1">
                       <button type="button" id="add-permission" class="shadow-sm btn btn-success btn-sm" style="padding: 0px 30px; border-radius: 18px;" data-toggle="modal" data-target="#add_permission">
                         ایجـــــــــاد مجـوز
                       </button>
@@ -45,13 +45,8 @@
                       <div class="modal fade" id="add_permission" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                           <div class="modal-content">
-                            <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
                             <div class="modal-body">
-                              <form action="<?= base_url() ?>/admin/access/add_access/role/<?= $value['id'] ?>" method="post" class="p-1">
+                              <form action="<?= base_url() ?>admin/access/add_access/role/<?= $admin['id'] ?>" method="post" class="p-1">
                                 <div class="row">
                                   <div class="form-group col">
                                     <label class=" col-form-label" for="access-permission"> دسته بندی</label>
@@ -62,7 +57,14 @@
                                     </select>
                                   </div>
                                 </div>
-                                <button type="submit" class="float-left btn btn-primary btn-block">ذخیره </button>
+                                <div class="row">
+                                  <div class="col">
+                                    <button type="submit" class="float-left btn btn-primary btn-block">ذخیره </button>
+                                  </div>
+                                  <div class="col">
+                                    <a href="" class="float-right btn btn-danger btn-block">انصراف</a>
+                                  </div>
+                                </div>
                               </form>
                             </div>
                           </div>
@@ -70,7 +72,7 @@
                       </div>
                     </div>
 
-                    <div>
+                    <div class="mb-1">
                       <button type="button" id="add-role" class="shadow-sm btn btn-success btn-sm" style="padding: 0px 30px; border-radius: 18px;" data-toggle="modal" data-target="#add_role">
                         ایجـــــــــاد سمت
                       </button>
@@ -78,13 +80,8 @@
                       <div class="modal fade" id="add_role" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                           <div class="modal-content">
-                            <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
                             <div class="modal-body">
-                              <form action="<?= base_url() ?>/admin/access/add_access/role/<?= $value['id'] ?>" method="post" class="p-1">
+                              <form action="<?= base_url() ?>admin/access/add_access/role/<?= $admin['id'] ?>" method="post" class="p-1">
                                 <div class="row">
                                   <div class="form-group col">
                                     <label class=" col-form-label" for="access-role"> دسته بندی</label>
@@ -95,7 +92,14 @@
                                     </select>
                                   </div>
                                 </div>
-                                <button type="submit" class="float-left btn btn-primary btn-block">ذخیره </button>
+                                <div class="row">
+                                  <div class="col">
+                                    <button type="submit" class="float-left btn btn-primary btn-block">ذخیره </button>
+                                  </div>
+                                  <div class="col">
+                                    <a href="" class="float-right btn btn-danger btn-block">انصراف</a>
+                                  </div>
+                                </div>
                               </form>
                             </div>
                           </div>
@@ -107,14 +111,14 @@
 
 
 
-                    <form method="post" action="<?= base_url() ?>admin/access/<?= $value['id'] ?>" class="d-inline">
+                    <form method="post" action="<?= base_url() ?>admin/access/<?= $admin['id'] ?>" class="d-inline">
                       <input type="hidden" name="_method" value="delete" />
                       <input type="submit" class="shadow-sm btn btn-danger btn-sm " style="padding: 0px 16px; border-radius: 18px;" onclick="return confirm('آیا برای حذف اطلاعات اطمینان دارید');" value="حـذف">
                     </form>
-                    <a data-id="<?= $value['id'] ?>" type="button" id="access-show" class="shadow-sm btn btn-warning btn-sm " style="padding: 0px 16px; border-radius: 18px;" data-toggle="collapse" data-target="#more<?= $value['id'] ?>" aria-expanded="false" aria-controls="more">نمایش </a>
+                    <a data-id="<?= $admin['id'] ?>" type="button" id="" class="shadow-sm access-show btn btn-warning btn-sm" style="padding: 0px 16px; border-radius: 18px;" data-toggle="collapse" data-target="#more<?= $admin['id'] ?>" aria-expanded="false" aria-controls="more">نمایش </a>
                   </td>
                 </tr>
-                <tr class="collapse multi-collapse " id="more<?= $value['id'] ?>">
+                <tr class="collapse multi-collapse " id="more<?= $admin['id'] ?>">
                   <td colspan="10" id="attr">
                     <div class="row">
                       <a href="<?= base_url() ?>">

@@ -4,6 +4,7 @@ use App\Core\Request;
 use App\Models\Category;
 use App\Models\Discount;
 use App\Models\Photo;
+use App\Models\User;
 use App\Services\Auth\Auth;
 use App\Services\Basket\Basket;
 
@@ -215,4 +216,11 @@ function is_active($routeName, $activeClassName = 'active menu-open d-block')
         return in_array($request->uri(), $routeName) ? $activeClassName : '';
     }
     return $request->uri() == $routeName ? $activeClassName : '';
+}
+
+function admin_name($name)
+{
+    $admin_id = Auth::is_login();
+    $userModel = new User();
+     return $userModel->get_admin($admin_id)[$name];
 }

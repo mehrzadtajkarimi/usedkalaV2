@@ -18,6 +18,21 @@ class Role_user extends MysqlBaseModel
         $permission_id =  $this->get('permission_id', ['role_id' => $id]) ?? '';
         return $permission_id ? $this->connection->select('permissions', ['id'], ['id' => $permission_id]) : false;
     }
+    public function exist_roleUser($param,$user_id)
+    {
+        if (isset($param)) {
+            # code...
+            foreach ($param as  $role_id) {
+    
+               $result =+ $this->count([
+                    'role_id' => $role_id,
+                    'user_id' => $user_id,
+                ]);
+            }
+            return $result;
+        }
+        return false;
+    }
 
     public function update_roleUser($params ,$role_id)
     {
