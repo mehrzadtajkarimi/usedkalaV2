@@ -224,3 +224,9 @@ function admin_name($name)
     $userModel = new User();
      return $userModel->get_admin($admin_id)[$name];
 }
+function can($name)
+{
+    $admin_id = Auth::is_login();
+    $userModel = new User();
+     return $userModel->get_admin($admin_id)[$name];
+}

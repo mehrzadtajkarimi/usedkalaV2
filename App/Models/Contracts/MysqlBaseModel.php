@@ -306,7 +306,7 @@ class  MysqlBaseModel extends BaseModel
         $join_two,
         $table_two_as,
         $table_two_to,
-        $where_1,
+        $where_1 = null,
         $where_2 = null,
         $where_3 = null,
         $where_4 = null
@@ -318,6 +318,9 @@ class  MysqlBaseModel extends BaseModel
         INNER JOIN $join_two
         ON $this->table.$table_two_as = $join_two.$table_two_to
         ";
+        if ($where_1) {
+            return $this->connection->query("$query AND $where_1")->fetchAll();
+        }
         if ($where_2) {
             return $this->connection->query("$query AND $where_1 AND $where_2")->fetchAll();
         }
@@ -327,7 +330,7 @@ class  MysqlBaseModel extends BaseModel
         if ($where_4) {
             return $this->connection->query("$query AND $where_1 AND $where_2 AND $where_3 AND $where_4")->fetchAll();
         }
-        return $this->connection->query("$query AND $where_1")->fetchAll();
+        return $this->connection->query("$query")->fetchAll();
     }
 
     public function inner_join_two_relation(

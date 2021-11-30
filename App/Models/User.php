@@ -29,8 +29,13 @@ class User extends MysqlBaseModel
             return $this->first(['email' => $param['email']]) ?? null;
         }
     }
-    public function read_user($id)
+    public function read_user($id= null)
     {
+        if (is_null($id)) {
+            return $this->get('*',[
+                'user_level[>]'=> 0
+            ]);
+        }
         return $this->first(['id' => $id]);
     }
 
@@ -71,5 +76,19 @@ class User extends MysqlBaseModel
             "photos.type=0",
             "photos.entity_type='User'",
         )[0] ??  $this->first(['id' => $user_id]);
+    }
+
+    public function join__whit_province_city()
+    {
+        return $this->inner_join_two(
+            "users.*,provinces.name AS province_name ,cities.name AS city_name",
+            "cities",
+            "city_id",
+            "id",
+            "provinces",
+            "province_id",
+            "id",
+            "users.user_level>0",
+           );
     }
 }
