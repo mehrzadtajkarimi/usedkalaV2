@@ -20,6 +20,15 @@ class Order extends MysqlBaseModel
         }
         return $this->first(['id' => $id]);
     }
+    
+    public function read_order_by_user_id($user_id, $id = null)
+    {
+        if (is_null($id)) {
+            return $this->get('*' , ['user_id' => $user_id]);
+        } else {
+            return $this->get('*' , ['user_id' => $user_id, 'id' => $id]);
+        }
+    }
 
     public function update_order(array $params, $id)
     {

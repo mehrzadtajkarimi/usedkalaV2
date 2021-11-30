@@ -58,7 +58,7 @@ class ProfileController extends Controller
                 'cart_items' => $cart_items,
                 'provinces'  => $this->provinceModel->read_province()
             );
-            return view('Frontend.user.profile', $data);
+            return view('Frontend.profile.index', $data);
         }
         return $this->request->redirect('login');
     }
