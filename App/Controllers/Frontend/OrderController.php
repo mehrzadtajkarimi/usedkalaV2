@@ -7,7 +7,9 @@ use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\User;
 use App\Models\City;
+use App\Models\Photo;
 use App\Models\Province;
+use App\Models\Product;
 use App\Services\Auth\Auth;
 use App\Utilities\FlashMessage;
 use App\Services\Session\SessionManager;
@@ -18,6 +20,8 @@ class OrderController  extends Controller
     private $userModel;
     private $cityModel;
     private $provinceModel;
+    private $productModel;
+    private $photoModel;
 
     public function __construct()
     {
@@ -27,6 +31,8 @@ class OrderController  extends Controller
         $this->userModel      = new User();
         $this->cityModel      = new City();
         $this->provinceModel  = new Province();
+        $this->productModel   = new Product();
+        $this->photoModel     = new Photo();
     }
 
     public function index()
@@ -47,15 +53,28 @@ class OrderController  extends Controller
 
     public function show()
     {
-        $user_id = SessionManager::get('auth');
-        $id      = $this->request->get_param('id');
-        $order   = $this->orderModel->read_order_by_user_id($user_id, $id);
+        $user_id     = SessionManager::get('auth');
+        $id          = $this->request->get_param('id');
+        $order       = $this->orderModel->read_order_by_user_id($user_id, $id);
+        $order_items = $this->orderItemModel->read_orderItem_by_order_id($order[0]['id']);
+        foreach($order_items as $key=>$value){
+            $order_items_info[] = $this->productModel->read_product($value['product_id']);
+            $order_items_img [] = $this->photoModel->read_photo_by_id($value['product_id'], 'Product', true);
+        }
+        foreach($order_items_info as $key=>$value){
+            $order_items[$key]['order_item_name'] = $value['title'];
+            $order_items[$key]['slug'] = $value['slug'];
+        }
+        foreach($order_items_img as $key=>$value){
+            $order_items[$key]['img_path'] = $value[0]['path'];
+            $order_items[$key]['img_alt']  = $value[0]['alt'];
+        }
         if (Auth::is_login()) {
             $data = array(
                 'data'        => $this->userModel->join_user_to_photo($user_id),
                 'cart_total'  => array_sum($cart_total ?? []),
                 'order'       => $order,
-                'order_items' => $this->orderItemModel->read_orderItem_by_order_id($order[0]['id']),
+                'order_items' => $order_items,
                 'city'        => $this->cityModel->read_city($order[0]['city_id']),
                 'province'    => $this->provinceModel->read_province($order[0]['province_id']),
             );
@@ -100,11 +119,10 @@ class OrderController  extends Controller
                 'shipping_cost'  => $shipping,
                 'notes'          => $notes
             );
-            dd($_SESSION['cart']);
             $order_id = $this->orderModel->create_order($params_create);
             foreach($_SESSION['cart'] as $value){
                 $single_product_id            = $value['id'];
-                $single_product_quantity      = $value['product_quantity'];
+                $single_product_quantity      = $value['count'];
                 $single_product_price         = $value['price'];
                 $single_product_discount      = 0;
                 $single_product_params_create = [

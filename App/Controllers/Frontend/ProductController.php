@@ -62,10 +62,24 @@ class ProductController extends Controller
         $wish_list          = $this->wishListModel->read_wishList($params['id'], 'Product');
 
         if (count($product) == 0) Request::redirect('');
-        $productCat = $this->ProductCatModel->read_productCategories($params);
+        $productCat       = $this->ProductCatModel->read_productCategories($params);
+        $related_products = $this->ProductCatModel->read_products_by_category_id($productCat[0]['category_id']);
+        
+        if(!empty($related_products)){
+            foreach ($related_products as $key => $value){
+                $images_path[] = $this->photoModel->read_single_photo_by_id('0', $value['id'], 'Product')[0];
+            }
 
+            if(!empty($images_path)){
+                foreach ($images_path as $key => $value){
+                    $related_products[$key]['img_path'] = $value['path'];
+                    $related_products[$key]['img_alt']  = $value['alt'];
+                }
+            }
+        }
 
         $data = array(
+            'product_id'            => $params['id'],
             'comments'              => $productCommentLike ?? [],
             'tags'                  => $productTag ?? [],
             'photos'                => $photos,
@@ -76,6 +90,7 @@ class ProductController extends Controller
             'wish_list'             => $wish_list,
             'brand'                 => $productBrand[0],
             'home_page_active_menu' => "single-product full-width normal",
+            'related_products'      => $related_products,
         );
         return view('Frontend.product.show', $data);
     }

@@ -41,3 +41,14 @@
 .table.table--vertical_middle th {
     vertical-align: middle;
 }
+
+.related-product-item {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid #ebebeb;
+}
+
+.related-product-item>img {
+    flex: 1;
+}

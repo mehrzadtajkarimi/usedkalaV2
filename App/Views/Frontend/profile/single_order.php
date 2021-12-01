@@ -42,37 +42,38 @@
                 </div>
             </div>
             <div class="col-10">
-                <p>اطلاعات سفارش:</p>
+                <h3>اطلاعات سفارش:</h3>
                 <div>
-                    <?php foreach ($order as $value): ?>
+                    <?php foreach ($order as $value) : ?>
                         <div>
                             <span>شماره سفارش: </span><span><?= $value['order_number'] ?></span>
                         </div>
-                        <div class="d-flex justify-content-between">
+                        <div>
+                            <h6>اطلاعات  تحویل گیرنده سفارش</h6>
                             <div>
-                                <span>نام و نام خانوادگی تحویل گیرنده سفارش: </span><span><?= $value['user_full_name'] ?></span>
+                                <span>نام و نام خانوادگی: </span><span><?= $value['user_full_name'] ?></span>
                             </div>
                             <div>
-                                <span>شماره تماس تحویل گیرنده سفارش: </span><span class="woocommerce-Price-amount amount"><?= $value['user_phone'] ?></span>
+                                <span>شماره تماس: </span><span class="woocommerce-Price-amount amount"><?= $value['user_phone'] ?></span>
                             </div>
-                        </div>
-                        <div>
-                            <span>آدرس کامل تحویل گیرنده سفارش: </span><span class="woocommerce-Price-amount amount"><?= $province['name'] ?>، <?= $city['name'] ?>، <?= $value['address'] ?></span>
-                        </div>
-                        <div>
-                            <span>کد پستی تحویل گیرنده سفارش: </span><span class="woocommerce-Price-amount amount"><?= $value['postal_code'] ?></span>
+                            <div>
+                                <span>آدرس: </span><span class="woocommerce-Price-amount amount"><?= $province['name'] ?>، <?= $city['name'] ?>، <?= $value['address'] ?></span>
+                            </div>
+                            <div>
+                                <span>کد پستی: </span><span class="woocommerce-Price-amount amount"><?= $value['postal_code'] ?></span>
+                            </div>
                         </div>
                         <div>
                             <span>تعداد اقلام سفارش: </span><span class="woocommerce-Price-amount amount"><?= $value['item_count'] ?></span>
                         </div>
                         <div>
-                            <span>مبلغ کل سفارش: </span><span class="woocommerce-Price-amount amount"><?= number_format($value['grand_total']) ?></span>
+                            <span>مبلغ کل سفارش: </span><span class="woocommerce-Price-amount amount"><?= number_format($value['grand_total']) ?> ریال</span>
                         </div>
                         <div>
-                            <span>تخفیف کل سفارش: </span><span class="woocommerce-Price-amount amount"><?= number_format($value['discount_total']) ?></span>
+                            <span>تخفیف کل سفارش: </span><span class="woocommerce-Price-amount amount"><?= number_format($value['discount_total']) ?> ریال</span>
                         </div>
                         <div>
-                            <span>هزینه ارسال سفارش: </span><span class="woocommerce-Price-amount amount"><?= number_format($value['shipping_cost']) ?></span>
+                            <span>هزینه ارسال سفارش: </span><span class="woocommerce-Price-amount amount"><?= number_format($value['shipping_cost']) ?> ریال</span>
                         </div>
                         <div>
                             <span>اطلاعات تکمیلی سفارش: </span><span class="woocommerce-Price-amount amount"><?= $value['notes'] ?></span>
@@ -80,39 +81,56 @@
                     <?php endforeach; ?>
                 </div>
                 <div>
-                <table class="shop_table shop_table_responsive cart ">
-                    <thead>
-                        <tr>
-                            <th class="text-center">شماره سفارش</th>
-                            <th class="text-center">تعداد</th>
-                            <th class="text-center">قیمت کل</th>
-                            <th class="text-center">&nbsp;</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($order_items as $value) : ?>
-                            <tr class="text-center">
-                                <td class="text-center amount">
-                                    <?= $value['order_number'] ?>
-                                </td>
-                                <td class="text-center amount">
-                                    <?= $value['item_count'] ?>
-                                </td>
-                                <td class="text-center">
-                                    <span class="woocommerce-Price-amount amount">
-                                        <?= number_format($value['grand_total']) ?> ریال
-                                    </span>
-                                </td>
-                                <td class="text-center">
-                                    <a href="<?= base_url() ?>profile/orders/<?= $value['id'] ?>">
-                                        مشاهده سفارش
-                                    </a>
-                                </td>
+                    <table class="shop_table shop_table_responsive cart ">
+                        <thead>
+                            <tr>
+                                <th class="text-center">&nbsp;</th>
+                                <th class="text-center">نام محصول</th>
+                                <th class="text-center">تعداد محصول</th>
+                                <th class="text-center">قیمت واحد</th>
+                                <th class="text-center">قیمت کل</th>
+                                <th class="text-center">تخفیف</th>
+                                <th class="text-center">&nbsp;</th>
                             </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-                    <?php  echo "<pre>";  var_dump($order_items) ?>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($order_items as $value) : ?>
+                                <tr class="text-center">
+                                    <td>
+                                        <img width="180" height="180" alt="" class="wp-post-image" src="<?= $value['img_path'] ?>" alt="<?= $value['img_alt'] ?>">
+                                    </td>
+                                    <td class="text-center amount">
+                                        <?= $value['order_item_name'] ?>
+                                    </td>
+                                    <td class="text-center amount">
+                                        <span class="woocommerce-Price-amount amount">
+                                            <?= number_format($value['quantity']) ?>
+                                        </span>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="woocommerce-Price-amount amount">
+                                            <?= number_format($value['price']) ?> ریال
+                                        </span>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="woocommerce-Price-amount amount">
+                                            <?= number_format($value['price'] * $value['quantity']) ?> ریال
+                                        </span>
+                                    </td>
+                                    <td class="text-center">
+                                        <span class="woocommerce-Price-amount amount">
+                                            <?= number_format($value['discount']) ?> ریال
+                                        </span>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="<?= base_url() ?>product/<?= $value['product_id'] ?>/<?= $value['slug'] ?>">
+                                            مشاهده کالا
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Utilities\Lang;
 
 class Controller
 {
@@ -53,5 +54,16 @@ class Controller
         }
 
         return $text;
+    }
+
+    public function convert_numbers($ln, $input)
+    {
+        $lang = new Lang;
+        if ($ln == 'fa') {
+            return $lang->convertEnglishNumbersToPersian($input);
+        }
+        if ($ln == 'en') {
+            return $lang->convertPersianNumbersToEnglish($input);
+        }
     }
 }

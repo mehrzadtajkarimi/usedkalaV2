@@ -73,13 +73,13 @@
               <div class="row">
                 <div class="col">
                   <div class="form-group">
-                    <label for="profile-name">نام</label>
+                    <label for="profile-name">نام:</label>
                     <input name="profile-name" type="text" class="form-control" id="profile-name" value="<?= $data['first_name'] ?>" placeholder="نام خود را وارد نمایید">
                   </div>
                 </div>
                 <div class="col">
                   <div class="form-group">
-                    <label for="profile-family">نام خانوادگی</label>
+                    <label for="profile-family">نام خانوادگی:</label>
                     <input name="profile-family" type="text" class="form-control" id="profile-family" value="<?= $data['last_name'] ?>" placeholder="نام  خانوادگی را وارد نمایید">
                   </div>
                 </div>
@@ -99,6 +99,53 @@
                   <div class="form-group">
                     <label for="profile-email">ایمیل :</label>
                     <input name="profile-email" type="email" class="form-control" id="profile-email" value="<?= $data['email'] ?>" placeholder="ایمیل خود را وارد نمایید">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="profile-national-code">
+                      کد ملی:
+                    </label>
+                    <input name="profile-national-code" type="text" class="form-control" id="profile-national-code" value="<?= $data['national_code'] ?>">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="profile-birthday">
+                      تاریخ تولد:
+                    </label>
+                    <input name="profile-birthday" type="text" class="form-control" id="profile-birthday" value="<?= $data['birthday'] ?>">
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label>
+                      جنسیت:
+                    </label>
+                    <div>
+                      <label for="male">مذکر</label>
+                      <input type="radio" name="profile-gender" id="male" value="1" <?= $data['gender'] == "1" ? 'checked="checked"' : '' ?>>
+                      <label for="female">مونث</label>
+                      <input type="radio" name="profile-gender" id="female" value="2" <?= $data['gender'] == "2" ? 'checked="checked"' : '' ?>>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label for="profile-job-title">عنوان شغلی:</label>
+                    <input name="profile-job-title" type="text" class="form-control" id="profile-job-title" value="<?= $data['jobtitle'] ?>" placeholder="عنوان شغلی خود را وارد نمایید">
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <label for="profile-company">عنوان شرکت:</label>
+                    <input name="profile-company" type="text" class="form-control" id="profile-company" value="<?= $data['company'] ?>" placeholder="نام شرکتی که در آن شاغل هستید را وارد نمایید">
                   </div>
                 </div>
               </div>
