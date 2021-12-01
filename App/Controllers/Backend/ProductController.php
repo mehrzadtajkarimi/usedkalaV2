@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Photo;
 use App\Models\Product_category;
 use App\Models\Product_tag;
+use App\Models\Related;
 use App\Models\Tag;
 use App\Models\Taggable;
 use App\Services\Auth\Auth;
@@ -25,6 +26,7 @@ class ProductController extends Controller
     private $tagModel;
     private $productCategoriesModel;
     private $taggableModel;
+    private $relatedModel;
 
     public function __construct()
     {
@@ -36,6 +38,7 @@ class ProductController extends Controller
         $this->tagModel               = new Tag();
         $this->productCategoriesModel = new Product_category();
         $this->taggableModel          = new Taggable();
+        $this->relatedModel           = new Related();
     }
 
     public function index()
@@ -74,6 +77,7 @@ class ProductController extends Controller
             'seo_title'       => $params['seo-title'],
             'seo_description' => $params['seo-description'],
             'seo_robot'       => $params['seo-robot'],
+            'status_related'  => $params['related-products-status'],
         );
 
         $files                   = $this->request->files();
@@ -82,6 +86,28 @@ class ProductController extends Controller
         $check_file_param_exists = !empty($files_param_tmp_name[0]);
         if ($check_file_param_exists) {
             $product_id = $this->productModel->create_product($params_create);
+            if(!empty($params['related-products-cat']))
+            {
+                foreach ($params['related-products-cat'] as $category_id){
+                    $is_create_product =  $this->relatedModel->create_related([
+                        'entity_type' => 'product',
+                        'entity_id'   => $product_id,
+                        'related_id'  => $category_id,
+                        'user_id'     => Auth::is_login(),
+                    ]);
+                }
+            }
+            if(!empty($params['related-products-name']))
+            {
+                foreach ($params['related-products-name'] as $p_id){
+                    $is_create_product =  $this->relatedModel->create_related([
+                        'entity_type' => 'product',
+                        'entity_id'   => $product_id,
+                        'related_id'  => $p_id,
+                        'user_id'     => Auth::is_login(),
+                    ]);
+                }
+            }
             foreach ($params['product-category'] as  $category_id) {
                 $is_create_product =  $this->productCategoriesModel->create_productCategories([
                     'product_id'  => $product_id,
@@ -137,9 +163,14 @@ class ProductController extends Controller
 
     public function edit()
     {
-        $products_id = $this->request->get_param('id');
+        $products_id         = $this->request->get_param('id');
         $categories_selected = $this->productCategoriesModel->read_productCategories($products_id);
         $tags_selected       = $this->taggableModel->read_taggable($products_id['id']);
+        $product             = $this->productModel->read_product($products_id);
+        $related             = $this->relatedModel->get_related_by_entity_id([
+            'entity_id'   => $products_id['id'],
+            'entity_type' => 'product'
+        ]);
         $selectedCats = [];
         foreach ($categories_selected as $selectedCatRow) {
             $selectedCats[$selectedCatRow['id']] = $selectedCatRow;
@@ -148,18 +179,34 @@ class ProductController extends Controller
         foreach ($tags_selected as $selectedTagRow) {
             $selectedTags[$selectedTagRow['id']] = $selectedTagRow;
         }
+        $selectedRelatedCats = [];
+        if($product['status_related'] == 1){
+            foreach ($related as $selectedCatRow) {
+                $selectedRelatedCats[$selectedCatRow['id']] = $selectedCatRow['related_id'];
+            }
+        }
+        $selectedRelatedProducts = [];
+        if($product['status_related'] == 2){
+            foreach ($related as $selectedCatRow) {
+                $selectedRelatedProducts[$selectedCatRow['id']] = $selectedCatRow['related_id'];
+            }
+        }
+
         $photo = $this->photoModel->read_photo($products_id);
         // var_dump($photo);
         // die();
         $data = array(
-            'products'            => $this->productModel->read_product($products_id),
-            'photo'               => $photo,
-            'brands'              => $this->brandModel->read_brand(),
-            'tags'                => $this->tagModel->read_tag(),
-            'categories'          => $this->categoryModel->category_tree_for_backend(),
-            'categories_selected' => $selectedCats,
-            'tags_selected'       => $selectedTags,
-            'robots'              => Tinyint::category_robots(),
+            'products'                 => $product,
+            'related_products'         => $this->productModel->read_product(),
+            'photo'                    => $photo,
+            'brands'                   => $this->brandModel->read_brand(),
+            'tags'                     => $this->tagModel->read_tag(),
+            'categories'               => $this->categoryModel->category_tree_for_backend(),
+            'categories_selected'      => $selectedCats,
+            'tags_selected'            => $selectedTags,
+            'robots'                   => Tinyint::category_robots(),
+            'related_cat_selected'     => $selectedRelatedCats,
+            'related_product_selected' => $selectedRelatedProducts,
         );
         view('Backend.product.edit', $data);
     }
@@ -189,9 +236,34 @@ class ProductController extends Controller
             'seo_title'       => $params['seo-title'],
             'seo_robot'       => $params['seo-robot'],
             'seo_description' => $params['seo-description'],
+            'status_related'  => $params['related-products-status']
         );
         $this->productModel->update_product($params_updated, $product_id['id']);
 
+        if(!empty($params['related-products-cat']))
+        {
+            $this->relatedModel->delete_related_by_entity_id($product_id['id']);
+            foreach ($params['related-products-cat'] as $category_id){
+                $this->relatedModel->create_related([
+                    'entity_type' => 'product',
+                    'entity_id'   => $product_id['id'],
+                    'related_id'  => $category_id,
+                    'user_id'     => Auth::is_login(),
+                ]);
+            }
+        }
+        if(!empty($params['related-products-name']))
+        {
+            $this->relatedModel->delete_related_by_entity_id($product_id['id']);
+            foreach ($params['related-products-name'] as $p_id){
+                $this->relatedModel->create_related([
+                    'entity_type' => 'product',
+                    'entity_id'   => $product_id['id'],
+                    'related_id'  => $p_id,
+                    'user_id'     => Auth::is_login(),
+                ]);
+            }
+        }
 
         if (!empty($params['product-category'])) {
             $this->productCategoriesModel->delete_productCategories_by_product_id($product_id['id']);

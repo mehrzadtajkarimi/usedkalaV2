@@ -168,6 +168,41 @@
                     وضعیت
                 </label>
             </div>
+            <hr>
+            <div>
+                <p>محصولات مرتبط:</p>
+                <div class="row">
+                    <div class="form-group col-6">
+                        <label for="related-products-status">نحوه نمایش:</label>
+                        <select name="related-products-status" id="related-products-status" class="form-control">
+                            <option value="" disabled selected="selected">لطفا گزینه ای را انتخاب کنید</option>
+                            <option value="0" <?php if($products['status_related'] == 0) echo 'selected'; ?>>عدم نمایش محصولات مرتبط</option>
+                            <option value="1" <?php if($products['status_related'] == 1) echo 'selected'; ?>>نمایش بر اساس دسته بندی</option>
+                            <option value="2" <?php if($products['status_related'] == 2) echo 'selected'; ?>>انتخاب محصولات مرتبط</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-6" id="related-products-cat-placeholder" <?php if(!empty($related_cat_selected)) echo 'style="display:block"'; else echo 'style="display:none"'; ?> >
+                        <label for="related-products-cat">انتخاب دسته بندی</label>
+                        <select name="related-products-cat[]" id="related-products-cat" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
+                            <?php foreach ($categories as $key=>$value) : ?>
+                                <option value="<?= $value['id'] ?>" <?php if ($related_cat_selected[$key] == $value['id']) echo 'selected'; ?>><?= $value['name'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                        <?php var_dump($related_cat_selected) ?>
+                    </div>
+                    <div class="form-group col-6" id="related-products-name-placeholder" <?php if(!empty($related_product_selected)) echo 'style="display:block"'; else echo 'style="display:none"'; ?> >
+                        <label for="related-products-name">انتخاب محصولات مرتبط</label>
+                        <select name="related-products-name[]" id="related-products-name" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
+                            <?php foreach ($related_products as $key=>$value) : ?>
+                                <?php if($products['id'] != $value['id']): ?>
+                                    <option value="<?= $value['id'] ?>" <?php if (isset($related_product_selected[$value['id']])) echo 'selected'; ?>><?= $value['title'] ?></option>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </select>
+                        <?php var_dump($related_product_selected) ?>
+                    </div>
+                </div>
+            </div>
 
             <div class="form-group row">
                 <div class="col-sm-10">

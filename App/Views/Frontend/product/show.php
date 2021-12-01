@@ -128,7 +128,7 @@
                         </div>
                         <!-- .product -->
                         <div>
-                            <?php if(count($related_products)>1): ?>
+                            <?php if(count($related_products)>0): ?>
                                 <h3>محصولات مرتبط:</h3>
                                 <div class="d-flex">
                                     <?php foreach ($related_products as $value) : ?>
