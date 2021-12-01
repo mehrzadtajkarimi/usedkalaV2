@@ -30,6 +30,41 @@
                         }
 
                 });
+                if ($('#user-province').val() != "") {
+                        var province_id = $('#user-province').val();
+                        var city_id = $("#user-city").attr('data-city-id');
+                        $.ajax({
+                                type: "post",
+                                url: "<?= base_url() ?>admin/user/city/" + province_id,
+                                data: province_id,
+                                success: function(response) {
+                                        var response_array = JSON.parse(response);
+                                        $("#user-city").empty();
+                                        response_array.forEach(function(i) {
+                                                if (i.id == city_id) {
+                                                        $('#user-city').append('<option value="' + i.id + '" selected>' + i.name + '</option>');
+                                                } else {
+                                                        $('#user-city').append('<option value="' + i.id + '">' + i.name + '</option>');
+                                                }
+                                        })
+                                }
+                        });
+                }
+                $('#user-province').change(function() {
+                        var id = $(this).val();
+                        $.ajax({
+                                type: "post",
+                                url: "<?= base_url() ?>admin/user/city/" + id,
+                                data: id,
+                                success: function(response) {
+                                        var response_array = JSON.parse(response);
+                                        $("#user-city").empty();
+                                        response_array.forEach(function(i) {
+                                                $('#user-city').append('<option value="' + i.id + '">' + i.name + '</option>');
+                                        })
+                                }
+                        });
+                });
 
         });
 </script>

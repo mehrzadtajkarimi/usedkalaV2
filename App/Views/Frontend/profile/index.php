@@ -122,7 +122,7 @@
                     <label for="profile-city">شهر:</label>
                     <select name="profile-city" id="profile-city" data-city-id="<?= $data['city_id'] ?? $data['city_id'] ?>">
                       <?php if(!isset($data['city_id'])): ?>
-                        <option value="" disabled selected>ابتدا استان را انتخاب کنید</option>
+                        <option value="" disabled selected>ابتدا شهر را انتخاب کنید</option>
                       <?php endif; ?>
                     </select>
                 </div>
@@ -227,3 +227,6 @@
 
 
 </section>
+
+
+<?php include(BASEPATH . "App/Views/Frontend/profile/script.php") ?>

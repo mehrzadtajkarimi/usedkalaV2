@@ -157,63 +157,78 @@
                                                                 <div class="row">
                                                                     <div class="col">
                                                                         <div class="form-group">
-                                                                            <label for="Input1" class="">نام </label>
-                                                                            <input type="text" class="form-control start_at" id="Input1" required>
+                                                                            <label for="first_name" class="">نام </label>
+                                                                            <input type="text" name="user-first_name" value="<?= $value['first_name'] ?>" class="form-control " id="first_name">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="form-group">
-                                                                            <label for="Input2" class=""> نام خانوادگی</label>
-                                                                            <input type="text" class="form-control finish_at" id="Input2" required>
+                                                                            <label for="last_name" class=""> نام خانوادگی</label>
+                                                                            <input type="text" name="user-last_name" value="<?= $value['last_name'] ?>" class="form-control " id="last_name">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="form-group">
+                                                                            <label for="national_code" class=""> کدملی </label>
+                                                                            <input type="text" name="user-national_code" value="<?= $value['national_code'] ?>" class="form-control " id="national_code">
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col">
                                                                         <div class="form-group ">
-                                                                            <label for="cart-title">آدرس </label>
-                                                                            <input name="cart-title" type="text" class="form-control" id="cart-title" placeholder="" required>
+                                                                            <label for="user-province" class="mr-2 user-label">استان:</label>
+                                                                            <select name="user-province" class="form-control" data-width="80%" id="user-province">
+                                                                                <?php if (!isset($value['province_id'])) : ?>
+                                                                                    <option value="" disabled selected>انتخاب کنید</option>
+                                                                                <?php endif; ?>
+                                                                                <?php foreach ($provinces as $data) : ?>
+                                                                                    <option value="<?= $data['id'] ?>" <?= $value['province_id'] == $data['id'] ?  'selected' : ''  ?>><?= $data['name'] ?></option>
+                                                                                <?php endforeach ?>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col user-city-placeholder">
+                                                                        <label for="user-city">شهر:</label>
+                                                                        <select name="user-city" id="user-city" class="form-control" data-city-id="<?= $value['city_id'] ?? $value['city_id'] ?>">
+                                                                            <?php if (!isset($value['city_id'])) : ?>
+                                                                                <option value="" disabled selected>ابتدا شهر را انتخاب کنید</option>
+                                                                            <?php endif; ?>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col">
+                                                                        <div class="form-group ">
+                                                                            <label for="user-postal_code">کد پستی </label>
+                                                                            <input name="user-postal_code" value="<?= $value['postal_code'] ?>" type="text" class="form-control" id="user-postal_code">
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col">
                                                                         <div class="form-group ">
-                                                                            <label for="cart-title">استان </label>
-                                                                            <input name="cart-title" type="text" class="form-control" id="cart-title" placeholder="" required>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col">
-                                                                        <div class="form-group ">
-                                                                            <label for="cart-title">شهر </label>
-                                                                            <input name="cart-title" type="text" class="form-control" id="cart-title" placeholder="" required>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col">
-                                                                        <div class="form-group ">
-                                                                            <label for="cart-title">کد پستی </label>
-                                                                            <input name="cart-title" type="text" class="form-control" id="cart-title" placeholder="" required>
+                                                                            <label for="user-address">آدرس </label>
+                                                                            <input name="user-address" value="<?= $value['address'] ?>" type="text" class="form-control" id="user-address">
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col">
                                                                         <div class="form-group ">
-                                                                            <label for="cart-title">ایمیل  </label>
-                                                                            <input name="cart-title" type="text" class="form-control" id="cart-title" placeholder="" required>
+                                                                            <label for="user-phone">شماره موبایل </label>
+                                                                            <input name="user-phone" value="<?= $value['phone'] ?>" type="text" class="form-control" id="user-phone" disabled>
                                                                         </div>
                                                                     </div>
                                                                     <div class="col">
                                                                         <div class="form-group ">
-                                                                            <label for="cart-title">شماره موبایل </label>
-                                                                            <input name="cart-title" type="text" class="form-control" id="cart-title" placeholder="" required>
+                                                                            <label for="user-email">ایمیل </label>
+                                                                            <input name="user-email" value="<?= $value['email'] ?>" type="text" class="form-control" id="user-email">
                                                                         </div>
                                                                     </div>
                                                                 </div>
 
-                                                                <div class="pt-1 pb-4 form-check disabled ">
-                                                                    <input name="cart-status" type="checkbox" class="form-check-input " id="cart-status" checked>
-                                                                    <label class="form-check-label" for="cart-status">
+                                                                <div class="float-right pt-1 pb-4 form-check">
+                                                                    <input name="user-status" type="checkbox" class="form-check-input " id="user-status" <?= $value['status'] == 1 ? 'checked' : ''  ?>>
+                                                                    <label class="form-check-label" for="user-status">
                                                                         وضعیت
                                                                     </label>
                                                                 </div>
@@ -246,3 +261,4 @@
                     </span>
                 </div>
             </div>
+            <?php include(BASEPATH . "/App/Views/Backend/user/script.php") ?>
