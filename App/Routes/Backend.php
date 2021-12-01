@@ -37,6 +37,7 @@ Route::group(function () {
     Route::get('/admin/logout', 'LoginController@logout');
     Route::get('/admin/profile', 'ProfileController@index');
     Route::post('/admin/user/photo', 'ProfileController@photo');
+    Route::post('/admin/user/city/{id}', 'UserController@get_city');
 });
 
 
