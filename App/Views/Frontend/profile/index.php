@@ -176,7 +176,7 @@
                 <div class="col">
                   <div class="form-group d-flex">
                     <label for="profile-postalCode" class="profile-postalCode profile-label">کد پستی:</label>
-                    <input type="number" name="profile-postalCode" class="form-control" id="profile-postalCode" value="<?= $data['postal_code'] ?>">
+                    <input type="number" name="profile-postalCode" class="form-control" max="10" id="profile-postalCode" value="<?= $data['postal_code'] ?>">
                   </div>
                 </div>
               </div>
@@ -210,10 +210,10 @@
                         <tbody>
                           <?php foreach ($cart_items as $value) : ?>
                             <tr class="text-center">
-                              <td class="product-remove text-center ">
+                              <td class="text-center product-remove ">
                                 <a class="text-center remove" href="#">×</a>
                               </td>
-                              <td class="product-thumbnail text-center ">
+                              <td class="text-center product-thumbnail ">
                                 <a href="single-product-fullwidth.html text-center ">
                                   <img width="180" height="180" alt="" class="wp-post-image" src="">
                                 </a>
@@ -228,20 +228,20 @@
                                   </div>
                                 </div>
                               </td>
-                              <td data-title="Price" class="product-price text-center ">
+                              <td data-title="Price" class="text-center product-price ">
                                 <span class="woocommerce-Price-amount amount">
                                   <span class="woocommerce-Price-amount amount "><?= number_format($value['price']) ?> ریال</span>
                                 </span>
                               </td>
-                              <td class="product-quantity text-center " data-title="Quantity">
+                              <td class="text-center product-quantity " data-title="Quantity">
                                 <div class="quantity row d-flex justify-content-center">
-                                  <span class="woocommerce-Price-amount amount  m-2" style="align-self: center">
+                                  <span class="m-2 woocommerce-Price-amount amount" style="align-self: center">
                                     <span id="ss" class="woocommerce-Price-amount amount"><?= $value['count'] ?></span>
 
 
                                 </div>
                               </td>
-                              <td data-title="Total" class="product-subtotal text-center ">
+                              <td data-title="Total" class="text-center product-subtotal ">
                                 <span class="woocommerce-Price-amount amount">
                                   <span class="woocommerce-Price-amount amount subtotal"><?= number_format($value['count'] * $value['price']) ?> ریال</span>
                                 </span>

@@ -186,7 +186,7 @@
                 <i class="fa fa-cogs nav-icon" aria-hidden="true"></i>
             </a>
 
-            <ul class="nav nav-treeview <?= is_active(['/admin/setting','/admin/slider']) ?>">
+            <ul class="nav nav-treeview <?= is_active(['/admin/setting','/admin/slider','/admin/permission']) ?>">
                 <li class="nav-item">
                     <a href="<?= base_url() ?>admin/setting" class="nav-link  <?= is_active('/admin/setting')?>">
                         <p>لیست تنظیمات</p>
@@ -196,12 +196,6 @@
                 <li class="nav-item">
                     <a href="<?= base_url() ?>admin/slider" class="nav-link  <?= is_active('/admin/slider')?>">
                         <p>اسلایدر</p>
-                        <i class="fa fa-circle-o nav-icon"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?= base_url() ?>admin/permission" class="nav-link  <?= is_active('/admin/permission')?>">
-                        <p>(مجوزها) سطوح دسترسی</p>
                         <i class="fa fa-circle-o nav-icon"></i>
                     </a>
                 </li>
