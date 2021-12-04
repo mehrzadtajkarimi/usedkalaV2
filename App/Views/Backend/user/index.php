@@ -30,7 +30,7 @@
                                 <div class="form-row col-md-12">
                                     <div class="offset-md-9"></div>
                                     <div class="form-group col-md-1 "">
-                                <a class="mr-1 btn btn-danger btn-block" href="<?= base_url() ?>user.index">
+                                <a class=" mr-1 btn btn-danger btn-block" href="<?= base_url() ?>user.index">
                                         <i class="fa fa-times"></i>
                                         </a>
                                     </div>
@@ -54,10 +54,8 @@
                             </div>
                         </thead>
                         <tbody>
-
-
                             <tr>
-                                <th class="text-center">ردیف</th>
+                                <th class="text-center">شماره</th>
                                 <th>مشخصات</th>
                                 <th>اطلاعات ورود</th>
                                 <th>نشانی</th>
@@ -69,17 +67,18 @@
                                         <td class="text-center" width="10px"><?= $value['id']  ?></td>
                                         <td>
                                             <div>
-                                                <small><?= $value['phone'] ?></small>
+                                                <small>نام و خانوادگی :</small>
+                                                <small><?= $value['first_name'] ?? ' - - -  '  ?></small>
+                                                <small><?= $value['last_name'] ?? ' - - - '  ?></small>
                                             </div>
                                             <div>
-                                                <span><?= $value['first_name'] ?? ' نام '  ?></span>
-                                                <span><?= $value['last_name'] ?? ' نام خانوادگی '  ?></span>
+                                                <small> موبــــــایل :<?= $value['phone'] ?></small>
                                             </div>
                                             <div>
-                                                <small><?= $value['email'] ?? '  ایمیل :  - - -'  ?></small>
+                                                <small>ایــــــــمیـل :<?= $value['email'] ?? '  - - -'  ?></small>
                                             </div>
                                             <div>
-                                                <small><?= $value['national_code'] ?? ' کد ملی :  - - -'  ?></small>
+                                                <small>کد مـــلی :<?= $value['national_code'] ?? ' - - -'  ?></small>
                                             </div>
                                         </td>
                                         <td>
@@ -130,7 +129,7 @@
                                                 </small>
                                             </div>
                                             <div>
-                                                <small>شهر : </small>
+                                                <small>شـــــهر : </small>
                                                 <small>
                                                     <bdi class="arabic-num"><?= $value['city_name'] ?? '   - - -'  ?></bdi>
                                                 </small>
@@ -152,8 +151,8 @@
                                                 <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                                     <div class="modal-content">
                                                         <div class="modal-body">
-                                                            <form action="<?= base_url() ?>admin/user/<?= $value['id'] ?>/edit" method="post" class="p-1">
-                                                                <input type="hidden" name="code" value="<?= rand(100000, 999999) ?>">
+                                                            <form action="<?= base_url() ?>admin/user/<?= $value['id'] ?>" method="post" class="p-1">
+                                                                <input type="hidden" name="_method" value="patch" />
                                                                 <div class="row">
                                                                     <div class="col">
                                                                         <div class="form-group">
@@ -177,8 +176,8 @@
                                                                 <div class="row">
                                                                     <div class="col">
                                                                         <div class="form-group ">
-                                                                            <label for="user-province" class="mr-2 user-label">استان:</label>
-                                                                            <select name="user-province" class="form-control" data-width="80%" id="user-province">
+                                                                            <label for="user-province_id" class="mr-2 user-label">استان:</label>
+                                                                            <select name="user-province_id" class="form-control" data-width="80%" id="user-province">
                                                                                 <?php if (!isset($value['province_id'])) : ?>
                                                                                     <option value="" disabled selected>انتخاب کنید</option>
                                                                                 <?php endif; ?>
@@ -189,11 +188,12 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="col user-city-placeholder">
-                                                                        <label for="user-city">شهر:</label>
-                                                                        <select name="user-city" id="user-city" class="form-control" data-city-id="<?= $value['city_id'] ?? $value['city_id'] ?>">
+                                                                        <label for="user-city_id">شهر:</label>
+                                                                        <select name="user-city_id" id="user-city" class="form-control" data-city-id="<?= $value['city_id'] ?? $value['city_id'] ?>">
                                                                             <?php if (!isset($value['city_id'])) : ?>
                                                                                 <option value="" disabled selected>ابتدا شهر را انتخاب کنید</option>
                                                                             <?php endif; ?>
+
                                                                         </select>
                                                                     </div>
                                                                     <div class="col">
@@ -227,7 +227,7 @@
                                                                 </div>
 
                                                                 <div class="float-right pt-1 pb-4 form-check">
-                                                                    <input name="user-status" type="checkbox" class="form-check-input " id="user-status" <?= $value['status'] == 1 ? 'checked' : ''  ?>>
+                                                                    <input name="user-status" type="checkbox" value="1" class="form-check-input " id="user-status" <?= $value['status'] == 1 ? 'checked' : ''  ?>>
                                                                     <label class="form-check-label" for="user-status">
                                                                         وضعیت
                                                                     </label>
