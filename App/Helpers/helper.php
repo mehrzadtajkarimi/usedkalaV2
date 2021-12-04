@@ -3,7 +3,9 @@
 use App\Core\Request;
 use App\Models\Category;
 use App\Models\Discount;
+use App\Models\Permission_user;
 use App\Models\Photo;
+use App\Models\Role_user;
 use App\Models\User;
 use App\Services\Auth\Auth;
 use App\Services\Basket\Basket;
@@ -192,9 +194,27 @@ function admin_name($name)
     $userModel = new User();
     return $userModel->get_admin($admin_id)[$name];
 }
-function can($name)
+function can(string $name): bool
 {
-    $admin_id = Auth::is_login();
-    $userModel = new User();
-    return $userModel->get_admin($admin_id)[$name];
+    $admin_id        = Auth::is_login();
+
+    $permissionModel = new Permission_user();
+    $roleModel       = new Role_user();
+
+    $has_permission = $permissionModel->join_permissionUser_permission($admin_id);
+    $has_role       = $roleModel->join_roleUser_role($admin_id);
+
+
+
+    foreach ($has_permission as  $value) {
+        if ($value['name'] == $name) {
+            return true;
+        }
+    }
+    foreach ($has_role as  $value) {
+        if ($value['name'] == $name) {
+            return true;
+        }
+    }
+    return false;
 }

@@ -18,6 +18,7 @@ class Role_user extends MysqlBaseModel
         $permission_id =  $this->get('permission_id', ['role_id' => $id]) ?? '';
         return $permission_id ? $this->connection->select('permissions', ['id'], ['id' => $permission_id]) : false;
     }
+
     public function exist_roleUser($param,$user_id)
     {
         if (isset($param)) {
