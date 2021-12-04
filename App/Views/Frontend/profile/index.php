@@ -118,7 +118,8 @@
                     <label for="profile-birthday">
                       تاریخ تولد:
                     </label>
-                    <input name="profile-birthday" type="text" class="form-control" id="profile-birthday" value="<?= $data['birthday'] ?>">
+                    <input type="text" class="form-control profile-birthday" value="<?= date("Y-m-d H:i:s", $data['birthday']) ?>">
+                    <input type="hidden" id="profile-birthday" name="profile-birthday">
                   </div>
                 </div>
                 <div class="col">
