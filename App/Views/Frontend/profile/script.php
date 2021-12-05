@@ -1,7 +1,84 @@
+<script src="<?= asset_url() ?>Backend/plugins/datepicker/persian-date.min.js"></script>
+<script src="<?= asset_url() ?>Backend/plugins/datepicker/persian-datepicker.min.js"></script>
 <script>
         $(document).ready(function() {
-               
-
+                $(".profile-birthday").pDatepicker({
+               "inline": false,
+               "format": "YYYY/MM/DD",
+               "viewMode": "day",
+               "initialValue": true,
+               "minDate": null,
+               "maxDate": null,
+               "autoClose": true,
+               "position": "auto",
+               "altFormat": "X",
+               "altField": "#profile-birthday",
+               "onlyTimePicker": false,
+               "TimePicker": true,
+               "onlySelectOnDate": true,
+               "calendarType": "persian",
+               "inputDelay": 800,
+               "observer": true,
+               "calendar": {
+                   "persian": {
+                       "locale": "fa",
+                       "showHint": true,
+                       "leapYearMode": "algorithmic"
+                   },
+                   "gregorian": {
+                       "locale": "en",
+                       "showHint": true
+                   }
+               },
+               "navigator": {
+                   "enabled": true,
+                   "scroll": {
+                       "enabled": true
+                   },
+                   "text": {
+                       "btnNextText": "<",
+                       "btnPrevText": ">"
+                   }
+               },
+               "toolbox": {
+                   "enabled": true,
+                   "calendarSwitch": {
+                       "enabled": true,
+                       "format": "HH:mm"
+                   },
+                   "todayButton": {
+                       "enabled": true,
+                       "text": {
+                           "fa": "امروز",
+                           "en": "Today"
+                       }
+                   },
+                   "submitButton": {
+                       "enabled": true,
+                       "text": {
+                           "fa": "تایید",
+                           "en": "Submit"
+                       }
+                   },
+                   "text": {
+                       "btnToday": "امروز"
+                   }
+               },
+               "dayPicker": {
+                   "enabled": true,
+                   "titleFormat": "YYYY MMMM"
+               },
+               "monthPicker": {
+                   "enabled": true,
+                   "titleFormat": "YYYY"
+               },
+               "yearPicker": {
+                   "enabled": true,
+                   "titleFormat": "YYYY"
+               },
+               "responsive": true
+           });
+                
                 // $('#profile-province').select2({
                 //         'placeholder': 'استان مورد نظر را انتخاب کنید',
                 //         theme: "bootstrap4"

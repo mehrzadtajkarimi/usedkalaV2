@@ -10,6 +10,7 @@ use App\Models\Product;
 use App\Models\Product_discount;
 use App\Models\Product_tag;
 use App\Models\Product_category;
+use App\Models\Related;
 use App\Models\Tag;
 use App\Models\Taggable;
 use App\Models\Wish_list;
@@ -24,6 +25,7 @@ class ProductController extends Controller
     private $ProductCatModel;
     private $wishListModel;
     private $taggableModel;
+    private $relatedModel;
 
     public function __construct()
     {
@@ -35,6 +37,7 @@ class ProductController extends Controller
         $this->taggableModel        = new Taggable();
         $this->ProductCatModel      = new Product_category();
         $this->wishListModel        = new Wish_list();
+        $this->relatedModel         = new Related();
     }
 
     public function index()
@@ -63,9 +66,25 @@ class ProductController extends Controller
 
         if (count($product) == 0) Request::redirect('');
         $productCat       = $this->ProductCatModel->read_productCategories($params);
-        $related_products = $this->ProductCatModel->read_products_by_category_id($productCat[0]['category_id']);
-        
-        if(!empty($related_products)){
+        $product_relation = $this->relatedModel->get_related_by_entity_id([
+            'entity_id'   => $params['id'],
+            'entity_type' => 'product'
+        ]);
+        $related_products = [];
+        if(!empty($product_relation) && $product['status_related'] != 0){
+            if($product['status_related'] == 1){
+                foreach ($product_relation as $key => $value){
+                    $related_products_array = $this->ProductCatModel->read_products_by_category_id($value['related_id']);
+                    foreach ($related_products_array as $key => $value2){
+                        $related_products[] = $value2;
+                    }
+                }
+            }
+            if($product['status_related'] == 2){
+                foreach ($product_relation as $key => $value){
+                    $related_products[] = $this->productModel->read_product($value['related_id']);
+                }
+            }
             foreach ($related_products as $key => $value){
                 $images_path[] = $this->photoModel->read_single_photo_by_id('0', $value['id'], 'Product')[0];
             }
@@ -77,6 +96,18 @@ class ProductController extends Controller
                 }
             }
         }
+        
+        $related_products_unique = [];
+        foreach($related_products as $value){
+            $related_products_unique[] = [
+                'id'       => $value['id'],
+                'slug'     => $value['slug'],
+                'img_path' => $value['img_path'],
+                'img_alt'  => $value['img_alt'],
+                'title'    => $value['title']
+            ];
+        }
+        $related_products = array_unique($related_products_unique, SORT_REGULAR);
 
         $data = array(
             'product_id'            => $params['id'],

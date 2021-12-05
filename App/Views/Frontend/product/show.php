@@ -128,13 +128,13 @@
                         </div>
                         <!-- .product -->
                         <div>
-                            <?php if(count($related_products)>1): ?>
+                            <?php if(count($related_products)>0): ?>
                                 <h3>محصولات مرتبط:</h3>
                                 <div class="d-flex">
                                     <?php foreach ($related_products as $value) : ?>
                                         <?php if($value['id'] !== $product_id): ?>
                                             <a href="<?= base_url() ?>product/<?= $value['id'] ?>/<?= $value['slug'] ?>" class="ml-4 mb-2 text-center related-product-item">
-                                                <img src="<?= $value['img_path'] ?>" alt="<?= $value['img_alt'] ?>" width="180" height="180">
+                                                <img src="<?= $value['img_path'] ?>" alt="<?= $value['img_alt'] ?>" width="180" height="180" class="m-auto">
                                                 <p><?= $value['title'] ?></p>
                                             </a>
                                         <?php endif; ?>

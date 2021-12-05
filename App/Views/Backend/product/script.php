@@ -7,6 +7,24 @@
         $('#product_tag').select2({
             'placeholder': ' تگ های مورد نظر را انتخاب کنید'
         });
+        $('#related-products-cat').select2({
+            'placeholder': ' دسته بندی های مورد نظر را انتخاب کنید'
+        });
+        $('#related-products-name').select2({
+            'placeholder': ' محصول یا محصولات مورد نظر را انتخاب کنید'
+        });
+        $('#related-products-status').change(function(){
+            if($(this).val() == 1){
+                $('#related-products-cat-placeholder').show();
+                $('#related-products-name-placeholder').hide();
+            } else if($(this).val() == 2){
+                $('#related-products-name-placeholder').show();
+                $('#related-products-cat-placeholder').hide();
+            } else if($(this).val() == 0){
+                $('#related-products-name-placeholder').hide();
+                $('#related-products-cat-placeholder').hide();
+            }
+        });
 		CKEDITOR.replace('product-description', {
             extraPlugins: 'filebrowser',
             height: 300,
