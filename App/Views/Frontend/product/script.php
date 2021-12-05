@@ -194,9 +194,9 @@
                         $('#top-cart-wishlist-count').text(replaceAll(response.count_wishlist));
                         if(window.location.href == '<?= base_url() ?>wishList'){
                             wish_list_btn.parent().parent().remove();
-                        }
-                        if(response.count_wishlist == 0){
-                            $('.products-row').append('<div class="alert alert-warning">محصولی یافت نشد</div>')
+                            if(response.count_wishlist == 0){
+                                $('.products-row').append('<div class="alert alert-warning">محصولی یافت نشد</div>')
+                            }
                         }
                     },
                     error: function(response) {
