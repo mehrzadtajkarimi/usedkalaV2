@@ -53,8 +53,6 @@ class ProductController extends Controller
     public function show()
     {
         $params = $this->request->params();
-
-
         $photos             = $this->photoModel->read_photo_by_id($params['id'], 'Product');
         $photo              = $this->photoModel->read_single_photo_by_id('0', $params['id'], 'Product')[0];
         $product            = $this->productModel->read_product($params['id']);
@@ -97,6 +95,7 @@ class ProductController extends Controller
             }
         }
         
+		
         $related_products_unique = [];
         foreach($related_products as $value){
             $related_products_unique[] = [

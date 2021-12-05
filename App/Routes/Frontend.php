@@ -44,7 +44,7 @@ Route::group(function () {
 });
 
 Route::group(function () {
-    Route::get('/category/{id}/{slug}', 'CategoryController@show');
+    Route::get('/category/{slug}', 'CategoryController@show');
 });
 
 Route::group(function () {

@@ -279,9 +279,9 @@ class Product extends MysqlBaseModel
             "products.id=$id",
         );
     }
-    public function join_product__with_single_photo_by_category_id()
+    public function join_product__with_single_photo_by_category_id($id=0)
     {
-        return $this->inner_join(
+        /* return $this->inner_join(
             "products.*,
             photos.id AS photo_id,
             photos.alt,
@@ -291,6 +291,11 @@ class Product extends MysqlBaseModel
             "entity_id",                       // brands.id
             "photos.type=0",
             "photos.entity_type='Product'",
-        );
+        ); */
+		$productsInCat=$this->query("SELECT pros.*, pix.path, pix.alt FROM `products` as pros
+			INNER JOIN `product_categories` as rels INNER JOIN `photos` as pix 
+			ON rels.`product_id` = pros.`id` AND pix.`entity_id` = pros.`id`
+			WHERE pix.`entity_type` = 'Product' AND rels.`category_id` = '$id'");
+		return $productsInCat;
     }
 }

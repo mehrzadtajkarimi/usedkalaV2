@@ -31,12 +31,14 @@ class CategoryController extends Controller
 
     public function show()
     {
-        $parent_id = $this->request->get_param('id');
         $slug = $this->request->get_param('slug');
-
-        $description = $this->categoryModel->read_category($parent_id);
+		$slug['slug']=urldecode($slug['slug']);
+		$categoryRow=$this->categoryModel->read_category_byslug($slug['slug']);
+		$parent_id['id']=$categoryRow['id'];
+		
+        $description = $categoryRow['description'];
         $categories  = $this->categoryModel->category_tree_for_frontend($parent_id,$slug);
-        $products    = $this->productModel->join_product__with_single_photo_by_category_id();
+        $products    = $this->productModel->join_product__with_single_photo_by_category_id($parent_id['id']);
 
         if (is_array($categories)) {
             $data = array(

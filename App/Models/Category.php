@@ -116,6 +116,11 @@ class Category extends MysqlBaseModel
         }
         return $this->first(['id' => $id]);
     }
+    public function read_category_byslug($slug = null)
+    {
+		$results=$this->query("SELECT * FROM `categories` WHERE `slug` = '$slug'");
+        return $results[0];
+    }
     public function read_category_by_type($type)
     {
         return $this->get('*', ['type' => $type]);
