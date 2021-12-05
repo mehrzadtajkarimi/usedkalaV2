@@ -50,7 +50,8 @@ Route::group(function () {
 Route::group(function () {
     Route::get('/product/{id}/{slug}', 'ProductController@show');
     Route::get('/product/category/{id}/{slug}', 'ProductController@index');
-    Route::get('/product/search?{search}', 'ProductController@search');
+    Route::get('/s/{query}/{selected_cat}', 'ProductController@search');
+    Route::get('/s/{query}', 'ProductController@search');
 });
 
 Route::group(function () {

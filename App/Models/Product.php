@@ -295,7 +295,7 @@ class Product extends MysqlBaseModel
 		$productsInCat=$this->query("SELECT pros.*, pix.path, pix.alt FROM `products` as pros
 			INNER JOIN `product_categories` as rels INNER JOIN `photos` as pix 
 			ON rels.`product_id` = pros.`id` AND pix.`entity_id` = pros.`id`
-			WHERE pix.`entity_type` = 'Product' AND rels.`category_id` = '$id'");
+			WHERE pix.type = 0 AND pix.`entity_type` = 'Product' AND rels.`category_id` = '$id'");
 		return $productsInCat;
     }
 }
