@@ -781,7 +781,7 @@
     }
 
     $("#top-cart-compare-count").text(replaceAll($("#top-cart-compare-count").text()));
-    $("#top-cart-wishlist-count").text(replaceAll($("#top-cart-compare-count").text()));
+    $("#top-cart-wishlist-count").text(replaceAll($("#top-cart-wishlist-count").text()));
     $(".call-us-text").text(replaceAll($(".call-us-text").text()));
     $(".count").each(function() {
         this.textContent = replaceAll(this.textContent);

@@ -151,7 +151,7 @@
             <li class="nav-item">
                 <a href="<?= base_url() ?>wishList" class="nav-link">
                     <i class="tm tm-favorites"></i>
-                    <span id="top-cart-wishlist-count" class="value">3</span>
+                    <span id="top-cart-wishlist-count" class="value"><?= count(wishList()) ?></span>
                 </a>
             </li>
         </ul>

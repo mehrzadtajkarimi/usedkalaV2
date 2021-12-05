@@ -26,7 +26,9 @@ class WishListController extends Controller
     public function index()
     {
 
-        $wishlist_products =  $this->WishListModel->read_all_wishList_items('Product');
+        $wishlist_products = $this->WishListModel->read_all_wishList_items('Product');
+        $products          = [];
+        $selected_wishlist = [];
         foreach ($wishlist_products as $key => $value){
             $products[] = $this->productModel->read_product($value['entity_id']);
             $photo[] = $this->photoModel->read_single_photo_by_id('0', $value['entity_id'], 'Product')[0];
@@ -37,6 +39,7 @@ class WishListController extends Controller
         $data= [
             'products'          => $products,
             'selected_wishlist' => $selected_wishlist,
+            'auth'              => SessionManager::get('auth')
         ];
 
         return view('Frontend.product.index', $data);
@@ -68,7 +71,21 @@ class WishListController extends Controller
   
         $method_read = "read_" . lcfirst($params['entity_type']);
 
-        $result['count'] = $entity_model->$method_read($params['entity_id'])['WishLists'];
+        $result['count'] = count($this->WishListModel->read_all_wishList_items('Product'));
+
+        echo json_encode($result);
+    }
+
+    public function remove()
+    {
+        $params   = $this->request->params();
+        $data = [
+            'entity_id'   => $params['entity_id'],
+            'entity_type' => $params['entity_type'],
+            'user_id'     => SessionManager::get('auth'),
+        ];
+        $result['deleted']        = $this->WishListModel->delete_wishList($data);
+        $result['count_wishlist'] = count($this->WishListModel->read_all_wishList_items('Product'));
 
         echo json_encode($result);
     }
