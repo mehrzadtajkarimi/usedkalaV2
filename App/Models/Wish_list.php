@@ -56,9 +56,13 @@ class Wish_list extends MysqlBaseModel
         return $this->update($params, ['id' => $id]);
     }
 
-    public function delete_wishList($id)
+    public function delete_wishList_by_id($id)
     {
         return $this->delete(['id' => $id]);
+    }
+    public function delete_wishList($where)
+    {
+        return $this->delete($where);
     }
     public function join_wishList_to_photo()
     {

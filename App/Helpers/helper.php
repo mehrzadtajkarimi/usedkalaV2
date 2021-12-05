@@ -7,6 +7,7 @@ use App\Models\Permission_user;
 use App\Models\Photo;
 use App\Models\Role_user;
 use App\Models\User;
+use App\Models\Wish_list;
 use App\Services\Auth\Auth;
 use App\Services\Basket\Basket;
 
@@ -222,4 +223,9 @@ function search_categories()
 {
     $categoryModel = new Category();
     return $categoryModel->get('*',['type' => 0]);
+}
+function wishList()
+{
+    $whishListModel = new Wish_list();
+    return $whishListModel->read_all_wishList_items('Product');
 }
