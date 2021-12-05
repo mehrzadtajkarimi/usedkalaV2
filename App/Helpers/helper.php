@@ -3,7 +3,9 @@
 use App\Core\Request;
 use App\Models\Category;
 use App\Models\Discount;
+use App\Models\Permission_user;
 use App\Models\Photo;
+use App\Models\Role_user;
 use App\Models\User;
 use App\Services\Auth\Auth;
 use App\Services\Basket\Basket;
@@ -43,57 +45,25 @@ function inject_menu()
         $cart_total[] = $value['count'] * $value['price'];
     }
     $categoryModel = new Category;
-    $photoModel    = new Photo;
     $categoryLevelOne = $categoryModel->get('*', [
         'parent_id' => 0,
         'type'      => 0,
     ]);
-
     foreach ($categoryLevelOne as $LevelOne) {
-        $has_photo_level_two = $categoryModel->get('id', [
+        $level_two = $categoryModel->get('id', [
             'parent_id' => $LevelOne['id'],
             'type'      => 0,
         ]);
-        // echo "va rdump0\r\n";
-        // var_dump($has_photo_level_two);
         $categoryLevelTwo[$LevelOne['id']] = array();
-        foreach ($has_photo_level_two as $value_level_two) {
-            $has_photos = $photoModel->get('id', ['entity_id' => $value_level_two, 'entity_type' => 'Category']);
-            // echo "value level two: \r\n";
-            // var_dump($value_level_two);
-            // echo "value level two - has photos:\r\n";
-            // var_dump($has_photos);
-
-            if (!empty($has_photos)) {
-                // echo $value_level_two . " has photo... pushing tempvar0\r\n";
-                foreach ($has_photos  as  $value) {
-                    $tempvar = $categoryModel->inner_join(
-                        "categories.*,
-                            photos.id AS photo_id,
-                            photos.alt AS photo_alt,
-                            photos.path AS photo_path",
-                        "photos",
-                        "id",
-                        "entity_id",
-                        "photos.entity_type='Category'",
-                        "photos.id={$value}"
-                    );
-                    // var_dump($tempvar[0]);
-                    // echo "\r\n\r\n";
-                    array_push($categoryLevelTwo[$LevelOne['id']], $tempvar[0]);
-                }
-            } else {
-                // echo $value_level_two . " does not have photo... pushing tempvar0\r\n";
-                $tempvar = $categoryModel->get('*', ['id' => $value_level_two]);
-                // var_dump($tempvar[0]);
-                // echo "\r\n\r\n";
-                array_push($categoryLevelTwo[$LevelOne['id']], $tempvar[0]);
+        foreach ($level_two as $level_two_id) {
+            $categories_level_two = $categoryModel->get('*', ['id' => $level_two_id]);
+            foreach ($categories_level_two as $key => $category_level_two) {
+                $categories_level_two_add_photo = $categoryModel->join_category_to_photo($category_level_two['id']);
+                array_push($categoryLevelTwo[$LevelOne['id']], $categories_level_two_add_photo[$key]);
             }
-            // $categoryLevelTwo[$LevelOne['id']] = $categoryModel->get('*', ['parent_id' => $value_level_two]);
         }
     }
-    // var_dump($categoryLevelOne);
-    // var_dump($categoryLevelTwo);
+
     if ($categoryLevelOne) {
         return  [
             'categoryLevelOne' => $categoryLevelOne,
@@ -222,11 +192,29 @@ function admin_name($name)
 {
     $admin_id = Auth::is_login();
     $userModel = new User();
-     return $userModel->get_admin($admin_id)[$name];
+    return $userModel->get_admin($admin_id)[$name];
 }
-function can($name)
+function can(string $name): bool
 {
-    $admin_id = Auth::is_login();
-    $userModel = new User();
-     return $userModel->get_admin($admin_id)[$name];
+    $admin_id        = Auth::is_login();
+
+    $permissionModel = new Permission_user();
+    $roleModel       = new Role_user();
+
+    $has_permission = $permissionModel->join_permissionUser_permission($admin_id);
+    $has_role       = $roleModel->join_roleUser_role($admin_id);
+
+
+
+    foreach ($has_permission as  $value) {
+        if ($value['name'] == $name) {
+            return true;
+        }
+    }
+    foreach ($has_role as  $value) {
+        if ($value['name'] == $name) {
+            return true;
+        }
+    }
+    return false;
 }

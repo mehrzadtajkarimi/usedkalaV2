@@ -39,6 +39,12 @@ class User extends MysqlBaseModel
         return $this->first(['id' => $id]);
     }
 
+
+    public function delete_user($id)
+    {
+        return $this->delete(['id' => $id]);
+    }
+
     public function is_admin($user_id = null)
     {
         if (is_null($user_id)) {

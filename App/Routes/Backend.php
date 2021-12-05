@@ -29,17 +29,27 @@ use App\Middleware\Gate;
 
 Route::group(function () {
     Route::get('/admin', 'HomeController@index');
+});
+Route::group(function () {
     Route::get('/admin/users', 'UserController@index');
+    Route::post('/admin/user/city/{id}', 'UserController@get_city');
+    Route::patch('/admin/user/{id}', 'UserController@update');
+    Route::delete('/admin/user/{id}', 'UserController@destroy');
+
+});
+
+Route::group(function () {
     Route::get('/admin/login', 'LoginController@login');
     Route::post('/admin/login', 'LoginController@is_login');
     Route::get('/admin/token', 'LoginController@token');
     Route::post('/admin/token', 'LoginController@is_token');
     Route::get('/admin/logout', 'LoginController@logout');
-    Route::get('/admin/profile', 'ProfileController@index');
-    Route::post('/admin/user/photo', 'ProfileController@photo');
-    Route::post('/admin/user/city/{id}', 'UserController@get_city');
 });
 
+Route::group(function () {
+    Route::get('/admin/profile', 'ProfileController@index');
+    Route::post('/admin/user/photo', 'ProfileController@photo');
+});
 
 Route::group(function () {
     Route::get('/admin/category', 'CategoryController@index');
