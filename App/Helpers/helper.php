@@ -5,6 +5,7 @@ use App\Models\Category;
 use App\Models\Discount;
 use App\Models\Permission_user;
 use App\Models\Photo;
+use App\Models\Role_permission;
 use App\Models\Role_user;
 use App\Models\User;
 use App\Models\Wish_list;
@@ -199,24 +200,37 @@ function can(string $name): bool
 {
     $admin_id        = Auth::is_login();
 
-    $permissionModel = new Permission_user();
-    $roleModel       = new Role_user();
+    $permissionModel     = new Permission_user();
+    $roleModel           = new Role_user();
+    $rolePermissionModel = new Role_permission();
 
-    $has_permission = $permissionModel->join_permissionUser_permission($admin_id);
-    $has_role       = $roleModel->join_roleUser_role($admin_id);
+    $has_permissions = $permissionModel->join_permissionUser_permission($admin_id);
+    $has_roles       = $roleModel->join_roleUser_role($admin_id);
+
+    if ($has_roles) {
+        foreach ($has_roles as  $value) {
+
+            if ($value['name'] == $name) {
+                return TRUE;
+            }
+            $has_permission = $rolePermissionModel->get_permissions($value['id']);
+            dd($has_permission);
 
 
+            if ($has_permission == $name) {
+                return TRUE;
+            }
 
-    foreach ($has_permission as  $value) {
+
+        }
+    }
+
+    foreach ($has_permissions as  $value) {
         if ($value['name'] == $name) {
             return true;
         }
     }
-    foreach ($has_role as  $value) {
-        if ($value['name'] == $name) {
-            return true;
-        }
-    }
+
     return false;
 }
 function search_categories()

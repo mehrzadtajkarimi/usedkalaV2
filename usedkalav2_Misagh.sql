@@ -1734,8 +1734,7 @@ INSERT INTO `products` (`id`, `brand_id`, `user_id`, `title`, `seo_robot`, `seo_
 (30, 9, 73, 'Cisco IP Phone', 0, '', 'Cisco IP Phone', 'Cisco IP Phone', 'Cisco IP Phone', 'Cisco IP Phone', 'Cisco IP Phone', 120000000, 1, NULL, 'Cisco-IP-Phone', 1, 0, 0, '', 37, 3, '2021-09-29 11:57:54', NULL, NULL, NULL, NULL),
 (32, 9, 73, 'HPE Proliant DL580', 0, '', 'سرور HPE مدل Proliant DL580 G10', 'HPE Proliant DL۵۸۰', 'سرور HPE مدل Proliant DL580 G10', 'HPE Proliant DL۵۸۰', '<p>سرور HPE ProLiant DL۵۸۰ Gen۱۰ یک سرور ۴P مطمئن، با کارایی، قابلیت ارتقاء، مقیاس پذیری و دسترس پذیری بالا در شاسی ۴U است. سرور HPE ProLiant DL۵۸۰ Gen۱۰ با پشتیبانی از پردازنده های مقیاس پذیر &reg;Intel&reg; Xeon، قدرت پردازش بیشتری را نسبت به نسل های قبلی ارائه می دهد و سروری ایده آل برای بارهای کاری مهم و برنامه های کاربردی با فشرده سازی داده های عمومی ۴P است که عملکرد مناسب آنها بسیار مهم است.</p>\r\n\r\n<p>سرور HPE ProLiant DL۵۶۰ Gen۱۰ یک سرور ۴P با چگالی، کارایی، مقیاس پذیری و قابلیت اطمینان زیاد در شاسی ۲U است. سرور HPE ProLiant DL۵۶۰ Gen۱۰ با پشتیبانی از پردازنده های مقیاس پذیر Intel&reg; Xeon&reg; سروری ایده آل برای بارهای کاری مهم، مجازی سازی، ادغام سرور، بانک اطلاعاتی، پردازش مشاغل و برنامه های کاربردی عمومی است.</p>\r\n', 850000000, 1, NULL, 'HPE-Proliant-DL580', 1, 1, 0, ' ', 508, 62, '2021-11-08 05:50:48', NULL, NULL, NULL, NULL),
 (33, 9, 76, 'Hpe Proliant DL380', 0, '', 'Hpe Proliant DL380', 'Hpe Proliant DL۳۸۰', 'Hpe Proliant DL380', 'Hpe Proliant DL۳۸۰', '<p>Hpe Proliant DL۳۸۰</p>\r\n', 750000000, 1, NULL, 'Hpe-Proliant-DL380', 1, 1, 2, '', 200, 30, '2021-11-08 05:59:23', NULL, NULL, NULL, NULL),
-(34, 8, 73, 'Dell EMC Unity 480 XT', 0, '', 'Dell EMC Unity 480 XT', 'همه ذخیره‌سازها', 'Dell EMC Unity 480 XT', 'Dell EMC Unity ۴۸۰ XT', '<p>Dell EMC Unity ۴۸۰ XT</p>\r\n', 500000000, 1, NULL, 'Dell-EMC-Unity-480-XT', 1, 0, 0, '', 1, 1, '2021-11-13 07:50:31', NULL, NULL, NULL, NULL),
-(36, 9, 76, 'HPE ProLiant DL160 Gen10 server', 0, '', 'سرور HPE ProLiant DL160 Gen10', 'سرور HPE ProLiant DL160 Gen10 سرور خوبی است.', 'HPE ProLiant DL160 Gen10', 'این سرور HPE ProLiant DL160 Gen10 است', '<p>این سرور HPE ProLiant DL160 Gen10 است</p>\r\n', 250000000, NULL, NULL, 'hpe-proliant-dl-160-gen10-server', 0, 1, 1, '', 28, 10, '2021-12-01 11:59:10', NULL, NULL, NULL, NULL);
+(34, 8, 73, 'Dell EMC Unity 480 XT', 0, '', 'Dell EMC Unity 480 XT', 'همه ذخیره‌سازها', 'Dell EMC Unity 480 XT', 'Dell EMC Unity ۴۸۰ XT', '<p>Dell EMC Unity ۴۸۰ XT</p>\r\n', 500000000, 1, NULL, 'Dell-EMC-Unity-480-XT', 1, 0, 0, '', 1, 1, '2021-11-13 07:50:31', NULL, NULL, NULL, NULL),timestamp NULL DEFAULT current_timestamp()DL160 Gen10 server', 0, '', 'سرور HPE ProLiant DL160 Gen10', 'سرور HPE ProLiant DL160 Gen10 سرور خوبی است.', 'HPE ProLiant DL160 Gen10', 'این سرور HPE ProLiant DL160 Gen10 است', '<p>این سرور HPE ProLiant DL160 Gen10 است</p>\r\n', 250000000, NULL, NULL, 'hpe-proliant-dl-160-gen10-server', 0, 1, 1, '', 28, 10, '2021-12-01 11:59:10', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1743,14 +1742,7 @@ INSERT INTO `products` (`id`, `brand_id`, `user_id`, `title`, `seo_robot`, `seo_
 -- Table structure for table `product_categories`
 --
 
-CREATE TABLE `product_categories` (
-  `id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
-
---
--- Dumping data for table `product_categories`
+CREATE TABLE `product_categtimestamp NULL DEFAULT current_timestamp()product_categories`
 --
 
 INSERT INTO `product_categories` (`id`, `product_id`, `category_id`) VALUES
@@ -1766,7 +1758,7 @@ INSERT INTO `product_categories` (`id`, `product_id`, `category_id`) VALUES
 
 --
 -- Table structure for table `product_discounts`
---
+--timestamp NULL DEFAULT current_timestamp()
 
 CREATE TABLE `product_discounts` (
   `id` int(11) NOT NULL,
@@ -1796,10 +1788,7 @@ INSERT INTO `product_discounts` (`id`, `product_id`, `discount_id`) VALUES
 
 CREATE TABLE `product_samples` (
   `id` int(11) NOT NULL,
-  `sample_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
-
+  `sample_id` int(11) NOT NUtimestamp NULL DEFAULT current_timestamp()
 --
 -- Dumping data for table `product_samples`
 --
@@ -1827,9 +1816,7 @@ CREATE TABLE `product_tags` (
 
 INSERT INTO `product_tags` (`id`, `product_id`, `tag_id`) VALUES
 (13, 33, 1),
-(20, 32, 2),
-(21, 32, 1),
-(23, 34, 1);
+(20, 32, 2),timestamp NULL DEFAULT current_timestamp()
 
 -- --------------------------------------------------------
 
@@ -1847,9 +1834,7 @@ CREATE TABLE `provinces` (
 -- Dumping data for table `provinces`
 --
 
-INSERT INTO `provinces` (`id`, `name`, `slug`) VALUES
-(1, 'آذربایجان شرقی', 'آذربایجان-شرقی'),
-(2, 'آذربایجان غربی', 'آذربایجان-غربی'),
+INSERT INTO `provinces` (`idtimestamp NULL DEFAULT current_timestamp() غربی', 'آذربایجان-غربی'),
 (3, 'اردبیل', 'اردبیل'),
 (4, 'اصفهان', 'اصفهان'),
 (5, 'البرز', 'البرز'),
@@ -1872,8 +1857,7 @@ INSERT INTO `provinces` (`id`, `name`, `slug`) VALUES
 (22, 'کرمانشاه', 'کرمانشاه'),
 (23, 'کهگیلویه و بویراحمد', 'کهگیلویه-بویراحمد'),
 (24, 'گلستان', 'گلستان'),
-(25, 'لرستان', 'لرستان'),
-(26, 'گیلان', 'گیلان'),
+(25, 'لرستان', 'لرستان'),timestamp NULL DEFAULT current_timestamp()
 (27, 'مازندران', 'مازندران'),
 (28, 'مرکزی', 'مرکزی'),
 (29, 'هرمزگان', 'هرمزگان'),
@@ -1892,7 +1876,7 @@ CREATE TABLE `relateds` (
   `entity_id` int(11) NOT NULL,
   `related_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `created_at` date NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
