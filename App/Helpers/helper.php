@@ -5,6 +5,7 @@ use App\Models\Category;
 use App\Models\Discount;
 use App\Models\Permission_user;
 use App\Models\Photo;
+use App\Models\Role_permission;
 use App\Models\Role_user;
 use App\Models\User;
 use App\Services\Auth\Auth;
@@ -198,8 +199,9 @@ function can(string $name): bool
 {
     $admin_id        = Auth::is_login();
 
-    $permissionModel = new Permission_user();
-    $roleModel       = new Role_user();
+    $permissionModel     = new Permission_user();
+    $rolePermissionModel = new Role_permission();
+    $roleModel           = new Role_user();
 
     $has_permission = $permissionModel->join_permissionUser_permission($admin_id);
     $has_role       = $roleModel->join_roleUser_role($admin_id);

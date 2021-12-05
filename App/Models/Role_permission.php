@@ -28,4 +28,21 @@ class Role_permission extends MysqlBaseModel
         return $this->delete(['role_id' => $role_id]);
     }
 
+    public function join_rolePermission($role_id)
+    {
+        return $this->delete(['role_id' => $role_id]);
+    }
+    public function join_rolePermission_with_role_by_role_id($role_id)
+    {
+        $permission_id =  $this->get('permission_id', ['role_id' => $role_id]) ?? '';
+        $products =  $this->inner_join(
+            '*',
+            'roles',
+            'role_id',
+            'id',
+            "role_permissions.role_id={$role_id}",
+        );
+        return $products;
+    }
+
 }
