@@ -178,6 +178,37 @@
                           وضعیت
                         </label>
                       </div>
+                      <hr>
+                      <div>
+                        <p>محصولات مرتبط:</p>
+                        <div class="row">
+                          <div class="form-group col-6">
+                            <label for="related-products-status">نحوه نمایش:</label>
+                            <select name="related-products-status" id="related-products-status" class="form-control">
+                              <option value="" disabled selected="selected">لطفا گزینه ای را انتخاب کنید</option>
+                              <option value="0">عدم نمایش محصولات مرتبط</option>
+                              <option value="1">نمایش بر اساس دسته بندی</option>
+                              <option value="2">انتخاب محصولات مرتبط</option>
+                            </select>
+                          </div>
+                          <div class="form-group col-6" id="related-products-cat-placeholder" style="display: none">
+                            <label for="related-products-cat">انتخاب دسته بندی</label>
+                            <select name="related-products-cat[]" id="related-products-cat" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
+                              <?php foreach ($categories as $value) : ?>
+                                <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                          </div>
+                          <div class="form-group col-6" id="related-products-name-placeholder" style="display: none">
+                            <label for="related-products-name">انتخاب محصولات مرتبط</label>
+                            <select name="related-products-name[]" id="related-products-name" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
+                              <?php foreach($products as $value): ?>
+                                <option value="<?= $value['id'] ?>"><?= $value['title'] ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
                       <!-- <div class="pt-2 pb-2 form-check">
                         <input value="1" name="product-featured" type="checkbox" class="form-check-input" id="product-featured">
                         <label class="form-check-label" for="product-featured">
