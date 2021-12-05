@@ -30984,6 +30984,10 @@ form.track_order input[type="submit"] {
     color: #444;
     font-size: 1.429em;
 }
+.yith-wcwl-add-to-wishlist .add_to_wishlist.active::before {
+    color: red;
+    content: "\2764";
+}
 @media (max-width: 1169px) {
     .yith-wcwl-add-to-wishlist .add_to_wishlist::before {
         right: 14px;

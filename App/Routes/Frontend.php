@@ -50,6 +50,7 @@ Route::group(function () {
 Route::group(function () {
     Route::get('/product/{id}/{slug}', 'ProductController@show');
     Route::get('/product/category/{id}/{slug}', 'ProductController@index');
+    Route::get('/product/search?{search}', 'ProductController@search');
 });
 
 Route::group(function () {
@@ -95,14 +96,14 @@ Route::group(function () {
 });
 
 Route::group(function () {
-    Route::post('/whishList', 'WishListController@add');
-    // Route::get('/whishList', 'WishListController@index');
-    // Route::get('/whishList/create', 'WishListController@create');
-    // Route::post('/whishList', 'WishListController@store');
-    // Route::get('/whishList/{id}', 'WishListController@show');
-    // Route::get('/whishList/{id}/edit', 'WishListController@edit');
-    // Route::put('/whishList/{id}', 'WishListController@update');
-    // Route::delete('/whishList/{id}', 'WishListController@destroy');
+    Route::post('/wishList', 'WishListController@add');
+    Route::get('/wishList', 'WishListController@index');
+    // Route::get('/wishList/create', 'WishListController@create');
+    // Route::post('/wishList', 'WishListController@store');
+    // Route::get('/wishList/{id}', 'WishListController@show');
+    // Route::get('/wishList/{id}/edit', 'WishListController@edit');
+    // Route::put('/wishList/{id}', 'WishListController@update');
+    // Route::delete('/wishList/{id}', 'WishListController@destroy');
 });
 
 Route::group(function () {

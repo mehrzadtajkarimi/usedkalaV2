@@ -218,3 +218,8 @@ function can(string $name): bool
     }
     return false;
 }
+function search_categories()
+{
+    $categoryModel = new Category();
+    return $categoryModel->get('*',['type' => 0]);
+}
