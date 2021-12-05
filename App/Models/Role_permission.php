@@ -12,13 +12,13 @@ class Role_permission extends MysqlBaseModel
         return $this->create($params);
     }
 
-    public function read_rolePermission($role_id=null)
+    public function read_rolePermission($role_id = null)
     {
         $permission_id =  $this->get('permission_id', ['role_id' => $role_id]) ?? '';
         return $permission_id ? $this->connection->select('permissions', ['id'], ['id' => $permission_id]) : false;
     }
 
-    public function update_rolePermission($params ,$role_id)
+    public function update_rolePermission($params, $role_id)
     {
         return $this->update($params, ['role_id' => $role_id]);
     }
@@ -28,21 +28,31 @@ class Role_permission extends MysqlBaseModel
         return $this->delete(['role_id' => $role_id]);
     }
 
-    public function join_rolePermission($role_id)
-    {
-        return $this->delete(['role_id' => $role_id]);
-    }
-    public function join_rolePermission_with_role_by_role_id($role_id)
+
+
+    public function get_permissions($role_id)
     {
         $permission_id =  $this->get('permission_id', ['role_id' => $role_id]) ?? '';
-        $products =  $this->inner_join(
+        return $permission_id ? $this->connection->select('permissions', '*', ['id' => $permission_id]) : false;
+    }
+
+
+    public function join_rolePermission_with_roles_by_role_name_and_get_permissions($role_id)
+    {
+        $permission_ids =  $this->get('permission_id', ['role_id' => $role_id]) ?? '';
+
+
+        // dd($permission_ids);
+        $products =  $this->inner_join_two(
             '*',
             'roles',
             'role_id',
+            'id',
+            'permissions',
+            'permission_id',
             'id',
             "role_permissions.role_id={$role_id}",
         );
         return $products;
     }
-
 }
