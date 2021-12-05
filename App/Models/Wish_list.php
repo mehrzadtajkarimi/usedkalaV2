@@ -22,6 +22,14 @@ class Wish_list extends MysqlBaseModel
         ])??NULL;
     }
 
+    public function read_all_wishList_items($entity_type)
+    {
+        return $this->get('*',[
+            'entity_type' => $entity_type,
+            'user_id' => SessionManager::get('auth')
+        ]);
+    }
+
     public function count_WishList($where)
     {
         return $this->count($where);

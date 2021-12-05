@@ -78,8 +78,7 @@
             });
         });
         $('.wish_list_btn').click(function() {
-            alert('product');
-            var action = '<?= base_url() ?>whishList';
+            var action = '<?= base_url() ?>wishList';
             var wish_list_btn = $(this);
             if (!wish_list_btn.data('auth')) {
                 alert('ابتدا باید وارد بشوید');
@@ -97,6 +96,31 @@
 
                     wish_list_btn.removeClass('fa fa-heart-o')
                     wish_list_btn.addClass('fa fa-heart text-danger')
+                },
+                error: function(response) {
+                    wish_list_btn.html("Err!");
+                }
+
+            });
+        });
+        $('.add_to_wishlist').click(function(e) {
+            e.preventDefault();
+            var action = '<?= base_url() ?>wishList';
+            var wish_list_btn = $(this);
+            if (!wish_list_btn.data('auth')) {
+                alert('ابتدا باید وارد بشوید');
+                return
+            }
+            $.ajax({
+                type: "post",
+                url: action,
+                data: {
+                    entity_id: wish_list_btn.data('id'),
+                    entity_type: wish_list_btn.data('type')
+                },
+                timeout: 10000,
+                success: function(response) {
+                    wish_list_btn.addClass('active')
                 },
                 error: function(response) {
                     wish_list_btn.html("Err!");

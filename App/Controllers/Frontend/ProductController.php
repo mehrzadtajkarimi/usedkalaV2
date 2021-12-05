@@ -44,8 +44,15 @@ class ProductController extends Controller
     {
         $id       = $this->request->get_param('id');
         $products = $this->productModel->join_product_to_photo_by_category_id($id);
+        $wishlist_products = $this->wishListModel->read_all_wishList_items('Product');
+        $selected_wishlist = [];
+        foreach ($wishlist_products as $key => $value){
+            $selected_wishlist[] = $value['entity_id'];
+        }
         $data     = array(
-            'products' => $products,
+            'products'          => $products,
+            'auth'              => SessionManager::get('auth') ?? null,
+            'selected_wishlist' => $selected_wishlist,
         );
         view('Frontend.product.index', $data);
     }

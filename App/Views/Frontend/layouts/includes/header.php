@@ -113,13 +113,16 @@
             </ul>
         </div>
         <!-- .departments-menu -->
-        <form class="navbar-search" method="get" action="javascript:void(0)">
+        <form class="navbar-search" method="get" action="<?= base_url() ?>search/">
             <label class="sr-only screen-reader-text" for="search">جستجو:</label>
             <div class="input-group">
                 <input type="text" id="search" class="form-control search-field product-search-field" dir="ltr" value="" name="s" placeholder="جستجوی محصول" style='font-family: "IRANSans";direction: rtl;' />
                 <div class="input-group-addon search-categories">
                     <select name='product_cat' id='product_cat' class='postform resizeselect' style='font-family: "IRANSans"'>
-                        <option value='0' selected='selected' style='font-family: "IRANSans"'>تمامی محصولات</option>
+                        <option selected='selected' style='font-family: "IRANSans"' value="all">تمامی محصولات</option>
+                        <?php foreach (search_categories() as $category): ?>    
+                            <option style='font-family: "IRANSans"' value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
                 <!-- .input-group-addon -->
@@ -146,7 +149,7 @@
         <!-- .header-compare -->
         <ul class="header-wishlist nav navbar-nav">
             <li class="nav-item">
-                <a href="wishlist.html" class="nav-link">
+                <a href="<?= base_url() ?>wishList" class="nav-link">
                     <i class="tm tm-favorites"></i>
                     <span id="top-cart-wishlist-count" class="value">3</span>
                 </a>

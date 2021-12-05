@@ -3,18 +3,43 @@
 namespace App\Controllers\Frontend;
 
 use App\Controllers\Controller;
+use App\Models\Photo;
 use App\Models\WishList;
 use App\Models\Wish_list;
+use App\Models\Product;
 use App\Services\Session\SessionManager;
 
 class WishListController extends Controller
 {
     private $WishListModel;
+    private $productModel;
+    private $photoModel;
 
     public function __construct()
     {
         parent::__construct();
         $this->WishListModel = new Wish_list();
+        $this->productModel  = new Product();
+        $this->photoModel  = new Photo();
+    }
+
+    public function index()
+    {
+
+        $wishlist_products =  $this->WishListModel->read_all_wishList_items('Product');
+        foreach ($wishlist_products as $key => $value){
+            $products[] = $this->productModel->read_product($value['entity_id']);
+            $photo[] = $this->photoModel->read_single_photo_by_id('0', $value['entity_id'], 'Product')[0];
+            $products[$key]['path'] = $photo[$key]['path'];
+            $selected_wishlist[] = $value['entity_id'];
+        }
+
+        $data= [
+            'products'          => $products,
+            'selected_wishlist' => $selected_wishlist,
+        ];
+
+        return view('Frontend.product.index', $data);
     }
 
     public function add()
