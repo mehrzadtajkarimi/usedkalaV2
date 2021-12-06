@@ -29,7 +29,7 @@
             e.preventDefault(); // avoid to execute the actual submit of the form.
             var form = $(this);
             var url = form.attr('action');
-            if (<?= $auth ?>) {
+            if (<?= $auth ? $auth : "FALSE" ?>) {
                 $.ajax({
                     type: "POST",
                     url: url,

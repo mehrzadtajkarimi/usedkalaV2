@@ -7,6 +7,7 @@ use App\Models\Photo;
 use App\Models\WishList;
 use App\Models\Wish_list;
 use App\Models\Product;
+use App\Services\Auth\Auth;
 use App\Services\Session\SessionManager;
 
 class WishListController extends Controller
@@ -39,7 +40,7 @@ class WishListController extends Controller
         $data= [
             'products'          => $products,
             'selected_wishlist' => $selected_wishlist,
-            'auth'              => SessionManager::get('auth')
+            'auth'              => Auth::is_login(),
         ];
 
         return view('Frontend.product.index', $data);

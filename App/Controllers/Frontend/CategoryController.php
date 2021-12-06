@@ -52,7 +52,7 @@ class CategoryController extends Controller
                 'categories'        => $categories,
                 'description'       => $description,
                 'products'          => $products,
-                'auth'              => SessionManager::get('auth') ?? null,
+                'auth'              => SessionManager::get('auth') ?? false,
                 'selected_wishlist' => $selected_wishlist,
             );
             return view('Frontend.category.show', $data);

@@ -51,7 +51,7 @@ class ProductController extends Controller
         }
         $data     = array(
             'products'          => $products,
-            'auth'              => SessionManager::get('auth') ?? null,
+            'auth'              => SessionManager::get('auth') ?? false,
             'selected_wishlist' => $selected_wishlist,
         );
         view('Frontend.product.index', $data);
