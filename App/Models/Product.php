@@ -298,4 +298,20 @@ class Product extends MysqlBaseModel
 			WHERE pix.type = 0 AND pix.`entity_type` = 'Product' AND rels.`category_id` = '$id'");
 		return $productsInCat;
     }
+
+    public function search_product_by_name($name)
+    {
+        return $this->get('*', ['title[~]' => $name]);
+    }
+
+    public function join_products_to_categories_by_cat_id($cat_id)
+    {
+        return $this->inner_join(
+            "*",
+            "product_categories",
+            "id",
+            "product_id",
+            "product_categories.category_id=$cat_id"
+        );
+    }
 }

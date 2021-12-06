@@ -42,8 +42,8 @@ class ProductController extends Controller
 
     public function index()
     {
-        $id       = $this->request->get_param('id');
-        $products = $this->productModel->join_product_to_photo_by_category_id($id);
+        $id                = $this->request->get_param('id');
+        $products          = $this->productModel->join_product_to_photo_by_category_id($id);
         $wishlist_products = $this->wishListModel->read_all_wishList_items('Product');
         $selected_wishlist = [];
         foreach ($wishlist_products as $key => $value){
@@ -51,7 +51,7 @@ class ProductController extends Controller
         }
         $data     = array(
             'products'          => $products,
-            'auth'              => SessionManager::get('auth') ?? null,
+            'auth'              => SessionManager::get('auth') ?? false,
             'selected_wishlist' => $selected_wishlist,
         );
         view('Frontend.product.index', $data);
@@ -130,5 +130,36 @@ class ProductController extends Controller
             'related_products'      => $related_products,
         );
         return view('Frontend.product.show', $data);
+    }
+
+    public function search()
+    {
+        $params = $this->request->get_param();
+
+        $wishlist_products = $this->wishListModel->read_all_wishList_items('Product');
+        $selected_wishlist = [];
+        foreach ($wishlist_products as $key => $value){
+            $selected_wishlist[] = $value['entity_id'];
+        }
+
+        if($params['product_cat'] == "all"){
+            $products = $this->productModel->search_product_by_name($params['s']);
+            foreach($products as $key=>$value){
+                $photos = $this->photoModel->read_single_photo_by_id('0', $value['id'], 'Product')[0];
+                $products[$key]['path'] = $photos['path'];
+                $products[$key]['alt'] = $photos['alt'];
+            }
+        } else {
+            $products = $this->productModel->join_product_to_photo_by_category_id($params['product_cat']);
+            // dd($products);
+            // dd($products);
+        }
+
+        $data     = array(
+            'products'          => $products,
+            'auth'              => SessionManager::get('auth') ?? false,
+            'selected_wishlist' => $selected_wishlist,
+        );
+        view('Frontend.product.index', $data);
     }
 }

@@ -113,7 +113,7 @@
             </ul>
         </div>
         <!-- .departments-menu -->
-        <form class="navbar-search" method="get" action="<?= base_url() ?>search/">
+        <form class="navbar-search" method="get" action="<?= base_url() ?>search">
             <label class="sr-only screen-reader-text" for="search">جستجو:</label>
             <div class="input-group">
                 <input type="text" id="search" class="form-control search-field product-search-field" dir="ltr" value="" name="s" placeholder="جستجوی محصول" style='font-family: "IRANSans";direction: rtl;' />
