@@ -4,9 +4,12 @@ namespace App\Controllers\Backend;
 
 use App\Controllers\Controller;
 use App\Core\Request;
+use App\Models\Blog;
 use App\Models\Photo;
 use App\Models\Comment;
 use App\Models\Category;
+use App\Models\Product;
+use App\Models\User;
 use App\Services\Auth\Auth;
 use App\Services\Upload\UploadedFile;
 use App\Utilities\FlashMessage;
@@ -18,6 +21,9 @@ class CommentController extends Controller
     public $photoModel;
     public $categoryModel;
     public $category_commentModel;
+    public $userModel;
+    public $productModel;
+    public $blogModel;
 
     public function __construct()
     {
@@ -25,12 +31,30 @@ class CommentController extends Controller
         $this->commentModel  = new Comment();
         $this->categoryModel = new Category();
         $this->photoModel    = new Photo();
+        $this->userModel     = new User();
+        $this->productModel  = new Product();
+        $this->blogModel     = new Blog();
     }
 
     public function index()
     {
+        $comments  = $this->commentModel->read_comment() ?? [];
+        $product   = [];
+        $blog_post = [];
+        foreach ($comments as $key => $value){
+            $user = $this->userModel->read_user($value['user_id']);
+            count($user) > 1 ? $comments[$key]['user_name'] = $user['first_name']." ".$user['last_name'] : $comments[$key]['user_name'] = "";
+            if($value['entity_type'] == 'Product'){
+                $product = $this->productModel->read_product($value['entity_id']);
+                count($product) > 1 ? $comments[$key]['entity_name'] = $product['title'] : $comments[$key]['entity_name'] = "";
+            }
+            if($value['entity_type'] == 'Blog'){
+                $blog_post = $this->blogModel->read_blog($value['entity_id']);
+                count($blog_post) > 1 ? $comments[$key]['entity_name'] = $blog_post['title'] : $comments[$key]['entity_name'] = "";
+            }
+        }
         $data = array(
-            'comments' => $this->commentModel->join_all_comment_to_user() ?? [],
+            'comments' => $comments,
 
         );
         return view('Backend.comment.index', $data);
@@ -122,7 +146,7 @@ class CommentController extends Controller
         $status = $this->request->params();
 
         $param = array(
-            'status' => $status['status'] ? 0 : 1
+            'status' => $status['status']
         );
         $this->commentModel->status_down($param, $id);
         return  true;

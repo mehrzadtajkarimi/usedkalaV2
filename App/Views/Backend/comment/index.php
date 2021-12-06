@@ -5,7 +5,7 @@
     <div class="card-header">
       <div class="row">
         <div class="col-4">
-          <h3 class="p-3 card-title"> لیست کامنت</h3>
+          <h3 class="p-3 card-title"> فهرست دیدگاه های ارسالی</h3>
         </div>
         <div class="offset-4"> </div>
         <div class="col-4">
@@ -31,7 +31,8 @@
           <table class="table table--vertical_middle ">
             <thead>
               <tr>
-                <th class="text-center" scope="col">قسمت</th>
+                <th class="text-center" scope="col" style="width: 130px;">قسمت</th>
+                <th class="text-center" scope="col">نام کاربر</th>
                 <th class="text-center" scope="col">موضوع</th>
                 <th class="text-center" scope="col">وضعیت</th>
                 <th class="text-center" scope="col">اصلاحات</th>
@@ -40,10 +41,12 @@
             <tbody>
               <?php foreach ($comments as $value) : ?>
                 <tr>
-                  <td class="text-center"><?= $value['entity_type'] ?></td>
+                  <td class="text-center"><?= $value['entity_type'] ?> / <?= $value['entity_name'] ?></td>
+                  <td class="text-center"><?= $value['user_name'] != "" ? $value['user_name'] : 'کاربر مهمان' ?></td>
                   <td class="text-center"><?= $value['title'] ?></td>
                   <td class="text-center">
-                      <i id="status" class="status fa <?= $value['status']?'fa-thumbs-up text-success': 'fa-thumbs-down text-danger' ?> fa-2x pointer p-2" data-id="<?= $value['id'] ?>" data-status="<?= $value['status'] ?>" title="کلیک کنید تا وضعیت تغییر کند" ></i>
+                      <i class="publish-status fa fa-thumbs-up <?= $value['status'] == 1 ? ' text-success' : 'text-secondary' ?> fa-2x pointer p-2" data-id="<?= $value['id'] ?>" data-status="1" title="انتشار دیدگاه" ></i>
+                      <i class="reject-status fa fa-thumbs-down <?= $value['status'] == -1 ?' text-danger' : 'text-secondary' ?> fa-2x pointer p-2" data-id="<?= $value['id'] ?>" data-status="-1" title="عدم انتشار دیدگاه" ></i>
                   </td>
                   <td class="text-center">
                     <a href="<?= base_url() ?>admin/comment/<?= $value['id'] ?>" type="button" class="shadow-sm btn btn-info btn-sm " style="padding: 0px 20px; border-radius: 18px;">

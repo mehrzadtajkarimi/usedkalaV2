@@ -112,7 +112,7 @@
 
             </div>
         <?php endforeach; ?>
-        <form class="theForm" action="<?= base_url() ?>comment/<?= $blog['blog_id'] ?>/Blog" method="post">
+        <form class="theForm" action="<?= base_url() ?>comment/Blog/<?= $blog['blog_id'] ?>/<?= $blog['slug'] ?>" method="post">
             <input type="hidden" name="slug" value="<?= $blog['slug'] ?>">
             <div class="form-group mr-5 ml-5 mb-5">
                 <label for="my-textarea">
@@ -124,7 +124,7 @@
             </div>
         </form>
     <?php else : ?>
-        <form class="theForm" action="<?= base_url() ?>comment/<?= $blog['blog_id'] ?>/Blog" method="post">
+        <form class="theForm" action="<?= base_url() ?>comment/Blog/<?= $blog['blog_id'] ?>/<?= $blog['slug'] ?>" method="post">
             <input type="hidden" name="slug" value="<?= $blog['slug'] ?>">
             <div class="form-group mr-5 ml-5 mb-5">
                 <label for="my-textarea">

@@ -116,12 +116,12 @@
         <form class="navbar-search" method="get" action="<?= base_url() ?>search">
             <label class="sr-only screen-reader-text" for="search">جستجو:</label>
             <div class="input-group">
-                <input type="text" id="search" class="form-control search-field product-search-field" dir="ltr" value="" name="s" placeholder="جستجوی محصول" style='font-family: "IRANSans";direction: rtl;' />
+                <input type="text" id="search" class="form-control search-field product-search-field" dir="ltr" name="s" placeholder="جستجوی محصول" style='font-family: "IRANSans";direction: rtl;' value="<?php if (isset($search_params['s'])) echo $search_params['s'] ?>"/>
                 <div class="input-group-addon search-categories">
                     <select name='product_cat' id='product_cat' class='postform resizeselect' style='font-family: "IRANSans"'>
                         <option selected='selected' style='font-family: "IRANSans"' value="all">تمامی محصولات</option>
                         <?php foreach (search_categories() as $category): ?>    
-                            <option style='font-family: "IRANSans"' value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
+                            <option style='font-family: "IRANSans"' value="<?= $category['id'] ?>" <?php if(isset($search_params['product_cat']) && $search_params['product_cat'] == $category['id']) echo 'selected="selected"' ?> ><?= $category['name'] ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>

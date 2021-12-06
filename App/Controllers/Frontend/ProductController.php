@@ -138,6 +138,7 @@ class ProductController extends Controller
 
         $wishlist_products = $this->wishListModel->read_all_wishList_items('Product');
         $selected_wishlist = [];
+        $products          = [];
         foreach ($wishlist_products as $key => $value){
             $selected_wishlist[] = $value['entity_id'];
         }
@@ -150,15 +151,15 @@ class ProductController extends Controller
                 $products[$key]['alt'] = $photos['alt'];
             }
         } else {
-            $products = $this->productModel->join_product_to_photo_by_category_id($params['product_cat']);
-            // dd($products);
-            // dd($products);
+            // $products = $this->productModel->query("SELECT pros.* FROM `products` as pros INNER JOIN `product_categories` as rels ON rels.`product_id` = pros.`id` WHERE rels.`category_id` = '".$params['product_cat']."' AND pros.`title` LIKE '%".$params['s']."%'");
+            $products = $this->productModel->join_products_to_categories_by_cat_id($params['product_cat'], $params['s']);
         }
 
         $data     = array(
             'products'          => $products,
             'auth'              => SessionManager::get('auth') ?? false,
             'selected_wishlist' => $selected_wishlist,
+            'search_params' => $params
         );
         view('Frontend.product.index', $data);
     }
