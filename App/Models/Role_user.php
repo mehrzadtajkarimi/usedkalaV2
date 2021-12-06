@@ -19,10 +19,15 @@ class Role_user extends MysqlBaseModel
         return $permission_id ? $this->connection->select('permissions', ['id'], ['id' => $permission_id]) : false;
     }
 
+    public function has_role($user_id)
+    {
+        return $this->has(['user_id' => $user_id]);
+    }
+
+
     public function exist_roleUser($param, $user_id)
     {
         if (isset($param)) {
-            # code...
             foreach ($param as  $role_id) {
 
                 $result = +$this->count([
@@ -48,7 +53,7 @@ class Role_user extends MysqlBaseModel
     public function join_roleUser_role($id)
     {
         return $this->inner_join(
-            'roles.name,roles.label,role_users.*',
+            'roles.name,roles.label,roles.id',
             'roles',
             'role_id',
             'id',

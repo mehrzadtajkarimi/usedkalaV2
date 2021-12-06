@@ -17,7 +17,7 @@ class Permission extends MysqlBaseModel
     public function read_permission($id=null)
     {
         if (is_null($id)) {
-            return $this->all();
+            return $this->get_order_asc();
         }
         return $this->first(['id' => $id]);
     }
@@ -31,4 +31,6 @@ class Permission extends MysqlBaseModel
     {
         return $this->delete(['id' => $id]);
     }
+
+
 }

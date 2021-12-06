@@ -73,9 +73,12 @@
             </thead>
             <tbody>
 
-              <?php foreach ($permissions as $value) : ?>
+              <?php
+              $count = 1;
+              foreach ($permissions as $value) :
+              ?>
                 <tr>
-                  <td class="text-center" title=""><?= $value['id'] ?></td>
+                  <td class="text-center" title=""><?= $count++ ?></td>
                   <td class="text-center" title=""><?= $value['name'] ?></td>
                   <td class="text-center" title=""><?= $value['label'] ?></td>
                   <td class="text-center">
