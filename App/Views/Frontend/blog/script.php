@@ -6,13 +6,8 @@
         $('.like_btn').click(function() {
             var action = '<?= base_url() ?>like';
             var like_btn = $(this);
-            var dislike_btn = $('.dislike_btn');
+            var dislike_btn = $(this).parent().siblings('.dislike').children('.dislike_btn');
             var count_box = $(this).parent().find('.count');
-            if (!like_btn.data('auth')) {
-                alert('ابتدا باید وارد بشوید')
-                return
-            }
-            count_box.html('..loading..');
             $.ajax({
                 type: "post",
                 url: action,
@@ -22,11 +17,14 @@
                 },
                 timeout: 10000,
                 success: function(response) {
-                    response = JSON.parse(response)
-                    console.log(response.count)
-                    count_box.html(response.count);
-                    dislike_btn.removeClass('text-danger')
-                    like_btn.addClass('text-success')
+                    response = JSON.parse(response);
+                    if(response.like){
+                        count_box.html(response.like);
+                        dislike_btn.removeClass('text-danger')
+                        like_btn.addClass('text-success')
+                    } else {
+                        alert(response.error)
+                    }
                 },
                 error: function(response) {
                     count_box.html("Err!");
@@ -36,13 +34,8 @@
         $('.dislike_btn').click(function() {
             var action = '<?= base_url() ?>dislike';
             var dislike_btn = $(this);
-            var like_btn = $('.like_btn');
+            var like_btn = $(this).parent().siblings('.dislike').children('.like_btn');
             var count_box = $(this).parent().find('.count');
-            if (!dislike_btn.data('auth')) {
-                alert('ابتدا باید وارد بشوید')
-                return
-            }
-            count_box.html('..loading..');
             $.ajax({
                 type: "post",
                 url: action,
@@ -51,9 +44,14 @@
                     entity_type: dislike_btn.data('type')
                 },
                 success: function(response) {
-                    count_box.html(response);
-                    like_btn.removeClass('text-success')
-                    dislike_btn.addClass('text-danger')
+                    response = JSON.parse(response);
+                    if(response.dislike){
+                        count_box.html(response.dislike);
+                        like_btn.removeClass('text-success')
+                        dislike_btn.addClass('text-danger')
+                    } else {
+                        alert(response.error)
+                    }
                 },
                 error: function(response) {
                     count_box.html("Err!");

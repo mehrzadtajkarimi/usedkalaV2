@@ -82,7 +82,7 @@
                                     <?php foreach ($products as $value) : ?>
                                         <div class="product first">
                                             <div class="yith-wcwl-add-to-wishlist">
-                                                <a href="#" rel="nofollow" class="add_to_wishlist <?php if (in_array($value['id'], $selected_wishlist)) echo 'active'; ?>" data-id="<?= $value['id'] ?>" data-type="Product" data-auth="<?= $auth ? TRUE : FALSE ?>"> افزودن به علاقه‌مندی‌ها</a>
+                                                <a href="#" rel="nofollow" class="add_to_wishlist <?php if (in_array($value['id'], $selected_wishlist)) echo 'active'; ?>" data-id="<?= $value['id'] ?>" data-type="Product"> افزودن به علاقه‌مندی‌ها</a>
                                             </div>
                                             <!-- .yith-wcwl-add-to-wishlist -->
                                             <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" href="<?= base_url() ?>product/<?= $value['id'] ?>/<?= $value['slug'] ?>">

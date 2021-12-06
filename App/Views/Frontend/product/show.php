@@ -103,9 +103,9 @@
                                     </form>
                                     <div class=" p-3 pointer">
                                         <?php if (!empty($wish_list)) : ?>
-                                            <i class="wish_list_btn  fa fa-heart text-danger" data-id="<?= $product['id'] ?>" data-type="Product" data-auth="<?= $auth ? TRUE : FALSE ?>"></i>
+                                            <i class="wish_list_btn  fa fa-heart text-danger" data-id="<?= $product['id'] ?>" data-type="Product"></i>
                                         <?php else : ?>
-                                            <i class="wish_list_btn  fa fa-heart-o" data-id="<?= $product['id'] ?>" data-type="Product" data-auth="<?= $auth ? TRUE : FALSE ?>"></i>
+                                            <i class="wish_list_btn  fa fa-heart-o" data-id="<?= $product['id'] ?>" data-type="Product"></i>
                                         <?php endif; ?>
                                     </div>
                                     <!-- .cart -->
@@ -167,12 +167,12 @@
                         <span>
                             <span>آیا این دیدگاه برایتان مفید بود؟</span>
                             <span class="m-2 pointer dislike text-muted ">
-                                <small><?= $value['dislike'] ?></small>
-                                <i class=" fa fa-thumbs-down fa-1x " data-id="<?= $value['id'] ?>" data-type="Product" title="کلیک کنید تا وضعیت تغییر کند"></i>
+                                <small class="count"><?= $value['dislike'] ?></small>
+                                <i class="dislike_btn fa fa-thumbs-down fa-1x " data-id="<?= $value['id'] ?>" data-type="Product" title="کلیک کنید تا وضعیت تغییر کند"></i>
                             </span>
                             <span class="m-2 pointer like text-darkBrandController">
-                                <small><?= $value['like'] ?></small>
-                                <i class=" fa fa-thumbs-up  fa-1x " data-id="<?= $value['id'] ?>" data-type="Product" title="کلیک کنید تا وضعیت تغییر کند"></i>
+                                <small class="count"><?= $value['like'] ?></small>
+                                <i class="like_btn fa fa-thumbs-up  fa-1x " data-id="<?= $value['id'] ?>" data-type="Product" title="کلیک کنید تا وضعیت تغییر کند"></i>
                             </span>
                         </span>
                     </div>

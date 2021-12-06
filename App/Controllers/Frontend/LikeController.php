@@ -4,87 +4,120 @@ namespace App\Controllers\Frontend;
 
 use App\Controllers\Controller;
 use App\Models\Like;
+use App\Models\Comment;
 use App\Services\Session\SessionManager;
 
 class LikeController extends Controller
 {
     private $likeModel;
+    private $commentModel;
 
     public function __construct()
     {
         parent::__construct();
-        $this->likeModel     = new Like();
+        $this->likeModel    = new Like();
+        $this->commentModel = new Comment();
     }
 
     public function like()
     {
         $params   = $this->request->params();
-        $data = [
-            'entity_id'   => $params['entity_id'],
-            'entity_type' => $params['entity_type'],
-            'user_id'     => SessionManager::get('auth'),
-            'like'        => true,
-        ];
-        $alreadyExists = $this->likeModel->count_like($data);
+        if(SessionManager::get('auth')){
+            $where = [
+                'entity_id'   => $params['entity_id'],
+                'user_id'     => SessionManager::get('auth'),
+            ];
+    
+            $alreadyExists = $this->likeModel->count_like($where);
+    
+            if (!$alreadyExists && SessionManager::get('auth')) {
+                $this->likeModel->create_like([
+                    'entity_id'   => $params['entity_id'],
+                    'entity_type' => 'like',
+                    'user_id'     => SessionManager::get('auth')
+                ]);
+                $this->commentModel->update_comment([
+                    "like[+]"    => 1,
+                ], $params['entity_id']);
+    
+                echo json_encode(['like' => $this->commentModel->read_comment($params['entity_id'])['like']]);
+            } else {
+                echo json_encode(['error' => 'رای شما قبلا ثبت گردیده است.']);
+            }
+        } else if(!SessionManager::get('auth')){
+            $where = [
+                'entity_id' => $params['entity_id'],
+                'ip'        => session_id(),
+            ];
 
-        $result = [];
-        $result['status'] = 'already';
-        if (!$alreadyExists) {
-            $this->likeModel->create_like($data);
-            $result['status'] = 'created';
+            $alreadyExists = $this->likeModel->count_like($where);
+
+            if(!$alreadyExists){
+                $this->likeModel->create_like([
+                    'entity_id'   => $params['entity_id'],
+                    'entity_type' => 'like',
+                    'ip'          => session_id(),
+                ]);
+
+                $this->commentModel->update_comment([
+                    "like[+]"    => 1,
+                ], $params['entity_id']);
+    
+                echo json_encode(['like' => $this->commentModel->read_comment($params['entity_id'])['like']]);
+            } else {
+                echo json_encode(['error' => 'رای شما قبلا ثبت گردیده است.']);
+            }
         }
-
-        $class_name = '\\App\\Models\\' . $params['entity_type'];
-
-
-        $entity_model = new $class_name;
-
-
-        $method_update = "update_" . lcfirst($params['entity_type']);
-        $method_read = "read_" . lcfirst($params['entity_type']);
-        $entity_model->$method_update(
-            [
-                'likes[+]' => 1
-            ],
-            $params['entity_id']
-        );
-        $result['count'] = $entity_model->$method_read($params['entity_id'])['likes'];
-
-        echo json_encode($result);
     }
 
     public function dislike()
     {
         $params   = $this->request->params();
-
-        if (SessionManager::has('dislike')) {
-            return;
-        }
-
-        $where = [
-            'entity_id'   => $params['entity_id'],
-            'entity_type' => $params['entity_type'],
-            'user_id'     => SessionManager::get('auth'),
-        ];
-
-        $ObjSessionManager = SessionManager::set('dislike', 1);
-
-        $alreadyExists = $this->likeModel->count_like($where);
-
-        if (!$alreadyExists) {
-            $this->likeModel->create_like([
+        if(SessionManager::get('auth')){
+            $where = [
                 'entity_id'   => $params['entity_id'],
-                'entity_type' => $params['entity_type'],
                 'user_id'     => SessionManager::get('auth'),
-                'dislike[+]' => $ObjSessionManager->get('dislike'),
-            ]);
-        }
+            ];
+    
+            $alreadyExists = $this->likeModel->count_like($where);
+    
+            if (!$alreadyExists) {
+                $this->likeModel->create_like([
+                    'entity_id'   => $params['entity_id'],
+                    'entity_type' => 'dislike',
+                    'user_id'     => SessionManager::get('auth')
+                ]);
+                $this->commentModel->update_comment([
+                    "dislike[+]"    => 1,
+                ], $params['entity_id']);
+    
+                echo json_encode(['dislike' => $this->commentModel->read_comment($params['entity_id'])['dislike']]);
+            } else {
+                echo json_encode(['error' => 'رای شما قبلا ثبت گردیده است.']);
+            }
+        } else if(!SessionManager::get('auth')){
+            $where = [
+                'entity_id' => $params['entity_id'],
+                'ip'        => session_id(),
+            ];
 
-        $this->likeModel->update_like([
-            'like[-]'    => $ObjSessionManager->remove('like') ? 1 : 0,
-            'dislike[+]' => $ObjSessionManager->get('dislike'),
-        ], $where);
+            $alreadyExists = $this->likeModel->count_like($where);
 
-        echo  $this->likeModel->read_like($where)['dislike'];
+            if(!$alreadyExists){
+                $this->likeModel->create_like([
+                    'entity_id'   => $params['entity_id'],
+                    'entity_type' => 'dislike',
+                    'ip'          => session_id(),
+                ]);
+
+                $this->commentModel->update_comment([
+                    "dislike[+]"    => 1,
+                ], $params['entity_id']);
+    
+                echo json_encode(['dislike' => $this->commentModel->read_comment($params['entity_id'])['dislike']]);
+            } else {
+                echo json_encode(['error' => 'رای شما قبلا ثبت گردیده است.']);
+            }
+        } 
     }
 }

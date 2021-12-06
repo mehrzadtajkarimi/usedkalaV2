@@ -43,9 +43,9 @@
             </div>
             <div class=" p-3 pointer">
                 <?php if (!empty($wish_list)) : ?>
-                    <i class="wish_list_btn  fa fa-heart text-danger" aria-hidden="true" data-id="<?= $blog['blog_id'] ?>" data-type="Blog" data-auth="<?= $auth ? TRUE : FALSE ?>"></i>
+                    <i class="wish_list_btn  fa fa-heart text-danger" aria-hidden="true" data-id="<?= $blog['blog_id'] ?>" data-type="Blog"></i>
                 <?php else : ?>
-                    <i class="wish_list_btn  fa fa-heart-o" aria-hidden="true" data-id="<?= $blog['blog_id'] ?>" data-type="Blog" data-auth="<?= $auth ? TRUE : FALSE ?>"></i>
+                    <i class="wish_list_btn  fa fa-heart-o" aria-hidden="true" data-id="<?= $blog['blog_id'] ?>" data-type="Blog"></i>
                 <?php endif; ?>
             </div>
             <!-- .entry-content -->
@@ -101,12 +101,12 @@
                 <small>آیا این دیدگاه برایتان مفید بود؟</small>
 
                 <span class="m-2 pointer dislike text-muted ">
-                    <small class="count"><?= $value['dislikes'] ?></small>
-                    <i class="dislike_btn fa fa-thumbs-down fa-1x " data-id="<?= $value['id'] ?>" data-type="Comment" data-auth="<?= $auth ?: FALSE ?>" data" title="کلیک کنید تا وضعیت تغییر کند"></i>
+                    <small class="count"><?= $value['dislike'] ?></small>
+                    <i class="dislike_btn fa fa-thumbs-down fa-1x " data-id="<?= $value['id'] ?>" data-type="Comment" title="کلیک کنید تا وضعیت تغییر کند"></i>
                 </span>
-                <span class="m-2 pointer  text-darkBrandController">
-                    <small class="count"><?= $value['likes'] ?></small>
-                    <i class="like_btn fa fa-thumbs-up  fa-1x " data-id="<?= $value['id'] ?>" data-type="Comment" data-auth="<?= $auth ?: FALSE ?>" title="کلیک کنید تا وضعیت تغییر کند"></i>
+                <span class="m-2 pointer like text-darkBrandController">
+                    <small class="count"><?= $value['like'] ?></small>
+                    <i class="like_btn fa fa-thumbs-up  fa-1x " data-id="<?= $value['id'] ?>" data-type="Comment" title="کلیک کنید تا وضعیت تغییر کند"></i>
                 </span>
                 </span>
 

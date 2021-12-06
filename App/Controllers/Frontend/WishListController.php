@@ -48,46 +48,56 @@ class WishListController extends Controller
 
     public function add()
     {
-        $params   = $this->request->params();
-        $data = [
-            'entity_id'   => $params['entity_id'],
-            'entity_type' => $params['entity_type'],
-            'user_id'     => SessionManager::get('auth'),
-        ];
-        $alreadyExists = $this->WishListModel->count_WishList($data);
-
-        $result = [];
-        $result['status'] = 'already';
-        if (!$alreadyExists) {
-            $this->WishListModel->create_WishList($data);
-            $result['status'] = 'created';
+        if(SessionManager::get('auth')){
+            $params   = $this->request->params();
+            $data = [
+                'entity_id'   => $params['entity_id'],
+                'entity_type' => $params['entity_type'],
+                'user_id'     => SessionManager::get('auth'),
+            ];
+            $alreadyExists = $this->WishListModel->count_WishList($data);
+    
+            $result = [];
+            $result['status'] = 'already';
+            if (!$alreadyExists) {
+                $this->WishListModel->create_WishList($data);
+                $result['status'] = 'created';
+            }
+    
+            $class_name = '\\App\\Models\\' . $params['entity_type'];
+    
+    
+            $entity_model = new $class_name;
+    
+    
+      
+            $method_read = "read_" . lcfirst($params['entity_type']);
+    
+            $result['count'] = count($this->WishListModel->read_all_wishList_items('Product'));
+    
+            echo json_encode($result);
+        } else {
+            $result['error'] = "ابتدا باید وارد شوید.";
+            echo json_encode($result);
         }
-
-        $class_name = '\\App\\Models\\' . $params['entity_type'];
-
-
-        $entity_model = new $class_name;
-
-
-  
-        $method_read = "read_" . lcfirst($params['entity_type']);
-
-        $result['count'] = count($this->WishListModel->read_all_wishList_items('Product'));
-
-        echo json_encode($result);
     }
 
     public function remove()
     {
-        $params   = $this->request->params();
-        $data = [
-            'entity_id'   => $params['entity_id'],
-            'entity_type' => $params['entity_type'],
-            'user_id'     => SessionManager::get('auth'),
-        ];
-        $result['deleted']        = $this->WishListModel->delete_wishList($data);
-        $result['count_wishlist'] = count($this->WishListModel->read_all_wishList_items('Product'));
-
-        echo json_encode($result);
+        if(SessionManager::get('auth')){
+            $params   = $this->request->params();
+            $data = [
+                'entity_id'   => $params['entity_id'],
+                'entity_type' => $params['entity_type'],
+                'user_id'     => SessionManager::get('auth'),
+            ];
+            $result['deleted']        = $this->WishListModel->delete_wishList($data);
+            $result['count_wishlist'] = count($this->WishListModel->read_all_wishList_items('Product'));
+    
+            echo json_encode($result);
+        } else {
+            $result['error'] = "ابتدا باید وارد شوید.";
+            echo json_encode($result);
+        }
     }
 }
