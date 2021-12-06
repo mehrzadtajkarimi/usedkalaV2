@@ -89,6 +89,13 @@ class  MysqlBaseModel extends BaseModel
 
         return $this->connection->select($this->table, $columns, $where);
     }
+    public function  get_order_asc($columns = '*', array $where = null): array
+    {
+        $where["ORDER"] = ["id" => "ASC"];
+        // end pagination
+
+        return $this->connection->select($this->table, $columns, $where);
+    }
 
     public function  first(array $where)
     {

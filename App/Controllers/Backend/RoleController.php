@@ -41,8 +41,8 @@ class RoleController  extends Controller
             'label' => $params['role-label'],
         );
 
-        
-        
+
+
         $role_id = $this->roleModel->create_role($params_create);
         if (!empty($params['role-permission'])) {
             foreach ($params['role-permission'] as  $permission_id) {
@@ -86,28 +86,21 @@ class RoleController  extends Controller
 
     public function update()
     {
-        $params = $this->request->params();
-        $permission_id = $this->request->get_param('id');
+        $params        = $this->request->params();
+        $role_id = $this->request->get_param('id');
 
 
         if (!empty($params['role-permission'])) {
-            $is_deleted = $this->rolePermissionModel->delete_rolePermission($permission_id['id']);
-            if ($is_deleted) {
-                foreach ($params['role-permission'] as  $role_id) {
-                    $this->rolePermissionModel->create_rolePermission([
-                        'role_id'       => $role_id,
-                        'permission_id' => $permission_id['id'],
-                    ]);
-                };
-            }
+            $this->rolePermissionModel->delete_rolePermission($role_id['id']);
+
+            foreach ($params['role-permission'] as  $permission_id) {
+                $this->rolePermissionModel->create_rolePermission([
+                    'role_id'       => $role_id['id'],
+                    'permission_id' => $permission_id,
+                ]);
+            };
         }
 
-        $params_updated = array(
-            'name'   => $params['role-name'],
-            'label'  => $params['role-label'],
-            'status' => $params['role-status'] ?? 0,
-        );
-        $this->roleModel->update_role($params_updated, $permission_id['id']);
 
         FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
         return $this->request->redirect('admin/role');
@@ -118,7 +111,7 @@ class RoleController  extends Controller
     public function destroy()
     {
         $id = $this->request->get_param('id');
-        $is_deleted_role = $this->roleModel->delete_role($id);
+        $is_deleted_role = $this->roleModel->delete_role($id['id']);
         $is_deleted_rolePermission = $this->rolePermissionModel->delete_rolePermission($id['id']);
 
         if ($is_deleted_role && $is_deleted_rolePermission) {

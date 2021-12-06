@@ -1,6 +1,7 @@
 <?php
 
 use App\Core\Request;
+use App\database\seeders\DatabaseSeeder;
 
 session_start();
 ini_set('display_errors', '1');
@@ -14,6 +15,10 @@ include BASEPATH . "App/Services/jdf.php";
 $dotenv = Dotenv\Dotenv::createImmutable(BASEPATH);
 $dotenv->load();
 $request = new Request;
+
+// $database_seeder = new DatabaseSeeder;
+// $database_seeder->run();
+
 
 include BASEPATH . "App/Helpers/helper.php";
 include BASEPATH . "App/Routes/Backend.php";

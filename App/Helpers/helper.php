@@ -1,5 +1,6 @@
 <?php
 
+use App\Core\Contracts\Facade;
 use App\Core\Request;
 use App\Models\Category;
 use App\Models\Discount;
@@ -198,45 +199,42 @@ function admin_name($name)
 }
 function can(string $name): bool
 {
-    $admin_id        = Auth::is_login();
+    $admin_id = Auth::is_login();
 
-    $permissionModel     = new Permission_user();
-    $roleModel           = new Role_user();
-    $rolePermissionModel = new Role_permission();
+    $permissionModel = new Permission_user();
+    $roleUserModel   = new Role_user();
 
-    $has_permissions = $permissionModel->join_permissionUser_permission($admin_id);
-    $has_roles       = $roleModel->join_roleUser_role($admin_id);
+    $has_permission = $permissionModel->has_permissionUser($admin_id);
+    $has_role       = $roleUserModel->has_role($admin_id);
 
-    if ($has_roles) {
-        foreach ($has_roles as  $value) {
-
+    if ($has_role) {
+        $join_roleUser_roles = $roleUserModel->join_roleUser_role($admin_id);
+        $rolePermissionModel = new Role_permission();
+        foreach ($join_roleUser_roles as  $value) {
             if ($value['name'] == $name) {
                 return TRUE;
             }
             $has_permission = $rolePermissionModel->get_permissions($value['id']);
-            dd($has_permission);
-
-
             if ($has_permission == $name) {
                 return TRUE;
             }
-
-
         }
     }
 
-    foreach ($has_permissions as  $value) {
-        if ($value['name'] == $name) {
-            return true;
+    if ($has_permission) {
+        $has_permissions = $permissionModel->join_permissionUser_permission($admin_id);
+        foreach ($has_permissions as  $value) {
+            if ($value['name'] == $name) {
+                return TRUE;
+            }
         }
     }
-
-    return false;
+    return FALSE;
 }
 function search_categories()
 {
     $categoryModel = new Category();
-    return $categoryModel->get('*',['type' => 0]);
+    return $categoryModel->get('*', ['type' => 0]);
 }
 function wishList()
 {

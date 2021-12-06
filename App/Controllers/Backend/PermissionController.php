@@ -17,6 +17,9 @@ class PermissionController  extends Controller
     }
     public function index()
     {
+
+
+
         $permissions = $this->permissionModel->read_permission();
         $data= array(
             'permissions' => $permissions,

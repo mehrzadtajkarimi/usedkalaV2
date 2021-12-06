@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use App\Models\Contracts\MysqlBaseModel;
-use App\Utilities\FlashMessage;
 
 class Role extends MysqlBaseModel
 {
