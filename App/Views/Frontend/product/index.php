@@ -78,31 +78,35 @@
                     <div id="grid" class="tab-pane active" role="tabpanel">
                         <div class="woocommerce columns-7">
                             <div class="products">
-                                <?php foreach ($products as $value) : ?>
-                                    <div class="product first">
-                                        <div class="yith-wcwl-add-to-wishlist">
-                                            <a href="#" rel="nofollow" class="add_to_wishlist <?php if (in_array($value['id'], $selected_wishlist)) echo 'active'; ?>" data-id="<?= $value['id'] ?>" data-type="Product" data-auth="<?= $auth ? TRUE : FALSE ?>"> افزودن به علاقه‌مندی‌ها</a>
-                                        </div>
-                                        <!-- .yith-wcwl-add-to-wishlist -->
-                                        <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" href="<?= base_url() ?>product/<?= $value['id'] ?>/<?= $value['slug'] ?>">
-                                            <img alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image" src="<?= $value['path'] ?>" width="224" height="197">
-                                            <span class="price">
-                                                <span class="woocommerce-Price-amount amount">
-                                                    <?= number_format($value['price']) ?> ریال
+                                <?php if (!empty($products)): ?>
+                                    <?php foreach ($products as $value) : ?>
+                                        <div class="product first">
+                                            <div class="yith-wcwl-add-to-wishlist">
+                                                <a href="#" rel="nofollow" class="add_to_wishlist <?php if (in_array($value['id'], $selected_wishlist)) echo 'active'; ?>" data-id="<?= $value['id'] ?>" data-type="Product" data-auth="<?= $auth ? TRUE : FALSE ?>"> افزودن به علاقه‌مندی‌ها</a>
+                                            </div>
+                                            <!-- .yith-wcwl-add-to-wishlist -->
+                                            <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" href="<?= base_url() ?>product/<?= $value['id'] ?>/<?= $value['slug'] ?>">
+                                                <img alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image" src="<?= $value['path'] ?>" width="224" height="197">
+                                                <span class="price">
+                                                    <span class="woocommerce-Price-amount amount">
+                                                        <?= number_format($value['price']) ?> ریال
+                                                    </span>
                                                 </span>
-                                            </span>
-                                            <h2 class="woocommerce-loop-product__title">
-                                                <?= $value['title'] ?>
-                                            </h2>
-                                        </a>
-                                        <!-- .woocommerce-LoopProduct-link -->
-                                        <div class="hover-area">
-                                            <a href="<?= base_url() ?>cart/add/<?= $value['id'] ?>" class="button">افزودن به سبد خرید</a>
-                                            <a class="add-to-compare-link" href="compare.html">مقایسه</a>
+                                                <h2 class="woocommerce-loop-product__title">
+                                                    <?= $value['title'] ?>
+                                                </h2>
+                                            </a>
+                                            <!-- .woocommerce-LoopProduct-link -->
+                                            <div class="hover-area">
+                                                <a href="<?= base_url() ?>cart/add/<?= $value['id'] ?>" class="button">افزودن به سبد خرید</a>
+                                                <a class="add-to-compare-link" href="compare.html">مقایسه</a>
+                                            </div>
+                                            <!-- .hover-area -->
                                         </div>
-                                        <!-- .hover-area -->
-                                    </div>
-                                <?php endforeach; ?>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <div class="alert alert-warning">محصولی یافت نشد </div>
+                                <?php endif; ?>
                             </div>
                             <!-- .products -->
                         </div>

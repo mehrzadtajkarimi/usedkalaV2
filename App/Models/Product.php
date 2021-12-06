@@ -239,20 +239,23 @@ class Product extends MysqlBaseModel
 
     public function join_product__with_comment_and_like($id)
     {
-        return $this->inner_join_two(
-            "*", // column
-            "comments",                // -- table categories
-            "id",                        // categories.id
-            "entity_id",               // products.category_id
-            "likes",                // -- table categories
-            "id",                        // categories.id
-            "entity_id",               // products.category_id
-            "comments.entity_id=$id",
-            "comments.entity_type='Product'",
-            "comments.status='1'",
-            "likes.entity_id=$id",
-            "likes.entity_type='Product'",
-        );
+        // return $this->inner_join_two(
+        //     "*", // column
+        //     "comments",                // -- table categories
+        //     "id",                        // categories.id
+        //     "entity_id",               // products.category_id
+        //     "likes",                // -- table categories
+        //     "id",                        // categories.id
+        //     "entity_id",               // products.category_id
+        //     "comments.entity_id=$id",
+        //     "comments.entity_type='Product'",
+        //     "comments.status='1'",
+        //     "likes.entity_id=$id",
+        //     "likes.entity_type='Product'",
+        // );
+        return $this->query("SELECT * FROM `products` as `pros` INNER JOIN `comments` as `comments`
+        ON `comments`.`entity_id` = pros.`id` WHERE `comments`.`entity_type` = 'Product' AND 
+        `comments`.`status` = 1 AND pros.`id` = '$id'");
     }
     public function join_product__with_photo_by_brand_id($brand_id)
     {
@@ -304,14 +307,11 @@ class Product extends MysqlBaseModel
         return $this->get('*', ['title[~]' => $name]);
     }
 
-    public function join_products_to_categories_by_cat_id($cat_id)
+    public function join_products_to_categories_by_cat_id($cat_id, $title)
     {
-        return $this->inner_join(
-            "*",
-            "product_categories",
-            "id",
-            "product_id",
-            "product_categories.category_id=$cat_id"
-        );
+        return $this->query("SELECT pros.*, pix.path, pix.alt FROM `products` as pros
+            INNER JOIN `product_categories` as rels INNER JOIN `photos` as pix 
+            ON rels.`product_id` = pros.`id` AND pix.`entity_id` = pros.`id`
+            WHERE pix.type = 0 AND pix.`entity_type` = 'Product' AND rels.`category_id` = '$cat_id' AND pros.`title` LIKE '%".$title."%' ");
     }
 }

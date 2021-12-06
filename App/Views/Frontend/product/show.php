@@ -178,7 +178,7 @@
                     </div>
                 <?php endforeach; ?>
 
-                <form class="theForm" action="<?= base_url() ?>comment/<?= $product['id'] ?>/Product" method="post">
+                <form class="theForm" action="<?= base_url() ?>comment/Product/<?= $product['id'] ?>/<?= $product['slug'] ?>" method="post">
                     <div class="form-group mr-5 ml-5 mb-5">
                         <label for="my-textarea">
                             <h5 class="card-title m-3"> ثبت نظر:</h5>
@@ -189,7 +189,7 @@
                     </div>
                 </form>
             <?php else : ?>
-                <form id="theForm" action="<?= base_url() ?>comment/<?= $product['id'] ?>/Product" method="post">
+                <form id="theForm" action="<?= base_url() ?>comment/Product/<?= $product['id'] ?>/<?= $product['slug'] ?>" method="post">
                     <div class="form-group mr-5 ml-5 mb-5">
                         <label for="my-textarea">
                             <h5 class="card-title m-3">اولین نفری باشید که در مورد این محصول نظر میدهد :</h5>

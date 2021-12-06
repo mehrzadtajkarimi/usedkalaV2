@@ -50,8 +50,7 @@ Route::group(function () {
 Route::group(function () {
     Route::get('/product/{id}/{slug}', 'ProductController@show');
     Route::get('/product/category/{id}/{slug}', 'ProductController@index');
-    Route::get('/s/{query}/{selected_cat}', 'ProductController@search');
-    Route::get('/s/{query}', 'ProductController@search');
+    Route::get('/search', 'ProductController@search');
 });
 
 Route::group(function () {
@@ -88,7 +87,7 @@ Route::group(function () {
 });
 
 Route::group(function () {
-    Route::post('/comment/{id}/{type}', 'CommentController@add');
+    Route::post('/comment/{type}/{id}/{slug}', 'CommentController@add');
 });
 
 Route::group(function () {

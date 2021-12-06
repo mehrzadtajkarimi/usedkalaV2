@@ -8,6 +8,7 @@
             filebrowserUploadUrl: "/upload.php",
             filebrowserUploadMethod: "form"
         });
+
         $('#input-edit').change(function() {
             var url = this.value;
             var pic_name = this.files[0];
@@ -23,7 +24,7 @@
             }
         });
 
-        $('.status').click(function() {
+        $('.publish-status').click(function() {
             var that = this;
             var status = $(this).data('status');
             var id = $(this).data('id');
@@ -34,7 +35,27 @@
                     'status': status
                 },
                 success: function(data) {
-                    $(that).toggleClass('fa-thumbs-down text-danger fa-thumbs-up text-success')
+                    $(that).addClass('text-success');
+                    $(that).siblings('.reject-status').removeClass('text-danger');
+                    $(that).siblings('.reject-status').addClass('text-secondary');
+                }
+            });
+        });
+
+        $('.reject-status').click(function() {
+            var that = this;
+            var status = $(this).data('status');
+            var id = $(this).data('id');
+            $.ajax({
+                type: "post",
+                url: '<?= base_url() ?>admin/comment/status/' + id,
+                data: {
+                    'status': status
+                },
+                success: function(data) {
+                    $(that).addClass('text-danger');
+                    $(that).siblings('.publish-status').removeClass('text-success');
+                    $(that).siblings('.publish-status').addClass('text-secondary');
                 }
             });
 

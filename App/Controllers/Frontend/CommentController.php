@@ -28,7 +28,7 @@ class CommentController extends Controller
             'title'       => $params['title'],
             'user_id'     => SessionManager::get('auth'),
         ]);
-        FlashMessage::add(" با موفقیت انجام شد.");
+        FlashMessage::add(" ثبت دیدگاه با موفقیت انجام شد.");
         return $this->request->redirect( lcfirst($params['type']).'/'.$params['id'].'/' .$params['slug']);
     }
 }
