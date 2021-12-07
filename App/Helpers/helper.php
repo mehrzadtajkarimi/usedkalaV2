@@ -204,7 +204,7 @@ function can(string $name): bool
     $permissionModel = new Permission_user();
     $roleUserModel   = new Role_user();
 
-    $has_permission = $permissionModel->has_permissionUser($admin_id);
+    $has_permission = $permissionModel->has_permission($admin_id);
     $has_role       = $roleUserModel->has_role($admin_id);
 
     if ($has_role) {
