@@ -50,7 +50,7 @@ class AccessController  extends Controller
     public function add_access()
     {
         $params = $this->request->params();
-        $user_id = Auth::is_login();
+        $user_id = $params['admin_id'];
         $permission_exists = $this->permissionUserModel->exist_permissionUser($params['access-permission'], $user_id);
         $role_exists = $this->roleUserModel->exist_roleUser($params['access-permission'], $user_id);
         if (!$permission_exists) {

@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 28, 2021 at 11:12 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Host: localhost
+-- Generation Time: Dec 06, 2021 at 09:59 AM
+-- Server version: 8.0.27-0ubuntu0.20.04.1
+-- PHP Version: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,10 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `active_codes` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `code` int(11) NOT NULL,
-  `expired_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `code` int NOT NULL,
+  `expired_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -48,14 +48,14 @@ INSERT INTO `active_codes` (`id`, `user_id`, `code`, `expired_at`) VALUES
 --
 
 CREATE TABLE `activity_log` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `ip` varchar(16) COLLATE utf8mb4_persian_ci NOT NULL,
-  `referer` varchar(512) COLLATE utf8mb4_persian_ci NOT NULL,
-  `type` enum('create','read','update','delete') COLLATE utf8mb4_persian_ci NOT NULL,
+  `id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `ip` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `referer` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `type` enum('create','read','update','delete') CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
   `subject` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
-  `uri` varchar(256) COLLATE utf8mb4_persian_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp()
+  `uri` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 -- --------------------------------------------------------
@@ -65,9 +65,9 @@ CREATE TABLE `activity_log` (
 --
 
 CREATE TABLE `attributes` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) COLLATE utf8mb4_persian_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp()
+  `id` int NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 -- --------------------------------------------------------
@@ -77,10 +77,10 @@ CREATE TABLE `attributes` (
 --
 
 CREATE TABLE `attribute_product` (
-  `id` int(11) NOT NULL,
-  `attribute_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `value_id` int(11) NOT NULL
+  `id` int NOT NULL,
+  `attribute_id` int NOT NULL,
+  `product_id` int NOT NULL,
+  `value_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 -- --------------------------------------------------------
@@ -90,10 +90,10 @@ CREATE TABLE `attribute_product` (
 --
 
 CREATE TABLE `attribute_values` (
-  `id` int(11) NOT NULL,
-  `attrebute_id` int(11) NOT NULL,
-  `value` varchar(100) COLLATE utf8mb4_persian_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp()
+  `id` int NOT NULL,
+  `attrebute_id` int NOT NULL,
+  `value` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 -- --------------------------------------------------------
@@ -103,17 +103,17 @@ CREATE TABLE `attribute_values` (
 --
 
 CREATE TABLE `blogs` (
-  `id` int(11) NOT NULL,
-  `slug` varchar(100) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `title` varchar(64) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `value` text COLLATE utf8mb4_persian_ci NOT NULL,
-  `seo_robot` tinyint(4) NOT NULL COMMENT '0=Index 1=Noindex 2=Nofollow 3=Follow 4=None 5=Noimageindex 6=Noarchive 7=Nocache',
-  `seo_canonical` varchar(128) COLLATE utf8mb4_persian_ci NOT NULL,
-  `seo_H1` varchar(256) COLLATE utf8mb4_persian_ci NOT NULL,
-  `seo_description` varchar(512) COLLATE utf8mb4_persian_ci NOT NULL,
-  `seo_title` varchar(128) COLLATE utf8mb4_persian_ci NOT NULL,
-  `meta_title` varchar(512) COLLATE utf8mb4_persian_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp()
+  `id` int NOT NULL,
+  `slug` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `title` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `value` text CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `seo_robot` tinyint NOT NULL COMMENT '0=Index 1=Noindex 2=Nofollow 3=Follow 4=None 5=Noimageindex 6=Noarchive 7=Nocache',
+  `seo_canonical` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `seo_H1` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `seo_description` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `seo_title` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `meta_title` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -140,9 +140,9 @@ INSERT INTO `blogs` (`id`, `slug`, `title`, `value`, `seo_robot`, `seo_canonical
 --
 
 CREATE TABLE `blog_tags` (
-  `id` int(11) NOT NULL,
-  `blog_id` int(11) NOT NULL,
-  `tag_id` int(11) NOT NULL
+  `id` int NOT NULL,
+  `blog_id` int NOT NULL,
+  `tag_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -162,11 +162,11 @@ INSERT INTO `blog_tags` (`id`, `blog_id`, `tag_id`) VALUES
 --
 
 CREATE TABLE `brands` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) COLLATE utf8mb4_persian_ci NOT NULL,
-  `logo` varchar(100) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `sort` int(11) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `id` int NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `logo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `sort` int DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
@@ -185,9 +185,9 @@ INSERT INTO `brands` (`id`, `name`, `logo`, `sort`, `created_at`, `updated_at`) 
 --
 
 CREATE TABLE `carts` (
-  `id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `token` varchar(100) COLLATE utf8mb4_persian_ci NOT NULL COMMENT 'session save'
+  `id` int NOT NULL,
+  `product_id` int NOT NULL,
+  `token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL COMMENT 'session save'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 -- --------------------------------------------------------
@@ -197,19 +197,19 @@ CREATE TABLE `carts` (
 --
 
 CREATE TABLE `categories` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `status` tinyint(1) DEFAULT NULL,
-  `description` longtext COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `type` tinyint(3) UNSIGNED DEFAULT 0 COMMENT '0=product 1=blog',
-  `H1` varchar(256) COLLATE utf8mb4_persian_ci NOT NULL,
-  `canonical` varchar(256) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `robots` tinyint(4) DEFAULT 0 COMMENT '0=Noindex 1=Index 2=Nofollow 3=Follow 4=None 5=Noimageindex 6=Noarchive 7=Nocache',
-  `parent_id` int(11) DEFAULT 0,
-  `name` varchar(100) COLLATE utf8mb4_persian_ci NOT NULL,
-  `slug` varchar(100) COLLATE utf8mb4_persian_ci NOT NULL,
-  `seo_title` varchar(500) COLLATE utf8mb4_persian_ci DEFAULT '',
-  `seo_description` text COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp()
+  `description` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci,
+  `type` tinyint UNSIGNED DEFAULT '0' COMMENT '0=product 1=blog',
+  `H1` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `canonical` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `robots` tinyint DEFAULT '0' COMMENT '0=Noindex 1=Index 2=Nofollow 3=Follow 4=None 5=Noimageindex 6=Noarchive 7=Nocache',
+  `parent_id` int DEFAULT '0',
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `slug` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `seo_title` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT '',
+  `seo_description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -233,9 +233,9 @@ INSERT INTO `categories` (`id`, `status`, `description`, `type`, `H1`, `canonica
 --
 
 CREATE TABLE `category_blogs` (
-  `id` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL,
-  `blog_id` int(11) NOT NULL
+  `id` int NOT NULL,
+  `category_id` int NOT NULL,
+  `blog_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -257,9 +257,9 @@ INSERT INTO `category_blogs` (`id`, `category_id`, `blog_id`) VALUES
 --
 
 CREATE TABLE `category_discounts` (
-  `id` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL,
-  `discount_id` int(11) NOT NULL
+  `id` int NOT NULL,
+  `category_id` int NOT NULL,
+  `discount_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -280,9 +280,9 @@ INSERT INTO `category_discounts` (`id`, `category_id`, `discount_id`) VALUES
 --
 
 CREATE TABLE `category_samples` (
-  `id` int(11) NOT NULL,
-  `sample_id` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL
+  `id` int NOT NULL,
+  `sample_id` int NOT NULL,
+  `category_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -299,10 +299,10 @@ INSERT INTO `category_samples` (`id`, `sample_id`, `category_id`) VALUES
 --
 
 CREATE TABLE `cities` (
-  `id` int(11) NOT NULL,
-  `name` varchar(17) COLLATE utf8mb4_persian_ci NOT NULL,
-  `slug` varchar(26) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `province_id` int(11) NOT NULL
+  `id` int NOT NULL,
+  `name` varchar(17) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `slug` varchar(26) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `province_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -1437,18 +1437,18 @@ INSERT INTO `cities` (`id`, `name`, `slug`, `province_id`) VALUES
 --
 
 CREATE TABLE `comments` (
-  `id` int(11) NOT NULL,
-  `entity_id` int(11) DEFAULT NULL,
-  `entity_type` varchar(64) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `parent_id` int(11) NOT NULL DEFAULT 0,
-  `message` text COLLATE utf8mb4_persian_ci NOT NULL,
-  `title` varchar(100) COLLATE utf8mb4_persian_ci NOT NULL,
-  `ip` varchar(16) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `status` tinyint(1) DEFAULT 0,
-  `like` int(11) NOT NULL DEFAULT 0,
-  `dislike` int(11) NOT NULL DEFAULT 0,
-  `created_at` timestamp NULL DEFAULT current_timestamp()
+  `id` int NOT NULL,
+  `entity_id` int DEFAULT NULL,
+  `entity_type` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
+  `parent_id` int NOT NULL DEFAULT '0',
+  `message` text CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `ip` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `status` tinyint(1) DEFAULT '0',
+  `like` int NOT NULL DEFAULT '0',
+  `dislike` int NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -1492,18 +1492,18 @@ INSERT INTO `comments` (`id`, `entity_id`, `entity_type`, `user_id`, `parent_id`
 --
 
 CREATE TABLE `discounts` (
-  `id` int(11) NOT NULL,
-  `title` varchar(128) COLLATE utf8mb4_persian_ci NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `code` varchar(128) COLLATE utf8mb4_persian_ci NOT NULL,
-  `type` tinyint(4) DEFAULT NULL,
-  `percent` tinyint(4) DEFAULT NULL COMMENT '%',
-  `description` varchar(512) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `status` tinyint(1) DEFAULT 1,
-  `start_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `id` int NOT NULL,
+  `title` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `user_id` int NOT NULL,
+  `code` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `type` tinyint DEFAULT NULL,
+  `percent` tinyint DEFAULT NULL COMMENT '%',
+  `description` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `status` tinyint(1) DEFAULT '1',
+  `start_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `finish_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -1522,11 +1522,11 @@ INSERT INTO `discounts` (`id`, `title`, `user_id`, `code`, `type`, `percent`, `d
 --
 
 CREATE TABLE `likes` (
-  `id` int(11) NOT NULL,
-  `entity_id` int(11) DEFAULT NULL,
-  `entity_type` varchar(64) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `ip` varchar(16) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp()
+  `id` int NOT NULL,
+  `entity_id` int DEFAULT NULL,
+  `entity_type` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `ip` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 -- --------------------------------------------------------
@@ -1536,26 +1536,36 @@ CREATE TABLE `likes` (
 --
 
 CREATE TABLE `orders` (
-  `id` int(11) NOT NULL,
-  `user_id` int(10) UNSIGNED DEFAULT NULL,
-  `user_full_name` varchar(255) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `user_phone` varchar(255) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `city_id` int(10) UNSIGNED DEFAULT NULL,
-  `province_id` int(10) UNSIGNED NOT NULL,
-  `postal_code` bigint(20) NOT NULL,
-  `address` text COLLATE utf8mb4_persian_ci NOT NULL,
-  `token` varchar(100) COLLATE utf8mb4_persian_ci NOT NULL,
-  `order_number` int(11) NOT NULL,
-  `status` tinyint(1) DEFAULT 1 COMMENT '0 = delete,\r\n1 = default,\r\n2 = admin checked,\r\n3 = done',
-  `weight` enum('tiny','normal','big') COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `item_count` int(10) UNSIGNED DEFAULT NULL,
+  `id` int NOT NULL,
+  `user_id` int UNSIGNED DEFAULT NULL,
+  `user_full_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `user_phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `city_id` int UNSIGNED DEFAULT NULL,
+  `province_id` int UNSIGNED NOT NULL,
+  `postal_code` bigint NOT NULL,
+  `address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `order_number` int DEFAULT '0',
+  `status` tinyint(1) DEFAULT '1' COMMENT '0 = delete,\r\n1 = default,\r\n2 = admin checked,\r\n3 = done',
+  `weight` enum('tiny','normal','big') CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `item_count` int UNSIGNED DEFAULT NULL,
   `grand_total` float DEFAULT NULL,
   `discount_total` float DEFAULT NULL,
-  `shipping_cost` int(11) DEFAULT NULL,
-  `notes` varchar(512) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `shipping_cost` int DEFAULT NULL,
+  `notes` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `user_full_name`, `user_phone`, `city_id`, `province_id`, `postal_code`, `address`, `token`, `order_number`, `status`, `weight`, `item_count`, `grand_total`, `discount_total`, `shipping_cost`, `notes`, `created_at`, `updated_at`) VALUES
+(1, 76, 'میثاق محرری', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 1, 'normal', 6, 2710000000, 0, 0, 'لطفا کالاها را به موقع برسانید.', '2021-11-30 05:32:54', NULL),
+(2, 76, 'میثاق محرری', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 1, 'normal', 8, 6800000000, 0, 0, '', '2021-11-30 09:45:39', NULL),
+(3, 76, 'میثاق محرری', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 1, 'normal', 3, 2550000000, 0, 0, '', '2021-11-30 09:49:05', NULL),
+(4, 76, 'میثاق محرری', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 1, 'normal', 2, 240000000, 0, 0, '', '2021-11-30 09:49:52', NULL);
 
 -- --------------------------------------------------------
 
@@ -1564,14 +1574,26 @@ CREATE TABLE `orders` (
 --
 
 CREATE TABLE `order_items` (
-  `id` int(11) NOT NULL,
-  `order_id` int(11) DEFAULT NULL,
-  `product_id` int(11) DEFAULT NULL,
-  `quantity` int(11) DEFAULT NULL,
-  `price` int(11) DEFAULT NULL,
+  `id` int NOT NULL,
+  `order_id` int DEFAULT NULL,
+  `product_id` int DEFAULT NULL,
+  `quantity` int DEFAULT NULL,
+  `price` int DEFAULT NULL,
   `discount` float DEFAULT NULL,
   `cerated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
+
+--
+-- Dumping data for table `order_items`
+--
+
+INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`, `price`, `discount`, `cerated_at`) VALUES
+(1, 1, 32, 1, 850000000, 0, NULL),
+(2, 1, 33, 2, 750000000, 0, NULL),
+(3, 1, 30, 3, 120000000, 0, NULL),
+(4, 2, 32, 8, 850000000, 0, NULL),
+(5, 3, 32, 3, 850000000, 0, NULL),
+(6, 4, 30, 2, 120000000, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -1580,11 +1602,11 @@ CREATE TABLE `order_items` (
 --
 
 CREATE TABLE `permissions` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) COLLATE utf8mb4_persian_ci NOT NULL,
-  `label` varchar(100) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
-  `created_at` timestamp NULL DEFAULT current_timestamp()
+  `id` int NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `label` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `status` tinyint NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -1592,8 +1614,76 @@ CREATE TABLE `permissions` (
 --
 
 INSERT INTO `permissions` (`id`, `name`, `label`, `status`, `created_at`) VALUES
-(2, 'creat-user', 'ایجاد کاربر', 1, '2021-11-23 07:20:40'),
-(3, 'reas-user', 'مشاهده کاربر', 1, '2021-11-23 07:21:08');
+(191, 'contact-us-read', 'نمایش پیامهای تماس با ما', 1, '2021-12-06 07:10:38'),
+(192, 'about-read', 'نمایش در باره ما', 1, '2021-12-06 07:10:38'),
+(193, 'about-update', 'ویرایش درباره ما', 1, '2021-12-06 07:10:38'),
+(194, 'policies-read', 'نمایش قوانین', 1, '2021-12-06 07:10:38'),
+(195, 'policies-update', 'ویرایش قوانین', 1, '2021-12-06 07:10:38'),
+(196, 'news-read', 'نمایش اخبار اطلاعات', 1, '2021-12-06 07:10:38'),
+(197, 'news-update', 'ویرایش اخبار اطلاعات', 1, '2021-12-06 07:10:38'),
+(198, 'news-create', 'ایجاد اخبار اطلاعات', 1, '2021-12-06 07:10:38'),
+(199, 'news-delete', 'حذف اخبار اطلاعات', 1, '2021-12-06 07:10:38'),
+(200, 'category-read', 'نمایش دسته بندی ها', 1, '2021-12-06 07:10:38'),
+(201, 'category-update', 'ویرایش دسته بندی ها', 1, '2021-12-06 07:10:38'),
+(202, 'category-create', 'ایجاد دسته بندی ها', 1, '2021-12-06 07:10:38'),
+(203, 'category-delete', 'حذف دسته بندی ها', 1, '2021-12-06 07:10:38'),
+(204, 'site-content-read', 'نمایش سایر اطلاعات', 1, '2021-12-06 07:10:38'),
+(205, 'site-content-update', 'ویرایش سایر اطلاعات', 1, '2021-12-06 07:10:38'),
+(206, 'commission-read', 'نمایش کارمزد معاملات', 1, '2021-12-06 07:10:38'),
+(207, 'commission-update', 'ویرایش کارمزد معاملات', 1, '2021-12-06 07:10:38'),
+(208, 'market-read', 'نمایش مدیرت مارکت ها', 1, '2021-12-06 07:10:38'),
+(209, 'market-update', 'ویرایش مدیرت مارکت ها', 1, '2021-12-06 07:10:38'),
+(210, 'wallet-address-create', 'ایجاد آدرس ها کیف پول', 1, '2021-12-06 07:10:38'),
+(211, 'wallet-address-read', 'نمایش آدرس ها کیف پول', 1, '2021-12-06 07:10:38'),
+(212, 'wallet-address-check', 'بررسی آدرس ها کیف پول', 1, '2021-12-06 07:10:38'),
+(213, 'slideshow-create', 'ایجاد اسلاید شو', 1, '2021-12-06 07:10:38'),
+(214, 'slideshow-read', 'نمایش اسلاید شو', 1, '2021-12-06 07:10:38'),
+(215, 'slideshow-update', 'ویرایش اسلاید شو', 1, '2021-12-06 07:10:38'),
+(216, 'slideshow-delete', 'حذف اسلاید شو', 1, '2021-12-06 07:10:38'),
+(217, 'ticket-create', 'ایجاد تیکت ها', 1, '2021-12-06 07:10:38'),
+(218, 'ticket-read', 'نمایش تیکت ها', 1, '2021-12-06 07:10:38'),
+(219, 'ticket-update', 'ویرایش تیکت ها', 1, '2021-12-06 07:10:38'),
+(220, 'ticket-delete', 'حذف تیکت ها', 1, '2021-12-06 07:10:38'),
+(221, 'ticket-reply', 'پاسخ تیکت ها', 1, '2021-12-06 07:10:38'),
+(222, 'site-fee-read', 'مشاهده گزارش عملکرد', 1, '2021-12-06 07:10:38'),
+(223, 'report-wallet-read', 'مشاهده گزارش صندوق', 1, '2021-12-06 07:10:38'),
+(224, 'report-wallet-user-balance', 'مشاهده موجودی کاربران در گزارش صندوق', 1, '2021-12-06 07:10:38'),
+(225, 'transaction-read', 'مشاهده گردش حساب کاربر', 1, '2021-12-06 07:10:38'),
+(226, 'order-read', 'نمایش سفارشها', 1, '2021-12-06 07:10:38'),
+(227, 'site-settings-create', 'ایجاد تنظیمات سایت', 1, '2021-12-06 07:10:38'),
+(228, 'site-settings-read', 'نمایش تنظیمات سایت', 1, '2021-12-06 07:10:38'),
+(229, 'site-settings-update', 'ویرایش تنظیمات سایت', 1, '2021-12-06 07:10:38'),
+(230, 'site-settings-delete', 'حذف تنظیمات سایت', 1, '2021-12-06 07:10:38'),
+(231, 'bank-account-create', 'ایجاد حساب بانکی', 1, '2021-12-06 07:10:38'),
+(232, 'bank-account-read', 'نمایش حساب بانکی', 1, '2021-12-06 07:10:38'),
+(233, 'bank-account-update', 'ویرایش حساب بانکی', 1, '2021-12-06 07:10:38'),
+(234, 'bank-account-delete', 'حذف حساب بانکی', 1, '2021-12-06 07:10:38'),
+(235, 'api-log-read', 'مشاهده فراخوانی های api', 1, '2021-12-06 07:10:38'),
+(236, 'activity-log-read', 'مشاهده ریز فعالیت های سایت', 1, '2021-12-06 07:10:38'),
+(237, 'user-create', 'ایجاد کاربر', 1, '2021-12-06 07:10:38'),
+(238, 'user-read', 'نمایش کاربر', 1, '2021-12-06 07:10:38'),
+(239, 'user-update', 'ویرایش کاربر', 1, '2021-12-06 07:10:38'),
+(240, 'user-delete', 'حذف کاربر', 1, '2021-12-06 07:10:38'),
+(241, 'user-auth', 'احراز هویت کاربر', 1, '2021-12-06 07:10:38'),
+(242, 'user-hard-update', 'ویرایش تمامی اطلاعات کاربر', 1, '2021-12-06 07:10:38'),
+(243, 'user-pics-read', 'مشاهده تصاویر کاربر', 1, '2021-12-06 07:10:38'),
+(244, 'user-pics-delete', 'حذف تصاویر کاربر', 1, '2021-12-06 07:10:38'),
+(245, 'user-wallet-read', 'مشاهده کیف پول کاربر', 1, '2021-12-06 07:10:38'),
+(246, 'user-wallet-manual-deposit-withdraw', ' تغییر موجودی کیف پول کاربر', 1, '2021-12-06 07:10:38'),
+(247, 'permission-create', 'ایجاد دسترسی', 1, '2021-12-06 07:10:38'),
+(248, 'permission-read', 'نمایش دسترسی', 1, '2021-12-06 07:10:38'),
+(249, 'permission-update', 'ویرایش دسترسی', 1, '2021-12-06 07:10:38'),
+(250, 'permission-delete', 'حذف دسترسی', 1, '2021-12-06 07:10:38'),
+(251, 'role-create', 'ایجادنقش', 1, '2021-12-06 07:10:38'),
+(252, 'role-read', 'نمایش نقش', 1, '2021-12-06 07:10:38'),
+(253, 'role-update', 'ویرایش نقش', 1, '2021-12-06 07:10:38'),
+(254, 'role-delete', 'حذف نقش', 1, '2021-12-06 07:10:38'),
+(255, 'admin-create', 'ایجاد ادمین', 1, '2021-12-06 07:10:38'),
+(256, 'admin-read', 'نمایش ادمین', 1, '2021-12-06 07:10:38'),
+(257, 'admin-update', 'ویرایش ادمین', 1, '2021-12-06 07:10:38'),
+(258, 'admin-delete', 'حذف ادمین', 1, '2021-12-06 07:10:38'),
+(259, 'admin-self-read', 'نمایش پروفایل مدیر', 1, '2021-12-06 07:10:38'),
+(260, 'admin-self-update', 'ویرایش پروفایل مدیر', 1, '2021-12-06 07:10:38');
 
 -- --------------------------------------------------------
 
@@ -1602,10 +1692,10 @@ INSERT INTO `permissions` (`id`, `name`, `label`, `status`, `created_at`) VALUES
 --
 
 CREATE TABLE `permission_users` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `permission_id` int(11) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `id` int NOT NULL,
+  `user_id` int DEFAULT NULL,
+  `permission_id` int DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
@@ -1624,13 +1714,13 @@ INSERT INTO `permission_users` (`id`, `user_id`, `permission_id`, `created_at`, 
 --
 
 CREATE TABLE `photos` (
-  `id` int(11) NOT NULL,
-  `entity_id` int(11) DEFAULT NULL,
-  `entity_type` varchar(64) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `type` tinyint(4) DEFAULT 0,
-  `path` varchar(256) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `alt` varchar(100) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp()
+  `id` int NOT NULL,
+  `entity_id` int DEFAULT NULL,
+  `entity_type` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `type` tinyint DEFAULT '0',
+  `path` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `alt` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -1666,7 +1756,8 @@ INSERT INTO `photos` (`id`, `entity_id`, `entity_type`, `type`, `path`, `alt`, `
 (87, 6, 'Slider', 0, 'http://usedkalaV2.me/Storage/202111/20_.---95962910.jpg', 'slider_image', '2021-11-13 09:44:50'),
 (88, 7, 'Slider', 0, 'http://usedkalaV2.me/Storage/202111/card-2.---fb860520.jpg', 'slider_image', '2021-11-13 09:55:20'),
 (90, 9, 'Slider', 0, 'http://usedkalaV2.me/Storage/202111/40.---a248e0ce.jpg', 'slider_image', '2021-11-17 09:14:16'),
-(91, 76, 'User', 0, 'http://usedkalav2.me/Storage/202111/composable-applications.---a157ec34.jpg', 'profile_image', '2021-11-28 08:40:51');
+(91, 76, 'User', 0, 'http://usedkalav2.me/Storage/202111/composable-applications.---a157ec34.jpg', 'profile_image', '2021-11-28 08:40:51'),
+(92, 36, 'Product', 0, 'http://usedkalav2.me/Storage/202112/i00030960.---9c6cc88f.png', 'product_image', '2021-12-01 11:59:10');
 
 -- --------------------------------------------------------
 
@@ -1675,27 +1766,28 @@ INSERT INTO `photos` (`id`, `entity_id`, `entity_type`, `type`, `path`, `alt`, `
 --
 
 CREATE TABLE `products` (
-  `id` int(11) NOT NULL,
-  `brand_id` int(11) DEFAULT NULL,
-  `user_id` int(11) NOT NULL,
-  `title` varchar(100) COLLATE utf8mb4_persian_ci NOT NULL,
-  `seo_robot` tinyint(4) DEFAULT NULL COMMENT '''0=Index 1=Noindex 2=Nofollow 3=Follow 4=None 5=Noimageindex 6=Noarchive 7=Nocache''',
-  `seo_canonical` varchar(100) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `seo_H1` varchar(256) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `seo_description` varchar(256) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `seo_title` varchar(128) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `meta_title` varchar(512) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `description` text COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `price` bigint(20) NOT NULL,
+  `id` int NOT NULL,
+  `brand_id` int DEFAULT NULL,
+  `user_id` int NOT NULL,
+  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `seo_robot` tinyint DEFAULT NULL COMMENT '''0=Index 1=Noindex 2=Nofollow 3=Follow 4=None 5=Noimageindex 6=Noarchive 7=Nocache''',
+  `seo_canonical` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `seo_H1` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `seo_description` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `seo_title` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `meta_title` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci,
+  `price` bigint NOT NULL,
   `featured` tinyint(1) DEFAULT NULL,
-  `image` varchar(100) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `slug` varchar(256) COLLATE utf8mb4_persian_ci NOT NULL,
-  `sale` tinyint(1) DEFAULT 0,
-  `status` tinyint(1) DEFAULT 1,
-  `sku` varchar(100) COLLATE utf8mb4_persian_ci DEFAULT NULL COMMENT 'Stock Keeping Unit',
-  `quantity` int(11) NOT NULL,
+  `image` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `slug` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `sale` tinyint(1) DEFAULT '0',
+  `status` tinyint(1) DEFAULT '1',
+  `status_related` tinyint(1) NOT NULL COMMENT '0 = not show related products \r\n1 = get related products by categories \r\n2 = get related products by selected products by Admin ',
+  `sku` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL COMMENT 'Stock Keeping Unit',
+  `quantity` int NOT NULL,
   `weight` float DEFAULT NULL COMMENT 'kg',
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   `published_at` timestamp NULL DEFAULT NULL,
   `started_at` timestamp NULL DEFAULT NULL,
@@ -1706,12 +1798,12 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `brand_id`, `user_id`, `title`, `seo_robot`, `seo_canonical`, `seo_H1`, `seo_description`, `seo_title`, `meta_title`, `description`, `price`, `featured`, `image`, `slug`, `sale`, `status`, `sku`, `quantity`, `weight`, `created_at`, `updated_at`, `published_at`, `started_at`, `end_at`) VALUES
-(30, 9, 73, 'Cisco IP Phone', 0, '', 'Cisco IP Phone', 'Cisco IP Phone', 'Cisco IP Phone', 'Cisco IP Phone', 'Cisco IP Phone', 120000000, 1, NULL, 'Cisco-IP-Phone', 1, 0, '', 37, 3, '2021-09-29 11:57:54', NULL, NULL, NULL, NULL),
-(32, 9, 73, 'HPE Proliant DL580', 0, '', 'سرور HPE مدل Proliant DL580 G10', 'HPE Proliant DL۵۸۰', 'سرور HPE مدل Proliant DL580 G10', 'HPE Proliant DL۵۸۰', '<p>سرور HPE ProLiant DL۵۸۰ Gen۱۰ یک سرور ۴P مطمئن، با کارایی، قابلیت ارتقاء، مقیاس پذیری و دسترس پذیری بالا در شاسی ۴U است. سرور HPE ProLiant DL۵۸۰ Gen۱۰ با پشتیبانی از پردازنده های مقیاس پذیر &reg;Intel&reg; Xeon، قدرت پردازش بیشتری را نسبت به نسل های قبلی ارائه می دهد و سروری ایده آل برای بارهای کاری مهم و برنامه های کاربردی با فشرده سازی داده های عمومی ۴P است که عملکرد مناسب آنها بسیار مهم است.</p>\r\n\r\n<p>سرور HPE ProLiant DL۵۶۰ Gen۱۰ یک سرور ۴P با چگالی، کارایی، مقیاس پذیری و قابلیت اطمینان زیاد در شاسی ۲U است. سرور HPE ProLiant DL۵۶۰ Gen۱۰ با پشتیبانی از پردازنده های مقیاس پذیر Intel&reg; Xeon&reg; سروری ایده آل برای بارهای کاری مهم، مجازی سازی، ادغام سرور، بانک اطلاعاتی، پردازش مشاغل و برنامه های کاربردی عمومی است.</p>\r\n', 850000000, 1, NULL, 'HPE-Proliant-DL580', 1, 1, ' ', 508, 62, '2021-11-08 05:50:48', NULL, NULL, NULL, NULL),
-(33, 9, 73, 'Hpe Proliant DL380', 0, '', 'Hpe Proliant DL380', 'Hpe Proliant DL۳۸۰', 'Hpe Proliant DL380', 'Hpe Proliant DL۳۸۰', 'Hpe Proliant DL۳۸۰', 750000000, 1, NULL, 'Hpe-Proliant-DL380', 1, 0, '', 200, 30, '2021-11-08 05:59:23', NULL, NULL, NULL, NULL),
-(34, 8, 73, 'Dell EMC Unity 480 XT', 0, '', 'Dell EMC Unity 480 XT', 'همه ذخیره‌سازها', 'Dell EMC Unity 480 XT', 'Dell EMC Unity ۴۸۰ XT', '<p>Dell EMC Unity ۴۸۰ XT</p>\r\n', 500000000, 1, NULL, 'Dell-EMC-Unity-480-XT', 1, 0, '', 1, 1, '2021-11-13 07:50:31', NULL, NULL, NULL, NULL),
-(35, 8, 73, 'Hall Atkins', 1, 'Qui sapiente itaque ', 'Consectetur non qua', 'Autem enim autem sun', 'Mollitia repellendus', 'Magnam deserunt quam', '', 52, NULL, NULL, 'Vitae-dolorum-porro-', 0, 1, 'Culpa suscipit nulla', 433, 14, '2021-11-23 08:03:27', NULL, NULL, NULL, NULL);
+INSERT INTO `products` (`id`, `brand_id`, `user_id`, `title`, `seo_robot`, `seo_canonical`, `seo_H1`, `seo_description`, `seo_title`, `meta_title`, `description`, `price`, `featured`, `image`, `slug`, `sale`, `status`, `status_related`, `sku`, `quantity`, `weight`, `created_at`, `updated_at`, `published_at`, `started_at`, `end_at`) VALUES
+(30, 9, 73, 'Cisco IP Phone', 0, '', 'Cisco IP Phone', 'Cisco IP Phone', 'Cisco IP Phone', 'Cisco IP Phone', 'Cisco IP Phone', 120000000, 1, NULL, 'Cisco-IP-Phone', 1, 0, 0, '', 37, 3, '2021-09-29 11:57:54', NULL, NULL, NULL, NULL),
+(32, 9, 73, 'HPE Proliant DL580', 0, '', 'سرور HPE مدل Proliant DL580 G10', 'HPE Proliant DL۵۸۰', 'سرور HPE مدل Proliant DL580 G10', 'HPE Proliant DL۵۸۰', '<p>سرور HPE ProLiant DL۵۸۰ Gen۱۰ یک سرور ۴P مطمئن، با کارایی، قابلیت ارتقاء، مقیاس پذیری و دسترس پذیری بالا در شاسی ۴U است. سرور HPE ProLiant DL۵۸۰ Gen۱۰ با پشتیبانی از پردازنده های مقیاس پذیر &reg;Intel&reg; Xeon، قدرت پردازش بیشتری را نسبت به نسل های قبلی ارائه می دهد و سروری ایده آل برای بارهای کاری مهم و برنامه های کاربردی با فشرده سازی داده های عمومی ۴P است که عملکرد مناسب آنها بسیار مهم است.</p>\r\n\r\n<p>سرور HPE ProLiant DL۵۶۰ Gen۱۰ یک سرور ۴P با چگالی، کارایی، مقیاس پذیری و قابلیت اطمینان زیاد در شاسی ۲U است. سرور HPE ProLiant DL۵۶۰ Gen۱۰ با پشتیبانی از پردازنده های مقیاس پذیر Intel&reg; Xeon&reg; سروری ایده آل برای بارهای کاری مهم، مجازی سازی، ادغام سرور، بانک اطلاعاتی، پردازش مشاغل و برنامه های کاربردی عمومی است.</p>\r\n', 850000000, 1, NULL, 'HPE-Proliant-DL580', 1, 1, 0, ' ', 508, 62, '2021-11-08 05:50:48', NULL, NULL, NULL, NULL),
+(33, 9, 76, 'Hpe Proliant DL380', 0, '', 'Hpe Proliant DL380', 'Hpe Proliant DL۳۸۰', 'Hpe Proliant DL380', 'Hpe Proliant DL۳۸۰', '<p>Hpe Proliant DL۳۸۰</p>\r\n', 750000000, 1, NULL, 'Hpe-Proliant-DL380', 1, 0, 2, '', 200, 30, '2021-11-08 05:59:23', NULL, NULL, NULL, NULL),
+(34, 8, 73, 'Dell EMC Unity 480 XT', 0, '', 'Dell EMC Unity 480 XT', 'همه ذخیره‌سازها', 'Dell EMC Unity 480 XT', 'Dell EMC Unity ۴۸۰ XT', '<p>Dell EMC Unity ۴۸۰ XT</p>\r\n', 500000000, 1, NULL, 'Dell-EMC-Unity-480-XT', 1, 0, 0, '', 1, 1, '2021-11-13 07:50:31', NULL, NULL, NULL, NULL),
+(36, 9, 76, 'HPE ProLiant DL160 Gen10 server', 0, '', 'سرور HPE ProLiant DL160 Gen10', 'سرور HPE ProLiant DL۱۶۰ Gen۱۰ سرور خوبی است.', 'HPE ProLiant DL160 Gen10', 'این سرور HPE ProLiant DL۱۶۰ Gen۱۰ است', '<p>این سرور HPE ProLiant DL۱۶۰ Gen۱۰ است</p>\r\n', 250000000, 1, NULL, 'hpe-proliant-dl-160-gen10-server', 1, 1, 1, '', 28, 10, '2021-12-01 11:59:10', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1720,9 +1812,9 @@ INSERT INTO `products` (`id`, `brand_id`, `user_id`, `title`, `seo_robot`, `seo_
 --
 
 CREATE TABLE `product_categories` (
-  `id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL
+  `id` int NOT NULL,
+  `product_id` int NOT NULL,
+  `category_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -1731,12 +1823,12 @@ CREATE TABLE `product_categories` (
 
 INSERT INTO `product_categories` (`id`, `product_id`, `category_id`) VALUES
 (16, 30, 52),
-(17, 33, 51),
-(18, 33, 52),
 (22, 32, 52),
 (24, 34, 64),
 (25, 34, 65),
-(26, 35, 51);
+(68, 33, 51),
+(69, 33, 52),
+(71, 36, 51);
 
 -- --------------------------------------------------------
 
@@ -1745,9 +1837,9 @@ INSERT INTO `product_categories` (`id`, `product_id`, `category_id`) VALUES
 --
 
 CREATE TABLE `product_discounts` (
-  `id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `discount_id` int(11) NOT NULL
+  `id` int NOT NULL,
+  `product_id` int NOT NULL,
+  `discount_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -1771,9 +1863,9 @@ INSERT INTO `product_discounts` (`id`, `product_id`, `discount_id`) VALUES
 --
 
 CREATE TABLE `product_samples` (
-  `id` int(11) NOT NULL,
-  `sample_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL
+  `id` int NOT NULL,
+  `sample_id` int NOT NULL,
+  `product_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -1792,9 +1884,9 @@ INSERT INTO `product_samples` (`id`, `sample_id`, `product_id`) VALUES
 --
 
 CREATE TABLE `product_tags` (
-  `id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `tag_id` int(11) NOT NULL
+  `id` int NOT NULL,
+  `product_id` int NOT NULL,
+  `tag_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -1814,9 +1906,9 @@ INSERT INTO `product_tags` (`id`, `product_id`, `tag_id`) VALUES
 --
 
 CREATE TABLE `provinces` (
-  `id` int(11) NOT NULL,
-  `name` varchar(19) COLLATE utf8mb4_persian_ci NOT NULL,
-  `slug` varchar(17) COLLATE utf8mb4_persian_ci NOT NULL
+  `id` int NOT NULL,
+  `name` varchar(19) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `slug` varchar(17) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -1859,15 +1951,40 @@ INSERT INTO `provinces` (`id`, `name`, `slug`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `relateds`
+--
+
+CREATE TABLE `relateds` (
+  `id` int NOT NULL,
+  `entity_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `entity_id` int NOT NULL,
+  `related_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
+
+--
+-- Dumping data for table `relateds`
+--
+
+INSERT INTO `relateds` (`id`, `entity_type`, `entity_id`, `related_id`, `user_id`, `created_at`) VALUES
+(43, 'product', 33, 34, 76, '2021-12-03 20:30:00'),
+(44, 'product', 33, 30, 76, '2021-12-03 20:30:00'),
+(46, 'product', 36, 51, 76, '2021-12-03 20:30:00'),
+(47, 'product', 36, 52, 76, '2021-12-03 20:30:00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `roles`
 --
 
 CREATE TABLE `roles` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) COLLATE utf8mb4_persian_ci NOT NULL,
-  `label` varchar(100) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
-  `created_at` timestamp NULL DEFAULT current_timestamp()
+  `id` int NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `label` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `status` tinyint NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -1875,7 +1992,17 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `label`, `status`, `created_at`) VALUES
-(4, 'maneger-user', 'مدیریت کاربران', 1, '2021-11-23 09:27:51');
+(8, 'manager-user', 'مدیریت کاربران', 1, '2021-12-06 08:58:20'),
+(9, 'manager-category', 'مدیریت دسته بندی ها', 1, '2021-12-06 08:58:20'),
+(10, 'manager-product', 'مدیریت محصولات', 1, '2021-12-06 08:58:20'),
+(11, 'manager-tag', 'مدیریت تک', 1, '2021-12-06 08:58:20'),
+(12, 'manager-blog', 'مدیریت وبلاک', 1, '2021-12-06 08:58:20'),
+(13, 'manager-discount', 'مدیریت تخفیفات', 1, '2021-12-06 08:58:20'),
+(14, 'manager-cart', 'مدیریت سبد تخفیف', 1, '2021-12-06 08:58:20'),
+(15, 'manager-comment', 'مدیریت نظرات', 1, '2021-12-06 08:58:20'),
+(16, 'manager-setting', 'مدیریت تنظیمات', 1, '2021-12-06 08:58:20'),
+(17, 'super-admin', 'مدیریت ادمین ', 1, '2021-12-06 08:58:20'),
+(18, 'super-user', 'مدیریت کاربر', 1, '2021-12-06 08:58:20');
 
 -- --------------------------------------------------------
 
@@ -1884,9 +2011,9 @@ INSERT INTO `roles` (`id`, `name`, `label`, `status`, `created_at`) VALUES
 --
 
 CREATE TABLE `role_permissions` (
-  `id` int(11) NOT NULL,
-  `role_id` int(11) DEFAULT NULL,
-  `permission_id` int(11) DEFAULT NULL
+  `id` int NOT NULL,
+  `role_id` int DEFAULT NULL,
+  `permission_id` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -1894,8 +2021,14 @@ CREATE TABLE `role_permissions` (
 --
 
 INSERT INTO `role_permissions` (`id`, `role_id`, `permission_id`) VALUES
-(10, 4, 3),
-(11, 4, 2);
+(34, 6, 237),
+(35, 6, 238),
+(36, 6, 239),
+(37, 6, 240),
+(38, 7, 200),
+(39, 7, 201),
+(40, 7, 202),
+(41, 7, 203);
 
 -- --------------------------------------------------------
 
@@ -1904,10 +2037,10 @@ INSERT INTO `role_permissions` (`id`, `role_id`, `permission_id`) VALUES
 --
 
 CREATE TABLE `role_users` (
-  `id` int(11) NOT NULL,
-  `role_id` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `id` int NOT NULL,
+  `role_id` int DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
@@ -1916,7 +2049,10 @@ CREATE TABLE `role_users` (
 --
 
 INSERT INTO `role_users` (`id`, `role_id`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 4, 74, '2021-11-24 14:13:38', NULL);
+(6, 16, 73, '2021-12-06 09:04:00', NULL),
+(7, 15, 73, '2021-12-06 09:06:30', NULL),
+(8, 18, 73, '2021-12-06 09:22:06', NULL),
+(9, 17, 73, '2021-12-06 09:46:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -1925,18 +2061,18 @@ INSERT INTO `role_users` (`id`, `role_id`, `user_id`, `created_at`, `updated_at`
 --
 
 CREATE TABLE `samples` (
-  `id` int(11) NOT NULL,
-  `title` varchar(128) COLLATE utf8mb4_persian_ci NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `code` varchar(128) COLLATE utf8mb4_persian_ci NOT NULL,
-  `type` tinyint(4) DEFAULT NULL,
-  `percent` tinyint(4) DEFAULT NULL COMMENT '%',
-  `description` varchar(512) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `status` tinyint(1) DEFAULT 1,
-  `start_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `id` int NOT NULL,
+  `title` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `user_id` int NOT NULL,
+  `code` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `type` tinyint DEFAULT NULL,
+  `percent` tinyint DEFAULT NULL COMMENT '%',
+  `description` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `status` tinyint(1) DEFAULT '1',
+  `start_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `finish_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -1953,10 +2089,10 @@ INSERT INTO `samples` (`id`, `title`, `user_id`, `code`, `type`, `percent`, `des
 --
 
 CREATE TABLE `sellers` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `order_id` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `order_id` int NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
@@ -1967,11 +2103,11 @@ CREATE TABLE `sellers` (
 --
 
 CREATE TABLE `settings` (
-  `id` int(11) NOT NULL,
-  `slug` varchar(100) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `key` varchar(64) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `value` text COLLATE utf8mb4_persian_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp()
+  `id` int NOT NULL,
+  `slug` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `key` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `value` text CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -1994,11 +2130,11 @@ INSERT INTO `settings` (`id`, `slug`, `key`, `value`, `created_at`) VALUES
 --
 
 CREATE TABLE `site_contents` (
-  `id` int(11) NOT NULL,
-  `tag` varchar(100) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `key` varchar(100) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `value` varchar(100) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `id` int NOT NULL,
+  `tag` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `key` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `value` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `update_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
@@ -2009,16 +2145,16 @@ CREATE TABLE `site_contents` (
 --
 
 CREATE TABLE `sliders` (
-  `id` int(11) NOT NULL,
-  `small_text` varchar(256) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `linktype` varchar(255) COLLATE utf8mb4_persian_ci DEFAULT '',
-  `link` varchar(1000) COLLATE utf8mb4_persian_ci DEFAULT '',
-  `product_id` int(11) DEFAULT NULL,
-  `category_id` int(11) DEFAULT NULL,
-  `sort` tinyint(4) DEFAULT 0,
-  `status` tinyint(1) DEFAULT 1,
-  `description` text COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp()
+  `id` int NOT NULL,
+  `small_text` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `linktype` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT '',
+  `link` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT '',
+  `product_id` int DEFAULT NULL,
+  `category_id` int DEFAULT NULL,
+  `sort` tinyint DEFAULT '0',
+  `status` tinyint(1) DEFAULT '1',
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -2037,23 +2173,23 @@ INSERT INTO `sliders` (`id`, `small_text`, `linktype`, `link`, `product_id`, `ca
 --
 
 CREATE TABLE `suppliers` (
-  `id` int(11) NOT NULL,
-  `city_id` int(10) UNSIGNED DEFAULT NULL,
-  `suppliers_lavel` tinyint(4) DEFAULT 0,
-  `logo` varchar(128) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `company` varchar(100) COLLATE utf8mb4_persian_ci NOT NULL,
-  `first_name` varchar(100) COLLATE utf8mb4_persian_ci NOT NULL,
-  `last_name` varchar(100) COLLATE utf8mb4_persian_ci NOT NULL,
-  `side` varchar(100) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `address` varchar(512) COLLATE utf8mb4_persian_ci NOT NULL,
-  `postal_code` int(11) DEFAULT NULL,
-  `phone` int(11) NOT NULL,
-  `email` varchar(100) COLLATE utf8mb4_persian_ci NOT NULL,
-  `url` varchar(100) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `payment_methods` varchar(100) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `notes` varchar(512) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `status` tinyint(1) DEFAULT 1,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `id` int NOT NULL,
+  `city_id` int UNSIGNED DEFAULT NULL,
+  `suppliers_lavel` tinyint DEFAULT '0',
+  `logo` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `company` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `first_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `last_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `side` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `address` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `postal_code` int DEFAULT NULL,
+  `phone` int NOT NULL,
+  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `url` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `payment_methods` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `notes` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `status` tinyint(1) DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
@@ -2064,19 +2200,19 @@ CREATE TABLE `suppliers` (
 --
 
 CREATE TABLE `taggables` (
-  `id` int(11) NOT NULL,
-  `entity_id` int(11) NOT NULL,
-  `entity_type` varchar(64) COLLATE utf8_persian_ci NOT NULL,
-  `tag_id` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+  `id` int NOT NULL,
+  `entity_id` int NOT NULL,
+  `entity_type` varchar(64) CHARACTER SET utf8 COLLATE utf8_persian_ci NOT NULL,
+  `tag_id` int NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_persian_ci;
 
 --
 -- Dumping data for table `taggables`
 --
 
 INSERT INTO `taggables` (`id`, `entity_id`, `entity_type`, `tag_id`, `created_at`) VALUES
-(1, 35, 'Product', 2, '2021-11-23 08:03:27');
+(2, 36, 'Product', 1, '2021-12-01 11:59:10');
 
 -- --------------------------------------------------------
 
@@ -2085,9 +2221,9 @@ INSERT INTO `taggables` (`id`, `entity_id`, `entity_type`, `tag_id`, `created_at
 --
 
 CREATE TABLE `tags` (
-  `id` int(11) NOT NULL,
-  `tag` varchar(100) COLLATE utf8mb4_persian_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp()
+  `id` int NOT NULL,
+  `tag` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -2106,13 +2242,13 @@ INSERT INTO `tags` (`id`, `tag`, `created_at`) VALUES
 --
 
 CREATE TABLE `tickets` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `token` varchar(10) COLLATE utf8mb4_persian_ci NOT NULL COMMENT 'session save',
-  `message` varchar(512) COLLATE utf8mb4_persian_ci NOT NULL,
-  `status` tinyint(1) DEFAULT 1,
-  `type` tinyint(1) DEFAULT 1 COMMENT 'question = 1 &&  answer = 0',
-  `ip` varchar(16) COLLATE utf8mb4_persian_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp()
+  `id` int UNSIGNED NOT NULL,
+  `token` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL COMMENT 'session save',
+  `message` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `status` tinyint(1) DEFAULT '1',
+  `type` tinyint(1) DEFAULT '1' COMMENT 'question = 1 &&  answer = 0',
+  `ip` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 -- --------------------------------------------------------
@@ -2122,27 +2258,27 @@ CREATE TABLE `tickets` (
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `city_id` int(10) UNSIGNED DEFAULT NULL,
-  `province_id` int(11) UNSIGNED DEFAULT NULL,
-  `user_level` tinyint(4) DEFAULT 0,
-  `phone` varchar(100) COLLATE utf8mb4_persian_ci NOT NULL,
-  `email` varchar(100) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `first_name` varchar(100) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `last_name` varchar(100) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `company` varchar(100) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `jobtitle` varchar(100) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `national_code` varchar(100) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `postal_code` varchar(100) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `address` varchar(256) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `birthday` varchar(100) COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `id` int NOT NULL,
+  `city_id` int UNSIGNED DEFAULT NULL,
+  `province_id` int UNSIGNED DEFAULT NULL,
+  `user_level` tinyint DEFAULT '1',
+  `phone` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `first_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `last_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `company` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `jobtitle` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `national_code` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `postal_code` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `address` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `birthday` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
   `gender` tinyint(1) DEFAULT NULL,
-  `status` tinyint(1) DEFAULT 1,
-  `bank_name` tinyint(3) UNSIGNED DEFAULT NULL,
-  `bank_number` bigint(20) UNSIGNED DEFAULT NULL,
-  `ip` varchar(16) COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `status` tinyint(1) DEFAULT '1',
+  `bank_name` tinyint UNSIGNED DEFAULT NULL,
+  `bank_number` bigint UNSIGNED DEFAULT NULL,
+  `ip` varchar(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
@@ -2154,7 +2290,7 @@ INSERT INTO `users` (`id`, `city_id`, `province_id`, `user_level`, `phone`, `ema
 (73, NULL, 0, 0, '09128897603', 'sn7091@yahoo.com', 'سیاوش', 'نوروزی', NULL, NULL, NULL, NULL, '', NULL, NULL, 1, NULL, NULL, NULL, NULL, '2021-10-26 09:17:57', NULL),
 (74, NULL, 0, 0, '09128897063', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, '2021-11-23 06:58:21', NULL),
 (75, NULL, 0, 1, '09128897602', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, '2021-11-23 06:58:21', NULL),
-(76, 301, 8, 0, '09369532227', 'moon.star125@yahoo.com', 'میثاق', 'محرری', NULL, NULL, NULL, '12345678', 'تهرانپارس،', NULL, NULL, 1, NULL, NULL, NULL, NULL, '2021-11-27 09:26:38', NULL);
+(76, 1, 1, 0, '09369532227', 'moon.star125@yahoo.com', 'میثاق', 'محرری', 'مفتاح رایانه افزار', 'برنامه نویس', '0015158731', '1', 'تهرانپارس،', '722771648', 1, 1, NULL, NULL, NULL, NULL, '2021-11-27 09:26:38', NULL);
 
 -- --------------------------------------------------------
 
@@ -2163,12 +2299,12 @@ INSERT INTO `users` (`id`, `city_id`, `province_id`, `user_level`, `phone`, `ema
 --
 
 CREATE TABLE `wish_lists` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `entity_id` int(11) NOT NULL,
-  `entity_type` varchar(64) COLLATE utf8_persian_ci NOT NULL,
-  `ctreated_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+  `id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `entity_id` int NOT NULL,
+  `entity_type` varchar(64) CHARACTER SET utf8 COLLATE utf8_persian_ci NOT NULL,
+  `ctreated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_persian_ci;
 
 --
 -- Dumping data for table `wish_lists`
@@ -2292,8 +2428,7 @@ ALTER TABLE `likes`
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `orders_UN` (`order_number`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `order_items`
@@ -2353,6 +2488,12 @@ ALTER TABLE `product_tags`
 -- Indexes for table `provinces`
 --
 ALTER TABLE `provinces`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `relateds`
+--
+ALTER TABLE `relateds`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2449,247 +2590,253 @@ ALTER TABLE `wish_lists`
 -- AUTO_INCREMENT for table `active_codes`
 --
 ALTER TABLE `active_codes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=313;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=322;
 
 --
 -- AUTO_INCREMENT for table `activity_log`
 --
 ALTER TABLE `activity_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `attributes`
 --
 ALTER TABLE `attributes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `attribute_product`
 --
 ALTER TABLE `attribute_product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `attribute_values`
 --
 ALTER TABLE `attribute_values`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `blog_tags`
 --
 ALTER TABLE `blog_tags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `category_blogs`
 --
 ALTER TABLE `category_blogs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `category_discounts`
 --
 ALTER TABLE `category_discounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=252;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=252;
 
 --
 -- AUTO_INCREMENT for table `category_samples`
 --
 ALTER TABLE `category_samples`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT for table `discounts`
 --
 ALTER TABLE `discounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=261;
 
 --
 -- AUTO_INCREMENT for table `permission_users`
 --
 ALTER TABLE `permission_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `product_categories`
 --
 ALTER TABLE `product_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `product_discounts`
 --
 ALTER TABLE `product_discounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
 
 --
 -- AUTO_INCREMENT for table `product_samples`
 --
 ALTER TABLE `product_samples`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `product_tags`
 --
 ALTER TABLE `product_tags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `provinces`
 --
 ALTER TABLE `provinces`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
+-- AUTO_INCREMENT for table `relateds`
+--
+ALTER TABLE `relateds`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `role_permissions`
 --
 ALTER TABLE `role_permissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `role_users`
 --
 ALTER TABLE `role_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `samples`
 --
 ALTER TABLE `samples`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `sellers`
 --
 ALTER TABLE `sellers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `site_contents`
 --
 ALTER TABLE `site_contents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `sliders`
 --
 ALTER TABLE `sliders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `suppliers`
 --
 ALTER TABLE `suppliers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `taggables`
 --
 ALTER TABLE `taggables`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tickets`
 --
 ALTER TABLE `tickets`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT for table `wish_lists`
 --
 ALTER TABLE `wish_lists`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
