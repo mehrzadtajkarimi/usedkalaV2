@@ -50,30 +50,44 @@ class AccessController  extends Controller
     public function add_access()
     {
         $params = $this->request->params();
-        $user_id = Auth::is_login();
-        $permission_exists = $this->permissionUserModel->exist_permissionUser($params['access-permission'], $user_id);
-        $role_exists = $this->roleUserModel->exist_roleUser($params['access-permission'], $user_id);
-        if (!$permission_exists) {
-            foreach ($params['access-permission'] as  $permission_id) {
-                $permissionUser_created = $this->permissionUserModel->create_permissionUser([
-                    'permission_id' => $permission_id,
-                    'user_id'       => $user_id,
-                ]);
+        $user_id = $this->request->get_param();
+
+        if ($params['access-permission']) {
+            $permission_exists = $this->permissionUserModel->exist_permissionUser($params['access-permission'], $user_id['admin_id']);
+            if (!$permission_exists) {
+                foreach ($params['access-permission'] as  $permission_id) {
+                    $array_permissionUser = [
+                        'permission_id' => $permission_id,
+                        'user_id'       => $user_id['admin_id'],
+                    ];
+                    $has_permissionUser = $this->permissionUserModel->has_permissionUser($array_permissionUser);
+                    // dd($has_permissionUser);
+                    if ($has_permissionUser) {
+                        $permissionUser_created = $this->permissionUserModel->create_permissionUser($array_permissionUser);
+                    }
+                }
             }
         }
-        if (!$role_exists) {
-            foreach ($params['access-role'] as  $role_id) {
-                $roleUser_created =  $this->roleUserModel->create_roleUser([
-                    'role_id' => $role_id,
-                    'user_id' => $user_id,
-                ]);
+        if ($params['access-role']) {
+            $role_exists = $this->roleUserModel->exist_roleUser($params['access-role'], $user_id['admin_id']);
+            if (!$role_exists) {
+                foreach ($params['access-role'] as  $role_id) {
+                    $array_roleUser = [
+                        'role_id' => $role_id,
+                        'user_id' => $user_id['admin_id'],
+                    ];
+                    $has_roleUser = $this->roleUserModel->has_roleUser($array_roleUser);
+                    if ($has_roleUser) {
+                        $roleUser_created =  $this->roleUserModel->create_roleUser($array_roleUser);
+                    }
+                }
             }
         }
         if ($permissionUser_created ||  $roleUser_created) {
             FlashMessage::add("مقادیر  با موفقیت از دیتابیس اضافه شد");
             return $this->request->redirect('admin/access');
         }
-        FlashMessage::add(" مشکلی در حذف پیش آمده است", FlashMessage::ERROR);
+        FlashMessage::add("دسترسی مورد نظر قبلا اضافه گردیده", FlashMessage::WARNING);
         return $this->request->redirect('admin/access');
     }
 

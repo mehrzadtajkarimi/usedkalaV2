@@ -19,22 +19,23 @@ class Permission_user extends MysqlBaseModel
         return $this->first(['id' => $id]);
     }
 
-    public function has_permissionUser($user_id)
+    public function has_permissionUser($where)
+    {
+        return $this->has($where) ? FALSE : TRUE;
+    }
+    public function has_permission($user_id)
     {
         return $this->has(['user_id' => $user_id]);
     }
     public function exist_permissionUser($param, $user_id)
     {
-        if (isset($param)) {
-            foreach ($param as  $permission_id) {
-                $result = +$this->count([
-                    'permission_id' => $permission_id,
-                    'user_id'       => $user_id,
-                ]);
-            }
-            return $result;
+        foreach ($param as  $permission_id) {
+            $result = +$this->count([
+                'permission_id' => $permission_id,
+                'user_id'       => $user_id,
+            ]);
         }
-        return false;
+        return $result;
     }
 
     public function update_permissionUser($params, $id)
