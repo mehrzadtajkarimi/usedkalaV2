@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2021 at 02:39 PM
+-- Generation Time: Dec 07, 2021 at 06:41 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -1456,18 +1456,15 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `entity_id`, `entity_type`, `user_id`, `parent_id`, `message`, `title`, `ip`, `status`, `like`, `dislike`, `created_at`) VALUES
-(76, 16, 'Product', 73, 0, '<p>fffffffffffffffffffffdddd</p>\r\n', 'sssssssssfffffffff', '127.0.0.1', 0, 0, 0, '2021-10-28 14:28:01'),
-(77, NULL, NULL, 73, 0, 'ddddddddddddddddddddddd', '', NULL, 0, 0, 0, '2021-11-08 15:18:42'),
-(78, 16, 'Product', 73, 0, '<p>hhhhhhhhh</p>\r\n', 'لللللللل', NULL, 0, 0, 0, '2021-11-08 15:40:14'),
 (79, 4, 'Blog', 73, 0, 'لللللللللللل', 'لللللللللللل', '127.0.0.1', 0, 0, 0, '2021-11-09 04:47:10'),
 (80, 5, 'Blog', 73, 0, 'ییییییییییییییی', 'ییییییییییییییی', '127.0.0.1', 0, 0, 0, '2021-11-09 04:48:42'),
 (81, 5, 'Blog', 73, 0, 'شششششششششششششششششششششششششششششششششششششششششش', '', NULL, 0, 0, 0, '2021-11-09 04:49:25'),
 (82, 5, 'Blog', 73, 0, 'سیلبشسیبلسبشیلیبل', 'سیلبشسیبلسبشیلیبل', '127.0.0.1', 0, 0, 0, '2021-11-09 04:55:50'),
 (83, 5, 'Blog', 73, 0, 'سسیقفیقفسیفسفغیفسفغسقفغ', '', NULL, 0, 0, 0, '2021-11-09 04:56:17'),
 (84, 5, 'Blog', 73, 0, 'هخعهخغعهخعهخعهخ', 'هخعهخغعهخعهخعهخ', '127.0.0.1', 0, 0, 0, '2021-11-09 04:56:46'),
-(85, 5, 'Blog', 73, 0, 'هخعهخغعهخعهخعهخ', 'هخعهخغعهخعهخعهخ', '127.0.0.1', 1, 0, 0, '2021-11-09 04:56:50'),
-(86, 5, 'Blog', 73, 0, 'هخعهخغعهخعهخعهخ', 'هخعهخغعهخعهخعهخ', '127.0.0.1', 1, 0, 0, '2021-11-09 04:56:52'),
-(87, 5, 'Blog', 73, 0, 'هخعهخغعهخعهخعهخعهخ', 'هخعهخغعهخعهخعهخعهخ', '127.0.0.1', 1, 0, 0, '2021-11-09 04:56:58'),
+(85, 5, 'Blog', 73, 0, 'هخعهخغعهخعهخعهخ', 'هخعهخغعهخعهخعهخ', '127.0.0.1', 1, 1, 0, '2021-11-09 04:56:50'),
+(86, 5, 'Blog', 73, 0, 'هخعهخغعهخعهخعهخ', 'هخعهخغعهخعهخعهخ', '127.0.0.1', 1, 0, 1, '2021-11-09 04:56:52'),
+(87, 5, 'Blog', 73, 0, 'هخعهخغعهخعهخعهخعهخ', 'هخعهخغعهخعهخعهخعهخ', '127.0.0.1', 1, 1, 0, '2021-11-09 04:56:58'),
 (88, 5, 'Blog', 73, 0, 'عغهخعغهخعهخ', 'عغهخعغهخعهخ', '127.0.0.1', 1, 0, 0, '2021-11-09 04:57:10'),
 (89, 2, 'Blog', 73, 0, 'dddddddddd', 'dddddddddd', '127.0.0.1', 0, 0, 0, '2021-11-09 12:04:38'),
 (90, 2, 'Blog', 73, 0, 'uuuuuuuuuu', 'uuuuuuuuuu', '127.0.0.1', 1, 1, -1, '2021-11-09 12:20:55'),
@@ -1475,15 +1472,13 @@ INSERT INTO `comments` (`id`, `entity_id`, `entity_type`, `user_id`, `parent_id`
 (92, 2, 'Blog', 73, 0, 'FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF', '', NULL, 0, 0, 0, '2021-11-09 12:46:35'),
 (93, 2, 'Blog', 73, 0, 'GGGGGGGG', 'GGGGGGGG', '127.0.0.1', 1, 0, 0, '2021-11-09 12:48:03'),
 (94, 2, 'Blog', 73, 0, 'GGGGGGGGGGGGGGGGGGGGGGGGGGGGG', '', NULL, 0, 0, 0, '2021-11-09 12:48:30'),
-(95, 14, 'Product', 73, 0, 'asdfasdf', 'sdfasdf', '127.0.0.1', 0, 1, 1, '2021-11-09 13:10:07'),
-(96, 14, 'Product', 73, 0, 'asdfasdf', 'sdfasdf', '127.0.0.1', 0, 0, 0, '2021-11-09 13:10:15'),
 (98, 2, 'Blog', 73, 0, 'لطفا دز موزد این مورد نظرتون رو بدهید', ' این موضوع مقاله شمازه 2 هستش ', '127.0.0.1', 0, 0, 0, '2021-11-09 14:24:33'),
 (99, 2, 'Blog', 73, 0, 'این پاسخ متعلق از به دیدگاه شماره 2', '', NULL, 0, 0, 0, '2021-11-09 14:25:44'),
-(100, 14, 'Product', 73, 0, 'لورم ایپسوم دلر سیت آمت', 'asdasd', '::1', 0, 0, 0, '2021-11-10 11:59:23'),
-(101, 14, 'Product', 73, 0, 'لورم ایپسوم دلر سیت آمت', 'asdasd', '::1', 0, 0, 0, '2021-11-10 11:59:29'),
-(102, 14, 'Product', 73, 0, 'لورم ایپسوم دلر سیت آمت', 'asdasd', '::1', 0, 0, 0, '2021-11-10 11:59:48'),
-(103, 14, 'Product', 73, 0, 'لورم ایپسوم دلر سیت آمت', 'asdasd', '::1', 0, 0, 0, '2021-11-10 11:59:57'),
-(104, 33, 'Product', 73, 0, 'در مورد  Hpe Proliant DL380در مورد  Hpe Proliant DL380در مورد  Hpe Proliant DL380در مورد  Hpe Proliant DL380', 'در مورد  Hpe Proliant DL380', NULL, 1, 0, 0, '2021-11-17 13:19:50');
+(104, 33, 'Product', 73, 0, 'در مورد  Hpe Proliant DL380در مورد  Hpe Proliant DL380در مورد  Hpe Proliant DL380در مورد  Hpe Proliant DL380', 'در مورد  Hpe Proliant DL380', NULL, 1, 1, 1, '2021-11-17 13:19:50'),
+(105, 32, 'Product', 76, 0, 'fdfd', 'adaaddsa', NULL, -1, 0, 0, '2021-12-06 07:20:21'),
+(106, 34, 'Product', NULL, 0, 'لورم ایپسوم', 'کامنت بدون user ', NULL, 1, 3, 2, '2021-12-06 07:54:36'),
+(107, 34, 'Product', NULL, 0, 'this is test comment', 'no user comment', NULL, 0, 0, 0, '2021-12-06 08:51:32'),
+(108, 34, 'Product', NULL, 0, 'rerrerer', 'no user comment3', NULL, 0, 0, 0, '2021-12-06 08:56:42');
 
 -- --------------------------------------------------------
 
@@ -1523,11 +1518,24 @@ INSERT INTO `discounts` (`id`, `title`, `user_id`, `code`, `type`, `percent`, `d
 
 CREATE TABLE `likes` (
   `id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
   `entity_id` int(11) DEFAULT NULL,
-  `entity_type` varchar(64) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `ip` varchar(16) COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `type` varchar(64) COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `session_id` varchar(255) COLLATE utf8mb4_persian_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
+
+--
+-- Dumping data for table `likes`
+--
+
+INSERT INTO `likes` (`id`, `user_id`, `entity_id`, `type`, `session_id`, `created_at`) VALUES
+(3, 76, 85, 'like', NULL, '2021-12-06 11:47:30'),
+(4, 76, 86, 'dislike', NULL, '2021-12-06 12:03:12'),
+(5, 76, 87, 'like', NULL, '2021-12-06 12:03:22'),
+(10, 76, 106, 'like', NULL, '2021-12-06 12:12:35'),
+(11, NULL, 104, 'like', 'ahrrbgatk75ln2g89jt0te2nol', '2021-12-06 13:00:39'),
+(12, NULL, 104, 'dislike', 'b6ms88s9e2co0bug8ufh7cp4qh', '2021-12-07 05:09:08');
 
 -- --------------------------------------------------------
 
@@ -1733,8 +1741,9 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`id`, `brand_id`, `user_id`, `title`, `seo_robot`, `seo_canonical`, `seo_H1`, `seo_description`, `seo_title`, `meta_title`, `description`, `price`, `featured`, `image`, `slug`, `sale`, `status`, `status_related`, `sku`, `quantity`, `weight`, `created_at`, `updated_at`, `published_at`, `started_at`, `end_at`) VALUES
 (30, 9, 73, 'Cisco IP Phone', 0, '', 'Cisco IP Phone', 'Cisco IP Phone', 'Cisco IP Phone', 'Cisco IP Phone', 'Cisco IP Phone', 120000000, 1, NULL, 'Cisco-IP-Phone', 1, 0, 0, '', 37, 3, '2021-09-29 11:57:54', NULL, NULL, NULL, NULL),
 (32, 9, 73, 'HPE Proliant DL580', 0, '', 'سرور HPE مدل Proliant DL580 G10', 'HPE Proliant DL۵۸۰', 'سرور HPE مدل Proliant DL580 G10', 'HPE Proliant DL۵۸۰', '<p>سرور HPE ProLiant DL۵۸۰ Gen۱۰ یک سرور ۴P مطمئن، با کارایی، قابلیت ارتقاء، مقیاس پذیری و دسترس پذیری بالا در شاسی ۴U است. سرور HPE ProLiant DL۵۸۰ Gen۱۰ با پشتیبانی از پردازنده های مقیاس پذیر &reg;Intel&reg; Xeon، قدرت پردازش بیشتری را نسبت به نسل های قبلی ارائه می دهد و سروری ایده آل برای بارهای کاری مهم و برنامه های کاربردی با فشرده سازی داده های عمومی ۴P است که عملکرد مناسب آنها بسیار مهم است.</p>\r\n\r\n<p>سرور HPE ProLiant DL۵۶۰ Gen۱۰ یک سرور ۴P با چگالی، کارایی، مقیاس پذیری و قابلیت اطمینان زیاد در شاسی ۲U است. سرور HPE ProLiant DL۵۶۰ Gen۱۰ با پشتیبانی از پردازنده های مقیاس پذیر Intel&reg; Xeon&reg; سروری ایده آل برای بارهای کاری مهم، مجازی سازی، ادغام سرور، بانک اطلاعاتی، پردازش مشاغل و برنامه های کاربردی عمومی است.</p>\r\n', 850000000, 1, NULL, 'HPE-Proliant-DL580', 1, 1, 0, ' ', 508, 62, '2021-11-08 05:50:48', NULL, NULL, NULL, NULL),
-(33, 9, 76, 'Hpe Proliant DL380', 0, '', 'Hpe Proliant DL380', 'Hpe Proliant DL۳۸۰', 'Hpe Proliant DL380', 'Hpe Proliant DL۳۸۰', '<p>Hpe Proliant DL۳۸۰</p>\r\n', 750000000, 1, NULL, 'Hpe-Proliant-DL380', 1, 1, 2, '', 200, 30, '2021-11-08 05:59:23', NULL, NULL, NULL, NULL),
-(34, 8, 73, 'Dell EMC Unity 480 XT', 0, '', 'Dell EMC Unity 480 XT', 'همه ذخیره‌سازها', 'Dell EMC Unity 480 XT', 'Dell EMC Unity ۴۸۰ XT', '<p>Dell EMC Unity ۴۸۰ XT</p>\r\n', 500000000, 1, NULL, 'Dell-EMC-Unity-480-XT', 1, 0, 0, '', 1, 1, '2021-11-13 07:50:31', NULL, NULL, NULL, NULL),timestamp NULL DEFAULT current_timestamp()DL160 Gen10 server', 0, '', 'سرور HPE ProLiant DL160 Gen10', 'سرور HPE ProLiant DL160 Gen10 سرور خوبی است.', 'HPE ProLiant DL160 Gen10', 'این سرور HPE ProLiant DL160 Gen10 است', '<p>این سرور HPE ProLiant DL160 Gen10 است</p>\r\n', 250000000, NULL, NULL, 'hpe-proliant-dl-160-gen10-server', 0, 1, 1, '', 28, 10, '2021-12-01 11:59:10', NULL, NULL, NULL, NULL);
+(33, 9, 76, 'Hpe Proliant DL380', 0, '', 'Hpe Proliant DL380', 'Hpe Proliant DL۳۸۰', 'Hpe Proliant DL380', 'Hpe Proliant DL۳۸۰', '<p>Hpe Proliant DL۳۸۰</p>\r\n', 750000000, 1, NULL, 'Hpe-Proliant-DL380', 1, 0, 2, '', 200, 30, '2021-11-08 05:59:23', NULL, NULL, NULL, NULL),
+(34, 8, 73, 'Dell EMC Unity 480 XT', 0, '', 'Dell EMC Unity 480 XT', 'همه ذخیره‌سازها', 'Dell EMC Unity 480 XT', 'Dell EMC Unity ۴۸۰ XT', '<p>Dell EMC Unity ۴۸۰ XT</p>\r\n', 500000000, 1, NULL, 'Dell-EMC-Unity-480-XT', 1, 0, 0, '', 1, 1, '2021-11-13 07:50:31', NULL, NULL, NULL, NULL),
+(36, 9, 76, 'HPE ProLiant DL160 Gen10 server', 0, '', 'سرور HPE ProLiant DL160 Gen10', 'سرور HPE ProLiant DL۱۶۰ Gen۱۰ سرور خوبی است.', 'HPE ProLiant DL160 Gen10', 'این سرور HPE ProLiant DL۱۶۰ Gen۱۰ است', '<p>این سرور HPE ProLiant DL۱۶۰ Gen۱۰ است</p>\r\n', 250000000, 1, NULL, 'hpe-proliant-dl-160-gen10-server', 1, 1, 1, '', 28, 10, '2021-12-01 11:59:10', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1742,7 +1751,14 @@ INSERT INTO `products` (`id`, `brand_id`, `user_id`, `title`, `seo_robot`, `seo_
 -- Table structure for table `product_categories`
 --
 
-CREATE TABLE `product_categtimestamp NULL DEFAULT current_timestamp()product_categories`
+CREATE TABLE `product_categories` (
+  `id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
+
+--
+-- Dumping data for table `product_categories`
 --
 
 INSERT INTO `product_categories` (`id`, `product_id`, `category_id`) VALUES
@@ -1750,15 +1766,15 @@ INSERT INTO `product_categories` (`id`, `product_id`, `category_id`) VALUES
 (22, 32, 52),
 (24, 34, 64),
 (25, 34, 65),
-(27, 36, 51),
-(32, 33, 51),
-(33, 33, 52);
+(68, 33, 51),
+(69, 33, 52),
+(71, 36, 51);
 
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `product_discounts`
---timestamp NULL DEFAULT current_timestamp()
+--
 
 CREATE TABLE `product_discounts` (
   `id` int(11) NOT NULL,
@@ -1788,7 +1804,10 @@ INSERT INTO `product_discounts` (`id`, `product_id`, `discount_id`) VALUES
 
 CREATE TABLE `product_samples` (
   `id` int(11) NOT NULL,
-  `sample_id` int(11) NOT NUtimestamp NULL DEFAULT current_timestamp()
+  `sample_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
+
 --
 -- Dumping data for table `product_samples`
 --
@@ -1816,7 +1835,9 @@ CREATE TABLE `product_tags` (
 
 INSERT INTO `product_tags` (`id`, `product_id`, `tag_id`) VALUES
 (13, 33, 1),
-(20, 32, 2),timestamp NULL DEFAULT current_timestamp()
+(20, 32, 2),
+(21, 32, 1),
+(23, 34, 1);
 
 -- --------------------------------------------------------
 
@@ -1834,7 +1855,9 @@ CREATE TABLE `provinces` (
 -- Dumping data for table `provinces`
 --
 
-INSERT INTO `provinces` (`idtimestamp NULL DEFAULT current_timestamp() غربی', 'آذربایجان-غربی'),
+INSERT INTO `provinces` (`id`, `name`, `slug`) VALUES
+(1, 'آذربایجان شرقی', 'آذربایجان-شرقی'),
+(2, 'آذربایجان غربی', 'آذربایجان-غربی'),
 (3, 'اردبیل', 'اردبیل'),
 (4, 'اصفهان', 'اصفهان'),
 (5, 'البرز', 'البرز'),
@@ -1857,7 +1880,8 @@ INSERT INTO `provinces` (`idtimestamp NULL DEFAULT current_timestamp() غربی'
 (22, 'کرمانشاه', 'کرمانشاه'),
 (23, 'کهگیلویه و بویراحمد', 'کهگیلویه-بویراحمد'),
 (24, 'گلستان', 'گلستان'),
-(25, 'لرستان', 'لرستان'),timestamp NULL DEFAULT current_timestamp()
+(25, 'لرستان', 'لرستان'),
+(26, 'گیلان', 'گیلان'),
 (27, 'مازندران', 'مازندران'),
 (28, 'مرکزی', 'مرکزی'),
 (29, 'هرمزگان', 'هرمزگان'),
@@ -1876,7 +1900,7 @@ CREATE TABLE `relateds` (
   `entity_id` int(11) NOT NULL,
   `related_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -1884,9 +1908,10 @@ CREATE TABLE `relateds` (
 --
 
 INSERT INTO `relateds` (`id`, `entity_type`, `entity_id`, `related_id`, `user_id`, `created_at`) VALUES
-(1, 'product', 36, 51, 76, '2021-12-01'),
-(6, 'product', 33, 36, 76, '2021-12-01'),
-(7, 'product', 33, 32, 76, '2021-12-01');
+(43, 'product', 33, 34, 76, '2021-12-03 20:30:00'),
+(44, 'product', 33, 30, 76, '2021-12-03 20:30:00'),
+(46, 'product', 36, 51, 76, '2021-12-03 20:30:00'),
+(47, 'product', 36, 52, 76, '2021-12-03 20:30:00');
 
 -- --------------------------------------------------------
 
@@ -2186,7 +2211,7 @@ INSERT INTO `users` (`id`, `city_id`, `province_id`, `user_level`, `phone`, `ema
 (73, NULL, 0, 0, '09128897603', 'sn7091@yahoo.com', 'سیاوش', 'نوروزی', NULL, NULL, NULL, NULL, '', NULL, NULL, 1, NULL, NULL, NULL, NULL, '2021-10-26 09:17:57', NULL),
 (74, NULL, 0, 0, '09128897063', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, '2021-11-23 06:58:21', NULL),
 (75, NULL, 0, 1, '09128897602', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, '2021-11-23 06:58:21', NULL),
-(76, 301, 8, 0, '09369532227', 'moon.star125@yahoo.com', 'میثاق', 'محرری', 'مفتاح رایانه افزار', 'برنامه نویس', '0015158731', '12345678', 'تهرانپارس،', '1371/9/5', 1, 1, NULL, NULL, NULL, NULL, '2021-11-27 09:26:38', NULL);
+(76, 301, 8, 0, '09369532227', 'moon.star125@yahoo.com', 'میثاق', 'محرری', 'مفتاح رایانه افزار', 'برنامه نویس', '0015158731', '1', 'تهرانپارس،', '722771648', 1, 1, NULL, NULL, NULL, NULL, '2021-11-27 09:26:38', NULL);
 
 -- --------------------------------------------------------
 
@@ -2208,7 +2233,8 @@ CREATE TABLE `wish_lists` (
 
 INSERT INTO `wish_lists` (`id`, `user_id`, `entity_id`, `entity_type`, `ctreated_at`) VALUES
 (1, 73, 2, 'Blog', '2021-11-17 11:34:36'),
-(2, 73, 33, 'Product', '2021-11-17 13:28:45');
+(2, 73, 33, 'Product', '2021-11-17 13:28:45'),
+(83, 76, 34, 'Product', '2021-12-06 12:36:37');
 
 --
 -- Indexes for dumped tables
@@ -2486,7 +2512,7 @@ ALTER TABLE `wish_lists`
 -- AUTO_INCREMENT for table `active_codes`
 --
 ALTER TABLE `active_codes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=319;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=325;
 
 --
 -- AUTO_INCREMENT for table `activity_log`
@@ -2564,7 +2590,7 @@ ALTER TABLE `category_samples`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
 -- AUTO_INCREMENT for table `discounts`
@@ -2576,7 +2602,7 @@ ALTER TABLE `discounts`
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -2618,7 +2644,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `product_categories`
 --
 ALTER TABLE `product_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `product_discounts`
@@ -2648,7 +2674,7 @@ ALTER TABLE `provinces`
 -- AUTO_INCREMENT for table `relateds`
 --
 ALTER TABLE `relateds`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -2666,7 +2692,7 @@ ALTER TABLE `role_permissions`
 -- AUTO_INCREMENT for table `role_users`
 --
 ALTER TABLE `role_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `samples`
@@ -2732,7 +2758,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `wish_lists`
 --
 ALTER TABLE `wish_lists`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
