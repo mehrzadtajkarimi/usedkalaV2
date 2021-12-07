@@ -43,13 +43,19 @@ class CategoryController extends Controller
         $description = $categoryRow['description'];
         $categories  = $this->categoryModel->category_tree_for_frontend($parent_id,$slug);
         $products    = $this->productModel->join_product__with_single_photo_by_category_id($parent_id['id']);
-		
+		$breadcrumb  = $this->categoryModel->get_categories_for_product_breadcrumb($parent_id);
         $wishlist_products = $this->wishListModel->read_all_wishList_items('Product');
         $selected_wishlist = [];
         foreach ($wishlist_products as $key => $value){
             $selected_wishlist[] = $value['entity_id'];
         }
-
+        $breadcrumb_item = [];
+        foreach(array_reverse($breadcrumb) as $key=>$value){
+            foreach($value as $value2){
+                $breadcrumb_item[$key]['name'] = $value2['name'];
+                $breadcrumb_item[$key]['slug'] = $value2['slug'];
+            }
+        }
         if (is_array($categories)) {
             $data = array(
                 'categories'        => $categories,
@@ -57,6 +63,7 @@ class CategoryController extends Controller
                 'products'          => $products,
                 'auth'              => SessionManager::get('auth') ?? false,
                 'selected_wishlist' => $selected_wishlist,
+                'breadcrumb'        => $breadcrumb_item,
             );
             return view('Frontend.category.show', $data);
         }
