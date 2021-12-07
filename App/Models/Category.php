@@ -58,6 +58,22 @@ class Category extends MysqlBaseModel
         return $this->property_category_tree_for_backend_by_type;
     }
 
+    public function get_categories_for_product_breadcrumb($id, $breadcrumb=[])
+    {
+        $get_categories = $this->get_all([
+            'id'        => $id,
+            'type'      => 0,
+        ]);
+
+        $breadcrumb[]=$get_categories;
+
+        if($get_categories[0]['parent_id'] != 0){
+            return $this->get_categories_for_product_breadcrumb($get_categories[0]['parent_id'], $breadcrumb);
+        } else {
+            return $breadcrumb;
+        }
+    }
+
     public function category_tree_for_frontend($parent_id = 0, $slug = NULL)
     {
         global $request;

@@ -4,6 +4,7 @@ namespace App\Controllers\Frontend;
 
 use App\Controllers\Controller;
 use App\Core\Request;
+use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Photo;
 use App\Models\Product;
@@ -26,6 +27,7 @@ class ProductController extends Controller
     private $wishListModel;
     private $taggableModel;
     private $relatedModel;
+    private $categoryModel;
 
     public function __construct()
     {
@@ -38,6 +40,7 @@ class ProductController extends Controller
         $this->ProductCatModel      = new Product_category();
         $this->wishListModel        = new Wish_list();
         $this->relatedModel         = new Related();
+        $this->categoryModel        = new Category();
     }
 
     public function index()
@@ -70,7 +73,15 @@ class ProductController extends Controller
         $wish_list          = $this->wishListModel->read_wishList($params['id'], 'Product');
 
         if (count($product) == 0) Request::redirect('');
-        $productCat       = $this->ProductCatModel->read_productCategories($params);
+        $productCat = $this->ProductCatModel->read_productCategories($params);
+        $breadcrumb = $this->categoryModel->get_categories_for_product_breadcrumb($productCat[0]['id']);
+        $breadcrumb_item = [];
+        foreach(array_reverse($breadcrumb) as $key=>$value){
+            foreach($value as $value2){
+                $breadcrumb_item[$key]['name'] = $value2['name'];
+                $breadcrumb_item[$key]['slug'] = $value2['slug'];
+            }
+        }
         $product_relation = $this->relatedModel->get_related_by_entity_id([
             'entity_id'   => $params['id'],
             'entity_type' => 'product'
@@ -128,6 +139,7 @@ class ProductController extends Controller
             'brand'                 => $productBrand[0],
             'home_page_active_menu' => "single-product full-width normal",
             'related_products'      => $related_products,
+            'breadcrumb'            => $breadcrumb_item,
         );
         return view('Frontend.product.show', $data);
     }

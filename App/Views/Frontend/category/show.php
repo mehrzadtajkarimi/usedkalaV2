@@ -8,12 +8,18 @@
 <div id="content" class="site-content" tabindex="-1">
     <div class="col-full">
         <div class="row">
-            <!-- <nav class="woocommerce-breadcrumb">
-                <a href="home-v1.html">Home</a>
-                <span class="delimiter">
-                    <i class="tm tm-breadcrumbs-arrow-right"></i>
-                </span>Computers &amp; Laptops
-            </nav> -->
+            <nav class="woocommerce-breadcrumb">
+                <?php foreach($breadcrumb as $key => $value): ?>
+                    <?php if(count($breadcrumb)-1 != $key): ?>
+                        <a href="<?= base_url() ?>category/<?= $value['slug'] ?>"><?= $value['name'] ?></a>
+                        <span class="delimiter">
+                            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                        </span>
+                    <?php else: ?>
+                        <span><?= $value['name'] ?></span>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </nav>
             <!-- .woocommerce-breadcrumb -->
             <div id="primary" class="content-area">
                 <main id="main" class="site-main">
@@ -26,7 +32,7 @@
                                 <?php foreach ($categories as $value) : ?>
                                     <div class="product-category product ">
                                         <!-- change  id categories rename categories_id -->
-                                        <a href="<?= base_url() ?>category/<?= $value['id'] ?>/<?= $value['slug'] ?>">
+                                        <a href="<?= base_url() ?>category/<?= $value['slug'] ?>">
                                             <img src="<?= $value['path'] ?>" alt="Ultrabooks" width="224" height="197">
                                             <h2 class="woocommerce-loop-category__title">
                                                 <?= $value['name'] ?>
