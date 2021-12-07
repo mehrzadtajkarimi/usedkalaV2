@@ -1530,18 +1530,6 @@ CREATE TABLE `likes` (
   `created_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
---
--- Dumping data for table `likes`
---
-
-INSERT INTO `likes` (`id`, `user_id`, `entity_id`, `type`, `session_id`, `created_at`) VALUES
-(3, 76, 85, 'like', NULL, '2021-12-06 11:47:30'),
-(4, 76, 86, 'dislike', NULL, '2021-12-06 12:03:12'),
-(5, 76, 87, 'like', NULL, '2021-12-06 12:03:22'),
-(10, 76, 106, 'like', NULL, '2021-12-06 12:12:35'),
-(11, NULL, 104, 'like', 'ahrrbgatk75ln2g89jt0te2nol', '2021-12-06 13:00:39'),
-(12, NULL, 104, 'dislike', 'b6ms88s9e2co0bug8ufh7cp4qh', '2021-12-07 05:09:08');
-
 -- --------------------------------------------------------
 
 --
@@ -2274,7 +2262,7 @@ CREATE TABLE `users` (
   `id` int NOT NULL,
   `city_id` int UNSIGNED DEFAULT NULL,
   `province_id` int UNSIGNED DEFAULT NULL,
-  `user_level` tinyint DEFAULT '0',
+  `user_level` tinyint DEFAULT '1',
   `phone` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
   `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
   `first_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,

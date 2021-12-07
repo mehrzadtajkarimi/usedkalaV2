@@ -125,6 +125,7 @@ function toggle_responsive()
 	var ratioHeight=$($(".techmarket-wc-product-gallery__image.slick-current").children().children()[0]).height();
 	var ratioWidth=$($(".techmarket-wc-product-gallery__image.slick-current").children().children()[0]).width();
 	$(".usedkala_product_enlarge").css("height",($(".usedkala_product_enlarge").width()*ratioHeight)/ratioWidth);
+	$(".usedkala_product_enlarge div").css("width",$(".usedkala_product_enlarge").width()*2);
 	$(".usedkala_product_enlarge div").css("height",($(".usedkala_product_enlarge div").width()*ratioHeight)/ratioWidth);
 }
 window.onresize=function(){toggle_responsive();};

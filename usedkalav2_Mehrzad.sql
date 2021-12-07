@@ -2261,7 +2261,7 @@ CREATE TABLE `users` (
   `id` int NOT NULL,
   `city_id` int UNSIGNED DEFAULT NULL,
   `province_id` int UNSIGNED DEFAULT NULL,
-  `user_level` tinyint DEFAULT '0',
+  `user_level` tinyint DEFAULT '1',
   `phone` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
   `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
   `first_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
