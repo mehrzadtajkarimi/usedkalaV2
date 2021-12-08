@@ -19,14 +19,18 @@ class SettingController extends Controller
     public function about()
     {
         $slug = $this->request->get_param('slug');
-
+		$slug = urldecode($slug['slug']);
+		// var_dump($slug);
+		// die();
         $setting_about = $this->settingModel->read_setting_by_slug($slug);
-
+		// print_r($setting_about);
+		// die();
         if (is_array($setting_about)) {
             $data = array(
                 'setting'    => $setting_about[0]??[],
+				'home_page_active_menu' => 'single single-post full-width'
             );
-            return view('Frontend.about.index', $data);
+            return view('Frontend.about.show', $data);
         }
     }
     public function post()

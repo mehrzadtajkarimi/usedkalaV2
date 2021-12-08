@@ -17,14 +17,14 @@
    <script src="<?= asset_url() ?>Backend/plugins/slimScroll/jquery.slimscroll.min.js"></script>
    <script src="<?= asset_url() ?>Backend/plugins/fastclick/fastclick.js"></script>
    <script src="<?= asset_url() ?>Backend/dist/js/adminlte.min.js"></script>
-   <script src="<?= asset_url() ?>Backend/dist/js/demo.js"></script>
+   <!-- <script src="<?= asset_url() ?>Backend/dist/js/demo.js"></script> -->
 
 
 
    <script src="<?= asset_url() ?>Backend/plugins/bootstrap/js/bootstrap.min.js"></script>
    <script src="<?= asset_url() ?>Backend/plugins/chart.js/Chart.min.js"></script>
    <script src="<?= asset_url() ?>Backend/plugins/WOW/dist/wow.min.js"></script>
-   <script src="<?= asset_url() ?>Backend/dist/js/demo.js"></script>
+   <!-- <script src="<?= asset_url() ?>Backend/dist/js/demo.js"></script> -->
    <script src="<?= asset_url() ?>Backend/dist/js/pages/dashboard3.js"></script>
    <script src="<?= asset_url() ?>Backend/plugins/Multiple-Image-Picker-jQuery/spartan-multi-image-picker-min.js"></script>
    <script src="<?= asset_url() ?>Backend/plugins/datepicker/persian-date.min.js"></script>
@@ -232,7 +232,7 @@
 
 
 
-           $(".js-range-slider").ionRangeSlider({
+           /* $(".js-range-slider").ionRangeSlider({
                skin: "round",
                grid: true,
                min: 0,
@@ -241,7 +241,7 @@
                max_postfix: "+",
                prefix: "Age: ",
                postfix: " years"
-           });
+           }); */
 
        });
    </script>

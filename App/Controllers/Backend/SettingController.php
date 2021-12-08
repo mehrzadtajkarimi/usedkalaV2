@@ -44,7 +44,7 @@ class SettingController extends Controller
         $params_create = array(
             'key'   => $params['key'],
             'value' => $params['value'],
-            'slug'  => $params['slug'],
+            'slug'  => create_slug($params['slug'])
         );
 
         $files = $this->request->files();
@@ -84,7 +84,7 @@ class SettingController extends Controller
         $this->settingModel->update([
             'key'   => $param['key'],
             'value' => $param['value'],
-            'slug'  => $param['slug'],
+            'slug'  => create_slug($param['slug'])
         ], ['id' => $id]);
         FlashMessage::add("مقادیر باموفقیت  ضمیمه شد ");
         return $this->request->redirect('admin/setting');
