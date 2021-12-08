@@ -52,7 +52,9 @@
                                     <label class=" col-form-label" for="access-permission-<?= $admin['id'] ?>"> دسته بندی</label>
                                     <select name='access-permission[]' id="access-permission-<?= $admin['id'] ?>" class="access-permission form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
                                       <?php foreach ($permissions as $value) : ?>
-                                        <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
+                                        <option value="<?= $value['id'] ?>">
+                                          <pre class="text-muted"> <?= $value['label'] . ' * * * ' . $value['name'] ?></pre>
+                                        </option>
                                       <?php endforeach; ?>
                                     </select>
                                   </div>
@@ -62,7 +64,7 @@
                                     <button type="submit" class="float-left btn btn-primary btn-block">ذخیره </button>
                                   </div>
                                   <div class="col">
-                                    <a href="" class="float-right btn btn-danger btn-block">انصراف</a>
+                                    <button type="button" class="float-right btn btn-danger btn-block" data-dismiss="modal">انصراف</button>
                                   </div>
                                 </div>
                               </form>
@@ -87,7 +89,9 @@
                                     <label class=" col-form-label" for="access-role-<?= $admin['id'] ?>"> دسته بندی</label>
                                     <select name='access-role[]' id="access-role-<?= $admin['id'] ?>" class="access-role form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
                                       <?php foreach ($roles as $value) : ?>
-                                        <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
+                                        <option value="<?= $value['id'] ?>">
+                                          <pre class="text-muted"> <?= $value['label'] . ' * * * ' . $value['name'] ?></pre>
+                                        </option>
                                       <?php endforeach; ?>
                                     </select>
                                   </div>
@@ -97,7 +101,7 @@
                                     <button type="submit" class="float-left btn btn-primary btn-block">ذخیره </button>
                                   </div>
                                   <div class="col">
-                                    <a href="" class="float-right btn btn-danger btn-block">انصراف</a>
+                                    <button type="button" class="float-right btn btn-danger btn-block" data-dismiss="modal">انصراف</button>
                                   </div>
                                 </div>
                               </form>
@@ -121,15 +125,15 @@
                   <td colspan="10" id="attr">
                     <div class="row">
                       <span>سطوح دسترسی :</span>
-                      <div class="col" >
+                      <div class="col">
                         <ul class="list-group list-group-flush">
-                          <li class="list-group-item" id="response-permission-<?= $admin['id'] ?>" >
+                          <li class="list-group-item" id="response-permission-<?= $admin['id'] ?>">
 
                           </li>
                         </ul>
                       </div>
                       <span>نقش :</span>
-                      <div class="col"  >
+                      <div class="col">
                         <ul class="list-group list-group-flush">
                           <li class="list-group-item" id="response-role-<?= $admin['id'] ?>">
 

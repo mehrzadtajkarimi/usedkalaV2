@@ -89,6 +89,15 @@ Route::group(function () {
 });
 
 Route::group(function () {
+    Route::get('/admin/order', 'OrderController@index');
+    Route::get('/admin/order/create', 'OrderController@create');
+    Route::post('/admin/order', 'OrderController@store');
+    Route::get('/admin/order/{id}/edit', 'OrderController@edit');
+    Route::patch('/admin/order/{id}', 'OrderController@update');
+    Route::delete('/admin/order/{id}', 'OrderController@destroy');
+});
+
+Route::group(function () {
     Route::get('/admin/tag', 'TagController@index');
     Route::get('/admin/tag/create', 'TagController@create');
     Route::post('/admin/tag', 'TagController@store');

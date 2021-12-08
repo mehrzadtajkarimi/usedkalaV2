@@ -39,14 +39,14 @@
         <?php endif; ?>
         <?php if (can('manager-category')) : ?>
             <li class="nav-item has-treeview">
-                <a href="#" class="nav-link <?= is_active(['/admin/category', 'admin/category/blog']) ?> ">
+                <a href="#" class="nav-link <?= is_active(['/admin/category', '/admin/category/blog']) ?> ">
                     <p>
                         دسته بندی ها
                         <i class="right fa fa-angle-left"></i>
                     </p>
                     <i class="nav-icon fa fa-book"></i>
                 </a>
-                <ul class="nav nav-treeview <?= is_active(['/admin/category', 'admin/category/blog']) ?> ">
+                <ul class="nav nav-treeview <?= is_active(['/admin/category', '/admin/category/blog']) ?> ">
                     <li class="nav-item">
                         <a href="<?= base_url() ?>admin/category" class="nav-link <?= is_active('/admin/category') ?>">
                             <p>لیست دسته بندی محصول</p>
@@ -64,14 +64,14 @@
         <?php endif; ?>
         <?php if (can('manager-product')) : ?>
             <li class="nav-item has-treeview">
-                <a href="#" class="nav-link <?= is_active(['/admin/product', 'admin/brand']) ?> ">
+                <a href="#" class="nav-link <?= is_active(['/admin/product', '/admin/brand', '/admin/order']) ?> ">
                     <p>
                         محصولات
                         <i class="right fa fa-angle-left"></i>
                     </p>
                     <i class="nav-icon fa fa-product-hunt"></i>
                 </a>
-                <ul class="nav nav-treeview <?= is_active(['/admin/product', 'admin/brand']) ?>">
+                <ul class="nav nav-treeview <?= is_active(['/admin/product', '/admin/brand', '/admin/order']) ?>">
                     <li class="nav-item">
                         <a href="<?= base_url() ?>admin/product" class="nav-link <?= is_active('/admin/product') ?>">
                             <p>لیست محصولات </p>
@@ -81,6 +81,12 @@
                     <li class="nav-item">
                         <a href="<?= base_url() ?>admin/brand" class="nav-link <?= is_active('/admin/brand') ?>">
                             <p>لیست برند ها </p>
+                            <i class="fa fa-circle-o nav-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?= base_url() ?>admin/order" class="nav-link <?= is_active('/admin/order') ?>">
+                            <p>لیست سفارشها </p>
                             <i class="fa fa-circle-o nav-icon"></i>
                         </a>
                     </li>
@@ -128,7 +134,7 @@
         <?php endif; ?>
         <?php if (can('manager-discount')) : ?>
             <li class="nav-item has-treeview">
-                <a href="#" class="nav-link <?= is_active(['/admin/discount', 'admin/sample']) ?>">
+                <a href="#" class="nav-link <?= is_active(['/admin/discount', '/admin/sample']) ?>">
                     <p>
                         تخفیفات
                         <i class="right fa fa-angle-left"></i>
@@ -136,7 +142,7 @@
                     <i class="fa fa-bullhorn nav-icon"></i>
                 </a>
 
-                <ul class="nav nav-treeview <?= is_active(['/admin/discount', 'admin/sample']) ?>">
+                <ul class="nav nav-treeview <?= is_active(['/admin/discount', '/admin/sample']) ?>">
                     <li class="nav-item">
                         <a href="<?= base_url() ?>admin/discount" class="nav-link  <?= is_active('/admin/discount') ?>">
                             <p>لیست تخفیفات</p>
@@ -202,7 +208,7 @@
                     <i class="fa fa-cogs nav-icon" aria-hidden="true"></i>
                 </a>
 
-                <ul class="nav nav-treeview <?= is_active(['/admin/setting', '/admin/slider', '/admin/permission']) ?>">
+                <ul class="nav nav-treeview <?= is_active(['/admin/setting', '/admin/slider']) ?>">
                     <li class="nav-item">
                         <a href="<?= base_url() ?>admin/setting" class="nav-link  <?= is_active('/admin/setting') ?>">
                             <p>لیست تنظیمات</p>
@@ -220,7 +226,7 @@
         <?php endif; ?>
         <?php if (can('super-user') || can('super-admin')) : ?>
             <li class="nav-item has-treeview">
-                <a href="#" class="nav-link <?= is_active(['/admin/permission', '/admin/slider']) ?>">
+                <a href="#" class="nav-link <?= is_active(['/admin/permission', '/admin/role', '/admin/access']) ?>">
                     <p>
                         سطوح دسترسی
                         <i class="right fa fa-angle-left"></i>
