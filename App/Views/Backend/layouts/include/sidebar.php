@@ -64,14 +64,14 @@
         <?php endif; ?>
         <?php if (can('manager-product')) : ?>
             <li class="nav-item has-treeview">
-                <a href="#" class="nav-link <?= is_active(['/admin/product', '/admin/brand']) ?> ">
+                <a href="#" class="nav-link <?= is_active(['/admin/product', '/admin/brand', '/admin/order']) ?> ">
                     <p>
                         محصولات
                         <i class="right fa fa-angle-left"></i>
                     </p>
                     <i class="nav-icon fa fa-product-hunt"></i>
                 </a>
-                <ul class="nav nav-treeview <?= is_active(['/admin/product', '/admin/brand']) ?>">
+                <ul class="nav nav-treeview <?= is_active(['/admin/product', '/admin/brand', '/admin/order']) ?>">
                     <li class="nav-item">
                         <a href="<?= base_url() ?>admin/product" class="nav-link <?= is_active('/admin/product') ?>">
                             <p>لیست محصولات </p>
@@ -81,6 +81,12 @@
                     <li class="nav-item">
                         <a href="<?= base_url() ?>admin/brand" class="nav-link <?= is_active('/admin/brand') ?>">
                             <p>لیست برند ها </p>
+                            <i class="fa fa-circle-o nav-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?= base_url() ?>admin/order" class="nav-link <?= is_active('/admin/order') ?>">
+                            <p>لیست سفارشها </p>
                             <i class="fa fa-circle-o nav-icon"></i>
                         </a>
                     </li>
