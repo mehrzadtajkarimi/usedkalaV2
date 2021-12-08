@@ -84,7 +84,7 @@ class User extends MysqlBaseModel
         )[0] ??  $this->first(['id' => $user_id]);
     }
 
-    public function join__whit_province_city()
+    public function join__whit_province_city($user_id)
     {
         return $this->inner_join_two(
             "users.*,provinces.name AS province_name ,cities.name AS city_name",
@@ -95,6 +95,7 @@ class User extends MysqlBaseModel
             "province_id",
             "id",
             "users.user_level>0",
+            "users.id=$user_id",
            );
     }
 }

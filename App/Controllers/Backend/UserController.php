@@ -25,9 +25,23 @@ class UserController  extends Controller
     }
     public function index()
     {
+        $users        = $this->UserModel->read_user();
+        $all_province = $this->ProvinceModel->read_province();
+        $all_city     = $this->CityModel->read_city();
+
+        foreach ($users as $value) {
+            if (is_null($value['province_id'])) {
+                $users_screen[] =$value;
+                continue;
+            }else{
+                $users_screen[] = $this->UserModel->join__whit_province_city($value['id'])[0];
+            }
+        };
+
         $data = [
-            'users'     => $this->UserModel->join__whit_province_city() ?? [],
-            'provinces' => $this->ProvinceModel->read_province(),
+            'users'        => $users_screen,
+            'provinces'    => $all_province,
+            'cites'        => $all_city,
         ];
         return view('Backend.user.index', $data);
     }
@@ -70,9 +84,9 @@ class UserController  extends Controller
 
     public function destroy()
     {
-        $id= $this->request->get_param('id');
+        $id = $this->request->get_param('id');
 
-        $is_deleted_product= $this->UserModel->delete_user($id);
+        $is_deleted_product = $this->UserModel->delete_user($id);
 
         if ($is_deleted_product) {
             FlashMessage::add("کاربر با موفقیت از دیتابیس حذف شد");

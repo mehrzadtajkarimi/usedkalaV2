@@ -34,7 +34,6 @@
                   <td class="text-center" title=""><?= $admin['first_name'] . ' ' . $admin['last_name'] ?></td>
                   <td class="text-center" title=""><?= $admin['phone'] ?></td>
                   <td class="text-center">
-                    <p><?= $admin['id'] ?></p>
                     <!-- Button trigger modal -->
                     <!-- <div> -->
 
