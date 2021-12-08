@@ -78,8 +78,6 @@
                             <i class="fa fa-circle-o nav-icon"></i>
                         </a>
                     </li>
-                </ul>
-                <ul class="nav nav-treeview">
                     <li class="nav-item">
                         <a href="<?= base_url() ?>admin/brand" class="nav-link <?= is_active('/admin/brand') ?>">
                             <p>لیست برند ها </p>

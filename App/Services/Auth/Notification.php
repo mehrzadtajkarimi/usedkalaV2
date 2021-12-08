@@ -41,11 +41,11 @@ class Notification
         return $soap->SendSMS($soap->fromNum, $soap->toNum, $soap->Content, $soap->Type, $soap->Username, $soap->Password);
 		*/
 		$postData = [
-			'gateway' => 1000475569,
+			'gateway' => 100069183656,
 			'to' => $phone,
 			'text' => "کدتایید usedkala\n$token"
 		];
-		$ch = curl_init('https://api.sabanovin.com/v1/sa2195500806:y9icLoW5N9pkWVc3qvOgWMNUwtZlF9UjwM7V/sms/send.json');
+		$ch = curl_init('https://api.sabanovin.com/v1/sa793522704:ZUXfTpVBhArIpYThQ3ff00F9kTKcXcIYP0ht/sms/send.json');
 		// curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json','x-sms-ir-secure-token: '.$result['TokenKey']]);
 		// curl_setopt($ch, CURLOPT_HEADER, false);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
