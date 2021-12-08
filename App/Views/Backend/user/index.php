@@ -125,13 +125,13 @@
                                             <div>
                                                 <small>استان : </small>
                                                 <small>
-                                                    <bdi class="arabic-num"><?= $value['province_name'] ?? '   - - -'  ?></bdi>
+                                                    <bdi class="arabic-num"><?= $value['province_name']?? '  - - - '  ?></bdi>
                                                 </small>
                                             </div>
                                             <div>
                                                 <small>شـــــهر : </small>
                                                 <small>
-                                                    <bdi class="arabic-num"><?= $value['city_name'] ?? '   - - -'  ?></bdi>
+                                                    <bdi class="arabic-num"><?= $value['city_name']?? '  - - - '  ?></bdi>
                                                 </small>
                                             </div>
                                             <div>
