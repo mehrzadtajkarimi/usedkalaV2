@@ -19,6 +19,13 @@ class Setting extends MysqlBaseModel
         }
         return $this->find_by_id($id);
     }
+    public function read_setting_by_slug($slug=null)
+    {
+        if (is_null($slug)) {
+            return false;
+        }
+        return $this->get('*',['slug'=>$slug]);
+    }
     public function read_setting_by_key($key=null)
     {
         if (is_null($key)) {
@@ -26,7 +33,6 @@ class Setting extends MysqlBaseModel
         }
         return $this->get('*',['key'=>$key]);
     }
-
     public function update_setting(array $params , $id)
     {
         return $this->update($params, ['id' => $id]);

@@ -10,6 +10,7 @@ use App\Models\Role_permission;
 use App\Models\Role_user;
 use App\Models\User;
 use App\Models\Wish_list;
+use App\Models\Setting;
 use App\Services\Auth\Auth;
 use App\Services\Basket\Basket;
 
@@ -32,7 +33,8 @@ function view($path, $data = [], $layout = null)
     $full_path = BASEPATH . "App/Views/$path.php";
     $is_file = is_readable($full_path) && file_exists($full_path);
     if ($path_explode[0] == 'Frontend') {
-        $data += inject_menu($path_explode[0]);
+        $data += inject_menu();
+        $data += inject_about_menu();
     }
 
     if (is_null($layout)) {
@@ -78,6 +80,11 @@ function inject_menu()
         ];
     }
     return [];
+}
+function inject_about_menu()
+{
+	$settingModel = new Setting;
+	return ["about_menu" => $settingModel->read_setting()];
 }
 function create_slug($string)
 {

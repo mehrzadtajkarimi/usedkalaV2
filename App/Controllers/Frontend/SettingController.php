@@ -20,7 +20,7 @@ class SettingController extends Controller
     {
         $slug = $this->request->get_param('slug');
 
-        $setting_about = $this->settingModel->read_setting_by_key('about');
+        $setting_about = $this->settingModel->read_setting_by_slug($slug);
 
         if (is_array($setting_about)) {
             $data = array(
