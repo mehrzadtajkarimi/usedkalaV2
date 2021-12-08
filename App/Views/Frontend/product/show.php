@@ -1,13 +1,15 @@
 <div class="col-full">
     <div class="row">
-        <div class="breadcrumb">
+        <nav class="woocommerce-breadcrumb">
             <?php foreach ($breadcrumb as $key => $value): ?>
                 <a href="<?= base_url() ?>category/<?= $value['slug'] ?>"><?= $value['name'] ?></a> 
                 <?php if(count($breadcrumb)-1 != $key): ?>
-                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                    <span class="delimiter">
+                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                    </span>
                 <?php endif; ?>
             <?php endforeach; ?>
-        </div>
+        </nav>
         <div id="primary" class="content-area">
             <main id="main" class="site-main">
                 <div class="product product-type-simple">
