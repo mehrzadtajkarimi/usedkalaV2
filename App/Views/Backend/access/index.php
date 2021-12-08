@@ -64,7 +64,7 @@
                                     <button type="submit" class="float-left btn btn-primary btn-block">ذخیره </button>
                                   </div>
                                   <div class="col">
-                                    <a href="" class="float-right btn btn-danger btn-block">انصراف</a>
+                                    <button type="button" class="float-right btn btn-danger btn-block" data-dismiss="modal">انصراف</button>
                                   </div>
                                 </div>
                               </form>
@@ -101,7 +101,7 @@
                                     <button type="submit" class="float-left btn btn-primary btn-block">ذخیره </button>
                                   </div>
                                   <div class="col">
-                                    <a href="" class="float-right btn btn-danger btn-block">انصراف</a>
+                                    <button type="button" class="float-right btn btn-danger btn-block" data-dismiss="modal">انصراف</button>
                                   </div>
                                 </div>
                               </form>
