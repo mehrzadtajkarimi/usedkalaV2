@@ -30,6 +30,102 @@
             'placeholder': 'دسته بندی های مورد نظر را انتخاب کنید'
         });
 
+        $('#check-box').on('change', function() {
+            var order_id = $(this).data('id');
+
+            if ($(this).is(':checked')) {
+                var type = 2;
+            }
+            $.ajax({
+                type: "post",
+                url: '<?= base_url() ?>admin/order/status/' + order_id,
+                data: {
+                    'order_id': order_id,
+                    'type': type
+                },
+                success: function(response) {
+                    $(this).html('disabled');
+
+                    alert(response);
+
+                },
+            });
+        })
+
+
+        $('.handler').click(function(e) {
+            e.preventDefault();
+            var order_id = $(this).data('id');
+            $.ajax({
+                type: "post",
+                url: '<?= base_url() ?>admin/order/get_admin',
+                data: {
+                    'order_id': order_id,
+                    'type': 1
+                },
+                success: function(response) {
+                    console.log(response);
+                    this.html(response);
+                },
+            });
+        });
+        $('.sender').click(function(e) {
+            e.preventDefault();
+            var order_id = $(this).data('id');
+            $.ajax({
+                type: "post",
+                url: '<?= base_url() ?>admin/order/get_admin',
+                data: {
+                    'order_id': order_id,
+                    'type': 2
+                },
+                success: function(response) {
+                    console.log(response);
+                    this.html(response);
+                },
+            });
+        });
+
+
+
+        $('.access-show').click(function(e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+            var order = $("#response-order-" + id);
+            $.ajax({
+                type: "post",
+                url: '<?= base_url() ?>admin/order/get_orders',
+                data: {
+                    'id': id
+                },
+                success: function(response) {
+                    data = JSON.parse(response);
+
+                    order.empty();
+                    $(data).each(function(key, value) {
+                        console.log(data);
+                        order.append(`
+                        <div class='row'>
+                        <div class='col'>
+                            <span class='text-muted '>` + value + `</span>
+                        </div>
+                        </div>
+                        `);
+                    });
+
+                },
+            });
+
+
+        });
+
+
+
+
+
+
+
+
 
     });
 </script>

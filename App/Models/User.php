@@ -29,14 +29,18 @@ class User extends MysqlBaseModel
             return $this->first(['email' => $param['email']]) ?? null;
         }
     }
-    public function read_user($id= null)
+    public function read_user($id = null)
     {
         if (is_null($id)) {
-            return $this->get('*',[
-                'user_level[>]'=> 0
+            return $this->get('*', [
+                'user_level[>]' => 0
             ]);
         }
         return $this->first(['id' => $id]);
+    }
+    public function get_user($where)
+    {
+        return $this->get('*', $where);
     }
 
 
@@ -96,6 +100,6 @@ class User extends MysqlBaseModel
             "id",
             "users.user_level>0",
             "users.id=$user_id",
-           );
+        );
     }
 }
