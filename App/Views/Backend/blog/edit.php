@@ -1,7 +1,6 @@
-<script src='<?= asset_url() ?>Backend/plugins/ckeditor/ckeditor.js'></script>
 <div class="card">
     <div class="card-header">
-        <h5>ویرایش (( <?= $blog['title'] ?> ))</h5>
+        <h5>ویرایش پستِ «<?= $blog['title'] ?>»</h5>
     </div>
     <div class="card-body">
         <form action="<?= base_url() ?>admin/blog/<?= $blog['id'] ?>" method="post" enctype="multipart/form-data">
@@ -19,7 +18,7 @@
             <?php else : ?>
                 <div class="text-center">
                     <!-- Button trigger modal -->
-                    <span type="button" class="btn w-50" data-toggle="modal" data-target="#form-modal-edit-photo" title="جهت ویرایش کلیک کتید">
+                    <span type="button" class="btn w-50" data-toggle="modal" data-target="#form-modal-edit-photo" title="جهت ویرایش کلیک کنید">
                         <img id="img-edit" src="<?= $photo['path'] ?>" class="rounded img-fluid " data-img-name="" alt="<?= $photo['alt'] ?>" />
                     </span>
                     <!-- Modal -->
@@ -39,9 +38,9 @@
                 </div>
             <?php endif; ?>
             <div class="form-group row">
-                <label for="key" class="col-sm-2 col-form-label">موضوع</label>
+                <label for="key" class="col-sm-2 col-form-label">عنوان</label>
                 <div class="col-sm-10">
-                    <input name="key" type="text" class="form-control" id="key" value="<?= $blog['key'] ?? '' ?>" placeholder="نام زیر دسته را وارد نمایید" autofocus>
+                    <input name="title" type="text" class="form-control" id="key" value="<?= $blog['title'] ?>" placeholder="عنوان پست را وارد نمایید" autofocus>
                 </div>
             </div>
             <div class="form-group row">
@@ -55,7 +54,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-2  col-form-label" for="blog-tag"> تگ</label>
+                <label class="col-2  col-form-label" for="blog-tag">برچسب ها</label>
                 <div class="col-10">
                     <select name='blog-tag[]' id="blog-tag" class=" form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
                         <?php foreach ($tags as $value) : ?>
@@ -65,7 +64,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="slug" class="col-sm-2 col-form-label"> slug </label>
+                <label for="slug" class="col-sm-2 col-form-label"> Slug </label>
                 <div class="col-sm-10">
                     <input name="slug" type="text" class="form-control" id="slug" value="<?= $blog['slug'] ?? '' ?>" placeholder="" required>
                 </div>
@@ -85,7 +84,7 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="robots" class="col-2 col-form-label">robots</label>
+                <label for="robots" class="col-2 col-form-label">Robots</label>
                 <div class="col-10">
                     <select name='seo-robot' id="robots" class="form-control ">
                         <?php foreach ($robots as $key => $value) : ?>
@@ -95,19 +94,19 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="title" class="col-2 col-form-label">title</label>
+                <label for="title" class="col-2 col-form-label">HTML Title</label>
                 <div class="col-10">
                     <input name="seo-title" type="text" class="form-control" id="title" value="<?= $blog['seo_title'] ?>" placeholder="title را وارد نمایید" required>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="seo-description" class="col-2 col-form-label"> درباره محصول </label>
+                <label for="seo-description" class="col-2 col-form-label">HTML Description</label>
                 <div class="col-10">
                     <textarea name="seo-description" type="text" class="form-control" id="seo-description" rows="3" required><?= $blog['seo_description'] ?></textarea>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="blog-meta" class="col-2 col-form-label"> متن متا</label>
+                <label for="blog-meta" class="col-2 col-form-label">خلاصه متن</label>
                 <div class="col-10">
                     <textarea name="blog-meta" type="text" class="form-control" id="blog-meta" placeholder="" rows="2" required><?= $blog['meta_title'] ?></textarea>
                 </div>
@@ -127,4 +126,7 @@
         </form>
     </div>
 </div>
-<?php include(BASEPATH . "/App/Views/Backend/blog/script.php") ?>
+<?php
+include(BASEPATH . "/App/Views/Backend/blog/script.php");
+include_once BASEPATH  . 'App/Views/Backend/layouts/include/ckeditor.php';
+?>

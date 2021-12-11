@@ -1,14 +1,6 @@
 <script>
     $(document).ready(function() {
 
-        CKEDITOR.replace('textarea', {
-            extraPlugins: 'filebrowser',
-            height: 300,
-            // filebrowserUploadUrl: "/admin/setting/upload",
-            filebrowserUploadUrl: "/upload.php",
-            filebrowserUploadMethod: "form"
-        });
-
         // tinymce.init({
         //     selector: '#mytextarea',
         //     plugins: [

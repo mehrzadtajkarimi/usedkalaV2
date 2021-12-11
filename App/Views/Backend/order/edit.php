@@ -1,4 +1,3 @@
-<script src='<?= asset_url() ?>Backend/plugins/ckeditor/ckeditor.js'></script>
 <div class="card">
     <div class="card-header">
         <h5> ویرایش سفارش(( <?= $order['user_full_name'] ?> ))</h5>
@@ -23,4 +22,7 @@
         </form>
     </div>
 </div>
-<?php include(BASEPATH . "/App/Views/Backend/order/script.php") ?>
+<?php
+include(BASEPATH . "/App/Views/Backend/order/script.php");
+include_once BASEPATH  . 'App/Views/Backend/layouts/include/ckeditor.php';
+?>

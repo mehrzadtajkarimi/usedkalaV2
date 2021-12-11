@@ -3,7 +3,7 @@
         <a title="صفحه نخست" href="<?= base_url() ?>">فروشگاه</a>
     </li>
     <li class="yamm-fw menu-item animate-dropdown">
-        <a title="وبلاگ" href="<?= base_url() ?>blog/وبلاگ">وبلاگ</a>
+        <a title="وبلاگ" href="<?= base_url() ?>blog">وبلاگ</a>
     </li>
     <li class="menu-item menu-item-has-children animate-dropdown dropdown">
         <a title="درباره ما" data-toggle="dropdown" aria-haspopup="true" class="dropdown-toggle" href="">درباره ما<span class="caret"></span></a>

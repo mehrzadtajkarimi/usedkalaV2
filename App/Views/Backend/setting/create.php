@@ -1,5 +1,3 @@
-<script src='<?= asset_url() ?>Backend/plugins/ckeditor/ckeditor.js'></script>
-<!-- <script src="//cdn.ckeditor.com/4.16.2/full/ckeditor.js"></script> -->
 <div class="card-header">
     <h5>ایجاد تنظیمات</h5>
 
@@ -22,4 +20,7 @@
     </form>
 </div>
 </div>
-<?php include(BASEPATH . "/App/Views/Backend/setting/script.php") ?>
+<?php
+include(BASEPATH . "/App/Views/Backend/setting/script.php");
+include_once BASEPATH  . 'App/Views/Backend/layouts/include/ckeditor.php';
+?>

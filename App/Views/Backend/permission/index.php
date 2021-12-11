@@ -1,4 +1,3 @@
-<script src='<?= asset_url() ?>Backend/plugins/ckeditor/ckeditor.js'></script>
 <div class="card ">
   <div class="p-0 shadow-sm card-body">
     <div class="card-header">
@@ -99,4 +98,7 @@
     </div>
   </div>
 </div>
-<?php include(BASEPATH . "/App/Views/Backend/permission/script.php") ?>
+<?php
+include(BASEPATH . "/App/Views/Backend/permission/script.php");
+include_once BASEPATH  . 'App/Views/Backend/layouts/include/ckeditor.php';
+?>

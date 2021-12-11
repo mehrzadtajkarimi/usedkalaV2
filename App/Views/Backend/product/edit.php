@@ -1,4 +1,3 @@
-<script src='<?= asset_url() ?>Backend/plugins/ckeditor/ckeditor.js'></script>
 <div class="card">
     <div class="card-header">
         <h5>ویرایش محصول (( <?= $products['title'] ?> ))</h5>
@@ -211,4 +210,7 @@
         </form>
     </div>
 </div>
-<?php include(BASEPATH . "/App/Views/Backend/product/script.php") ?>
+<?php
+include(BASEPATH . "/App/Views/Backend/product/script.php");
+include_once BASEPATH  . 'App/Views/Backend/layouts/include/ckeditor.php';
+?>

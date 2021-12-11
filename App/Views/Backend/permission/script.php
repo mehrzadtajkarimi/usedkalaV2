@@ -7,13 +7,7 @@
         $('#permission_tag').select2({
             'placeholder': ' تگ های مورد نظر را انتخاب کنید'
         });
-		CKEDITOR.replace('permission-description', {
-            extraPlugins: 'filebrowser',
-            height: 300,
-            // filebrowserUploadUrl: "/admin/setting/upload",
-            filebrowserUploadUrl: "/upload.php",
-            filebrowserUploadMethod: "form"
-        });
+
         $('#input-edit').change(function() {
             var url = this.value;
             var pic_name = this.files[0];

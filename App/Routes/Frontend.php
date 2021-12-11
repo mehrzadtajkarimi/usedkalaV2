@@ -76,9 +76,9 @@ Route::group(function () {
 });
 
 Route::group(function () {
-    Route::get('/blog/{slug}', 'BlogController@index');
-    Route::get('/blog/{id}/{slug}', 'BlogController@show');
-    Route::get('/blog/category/{id}/{slug}', 'BlogController@category');
+    Route::get('/blog', 'BlogController@index');
+    Route::get('/blog/{slug}', 'BlogController@show');
+    Route::get('/blog/category/{slug}', 'BlogController@category');
 });
 
 Route::group(function () {

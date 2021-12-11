@@ -61,7 +61,7 @@ class BlogController extends Controller
 
         $params_create = array(
             'title'           => $params['title'],
-            'slug'            => $params['slug'],
+            'slug'            => create_slug($params['slug']),
             'value'           => $params['value'],
             'seo_H1'          => $params['seo-H1'],
             'seo_canonical'   => $params['seo-canonical'],
@@ -116,9 +116,10 @@ class BlogController extends Controller
         $categories_selected = $this->blogCategoriesModel->read_categoryBlog($id) ?: [];
         $tags_selected       = $this->taggableModel->read_taggable($id['id']) ?: [];
 
-
-
-
+		$photoObj=$this->photoModel->read_single_photo_by_id(0,$id['id'],'Blog');
+		// print_r($photoObj);
+		// die();
+		
         $selectedCats = [];
         foreach ($categories_selected as $selectedCatRow) {
             $selectedCats[$selectedCatRow['id']] = $selectedCatRow;
@@ -128,15 +129,20 @@ class BlogController extends Controller
         foreach ($tags_selected as $selectedTagRow) {
             $selectedTags[$selectedTagRow['tag_id']] = $selectedTagRow;
         }
+		$breadcrumbArr=[
+			"بلاگها"	         => "blog",
+			"ویرایش پست بلاگ" => "#",
+		];
 
         $data = array(
             'tags'                => $this->tagModel->read_tag(),
-            'categories'          => $this->categoryModel->read_category(),
+            'categories'          => $this->categoryModel->category_tree_for_backend(0,'',1),
             'blog'                => $this->blogModel->read_blog($id),
-            'photo'               => $this->photoModel->read_photo($id),
+            'photo'               => $photoObj[0],
             'categories_selected' => $selectedCats,
             'tags_selected'       => $selectedTags,
             'robots'              => Tinyint::category_robots(),
+			'breadcrumb'		  => $breadcrumbArr
 
         );
         view('Backend.blog.edit', $data);
@@ -146,8 +152,6 @@ class BlogController extends Controller
     {
         $param = $this->request->params();
         $id    = $this->request->get_param('id');
-
-
 
         if (!empty($param['blog-category'])) {
             $this->blogCategoriesModel->delete_blogCategories_by_blog_id($id['id']);
@@ -172,7 +176,7 @@ class BlogController extends Controller
         $this->blogModel->update([
             'title'           => $param['title'],
             'value'           => $param['value'],
-            'slug'            => $param['slug'],
+            'slug'            => create_slug($param['slug']),
             'seo_H1'          => $param['seo-H1'],
             'seo_canonical'   => $param['seo-canonical'],
             'seo_title'       => $param['seo-title'],
@@ -195,13 +199,13 @@ class BlogController extends Controller
                 $is_update_photo = $this->photoModel->update_photo('Blog', $id['id'], $file_paths[0], 'image_blog');
 
                 if ($is_update_photo) {
-                    FlashMessage::add("ویرایش محصول با موفقیت انجام شد");
+                    FlashMessage::add("ویرایش پست بلاگ با موفقیت انجام شد");
                 } else {
-                    FlashMessage::add(" مشکلی در ویرایش محصول رخ داد ", FlashMessage::ERROR);
+                    FlashMessage::add(" مشکلی در ویرایش پست بلاگ رخ داد ", FlashMessage::ERROR);
                 }
             }
         }
-        FlashMessage::add("مقادیر باموفقیت  ضمیمه شد ");
+        FlashMessage::add("مقادیر با موفقیت  ضمیمه شد ");
         return $this->request->redirect('admin/blog');
     }
 

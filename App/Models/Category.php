@@ -13,11 +13,11 @@ class Category extends MysqlBaseModel
     public $property_category_tree_for_frontend        = [];
     public $children                                   = [];
 
-    public function category_tree_for_backend($parent_id = 0, $sub_mark = '')
+    public function category_tree_for_backend($parent_id = 0, $sub_mark = '', $type=0)
     {
         $get_categories = $this->get('*', [
             'parent_id' => $parent_id,
-            'type'      => 0,
+            'type'      => $type,
         ]);
         if (is_array($get_categories)) {
             foreach ($get_categories as  $value) {
@@ -34,28 +34,6 @@ class Category extends MysqlBaseModel
             }
         }
         return $this->property_category_tree_for_backend;
-    }
-    public function category_tree_for_backend_by_type($type, $parent_id = 0, $sub_mark = '')
-    {
-        $get_categories = $this->get('*', [
-            'parent_id' => $parent_id,
-            'type'      => $type,
-        ]);
-        if (is_array($get_categories)) {
-            foreach ($get_categories as  $value) {
-                array_push(
-                    $this->property_category_tree_for_backend_by_type,
-                    array(
-                        'name'   => $sub_mark . $value['name'],
-                        'id'     => $value['id'],
-                        'parent' => $value['parent_id'],
-                        'slug'   => $value['slug'],
-                    )
-                );
-                $this->category_tree_for_backend_by_type($type, $value['id'], $sub_mark . ' <b> &#10010; </b> ');
-            }
-        }
-        return $this->property_category_tree_for_backend_by_type;
     }
 
     public function get_categories_for_product_breadcrumb($id, $breadcrumb=[])

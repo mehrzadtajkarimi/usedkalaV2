@@ -1,5 +1,3 @@
-<script src='<?= asset_url() ?>Backend/plugins/ckeditor/ckeditor.js'></script>
-<!-- <script src="//cdn.ckeditor.com/4.16.2/full/ckeditor.js"></script> -->
 <div class="card-header">
     <h5>ایجاد بلاگ</h5>
 
@@ -9,11 +7,11 @@
         <div class="row">
 
             <div class="form-group col">
-                <label for="title" class=" col-form-label"> موضوع </label>
+                <label for="title" class=" col-form-label"> عنوان </label>
                 <input name="title" type="text" class="form-control" id="title" placeholder="" required>
             </div>
             <div class="form-group col">
-                <label for="slug" class=" col-form-label"> slug </label>
+                <label for="slug" class=" col-form-label"> Slug </label>
                 <input name="slug" type="text" class="form-control" id="slug" placeholder="" required>
             </div>
         </div>
@@ -60,7 +58,7 @@
         </div>
         <div class="row">
             <div class="form-group col">
-                <label for="seo-robots" class="col-form-label">robots</label>
+                <label for="seo-robots" class="col-form-label">Robots</label>
                 <div class="">
                     <select name='seo-robot' id="robots" class="form-control ">
                         <?php foreach ($robots as $key => $value) : ?>
@@ -70,20 +68,20 @@
                 </div>
             </div>
             <div class="form-group col">
-                <label for="title" class=" col-form-label">title</label>
+                <label for="title" class=" col-form-label">HTML Title</label>
                 <div class="">
                     <input name="seo-title" type="text" class="form-control" id="title" placeholder="title را وارد نمایید" required>
                 </div>
             </div>
         </div>
         <div class="form-group ">
-            <label for="seo-description" class="col-form-label"> description </label>
+            <label for="seo-description" class="col-form-label">HTML Description</label>
             <div class="">
                 <textarea name="seo-description" type="text" class="form-control" id="seo-description" placeholder="" rows="3" required></textarea>
             </div>
         </div>
         <div class="form-group ">
-            <label for="blog-meta" class=" col-form-label"> متن متا</label>
+            <label for="blog-meta" class=" col-form-label">خلاصه متن</label>
             <textarea name="blog-meta" type="text" class="form-control" id="blog-meta" placeholder="" rows="2" required></textarea>
         </div>
         <hr class="mt-5">
@@ -96,4 +94,7 @@
     </form>
 </div>
 </div>
-<?php include(BASEPATH . "/App/Views/Backend/blog/script.php") ?>
+<?php
+include(BASEPATH . "/App/Views/Backend/blog/script.php");
+include_once BASEPATH  . 'App/Views/Backend/layouts/include/ckeditor.php';
+?>

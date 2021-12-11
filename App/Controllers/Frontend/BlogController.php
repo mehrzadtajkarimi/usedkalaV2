@@ -10,6 +10,7 @@ use App\Models\Comment;
 use App\Models\Taggable;
 use App\Models\Wish_list;
 use App\Services\Session\SessionManager;
+use App\Utilities\TimeUtil;
 
 class BlogController extends Controller
 {
@@ -28,6 +29,7 @@ class BlogController extends Controller
         $this->commentModel  = new Comment();
         $this->taggableModel = new Taggable();
         $this->wishListModel = new Wish_list();
+        $this->jDateModel    = new TimeUtil();
     }
 
     public function index()
@@ -35,13 +37,14 @@ class BlogController extends Controller
         $slug = $this->request->get_param('slug');
 
         $blog = $this->blogModel->join_blog_to_photo();
-
+		foreach($blog as $postKey=>$postRow)
+			$blog[$postKey]['jDate']=$this->jDateModel->jalaliDate($postRow['created_at']);
 
         if (is_array($blog)) {
             $data = array(
-                'blogs'      => $blog,
-                'categories' => $this->categoryModel->read_category_by_type(1),   //1=blog
-
+                'blogs'                 => $blog,
+                'categories'            => $this->categoryModel->read_category_by_type(1),   //1=blog
+				'home_page_active_menu' => "right-sidebar"
             );
             return view('Frontend.blog.index', $data);
         }
@@ -74,6 +77,8 @@ class BlogController extends Controller
                 'blog'      => $blog[0],
                 'wish_list' => !empty($wish_list) ? $wish_list :[],
                 'auth'      => SessionManager::get('auth') ?? false,
+				'home_page_active_menu' => "right-sidebar",
+				'postDate'  => $this->jDateModel->jalaliDate($blog[0]['created_at'])
             );
             return view('Frontend.blog.show', $data);
         }

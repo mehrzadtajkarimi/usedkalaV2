@@ -1,11 +1,9 @@
-<script src='<?= asset_url() ?>Backend/plugins/ckeditor/ckeditor.js'></script>
-
 <div class="card ">
   <div class="p-0 shadow-sm card-body">
     <div class="card-header">
       <div class="row">
         <div class="col-4">
-          <h3 class="p-3 card-title"> لیست بلاگها</h3>
+          <h3 class="p-3 card-title">لیست پست‌های وبلاگ</h3>
         </div>
         <div class="offset-4"> </div>
         <div class="col-4">
@@ -16,8 +14,8 @@
             </div>
 
             <!-- Button trigger modal -->
-            <a href="<?= base_url() ?>admin/blog/create" type="button" class="mr-2 shadow-sm btn btn-success "  " >
-              ایجاد بلاگها
+            <a href="<?= base_url() ?>admin/blog/create" type="button" class="mr-2 shadow-sm btn btn-success">
+              ایجاد پست جدید
             </a>
 
 
@@ -31,7 +29,7 @@
         <table class="table table--vertical_middle ">
           <thead>
             <tr>
-              <th class="text-center" scope="col">نام</th>
+              <th class="text-center" scope="col">عنوان</th>
               <th class="text-center" scope="col">نمایش</th>
             </tr>
           </thead>
@@ -59,4 +57,7 @@
 </div>
 </div>
 
-<?php include(BASEPATH . "/App/Views/Backend/blog/script.php") ?>
+<?php
+include(BASEPATH . "/App/Views/Backend/blog/script.php");
+// include_once BASEPATH  . 'App/Views/Backend/layouts/include/ckeditor.php';
+?>
