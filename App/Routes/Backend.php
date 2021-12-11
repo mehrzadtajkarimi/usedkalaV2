@@ -95,6 +95,11 @@ Route::group(function () {
     Route::get('/admin/order/{id}/edit', 'OrderController@edit');
     Route::patch('/admin/order/{id}', 'OrderController@update');
     Route::delete('/admin/order/{id}', 'OrderController@destroy');
+
+    Route::post('/admin/order/get_orders', 'OrderController@get_orders');
+    Route::post('/admin/order/get_admin', 'OrderController@get_admin');
+    Route::post('/admin/order/status/{id}', 'OrderController@status');
+
 });
 
 Route::group(function () {
