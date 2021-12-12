@@ -30,32 +30,56 @@
             'placeholder': 'دسته بندی های مورد نظر را انتخاب کنید'
         });
 
-        $('#check-box').on('change', function() {
+        $('.check-box-handler').on('change', function() {
             var order_id = $(this).data('id');
-
             if ($(this).is(':checked')) {
+                $('.check-box-handler-' + order_id).parents().eq(3).fadeOut(1000,function(){
+                    $('.check-box-sender-' + order_id).parents().eq(3).fadeIn(1000);
+                });
+                
                 var type = 2;
             }
-            $.ajax({
-                type: "post",
-                url: '<?= base_url() ?>admin/order/status/' + order_id,
-                data: {
-                    'order_id': order_id,
-                    'type': type
-                },
-                success: function(response) {
-                    $(this).html('disabled');
+            // $.ajax({
+            //     type: "post",
+            //     url: '<?= base_url() ?>admin/order/status/' + order_id,
+            //     data: {
+            //         'order_id': order_id,
+            //         'type': type
+            //     },
+            //     success: function(response) {
 
-                    alert(response);
 
-                },
-            });
-        })
+            //     },
+            // });
+        });
+
+        // $('.check-box-sender').on('change', function() {
+        //     var order_id = $(this).data('id');
+        //     if ($(this).is(':checked')) {
+        //         $('.check-box-sender' + order_id).parents().eq(4).fadeOut(1000);
+        //         $('.check-handler-' + order_id).parents().eq(4).fadeIn(1000);
+        //         var type = 3;
+        //     }
+        //     $.ajax({
+        //         type: "post",
+        //         url: '<?= base_url() ?>admin/order/status/' + order_id,
+        //         data: {
+        //             'order_id': order_id,
+        //             'type': type
+        //         },
+        //         success: function(response) {
+
+
+        //         },
+        //     });
+        // });
 
 
         $('.handler').click(function(e) {
             e.preventDefault();
+            var that = $(this);
             var order_id = $(this).data('id');
+            // that.empty();
             $.ajax({
                 type: "post",
                 url: '<?= base_url() ?>admin/order/get_admin',
@@ -64,13 +88,17 @@
                     'type': 1
                 },
                 success: function(response) {
-                    console.log(response);
-                    this.html(response);
+                    that.fadeOut(function() {
+                        that.html(response);
+                        that.fadeIn();
+                        $('#check-box').parent().css('d-none');
+                    });
                 },
             });
         });
         $('.sender').click(function(e) {
             e.preventDefault();
+            that = $(this);
             var order_id = $(this).data('id');
             $.ajax({
                 type: "post",
@@ -80,8 +108,9 @@
                     'type': 2
                 },
                 success: function(response) {
-                    console.log(response);
-                    this.html(response);
+                    console.log(that);
+                    that.fadeIn(10000).delay(20000);
+                    that.html(response);
                 },
             });
         });

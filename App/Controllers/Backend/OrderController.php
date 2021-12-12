@@ -59,9 +59,7 @@ class OrderController extends Controller
     {
         $user_id = $this->request->params()['id'];
 
-
         $result = $this->orderModel->read_order($user_id);
-
 
         echo json_encode($result);
     }
@@ -72,7 +70,6 @@ class OrderController extends Controller
 
         $order_id = $this->request->params()['order_id'];
         $status = $this->request->params()['type'];
-
 
         if ($status == 2) {
             $result = $this->orderModel->update_order([
@@ -90,9 +87,5 @@ class OrderController extends Controller
             echo  $result;
         }
 
-        die;
-
-
-        echo $order_id . '<br>' . $status . '<br>' . $admin_id;
     }
 }

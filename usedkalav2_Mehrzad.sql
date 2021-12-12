@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 12, 2021 at 06:14 AM
+-- Generation Time: Dec 12, 2021 at 12:16 PM
 -- Server version: 8.0.27-0ubuntu0.20.04.1
 -- PHP Version: 8.0.13
 
@@ -1538,24 +1538,24 @@ CREATE TABLE `likes` (
 
 CREATE TABLE `orders` (
   `id` int NOT NULL,
-  `user_id` int UNSIGNED NOT NULL,
-  `user_full_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
-  `user_phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
-  `city_id` int UNSIGNED NOT NULL,
-  `province_id` int UNSIGNED NOT NULL,
-  `postal_code` bigint NOT NULL,
-  `address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
-  `token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
-  `order_number` int NOT NULL,
-  `weight` enum('tiny','normal','big') CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
-  `item_count` int UNSIGNED NOT NULL,
-  `grand_total` float NOT NULL,
-  `discount_total` float NOT NULL,
-  `shipping_cost` int NOT NULL,
-  `notes` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
-  `handler_id` int NOT NULL,
-  `sender_id` int NOT NULL,
-  `status` tinyint(1) DEFAULT '1' COMMENT '0 = delete,\r\n1 = default,\r\n2 = admin checked,\r\n3 = done',
+  `user_id` int UNSIGNED DEFAULT NULL,
+  `user_full_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `user_phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `city_id` int UNSIGNED DEFAULT NULL,
+  `province_id` int UNSIGNED DEFAULT NULL,
+  `postal_code` bigint DEFAULT NULL,
+  `address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci,
+  `token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `order_number` int DEFAULT NULL,
+  `weight` enum('tiny','normal','big') CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `item_count` int UNSIGNED DEFAULT NULL,
+  `grand_total` float DEFAULT NULL,
+  `discount_total` float DEFAULT NULL,
+  `shipping_cost` int DEFAULT NULL,
+  `notes` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `handler_id` int DEFAULT NULL,
+  `sender_id` int DEFAULT NULL,
+  `status` tinyint(1) DEFAULT '1' COMMENT '0 = delete,\r\n1 = default,\r\n2 = handler,\r\n3 = sender,\r\n4 = delivery',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
@@ -1568,7 +1568,7 @@ INSERT INTO `orders` (`id`, `user_id`, `user_full_name`, `user_phone`, `city_id`
 (1, 76, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 6, 2710000000, 0, 0, 'لطفا کالاها را به موقع برسانید.', 0, 0, 1, '2021-11-30 05:32:54', NULL),
 (2, 76, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 8, 6800000000, 0, 0, '', 0, 0, 1, '2021-11-30 09:45:39', NULL),
 (3, 76, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 3, 2550000000, 0, 0, '', 0, 0, 1, '2021-11-30 09:49:05', NULL),
-(4, 76, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 2, 240000000, 0, 0, '', 73, 0, 2, '2021-11-30 09:49:52', NULL);
+(4, 76, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 2, 240000000, 0, 0, '', 73, 73, 2, '2021-11-30 09:49:52', NULL);
 
 -- --------------------------------------------------------
 
@@ -2594,7 +2594,7 @@ ALTER TABLE `wish_lists`
 -- AUTO_INCREMENT for table `active_codes`
 --
 ALTER TABLE `active_codes`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=324;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=325;
 
 --
 -- AUTO_INCREMENT for table `activity_log`
