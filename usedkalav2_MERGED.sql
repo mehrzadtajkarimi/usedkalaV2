@@ -1542,18 +1542,20 @@ CREATE TABLE `orders` (
   `user_full_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
   `user_phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
   `city_id` int UNSIGNED DEFAULT NULL,
-  `province_id` int UNSIGNED NOT NULL,
-  `postal_code` bigint NOT NULL,
-  `address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
-  `token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
-  `order_number` int DEFAULT '0',
-  `status` tinyint(1) DEFAULT '1' COMMENT '0 = delete,\r\n1 = default,\r\n2 = admin checked,\r\n3 = done',
+  `province_id` int UNSIGNED DEFAULT NULL,
+  `postal_code` bigint DEFAULT NULL,
+  `address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci,
+  `token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `order_number` int DEFAULT NULL,
   `weight` enum('tiny','normal','big') CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
   `item_count` int UNSIGNED DEFAULT NULL,
   `grand_total` float DEFAULT NULL,
   `discount_total` float DEFAULT NULL,
   `shipping_cost` int DEFAULT NULL,
   `notes` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `handler_id` int DEFAULT NULL,
+  `sender_id` int DEFAULT NULL,
+  `status` tinyint(1) DEFAULT '1' COMMENT '0 = delete,\r\n1 = default,\r\n2 = handler,\r\n3 = sender,\r\n4 = delivery',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
@@ -1562,11 +1564,11 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `user_id`, `user_full_name`, `user_phone`, `city_id`, `province_id`, `postal_code`, `address`, `token`, `order_number`, `status`, `weight`, `item_count`, `grand_total`, `discount_total`, `shipping_cost`, `notes`, `created_at`, `updated_at`) VALUES
-(1, 76, 'میثاق محرری', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 1, 'normal', 6, 2710000000, 0, 0, 'لطفا کالاها را به موقع برسانید.', '2021-11-30 05:32:54', NULL),
-(2, 76, 'میثاق محرری', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 1, 'normal', 8, 6800000000, 0, 0, '', '2021-11-30 09:45:39', NULL),
-(3, 76, 'میثاق محرری', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 1, 'normal', 3, 2550000000, 0, 0, '', '2021-11-30 09:49:05', NULL),
-(4, 76, 'میثاق محرری', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 1, 'normal', 2, 240000000, 0, 0, '', '2021-11-30 09:49:52', NULL);
+INSERT INTO `orders` (`id`, `user_id`, `user_full_name`, `user_phone`, `city_id`, `province_id`, `postal_code`, `address`, `token`, `order_number`, `weight`, `item_count`, `grand_total`, `discount_total`, `shipping_cost`, `notes`, `handler_id`, `sender_id`, `status`, `created_at`, `updated_at`) VALUES
+(1, 76, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 6, 2710000000, 0, 0, 'لطفا کالاها را به موقع برسانید.', 0, 0, 1, '2021-11-30 05:32:54', NULL),
+(2, 76, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 8, 6800000000, 0, 0, '', 0, 0, 1, '2021-11-30 09:45:39', NULL),
+(3, 76, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 3, 2550000000, 0, 0, '', 0, 0, 1, '2021-11-30 09:49:05', NULL),
+(4, 76, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 2, 240000000, 0, 0, '', 73, 73, 2, '2021-11-30 09:49:52', NULL);
 
 -- --------------------------------------------------------
 
