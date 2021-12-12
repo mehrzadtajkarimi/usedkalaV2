@@ -18,7 +18,11 @@
 <script src="switchstylesheet/switchstylesheet.js"></script>
 <!-- For demo purposes – can be removed on production : End -->
 <script>
-    $(document).ready(function() {
-        new WOW().init();
-    });
+<?php
+if (isset($onLoadMsg))
+	echo 'msgbox("'.$onLoadMsg.'");';
+?>
+$(document).ready(function() {
+	new WOW().init();
+});
 </script>

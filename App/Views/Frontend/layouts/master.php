@@ -48,7 +48,6 @@
 
 
         <div id="content" class="site-content">
-
             <?= $view ?>
         </div>
 

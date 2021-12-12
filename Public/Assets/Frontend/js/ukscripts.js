@@ -1,26 +1,10 @@
-/* function msgbox(msgtext,dir)
+function msgbox(msgtext,dir)
 {
 	if (dir=="ltr") {document.getElementById('msgboxnote').style.direction='ltr'; document.getElementById('msgboxnote').style.textAlign='left';}
 	document.getElementById('msgboxnote').innerHTML=msgtext;
 	document.getElementById('msgbox').style.display='block';
 	document.getElementById('msgboxbutton').focus();
 }
-function replaceAll(str)
-{
-	str=str.toString();
-	str=str.replace(/0/g,"۰");
-	str=str.replace(/1/g,"۱");
-	str=str.replace(/2/g,"۲");
-	str=str.replace(/3/g,"۳");
-	str=str.replace(/4/g,"۴");
-	str=str.replace(/5/g,"۵");
-	str=str.replace(/6/g,"۶");
-	str=str.replace(/7/g,"۷");
-	str=str.replace(/8/g,"۸");
-	str=str.replace(/9/g,"۹");
-	
-	return str;
-} */
 
 slides={
 	1:{

@@ -46,7 +46,6 @@
                         </div>
                         <!-- .woocommerce -->
                     </section>
-
                 </main>
                 <!-- #main -->
             </div>

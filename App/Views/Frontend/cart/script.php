@@ -8,7 +8,7 @@
                 success: function(result) {
                     result = JSON.parse(result);
                     $("#product-quantity").html(result.count);
-                    $("#product-total-price").html(result.total);
+                    $("#product-total-price").html(result.total+" ریال");
                 }
             });
         });

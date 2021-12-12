@@ -51,8 +51,10 @@ class BlogController extends Controller
     }
     public function show()
     {
-        $params = $this->request->params();
-
+        $params       = $this->request->params();
+        $blog         = $this->blogModel->read_blog_by_slug(urldecode($params['slug']));
+		$params['id'] = $blog[0]['id'];
+		
         $blogTag     = $this->taggableModel->join_taggable('blogs',$params['id']) ?? '';
         $blog        = $this->blogModel->join_blog_to_photo_by_blog_id($params['id']);
         $blogComment = $this->blogModel->join_blog__with_comment($params['id']) ?? '';
@@ -61,24 +63,17 @@ class BlogController extends Controller
             $blogComment[$key]['reply'] = $this->commentModel->read_comment_replies($comment['id'], $params['id'], 'Blog');
         }
         $wish_list = $this->wishListModel->read_wishList($params['id'], 'Blog');
-        
-        // dd($blogTag[0]['entity_id']);
-        // foreach ($blogComment as $key => $value) {
-
-        //     dd($value);
-
-        // }
-
-
+      
         if (is_array($blog)) {
             $data = array(
-                'comments'  => $blogComment ?? [],
-                'tags'      => $blogTag ?? [],
-                'blog'      => $blog[0],
-                'wish_list' => !empty($wish_list) ? $wish_list :[],
-                'auth'      => SessionManager::get('auth') ?? false,
-				'home_page_active_menu' => "right-sidebar",
-				'postDate'  => $this->jDateModel->jalaliDate($blog[0]['created_at'])
+				'categories'            => $this->categoryModel->read_category_by_type(1),   //1=blog
+                'comments'				=> $blogComment ?? [],
+                'tags'					=> $blogTag ?? [],
+                'blog'					=> $blog[0],
+                'wish_list'				=> !empty($wish_list) ? $wish_list :[],
+                'auth'					=> SessionManager::get('auth') ?? false,
+				'home_page_active_menu'	=> "right-sidebar single single-post",
+				'postDate'				=> $this->jDateModel->jalaliDate($blog[0]['created_at'])
             );
             return view('Frontend.blog.show', $data);
         }

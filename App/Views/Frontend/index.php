@@ -1313,7 +1313,3 @@ $slideCount=count($sliders);
     </div>
     <!-- .row -->
 </div>
-<?php
-if (isset($onLoadMsg))
-	echo '<script>alert("'.$onLoadMsg.'")</script>';
-?>

@@ -180,7 +180,7 @@
                                             </a>
                                             <span class="quantity"><?= $value['count'] ?> ×
                                                 <span class="woocommerce-Price-amount amount" dir="rtl">
-                                                    <span class="woocommerce-Price-currencySymbol">تومان</span><?= $value['price'] ?></span>
+                                                    <?= number_format($value['price']) ?></span> <span class="woocommerce-Price-currencySymbol">ریال</span>
                                             </span>
                                         </li>
                                     <?php endforeach; ?>
@@ -189,7 +189,7 @@
                                 <p class="woocommerce-mini-cart__total total">
                                     <strong>جمع کل:</strong>
                                     <span class="woocommerce-Price-amount amount" dir="rtl">
-                                        <span class="woocommerce-Price-currencySymbol">تومان</span><?= $cart_total ?></span>
+                                        <?= number_format($cart_total) ?></span> <span class="woocommerce-Price-currencySymbol">ریال</span>
                                     </p>
                                 <p class="woocommerce-mini-cart__buttons buttons">
                                     <a href="<?= base_url() ?>cart" class="button wc-forward">مشاهده سبد خرید</a>

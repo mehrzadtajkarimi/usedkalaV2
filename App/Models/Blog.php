@@ -35,12 +35,12 @@ class Blog extends MysqlBaseModel
         LIMIT $limit
         ")->fetchAll();
     }
-    public function read_blog_by_key($key = null)
+    public function read_blog_by_slug($slug = null)
     {
-        if (is_null($key)) {
+        if (is_null($slug)) {
             return $this->all();
         }
-        return $this->get('*', ['key' => $key]);
+        return $this->get('*', ['slug' => $slug]);
     }
 
     public function update_blog(array $params, $id)
@@ -54,13 +54,15 @@ class Blog extends MysqlBaseModel
     }
     public function join_blog_to_photo()
     {
-        return $this->inner_join(
-            "blogs.id AS blog_id , blogs.* , photos.*",
-            "photos",
-            "id",
-            "entity_id",
-            "photos.entity_type='Blog'",
-        );
+        // return $this->inner_join(
+            // "blogs.id AS blog_id , blogs.* , photos.*",
+            // "photos",
+            // "id",
+            // "entity_id",
+            // "photos.entity_type='Blog'",
+        // );
+		return $this->query("SELECT bl.*,ph.`path`,ph.`alt` FROM `blogs` as bl INNER JOIN `photos` as ph
+			ON bl.`id` = ph.`entity_id` AND ph.`entity_type` = 'Blog' GROUP BY bl.`id` ORDER BY bl.`id` DESC");
     }
 
     public function join_blog__with_comment($blog_id)

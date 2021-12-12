@@ -138,13 +138,12 @@ class BlogController extends Controller
             'tags'                => $this->tagModel->read_tag(),
             'categories'          => $this->categoryModel->category_tree_for_backend(0,'',1),
             'blog'                => $this->blogModel->read_blog($id),
-            'photo'               => $photoObj[0],
             'categories_selected' => $selectedCats,
             'tags_selected'       => $selectedTags,
             'robots'              => Tinyint::category_robots(),
 			'breadcrumb'		  => $breadcrumbArr
-
         );
+		if (isset($photoObj[0])) $data['photo']=$photoObj[0];
         view('Backend.blog.edit', $data);
     }
 

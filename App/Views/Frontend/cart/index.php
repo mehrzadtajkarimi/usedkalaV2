@@ -85,20 +85,24 @@
                                                 <table class="shop_table shop_table_responsive">
                                                     <tbody>
                                                         <tr class="cart-subtotal">
-                                                            <th>مجموع کل</th>
+                                                            <th>مجموع سبد خرید:</th>
                                                             <td data-title="Subtotal">
                                                                 <span class="woocommerce-Price-amount amount"><?= number_format($cart_total) ?> ریال</span>
                                                             </td>
                                                         </tr>
-                                                        <tr class="shipping">
-                                                            <th>هزینه ارسال</th>
-                                                            <td data-title="Shipping">۵۰۰،۰۰۰ ریال</td>
+                                                        <tr>
+                                                            <th>هزینه ارسال:</th>
+                                                            <td data-title="Shipping">۰ ریال</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>هزینه بسته بندی:</th>
+                                                            <td data-title="Shipping">۰ ریال</td>
                                                         </tr>
                                                         <tr class="order-total">
-                                                            <th>قیمت کل</th>
+                                                            <th>مجموع کل:</th>
                                                             <td data-title="Total">
                                                                 <strong>
-                                                                    <span class="woocommerce-Price-amount amount"><?= number_format($cart_total + 500000) ?> ریال</span>
+                                                                    <span class="woocommerce-Price-amount amount"><?= number_format($cart_total) ?> ریال</span>
                                                                 </strong>
                                                             </td>
                                                         </tr>

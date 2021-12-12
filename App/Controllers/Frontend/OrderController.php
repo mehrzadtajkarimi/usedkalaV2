@@ -86,6 +86,26 @@ class OrderController  extends Controller
     public function create()
     {
         if(Auth::is_login()){
+			$user_id       = Auth::is_login();
+            $user_info     = $this->userModel->read_user($user_id);
+			$checkArr=[
+				"first_name"	=> "نام",
+				"last_name"		=> "نام خانوادگی",
+				"province_id"	=> "استان",
+				"city_id"		=> "شهر",
+				"address"		=> "نشانی",
+				"postal_code"	=> "کدپستی"
+			];
+			$emptyColumns="";
+			foreach($checkArr as $columnName=>$persianName)
+				if ($user_info[$columnName]=="")
+					$emptyColumns.=$persianName."، ";
+			if ($emptyColumns!="")
+			{
+				FlashMessage::add("برای ثبت سفارش، ابتدا فیلدهای «".mb_substr($emptyColumns,0,-2,"utf-8")."» را در پروفایلِ خود، تکمیل کنید.", FlashMessage::ERROR);
+				return $this->request->redirect('profile');
+			}
+			
             $token         = 0;
             $order_number  = 0;
             $totalPrice    = 0;
@@ -93,11 +113,10 @@ class OrderController  extends Controller
             $totalWeight   = 0;
             $totalDiscount = 0;
             $shipping      = 0;
-            $user_id       = Auth::is_login();
-            $user_info     = $this->userModel->read_user($user_id);
             $params        = $this->request->params();
             $notes         = $params['order-notes'];
-            foreach($_SESSION['cart'] as $value){
+            foreach($_SESSION['cart'] as $value)
+			{
                 $totalCount  += $value['count'];
                 $totalPrice  += ($value['count'] * $value['price']) + $totalDiscount + $shipping;
                 $totalWeight += $value['weight'];
@@ -120,7 +139,9 @@ class OrderController  extends Controller
                 'notes'          => $notes
             );
             $order_id = $this->orderModel->create_order($params_create);
-            foreach($_SESSION['cart'] as $value){
+			
+            foreach($_SESSION['cart'] as $value)
+			{
                 $single_product_id            = $value['id'];
                 $single_product_quantity      = $value['count'];
                 $single_product_price         = $value['price'];

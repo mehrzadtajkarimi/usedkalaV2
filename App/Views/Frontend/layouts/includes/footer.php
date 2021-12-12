@@ -246,3 +246,21 @@
   </div>
   <!-- .site-info -->
 </div>
+
+<div id="msgbox" style="position: fixed; height: 100%; width: 100%; top:0; left:0; display: none; z-index: 1000">
+	<div style="position: absolute; width: 100%; height: 100%; left:0; top:0; background-color: black; opacity: 0.6" onclick="$('#msgbox').hide();"></div>
+	<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 300px; background-color: white; border: 1px gray solid; border-radius: 10px; padding: 10px; box-sizing: border-box;">
+		<table style="height: 120px; width: 100%; margin: 0;" cellpadding="0" cellspacing="0">
+			<tr>
+				<td valign="top" style="background-color: #F5F5F5; padding: 5px;">
+				<p style="direction: rtl; font-family: IRANSans; font-size: 12px; text-align: right; color: black" id="msgboxnote"></p>
+				</td>
+			</tr>
+			<tr style="height: 25px;">
+				<td valign="bottom" style="padding: 0; vertical-align: bottom">
+					<p dir="ltr" align="left" style="text-align: left; font-family: IRANSans; font-size: 12px;" id="msgboxtick"><a style="color: black" onkeyup="if (event.keyCode == 27) $('#msgbox').hide();" id="msgboxbutton" href="javascript:void(0);" onclick="$('#msgbox').hide();">بستن</a></p>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

@@ -1,7 +1,7 @@
 <div class="col-full">
 	<div class="row">
 		<nav class="woocommerce-breadcrumb">
-			<a href="https://usedkala.com/">خانه</a>
+			<a href="<?= base_url() ?>">خانه</a>
 			<span class="delimiter">
 				<i class="fa fa-arrow-left"></i>
 			</span>
@@ -58,26 +58,7 @@
 			<!-- #main -->
 		</div>
 		
-		<div id="secondary" class="sidebar-blog widget-area" role="complementary">
-			<div class="widget widget_text" id="text-2">
-				<span class="gamma widget-title">درباره بلاگ یوزدکالا</span>
-				<div class="textwidget">
-					<p>جدیدترین اخبار و مقالاتِ صنعتِ فناوریِ اطلاعات و شبکه های کامپیوتری را در وبلاگِ یوزدکالا بخوانید.</p>
-				</div>
-				<!-- .textwidget -->
-			</div>
-			<!-- .widget_text -->
-			
-			<?php if($categories): ?>
-				<div class="widget widget_categories " id="categories-2">
-					<span class="gamma widget-title">دسته بندی ها</span>
-					<ul>
-						<?php foreach ($categories as $value): ?>
-							<li><a href="<?= base_url() ?>blog/category/<?= $value['slug'] ?>"><?= $value['name'] ?></a></li>
-						<?php endforeach; ?>
-					</ul>
-				</div>
-			<?php endif; ?>
-		</div>
+		<?php include_once BASEPATH."App/Views/Frontend/blog/sidebar.php" ?>
+		
 	</div>
 </div>

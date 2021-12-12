@@ -13,6 +13,7 @@ use App\Models\Wish_list;
 use App\Models\Setting;
 use App\Services\Auth\Auth;
 use App\Services\Basket\Basket;
+use App\Services\Session\SessionManager;
 
 function base_url($route = null)
 {
@@ -32,11 +33,16 @@ function view($path, $data = [], $layout = null)
     $path_explode = explode('/', $path);
     $full_path = BASEPATH . "App/Views/$path.php";
     $is_file = is_readable($full_path) && file_exists($full_path);
-    if ($path_explode[0] == 'Frontend') {
+    if ($path_explode[0] == 'Frontend')
+	{
         $data += inject_menu();
         $data += inject_about_menu();
     }
-
+	if (SessionManager::has('onLoadMsg'))
+	{
+		$data['onLoadMsg']=SessionManager::get('onLoadMsg');
+		SessionManager::remove('onLoadMsg');
+	}
     if (is_null($layout)) {
         $is_file ? buffering($full_path, $data, $path_explode[0]) : include_once BASEPATH . "App/Views/Error/404.php";
     }
@@ -104,7 +110,12 @@ function create_slug($string)
         "،",
         "؛",
         "\r\n",
-        "\n"
+        "\n",
+		"!",
+		"?",
+		"؟",
+		"«",
+		"»"
     ], [
         "",
         "",
@@ -120,7 +131,12 @@ function create_slug($string)
         "",
         "",
         "",
-        ""
+        "",
+        "",
+        "",
+		"",
+		"",
+		""
     ], strip_tags($string));
     return $slug;
 }
