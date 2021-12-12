@@ -82,28 +82,30 @@
                       }
                     </style>
                     <label class="chkbx">
-                      <input id="check-box" data-id="<?= $value['id'] ?>" onclick="return confirm(' آیا برای تغییر وضعیت اطلاعات اطمینان دارید... \n بعد از تغییر وضعیت به حالت بررسی \nبه نام شما ثبت شده و دیگر امکان بازگشت وجود نخواهد داشت ');" type="checkbox">
+                      <input id="check-box" data-id="<?= $value['id'] ?>" <?= $value['status'] != 1 ? 'checked' : '' ?> onclick="return confirm(' آیا برای تغییر وضعیت اطلاعات اطمینان دارید... \n بعد از تغییر وضعیت به حالت بررسی \nبه نام شما ثبت شده و دیگر امکان بازگشت وجود نخواهد داشت ');" type="checkbox">
                       <span class="x"></span>
                     </label>
                   </td>
-                  <td class="text-center">
-                    <button type="button" data-id="<?= $value['id'] ?>"  class="btn btn-link handler">مشاهده</button>
-                  </td>
-                  <td class="text-center">
-                    <button type="button" data-id="<?= $value['id'] ?>"  class="btn btn-link sender">مشاهده</button>
-                  </td>
-                  <?php if (is_null($value['handler_id'])) : ?>
+                  <?php if ($value['status'] != 1) : ?>
+                    <td class="text-center">
+                      <button type="button" data-id="<?= $value['id'] ?>" class="btn btn-link handler">مشاهده</button>
+                    </td>
+                    <?php if (!is_null($value['sender_id'])) : ?>
+                      <td class="text-center">
+                        <button type="button" data-id="<?= $value['id'] ?>" class="btn btn-link sender">مشاهده</button>
+                      </td>
+                    <?php endif; ?>
 
-                  <td class="text-center">
-                    <button data-id="<?= $value['id'] ?>" data-target="#collapse<?= $value['id'] ?>" class="shadow-sm access-show btn btn-warning btn-sm" style="padding: 0px 16px; border-radius: 18px;">
-                      نـمایــــــش
-                    </button>
-                  </td>
-                <?php else : ?>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                <?php endif; ?>
+                    <td class="text-center">
+                      <button data-id="<?= $value['id'] ?>" data-target="#collapse<?= $value['id'] ?>" class="shadow-sm access-show btn btn-warning btn-sm" style="padding: 0px 16px; border-radius: 18px;">
+                        نـمایــــــش
+                      </button>
+                    </td>
+                  <?php else : ?>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  <?php endif; ?>
                 </tr>
                 <tr id="collapse<?= $value['id'] ?>" class="target-collapse" style="display: none">
                   <td colspan="10" id="attr">

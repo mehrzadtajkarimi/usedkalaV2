@@ -35,23 +35,23 @@ class OrderController extends Controller
 
     public function get_admin()
     {
-        echo 'ddddd';
         $order_id = $this->request->params()['order_id'];
         $type = $this->request->params()['type'];
 
         $result = $this->orderModel->read_order($order_id);
-        $result = $this->userModel->read_user($order_id);
+
+
         if ($type == 1) {
-            $admin =  $this->userModel->get_user([
-                'handler_id' => $result['handler_id']
-            ]);
-            echo $admin['first_name'] . ' ' . $admin['last_name'];
+            $admin =  $this->userModel->read_user($result['handler_id']);
+            if (!empty($admin)) {
+                echo $admin['first_name'] . ' ' . $admin['last_name'];
+            }
         }
         if ($type == 2) {
-            $admin =  $this->userModel->get_user([
-                'sender_id' => $result['sender_id']
-            ]);
-            echo $admin['first_name'] . ' ' . $admin['last_name'];
+            $admin =  $this->userModel->read_user($result['sender_id']);
+            if (!empty($admin)) {
+                echo $admin['first_name'] . ' ' . $admin['last_name'];
+            }
         }
     }
 
