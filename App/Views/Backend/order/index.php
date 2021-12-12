@@ -35,7 +35,7 @@
                 <tr>
                   <td class="text-center"><?= $value['user_full_name'] ?></td>
                   <td class="text-center"><?= $value['user_phone'] ?></td>
-                  <td class="text-center">
+                  <td class="text-center" style="height: 118px;">
                     <style>
                       .chkbx input[type=checkbox] {
                         display: none;
@@ -79,29 +79,71 @@
                         border-color: #dc3545;
                       }
                     </style>
-                    <label class="chkbx">
-                      <input id="check-box" data-id="<?= $value['id'] ?>" onclick="return confirm(' آیا برای تغییر وضعیت اطلاعات اطمینان دارید... \n بعد از تغییر وضعیت به حالت بررسی \nبه نام شما ثبت شده و دیگر امکان بازگشت وجود نخواهد داشت ');" type="checkbox">
-                      <span class="x"></span>
-                    </label>
+                    <div class="check-handler" style="display: <?= $value['status'] == 1 ? 'block'  : 'none' ?> ; ">
+                      <div class="row ">
+                        <div class="offset-3"></div>
+                        <div class="col-3">
+                          <p> رسیدگی </p>
+                        </div>
+                        <div class="col-3">
+                          <label class="chkbx">
+                            <input class="check-box-handler check-box-handler-<?= $value['id'] ?>" data-id="<?= $value['id'] ?>" <?= $value['status'] != 1 ? 'checked' : '' ?> onclick="return confirm(' آیا برای تغییر وضعیت اطلاعات اطمینان دارید... \n بعد از تغییر وضعیت به حالت بررسی \nبه نام شما ثبت شده و دیگر امکان بازگشت وجود نخواهد داشت ');" type="checkbox">
+                            <span class="x"></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="check-sender" style="display: <?= $value['status'] == 2 ? 'block'  : 'none' ?> ; ">
+                      <div class="row">
+                        <div class="offset-3"></div>
+                        <div class="col-3">
+                          <p> ارسال </p>
+                        </div>
+                        <div class="col-3">
+                          <label class="chkbx">
+                            <input class="check-box-sender check-box-sender-<?= $value['id'] ?>" data-id="<?= $value['id'] ?>" <?= $value['status'] != 1 ? 'checked' : '' ?> onclick="return confirm(' آیا برای تغییر وضعیت اطلاعات اطمینان دارید... \n بعد از تغییر وضعیت به حالت بررسی \nبه نام شما ثبت شده و دیگر امکان بازگشت وجود نخواهد داشت ');" type="checkbox">
+                            <span class="x"></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="check-delivery" style="display: <?= $value['status'] == 2 ? 'block'  : 'none' ?> ; ">
+                      <div class="row">
+                        <div class="offset-3"></div>
+                        <div class="col-3">
+                          <p> تحویل </p>
+                        </div>
+                        <div class="col-3">
+                          <label class="chkbx">
+                            <input class="check-box-sender check-box-sender-<?= $value['id'] ?>" data-id="<?= $value['id'] ?>" <?= $value['status'] != 1 ? 'checked' : '' ?> onclick="return confirm(' آیا برای تغییر وضعیت اطلاعات اطمینان دارید... \n بعد از تغییر وضعیت به حالت بررسی \nبه نام شما ثبت شده و دیگر امکان بازگشت وجود نخواهد داشت ');" type="checkbox">
+                            <span class="x"></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
                   </td>
-                  <td class="text-center">
-                    <button type="button" data-id="<?= $value['id'] ?>"  class="btn btn-link handler">مشاهده</button>
-                  </td>
-                  <td class="text-center">
-                    <button type="button" data-id="<?= $value['id'] ?>"  class="btn btn-link sender">مشاهده</button>
-                  </td>
-                  <?php if (is_null($value['handler_id'])) : ?>
+                  <?php if ($value['handler_id'] != 0) : ?>
+                    <td class="text-center">
+                      <button type="button" data-id="<?= $value['id'] ?>" class="btn btn-link handler">مشاهده</button>
+                    </td>
+                    <?php if ($value['sender_id'] != 0) : ?>
+                      <td class="text-center">
+                        <button type="button" data-id="<?= $value['id'] ?>" class="btn btn-link sender">مشاهده</button>
+                      </td>
+                    <?php else : ?>
+                      <td></td>
+                    <?php endif; ?>
 
-                  <td class="text-center">
-                    <button data-id="<?= $value['id'] ?>" data-target="#collapse<?= $value['id'] ?>" class="shadow-sm access-show btn btn-warning btn-sm" style="padding: 0px 16px; border-radius: 18px;">
-                      نـمایــــــش
-                    </button>
-                  </td>
-                <?php else : ?>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                <?php endif; ?>
+                    <td class="text-center">
+                      <button data-id="<?= $value['id'] ?>" data-target="#collapse<?= $value['id'] ?>" class="shadow-sm access-show btn btn-warning btn-sm" style="padding: 0px 16px; border-radius: 18px;">
+                        نـمایــــــش
+                      </button>
+                    </td>
+                  <?php else : ?>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  <?php endif; ?>
                 </tr>
                 <tr id="collapse<?= $value['id'] ?>" class="target-collapse" style="display: none">
                   <td colspan="10" id="attr">
