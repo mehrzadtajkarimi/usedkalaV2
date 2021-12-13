@@ -91,11 +91,11 @@ class OrderController extends Controller
             echo  $result;
         }
         if ($status == 4) {
-            $result = $this->orderModel->update_order([
-                'delivery_id' =>  $admin_id,
-                'status' =>  4,
-            ], $order_id);
-            echo  $result;
+            // $result = $this->orderModel->update_order([
+            //     'delivery_id' =>  $admin_id,
+            //     'status' =>  4,
+            // ], $order_id);
+            // echo  $result;
         }
 
     }

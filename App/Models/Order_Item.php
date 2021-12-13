@@ -24,7 +24,7 @@ class Order_Item extends MysqlBaseModel
     public function read_orderItem_get_product_by_order_id($order_id)
     {
         $product_ids =  $this->get(['product_id', 'quantity', 'price'], ['order_id' => $order_id]);
-
+        //  دریافت قیمت در حال حاضر از جدول محصول انجام میشود باید از quantity و price و discount
         foreach ($product_ids as $key => $value) {
             $products[] = $this->connection->select('products', ['title', 'price'], ['id' => $value['product_id']]);
         }

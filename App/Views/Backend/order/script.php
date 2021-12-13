@@ -27,10 +27,6 @@
             var that = $(this);
             var order_id = $(that).data('id');
             if ($(that).is(':checked')) {
-                $('.check-box-handler-' + order_id).parents().eq(3).fadeOut(1000, function() {
-                    $('.check-box-sender-' + order_id).parents().eq(3).fadeIn(1000);
-                });
-
                 var type = 2;
             }
             $.ajax({
@@ -41,8 +37,11 @@
                     'type': type
                 },
                 success: function(response) {
-
-
+                    if (response) {
+                        $('.check-box-handler-' + order_id).parents().eq(3).fadeOut(1000, function() {
+                            $('.check-box-sender-' + order_id).parents().eq(3).fadeIn(1000);
+                        });
+                    }
                 },
             });
         });
@@ -51,46 +50,29 @@
             var that = $(this);
             var order_id = $(that).data('id');
             if ($(that).is(':checked')) {
-
-                $('.check-box-sender-' + order_id).parents().eq(3).fadeOut(1000, function() {
-                    $('.check-box-delivery-' + order_id).parents().eq(2).fadeIn(1000);
-                });
                 var type = 3;
             }
-            // $.ajax({
-            //     type: "post",
-            //     url: '<?= base_url() ?>admin/order/status/' + order_id,
-            //     data: {
-            //         'order_id': order_id,
-            //         'type': type
-            //     },
-            //     success: function(response) {
+            $.ajax({
+                type: "post",
+                url: '<?= base_url() ?>admin/order/status/' + order_id,
+                data: {
+                    'order_id': order_id,
+                    'type': type
+                },
+                success: function(response) {
+                    if (response) {
+                        $('.check-box-sender-' + order_id).parents().eq(3).fadeOut(1000, function() {
+                            $('.check-box-delivery-' + order_id).parents().eq(2).fadeIn(1000);
+                        });
+                    }
 
-
-            //     },
-            // });
+                },
+            });
         });
 
         $('.check-box-delivery').on('change', function() {
-            var that = $(this);
             var order_id = $(that).data('id');
-            if ($(that).is(':checked')) {
-
-                $('.check-box-delivery' + order_id).parents().eq(3).fadeOut(1000);
-                var type = 3;
-            }
-            // $.ajax({
-            //     type: "post",
-            //     url: '<?= base_url() ?>admin/order/status/' + order_id,
-            //     data: {
-            //         'order_id': order_id,
-            //         'type': type
-            //     },
-            //     success: function(response) {
-
-
-            //     },
-            // });
+            $('.check-box-delivery' + order_id).parents().eq(3).fadeOut(1000);
         });
 
 
@@ -150,10 +132,10 @@
                     data = JSON.parse(response);
 
 
-                    console.log(data);
+                    // console.log(data);
                     order.empty();
                     $(data).each(function(key, value) {
-                        // console.log(value);
+                        console.log(value);
                         order.fadeIn(1000).delay(200);
                         order.append(`
                         <div class='row'>

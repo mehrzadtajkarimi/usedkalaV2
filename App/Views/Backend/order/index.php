@@ -157,13 +157,11 @@
                   <?php endif; ?>
                 </tr>
                 <tr class="target-collapse-response-<?= $value['id'] ?>" style="display: none;">
-                  <td colspan="10">
-                    <ul>
-                      <li class="list-group-item ">
+                  <td colspan="10" class=" ">
 
-                      
-                      </li>
-                    </ul>
+
+
+
                   </td>
                 </tr>
               <?php endforeach; ?>
