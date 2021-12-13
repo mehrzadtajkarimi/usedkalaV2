@@ -3,6 +3,7 @@
 namespace App\Models\Contracts;
 
 use Medoo\Medoo;
+use App\Services\Auth\Auth;
 
 class  MysqlBaseModel extends BaseModel
 {
@@ -37,7 +38,19 @@ class  MysqlBaseModel extends BaseModel
     {
         try {
             $this->connection->insert($this->table, $data);
-            return  $this->connection->id();
+			$returnedID=$this->connection->id();
+			
+            $this->connection->insert("activity_log", [
+				'user_id'		=> Auth::is_login(),
+				'ip'			=> $_SERVER['REMOTE_ADDR'],
+				'type'			=> 'create',
+				'target_table'	=> $this->table,
+				'row_id'		=> $returnedID,
+				'detailed_data'	=> json_encode($data,JSON_UNESCAPED_UNICODE),
+				'uri'			=> $_SERVER['REQUEST_URI']
+			]);
+			
+            return $returnedID;
         } catch (\PDOException $e) {
             echo 'مشکلی در هنگام ذخیره اطلاعات رخ داد/n';
 			var_dump($e);
@@ -106,6 +119,16 @@ class  MysqlBaseModel extends BaseModel
     public function update(array $data, array $where): int
     {
         try {
+			$oldData=$this->connection->select($this->table, '*', $where);
+            $this->connection->insert("activity_log", [
+				'user_id'			=> Auth::is_login(),
+				'ip'				=> $_SERVER['REMOTE_ADDR'],
+				'type'				=> 'update',
+				'where_condition'	=> json_encode($where,JSON_UNESCAPED_UNICODE),
+				'target_table'		=> $this->table,
+				'detailed_data'		=> json_encode(["old"=>$oldData,"new"=>$data],JSON_UNESCAPED_UNICODE),
+				'uri'				=> $_SERVER['REQUEST_URI']
+			]);
             $result = $this->connection->update($this->table, $data, $where);
             return $result->rowCount();
         } catch (\PDOException $e) {
@@ -141,6 +164,16 @@ class  MysqlBaseModel extends BaseModel
 
     public function delete(array $where): int
     {
+		$oldData=$this->connection->select($this->table, '*', $where);
+		$this->connection->insert("activity_log", [
+			'user_id'			=> Auth::is_login(),
+			'ip'				=> $_SERVER['REMOTE_ADDR'],
+			'type'				=> 'delete',
+			'where_condition'	=> json_encode($where,JSON_UNESCAPED_UNICODE),
+			'target_table'		=> $this->table,
+			'detailed_data'		=> json_encode($oldData,JSON_UNESCAPED_UNICODE),
+			'uri'				=> $_SERVER['REQUEST_URI']
+		]);
         $result = $this->connection->delete($this->table,  $where);
         return $result->rowCount();
     }
