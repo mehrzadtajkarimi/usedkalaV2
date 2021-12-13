@@ -37,7 +37,7 @@ class SessionProvider extends AuthProvider
         if (SessionManager::has(self::AUTH_KEY)) {
             SessionManager::remove(self::AUTH_KEY);
         }
-        $this->request->redirect('');
+        $this->request->redirect('admin');
     }
 
     public function is_token($token, bool $is_admin = false)
@@ -54,13 +54,13 @@ class SessionProvider extends AuthProvider
             SessionManager::remove($_SESSION['email']??'');
             $_SESSION[self::AUTH_KEY] ?? $_SESSION[self::AUTH_KEY] = $user['id'];
             $this->active_code_model->delete(['user_id' => $user['id']]);
-            FlashMessage::add('ثبت نام با موفقیت انجام شد');
+            FlashMessage::add('ورود /ثبت نام با موفقیت انجام شد.');
             if ($is_admin) {
                 $this->request->redirect('admin');
             }
             $this->request->redirect('profile');
         }
-        FlashMessage::add('کد ارسالی رو مجدد بررسی و ارسال نمایید', FlashMessage::WARNING);
+        FlashMessage::add('رمز یکبارمصرفِ وارد شده، نامعتبر بود. دوباره تلاش کنید.', FlashMessage::WARNING);
         if ($is_admin) {
             $this->request->redirect('admin/token');
         }
@@ -73,19 +73,19 @@ class SessionProvider extends AuthProvider
             // $send = $this->notification_model->send_token_by_ghasedakSms($token, $param['phone']);
             $send = $this->notification_model->send_token_by_shasfa($token,$param['phone']);
             if ($send) {
-                FlashMessage::add('ارسال پیامک با موفقیت انجام شد');
+                FlashMessage::add('ارسال پیامک با موفقیت انجام شد.');
                 $this->request->redirect('token', $is_admin);
             }
-            FlashMessage::add('مشکلی در ارسال پیامک رخ داده است. لطفا با پشتیبانی تماس بگیرید', FlashMessage::WARNING);
+            FlashMessage::add('مشکلی در ارسال پیامک رخ داده است. لطفا با پشتیبانی تماس بگیرید.', FlashMessage::WARNING);
             $this->request->redirect('login', $is_admin);
         }
         if (isset($param['email'])) {
             $result = $this->notification_model->send_token_by_email($token, $param['email']);
             if ($result) {
-                FlashMessage::add('ارسال ایمیل با موفقیت انجام شد');
+                FlashMessage::add('ارسال ایمیل با موفقیت انجام شد.');
                 $this->request->redirect('token', $is_admin);
             }
-            FlashMessage::add('مشکلی در ارسال ایمیل رخ داده است. لطفا با پشتیبانی تماس بگیرید', FlashMessage::WARNING);
+            FlashMessage::add('مشکلی در ارسال ایمیل رخ داده است. لطفا با پشتیبانی تماس بگیرید.', FlashMessage::WARNING);
             $this->request->redirect('login', $is_admin);
         }
     }
