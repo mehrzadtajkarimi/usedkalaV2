@@ -84,7 +84,7 @@ class AccessController  extends Controller
             }
         }
         if ($permissionUser_created ||  $roleUser_created) {
-            FlashMessage::add("مقادیر  با موفقیت از دیتابیس اضافه شد");
+            FlashMessage::add("مقادیر  با موفقیت به دیتابیس اضافه شد");
             return $this->request->redirect('admin/access');
         }
         FlashMessage::add("دسترسی مورد نظر قبلا اضافه گردیده", FlashMessage::WARNING);

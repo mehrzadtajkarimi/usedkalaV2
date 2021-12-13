@@ -34,77 +34,63 @@
 
 
 
-  <div class="register-box wow fadeInDown" data-wow-delay="0.5s">
-    <div class="register-logo">
-      <img src="<?= asset_url() ?>Backend/dist/img/ukfav-icon.png" alt="">
+<div class="register-box wow fadeInDown" data-wow-delay="0.5s">
+	<div class="register-logo">
+		<img src="<?= asset_url() ?>Backend/dist/img/ukfav-icon.png" alt="">
 
-      <b class='text-dark'>ورود یه پنل</b>
+		<b class='text-dark'>ورود به پنل</b>
+	</div>
 
-    </div>
+	<small><?= \App\Utilities\FlashMessage::show_message() ?></small>
 
-    <small>
-
-      <?= \App\Utilities\FlashMessage::show_message() ?>
-    </small>
-    <div id="login" class="shadow-lg card ">
-      <div class="card-body register-card-body">
-        <p class="login-box-msg text-muted">برای ورود یا ثبت نام کافیست شماره تماس خود را وارد کنید.</p>
-
-        <form id="form-login" action="<?= base_url() ?>admin/login" method="POST">
-          <div class="mb-3 input-group ">
-            <input type="text" id="phone-number" class="form-control " name="phone" maxlength="11" placeholder="شماره تلفن همراه خود را وارد نمایید" autofocus autocomplete="off">
-            <div class="input-group-append">
-              <span class="fa fa-phone input-group-text"></span>
-            </div>
-          </div>
-
-          <!-- <button class="btn btn-primary btn-block" type="submit">ارسال</button> -->
-        </form>
-
-        <a href="<?= base_url() ?>admin/login" class="text-center">من قبلا ثبت نام کرده ام</a>
-      </div>
-      <!-- /.form-box -->
-    </div>
-
-    <div id="token" class="shadow-lg card d-none">
-      <small>
-
-        <?= \App\Utilities\FlashMessage::show_message() ?>
-      </small>
-      <div class="card-body register-card-body">
-        <p class="login-box-msg text-muted">برای ورود یا ثبت نام کد ارسالی به تلفن همراه خود را وارد نمایید.</p>
-
-        <form id="form-token" action="<?= base_url() ?>admin/token" method="POST">
-          <div class="mb-3 input-group ">
-            <input type="text" id="token-number" class="form-control " name="token" maxlength="4" placeholder="کد ارسالی 4 رقمی "  autocomplete="off">
-            <div class="input-group-append">
-              <span class="fa fa-phone input-group-text"></span>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-
-  </div>
+	<div id="login_loading" style="display: none; text-align: center; margin-bottom: 10px;">در حال پردازش، لطفاً شکیبا باشید...</div>
+	<div id="login" class="shadow-lg card">
+		<div class="card-body register-card-body">
+			<p class="login-box-msg text-muted">برای ورود یا ثبت نام کافیست شماره موبایل خود را وارد کنید.</p>
+			<form id="form-login" action="javascript:adminlogin()" data-action_url="<?= base_url() ?>admin/login">
+				<div class="mb-3 input-group ">
+					<input type="text" id="phone-number" class="form-control " name="phone" maxlength="11" placeholder="شماره تلفن همراه خود را وارد نمایید" autocomplete="off" required>
+					<div class="input-group-append"><span class="fa fa-phone input-group-text"></span></div>
+				</div>
+				<input class="btn btn-primary btn-block" type="submit" value="دریافت رمز یکبارمصرف">
+			</form>
+			<a href="<?= base_url() ?>admin/login" class="text-center"></a>
+		</div>
+		<!-- /.form-box -->
+	</div>
+	<div id="token" class="shadow-lg card" style="display: none;">
+		<small><?= \App\Utilities\FlashMessage::show_message() ?></small>
+		<div class="card-body register-card-body">
+			<p class="login-box-msg text-muted">رمز یکبارمصرف چهار رقمی دریافتی از طریق پیامک را وارد کنید.</p>
+			<form id="form-token" action="<?= base_url() ?>admin/token" method="POST" onsubmit="$('#tokenform_loginbtn').val('در حال ورود...');">
+				<div class="mb-3 input-group ">
+					<input type="text" id="token-number" class="form-control " name="token" maxlength="4" placeholder="کد ارسالی 4 رقمی "  autocomplete="off">
+					<div class="input-group-append"><span class="fa fa-lock input-group-text"></span></div>
+				</div>
+				<input class="btn btn-primary btn-block" type="submit" value="ورود" id="tokenform_loginbtn">
+			</form>
+		</div>
+	</div>
+</div>
 
 
 
 
-  <!-- /.register-box -->
+<!-- /.register-box -->
 
 
-  <!-- Bootstrap 4 -->
-  <script src="<?= asset_url() ?>Backend/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- iCheck -->
-  <script src="<?= asset_url() ?>Backend/plugins/iCheck/icheck.min.js"></script>
-  <script src="<?= asset_url() ?>Backend/plugins/WOW/dist/wow.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="<?= asset_url() ?>Backend/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- iCheck -->
+<script src="<?= asset_url() ?>Backend/plugins/iCheck/icheck.min.js"></script>
+<script src="<?= asset_url() ?>Backend/plugins/WOW/dist/wow.min.js"></script>
 
 
 
 
-  <?php
-  include BASEPATH . "/App/Views/Backend/user/script.php";
-  ?>
+<?php
+include BASEPATH . "/App/Views/Backend/user/script.php";
+?>
+
 </body>
-
 </html>
