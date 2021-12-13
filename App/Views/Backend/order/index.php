@@ -84,10 +84,11 @@
                         <div class="offset-3"></div>
                         <div class="col-3">
                           <p> رسیدگی </p>
+                          <i class="fa fa-check-square-o fa-3x text-warning icon-check-box-order-handler" aria-hidden="true"></i>
                         </div>
                         <div class="col-3">
                           <label class="chkbx">
-                            <input class="check-box-handler check-box-handler-<?= $value['id'] ?>" data-id="<?= $value['id'] ?>" <?= $value['status'] != 1 ? 'checked' : '' ?> onclick="return confirm(' آیا برای تغییر وضعیت اطلاعات اطمینان دارید... \n بعد از تغییر وضعیت به حالت بررسی \nبه نام شما ثبت شده و دیگر امکان بازگشت وجود نخواهد داشت ');" type="checkbox">
+                            <input class="check-box-handler check-box-handler-<?= $value['id'] ?>" data-id="<?= $value['id'] ?>" <?= $value['status'] == 2 ? 'checked' : '' ?> onclick="return confirm(' آیا برای تغییر وضعیت اطلاعات اطمینان دارید... \n بعد از تغییر وضعیت به حالت بررسی \nبه نام شما ثبت شده و دیگر امکان بازگشت وجود نخواهد داشت ');" type="checkbox">
                             <span class="x"></span>
                           </label>
                         </div>
@@ -98,26 +99,36 @@
                         <div class="offset-3"></div>
                         <div class="col-3">
                           <p> ارسال </p>
+                          <div class="fa fa-paper-plane fa-3x text-primary icon-check-box-order-sender" aria-hidden="true"></div>
                         </div>
                         <div class="col-3">
                           <label class="chkbx">
-                            <input class="check-box-sender check-box-sender-<?= $value['id'] ?>" data-id="<?= $value['id'] ?>" <?= $value['status'] != 1 ? 'checked' : '' ?> onclick="return confirm(' آیا برای تغییر وضعیت اطلاعات اطمینان دارید... \n بعد از تغییر وضعیت به حالت بررسی \nبه نام شما ثبت شده و دیگر امکان بازگشت وجود نخواهد داشت ');" type="checkbox">
+                            <input class="check-box-sender check-box-sender-<?= $value['id'] ?>" data-id="<?= $value['id'] ?>" <?= $value['status'] == 3 ? 'checked' : '' ?> onclick="return confirm(' آیا برای تغییر وضعیت اطلاعات اطمینان دارید... \n بعد از تغییر وضعیت به حالت بررسی \nبه نام شما ثبت شده و دیگر امکان بازگشت وجود نخواهد داشت ');" type="checkbox">
                             <span class="x"></span>
                           </label>
                         </div>
                       </div>
                     </div>
-                    <div class="check-delivery" style="display: <?= $value['status'] == 2 ? 'block'  : 'none' ?> ; ">
-                      <div class="row">
+                    <div class="check-delivery" style="display: <?= $value['status'] == 3 ? 'block'  : 'none' ?> ; ">
+                      <div class="row d-flex">
                         <div class="offset-3"></div>
-                        <div class="col-3">
-                          <p> تحویل </p>
+                        <div class="col-3 align-self-center" >
+                          <p  class="m-0"> تحویل </p>
+                          <i class="fa fa-truck fa-3x text-danger icon-check-box-order-delivery" aria-hidden="true"></i>
+
                         </div>
                         <div class="col-3">
-                          <label class="chkbx">
-                            <input class="check-box-sender check-box-sender-<?= $value['id'] ?>" data-id="<?= $value['id'] ?>" <?= $value['status'] != 1 ? 'checked' : '' ?> onclick="return confirm(' آیا برای تغییر وضعیت اطلاعات اطمینان دارید... \n بعد از تغییر وضعیت به حالت بررسی \nبه نام شما ثبت شده و دیگر امکان بازگشت وجود نخواهد داشت ');" type="checkbox">
-                            <span class="x"></span>
-                          </label>
+
+                          <span class="heck-box-delivery check-box-delivery-<?= $value['id'] ?> ">
+                            <div>تایید کاربر</div>
+                            <?php if ($value['status'] == 3) : ?>
+                              <div class="fa fa-times-circle-o fa-2x text-danger" aria-hidden="true"></div>
+                            <?php endif; ?>
+                            <?php if ($value['status'] == 4) : ?>
+                              <div class="fa fa-check-square-o text-success" aria-hidden="true"></div>
+                            <?php endif; ?>
+                          </span>
+
                         </div>
                       </div>
                     </div>
