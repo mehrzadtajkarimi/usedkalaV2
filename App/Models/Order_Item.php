@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\Contracts\MysqlBaseModel;
 
-class OrderItem extends MysqlBaseModel
+class Order_Item extends MysqlBaseModel
 {
     protected $table = 'order_items';
 
@@ -21,9 +21,14 @@ class OrderItem extends MysqlBaseModel
         return $this->first(['id' => $id]);
     }
 
-    public function read_orderItem_by_order_id($id)
+    public function read_orderItem_get_product_by_order_id($order_id)
     {
-        return $this->get_all(['order_id' => $id]);
+        $product_ids =  $this->get(['product_id', 'quantity', 'price'], ['order_id' => $order_id]);
+
+        foreach ($product_ids as $key => $value) {
+            $products[] = $this->connection->select('products', ['title', 'price'], ['id' => $value['product_id']]);
+        }
+        return $products;
     }
 
     public function update_orderItem(array $params, $id)

@@ -4,6 +4,8 @@ namespace App\Controllers\Backend;
 
 use App\Controllers\Controller;
 use App\Models\Order;
+use App\Models\Order_Item;
+use App\Models\OrderItem;
 use App\Models\Photo;
 use App\Models\User;
 use App\Services\Auth\Auth;
@@ -15,13 +17,15 @@ class OrderController extends Controller
     private $photoModel;
     private $orderModel;
     private $userModel;
+    private $orderItemModel;
 
     public function __construct()
     {
         parent::__construct();
-        $this->photoModel = new Photo();
-        $this->orderModel = new Order();
-        $this->userModel  = new User();
+        $this->photoModel     = new Photo();
+        $this->orderModel     = new Order();
+        $this->orderItemModel = new Order_Item();
+        $this->userModel      = new User();
     }
 
     public function index()
@@ -57,9 +61,9 @@ class OrderController extends Controller
 
     public function get_orders()
     {
-        $user_id = $this->request->params()['id'];
+        $order_id = $this->request->params()['order_id'];
 
-        $result = $this->orderModel->read_order($user_id);
+        $result = $this->orderItemModel->read_orderItem_get_product_by_order_id($order_id);
 
         echo json_encode($result);
     }

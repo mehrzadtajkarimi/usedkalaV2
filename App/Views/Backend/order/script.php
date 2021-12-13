@@ -27,7 +27,7 @@
             var that = $(this);
             var order_id = $(that).data('id');
             if ($(that).is(':checked')) {
-                $('.check-box-handler-' + order_id).parents().eq(3).fadeOut(1000,function() {
+                $('.check-box-handler-' + order_id).parents().eq(3).fadeOut(1000, function() {
                     $('.check-box-sender-' + order_id).parents().eq(3).fadeIn(1000);
                 });
 
@@ -52,7 +52,7 @@
             var order_id = $(that).data('id');
             if ($(that).is(':checked')) {
 
-                $('.check-box-sender-' + order_id).parents().eq(3).fadeOut(1000,function() {
+                $('.check-box-sender-' + order_id).parents().eq(3).fadeOut(1000, function() {
                     $('.check-box-delivery-' + order_id).parents().eq(2).fadeIn(1000);
                 });
                 var type = 3;
@@ -138,25 +138,31 @@
 
         $('.access-show').click(function(e) {
             e.preventDefault();
-            var id = $(this).data('id');
-            var order = $("#response-order-" + id);
+            var order_id = $(this).data('id');
+            var order = $(".target-collapse-response-" + order_id);
             $.ajax({
                 type: "post",
                 url: '<?= base_url() ?>admin/order/get_orders',
                 data: {
-                    'id': id
+                    'order_id': order_id
                 },
                 success: function(response) {
                     data = JSON.parse(response);
 
+
+                    console.log(data);
                     order.empty();
                     $(data).each(function(key, value) {
-                        console.log(data);
+                        // console.log(value);
+                        order.fadeIn(1000).delay(200);
                         order.append(`
                         <div class='row'>
-                        <div class='col'>
-                            <span class='text-muted '>` + value + `</span>
-                        </div>
+                            <div class='col'>
+                                <span class='text-muted '>` + value[0]['title'] + `</span>
+                            </div>
+                            <div class='col'>
+                                <span class='text-muted '>` + value[0]['price'] + `</span>
+                            </div>
                         </div>
                         `);
                     });

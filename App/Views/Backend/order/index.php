@@ -112,8 +112,8 @@
                     <div class="check-delivery" style="display: <?= $value['status'] == 3 ? 'block'  : 'none' ?> ; ">
                       <div class="row d-flex">
                         <div class="offset-3"></div>
-                        <div class="col-3 align-self-center" >
-                          <p  class="m-0"> تحویل </p>
+                        <div class="col-3 align-self-center">
+                          <p class="m-0"> تحویل </p>
                           <i class="fa fa-truck fa-3x text-danger icon-check-box-order-delivery" aria-hidden="true"></i>
 
                         </div>
@@ -146,7 +146,7 @@
                     <?php endif; ?>
 
                     <td class="text-center">
-                      <button data-id="<?= $value['id'] ?>" data-target="#collapse<?= $value['id'] ?>" class="shadow-sm access-show btn btn-warning btn-sm" style="padding: 0px 16px; border-radius: 18px;">
+                      <button data-id="<?= $value['id'] ?>" class="shadow-sm access-show btn btn-warning btn-sm" style="padding: 0px 16px; border-radius: 18px;">
                         نـمایــــــش
                       </button>
                     </td>
@@ -156,17 +156,14 @@
                     <td></td>
                   <?php endif; ?>
                 </tr>
-                <tr id="collapse<?= $value['id'] ?>" class="target-collapse" style="display: none">
-                  <td colspan="10" id="attr">
-                    <div class="row">
-                      <div class="col">
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item" id="response-order-<?= $value['id'] ?>">
+                <tr class="target-collapse-response-<?= $value['id'] ?>" style="display: none;">
+                  <td colspan="10">
+                    <ul>
+                      <li class="list-group-item ">
 
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
+                      
+                      </li>
+                    </ul>
                   </td>
                 </tr>
               <?php endforeach; ?>
