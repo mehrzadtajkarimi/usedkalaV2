@@ -14,10 +14,10 @@
             </div>
 
             <!-- Button trigger modal -->
+			<?php /*
             <a href="<?= base_url() ?>admin/role/create" type="button" class="mr-2 shadow-sm btn btn-success " data-toggle="modal" data-target="#exampleModalCenter">
               ایجاد نقش ها
             </a>
-
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -38,7 +38,7 @@
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label class="col-2 col-form-label" for="role_permission"> سطوح دسترسی</label>
+                        <label class="col-2 col-form-label" for="role_permission">مجوزها (دسترسی‌ها)</label>
                         <div class="col-10">
                           <select name='role-permission[]' id="role_permission" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
                             <?php foreach ($permissions as $value) : ?>
@@ -60,6 +60,7 @@
                 </div>
               </div>
             </div>
+			*/ ?>
 
           </div>
         </div>
@@ -75,8 +76,9 @@
                 <th class="text-center" scope="col">#</th>
                 <th class="text-center" scope="col">نام</th>
                 <th class="text-center" scope="col">توضیح</th>
+				<?php /*
                 <th class="text-center" scope="col">اقدامات</th>
-
+				*/ ?>
               </tr>
             </thead>
             <tbody>
@@ -86,6 +88,7 @@
                   <td class="text-center" title=""><?= $value['id'] ?></td>
                   <td class="text-center" title=""><?= $value['name'] ?></td>
                   <td class="text-center" title=""><?= $value['label'] ?></td>
+				  <?php /*
                   <td class="text-center">
                     <a href="<?= base_url() ?>admin/role/<?= $value['id'] ?>/edit" class="shadow-sm btn btn-warning btn-sm " style="padding: 0px 16px; border-radius: 18px;">ویرایش</a>
                     <form method="post" action="<?= base_url() ?>admin/role/<?= $value['id'] ?>" class="d-inline">
@@ -93,6 +96,7 @@
                       <input type="submit" class="shadow-sm btn btn-danger btn-sm " style="padding: 0px 20px; border-radius: 18px;" onclick="return confirm('آیا برای حذف اطلاعات اطمینان دارید');" value="حذف">
                     </form>
                   </td>
+				  */ ?>
                 </tr>
                 <?php endforeach; ?>
 

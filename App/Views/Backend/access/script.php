@@ -6,14 +6,38 @@
         $('.access-role').select2({
             'placeholder': 'دسته بندی های مورد نظر را انتخاب کنید'
         });
-
+		
+		function expand_block(that)
+		{
+			$(that).show();
+			var targetHeight=$(that).height();
+			$(that).css({overflow: "hidden", height: 0, display: "flex"});
+			$(that).animate({height: targetHeight},function(){
+				 $(that).css({overflow: "visible", height: "auto"});
+			});
+		}
         $('.button-collapse').click(function(e) {
             e.preventDefault();
-            var target = $(this).data('target');
-
-            $('.target-collapse').slideUp();
-            $(target).slideDown();
-
+            var target = $(this).data('target')+" > td > .row";
+			
+			var expandedBlock=undefined;
+			$('.target-collapse > td > .row').each(function(){
+				if (this.style.display=="flex")
+				{
+					expandedBlock=this;
+					return true;
+				}
+			});
+			
+			if (expandedBlock!=undefined)
+			{
+				$(expandedBlock).css({overflow: "hidden", display: "flex"});
+				$(expandedBlock).animate({height: 0},function(){
+					$(expandedBlock).css({overflow: "visible", height: "auto", display: "none"});
+					expand_block(target);
+				});
+			}
+			else expand_block(target);
         });
 
 

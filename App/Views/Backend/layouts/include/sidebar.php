@@ -230,15 +230,17 @@
 
                 <ul class="nav nav-treeview <?= is_active(['/admin/permission', '/admin/role', '/admin/access']) ?>">
                     <?php if (can('super-admin')) : ?>
+						<?php /*
                         <li class="nav-item">
                             <a href="<?= base_url() ?>admin/permission" class="nav-link  <?= is_active('/admin/permission') ?>">
-                                <p>(مجوزها) لیست دسترسی</p>
+                                <p>(دسترسی‌ها) لیست مجوزها</p>
                                 <i class="fa fa-circle-o nav-icon"></i>
                             </a>
                         </li>
+						*/ ?>
                         <li class="nav-item">
                             <a href="<?= base_url() ?>admin/role" class="nav-link  <?= is_active('/admin/role') ?>">
-                                <p>(سمت ها) لیست مقام ها</p>
+                                <p>(سمت‌ها) لیست نقش‌ها</p>
                                 <i class="fa fa-circle-o nav-icon"></i>
                             </a>
                         </li>
@@ -246,7 +248,7 @@
                     <?php if (can('super-user')) : ?>
                         <li class="nav-item">
                             <a href="<?= base_url() ?>admin/access" class="nav-link  <?= is_active('/admin/access') ?>">
-                                <p> لیست ادمین ها</p>
+                                <p> لیست ادمین‌ها</p>
                                 <i class="fa fa-circle-o nav-icon"></i>
                             </a>
                         </li>

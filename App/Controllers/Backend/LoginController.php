@@ -11,6 +11,9 @@ class LoginController extends Controller
     public function login()
     {
         // die('salam');
+		$isLogin=Auth::is_login();
+		if ($isLogin>0)
+			return $this->request->redirect('admin');
         global $request;
         return view('Backend.user.login', ['request' => $request], true);
     }

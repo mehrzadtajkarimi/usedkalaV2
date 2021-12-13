@@ -30,7 +30,7 @@ class UserController  extends Controller
         $all_city     = $this->CityModel->read_city();
 
         foreach ($users as $value) {
-            if (is_null($value['province_id'])) {
+            if ($value['province_id']==0) {
                 $users_screen[] =$value;
                 continue;
             }else{
@@ -80,7 +80,23 @@ class UserController  extends Controller
         FlashMessage::add(" مشکلی در ویرایش اطلاعات کاربر رخ داد ", FlashMessage::ERROR);
         return     $this->request->redirect('admin/users');
     }
+	
+	public function make_admin()
+	{
+		$id = $this->request->get_param('id');
+		$param = [
+            'user_level'    => 0
+        ];
+		$is_user_update = $this->UserModel->update_user($param, $id['id']);
 
+        if ($is_user_update)
+		{
+            FlashMessage::add("کاربر انتخابی با موفقیت به ادمین تبدیل شد و اکنون میتواند یک یا چند نقش یا مجوز را بپذیرد.");
+            return     $this->request->redirect('admin/access');
+        }
+        FlashMessage::add(" مشکلی در تبدیلِ کاربر به ادمین رخ داد ", FlashMessage::ERROR);
+        return $this->request->redirect('admin/users');
+	}
 
     public function destroy()
     {

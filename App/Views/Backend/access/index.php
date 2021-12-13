@@ -23,8 +23,8 @@
             <tbody class="">
               <tr>
                 <th class="text-center" scope="col">#</th>
-                <th class="text-center" scope="col">نام</th>
-                <th class="text-center" scope="col">توضیح</th>
+                <th class="text-center" scope="col">نام و نام خانوادگی</th>
+                <th class="text-center" scope="col">شماره موبایل</th>
                 <th class="text-center" scope="col">اقدامات</th>
               </tr>
               <?php foreach ($admins as $admin) : ?>
@@ -35,7 +35,8 @@
                   <td class="text-center">
                     <!-- Button trigger modal -->
                     <!-- <div> -->
-
+					
+					<?php /*
                     <div class="mb-1">
                       <button type="button" id="add-permission" class="shadow-sm btn btn-success btn-sm" style="padding: 0px 30px; border-radius: 18px;" data-toggle="modal" data-target="#add_permission_<?= $admin['id'] ?>">
                         ایجـــــــــاد مجـوز
@@ -48,7 +49,7 @@
                               <form action="<?= base_url() ?>admin/access/add_access/permission/<?= $admin['id'] ?>" method="post" class="p-1">
                                 <div class="row">
                                   <div class="form-group col">
-                                    <label class=" col-form-label" for="access-permission-<?= $admin['id'] ?>"> دسته بندی</label>
+                                    <label class=" col-form-label" for="access-permission-<?= $admin['id'] ?>">مجوز(های) مورد نظر را انتخاب کنید.</label>
                                     <select name='access-permission[]' id="access-permission-<?= $admin['id'] ?>" class="access-permission form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
                                       <?php foreach ($permissions as $value) : ?>
                                         <option value="<?= $value['id'] ?>">
@@ -72,10 +73,11 @@
                         </div>
                       </div>
                     </div>
+					*/ ?>
 
                     <div class="mb-1">
                       <button type="button" id="add-role" class="shadow-sm btn btn-success btn-sm" style="padding: 0px 30px; border-radius: 18px;" data-toggle="modal" data-target="#add_role_<?= $admin['id'] ?>">
-                        ایجـــــــــاد سمت
+                        ایجـــــــــاد نقش
                       </button>
                       <!-- Modal role-->
                       <div class="modal fade" id="add_role_<?= $admin['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -85,7 +87,7 @@
                               <form action="<?= base_url() ?>admin/access/add_access/role/<?= $admin['id'] ?>" method="post" class="p-1">
                                 <div class="row">
                                   <div class="form-group col">
-                                    <label class=" col-form-label" for="access-role-<?= $admin['id'] ?>"> دسته بندی</label>
+                                    <label class=" col-form-label" for="access-role-<?= $admin['id'] ?>">نقش(های) مورد نظر را انتخاب کنید.</label>
                                     <select name='access-role[]' id="access-role-<?= $admin['id'] ?>" class="access-role form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
                                       <?php foreach ($roles as $value) : ?>
                                         <option value="<?= $value['id'] ?>">
@@ -120,10 +122,11 @@
                     </button>
                   </td>
                 </tr>
-                <tr id="collapse<?= $admin['id'] ?>" class="target-collapse" style="display: none">
+                <tr id="collapse<?= $admin['id'] ?>" class="target-collapse">
                   <td colspan="10" id="attr">
-                    <div class="row">
-                      <span>سطوح دسترسی :</span>
+                    <div class="row" style="display: none">
+						<?php /*
+                      <span>مجوزها:</span>
                       <div class="col">
                         <ul class="list-group list-group-flush">
                           <li class="list-group-item" id="response-permission-<?= $admin['id'] ?>">
@@ -131,7 +134,8 @@
                           </li>
                         </ul>
                       </div>
-                      <span>نقش :</span>
+						*/ ?>
+                      <span>نقش‌ها:</span>
                       <div class="col">
                         <ul class="list-group list-group-flush">
                           <li class="list-group-item" id="response-role-<?= $admin['id'] ?>">

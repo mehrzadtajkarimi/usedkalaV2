@@ -3,8 +3,9 @@
 namespace App\Controllers\Frontend;
 
 use App\Controllers\Controller;
+use App\Core\Request;
 use App\Services\Auth\Auth;
-
+use App\Utilities\FlashMessage;
 
 class LoginController extends Controller
 {
@@ -13,15 +14,26 @@ class LoginController extends Controller
         global $request;
         return view('Frontend.user.login', ['request' => $request]);
     }
+	
     public function is_login()
     {
         $request = $this->request->input('login');
-        if (is_numeric($request)) {
-            Auth::login([
-                'phone'      => $request,
-            ]);
+        if (is_numeric($request))
+		{
+			if (preg_match('/^09(1[0-9]|3[1-9]|2[1-9])-?[0-9]{3}-?[0-9]{4}/',$request))
+			{
+				Auth::login([
+					'phone'      => $request,
+				]);
+			}
+			else
+			{
+				FlashMessage::add('موبایل را با ارقام لاتین بصورت یازده رقمی بدونِ اسپیس، خط فاصله یا نظایر اینها وارد کنید.', FlashMessage::WARNING);
+				Request::redirect('login');
+			}
         }
-        if (filter_var($request, FILTER_VALIDATE_EMAIL)) {
+        if (filter_var($request, FILTER_VALIDATE_EMAIL))
+		{
             Auth::login([
                 'email'      => $request,
             ]);

@@ -55,7 +55,7 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <th class="text-center">شماره</th>
+                                <th class="text-center">شناسه</th>
                                 <th>مشخصات</th>
                                 <th>اطلاعات ورود</th>
                                 <th>نشانی</th>
@@ -67,29 +67,29 @@
                                         <td class="text-center" width="10px"><?= $value['id']  ?></td>
                                         <td>
                                             <div>
-                                                <small>نام و خانوادگی :</small>
-                                                <small><?= $value['first_name'] ?? ' - - -  '  ?></small>
-                                                <small><?= $value['last_name'] ?? ' - - - '  ?></small>
+                                                <small>نام و خانوادگی:</small>
+                                                <small><?= $value['first_name'] ?? ' - '  ?></small>
+                                                <small><?= $value['last_name'] ?? ' - '  ?></small>
                                             </div>
                                             <div>
-                                                <small> موبــــــایل :<?= $value['phone'] ?></small>
+                                                <small>موبــــــایل: <?= $value['phone'] ?></small>
                                             </div>
                                             <div>
-                                                <small>ایــــــــمیـل :<?= $value['email'] ?? '  - - -'  ?></small>
+                                                <small>ایــــــــمیـل: <?= $value['email'] ?? ' - '  ?></small>
                                             </div>
                                             <div>
-                                                <small>کد مـــلی :<?= $value['national_code'] ?? ' - - -'  ?></small>
+                                                <small>کد مـــلی: <?= $value['national_code'] ?? ' - '  ?></small>
                                             </div>
                                         </td>
                                         <td>
                                             <div>
-                                                <small>آخـــــرین ورود : </small>
+                                                <small>آخـــــرین ورود: </small>
                                                 <small>
-                                                    <bdi class="arabic-num">- - -</bdi>
+                                                    <bdi class="arabic-num"> - </bdi>
                                                 </small>
                                             </div>
                                             <div>
-                                                <small>وضعیت کاربر : </small>
+                                                <small>وضعیت کاربر: </small>
                                                 <?php if ($value['status'] == 1) : ?>
                                                     <i class="fa fa-check text-success"></i>
                                                 <?php else : ?>
@@ -99,16 +99,16 @@
                                             <div>
                                                 <?php if ($value['user_level'] == 1) : ?>
 
-                                                    <small>ثبت نام اولیه :</small>
+                                                    <small>ثبت نام اولیه:</small>
                                                     <i class="fa fa-star-o text-lighter"></i>
                                                 <?php elseif ($value['user_level'] == 2) : ?>
 
-                                                    <small>نـــــــــــــــقــره ای : </small>
+                                                    <small>نـــــــــــــــقــره ای: </small>
                                                     <i class="fa fa-star text-secondary"></i>
                                                     <i class="fa fa-star text-secondary"></i>
                                                 <?php elseif ($value['user_level'] == 3) : ?>
 
-                                                    <small>طـــــــــــــــــــلایــی : </small>
+                                                    <small>طـــــــــــــــــــلایــی: </small>
                                                     <i class="fa fa-star text-warning"></i>
                                                     <i class="fa fa-star text-warning"></i>
                                                     <i class="fa fa-star text-warning"></i>
@@ -117,32 +117,35 @@
                                         </td>
                                         <td>
                                             <div>
-                                                <small>آدرس : </small>
+                                                <small>استان: </small>
                                                 <small>
-                                                    <bdi class="arabic-num"><?= $value['address'] ?? '   - - -'  ?></bdi>
+                                                    <bdi class="arabic-num"><?= $value['province_name']?? ' - '  ?></bdi>
                                                 </small>
                                             </div>
                                             <div>
-                                                <small>استان : </small>
+                                                <small>شـــــهر: </small>
                                                 <small>
-                                                    <bdi class="arabic-num"><?= $value['province_name']?? '  - - - '  ?></bdi>
+                                                    <bdi class="arabic-num"><?= $value['city_name']?? ' - '  ?></bdi>
                                                 </small>
                                             </div>
                                             <div>
-                                                <small>شـــــهر : </small>
+                                                <small>آدرس: </small>
                                                 <small>
-                                                    <bdi class="arabic-num"><?= $value['city_name']?? '  - - - '  ?></bdi>
+                                                    <bdi class="arabic-num"><?= $value['address'] ?? ' - '  ?></bdi>
                                                 </small>
                                             </div>
                                             <div>
-                                                <small>کد پستی : </small>
+                                                <small>کد پستی: </small>
                                                 <small>
-                                                    <bdi class="arabic-num"><?= $value['postal_code'] ?? '   - - -'  ?></bdi>
+                                                    <bdi class="arabic-num"><?= $value['postal_code'] ?? ' - '  ?></bdi>
                                                 </small>
                                             </div>
                                         </td>
                                         <td class="text-center ">
                                             <!-- Button trigger modal -->
+                                            <a href="<?= base_url() ?>admin/user/makeadmin/<?= $value['id'] ?>"><button href="" class="p-0 pl-2 pr-2 shadow-sm btn btn-info btn-sm" style=" border-radius: 18px;">
+                                                تبدیل به ادمین
+                                            </button></a>
                                             <button href="" class="p-0 pl-2 pr-2 shadow-sm btn btn-warning btn-sm" style=" border-radius: 18px;" data-toggle="modal" data-target="#exampleModalCenter">
                                                 ویــرایـش
                                             </button>

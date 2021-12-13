@@ -155,7 +155,22 @@ class AccessController  extends Controller
         return $this->request->redirect('admin/access');
     }
 
+	public function remove_admin()
+	{
+		$id = $this->request->get_param('id');
+		$param = [
+            'user_level'    => 1
+        ];
+		$is_user_update = $this->userModel->update_user($param, $id['id']);
 
+        if ($is_user_update)
+		{
+            FlashMessage::add("ادمین انتخابی با موفقیت به کاربر عادی تبدیل شده و هیچ گونه دسترسی به پنل ادمین نخواهد داشت.");
+            return     $this->request->redirect('admin/access');
+        }
+        FlashMessage::add(" مشکلی در تبدیلِ ادمین به کاربرِ عادی رخ داد ", FlashMessage::ERROR);
+        return $this->request->redirect('admin/users');
+	}
 
     public function destroy()
     {

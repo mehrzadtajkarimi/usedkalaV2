@@ -14,7 +14,7 @@ class SessionProvider extends AuthProvider
     public function login(array $param, bool $is_admin = false)
     {
         // dd($param);
-        SessionManager::clear();
+		SessionManager::clear();
         $user  = $this->user_model->already_exists($param);
         $token = rand(1000, 9999);
         if (empty($user)) {
@@ -37,7 +37,7 @@ class SessionProvider extends AuthProvider
         if (SessionManager::has(self::AUTH_KEY)) {
             SessionManager::remove(self::AUTH_KEY);
         }
-        $this->request->redirect('admin');
+        $this->request->redirect('');
     }
 
     public function is_token($token, bool $is_admin = false)

@@ -53,7 +53,7 @@ class Role_user extends MysqlBaseModel
     public function join_roleUser_role($id)
     {
         return $this->inner_join(
-            'roles.name,roles.label,roles.id',
+            'roles.name,roles.label,role_users.id',
             'roles',
             'role_id',
             'id',
