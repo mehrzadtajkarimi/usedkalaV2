@@ -29,11 +29,12 @@ class UserController  extends Controller
         $all_province = $this->ProvinceModel->read_province();
         $all_city     = $this->CityModel->read_city();
 
+		$users_screen=[];
         foreach ($users as $value) {
-            if (is_null($value['province_id'])) {
-                $users_screen[] =$value;
+            if ($value['province_id']==0) {
+                $users_screen[] = $value;
                 continue;
-            }else{
+            } else {
                 $users_screen[] = $this->UserModel->join__whit_province_city($value['id'])[0];
             }
         };
@@ -80,7 +81,23 @@ class UserController  extends Controller
         FlashMessage::add(" مشکلی در ویرایش اطلاعات کاربر رخ داد ", FlashMessage::ERROR);
         return     $this->request->redirect('admin/users');
     }
+	
+	public function make_admin()
+	{
+		$id = $this->request->get_param('id');
+		$param = [
+            'user_level'    => 0
+        ];
+		$is_user_update = $this->UserModel->update_user($param, $id['id']);
 
+        if ($is_user_update)
+		{
+            FlashMessage::add("کاربر انتخابی با موفقیت به ادمین تبدیل شد و اکنون میتواند یک یا چند نقش یا مجوز را بپذیرد.");
+            return $this->request->redirect('admin/access');
+        }
+        FlashMessage::add(" مشکلی در تبدیلِ کاربر به ادمین رخ داد ", FlashMessage::ERROR);
+        return $this->request->redirect('admin/users');
+	}
 
     public function destroy()
     {
@@ -90,7 +107,7 @@ class UserController  extends Controller
 
         if ($is_deleted_product) {
             FlashMessage::add("کاربر با موفقیت از دیتابیس حذف شد");
-            return $this->request->redirect('product', FlashMessage::WARNING);
+            return $this->request->redirect('users', FlashMessage::WARNING);
         }
         FlashMessage::add(" مشکلی در حذف کاربر پیش آمده است", FlashMessage::ERROR);
         return $this->request->redirect('admin/users');

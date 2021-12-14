@@ -32,6 +32,7 @@ Route::group(function () {
 });
 Route::group(function () {
     Route::get('/admin/users', 'UserController@index');
+    Route::get('/admin/user/makeadmin/{id}', 'UserController@make_admin');
     Route::post('/admin/user/city/{id}', 'UserController@get_city');
     Route::patch('/admin/user/{id}', 'UserController@update');
     Route::delete('/admin/user/{id}', 'UserController@destroy');
@@ -172,7 +173,7 @@ Route::group(function () {
     Route::post('/admin/access', 'AccessController@store');
     Route::get('/admin/access/{id}/edit', 'AccessController@edit');
     Route::patch('/admin/access/{id}', 'AccessController@update');
-    Route::delete('/admin/access/{id}', 'AccessController@destroy');
+    Route::delete('/admin/access/{id}', 'AccessController@remove_admin');
 
     Route::post('/admin/access/add_access/{type}/{admin_id}', 'AccessController@add_access');
     Route::post('/admin/access/get_access', 'AccessController@get_access');

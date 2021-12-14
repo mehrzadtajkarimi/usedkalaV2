@@ -232,11 +232,11 @@ class BlogController extends Controller
         $is_deleted_blog = $this->blogModel->delete_blog($id);
         $is_deleted_tag  = $this->taggableModel->delete_taggable($id);
 
-        if ($is_deleted_blog && $is_deleted_tag) {
+        if ($is_deleted_blog/*  && $is_deleted_tag */) {
             FlashMessage::add("مقادیر  با موفقیت از دیتابیس حذف شد");
             return $this->request->redirect('admin/blog');
         }
-        FlashMessage::add(" مشکلی در حذف محصول پیش آمده است", FlashMessage::ERROR);
+        FlashMessage::add(" مشکلی در حذف پست بلاگ پیش آمده است", FlashMessage::ERROR);
         return $this->request->redirect('admin/blog');
     }
 }

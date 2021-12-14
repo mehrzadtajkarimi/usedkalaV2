@@ -56,7 +56,7 @@ class TagController extends Controller
         $params = $this->request->params();
 
         $data = array(
-            'tag' => $this->tagModel->read_tag_id($params['id'])[0],
+            'tag' => $this->tagModel->read_tag($params['id'])[0]
         );
         view('Backend.tag.edit', $data);
     }
