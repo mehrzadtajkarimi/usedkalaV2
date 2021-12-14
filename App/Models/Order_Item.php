@@ -34,12 +34,17 @@ class Order_Item extends MysqlBaseModel
     // }
     public function join__orderItem_whit_product_by_order_id($order_id)
     {
-        $products = $this->inner_join(
+        $products = $this->inner_join_two(
             "products.title,
             order_items.quantity,
             order_items.price,
-            order_items.discount
+            order_items.discount,
+            orders.address,
+            orders.created_at
             ",
+            "orders",
+            "order_id",
+            "id",
             "products",
             "product_id",
             "id",

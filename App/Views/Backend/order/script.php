@@ -164,12 +164,18 @@
                     $(data).each(function(key, value) {
                         sum += Number(value['quantity'] * value['price']);
                     });
-                    console.log(sum);
+                    let created_at = new Date(data[0]['created_at']).toLocaleDateString('fa-IR');
+                    console.log(created_at);
                     order_tfoot.append(`
                         <tr>
                             <td colspan="10">
                                 <div class="row">
-                                    <div class="offset-8"></div>
+
+                                <div class="col-3">
+                                    <b class='text-muted font-weight-bold d-block'>آدرس : ` + data[0]['address'] + `</b>
+                                    <b class='text-muted font-weight-bold d-block'>تاریــخ  : ` + created_at + `</b>
+                                </div>
+                                    <div class="offset-5"></div>
                                     <div class="col-2">
                                         <pre class='text-muted font-weight-bold'>جمع کل</pre>
                                     </div>
