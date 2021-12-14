@@ -180,7 +180,7 @@
                 <div class="col">
                   <div class="form-group d-flex">
                     <label for="profile-postalCode" class="profile-postalCode profile-label">کد پستی:</label>
-                    <input type="number" name="profile-postalCode" class="form-control" max="10" id="profile-postalCode" value="<?= $data['postal_code'] ?>">
+                    <input type="number" name="profile-postalCode" class="form-control" min="1000000000" max="9999999999"id="profile-postalCode" value="<?= $data['postal_code'] ?>">
                   </div>
                 </div>
               </div>

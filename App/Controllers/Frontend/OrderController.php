@@ -7,12 +7,14 @@ use App\Models\Order;
 use App\Models\Order_Item;
 use App\Models\User;
 use App\Models\City;
+use App\Models\Order_Item;
 use App\Models\Photo;
 use App\Models\Province;
 use App\Models\Product;
 use App\Services\Auth\Auth;
 use App\Utilities\FlashMessage;
 use App\Services\Session\SessionManager;
+
 class OrderController  extends Controller
 {
     private $orderModel;
@@ -57,15 +59,15 @@ class OrderController  extends Controller
         $id          = $this->request->get_param('id');
         $order       = $this->orderModel->read_order_by_user_id($user_id, $id);
         $order_items = $this->orderItemModel->read_orderItem_by_order_id($order[0]['id']);
-        foreach($order_items as $key=>$value){
+        foreach ($order_items as $key => $value) {
             $order_items_info[] = $this->productModel->read_product($value['product_id']);
-            $order_items_img [] = $this->photoModel->read_photo_by_id($value['product_id'], 'Product', true);
+            $order_items_img[] = $this->photoModel->read_photo_by_id($value['product_id'], 'Product', true);
         }
-        foreach($order_items_info as $key=>$value){
+        foreach ($order_items_info as $key => $value) {
             $order_items[$key]['order_item_name'] = $value['title'];
             $order_items[$key]['slug'] = $value['slug'];
         }
-        foreach($order_items_img as $key=>$value){
+        foreach ($order_items_img as $key => $value) {
             $order_items[$key]['img_path'] = $value[0]['path'];
             $order_items[$key]['img_alt']  = $value[0]['alt'];
         }
@@ -80,32 +82,30 @@ class OrderController  extends Controller
             );
             return view('Frontend.profile.single_order', $data);
         }
-
     }
 
     public function create()
     {
-        if(Auth::is_login()){
-			$user_id       = Auth::is_login();
+        if (Auth::is_login()) {
+            $user_id       = Auth::is_login();
             $user_info     = $this->userModel->read_user($user_id);
-			$checkArr=[
-				"first_name"	=> "نام",
-				"last_name"		=> "نام خانوادگی",
-				"province_id"	=> "استان",
-				"city_id"		=> "شهر",
-				"address"		=> "نشانی",
-				"postal_code"	=> "کدپستی"
-			];
-			$emptyColumns="";
-			foreach($checkArr as $columnName=>$persianName)
-				if ($user_info[$columnName]=="")
-					$emptyColumns.=$persianName."، ";
-			if ($emptyColumns!="")
-			{
-				FlashMessage::add("برای ثبت سفارش، ابتدا فیلدهای «".mb_substr($emptyColumns,0,-2,"utf-8")."» را در پروفایلِ خود، تکمیل کنید.", FlashMessage::ERROR);
-				return $this->request->redirect('profile');
-			}
-			
+            $checkArr = [
+                "first_name"    => "نام",
+                "last_name"        => "نام خانوادگی",
+                "province_id"    => "استان",
+                "city_id"        => "شهر",
+                "address"        => "نشانی",
+                "postal_code"    => "کدپستی"
+            ];
+            $emptyColumns = "";
+            foreach ($checkArr as $columnName => $persianName)
+                if ($user_info[$columnName] == "")
+                    $emptyColumns .= $persianName . "، ";
+            if ($emptyColumns != "") {
+                FlashMessage::add("برای ثبت سفارش، ابتدا فیلدهای «" . mb_substr($emptyColumns, 0, -2, "utf-8") . "» را در پروفایلِ خود، تکمیل کنید.", FlashMessage::ERROR);
+                return $this->request->redirect('profile');
+            }
+
             $token         = 0;
             $order_number  = 0;
             $totalPrice    = 0;
@@ -115,8 +115,7 @@ class OrderController  extends Controller
             $shipping      = 0;
             $params        = $this->request->params();
             $notes         = $params['order-notes'];
-            foreach($_SESSION['cart'] as $value)
-			{
+            foreach ($_SESSION['cart'] as $value) {
                 $totalCount  += $value['count'];
                 $totalPrice  += ($value['count'] * $value['price']) + $totalDiscount + $shipping;
                 $totalWeight += $value['weight'];
@@ -139,9 +138,8 @@ class OrderController  extends Controller
                 'notes'          => $notes
             );
             $order_id = $this->orderModel->create_order($params_create);
-			
-            foreach($_SESSION['cart'] as $value)
-			{
+
+            foreach ($_SESSION['cart'] as $value) {
                 $single_product_id            = $value['id'];
                 $single_product_quantity      = $value['count'];
                 $single_product_price         = $value['price'];
@@ -217,5 +215,18 @@ class OrderController  extends Controller
         }
         FlashMessage::add(" مشکلی در حذف مثال پیش آمده است", FlashMessage::ERROR);
         return $this->request->redirect('admin/order');
+    }
+
+    public function status()
+    {
+        $admin_id =  Auth::is_login();
+
+        $order_id = $this->request->get_param();
+
+        $this->orderModel->update_order([
+            'handler_id' =>  $admin_id,
+            'status' =>  4,
+        ], $order_id);
+        return $this->request->redirect('profile/orders');
     }
 }
