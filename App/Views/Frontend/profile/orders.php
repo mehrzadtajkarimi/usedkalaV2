@@ -1,6 +1,6 @@
 <section class="content">
     <div class="col-full desktop-only">
-    <?= App\Utilities\FlashMessage::show_message(); ?>
+        <?= App\Utilities\FlashMessage::show_message(); ?>
         <div class="mt-4 row">
             <div class="col-2">
                 <div class="card">
@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="col-10">
-                <?php if(!empty($orders)): ?>
+                <?php if (!empty($orders)) : ?>
                     <table class="shop_table shop_table_responsive cart ">
                         <thead>
                             <tr>
@@ -52,7 +52,7 @@
                                 <th class="text-center">قیمت کل</th>
                                 <th class="text-center">وضعیت</th>
                                 <th class="text-center">تاریخ ایجاد</th>
-                                <th class="text-center">&nbsp;</th>
+                                <th class="text-center">وضعیت / مشاهده</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -70,13 +70,13 @@
                                         </span>
                                     </td>
                                     <td class="text-center">
-                                        <?php if($value['status'] == 1): ?>
+                                        <?php if ($value['status'] == 1) : ?>
                                             در حال بررسی
                                         <?php endif; ?>
-                                        <?php if($value['status'] == 2): ?>
+                                        <?php if ($value['status'] == 2) : ?>
                                             ارسال شده
                                         <?php endif; ?>
-                                        <?php if($value['status'] == 3): ?>
+                                        <?php if ($value['status'] == 3) : ?>
                                             تکمیل شده
                                         <?php endif; ?>
                                     </td>
@@ -86,9 +86,15 @@
                                         </span>
                                     </td>
                                     <td class="text-center">
-                                        <a href="<?= base_url() ?>profile/orders/<?= $value['id'] ?>">
-                                            مشاهده سفارش
-                                        </a>
+                                        <?php if ($value['status'] == 4) : ?>
+                                            <a class="btn btn-link" href="<?= base_url() ?>profile/orders/<?= $value['id'] ?>">
+                                                مشاهده سفارش
+                                            </a>
+                                        <?php else : ?>
+                                            <a class="btn btn-link" href="<?= base_url() ?>profile/orders/status/<?= $value['id'] ?>">
+                                                تحویل گرفتم
+                                            </a>
+                                        <?php endif; ?>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

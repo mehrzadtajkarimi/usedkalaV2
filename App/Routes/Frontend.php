@@ -38,6 +38,7 @@ Route::group(function () {
 Route::group(function () {
     Route::get('/profile', 'ProfileController@is_login');
     Route::get('/profile/orders', 'OrderController@index');
+    Route::get('/profile/orders/status/{id}', 'OrderController@status');
     Route::get('/profile/orders/{id}', 'OrderController@show');
     Route::patch('/profile/{id}', 'ProfileController@update');
     Route::post('/profile/city/{id}', 'CityController@index');
