@@ -156,12 +156,25 @@
                     <td></td>
                   <?php endif; ?>
                 </tr>
-                <tr class="target-collapse-response-<?= $value['id'] ?>" style="display: none;">
+                <tr class="target-collapse-response-<?= $value['id'] ?> " style="display: none;">
                   <td colspan="10" class=" ">
+                    <table class="table  table-hover table--vertical_middle ">
+                      <thead>
+                        <tr  class="">
+                          <th class="text-center" scope="col">#</th>
+                          <th class="text-center" scope="col">نام</th>
+                          <th class="text-center" scope="col">قیمت</th>
+                          <th class="text-center" scope="col">تعداد</th>
+                          <th class="text-center" scope="col">جمع</th>
+                        </tr>
+                      </thead>
+                      <tbody class="target-tbody">
 
+                      </tbody>
+                      <tfoot class="target-tfoot bg-light">
 
-
-
+                      </tfoot>
+                    </table>
                   </td>
                 </tr>
               <?php endforeach; ?>

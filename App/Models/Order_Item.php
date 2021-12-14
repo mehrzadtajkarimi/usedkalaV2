@@ -21,14 +21,34 @@ class Order_Item extends MysqlBaseModel
         return $this->first(['id' => $id]);
     }
 
-    public function read_orderItem_get_product_by_order_id($order_id)
+    // public function read_orderItem_get_product_by_order_id($order_id)
+    // {
+    //     $product_ids =  $this->get(['product_id', 'quantity', 'price'], ['order_id' => $order_id]);
+    //     //  دریافت قیمت در حال حاضر از جدول محصول انجام میشود باید از quantity و price و discount
+    //     foreach ($product_ids as $key => $value) {
+    //         $products[] = $this->connection->select('products', ['title', 'price'], ['id' => $value['product_id']]);
+    //     }
+    //     return $products;
+
+
+    // }
+    public function join__orderItem_whit_product_by_order_id($order_id)
     {
-        $product_ids =  $this->get(['product_id', 'quantity', 'price'], ['order_id' => $order_id]);
-        //  دریافت قیمت در حال حاضر از جدول محصول انجام میشود باید از quantity و price و discount
-        foreach ($product_ids as $key => $value) {
-            $products[] = $this->connection->select('products', ['title', 'price'], ['id' => $value['product_id']]);
-        }
+        $products = $this->inner_join(
+            "products.title,
+            order_items.quantity,
+            order_items.price,
+            order_items.discount
+            ",
+            "products",
+            "product_id",
+            "id",
+            "order_items.order_id=$order_id"
+        );
+
         return $products;
+
+
     }
 
     public function update_orderItem(array $params, $id)

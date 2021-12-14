@@ -121,7 +121,9 @@
         $('.access-show').click(function(e) {
             e.preventDefault();
             var order_id = $(this).data('id');
-            var order = $(".target-collapse-response-" + order_id);
+            var order_tbody = $(".target-collapse-response-" + order_id + " .target-tbody");
+            var order_tfoot = $(".target-collapse-response-" + order_id + " .target-tfoot");
+            var order_tr = $(".target-collapse-response-" + order_id);
             $.ajax({
                 type: "post",
                 url: '<?= base_url() ?>admin/order/get_orders',
@@ -132,22 +134,52 @@
                     data = JSON.parse(response);
 
 
-                    // console.log(data);
-                    order.empty();
+                    // console.log(order);
+                    order_tbody.empty();
                     $(data).each(function(key, value) {
-                        console.log(value);
-                        order.fadeIn(1000).delay(200);
-                        order.append(`
-                        <div class='row'>
-                            <div class='col'>
-                                <span class='text-muted '>` + value[0]['title'] + `</span>
-                            </div>
-                            <div class='col'>
-                                <span class='text-muted '>` + value[0]['price'] + `</span>
-                            </div>
-                        </div>
+                        // console.log(value);
+                        order_tr.fadeIn(1000).delay(200);
+
+                        order_tbody.append(`
+                            <tr>
+                                <td class='text-center'>
+                                    <pre class='text-muted '>` + key + `</pre>
+                                </td>
+                                <td class='text-center'>
+                                    <span class='text-muted '>` + value['title'] + `</span>
+                                </td>
+                                <td class='text-center'>
+                                    <pre class='text-muted '>` + number_format(value['price']) + `</pre>
+                                </td>
+                                <td class='text-center'>
+                                    <pre class='text-muted '>` + number_format(value['quantity']) + `</pre>
+                                </td>
+                                <td class='text-center'>
+                                    <pre class='text-muted '>` + number_format(value['quantity'] * value['price']) + `</pre>
+                                </td>
+                            </tr>
                         `);
                     });
+                    var sum = 0;
+                    $(data).each(function(key, value) {
+                        sum += Number(value['quantity'] * value['price']);
+                    });
+                    console.log(sum);
+                    order_tfoot.append(`
+                        <tr>
+                            <td colspan="10">
+                                <div class="row">
+                                    <div class="offset-8"></div>
+                                    <div class="col-2">
+                                        <pre class='text-muted font-weight-bold'>جمع کل</pre>
+                                    </div>
+                                    <div class="col-2">
+                                        <pre class='text-muted font-weight-bold'>` + number_format(sum) + `</pre>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    `);
 
                 },
             });
@@ -157,7 +189,25 @@
 
 
 
-
+        function number_format(floatvar, decimallength, sepratorstr) {
+            if (sepratorstr == undefined || sepratorstr == "") sepratorstr = ",";
+            var intvar = parseInt(floatvar);
+            var decimals = floatvar - intvar;
+            if (decimallength != undefined)
+                var decimalstr = "." + decimals.toFixed(decimallength).toString().substr(2);
+            else
+                var decimalstr = "";
+            var stringint = intvar.toString();
+            var stringlength = parseInt(stringint.length);
+            var sepcount = parseInt(stringlength / 3);
+            var firstchars = parseInt(stringlength % 3);
+            var returnstr = "";
+            for (var i = 1; i <= sepcount; i++)
+                returnstr = sepratorstr + stringint.substr(i * (-3), 3) + returnstr;
+            if (firstchars == 0) returnstr = returnstr.substr(1);
+            else returnstr = stringint.substr(0, firstchars) + returnstr;
+            return returnstr + decimalstr;
+        }
 
 
 

@@ -63,7 +63,7 @@ class OrderController extends Controller
     {
         $order_id = $this->request->params()['order_id'];
 
-        $result = $this->orderItemModel->read_orderItem_get_product_by_order_id($order_id);
+        $result = $this->orderItemModel->join__orderItem_whit_product_by_order_id($order_id);
 
         echo json_encode($result);
     }
