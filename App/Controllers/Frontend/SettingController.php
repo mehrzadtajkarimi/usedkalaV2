@@ -67,7 +67,8 @@ class SettingController extends Controller
 
         if (is_array($setting_contact)) {
             $data = array(
-                'setting'    => $setting_contact[0]??[],
+                'setting'				=> $setting_contact[0]??[],
+				'home_page_active_menu'	=> 'page home page-template-default'
             );
             return view('Frontend.about.contact', $data);
         }

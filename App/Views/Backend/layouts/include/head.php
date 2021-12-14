@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>پنل مدیریت | صفحه خالی</title>
+<title>پنل مدیریت یوزد کالا</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" href="<?= asset_url() ?>Backend/dist/img/ukfav-icon.png">

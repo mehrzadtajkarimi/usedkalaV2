@@ -4,7 +4,7 @@ namespace App\Controllers\Frontend;
 
 use App\Controllers\Controller;
 use App\Models\Order;
-use App\Models\OrderItem;
+use App\Models\Order_Item;
 use App\Models\User;
 use App\Models\City;
 use App\Models\Photo;
@@ -27,7 +27,7 @@ class OrderController  extends Controller
     {
         parent::__construct();
         $this->orderModel     = new Order();
-        $this->orderItemModel = new OrderItem();
+        $this->orderItemModel = new Order_Item();
         $this->userModel      = new User();
         $this->cityModel      = new City();
         $this->provinceModel  = new Province();

@@ -60,7 +60,7 @@ class Photo extends MysqlBaseModel
             'alt'         => $name,
             'type'        => $type,
 
-        ], ['entity_id' => $entity_id]);
+        ], ['entity_type' => $entity_type, 'entity_id' => $entity_id]);
     }
 
     public function delete_photo($id)

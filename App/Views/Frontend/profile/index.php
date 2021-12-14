@@ -47,9 +47,10 @@
         <div class="col-9">
           <?= App\Utilities\FlashMessage::show_message(); ?>
           <ul class="mb-3 nav nav-pills" id="pills-tab" role="tablist">
+			<?php /*
             <li class="nav-item">
               <a class="nav-link " id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">خانه</a>
-            </li>
+            </li> */ ?>
             <li class="nav-item">
               <a class="nav-link active" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">پروفایل</a>
             </li>
@@ -63,12 +64,14 @@
             <?php endif; ?>
           </ul>
           <div class="tab-content" id="pills-tabContent">
+			<?php /*
             <div class="tab-pane fade " id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati facilis voluptas recusandae impedit accusamus eligendi, nam omnis soluta atque libero quia tenetur velit placeat neque dignissimos totam minima dolorem in.
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati facilis voluptas recusandae impedit accusamus eligendi, nam omnis soluta atque libero quia tenetur velit placeat neque dignissimos totam minima dolorem in.
 
             </div>
+			 */ ?>
             <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
               <div class="row">
                 <div class="col">

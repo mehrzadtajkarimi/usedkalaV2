@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-<meta name="description" content="<?= $description['description'] ?? ''?>">
+<meta name="description" content="<?= strip_tags($description['seo_description']) ?? ''?>">
 <title><?= $description['name'] ?? 'فروشگاه اینترنتی یوزدکالا'?></title>
 
 <link rel="stylesheet" type="text/css" href="<?= asset_url() ?>Frontend/css/bootstrap.min.css" media="all" />

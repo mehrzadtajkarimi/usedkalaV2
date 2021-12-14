@@ -1,5 +1,5 @@
 <div class="card-header">
-    <h5>ایجاد تنظیمات</h5>
+    <h5>ایجاد صفحه درباره ما</h5>
 
 </div>
 <div class="card-body">

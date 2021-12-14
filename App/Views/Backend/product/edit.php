@@ -34,7 +34,7 @@
             <div class="form-group row">
                 <label for="product-weight" class="col-2 col-form-label"> وزن </label>
                 <div class="col-10">
-                    <input name="product-weight" type="number" class="form-control" id="product-weight" value="<?= $products['weight']  ?>" required>
+                    <input name="product-weight" type="number" class="form-control" id="product-weight" value="<?= $products['weight']  ?>">
                 </div>
             </div>
 
@@ -68,6 +68,7 @@
                 <label class="col-2 col-form-label" for="product-brand">برند </label>
                 <div class="col-10">
                     <select name='product-brand' class="form-control" id="product-brand">
+							<option value="0">[انتخاب نشده]</option>
                         <?php foreach ($brands as $value) : ?>
                             <option value="<?= $value['id'] ?>" <?= $products['brand_id'] == $value['id'] ? 'selected' : '' ?>><?= $value['name'] ?></option>
                         <?php endforeach; ?>
@@ -78,15 +79,15 @@
 
 
             <div class="form-group row">
-                <label for="product-meta" class="col-2 col-form-label"> متن متا</label>
+                <label for="product-meta" class="col-2 col-form-label">معرفیِ خلاصه</label>
                 <div class="col-10">
-                    <textarea name="product-meta" type="text" class="form-control" id="product-meta" rows="2" required><?= $products['meta_title']  ?></textarea>
+                    <textarea name="product-meta" type="text" class="form-control" id="product-meta" rows="2"><?= $products['meta_title']  ?></textarea>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="product-description" class="col-2 col-form-label"> درباره محصول </label>
+                <label for="textarea" class="col-2 col-form-label">توضیحات کامل</label>
                 <div class="col-10">
-                    <textarea name="product-description" type="text" class="form-control" id="product-description" rows="3" required><?= $products['description']  ?></textarea>
+                    <textarea name="product-description" type="text" class="form-control" id="textarea" rows="3"><?= $products['description']  ?></textarea>
                 </div>
             </div>
             <hr>
@@ -94,7 +95,7 @@
             <div class="form-group row">
                 <label for="H1" class="col-2 col-form-label">H1</label>
                 <div class="col-10">
-                    <input name="seo-H1" type="text" class="form-control" id="H1" value="<?= $products['seo_H1'] ?>" placeholder="ترجیحا بین 20 تا 70 کاراکتر" required>
+                    <input name="seo-H1" type="text" class="form-control" id="H1" value="<?= $products['seo_H1'] ?>" placeholder="ترجیحا بین 20 تا 70 کاراکتر">
                 </div>
             </div>
             <div class="form-group row">
@@ -114,13 +115,13 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="title" class="col-2 col-form-label">title</label>
+                <label for="title" class="col-2 col-form-label">HTML Title</label>
                 <div class="col-10">
                     <input name="seo-title" type="text" class="form-control" id="title" value="<?= $products['seo_title'] ?>" placeholder="title را وارد نمایید" required>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="seo-description" class="col-2 col-form-label"> درباره محصول </label>
+                <label for="seo-description" class="col-2 col-form-label">HTML Description</label>
                 <div class="col-10">
                     <textarea name="seo-description" type="text" class="form-control" id="seo-description" rows="3" required><?= $products['seo_description'] ?></textarea>
                 </div>

@@ -4,16 +4,23 @@ namespace App\Controllers\Backend;
 
 use App\Controllers\Controller;
 use App\Services\Auth\Auth;
+use App\Models\User;
 
 class LoginController extends Controller
 {
 
     public function login()
     {
-        // die('salam');
 		$isLogin=Auth::is_login();
 		if ($isLogin>0)
-			return $this->request->redirect('admin');
+		{
+			$userModel = new User();
+			$isAdmin=$userModel->is_admin($isLogin);
+			if ($isAdmin)
+				return $this->request->redirect('admin');
+			else
+				return $this->request->redirect('profile');
+		}
         global $request;
         return view('Backend.user.login', ['request' => $request], true);
     }

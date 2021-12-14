@@ -192,7 +192,8 @@ class ProductController extends Controller
             }
         }
 
-        $photo = $this->photoModel->read_photo($products_id);
+        $photo = $this->photoModel->read_photo_by_id($products_id['id'],'Product');
+		if (count($photo)>0) $photo=$photo[0];
         // var_dump($photo);
         // die();
         $data = array(

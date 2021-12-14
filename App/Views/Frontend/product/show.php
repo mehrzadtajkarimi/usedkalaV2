@@ -66,9 +66,11 @@
                                 <?php if ($product['seo_H1'] != "" && $product['title'] != "" && $product['seo_H1'] != $product['title']) echo '<h2 class="product_title entry-title">' . $product['title'] . '</h2>'; ?>
                             </div>
                             <div class="single-product-meta">
+								<?php if (isset($brand) && isset($brand['path']) && $brand['path']!="") { ?>
                                 <div class="brand">
                                     <img alt="galaxy" class="img-fluid" width="180" height="180" src="<?= $brand['path'] ?>">
                                 </div>
+								<?php } ?>
                                 <?php if ($cats) : ?>
                                     <div class="cat-and-sku">
                                         دسته‌بندی:

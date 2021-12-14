@@ -40,7 +40,7 @@ class CategoryController extends Controller
 		$categoryRow=$this->categoryModel->read_category_byslug($slug['slug']);
 		$parent_id['id']=$categoryRow['id'];
 		
-        $description = $categoryRow['description'];
+        $description = $categoryRow;
         $categories  = $this->categoryModel->category_tree_for_frontend($parent_id,$slug);
         $products    = $this->productModel->join_product__with_single_photo_by_category_id($parent_id['id']);
 		$breadcrumb  = $this->categoryModel->get_categories_for_product_breadcrumb($parent_id);

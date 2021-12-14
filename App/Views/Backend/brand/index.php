@@ -32,7 +32,8 @@
                           <input name="brand-name" type="text" class="form-control" id="brand-name" placeholder="" required>
                         </div>
                       </div>
-
+						
+						<?php /*
                       <div class="form-group row">
                         <label class="col-2 col-form-label" for="brand-brand">اولویت </label>
                         <div class="col-10">
@@ -42,7 +43,7 @@
                             <?php endfor; ?>
                           </select>
                         </div>
-                      </div>
+                      </div> */ ?>
 
                       <div class="form-group row">
                         <label for="slug" class="col-2 col-form-label">عکس</label>

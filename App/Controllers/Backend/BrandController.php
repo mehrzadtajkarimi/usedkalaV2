@@ -51,7 +51,7 @@ class BrandController extends Controller
             $file_paths = $file->save();
             if ($file_paths) {
 
-                $is_create_photo = $this->photoModel->create_photo('Brands', $is_create_brand, $file_paths[0], 'brand_image');
+                $is_create_photo = $this->photoModel->create_photo('Brand', $is_create_brand, $file_paths[0], 'brand_image');
 
 
                 if ($is_create_brand) {
@@ -89,11 +89,12 @@ class BrandController extends Controller
     public function edit()
     {
         $id = $this->request->get_param('id');
-
+		$brandPhoto=$this->photoModel->read_photo_by_id($id['id'],'Brand');
+		if (count($brandPhoto)>0) $brandPhoto=$brandPhoto[0];
+		
         $data = array(
             'brands' => $this->brandModel->read_brand($id),
-            'photo' => $this->photoModel->read_photo($id),
-
+            'photo' => $brandPhoto
         );
         view('Backend.brand.edit', $data);
     }
@@ -114,9 +115,9 @@ class BrandController extends Controller
                 $is_update_photo = $this->photoModel->update_photo('Brand', $id['id'], $file_paths[0], 'brand_image');
 
                 if ($is_update_photo) {
-                    FlashMessage::add("ویرایش برند بندی موفقیت انجام شد");
+                    FlashMessage::add("ویرایش برند با موفقیت انجام شد");
                 } else {
-                    FlashMessage::add(" مشکلی در ویرایش برند بندی رخ داد ", FlashMessage::ERROR);
+                    FlashMessage::add(" مشکلی در ویرایش برند رخ داد ", FlashMessage::ERROR);
                 }
             }
         } else {

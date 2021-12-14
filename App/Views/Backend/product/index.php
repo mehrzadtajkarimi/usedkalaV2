@@ -93,16 +93,16 @@
                       </div>
 
                       <div class="form-group row">
-                        <label for="product-meta" class="col-2 col-form-label"> متن متا</label>
+                        <label for="product-meta" class="col-2 col-form-label">معرفیِ خلاصه</label>
                         <div class="col-10">
                           <textarea name="product-meta" type="text" class="form-control" id="product-meta" placeholder="" rows="2" required></textarea>
                         </div>
                       </div>
 
                       <div class="form-group row">
-                        <label for="product-description" class="col-2 col-form-label"> درباره محصول </label>
+                        <label for="textarea" class="col-2 col-form-label">توضیحات کامل</label>
                         <div class="col-10">
-                          <textarea name="product-description" type="text" class="form-control" id="product-description" placeholder="" rows="3" required></textarea>
+                          <textarea name="product-description" type="text" class="form-control" id="textarea" placeholder="" rows="3" required></textarea>
                         </div>
                       </div>
                       <hr>
@@ -133,14 +133,14 @@
                       </div>
 
                       <div class="form-group row">
-                        <label for="title" class="col-2 col-form-label">title</label>
+                        <label for="title" class="col-2 col-form-label">HTML Title</label>
                         <div class="col-10">
                           <input name="seo-title" type="text" class="form-control" id="title" placeholder="title را وارد نمایید" required>
                         </div>
                       </div>
 
                       <div class="form-group row">
-                        <label for="seo-description" class="col-2 col-form-label"> درباره محصول </label>
+                        <label for="seo-description" class="col-2 col-form-label">HTML Description</label>
                         <div class="col-10">
                           <textarea name="seo-description" type="text" class="form-control" id="seo-description" placeholder="" rows="3" required></textarea>
                         </div>
@@ -257,11 +257,13 @@
             <thead>
               <tr>
                 <th class="text-center" scope="col">#</th>
-                <th class="text-center" scope="col">نام/متا</th>
+                <th class="text-center" scope="col">نام</th>
                 <th class="text-center" scope="col">قیمت</th>
+				<?php /*
                 <th class="text-center" scope="col">موجودی/وزن</th>
                 <th scope="col"> وضعیت/ویژه</th>
-                <th class="text-center" scope="col">اصلاحات</th>
+				*/ ?>
+                <th class="text-center" scope="col">اقدامات</th>
               </tr>
             </thead>
             <tbody>
@@ -273,6 +275,7 @@
                   <td class="text-center" title="<?= $value['sku'] ?>"><?= $count++ ?></td>
                   <td class="text-center" title="<?= $value['meta_title'] ?>"><?= $value['title'] ?></td>
                   <td class="text-center"><?= number_format($value['price']) ?> ریال</td>
+				  <?php /*
                   <td class="text-center" title="<?= $value['weight'] ?>"><?= $value['quantity'] ?></td>
                   <td>
                     <div>
@@ -300,6 +303,7 @@
                       <?php endif; ?>
                     </div>
                   </td>
+				  */ ?>
                   <td class="text-center">
                     <a href="<?= base_url() ?>admin/product/<?= $value['id'] ?>/edit" class="shadow-sm btn btn-warning btn-sm " style="padding: 0px 16px; border-radius: 18px;">ویرایش</a>
                     <form method="post" action="<?= base_url() ?>admin/product/<?= $value['id'] ?>" class="d-inline">

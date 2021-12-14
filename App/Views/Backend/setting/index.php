@@ -3,7 +3,7 @@
     <div class="card-header">
       <div class="row">
         <div class="col-4">
-          <h3 class="p-3 card-title"> لیست برند</h3>
+          <h3 class="p-3 card-title">صفحات درباره ما</h3>
         </div>
         <div class="offset-4"> </div>
         <div class="col-4">
@@ -14,8 +14,8 @@
             </div>
 
             <!-- Button trigger modal -->
-            <a href="<?= base_url() ?>admin/setting/create" type="button" class="mr-2 shadow-sm btn btn-success "  " >
-              ایجاد تنظیمات
+            <a href="<?= base_url() ?>admin/setting/create" type="button" class="mr-2 shadow-sm btn btn-success " >
+              ایجاد صفحه
             </a>
 
 

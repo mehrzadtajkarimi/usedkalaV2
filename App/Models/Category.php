@@ -131,7 +131,7 @@ class Category extends MysqlBaseModel
     }
     public function join_category_to_photo($id)
     {
-        return $this->inner_join(
+        /* return $this->inner_join(
             "categories.id AS categories_id , categories.* , photos.*",
             "photos",                      // -- table photos
             "id",                          // categories.id
@@ -139,7 +139,8 @@ class Category extends MysqlBaseModel
             "categories.id = $id",
             "photos.entity_type='Category'",
 
-        );
+        ); */
+		return $this->query("SELECT cats.*,img.`path`,img.`alt` FROM `categories` as cats LEFT JOIN `photos` as img ON cats.`id` = img.`entity_id` AND img.`entity_type` = 'Category' WHERE cats.`id` = '$id'");
     }
     public function join_category_to_product_categories($id)
     {

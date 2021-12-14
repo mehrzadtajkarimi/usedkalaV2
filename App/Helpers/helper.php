@@ -60,24 +60,29 @@ function inject_menu()
         'parent_id' => 0,
         'type'      => 0,
     ]);
-    foreach ($categoryLevelOne as $LevelOne) {
+    foreach ($categoryLevelOne as $LevelOne)
+	{
         $level_two = $categoryModel->get('id', [
             'parent_id' => $LevelOne['id'],
             'type'      => 0,
         ]);
-        $categoryLevelTwo[$LevelOne['id']] = array();
-        foreach ($level_two as $level_two_id) {
+		$firstLevelTwoItem=$categoryModel->join_category_to_photo($LevelOne['id']);
+        $categoryLevelTwo[$LevelOne['id']] = [$firstLevelTwoItem[0]];
+        foreach ($level_two as $level_two_id)
+		{
             $categories_level_two = $categoryModel->get('*', ['id' => $level_two_id]);
-            foreach ($categories_level_two as $key => $category_level_two) {
+            foreach ($categories_level_two as $key => $category_level_two)
+			{
                 $categories_level_two_add_photo = $categoryModel->join_category_to_photo($category_level_two['id']);
-                array_push($categoryLevelTwo[$LevelOne['id']], $categories_level_two_add_photo[$key]);
+                if (count($categories_level_two_add_photo)>0)
+					array_push($categoryLevelTwo[$LevelOne['id']], $categories_level_two_add_photo[$key]);
             }
         }
     }
 
     if ($categoryLevelOne) {
         return  [
-            'categoryLevelOne' => $categoryLevelOne,
+            'categoryLevelOne' => array_reverse($categoryLevelOne),
             'categoryLevelTwo' => $categoryLevelTwo,
             'cart_total'       => array_sum($cart_total ?? []),
             'cart_count'       => $cart_count,

@@ -12,12 +12,14 @@
                     <input name="brand-name" type="text" class="form-control" id="inputEmail3" value="<?= $brands->name ?? '' ?>" placeholder="نام زیر دسته را وارد نمایید" autofocus>
                 </div>
             </div>
+			<?php /*
             <div class="form-group row">
                 <label for="inputPassword3" class="col-sm-2 col-form-label">sort</label>
                 <div class="col-sm-10">
-                    <input name="brand-sort" type="text" class="form-control" id="inputPassword3" value="<?= $brands->sort ?? '' ?>" placeholder="نامه دسته بندی جهت نمایش در url"">
+                    <input name="brand-sort" type="text" class="form-control" id="inputPassword3" value="<?= $brands->sort ?? '' ?>" placeholder="نامه دسته بندی جهت نمایش در url">
                 </div>
             </div>
+			*/ ?>
             <?php if (empty($photo['path'])) : ?>
                 <div class=" form-group row">
                     <label for="sort" class="col-2 col-form-label">عکس</label>

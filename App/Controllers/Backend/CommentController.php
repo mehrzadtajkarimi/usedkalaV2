@@ -50,6 +50,7 @@ class CommentController extends Controller
             }
             if($value['entity_type'] == 'Blog'){
                 $blog_post = $this->blogModel->read_blog($value['entity_id']);
+				if ($blog_post=="") $blog_post=[];
                 count($blog_post) > 1 ? $comments[$key]['entity_name'] = $blog_post['title'] : $comments[$key]['entity_name'] = "";
             }
         }
