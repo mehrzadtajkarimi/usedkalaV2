@@ -239,7 +239,7 @@ function can(string $name): bool
         $join_roleUser_roles = $roleUserModel->join_roleUser_role($admin_id);
         $rolePermissionModel = new Role_permission();
         foreach ($join_roleUser_roles as  $value) {
-            if ($value['name'] == $name || $value['name'] == 'super-admin') {
+            if ($value['name'] == $name || $value['name'] == 'super-admin' || ($value['name']=='super-user' && $name!="super-admin")) {
                 return TRUE;
             }
             $has_permission = $rolePermissionModel->get_permissions($value['id']);

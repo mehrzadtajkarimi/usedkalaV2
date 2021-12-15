@@ -142,10 +142,11 @@
                                             </div>
                                         </td>
                                         <td class="text-center ">
-                                            <!-- Button trigger modal -->
+											<?php if (can('super-admin')) { ?>
                                             <a href="<?= base_url() ?>admin/user/makeadmin/<?= $value['id'] ?>"><button href="" class="p-0 pl-2 pr-2 shadow-sm btn btn-info btn-sm" style=" border-radius: 18px;">
                                                 تبدیل به ادمین
-                                            </button></a>
+                                            </button></a><?php } ?>
+                                            <!-- Button trigger modal -->
                                             <button href="" class="p-0 pl-2 pr-2 shadow-sm btn btn-warning btn-sm" style=" border-radius: 18px;" data-toggle="modal" data-target="#exampleModalCenter">
                                                 ویــرایـش
                                             </button>

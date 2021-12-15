@@ -212,7 +212,7 @@ class  MysqlBaseModel extends BaseModel
         $where_1 = null,
         $where_2 = null,
         $where_3 = null,
-        $where_4 = null,
+        $where_4 = null
     ) {
         $query = "
         SELECT $column FROM $this->table

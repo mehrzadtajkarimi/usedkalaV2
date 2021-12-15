@@ -219,7 +219,7 @@
                 </ul>
             </li>
         <?php endif; ?>
-        <?php if (can('super-user') || can('super-admin')) : ?>
+        <?php if (can('super-admin')) : ?>
             <li class="nav-item has-treeview">
                 <a href="#" class="nav-link <?= is_active(['/admin/permission', '/admin/role', '/admin/access']) ?>">
                     <p>
@@ -230,30 +230,26 @@
                 </a>
 
                 <ul class="nav nav-treeview <?= is_active(['/admin/permission', '/admin/role', '/admin/access']) ?>">
-                    <?php if (can('super-admin')) : ?>
-						<?php /*
-                        <li class="nav-item">
-                            <a href="<?= base_url() ?>admin/permission" class="nav-link  <?= is_active('/admin/permission') ?>">
-                                <p>(دسترسی‌ها) لیست مجوزها</p>
-                                <i class="fa fa-circle-o nav-icon"></i>
-                            </a>
-                        </li>
-						*/ ?>
-                        <li class="nav-item">
-                            <a href="<?= base_url() ?>admin/role" class="nav-link  <?= is_active('/admin/role') ?>">
-                                <p>(سمت‌ها) لیست نقش‌ها</p>
-                                <i class="fa fa-circle-o nav-icon"></i>
-                            </a>
-                        </li>
-                    <?php endif; ?>
-                    <?php if (can('super-user')) : ?>
-                        <li class="nav-item">
-                            <a href="<?= base_url() ?>admin/access" class="nav-link  <?= is_active('/admin/access') ?>">
-                                <p> لیست ادمین‌ها</p>
-                                <i class="fa fa-circle-o nav-icon"></i>
-                            </a>
-                        </li>
-                    <?php endif; ?>
+					<?php /*
+					<li class="nav-item">
+						<a href="<?= base_url() ?>admin/permission" class="nav-link  <?= is_active('/admin/permission') ?>">
+							<p>(دسترسی‌ها) لیست مجوزها</p>
+							<i class="fa fa-circle-o nav-icon"></i>
+						</a>
+					</li>
+					*/ ?>
+					<li class="nav-item">
+						<a href="<?= base_url() ?>admin/role" class="nav-link  <?= is_active('/admin/role') ?>">
+							<p>(سمت‌ها) لیست نقش‌ها</p>
+							<i class="fa fa-circle-o nav-icon"></i>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a href="<?= base_url() ?>admin/access" class="nav-link  <?= is_active('/admin/access') ?>">
+							<p> لیست ادمین‌ها</p>
+							<i class="fa fa-circle-o nav-icon"></i>
+						</a>
+					</li>
                 </ul>
             </li>
         <?php endif; ?>
