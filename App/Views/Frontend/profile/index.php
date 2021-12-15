@@ -11,9 +11,18 @@
 
 
               <!-- Button trigger modal -->
-              <span type="button" class="btn" data-toggle="modal" data-target="#form-modal-edit-photo" title="جهت ویرایش کلیک کتید">
-                <img id="img-edit" src="<?= $data['path'] ??  asset_url() . 'Frontend/images/users/user4-128x128.jpg' ?> " class="rounded img-fluid profile-img" data-img-name="" alt="<?= $data['alt'] ?? '' ?>" />
-              </span>
+              
+              <div class="row">
+                <div class="col-8">
+                  <span type="button" class="btn" data-toggle="modal" data-target="#form-modal-edit-photo" title="جهت ویرایش کلیک کتید">
+                    <img id="img-edit" src="<?= $data['path'] ??  asset_url() . 'Frontend/images/users/user4-128x128.jpg' ?> " class="rounded img-fluid profile-img" data-img-name="" alt="<?= $data['alt'] ?? '' ?>" />
+                  </span>
+                </div>
+                <div class="col-4 text-center mt-4">
+                  <small class="text-muted " ><?= $data['first_name'] ?></small><hr class=" m-0" >
+                  <small class="text-muted"><?= $data['last_name'] ?></small>
+                </div>
+              </div>
               <!-- Modal -->
               <div id="form-modal-edit-photo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -33,7 +42,7 @@
 
               <div class="mt-3">
                 <div class="list-group list-group-flush">
-                <a href="<?= base_url() ?>profile" class="list-group-item list-group-item-action font-weight-bold">ویرایش پروفایل</a>
+                  <a href="<?= base_url() ?>profile" class="list-group-item list-group-item-action font-weight-bold">ویرایش پروفایل</a>
                   <a href="<?= base_url() ?>profile/orders" class="list-group-item list-group-item-action font-weight-bold">سفارش‌های من</a>
                   <a href="#" class="list-group-item list-group-item-action font-weight-bold">نظرات</a>
                   <a href="#" class="list-group-item list-group-item-action font-weight-bold">کارت های هدیه</a>
@@ -47,7 +56,7 @@
         <div class="col-9">
           <?= App\Utilities\FlashMessage::show_message(); ?>
           <ul class="mb-3 nav nav-pills" id="pills-tab" role="tablist">
-			<?php /*
+            <?php /*
             <li class="nav-item">
               <a class="nav-link " id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">خانه</a>
             </li> */ ?>
@@ -64,7 +73,7 @@
             <?php endif; ?>
           </ul>
           <div class="tab-content" id="pills-tabContent">
-			<?php /*
+            <?php /*
             <div class="tab-pane fade " id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati facilis voluptas recusandae impedit accusamus eligendi, nam omnis soluta atque libero quia tenetur velit placeat neque dignissimos totam minima dolorem in.
@@ -160,27 +169,27 @@
                   <div class="form-group d-flex">
                     <label for="profile-province" class="mr-2 profile-label">استان:</label>
                     <select name="profile-province" class="form-select" data-width="80%" id="profile-province">
-                        <?php if(!isset($data['province_id'])): ?>
-                          <option value="" disabled selected>انتخاب کنید</option>
-                        <?php endif; ?>
-                        <?php foreach ($provinces as $value): ?>
-                          <option value="<?= $value['id'] ?>"  <?= $data['province_id'] == $value['id'] ?  'selected' : ''  ?>><?= $value['name'] ?></option>
-                        <?php endforeach ?>
+                      <?php if (!isset($data['province_id'])) : ?>
+                        <option value="" disabled selected>انتخاب کنید</option>
+                      <?php endif; ?>
+                      <?php foreach ($provinces as $value) : ?>
+                        <option value="<?= $value['id'] ?>" <?= $data['province_id'] == $value['id'] ?  'selected' : ''  ?>><?= $value['name'] ?></option>
+                      <?php endforeach ?>
                     </select>
                   </div>
                 </div>
                 <div class="col profile-city-placeholder">
-                    <label for="profile-city">شهر:</label>
-                    <select name="profile-city" id="profile-city" data-city-id="<?= $data['city_id'] ?? $data['city_id'] ?>">
-                      <?php if(!isset($data['city_id'])): ?>
-                        <option value="" disabled selected>ابتدا شهر را انتخاب کنید</option>
-                      <?php endif; ?>
-                    </select>
+                  <label for="profile-city">شهر:</label>
+                  <select name="profile-city" id="profile-city" data-city-id="<?= $data['city_id'] ?? $data['city_id'] ?>">
+                    <?php if (!isset($data['city_id'])) : ?>
+                      <option value="" disabled selected>ابتدا شهر را انتخاب کنید</option>
+                    <?php endif; ?>
+                  </select>
                 </div>
                 <div class="col">
                   <div class="form-group d-flex">
                     <label for="profile-postalCode" class="profile-postalCode profile-label">کد پستی:</label>
-                    <input type="number" name="profile-postalCode" class="form-control" min="1000000000" max="9999999999"id="profile-postalCode" value="<?= $data['postal_code'] ?>">
+                    <input type="number" name="profile-postalCode" class="form-control" min="1000000000" max="9999999999" id="profile-postalCode" value="<?= $data['postal_code'] ?>">
                   </div>
                 </div>
               </div>

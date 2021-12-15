@@ -41,6 +41,7 @@ Route::group(function () {
     Route::get('/profile/orders/status/{id}', 'OrderController@status');
     Route::get('/profile/orders/{id}', 'OrderController@show');
     Route::patch('/profile/{id}', 'ProfileController@update');
+    Route::post('/profile/orders/note/{id}', 'OrderController@store_note');
     Route::post('/profile/city/{id}', 'CityController@index');
 });
 
