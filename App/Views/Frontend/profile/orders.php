@@ -95,6 +95,10 @@
                                             <a class="btn btn-link" href="<?= base_url() ?>profile/orders/status/<?= $value['id'] ?>">
                                                 تحویل گرفتم
                                             </a>
+                                        <?php elseif ($value['status'] == 4) : ?>
+                                            <a class="btn btn-link" href="<?= base_url() ?>profile/orders/<?= $value['id'] ?>">
+                                                مشاهده سفارش
+                                            </a>
                                         <?php endif; ?>
                                     </td>
                                     <td class="text-center">
@@ -116,7 +120,7 @@
                                                         <form action="<?= base_url() ?>profile/orders/note/<?= $value['id'] ?>" method="POST">
                                                             <div class="modal-body">
                                                                 <div class="form-group">
-                                                                    <textarea name="order-textarea-notes" class="form-control" rows="5" ><?= $value['notes'] ?></textarea>
+                                                                    <textarea name="order-textarea-notes" class="form-control" rows="5"><?= $value['notes'] ?></textarea>
                                                                 </div>
                                                             </div>
                                                             <div class="modal-footer border-0 float-right">

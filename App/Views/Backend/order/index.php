@@ -109,7 +109,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="check-delivery" style="display: <?= $value['status'] == 3 ? 'block'  : 'none' ?> ; ">
+                    <div class="check-delivery" style="display: <?= $value['status'] >= 3 ? 'block'  : 'none' ?> ; ">
                       <div class="row d-flex">
                         <div class="offset-3"></div>
                         <div class="col-3 align-self-center">
@@ -125,7 +125,7 @@
                               <div class="fa fa-times-circle-o fa-2x text-danger" aria-hidden="true"></div>
                             <?php endif; ?>
                             <?php if ($value['status'] == 4) : ?>
-                              <div class="fa fa-check-square-o text-success" aria-hidden="true"></div>
+                              <div class="fa fa-check-square-o fa-2x text-success" aria-hidden="true"></div>
                             <?php endif; ?>
                           </span>
 
