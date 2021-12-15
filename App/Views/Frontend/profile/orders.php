@@ -90,7 +90,7 @@
                                             <a class="btn btn-link" href="<?= base_url() ?>profile/orders/<?= $value['id'] ?>">
                                                 مشاهده سفارش
                                             </a>
-                                        <?php else : ?>
+                                        <?php elseif($value['status'] == 3) : ?>
                                             <a class="btn btn-link" href="<?= base_url() ?>profile/orders/status/<?= $value['id'] ?>">
                                                 تحویل گرفتم
                                             </a>

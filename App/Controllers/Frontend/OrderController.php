@@ -7,7 +7,6 @@ use App\Models\Order;
 use App\Models\Order_Item;
 use App\Models\User;
 use App\Models\City;
-use App\Models\Order_Item;
 use App\Models\Photo;
 use App\Models\Province;
 use App\Models\Product;
