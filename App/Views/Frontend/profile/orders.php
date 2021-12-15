@@ -87,7 +87,7 @@
                                         </span>
                                     </td>
                                     <td class="text-center">
-                                        <?php if ($value['status'] == 4) : ?>
+                                        <?php if ($value['status'] < 3) : ?>
                                             <a class="btn btn-link" href="<?= base_url() ?>profile/orders/<?= $value['id'] ?>">
                                                 مشاهده سفارش
                                             </a>
@@ -109,7 +109,6 @@
                                                     مشاهده یا ویرایش
                                                 </button>
                                             <?php endif; ?>
-
                                             <!-- Modal -->
                                             <div class="modal fade" id="note-<?= $value['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -128,11 +127,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-
-
-
-
                                         <?php endif; ?>
                                     </td>
                                 </tr>

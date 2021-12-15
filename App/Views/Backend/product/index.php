@@ -201,7 +201,7 @@
                           <div class="form-group col-6" id="related-products-name-placeholder" style="display: none">
                             <label for="related-products-name">انتخاب محصولات مرتبط</label>
                             <select name="related-products-name[]" id="related-products-name" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
-                              <?php foreach($products as $value): ?>
+                              <?php foreach ($products as $value) : ?>
                                 <option value="<?= $value['id'] ?>"><?= $value['title'] ?></option>
                               <?php endforeach; ?>
                             </select>
@@ -259,7 +259,7 @@
                 <th class="text-center" scope="col">#</th>
                 <th class="text-center" scope="col">نام</th>
                 <th class="text-center" scope="col">قیمت</th>
-				<?php /*
+                <?php /*
                 <th class="text-center" scope="col">موجودی/وزن</th>
                 <th scope="col"> وضعیت/ویژه</th>
 				*/ ?>
@@ -275,7 +275,7 @@
                   <td class="text-center" title="<?= $value['sku'] ?>"><?= $count++ ?></td>
                   <td class="text-center" title="<?= $value['meta_title'] ?>"><?= $value['title'] ?></td>
                   <td class="text-center"><?= number_format($value['price']) ?> ریال</td>
-				  <?php /*
+                  <?php /*
                   <td class="text-center" title="<?= $value['weight'] ?>"><?= $value['quantity'] ?></td>
                   <td>
                     <div>
@@ -320,7 +320,24 @@
 
         </div>
       </div>
-      <p class="pr-4 text-muted font-italic">برای به دست آوردن نام متا - تخفیف یا وزن با موس روی نقطه مورد نظر هاور کنید</p>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </li>
+
+          <li class="page-item"><a class="page-link" href="<?= base_url() ?>admin/product/">1</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+              <span class="sr-only">Next</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </div>
 </div>
