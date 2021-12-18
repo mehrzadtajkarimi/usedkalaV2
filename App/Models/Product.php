@@ -144,29 +144,18 @@ class Product extends MysqlBaseModel
     }
     public function join_product_to_photo_by_brand_id($brand_id)
     {
-        return $this->inner_join_order(
-            "*",
-            "photos",
-            "id",
-            "entity_id",
-            "photos.type=0",
-            "photos.entity_type='Product'",
-            "products.created_at",
-            "products.brand_id=$brand_id",
-        );
-    }
-    public function join_product_to_photo_by_category_id($category_id)
-    {
-        return $this->inner_join(
-            "products.*,
-            photos.path,
-            photos.alt",
-            "photos",
-            "id",
-            "entity_id",
-            "photos.type=0",
-            "photos.entity_type='Product'",
-        );
+        // return $this->inner_join(
+        //     "*",
+        //     "photos",
+        //     "id",
+        //     "entity_id",
+        //     "photos.type=0",
+        //     "photos.entity_type='Product'",
+        //     "products.brand_id=$brand_id",
+        // );
+        return $this->query("SELECT * FROM `products` as pro INNER JOIN `photos` as img
+            ON img.`entity_id` = pro.`id` AND img.`entity_type` = 'Product' AND img.`type` = 0
+            WHERE pro.`brand_id` = '$brand_id'");
     }
     public function join_product_to_photo_by_id($product_id)
     {
@@ -259,18 +248,23 @@ class Product extends MysqlBaseModel
     }
     public function join_product__with_photo_by_brand_id($brand_id)
     {
-        return $this->inner_join(
-            "products.id ,
-             products.title AS product_title,
-             photos.path AS photo_path,
-             photos.alt AS photo_alt",                 // column
-            "photos",                    // -- table photos
-            "id",                        // products.id
-            "entity_id",                 // photos.entity_id
-            "products.brand_id=$brand_id",
-            "photos.type=0",
-            "photos.entity_type='Product'",
-        );
+        // return $this->inner_join(
+        //     "products.id ,
+        //      products.slug,
+        //      products.price,
+        //      products.title AS product_title,
+        //      photos.path AS photo_path,
+        //      photos.alt AS photo_alt",                 // column
+        //     "photos",                    // -- table photos
+        //     "id",                        // products.id
+        //     "entity_id",                 // photos.entity_id
+        //     "products.brand_id=$brand_id",
+        //     "photos.type=0",
+        //     "photos.entity_type='Product'",
+        // );
+        return $this->query("SELECT * FROM `products` as `pros` INNER JOIN `photos` as `img`
+        ON `img`.`entity_id` = pros.`id` AND `img`.`entity_type` = 'Product' AND 
+        `img`.`type` = 0 WHERE pros.brand_id=$brand_id");
     }
     public function join_product__with_brand($id)
     {
