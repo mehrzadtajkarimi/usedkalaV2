@@ -92,9 +92,9 @@ class  MysqlBaseModel extends BaseModel
 
     public function  get($columns = '*', array $where = null): array
     {
-        $page    = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 1;
-        $start   = ($page - 1) * $this->pageSize;
-        $where['LIMIT'] = [$start, $this->pageSize];
+        // $page    = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 1;
+        // $start   = ($page - 1) * $this->pageSize;
+        // $where['LIMIT'] = [$start, $this->pageSize];
 
         $where["ORDER"] = ["id" => "DESC"];
 
