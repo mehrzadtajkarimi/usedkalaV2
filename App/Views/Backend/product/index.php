@@ -269,10 +269,10 @@
             <tbody>
               <?php
               $count = 0;
-              foreach ($products as $value) :
+              foreach ($products as $key=>$value) :
               ?>
                 <tr>
-                  <td class="text-center" title="<?= $value['sku'] ?>"><?= $count++ ?></td>
+                  <td class="text-center" title="<?= $value['sku'] ?>"><?= floor(pagination_total_count(10, $key))+1 ?></td>
                   <td class="text-center" title="<?= $value['meta_title'] ?>"><?= $value['title'] ?></td>
                   <td class="text-center"><?= number_format($value['price']) ?> ریال</td>
                   <?php /*
@@ -328,8 +328,9 @@
               <span class="sr-only">Previous</span>
             </a>
           </li>
-
-          <li class="page-item"><a class="page-link" href="<?= base_url() ?>admin/product/">1</a></li>
+          <?php for ($i = 0; $i <= pagination_count('products', 10); $i++) : ?>
+            <li class="page-item"><a class="page-link" href="<?= base_url() ?>admin/product?page=<?= $i + 1 ?>"><?= $i + 1 ?></a></li>
+          <?php endfor; ?>
           <li class="page-item">
             <a class="page-link" href="#" aria-label="Next">
               <span aria-hidden="true">&raquo;</span>

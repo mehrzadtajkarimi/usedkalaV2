@@ -3,6 +3,7 @@
 use App\Core\Contracts\Facade;
 use App\Core\Request;
 use App\Models\Category;
+use App\Models\Contracts\MysqlBaseModel;
 use App\Models\Discount;
 use App\Models\Permission_user;
 use App\Models\Photo;
@@ -14,6 +15,7 @@ use App\Models\Setting;
 use App\Services\Auth\Auth;
 use App\Services\Basket\Basket;
 use App\Services\Session\SessionManager;
+use Medoo\Medoo;
 
 function base_url($route = null)
 {
@@ -268,4 +270,40 @@ function wishList()
 {
     $whishListModel = new Wish_list();
     return $whishListModel->read_all_wishList_items('Product');
+}
+
+function pagination_count($table,$count)
+{
+    // $MysqlBaseModel = new MysqlBaseModel();
+    $query= connection()->count($table);
+    return floor($query / $count);
+}
+
+function pagination_total_count($count, $key)
+{
+    $page = $_GET['page'];
+    return (($page -1 ) * $count) + $key;
+}
+
+function connection()
+{
+    try {
+        return new Medoo([
+            'type'      => 'mysql',
+            'host'      => $_ENV['DB_HOST'],
+            'database'  => $_ENV['DB_NAME'],
+            'username'  => $_ENV['DB_USER'],
+            'password'  => $_ENV['DB_PASS'],
+            'charset'   => 'utf8mb4',
+            'collation' => 'utf8mb4_general_ci',
+            'port'      => 3306,
+            'prefix'    => '',
+            // [optional] Enable logging, it is disabled by default for better performance.
+            'logging' => true,
+            // PDO::ERRMODE_SILENT (default) | PDO::ERRMODE_WARNING | PDO::ERRMODE_EXCEPTION
+            'error' => \PDO::ERRMODE_EXCEPTION,
+        ]);
+    } catch (\PDOException $e) {
+        echo '<h1>مشکلی در ارتباط با دیتابیس رخ داد </h1>';
+    }
 }
