@@ -46,7 +46,7 @@ class ProductController extends Controller
     public function index()
     {
         $id                = $this->request->get_param('id');
-        $products          = $this->productModel->join_product_to_photo_by_category_id($id);
+        $products          = $this->productModel->join_product_to_photo();
         $wishlist_products = $this->wishListModel->read_all_wishList_items('Product');
         $selected_wishlist = [];
         foreach ($wishlist_products as $key => $value){

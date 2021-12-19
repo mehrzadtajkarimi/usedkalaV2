@@ -1,60 +1,63 @@
 <?php
-$slideCount=count($sliders);
+$slideCount = count($sliders);
 ?>
 <div class="col-full">
     <div class="row">
         <div id="primary" class="content-area">
             <main id="main" class="site-main">
-				<div class="usedkalaslide">
-					<div class="scrollthis" style="width: <?= $slideCount ?>00%">
-						<?php
-						$i=1;
-						foreach($sliders as $id=>$slider)
-						{
-							if ($slider['linktype']=="link" && trim($slider['link']!="")) $sliderLink=trim($slider['link']);
-							else if ($slider['linktype']=="category" && $slider['category_id']!=0) $sliderLink=base_url()."category/".$slider['category_id'];
-							else if ($slider['linktype']=="product" && $slider['product_id']!=0) $sliderLink=base_url()."product/".$slider['product_id'];
-							else $sliderLink="";
-						?>
-							<?php if ($sliderLink!="") echo '<a href="'.$sliderLink.'">'; ?><div class="item" style="width: <?= 100/$slideCount ?>%; background-image: url(<?= $slider['photo']['path'] ?>)"></div><?php if ($sliderLink!="") echo '</a>'; ?>
-							<script type="text/javascript">
-							slides[<?= $i ?>]={
-								"title": "<?= trim($slider['small_text']) ?>",
-								"desc": "<?= trim($slider['description']) ?>",
-								"link": "<?= $sliderLink ?>"
-							}
-							</script>
-						<?php
-							$i++;
-						}
-						?>
-					</div>
-					<div class="content">
-						<div class="title"></div>
-						<div class="desc"></div>
-					</div>
-					<div class="progress"></div>
-				</div>
-				<div class="slide_btns">
-					<?php
-					for($j=1;$j<$i;$j++)
-						echo '<div id="slide_btn'.$j.'" onclick="changeslide('.$j.')"></div>';
-					?>
-				</div>
-				<script type="text/javascript">
-				slideCount=<?= $i-1 ?>;
-				$(".usedkalaslide .title").html(slides[1].title);
-				$(".usedkalaslide .desc").html(slides[1].desc);
-				if (slides[1].title=="" && slides[1].desc=="")
-					$(".usedkalaslide .content").addClass('hide');
+                <div class="usedkalaslide">
+                    <div class="scrollthis" style="width: <?= $slideCount ?>00%">
+                        <?php
+                        $i = 1;
+                        foreach ($sliders as $id => $slider) {
+                            if ($slider['linktype'] == "link" && trim($slider['link'] != "")) $sliderLink = trim($slider['link']);
+                            else if ($slider['linktype'] == "category" && $slider['category_id'] != 0) $sliderLink = base_url() . "category/" . $slider['category_id'];
+                            else if ($slider['linktype'] == "product" && $slider['product_id'] != 0) $sliderLink = base_url() . "product/" . $slider['product_id'];
+                            else $sliderLink = "";
+                        ?>
+                            <?php if ($sliderLink != "") echo '<a href="' . $sliderLink . '">'; ?><div class="item" style="width: <?= 100 / $slideCount ?>%; background-image: url(<?= $slider['photo']['path'] ?>)"></div><?php if ($sliderLink != "") echo '</a>'; ?>
+                            <script type="text/javascript">
+                                slides[<?= $i ?>] = {
+                                    "title": "<?= trim($slider['small_text']) ?>",
+                                    "desc": "<?= trim($slider['description']) ?>",
+                                    "link": "<?= $sliderLink ?>"
+                                }
+                            </script>
+                        <?php
+                            $i++;
+                        }
+                        ?>
+                    </div>
+                    <div class="content">
+                        <div class="title"></div>
+                        <div class="desc"></div>
+                    </div>
+                    <div class="progress"></div>
+                </div>
+                <div class="slide_btns">
+                    <?php
+                    for ($j = 1; $j < $i; $j++)
+                        echo '<div id="slide_btn' . $j . '" onclick="changeslide(' . $j . ')"></div>';
+                    ?>
+                </div>
+                <script type="text/javascript">
+                    slideCount = <?= $i - 1 ?>;
+                    $(".usedkalaslide .title").html(slides[1].title);
+                    $(".usedkalaslide .desc").html(slides[1].desc);
+                    if (slides[1].title == "" && slides[1].desc == "")
+                        $(".usedkalaslide .content").addClass('hide');
 
-				$("#slide_btn1").addClass('active');
-				slideintval=setInterval(slideintvalstep,10);
+                    $("#slide_btn1").addClass('active');
+                    slideintval = setInterval(slideintvalstep, 10);
 
-				$(".usedkalaslide").mouseenter(function(){clearInterval(slideintval)});
-				$(".usedkalaslide").mouseleave(function(){slideintval=setInterval(slideintvalstep,10);});
-				</script>
-				
+                    $(".usedkalaslide").mouseenter(function() {
+                        clearInterval(slideintval)
+                    });
+                    $(".usedkalaslide").mouseleave(function() {
+                        slideintval = setInterval(slideintvalstep, 10);
+                    });
+                </script>
+
                 <div class="features-list">
                     <div class="features">
                         <div class="feature">
@@ -119,36 +122,36 @@ $slideCount=count($sliders);
                         <div class="banner-2">
                             <div class="banner-box">
                                 <div class="col-img">
-                                    <a href="#"><img src="<?= asset_url() ?>Frontend/images/banner/banner3-1.jpg" alt="banner 3"></a>
+                                    <a href="<?= base_url() ?>category/سرور"><img src="<?= asset_url() ?>Frontend/images/banner/banner3-1.jpg" alt="banner 3"></a>
                                 </div>
                                 <div class="col-img">
-                                    <a href="#"><img src="<?= asset_url() ?>Frontend/images/banner/banner3-2.jpg" alt="banner 3"></a>
-                                </div>
-                            </div>
-                            <div class="banner-box">
-                                <div class="col-img">
-                                    <a href="#"><img src="<?= asset_url() ?>Frontend/images/banner/banner3-3.jpg" alt="banner 3"></a>
+                                    <a href="<?= base_url() ?>category/سرور"><img src="<?= asset_url() ?>Frontend/images/banner/banner3-2.jpg" alt="banner 3"></a>
                                 </div>
                             </div>
                             <div class="banner-box">
                                 <div class="col-img">
-                                    <a href="#"><img src="<?= asset_url() ?>Frontend/images/banner/banner3-4.jpg" alt="banner 3"></a>
-                                </div>
-                                <div class="col-img">
-                                    <a href="#"><img src="<?= asset_url() ?>Frontend/images/banner/banner3-5.jpg" alt="banner 3"></a>
+                                    <a href="<?= base_url() ?>category/سرور"><img src="<?= asset_url() ?>Frontend/images/banner/banner3-3.jpg" alt="banner 3"></a>
                                 </div>
                             </div>
                             <div class="banner-box">
                                 <div class="col-img">
-                                    <a href="#"><img src="<?= asset_url() ?>Frontend/images/banner/banner3-6.jpg" alt="banner 3"></a>
+                                    <a href="<?= base_url() ?>category/روتر"><img src="<?= asset_url() ?>Frontend/images/banner/banner3-4.jpg" alt="banner 3"></a>
+                                </div>
+                                <div class="col-img">
+                                    <a href="<?= base_url() ?>category/سوئیچ-شبکه"><img src="<?= asset_url() ?>Frontend/images/banner/banner3-5.jpg" alt="banner 3"></a>
                                 </div>
                             </div>
                             <div class="banner-box">
                                 <div class="col-img">
-                                    <a href="#"><img src="<?= asset_url() ?>Frontend/images/banner/banner3-7.jpg" alt="banner 3"></a>
+                                    <a href="<?= base_url() ?>category/رک-و-لوازم-جانبی"><img src="<?= asset_url() ?>Frontend/images/banner/banner3-6.jpg" alt="banner 3"></a>
+                                </div>
+                            </div>
+                            <div class="banner-box">
+                                <div class="col-img">
+                                    <a href="<?= base_url() ?>category/تلفن-IP"><img src="<?= asset_url() ?>Frontend/images/banner/banner3-7.jpg" alt="banner 3"></a>
                                 </div>
                                 <div class="col-img">
-                                    <a href="#"><img src="<?= asset_url() ?>Frontend/images/banner/banner3-8.jpg" alt="banner 3"></a>
+                                    <a href="<?= base_url() ?>category/فایروال"><img src="<?= asset_url() ?>Frontend/images/banner/banner3-8.jpg" alt="banner 3"></a>
                                 </div>
                             </div>
                         </div>
@@ -184,9 +187,9 @@ $slideCount=count($sliders);
                                                     <?php foreach ($latest_products as $value) : ?>
                                                         <div class="product">
                                                             <div class="yith-wcwl-add-to-wishlist">
-                                                                <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist <?php if (in_array($value['product_id'], $selected_wishlist)) echo 'active'; ?>" data-id="<?= $value['product_id'] ?>">افزودن به علاقه مندی ها</a>
                                                             </div>
-                                                            <a href="<?= base_url() . 'product/' . $value['product_id'] ?>" class="woocommerce-LoopProduct-link">
+                                                            <a href="<?= base_url() . 'product/' . $value['product_id'] . '/' . $value['slug'] ?>" class="woocommerce-LoopProduct-link">
                                                                 <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image" alt="">
                                                                 <span class="price">
                                                                     <ins>
@@ -198,7 +201,7 @@ $slideCount=count($sliders);
                                                                 <h2 class="woocommerce-loop-product__title"><?= $value['title'] ?></h2>
                                                             </a>
                                                             <div class="hover-area">
-                                                                <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                <a class="button add_to_cart_button" href="<?= base_url() ?>cart/add/<?= $value['product_id'] ?>" rel="nofollow">افزودن به سبد خرید</a>
                                                                 <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                             </div>
                                                         </div>
@@ -218,26 +221,26 @@ $slideCount=count($sliders);
                                         <div class="container-fluid">
                                             <div class="woocommerce">
                                                 <div class="products">
-                                                    <?php foreach ($product_discounts as $value) : ?>
+                                                    <?php foreach ($product_haraji as $value) : ?>
                                                         <div class="product">
                                                             <div class="yith-wcwl-add-to-wishlist">
-                                                                <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist <?php if (in_array($value['id'], $selected_wishlist)) echo 'active'; ?>" data-id="<?= $value['id'] ?>">افزودن به علاقه مندی ها</a>
                                                             </div>
-                                                            <a href="<?= base_url() . 'product/' . $value['product_id'] ?>" class="woocommerce-LoopProduct-link">
-                                                                <img src="<?= $value['photo_path'] ?>" width="224" height="197" class="wp-post-image" alt="<?= $value['photo_alt'] ?>">
+                                                            <a href="<?= base_url() . 'product/' . $value['id'] . '/' . $value['slug'] ?>" class="woocommerce-LoopProduct-link">
+                                                                <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image" alt="<?= $value['alt'] ?>">
                                                                 <span class="price">
                                                                     <ins>
                                                                         <span class="amount" dircetion="rtl"></span>
                                                                     </ins>
-                                                                    <span class="amount" dircetion="rtl"><?= $value['product_price'] ?> ریال</span>
+                                                                    <span class="amount" dircetion="rtl"><?= number_format($value['price']) ?> ریال</span>
                                                                 </span>
                                                                 <!-- /.price -->
                                                                 <h2 class="woocommerce-loop-product__title">
-                                                                    <?= $value['product_title'] ?>
+                                                                    <?= $value['title'] ?>
                                                                 </h2>
                                                             </a>
                                                             <div class="hover-area">
-                                                                <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                <a class="button add_to_cart_button" href="<?= base_url() ?>cart/add/<?= $value['id'] ?>" rel="nofollow">افزودن به سبد خرید</a>
                                                                 <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                             </div>
                                                         </div>
@@ -260,15 +263,15 @@ $slideCount=count($sliders);
                                                     <?php foreach ($sale_products as $value) : ?>
                                                         <div class="product">
                                                             <div class="yith-wcwl-add-to-wishlist">
-                                                                <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist <?php if (in_array($value['product_id'], $selected_wishlist)) echo 'active'; ?>" data-id="<?= $value['product_id'] ?>">افزودن به علاقه مندی ها</a>
                                                             </div>
-                                                            <a href="<?= base_url() . 'product/' . $value['product_id'] ?>" class="woocommerce-LoopProduct-link">
+                                                            <a href="<?= base_url() . 'product/'  . $value['product_id'] . '/' . $value['slug'] ?>" class="woocommerce-LoopProduct-link">
                                                                 <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image" alt="<?= $value['alt'] ?>">
                                                                 <span class="price">
                                                                     <ins>
                                                                         <span class="amount" dircetion="rtl"> </span>
                                                                     </ins>
-                                                                    <span class="amount" dircetion="rtl"> <?= $value['price'] ?> ریال</span>
+                                                                    <span class="amount" dircetion="rtl"> <?= number_format($value['price']) ?> ریال</span>
                                                                 </span>
                                                                 <!-- /.price -->
                                                                 <h2 class="woocommerce-loop-product__title">
@@ -276,7 +279,7 @@ $slideCount=count($sliders);
                                                                 </h2>
                                                             </a>
                                                             <div class="hover-area">
-                                                                <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                <a class="button add_to_cart_button" href="<?= base_url() ?>cart/add/<?= $value['product_id'] ?>" rel="nofollow">افزودن به سبد خرید</a>
                                                                 <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                             </div>
                                                         </div>
@@ -322,7 +325,7 @@ $slideCount=count($sliders);
                             <div class="products">
                                 <?php foreach ($featured_products as $key => $value) : ?>
                                     <div class="product-category product <?= $key === array_key_first($featured_products) ? 'first' : '' ?> <?= $key === array_key_last($featured_products) ? 'last' : '' ?>">
-                                        <a href="product-category.html">
+                                        <a href="<?= base_url() . 'product/'  . $value['0'] . '/' . $value['slug'] ?>">
                                             <img width="224" height="197" src="<?= $value['path'] ?>" alt="<?= $value['alt'] ?>">
                                             <h2 class="woocommerce-loop-category__title">
                                                 <?= $value['title'] ?>
@@ -351,7 +354,7 @@ $slideCount=count($sliders);
                     <div class="col-full">
                         <header class="section-header">
                             <h2 class="section-title">
-                                محصولات سیسکو
+                                محصولات اینتل
                             </h2>
                         </header>
                         <!-- .section-header -->
@@ -361,406 +364,55 @@ $slideCount=count($sliders);
                                     <div class="container-fluid">
                                         <div class="woocommerce columns-2">
                                             <div class="products">
-                                                <div class="landscape-product-card product">
-                                                    <div class="media">
-                                                        <div class="yith-wcwl-add-to-wishlist">
-                                                            <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
-                                                        </div>
-                                                        <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                                            <img class="wp-post-image" src="<?= asset_url() ?>Frontend/images/products/1-2.jpg" alt="">
-                                                        </a>
-                                                        <div class="media-body" style="direction: rtl;">
-                                                            <a class="woocommerce-LoopProduct-link " href="single-product-fullwidth.html">
-                                                                <span class="price">
-                                                                    <ins>
-                                                                        <span class="amount" dircetion="rtl">112,000,000
-                                                                            ریال</span>
-                                                                    </ins>
-                                                                    <br>
-                                                                    <del>
-                                                                        <span class="amount" dircetion="rtl">26,000,000
-                                                                            ریال</span>
-                                                                    </del>
-                                                                </span>
-                                                                <!-- .price -->
-                                                                <h2 class="woocommerce-loop-product__title">
-                                                                    UN40H5003 40-Inch 1080p LED TV with
-                                                                    Backlight</h2>
-                                                                <div class="ribbon green-label">
-                                                                    <span>A++</span>
-                                                                </div>
-                                                                <div class="techmarket-product-rating">
-                                                                    <div title="Rated 0 out of 5" class="star-rating">
-                                                                        <span style="width:0%">
-                                                                            <strong class="rating">0</strong>
-                                                                            out of 5</span>
-                                                                    </div>
-                                                                    <span class="review-count">(0)</span>
-                                                                </div>
-                                                                <!-- .techmarket-product-rating -->
-                                                            </a>
-                                                            <div class="hover-area">
-                                                                <a class="button add_to_cart_button" href="cart.html">افزودن به سبد خرید</a>
-                                                                <a href="compare.html" class="add-to-compare-link">Add to
-                                                                    compare</a>
+                                                <?php foreach ($product_cisco as $value) : ?>
+                                                    <div class="landscape-product-card product">
+                                                        <div class="media">
+                                                            <div class="yith-wcwl-add-to-wishlist">
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist <?php if (in_array($value['0'], $selected_wishlist)) echo 'active'; ?>" data-id="<?= $value['0'] ?>">افزودن به علاقه مندی ها</a>
                                                             </div>
-                                                            <!-- .hover-area -->
-                                                        </div>
-                                                        <!-- .media-body -->
-                                                    </div>
-                                                    <!-- .media -->
-                                                </div>
-                                                <!-- .woocommerce-LoopProduct-link -->
-                                                <div class="landscape-product-card product">
-                                                    <div class="media">
-                                                        <div class="yith-wcwl-add-to-wishlist">
-                                                            <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
-                                                        </div>
-                                                        <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                                            <img class="wp-post-image" src="<?= asset_url() ?>Frontend/images/products/1-4.jpg" alt="">
-                                                        </a>
-                                                        <div class="media-body" style="direction: rtl;">
-                                                            <a class="woocommerce-LoopProduct-link " href="single-product-fullwidth.html">
-                                                                <span class="price">
-                                                                    <ins>
-                                                                        <span class="amount" dircetion="rtl">112,000,000
-                                                                            ریال</span>
-                                                                    </ins>
-                                                                    <br>
-                                                                    <del>
-                                                                        <span class="amount" dircetion="rtl">26,000,000
-                                                                            ریال</span>
-                                                                    </del>
-                                                                </span>
-                                                                <!-- .price -->
-                                                                <h2 class="woocommerce-loop-product__title">
-                                                                    60UH6150 60-Inch 4K Ultra HD Smart LED
-                                                                    TV</h2>
-                                                                <div class="ribbon green-label">
-                                                                    <span>A+</span>
-                                                                </div>
-                                                                <div class="techmarket-product-rating">
-                                                                    <div title="Rated 0 out of 5" class="star-rating">
-                                                                        <span style="width:0%">
-                                                                            <strong class="rating">0</strong>
-                                                                            out of 5</span>
-                                                                    </div>
-                                                                    <span class="review-count">(0)</span>
-                                                                </div>
-                                                                <!-- .techmarket-product-rating -->
+                                                            <a class="woocommerce-LoopProduct-link" href="<?= base_url() . 'product/' . $value['0'] . '/' . $value['slug'] ?>">
+                                                                <img class="wp-post-image" src="<?= $value['path'] ?>" alt="">
                                                             </a>
-                                                            <div class="hover-area">
-                                                                <a class="button add_to_cart_button" href="cart.html">افزودن به سبد خرید</a>
-                                                                <a href="compare.html" class="add-to-compare-link">Add to
-                                                                    compare</a>
-                                                            </div>
-                                                            <!-- .hover-area -->
-                                                        </div>
-                                                        <!-- .media-body -->
-                                                    </div>
-                                                    <!-- .media -->
-                                                </div>
-                                                <!-- .woocommerce-LoopProduct-link -->
-                                                <div class="landscape-product-card product">
-                                                    <div class="media">
-                                                        <div class="yith-wcwl-add-to-wishlist">
-                                                            <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
-                                                        </div>
-                                                        <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                                            <img class="wp-post-image" src="<?= asset_url() ?>Frontend/images/products/1-1.jpg" alt="">
-                                                        </a>
-                                                        <div class="media-body" style="direction: rtl;">
-                                                            <a class="woocommerce-LoopProduct-link " href="single-product-fullwidth.html">
-                                                                <span class="price">
-                                                                    <ins>
-                                                                        <span class="amount" dircetion="rtl">112,000,000
-                                                                            ریال</span>
-                                                                    </ins>
-                                                                    <br>
-                                                                    <del>
-                                                                        <span class="amount" dircetion="rtl">26,000,000
-                                                                            ریال</span>
-                                                                    </del>
-                                                                </span>
-                                                                <!-- .price -->
-                                                                <h2 class="woocommerce-loop-product__title">
-                                                                    55EG9600 – 55-Inch 2160p Smart Curved
-                                                                    Ultra HD 3D</h2>
-                                                                <div class="ribbon green-label">
-                                                                    <span>A++</span>
-                                                                </div>
-                                                                <div class="techmarket-product-rating">
-                                                                    <div title="Rated 0 out of 5" class="star-rating">
-                                                                        <span style="width:0%">
-                                                                            <strong class="rating">0</strong>
-                                                                            out of 5</span>
+                                                            <div class="media-body" style="direction: rtl;">
+                                                                <a class="woocommerce-LoopProduct-link " href="<?= base_url() . 'product/' . $value['0'] . '/' . $value['slug'] ?>">
+                                                                    <span class="price">
+                                                                        <ins>
+                                                                            <span class="amount" dircetion="rtl"> <?= number_format($value['price']) ?> ریال</span>
+                                                                        </ins>
+                                                                        <br>
+                                                                        <!-- <del>
+                                                                            <span class="amount" dircetion="rtl">26,000,000
+                                                                                ریال</span>
+                                                                        </del> -->
+                                                                    </span>
+                                                                    <!-- .price -->
+                                                                    <h2 class="woocommerce-loop-product__title"><?= $value['title'] ?></h2>
+                                                                    <div class="ribbon green-label">
+                                                                        <span>A++</span>
                                                                     </div>
-                                                                    <span class="review-count">(0)</span>
-                                                                </div>
-                                                                <!-- .techmarket-product-rating -->
-                                                            </a>
-                                                            <div class="hover-area">
-                                                                <a class="button add_to_cart_button" href="cart.html">افزودن به سبد خرید</a>
-                                                                <a href="compare.html" class="add-to-compare-link">Add to
-                                                                    compare</a>
-                                                            </div>
-                                                            <!-- .hover-area -->
-                                                        </div>
-                                                        <!-- .media-body -->
-                                                    </div>
-                                                    <!-- .media -->
-                                                </div>
-                                                <!-- .woocommerce-LoopProduct-link -->
-                                                <div class="landscape-product-card product">
-                                                    <div class="media">
-                                                        <div class="yith-wcwl-add-to-wishlist">
-                                                            <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
-                                                        </div>
-                                                        <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                                            <img class="wp-post-image" src="<?= asset_url() ?>Frontend/images/products/1-6.jpg" alt="">
-                                                        </a>
-                                                        <div class="media-body" style="direction: rtl;">
-                                                            <a class="woocommerce-LoopProduct-link " href="single-product-fullwidth.html">
-                                                                <span class="price">
-                                                                    <ins>
-                                                                        <span class="amount" dircetion="rtl">112,000,000
-                                                                            ریال</span>
-                                                                    </ins>
-                                                                    <br>
-                                                                    <del>
-                                                                        <span class="amount" dircetion="rtl">26,000,000
-                                                                            ریال</span>
-                                                                    </del>
-                                                                </span>
-                                                                <!-- .price -->
-                                                                <h2 class="woocommerce-loop-product__title">
-                                                                    55UP130 55-Inch 4K Ultra HD Roku Smart
-                                                                    LED TV</h2>
-                                                                <div class="ribbon green-label">
-                                                                    <span>A+</span>
-                                                                </div>
-                                                                <div class="techmarket-product-rating">
-                                                                    <div title="Rated 0 out of 5" class="star-rating">
-                                                                        <span style="width:0%">
-                                                                            <strong class="rating">0</strong>
-                                                                            out of 5</span>
+                                                                    <div class="techmarket-product-rating">
+                                                                        <div title="Rated 0 out of 5" class="star-rating">
+                                                                            <span style="width:0%">
+                                                                                <strong class="rating">0</strong>
+                                                                                از 5</span>
+                                                                        </div>
+                                                                        <span class="review-count">(0)</span>
                                                                     </div>
-                                                                    <span class="review-count">(0)</span>
+                                                                    <!-- .techmarket-product-rating -->
+                                                                </a>
+                                                                <div class="hover-area">
+                                                                    <a class="button add_to_cart_button" href="<?= base_url() ?>cart/add/<?= $value['0'] ?>">افزودن به سبد خرید</a>
+                                                                    <a href="compare.html" class="add-to-compare-link">Add to
+                                                                        compare</a>
                                                                 </div>
-                                                                <!-- .techmarket-product-rating -->
-                                                            </a>
-                                                            <div class="hover-area">
-                                                                <a class="button add_to_cart_button" href="cart.html">افزودن به سبد خرید</a>
-                                                                <a href="compare.html" class="add-to-compare-link">Add to
-                                                                    compare</a>
+                                                                <!-- .hover-area -->
                                                             </div>
-                                                            <!-- .hover-area -->
+                                                            <!-- .media-body -->
                                                         </div>
-                                                        <!-- .media-body -->
+                                                        <!-- .media -->
                                                     </div>
-                                                    <!-- .media -->
-                                                </div>
-                                                <!-- .woocommerce-LoopProduct-link -->
-                                                <div class="landscape-product-card product">
-                                                    <div class="media">
-                                                        <div class="yith-wcwl-add-to-wishlist">
-                                                            <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
-                                                        </div>
-                                                        <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                                            <img class="wp-post-image" src="<?= asset_url() ?>Frontend/images/products/1-2.jpg" alt="">
-                                                        </a>
-                                                        <div class="media-body" style="direction: rtl;">
-                                                            <a class="woocommerce-LoopProduct-link " href="single-product-fullwidth.html">
-                                                                <span class="price">
-                                                                    <ins>
-                                                                        <span class="amount" dircetion="rtl">112,000,000
-                                                                            ریال</span>
-                                                                    </ins>
-                                                                    <br>
-                                                                    <del>
-                                                                        <span class="amount" dircetion="rtl">26,000,000
-                                                                            ریال</span>
-                                                                    </del>
-                                                                </span>
-                                                                <!-- .price -->
-                                                                <h2 class="woocommerce-loop-product__title">
-                                                                    55″ KU6470 6 Series UHD Crystal Colour
-                                                                    HDR Smart TV</h2>
-                                                                <div class="ribbon green-label">
-                                                                    <span>A+</span>
-                                                                </div>
-                                                                <div class="techmarket-product-rating">
-                                                                    <div title="Rated 0 out of 5" class="star-rating">
-                                                                        <span style="width:0%">
-                                                                            <strong class="rating">0</strong>
-                                                                            out of 5</span>
-                                                                    </div>
-                                                                    <span class="review-count">(0)</span>
-                                                                </div>
-                                                                <!-- .techmarket-product-rating -->
-                                                            </a>
-                                                            <div class="hover-area">
-                                                                <a class="button add_to_cart_button" href="cart.html">افزودن به سبد خرید</a>
-                                                                <a href="compare.html" class="add-to-compare-link">Add to
-                                                                    compare</a>
-                                                            </div>
-                                                            <!-- .hover-area -->
-                                                        </div>
-                                                        <!-- .media-body -->
-                                                    </div>
-                                                    <!-- .media -->
-                                                </div>
-                                                <!-- .woocommerce-LoopProduct-link -->
-                                                <div class="landscape-product-card product">
-                                                    <div class="media">
-                                                        <div class="yith-wcwl-add-to-wishlist">
-                                                            <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
-                                                        </div>
-                                                        <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                                            <img class="wp-post-image" src="<?= asset_url() ?>Frontend/images/products/1-5.jpg" alt="">
-                                                        </a>
-                                                        <div class="media-body" style="direction: rtl;">
-                                                            <a class="woocommerce-LoopProduct-link " href="single-product-fullwidth.html">
-                                                                <span class="price">
-                                                                    <ins>
-                                                                        <span class="amount" dircetion="rtl">112,000,000
-                                                                            ریال</span>
-                                                                    </ins>
-                                                                    <br>
-                                                                    <del>
-                                                                        <span class="amount" dircetion="rtl">26,000,000
-                                                                            ریال</span>
-                                                                    </del>
-                                                                </span>
-                                                                <!-- .price -->
-                                                                <h2 class="woocommerce-loop-product__title">
-                                                                    55″ KU6470 6 Series UHD Crystal Colour
-                                                                    HDR Smart TV</h2>
-                                                                <div class="ribbon green-label">
-                                                                    <span>A++</span>
-                                                                </div>
-                                                                <div class="techmarket-product-rating">
-                                                                    <div title="Rated 0 out of 5" class="star-rating">
-                                                                        <span style="width:0%">
-                                                                            <strong class="rating">0</strong>
-                                                                            out of 5</span>
-                                                                    </div>
-                                                                    <span class="review-count">(0)</span>
-                                                                </div>
-                                                                <!-- .techmarket-product-rating -->
-                                                            </a>
-                                                            <div class="hover-area">
-                                                                <a class="button add_to_cart_button" href="cart.html">افزودن به سبد خرید</a>
-                                                                <a href="compare.html" class="add-to-compare-link">Add to
-                                                                    compare</a>
-                                                            </div>
-                                                            <!-- .hover-area -->
-                                                        </div>
-                                                        <!-- .media-body -->
-                                                    </div>
-                                                    <!-- .media -->
-                                                </div>
-                                                <!-- .woocommerce-LoopProduct-link -->
-                                                <div class="landscape-product-card product">
-                                                    <div class="media">
-                                                        <div class="yith-wcwl-add-to-wishlist">
-                                                            <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
-                                                        </div>
-                                                        <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                                            <img class="wp-post-image" src="<?= asset_url() ?>Frontend/images/products/1-3.jpg" alt="">
-                                                        </a>
-                                                        <div class="media-body" style="direction: rtl;">
-                                                            <a class="woocommerce-LoopProduct-link " href="single-product-fullwidth.html">
-                                                                <span class="price">
-                                                                    <ins>
-                                                                        <span class="amount" dircetion="rtl">112,000,000
-                                                                            ریال</span>
-                                                                    </ins>
-                                                                    <br>
-                                                                    <del>
-                                                                        <span class="amount" dircetion="rtl">26,000,000
-                                                                            ریال</span>
-                                                                    </del>
-                                                                </span>
-                                                                <!-- .price -->
-                                                                <h2 class="woocommerce-loop-product__title">
-                                                                    55EG9600 – 55-Inch 2160p Smart Curved
-                                                                    Ultra HD 3D</h2>
-                                                                <div class="ribbon green-label">
-                                                                    <span>A+</span>
-                                                                </div>
-                                                                <div class="techmarket-product-rating">
-                                                                    <div title="Rated 0 out of 5" class="star-rating">
-                                                                        <span style="width:0%">
-                                                                            <strong class="rating">0</strong>
-                                                                            out of 5</span>
-                                                                    </div>
-                                                                    <span class="review-count">(0)</span>
-                                                                </div>
-                                                                <!-- .techmarket-product-rating -->
-                                                            </a>
-                                                            <div class="hover-area">
-                                                                <a class="button add_to_cart_button" href="cart.html">افزودن به سبد خرید</a>
-                                                                <a href="compare.html" class="add-to-compare-link">Add to
-                                                                    compare</a>
-                                                            </div>
-                                                            <!-- .hover-area -->
-                                                        </div>
-                                                        <!-- .media-body -->
-                                                    </div>
-                                                    <!-- .media -->
-                                                </div>
-                                                <!-- .woocommerce-LoopProduct-link -->
-                                                <div class="landscape-product-card product">
-                                                    <div class="media">
-                                                        <div class="yith-wcwl-add-to-wishlist">
-                                                            <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
-                                                        </div>
-                                                        <a class="woocommerce-LoopProduct-link" href="single-product-fullwidth.html">
-                                                            <img class="wp-post-image" src="<?= asset_url() ?>Frontend/images/products/1-5.jpg" alt="">
-                                                        </a>
-                                                        <div class="media-body" style="direction: rtl;">
-                                                            <a class="woocommerce-LoopProduct-link " href="single-product-fullwidth.html">
-                                                                <span class="price">
-                                                                    <ins>
-                                                                        <span class="amount" dircetion="rtl">112,000,000
-                                                                            ریال</span>
-                                                                    </ins>
-                                                                    <br>
-                                                                    <del>
-                                                                        <span class="amount" dircetion="rtl">26,000,000
-                                                                            ریال</span>
-                                                                    </del>
-                                                                </span>
-                                                                <!-- .price -->
-                                                                <h2 class="woocommerce-loop-product__title">
-                                                                    65UH7700 65-Inch 4K Ultra HD Smart LED
-                                                                    TV</h2>
-                                                                <div class="ribbon green-label">
-                                                                    <span>A</span>
-                                                                </div>
-                                                                <div class="techmarket-product-rating">
-                                                                    <div title="Rated 0 out of 5" class="star-rating">
-                                                                        <span style="width:0%">
-                                                                            <strong class="rating">0</strong>
-                                                                            out of 5</span>
-                                                                    </div>
-                                                                    <span class="review-count">(0)</span>
-                                                                </div>
-                                                                <!-- .techmarket-product-rating -->
-                                                            </a>
-                                                            <div class="hover-area">
-                                                                <a class="button add_to_cart_button" href="cart.html">افزودن به سبد خرید</a>
-                                                                <a href="compare.html" class="add-to-compare-link">Add to
-                                                                    compare</a>
-                                                            </div>
-                                                            <!-- .hover-area -->
-                                                        </div>
-                                                        <!-- .media-body -->
-                                                    </div>
-                                                    <!-- .media -->
-                                                </div>
-                                                <!-- .woocommerce-LoopProduct-link -->
+                                                    <!-- .woocommerce-LoopProduct-link -->
+                                                <?php endforeach; ?>
                                             </div>
                                             <!-- .products -->
                                         </div>
@@ -795,24 +447,23 @@ $slideCount=count($sliders);
                                         <div class="woocommerce">
                                             <div class="products">
                                                 <?php foreach ($product_servers as $value) : ?>
-
                                                     <div class="product">
                                                         <div class="yith-wcwl-add-to-wishlist">
-                                                            <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                            <a href="#" rel="nofollow" class="add_to_wishlist <?php if (in_array($value['id'], $selected_wishlist)) echo 'active'; ?>" data-id="<?= $value['id'] ?>">افزودن به علاقه مندی ها</a>
                                                         </div>
-                                                        <a href="<?= base_url() . 'product/' . $value['id'] ?>" class="woocommerce-LoopProduct-link">
+                                                        <a href="<?= base_url() . 'product/' . $value['id'] . '/' . $value['slug'] ?>" class="woocommerce-LoopProduct-link">
                                                             <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image" alt="<?= $value['alt'] ?>">
                                                             <span class="price">
                                                                 <ins>
                                                                     <span class="amount" dircetion="rtl"> </span>
                                                                 </ins>
-                                                                <span class="amount" dircetion="rtl"> <?= $value['price'] ?> ریال</span>
+                                                                <span class="amount" dircetion="rtl"> <?= number_format($value['price']) ?> ریال</span>
                                                             </span>
                                                             <!-- /.price -->
                                                             <h2 class="woocommerce-loop-product__title"><?= $value['title'] ?></h2>
                                                         </a>
                                                         <div class="hover-area">
-                                                            <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                            <a class="button add_to_cart_button" href="<?= base_url() ?>cart/add/<?= $value['id'] ?>" rel="nofollow">افزودن به سبد خرید</a>
                                                             <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                         </div>
                                                     </div>
@@ -835,29 +486,28 @@ $slideCount=count($sliders);
                                                 <?php foreach ($product_switch as $value) : ?>
                                                     <div class="product">
                                                         <div class="yith-wcwl-add-to-wishlist">
-                                                            <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                            <a href="#" rel="nofollow" class="add_to_wishlist <?php if (in_array($value['id'], $selected_wishlist)) echo 'active'; ?>" data-id="<?= $value['id'] ?>">افزودن به علاقه مندی ها</a>
                                                         </div>
-                                                        <a href="<?= base_url() . 'product/' . $value['id'] ?>" class="woocommerce-LoopProduct-link">
-                                                            <span class="onsale">
+                                                        <a href="<?= base_url() . 'product/' . $value['id'] . '/' . $value['slug'] ?>" class="woocommerce-LoopProduct-link">
+                                                            <!--span class="onsale">
                                                                 <span class="woocommerce-Price-amount amount" dir="rtl">
                                                                     2,000,000 ریال</span>
-                                                            </span>
+                                                            </span-->
                                                             <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image" alt="<?= $value['alt'] ?>">
                                                             <span class="price">
                                                                 <ins>
-                                                                    <span class="amount" dircetion="rtl"> 150,000,000
+                                                                    <span class="amount" dircetion="rtl"> <?= number_format($value['price']) ?>
                                                                         ریال</span>
                                                                 </ins>
-                                                                <del>
+                                                                <!-- <del>
                                                                     <span class="amount" dircetion="rtl">200,000,000 ریال</span>
-                                                                </del>
+                                                                </del> -->
                                                                 <span class="amount" dircetion="rtl"> </span>
                                                             </span>
-                                                            <h2 class="woocommerce-loop-product__title">
-                                                                Bluetooth on-ear PureBass Headphones</h2>
+                                                            <h2 class="woocommerce-loop-product__title"> <?= $value['title'] ?> </h2>
                                                         </a>
                                                         <div class="hover-area">
-                                                            <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                            <a class="button add_to_cart_button" href="<?= base_url() ?>cart/add/<?= $value['id'] ?>" rel="nofollow">افزودن به سبد خرید</a>
                                                             <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                         </div>
                                                     </div>
@@ -874,7 +524,7 @@ $slideCount=count($sliders);
                             <!-- .tab-content -->
                         </div>
                         <!-- .section-products-carousel-tabs-wrap -->
-					</div>
+                    </div>
                 </section>
                 <!-- .section-products-carousel-tabs -->
                 <div class="banners">
@@ -931,9 +581,9 @@ $slideCount=count($sliders);
                         <div class="container-fluid" dir="ltr">
                             <div class="woocommerce columns-5">
                                 <div class="products">
-                                    <?php foreach ($product_servers as $value) : ?>
+                                    <?php foreach ($product_racks as $value) : ?>
                                         <div class="landscape-product product">
-                                            <a class="woocommerce-LoopProduct-link" href="<?= base_url() . 'product/' . $value['id'] ?>">
+                                            <a class="woocommerce-LoopProduct-link" href="<?= base_url() . 'product/' . $value['id'] . '/' . $value['slug'] ?>">
                                                 <div class="media">
                                                     <img class="wp-post-image" src="<?= $value['path'] ?>" alt="<?= $value['alt'] ?>">
                                                     <div class="media-body" style="direction: rtl;">
@@ -941,11 +591,10 @@ $slideCount=count($sliders);
                                                             <ins>
                                                                 <span class="amount" dircetion="rtl"> </span>
                                                             </ins>
-                                                            <span class="amount" dircetion="rtl">500.000.000 ریال</span>
+                                                            <span class="amount" dircetion="rtl"><?= number_format($value['price']) ?> ریال</span>
                                                         </span>
                                                         <!-- .price -->
-                                                        <h2 class="woocommerce-loop-product__title">Headset 3D
-                                                            Glasses VR for Android</h2>
+                                                        <h2 class="woocommerce-loop-product__title"><?= $value['title'] ?></h2>
                                                         <div class="techmarket-product-rating">
                                                             <div title="Rated 0 out of 5" class="star-rating">
                                                                 <span style="width:0%">
@@ -1030,22 +679,21 @@ $slideCount=count($sliders);
                                                     <?php foreach ($brands['product'] as $value) : ?>
                                                         <div class="product">
                                                             <div class="yith-wcwl-add-to-wishlist">
-                                                                <a href="wishlist.html" rel="nofollow" class="add_to_wishlist">افزودن به علاقه مندی ها</a>
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist <?php if (in_array($value['id'], $selected_wishlist)) echo 'active'; ?>" data-id="<?= $value['id'] ?>">افزودن به علاقه مندی ها</a>
                                                             </div>
-                                                            <a href="<?= base_url() . 'product/' . $value['id'] ?>" class="woocommerce-LoopProduct-link">
-                                                                <img src="<?= $value['photo_path'] ?>" width="224" height="197" class="wp-post-image" alt="">
+                                                            <a href="<?= base_url() . 'product/' . $value['id'] . '/' . $value['slug'] ?>" class="woocommerce-LoopProduct-link">
+                                                                <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image" alt="<?= $value['alt'] ?>">
                                                                 <span class="price">
                                                                     <ins>
                                                                         <span class="amount" dircetion="rtl"> </span>
                                                                     </ins>
-                                                                    <span class="amount" dircetion="rtl"> 20,000,000 ریال</span>
+                                                                    <span class="amount" dircetion="rtl"> <?= number_format($value['price']) ?> ریال</span>
                                                                 </span>
                                                                 <!-- /.price -->
-                                                                <h2 class="woocommerce-loop-product__title">Bbd
-                                                                    23-Inch Screen LED-Lit Monitorss Buds</h2>
+                                                                <h2 class="woocommerce-loop-product__title"><?= $value['title'] ?></h2>
                                                             </a>
                                                             <div class="hover-area">
-                                                                <a class="button add_to_cart_button" href="cart.html" rel="nofollow">افزودن به سبد خرید</a>
+                                                                <a class="button add_to_cart_button" href="<?= base_url() ?>cart/add/<?= $value['id'] ?>" rel="nofollow">افزودن به سبد خرید</a>
                                                                 <a class="add-to-compare-link" href="compare.html">افزودن به مقایسه</a>
                                                             </div>
                                                         </div>
@@ -1313,3 +961,70 @@ $slideCount=count($sliders);
     </div>
     <!-- .row -->
 </div>
+<script>
+    function replaceAll(str) {
+        str = str.toString();
+        str = str.replace(/0/g, "۰");
+        str = str.replace(/1/g, "۱");
+        str = str.replace(/2/g, "۲");
+        str = str.replace(/3/g, "۳");
+        str = str.replace(/4/g, "۴");
+        str = str.replace(/5/g, "۵");
+        str = str.replace(/6/g, "۶");
+        str = str.replace(/7/g, "۷");
+        str = str.replace(/8/g, "۸");
+        str = str.replace(/9/g, "۹");
+
+        return str;
+    }
+
+    $(document).on('click', '.add_to_wishlist', function(e) {
+        e.preventDefault();
+        var wish_list_btn = $(this);
+        if (!wish_list_btn.hasClass('active')) {
+            var action = '<?= base_url() ?>wishList';
+            $.ajax({
+                type: "post",
+                url: action,
+                data: {
+                    entity_id: wish_list_btn.data('id'),
+                    entity_type: 'product'
+                },
+                timeout: 10000,
+                success: function(response) {
+                    response = JSON.parse(response);
+                    if (response.error) {
+                        alert(response.error)
+                    } else {
+                        wish_list_btn.addClass('active')
+                        $('#top-cart-wishlist-count').text(replaceAll(response.count))
+                    }
+                },
+                error: function(response) {
+                    wish_list_btn.html("Err!");
+                }
+
+            });
+        } else {
+            var action = '<?= base_url() ?>wishList/remove';
+            $.ajax({
+                type: "post",
+                url: action,
+                data: {
+                    entity_id: wish_list_btn.data('id'),
+                    entity_type: 'product'
+                },
+                timeout: 10000,
+                success: function(response) {
+                    response = JSON.parse(response);
+                    wish_list_btn.removeClass('active');
+                    $('#top-cart-wishlist-count').text(replaceAll(response.count_wishlist));
+                },
+                error: function(response) {
+                    wish_list_btn.html("Err!");
+                }
+
+            });
+        }
+    })
+</script>
