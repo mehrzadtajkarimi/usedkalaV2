@@ -269,10 +269,10 @@
             <tbody>
               <?php
               $count = 0;
-              foreach ($products as $key=>$value) :
+              foreach ($products as $key => $value) :
               ?>
                 <tr>
-                  <td class="text-center" title="<?= $value['sku'] ?>"><?= floor(pagination_total_count(10, $key))+1 ?></td>
+                  <td class="text-center" title="<?= $value['sku'] ?>"><?= floor(pagination_total_count(10, $key)) + 1 ?></td>
                   <td class="text-center" title="<?= $value['meta_title'] ?>"><?= $value['title'] ?></td>
                   <td class="text-center"><?= number_format($value['price']) ?> ریال</td>
                   <?php /*
@@ -322,17 +322,19 @@
       </div>
       <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
-          <li class="page-item disabled">
-            <a class="page-link" href="#" aria-label="Previous">
+          <li class="page-item <?php if (pagination_count('products', 10) + 1 == 1 || (isset($_GET['page']) && $_GET['page'] == 1) || !isset($_GET['page'])) echo "disabled" ?>">
+            <a class="page-link" href="<?= base_url() ?>admin/product?page=<?php if (isset($_GET['page']) && $_GET['page'] > 1) echo $_GET['page'] - 1; ?> " aria-label="Previous">
               <span aria-hidden="true">&laquo;</span>
               <span class="sr-only">Previous</span>
             </a>
           </li>
           <?php for ($i = 0; $i <= pagination_count('products', 10); $i++) : ?>
-            <li class="page-item"><a class="page-link" href="<?= base_url() ?>admin/product?page=<?= $i + 1 ?>"><?= $i + 1 ?></a></li>
+            <li class="page-item <?php if (isset($_GET['page']) && $_GET['page'] == ($i + 1)) echo "active"; else if (!isset($_GET['page']) && ($i + 1) == 1) echo "active" ?>">
+              <a class="page-link" href="<?= base_url() ?>admin/product?page=<?= $i + 1 ?>"><?= $i + 1 ?></a>
+            </li>
           <?php endfor; ?>
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
+          <li class="page-item <?php if (pagination_count('products', 10) + 1 == 1 || (isset($_GET['page']) && pagination_count('products', 10) + 1  == $_GET['page'])) echo "disabled" ?>">
+            <a class="page-link" href="<?= base_url() ?>admin/product?page=<?php if (isset($_GET['page'])) echo $_GET['page'] + 1; else echo 2 ?>" aria-label="Next">
               <span aria-hidden="true">&raquo;</span>
               <span class="sr-only">Next</span>
             </a>

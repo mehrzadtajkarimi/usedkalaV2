@@ -59,58 +59,58 @@
                               لینک
                             </label>
                           </div>
-                          </div>
+                        </div>
                         <div class=" col-9">
-                              <div class="form-group ">
-                                <input name="slider-link" type="text" class="form-control" id="input_slider-link" required>
-                              </div>
+                          <div class="form-group ">
+                            <input name="slider-link" type="text" class="form-control" id="input_slider-link" required>
                           </div>
                         </div>
+                      </div>
 
-                        <div class="row">
-                          <div class="col-3">
-                            <div class="pt-1 pb-4  form-check">
-                              <input class="form-check-input" type="radio" name="linktype" id="slider-status-category" value="category">
-                              <label class="form-check-label" for="slider-status-category">
-                            دسته بندی انتخابی
+                      <div class="row">
+                        <div class="col-3">
+                          <div class="pt-1 pb-4  form-check">
+                            <input class="form-check-input" type="radio" name="linktype" id="slider-status-category" value="category">
+                            <label class="form-check-label" for="slider-status-category">
+                              دسته بندی انتخابی
                             </label>
                           </div>
+                        </div>
+                        <div class=" col-9">
+                          <div class="form-group ">
+                            <select name='category_id' id="slider_category" class=" form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
+                              <?php foreach ($categories as $value) : ?>
+                                <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
+                              <?php endforeach; ?>
+                            </select>
                           </div>
-                          <div class=" col-9">
-                                <div class="form-group ">
-                                  <select name='category_id' id="slider_category" class=" form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
-                                    <?php foreach ($categories as $value) : ?>
-                                      <option value="<?= $value['id'] ?>"><?= $value['name'] ?></option>
-                                    <?php endforeach; ?>
-                                  </select>
-                                </div>
-                            </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-3">
-                              <div class="pt-1 pb-4  form-check">
-                                <input class="form-check-input" type="radio" name="linktype" id="slider-status-product" value="product">
-                                <label class="form-check-label" for="slider-status-product">
-                                محصول انتخابی
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-3">
+                          <div class="pt-1 pb-4  form-check">
+                            <input class="form-check-input" type="radio" name="linktype" id="slider-status-product" value="product">
+                            <label class="form-check-label" for="slider-status-product">
+                              محصول انتخابی
                             </label>
                           </div>
-                            </div>
-                            <div class=" col-9">
-                                  <select name="product_id" id="slider_product" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
-                                    <?php foreach ($products as $value) : ?>
-                                      <option value="<?= $value['id'] ?>"><?= $value['title'] ?></option>
-                                    <?php endforeach; ?>
-                                  </select>
-                              </div>
-                            </div>
+                        </div>
+                        <div class=" col-9">
+                          <select name="product_id" id="slider_product" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
+                            <?php foreach ($products as $value) : ?>
+                              <option value="<?= $value['id'] ?>"><?= $value['title'] ?></option>
+                            <?php endforeach; ?>
+                          </select>
+                        </div>
+                      </div>
 
-                            <div class="pt-1 pb-4 form-check disabled ">
-                              <input name="slider-status" type="checkbox" class="form-check-input " id="slider-status" checked>
-                              <label class="form-check-label" for="slider-status">
-                                وضعیت
-                              </label>
-                            </div>
-                            <button type="submit" class="float-left btn btn-primary btn-block">ذخیره </button>
+                      <div class="pt-1 pb-4 form-check disabled ">
+                        <input name="slider-status" type="checkbox" class="form-check-input " id="slider-status" checked>
+                        <label class="form-check-label" for="slider-status">
+                          وضعیت
+                        </label>
+                      </div>
+                      <button type="submit" class="float-left btn btn-primary btn-block">ذخیره </button>
                     </form>
                   </div>
 
@@ -142,11 +142,11 @@
           </thead>
           <tbody>
             <?php
-            $count = 0;
-            foreach ($sliders as $value) :
+            // $count = 0;
+            foreach ($sliders as $key => $value) :
             ?>
               <tr>
-                <td class="text-center" title="ردیف"><?= $count++ ?></td>
+                <td class="text-center" title="ردیف"><?= floor(pagination_total_count(10, $key)) + 1 ?></td>
                 <td class="text-center"><?= $value['small_text'] ?></td>
                 <td class="text-center"><?= $value['product_id'] ?></td>
                 <td class="text-center"><?= $value['category_id'] ?></td>
@@ -188,6 +188,27 @@
     </div>
     <p class="text-muted font-italic pr-4">لیست اسلایدر صفحه اصلی</p>
   </div>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item <?php if (pagination_count('sliders', 10) + 1 == 1 || (isset($_GET['page']) && $_GET['page'] == 1) || !isset($_GET['page'])) echo "disabled" ?>">
+        <a class="page-link" href="<?= base_url() ?>admin/slider?page=<?php if (isset($_GET['page']) && $_GET['page'] > 1) echo $_GET['page'] - 1; ?> " aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Previous</span>
+        </a>
+      </li>
+      <?php for ($i = 0; $i <=  pagination_count('sliders', 10); $i++) : ?>
+        <li class="page-item <?php if (isset($_GET['page']) && $_GET['page'] == ($i + 1)) echo "active"; else if (!isset($_GET['page']) && ($i + 1) == 1) echo "active" ?>">
+          <a class="page-link" href="<?= base_url() ?>admin/slider?page=<?= $i + 1 ?>"><?= $i + 1 ?></a>
+        </li>
+      <?php endfor; ?>
+      <li class="page-item <?php if (pagination_count('sliders', 10) + 1 == 1 || (isset($_GET['page']) &&  pagination_count('sliders', 10) + 1  == $_GET['page'])) echo "disabled" ?>">
+        <a class="page-link" href="<?= base_url() ?>admin/slider?page=<?php if (isset($_GET['page'])) echo $_GET['page'] + 1; else echo 2 ?>" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Next</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 </div>
 </div>
 <?php include(BASEPATH . "/App/Views/Backend/slider/script.php") ?>

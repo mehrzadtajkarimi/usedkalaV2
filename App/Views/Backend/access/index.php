@@ -35,8 +35,8 @@
                   <td class="text-center">
                     <!-- Button trigger modal -->
                     <!-- <div> -->
-					
-					<?php /*
+
+                    <?php /*
                     <div class="mb-1">
                       <button type="button" id="add-permission" class="shadow-sm btn btn-success btn-sm" style="padding: 0px 30px; border-radius: 18px;" data-toggle="modal" data-target="#add_permission_<?= $admin['id'] ?>">
                         ایجـــــــــاد مجـوز
@@ -125,7 +125,7 @@
                 <tr id="collapse<?= $admin['id'] ?>" class="target-collapse">
                   <td colspan="10" id="attr">
                     <div class="row" style="display: none">
-						<?php /*
+                      <?php /*
                       <span>مجوزها:</span>
                       <div class="col">
                         <ul class="list-group list-group-flush">
@@ -153,6 +153,27 @@
         </div>
       </div>
     </div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item <?php if (pagination_count('users', 10, ['user_level' => 0]) + 1 == 1 || (isset($_GET['page']) && $_GET['page'] == 1) || !isset($_GET['page'])) echo "disabled" ?>">
+          <a class="page-link" href="<?= base_url() ?>admin/access?page=<?php if (isset($_GET['page']) && $_GET['page'] > 1) echo $_GET['page'] - 1; ?> " aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+        <?php for ($i = 0; $i <= pagination_count('users', 10, ['user_level' => 0]); $i++) : ?>
+          <li class="page-item <?php if (isset($_GET['page']) && $_GET['page'] == ($i + 1)) echo "active"; else if (!isset($_GET['page']) && ($i + 1) == 1) echo "active" ?>">
+            <a class="page-link" href="<?= base_url() ?>admin/access?page=<?= $i + 1 ?>"><?= $i + 1 ?></a>
+          </li>
+        <?php endfor; ?>
+        <li class="page-item <?php if (pagination_count('users', 10, ['user_level' => 0]) + 1 == 1 || (isset($_GET['page']) && pagination_count('users', 10, ['user_level' => 0]) + 1  == $_GET['page'])) echo "disabled" ?>">
+          <a class="page-link" href="<?= base_url() ?>admin/access?page=<?php if (isset($_GET['page'])) echo $_GET['page'] + 1; else echo 2 ?>" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </div>
 <?php

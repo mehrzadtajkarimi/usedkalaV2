@@ -272,16 +272,16 @@ function wishList()
     return $whishListModel->read_all_wishList_items('Product');
 }
 
-function pagination_count($table,$count)
+function pagination_count($table, $count, $where=null)
 {
     // $MysqlBaseModel = new MysqlBaseModel();
-    $query= connection()->count($table);
+    $query= connection()->count($table,$where);
     return floor($query / $count);
 }
 
 function pagination_total_count($count, $key)
 {
-    $page = $_GET['page'];
+    $page = $_GET['page'] ?? 1;
     return (($page -1 ) * $count) + $key;
 }
 

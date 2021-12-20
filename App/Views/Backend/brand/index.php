@@ -32,8 +32,8 @@
                           <input name="brand-name" type="text" class="form-control" id="brand-name" placeholder="" required>
                         </div>
                       </div>
-						
-						<?php /*
+
+                      <?php /*
                       <div class="form-group row">
                         <label class="col-2 col-form-label" for="brand-brand">اولویت </label>
                         <div class="col-10">
@@ -77,11 +77,11 @@
             </thead>
             <tbody>
               <?php
-              $count = 0;
-              foreach ($brands as $value) :
+              // $count = 0;
+              foreach ($brands as $key => $value) :
               ?>
                 <tr>
-                  <td class="text-center"><?= $count++ ?></td>
+                  <td class="text-center"><?= floor(pagination_total_count(10, $key)) + 1 ?></td>
                   <td class="text-center"><?= $value['name'] ?></td>
                   <td class="text-center">
                     <a href="<?= base_url() ?>admin/brand/<?= $value['id'] ?>/edit" class="btn btn-warning btn-sm shadow-sm " style="padding: 0px 16px; border-radius: 18px;">ویرایش</a>
@@ -99,5 +99,26 @@
         </div>
       </div>
     </div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item <?php if (pagination_count('brands', 10) + 1 == 1 || (isset($_GET['page']) && $_GET['page'] == 1) || !isset($_GET['page'])) echo "disabled" ?>">
+          <a class="page-link" href="<?= base_url() ?>admin/brand?page=<?php if (isset($_GET['page']) && $_GET['page'] > 1) echo $_GET['page'] - 1; ?> " aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+        <?php for ($i = 0; $i <=  pagination_count('brands', 10); $i++) : ?>
+          <li class="page-item <?php if (isset($_GET['page']) && $_GET['page'] == ($i + 1)) echo "active"; else if (!isset($_GET['page']) && ($i + 1) == 1) echo "active" ?>">
+            <a class="page-link" href="<?= base_url() ?>admin/brand?page=<?= $i + 1 ?>"><?= $i + 1 ?></a>
+          </li>
+        <?php endfor; ?>
+        <li class="page-item <?php if (pagination_count('brands', 10) + 1 == 1 || (isset($_GET['page']) &&  pagination_count('brands', 10) + 1  == $_GET['page'])) echo "disabled" ?>">
+          <a class="page-link" href="<?= base_url() ?>admin/brand?page=<?php if (isset($_GET['page'])) echo $_GET['page'] + 1; else echo 2 ?>" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </div>
