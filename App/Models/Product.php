@@ -25,9 +25,9 @@ class Product extends MysqlBaseModel
             return $this->query("SELECT * FROM `products` as pro INNER JOIN `brands` as brand ON brand.`id` = pro.`brand_id`
 			LEFT JOIN `photos` as photo ON photo.`entity_type` = 'Brand' AND photo.`entity_id` = brand.`id`
 			WHERE pro.`id` = $id ORDER BY photo.`created_at` DESC LIMIT 0,1");
-		else
-			return false;
-	}
+        else
+            return false;
+    }
     public function read_product_limit_by_price($start_price, $finish_price)
     {
 
@@ -47,13 +47,6 @@ class Product extends MysqlBaseModel
             ]
         );
     }
-    public function read_product_by_category($id = null)
-    {
-        if (is_null($id)) {
-            return $this->all();
-        }
-        return $this->get('*', ['category_id' => $id]);
-    }
 
     public function update_product(array $params, $id)
     {
@@ -64,30 +57,7 @@ class Product extends MysqlBaseModel
     {
         return $this->delete(['id' => $id]);
     }
-    public function join_product_to_category($id)
-    {
-        return $this->inner_join(
-            "*",
-            "categories",
-            "category_id",
-            "id",
-            "products.category_id=$id",
-        );
-    }
-    public function read_productTag($product_id )
-    {
-        $tags =  $this->inner_join_two_relation(
-            '*',
-            'product_tags',
-            'id',
-            'product_id',
-            'tags',
-            'tag_id',
-            'id',
-            "product_tags.product_id={$product_id['id']}",
-        );
-        return $tags;
-    }
+
     public function join_product_to_photo()
     {
         return $this->inner_join_order(
@@ -171,6 +141,49 @@ class Product extends MysqlBaseModel
             "photos.type=0",
         );
     }
+    public function join_product_to_photo__with_productDiscounts_discounts()
+    {
+        return $this->connection->query("
+        SELECT
+        products.*,
+        discounts.title AS discounts_title,
+        discounts.percent AS discounts_percent,
+        discounts.id AS discounts_id,
+        discounts.status AS discounts_status,
+        photos.path AS photos_path,
+        photos.alt AS photos_alt
+        FROM products
+        INNER JOIN photos
+        ON products.id = photos.entity_id
+        INNER JOIN product_discounts
+        ON products.id = product_discounts.product_id
+        INNER JOIN discounts
+        ON product_discounts.discount_id = discounts.id
+        AND photos.entity_type ='Product'
+        ")->fetchAll();
+    }
+    public function join_product_to_single_photo__with__productDiscounts_discounts__productCategory_by_category_id($id)
+    {
+        return $this->connection->query("
+        SELECT
+        products.*,
+        discounts.percent AS discounts_percent,
+        photos.path AS photos_path,
+        photos.alt AS photos_alt
+        FROM products
+        INNER JOIN photos
+        ON products.id = photos.entity_id
+        INNER JOIN product_discounts
+        ON products.id = product_discounts.product_id
+        INNER JOIN discounts
+        ON product_discounts.discount_id = discounts.id
+        INNER JOIN product_categories
+        ON products.id = product_categories.product_id
+        AND photos.entity_type ='Product'
+        AND product_categories.category_id =$id
+        AND photos.type =0
+        ")->fetchAll();
+    }
     public function join_product_to_brand($id)
     {
         return $this->inner_join(
@@ -182,9 +195,24 @@ class Product extends MysqlBaseModel
         );
     }
 
-    public function join_product__with_productDiscounts_discounts($id)
+    public function join_product__with_productDiscounts_discounts()
     {
-        $exists_productDiscount_by_product_id = (new Product_discount())->read_productDiscount_by_product_id($id);
+        return $this->connection->query("
+                SELECT
+                products.id AS product_id,
+                discounts.percent AS discount_percent,
+                discounts.status AS discount_status
+                FROM products
+                INNER JOIN product_discounts
+                ON products.id = product_discounts.product_id
+                INNER JOIN discounts
+                ON product_discounts.discount_id = discounts.id
+                ")->fetchAll() ?? FALSE;
+    }
+
+    public function join_product__with_productDiscounts_discounts_by_product_id($id)
+    {
+        $exists_productDiscount_by_product_id = (new Product_discount())->read_productDiscount_by_product_id($id['id']);
         if ($exists_productDiscount_by_product_id) {
             return $this->connection->query("
                 SELECT
@@ -276,24 +304,21 @@ class Product extends MysqlBaseModel
             "products.id=$id",
         );
     }
-    public function join_product__with_single_photo_by_category_id($id=0)
+    public function join_product__with_single_photo_by_category_id($id = 0)
     {
-        /* return $this->inner_join(
-            "products.*,
-            photos.id AS photo_id,
-            photos.alt,
-            photos.path",                         // column
-            "photos",                    // -- table photos
-            "id",                        // products.id
-            "entity_id",                       // brands.id
-            "photos.type=0",
-            "photos.entity_type='Product'",
-        ); */
-		$productsInCat=$this->query("SELECT pros.*, pix.path, pix.alt FROM `products` as pros
-			INNER JOIN `product_categories` as rels INNER JOIN `photos` as pix 
-			ON rels.`product_id` = pros.`id` AND pix.`entity_id` = pros.`id`
-			WHERE pix.type = 0 AND pix.`entity_type` = 'Product' AND rels.`category_id` = '$id'");
-		return $productsInCat;
+        return $this->query("
+        SELECT
+        products.*,
+        photos.path,
+        photos.alt
+        FROM products
+        INNER JOIN product_categories
+        ON product_categories.product_id = products.id
+        INNER JOIN photos
+        ON photos.entity_id = products.id
+        AND photos.type = 0
+        AND photos.entity_type = 'Product'
+        AND product_categories.category_id = $id");
     }
 
     public function search_product_by_name($name)
@@ -306,6 +331,6 @@ class Product extends MysqlBaseModel
         return $this->query("SELECT pros.*, pix.path, pix.alt FROM `products` as pros
             INNER JOIN `product_categories` as rels INNER JOIN `photos` as pix 
             ON rels.`product_id` = pros.`id` AND pix.`entity_id` = pros.`id`
-            WHERE pix.type = 0 AND pix.`entity_type` = 'Product' AND rels.`category_id` = '$cat_id' AND pros.`title` LIKE '%".$title."%' ");
+            WHERE pix.type = 0 AND pix.`entity_type` = 'Product' AND rels.`category_id` = '$cat_id' AND pros.`title` LIKE '%" . $title . "%' ");
     }
 }
