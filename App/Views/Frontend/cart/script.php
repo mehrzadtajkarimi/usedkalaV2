@@ -2,13 +2,16 @@
     $(document).ready(function() {
         $(".quantity").children().click(function(e) {
             e.preventDefault();
-            theURL = $(this).attr('href');
+            var that = $(this);
+            var url  = that.attr('href');
+            var id   = that.data('id');
+            // alert(url);
             $.get({
-                url: theURL,
+                url: url,
                 success: function(result) {
                     result = JSON.parse(result);
-                    $("#product-quantity").html(result.count);
-                    $("#product-total-price").html(result.total+" ریال");
+                    $(".product-quantity-" + id).html(result.count);
+                    $(".product-total-price-" + id).html(result.total + " ریال");
                 }
             });
         });

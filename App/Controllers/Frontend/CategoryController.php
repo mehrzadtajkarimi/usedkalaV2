@@ -54,7 +54,7 @@ class CategoryController extends Controller
         // dd(in_array(90,array_column($products_is_discount,'product_id')));
 
 
-        foreach ($products_is_discount as $key => $value) {
+        foreach ($products_is_discount as  $value) {
             if ($value['discount_status']) {
                 $discounts[$value['product_id']] = $value['discount_percent'];
             }

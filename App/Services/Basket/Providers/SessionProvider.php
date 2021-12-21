@@ -41,12 +41,12 @@ class SessionProvider implements BasketContract
 
     public function plus($product_id)
     {
-        $_SESSION['cart'][$product_id]['count'] += 1;
-        return $_SESSION['cart'][$product_id]['count'];
+        return  $_SESSION['cart'][$product_id]['count'] += 1;
     }
+
     public function minus($product_id)
     {
-        if ($_SESSION['cart'][$product_id]['count']>1) {
+        if ($_SESSION['cart'][$product_id]['count'] > 1) {
             $_SESSION['cart'][$product_id]['count'] -= 1;
         }
         return $_SESSION['cart'][$product_id]['count'];
@@ -61,11 +61,18 @@ class SessionProvider implements BasketContract
     }
 
 
-    public function total()
+    public function total($discounts_percent = null)
     {
+        dd($this->items());
         $total_price = 0;
-        foreach ($this->items() as $item) {
-            $total_price += $item['price'] * $item['count'];
+        if (is_null($discounts_percent)) {
+            foreach ($this->items() as $item) {
+                $total_price += $item['price'] * $item['count'];
+            }
+        } else {
+            foreach ($this->items() as $item) {
+                $total_price += ((($item['price'] /$discounts_percent )- $item['price'])* $item['count']);
+            }
         }
         return $total_price;
     }

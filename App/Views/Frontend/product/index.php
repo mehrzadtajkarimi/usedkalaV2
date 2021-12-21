@@ -16,9 +16,6 @@
                                             <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" href="<?= base_url() ?>product/<?= $value['id'] ?>/<?= $value['slug'] ?>">
                                                 <img alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image" src="<?= $value['path'] ?>" width="224" height="197">
                                                 <span class="price">
-                                                    <?php if(array_column($discounts,'discount_status','product_id')): ?>
-                                                    ff
-                                                    <?php endif; ?>
                                                     <?php if (in_array($value['id'], array_keys($discounts))) : ?>
                                                         <div>
                                                             <small>
