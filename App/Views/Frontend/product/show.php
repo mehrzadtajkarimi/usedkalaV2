@@ -94,7 +94,7 @@
                                                 <span class="woocommerce-Price-amount amount"><?= number_format($product['price']) ?> ریال</span>
                                             </del>
                                             <ins>
-                                                <span class="woocommerce-Price-amount amount"><?= round(($product['price'] / $product['discounts_percent']) - $product['price'], 0, PHP_ROUND_HALF_UP) ?>ریال</span>
+                                                <span class="woocommerce-Price-amount amount"><?= number_format(round(((100-$product['discounts_percent'])/100) * $product['price'], 0, PHP_ROUND_HALF_UP) ) ?>ریال</span>
                                             </ins>
                                         <?php else : ?>
                                             <ins>

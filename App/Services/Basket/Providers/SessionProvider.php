@@ -63,33 +63,15 @@ class SessionProvider implements BasketContract
 
     public function total($discounts_percent = null)
     {
-		// var_dump($discounts_percent);
-        // dd($this->items());
-		// print_r($this->items());
-		// die();
         $total_price = 0;
-		
         if (is_numeric($discounts_percent)) {
-            // foreach ($this->items() as $item) {
-				$item=$this->items()[$discounts_percent];
-				// var_dump($item);
-				// die();
-                $total_price = $item['price'] * $item['count'];
-            // }
+            $item = $this->items()[$discounts_percent];
+            $total_price = $item['price'] * $item['count'];
         } else {
-            // foreach ($this->items() as $item) {
-				
-                // $total_price += ((($item['price'] /$discounts_percent )- $item['price'])* $item['count']);
-				$price = $this->items()[$discounts_percent['id']]['price'];
-				$count = $this->items()[$discounts_percent['id']]['count'];
-				// var_dump($count);
-				// die();
-				
-				$total_price = ($price*((100-$discounts_percent["discounts_percent"])/100))*$count;
-            // }
+            $price = $this->items()[$discounts_percent['id']]['price'];
+            $count = $this->items()[$discounts_percent['id']]['count'];
+            $total_price = ($price * ((100 - $discounts_percent["discounts_percent"]) / 100)) * $count;
         }
-		// var_dump($total_price);
-		// die();
         return $total_price;
     }
 

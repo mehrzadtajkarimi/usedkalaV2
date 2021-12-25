@@ -21,17 +21,19 @@ class CartController  extends Controller
     public function index()
     {
         $cart_items = Basket::items();
-
         $products_is_discount = $this->productModel->join_product__with_productDiscounts_discounts();
-
-
         foreach ($products_is_discount as  $value) {
             if ($value['discount_status']) {
                 $discounts[$value['product_id']] = $value['discount_percent'];
             }
         }
         foreach ($cart_items as  $value) {
-            $cart_total[] = $value['count'] * $value['price'];
+            $product_ids = array_column($products_is_discount, 0);
+            if (in_array($value['id'], $product_ids)) {
+                $cart_total[] =   $value['count'] * ($value['price'] - (($discounts[$value['id']] / 100) * $value['price']));
+            } else {
+                $cart_total[] = $value['count'] * $value['price'];
+            };
         }
         if (!is_array($cart_total)) {
             SessionManager::set('onLoadMsg', 'سبد خرید خالیست!');
@@ -81,6 +83,7 @@ class CartController  extends Controller
         if ($discount) {
             $total = $this->convert_numbers('fa', number_format(Basket::total($discount)));
         } else {
+
             $total = $this->convert_numbers('fa', number_format(Basket::total($product_id['id'])));
         }
 
