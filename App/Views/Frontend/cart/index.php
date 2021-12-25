@@ -49,28 +49,51 @@
                                                             </div>
                                                         </td>
                                                         <td data-title="Price" class="product-price text-center ">
-                                                            <span class="woocommerce-Price-amount amount">
-                                                                <span class="woocommerce-Price-amount amount "><?= number_format($value['price']) ?> ریال</span>
+                                                            <span class="">
+                                                                <?php if (in_array($value['id'], array_keys($discounts))) : ?>
+                                                                    <div>
+                                                                        <small>
+                                                                            <del>
+                                                                                <?= number_format($value['price']) ?>
+                                                                            </del>
+                                                                        </small>
+                                                                        <span class="badge badge-pill badge-danger ">%
+                                                                            <?= $discounts[$value['id']] ?>
+                                                                        </span>
+                                                                    </div>
+                                                                    <span class="woocommerce-Price-amount amount">
+                                                                        <span class="woocommerce-Price-amount amount ">
+                                                                            <?= number_format($value['price'] - (($discounts[$value['id']] / 100) * $value['price'])) ?>ریال
+                                                                        </span>
+                                                                    </span>
+                                                                <?php else : ?>
+                                                                    <?= number_format($value['price']) ?> ریال
+                                                                <?php endif; ?>
                                                             </span>
                                                         </td>
-                                                        <td class="product-quantity text-center " data-title="Quantity">
+                                                        <td class=" text-center " data-title="Quantity">
                                                             <div class=" row d-flex justify-content-center">
-                                                                <span class="woocommerce-Price-amount amount  m-2" id="product-quantity"  style="align-self: center">
-                                                                    <span class="woocommerce-Price-amount amount"><?= $value['count'] ?></span>
+                                                                <span class="woocommerce-Price-amount amount product-quantity-<?= $value['id'] ?> m-2" style="align-self: center">
+                                                                    <span class=""><?= $value['count'] ?></span>
                                                                 </span>
+
                                                                 <div class="d-flex flex-column quantity ">
-                                                                    <a href="<?= base_url() ?>cart/plus/<?= $value['id'] ?>" class="fa fa-chevron-up text-muted pr-4 pl-4 pt-4"></a>
-                                                                    <a href="<?= base_url() ?>cart/minus/<?= $value['id'] ?>" class="fa fa-chevron-down text-muted pr-4 pl-4 pb-4 "></a>
-                                                                    <!-- <span  data-href="<?= base_url() ?>cart/plus/<?= $value['id'] ?>" class="fa fa-chevron-up text-muted pr-4 pl-4 pt-4" ></span> -->
-                                                                    <!-- <span  data-href="<?= base_url() ?>cart/minus/<?= $value['id'] ?>" class="fa fa-chevron-down text-muted pr-4 pl-4 pb-4 "></span> -->
+                                                                    <a href="<?= base_url() ?>cart/plus/<?= $value['id'] ?>" data-id="<?= $value['id'] ?>" class="fa fa-chevron-up text-muted pr-4 pl-4 pt-4"></a>
+                                                                    <a href="<?= base_url() ?>cart/minus/<?= $value['id'] ?>" data-id="<?= $value['id'] ?>" class="fa fa-chevron-down text-muted pr-4 pl-4 pb-4 "></a>
                                                                 </div>
 
                                                             </div>
                                                         </td>
                                                         <td data-title="Total" class="product-subtotal text-center ">
-                                                            <span class="woocommerce-Price-amount amount" id="product-total-price">
-                                                                <span class="woocommerce-Price-amount amount subtotal"><?= number_format($value['count'] * $value['price']) ?> ریال</span>
-                                                            </span>
+                                                            <?php if (in_array($value['id'], array_keys($discounts))) : ?>
+                                                                <span class="woocommerce-Price-amount amount product-total-price-<?= $value['id'] ?>">
+                                                                    <span class="woocommerce-Price-amount amount subtotal"><?= number_format($value['count'] * ($value['price'] - (($discounts[$value['id']] / 100) * $value['price']))) ?> ریال</span>
+                                                                </span>
+                                                            <?php else : ?>
+                                                                <span class="woocommerce-Price-amount amount product-total-price-<?= $value['id'] ?>">
+                                                                    <span class="woocommerce-Price-amount amount subtotal"><?= number_format($value['count'] * $value['price']) ?> ریال</span>
+                                                                </span>
+                                                            <?php endif; ?>
                                                             <a title="Remove this item" class="remove" href="<?= base_url() ?>cart/remove/<?= $value['id'] ?>">×</a>
                                                         </td>
                                                     </tr>
@@ -88,6 +111,12 @@
                                                             <th>مجموع سبد خرید:</th>
                                                             <td data-title="Subtotal">
                                                                 <span class="woocommerce-Price-amount amount"><?= number_format($cart_total) ?> ریال</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="cart-subtotal">
+                                                            <th> تخفیفات :</th>
+                                                            <td data-title="Subtotal">
+                                                                <span class="woocommerce-Price-amount amount subtotal">۰ ریال</span>
                                                             </td>
                                                         </tr>
                                                         <tr>

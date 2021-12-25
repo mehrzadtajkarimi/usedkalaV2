@@ -1,9 +1,9 @@
 <div class="col-full">
     <div class="row">
         <nav class="woocommerce-breadcrumb">
-            <?php foreach ($breadcrumb as $key => $value): ?>
-                <a href="<?= base_url() ?>category/<?= $value['slug'] ?>"><?= $value['name'] ?></a> 
-                <?php if(count($breadcrumb)-1 != $key): ?>
+            <?php foreach ($breadcrumb as $key => $value) : ?>
+                <a href="<?= base_url() ?>category/<?= $value['slug'] ?>"><?= $value['name'] ?></a>
+                <?php if (count($breadcrumb) - 1 != $key) : ?>
                     <span class="delimiter">
                         <i class="fa fa-chevron-left" aria-hidden="true"></i>
                     </span>
@@ -66,11 +66,11 @@
                                 <?php if ($product['seo_H1'] != "" && $product['title'] != "" && $product['seo_H1'] != $product['title']) echo '<h2 class="product_title entry-title">' . $product['title'] . '</h2>'; ?>
                             </div>
                             <div class="single-product-meta">
-								<?php if (isset($brand) && isset($brand['path']) && $brand['path']!="") { ?>
-                                <div class="brand">
-                                    <img alt="galaxy" class="img-fluid" width="180" height="180" src="<?= $brand['path'] ?>">
-                                </div>
-								<?php } ?>
+                                <?php if (isset($brand) && isset($brand['path']) && $brand['path'] != "") { ?>
+                                    <div class="brand">
+                                        <img alt="galaxy" class="img-fluid" width="180" height="180" src="<?= $brand['path'] ?>">
+                                    </div>
+                                <?php } ?>
                                 <?php if ($cats) : ?>
                                     <div class="cat-and-sku">
                                         دسته‌بندی:
@@ -94,7 +94,7 @@
                                                 <span class="woocommerce-Price-amount amount"><?= number_format($product['price']) ?> ریال</span>
                                             </del>
                                             <ins>
-                                                <span class="woocommerce-Price-amount amount"><?= round($product['price'] / $product['discounts_percent'] - $product['price'], 0, PHP_ROUND_HALF_UP) ?>ریال</span>
+                                                <span class="woocommerce-Price-amount amount"><?= round(($product['price'] / $product['discounts_percent']) - $product['price'], 0, PHP_ROUND_HALF_UP) ?>ریال</span>
                                             </ins>
                                         <?php else : ?>
                                             <ins>
@@ -139,11 +139,11 @@
                         </div>
                         <!-- .product -->
                         <div>
-                            <?php if(count($related_products)>0): ?>
+                            <?php if (count($related_products) > 0) : ?>
                                 <h3>محصولات مرتبط:</h3>
                                 <div class="d-flex">
                                     <?php foreach ($related_products as $value) : ?>
-                                        <?php if($value['id'] !== $product_id): ?>
+                                        <?php if ($value['id'] !== $product_id) : ?>
                                             <a href="<?= base_url() ?>product/<?= $value['id'] ?>/<?= $value['slug'] ?>" class="ml-4 mb-2 text-center related-product-item">
                                                 <img src="<?= $value['img_path'] ?>" alt="<?= $value['img_alt'] ?>" width="180" height="180" class="m-auto">
                                                 <p><?= $value['title'] ?></p>
