@@ -77,7 +77,7 @@ class CategoryController extends Controller
                 'categories'        => $categories,
                 'description'       => $description,
                 'products'          => $products,
-                'discounts'         => $discounts,
+                'discounts'         => $discounts??[],
                 'auth'              => SessionManager::get('auth') ?? false,
                 'selected_wishlist' => $selected_wishlist,
                 'breadcrumb'        => $breadcrumb_item,

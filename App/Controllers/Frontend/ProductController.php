@@ -10,14 +10,11 @@ use App\Models\Discount;
 use App\Models\Photo;
 use App\Models\Product;
 use App\Models\Product_discount;
-use App\Models\Product_tag;
 use App\Models\Product_category;
 use App\Models\Related;
-use App\Models\Tag;
 use App\Models\Taggable;
 use App\Models\Wish_list;
 use App\Services\Session\SessionManager;
-use App\Utilities\FlashMessage;
 
 class ProductController extends Controller
 {
@@ -168,13 +165,26 @@ class ProductController extends Controller
             // $products = $this->productModel->query("SELECT pros.* FROM `products` as pros INNER JOIN `product_categories` as rels ON rels.`product_id` = pros.`id` WHERE rels.`category_id` = '".$params['product_cat']."' AND pros.`title` LIKE '%".$params['s']."%'");
             $products = $this->productModel->join_products_to_categories_by_cat_id($params['product_cat'], $params['s']);
         }
-
+        
         $data     = array(
             'products'          => $products,
             'auth'              => SessionManager::get('auth') ?? false,
             'selected_wishlist' => $selected_wishlist,
-            'search_params' => $params
+            'search_params'     => $params
         );
         view('Frontend.product.index', $data);
+    }
+    
+    
+    public function discounts()
+    {
+        $products = $this->productModel->join_product_to_photo__with_productDiscounts_discounts();
+        
+        $data= array(
+            'products'=> $products,
+            
+        );
+        view('Frontend.discount.index', $data);
+        
     }
 }

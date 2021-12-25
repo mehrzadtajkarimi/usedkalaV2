@@ -60,7 +60,7 @@ class DiscountController extends Controller
             'title'       => $params['discount-title'],
             'description' => $params['discount-description'],
             'percent'     => $params['discount-percent'],
-            'status'      => $params['product-status'] ?? 0,
+            'status'      => $params['discount-status'] ?? 0,
         );
         $discount_id =  $this->discountModel->create_discount($params_create);
         foreach ($params['discount-category'] as  $value) {

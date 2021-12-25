@@ -62,7 +62,7 @@
                 <textarea name="discount-description" type="text" class="form-control" id="discount-description" placeholder="" rows="2" required></textarea>
             </div>
             <div class="pt-1 pb-4 form-check disabled ">
-                <input name="discount-status" type="checkbox" class="form-check-input " id="discount-status" checked>
+                <input value="1" name="discount-status" type="checkbox" class="form-check-input " id="discount-status" checked>
                 <label class="form-check-label" for="discount-status">
                     وضعیت
                 </label>
