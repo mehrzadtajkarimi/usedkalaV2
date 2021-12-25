@@ -79,9 +79,9 @@ class CartController  extends Controller
         $discount     = $this->productModel->join_product__with_productDiscounts_discounts_by_product_id($product_id)[0] ?? '';
 
         if ($discount) {
-            $total = $this->convert_numbers('fa', number_format(Basket::total($discount['discounts_percent'])));
+            $total = $this->convert_numbers('fa', number_format(Basket::total($discount)));
         } else {
-            $total = $this->convert_numbers('fa', number_format(Basket::total()));
+            $total = $this->convert_numbers('fa', number_format(Basket::total($product_id['id'])));
         }
 
         $result = [
@@ -97,9 +97,9 @@ class CartController  extends Controller
         $discount      = $this->productModel->join_product__with_productDiscounts_discounts_by_product_id($product_id)[0];
 
         if ($discount['id']) {
-            $total = $this->convert_numbers('fa', number_format(Basket::total($discount['discounts_percent'])));
+            $total = $this->convert_numbers('fa', number_format(Basket::total($discount)));
         } else {
-            $total = $this->convert_numbers('fa', number_format(Basket::total()));
+            $total = $this->convert_numbers('fa', number_format(Basket::total($product_id['id'])));
         }
 
         $result        = [
