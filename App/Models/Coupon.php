@@ -4,64 +4,64 @@ namespace App\Models;
 
 use App\Models\Contracts\MysqlBaseModel;
 
-class Discount extends MysqlBaseModel
+class Coupon extends MysqlBaseModel
 {
-    protected $table = 'discounts';
+    protected $table = 'coupons';
 
-    public function create_discount(array $params)
+    public function create_coupon(array $params)
     {
         return $this->create($params);
     }
-    public function read_discount($id = null)
+    public function read_coupon($id = null)
     {
         if (is_null($id)) {
             return $this->all();
         }
         return $this->first(['id' => $id]);
     }
-    public function update_discount(array $params, $id)
+    public function update_coupon(array $params, $id)
     {
         return $this->update($params, ['id' => $id]);
     }
 
-    public function delete_discount($id)
+    public function delete_coupon($id)
     {
         return $this->delete(['id' => $id]);
     }
 
 
-    public function join_discount__with_category($id)
+    public function join_coupon__with_category($id)
     {
         return $this->inner_join(
-            "discounts.*,
-            category_discounts.id AS category_discounts_id,
-            category_discounts.category_id",
-            "category_discounts",
+            "coupons.*,
+            category_coupons.id AS category_coupons_id,
+            category_coupons.category_id",
+            "category_coupons",
             "id",
-            "discount_id",
-            "discounts.id=$id",
+            "coupon_id",
+            "coupons.id=$id",
         );
     }
 
-    public function join_discount__with_productDiscounts_products_photo()
+    public function join_coupon__with_productCoupons_products_photo()
     {
 
         return $this->connection->query("
         SELECT
 
-        discounts.title AS discount_title,
+        coupons.title AS coupon_title,
         products.id AS product_id,
         products.price AS product_price,
         products.title AS product_title,
         photos.path AS photo_path,
         photos.alt AS photo_alt
 
-        FROM discounts
+        FROM coupons
 
-        INNER JOIN product_discounts
-        ON discounts.id = product_discounts.discount_id
+        INNER JOIN product_coupons
+        ON coupons.id = product_coupons.coupon_id
         INNER JOIN products
-        ON products.id = product_discounts.product_id
+        ON products.id = product_coupons.product_id
         INNER JOIN photos
         ON products.id = photos.entity_id
 

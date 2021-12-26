@@ -128,7 +128,7 @@
         <?php endif; ?>
         <?php if (can('manager-discount')) : ?>
             <li class="nav-item has-treeview">
-                <a href="#" class="nav-link <?= is_active(['/admin/discount', '/admin/sample']) ?>">
+                <a href="#" class="nav-link <?= is_active(['/admin/discount','/admin/sample', '/admin/coupon']) ?>">
                     <p>
                         تخفیفات
                         <i class="right fa fa-angle-left"></i>
@@ -136,14 +136,26 @@
                     <i class="fa fa-bullhorn nav-icon"></i>
                 </a>
 
-                <ul class="nav nav-treeview <?= is_active(['/admin/discount', '/admin/sample']) ?>">
+                <ul class="nav nav-treeview <?= is_active(['/admin/discount','/admin/sample', '/admin/coupon']) ?>">
                     <li class="nav-item">
                         <a href="<?= base_url() ?>admin/discount" class="nav-link  <?= is_active('/admin/discount') ?>">
                             <p>لیست تخفیفات</p>
                             <i class="fa fa-circle-o nav-icon"></i>
                         </a>
                     </li>
-					<?php /*
+                    <li class="nav-item">
+                        <a href="<?= base_url() ?>admin/coupon" class="nav-link  <?= is_active('/admin/coupon') ?>">
+                            <p>لیست کد تخفیف</p>
+                            <i class="fa fa-circle-o nav-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?= base_url() ?>admin/sample" class="nav-link  <?= is_active('/admin/sample') ?>">
+                            <p>لیست اشانتیون</p>
+                            <i class="fa fa-circle-o nav-icon"></i>
+                        </a>
+                    </li>
+                    <?php /*
                     <li class="nav-item">
                         <a href="<?= base_url() ?>admin/sample" class="nav-link  <?= is_active('/admin/sample') ?>">
                             <p>لیست اشانتیون</p>
@@ -230,7 +242,7 @@
                 </a>
 
                 <ul class="nav nav-treeview <?= is_active(['/admin/permission', '/admin/role', '/admin/access']) ?>">
-					<?php /*
+                    <?php /*
 					<li class="nav-item">
 						<a href="<?= base_url() ?>admin/permission" class="nav-link  <?= is_active('/admin/permission') ?>">
 							<p>(دسترسی‌ها) لیست مجوزها</p>
@@ -238,18 +250,18 @@
 						</a>
 					</li>
 					*/ ?>
-					<li class="nav-item">
-						<a href="<?= base_url() ?>admin/role" class="nav-link  <?= is_active('/admin/role') ?>">
-							<p>(سمت‌ها) لیست نقش‌ها</p>
-							<i class="fa fa-circle-o nav-icon"></i>
-						</a>
-					</li>
-					<li class="nav-item">
-						<a href="<?= base_url() ?>admin/access" class="nav-link  <?= is_active('/admin/access') ?>">
-							<p> لیست ادمین‌ها</p>
-							<i class="fa fa-circle-o nav-icon"></i>
-						</a>
-					</li>
+                    <li class="nav-item">
+                        <a href="<?= base_url() ?>admin/role" class="nav-link  <?= is_active('/admin/role') ?>">
+                            <p>(سمت‌ها) لیست نقش‌ها</p>
+                            <i class="fa fa-circle-o nav-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?= base_url() ?>admin/access" class="nav-link  <?= is_active('/admin/access') ?>">
+                            <p> لیست ادمین‌ها</p>
+                            <i class="fa fa-circle-o nav-icon"></i>
+                        </a>
+                    </li>
                 </ul>
             </li>
         <?php endif; ?>

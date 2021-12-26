@@ -229,7 +229,7 @@ class  MysqlBaseModel extends BaseModel
         if ($where_4) {
             return $this->connection->query("$query AND $where_1 AND $where_2 AND $where_3 AND $where_4")->fetchAll();
         }
-        return $this->connection->query("$query AND $where_1")->fetchAll();
+        return $this->connection->query("$query")->fetchAll();
     }
 
 
