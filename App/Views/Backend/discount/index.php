@@ -50,8 +50,8 @@
                   <td class="text-center"><?= $value['title'] ?></td>
                   <td class="text-center"><?= $value['percent'] ?></td>
                   <td class="text-center"><?= $value['description'] ?></td>
-                  <td class="text-center"><?= $value['start_at'] ?></td>
-                  <td class="text-center"><?= $value['finish_at'] ?></td>
+                  <td class="text-center"><?= jdate('H:i Y/m/d ',strtotime($value['start_at'])) ?></td>
+                  <td class="text-center"><?= jdate('H:i Y/m/d ',strtotime($value['finish_at'])) ?></td>
                   <td>
                     <div>
                       وضــــــــــعــیـت :
