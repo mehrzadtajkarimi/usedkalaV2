@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 26, 2021 at 10:18 AM
+-- Generation Time: Dec 27, 2021 at 07:54 AM
 -- Server version: 8.0.27-0ubuntu0.20.04.1
 -- PHP Version: 8.0.13
 
@@ -61,7 +61,7 @@ CREATE TABLE `activity_log` (
   `detailed_data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
   `uri` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT '',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `activity_log`
@@ -357,7 +357,23 @@ INSERT INTO `activity_log` (`id`, `user_id`, `ip`, `type`, `target_table`, `row_
 (281, 81, '127.0.0.1', 'delete', 'product_coupons', 0, '{\"product_id\":1}', '[]', '/admin/coupon/1', '2021-12-26 08:54:15'),
 (282, 81, '127.0.0.1', 'create', 'product_coupons', 1, '', '{\"coupon_id\":{\"_method\":\"patch\",\"start_at\":\"1640504927\",\"finish_at\":\"1640504927\",\"coupon-code\":\"338918\",\"coupon-title\":\"ماه رمضان\",\"coupon-percent\":\"5\",\"coupon-product\":[\"83\"],\"coupon-description\":\"ماه رمضان\",\"coupon-status\":\"on\",\"id\":\"1\"},\"product_id\":\"83\"}', '/admin/coupon/1', '2021-12-26 08:54:15'),
 (283, 81, '127.0.0.1', 'create', 'coupons', 2, '', '{\"user_id\":\"81\",\"start_at\":\"2021-12-26 13:19:25\",\"finish_at\":\"2022-01-19 13:19:25\",\"code\":\"112218\",\"title\":\"رمضان 2\",\"description\":\"رمضان 2\",\"percent\":\"15\",\"status\":\"1\"}', '/admin/coupon', '2021-12-26 09:49:56'),
-(284, 81, '127.0.0.1', 'create', 'product_coupons', 2, '', '{\"coupon_id\":\"2\",\"product_id\":\"83\"}', '/admin/coupon', '2021-12-26 09:49:56');
+(284, 81, '127.0.0.1', 'create', 'product_coupons', 2, '', '{\"coupon_id\":\"2\",\"product_id\":\"83\"}', '/admin/coupon', '2021-12-26 09:49:56'),
+(285, 81, '127.0.0.1', 'create', 'samples', 2, '', '{\"user_id\":\"81\",\"start_at\":\"2021-12-27 09:36:33\",\"finish_at\":\"2022-01-19 09:36:33\",\"code\":\"983073\",\"title\":\"sss\",\"description\":\"111\",\"percent\":\"10\",\"status\":0}', '/admin/sample', '2021-12-27 06:07:56'),
+(286, 81, '127.0.0.1', 'create', 'product_samples', 4, '', '{\"sample_id\":\"2\",\"product_id\":\"90\"}', '/admin/sample', '2021-12-27 06:07:56'),
+(287, 81, '127.0.0.1', 'create', 'samples', 3, '', '{\"user_id\":\"81\",\"start_at\":\"2021-12-27 09:51:40\",\"finish_at\":\"2022-01-20 09:51:40\",\"start_price\":\"1000000\",\"finish_price\":\"2000000\",\"code\":\"908705\",\"title\":\"عید\",\"description\":\"عید\",\"percent\":\"10\",\"status\":0}', '/admin/sample', '2021-12-27 06:25:50'),
+(288, 81, '127.0.0.1', 'create', 'product_samples', 5, '', '{\"sample_id\":\"3\",\"product_id\":\"92\"}', '/admin/sample', '2021-12-27 06:25:50'),
+(289, 81, '127.0.0.1', 'update', 'samples', 0, '{\"id\":\"3\"}', '{\"old\":[{\"id\":\"3\",\"title\":\"عید\",\"user_id\":\"81\",\"code\":\"908705\",\"type\":null,\"percent\":\"10\",\"description\":\"عید\",\"status\":\"0\",\"start_price\":\"1000000\",\"finish_price\":\"2000000\",\"start_at\":\"2021-12-27 09:51:40\",\"finish_at\":\"2022-01-20 09:51:40\",\"updated_at\":null,\"created_at\":\"2021-12-27 09:55:50\"}],\"new\":{\"user_id\":\"81\",\"start_at\":\"2021-12-27 09:51:40\",\"finish_at\":\"2022-01-20 09:51:40\",\"start_price\":\"11111111\",\"finish_price\":\"222222222\",\"code\":\"908705\",\"title\":\"عید\",\"description\":\"عید\",\"percent\":\"10\",\"status\":1}}', '/admin/sample/3', '2021-12-27 06:32:43'),
+(290, 81, '127.0.0.1', 'update', 'samples', 0, '{\"id\":\"3\"}', '{\"old\":[{\"id\":\"3\",\"title\":\"عید\",\"user_id\":\"81\",\"code\":\"908705\",\"type\":null,\"percent\":\"10\",\"description\":\"عید\",\"status\":\"1\",\"start_price\":\"11111111\",\"finish_price\":\"222222222\",\"start_at\":\"2021-12-27 09:51:40\",\"finish_at\":\"2022-01-20 09:51:40\",\"updated_at\":null,\"created_at\":\"2021-12-27 09:55:50\"}],\"new\":{\"user_id\":\"81\",\"start_at\":\"2021-12-27 09:51:40\",\"finish_at\":\"2022-01-20 09:51:40\",\"start_price\":\"11111111\",\"finish_price\":\"222222222\",\"code\":\"908705\",\"title\":\"عید\",\"description\":\"عید\",\"percent\":\"10\",\"status\":1}}', '/admin/sample/3', '2021-12-27 06:39:25'),
+(291, 81, '127.0.0.1', 'delete', 'product_samples', 0, '{\"sample_id\":\"3\"}', '[{\"id\":\"5\",\"sample_id\":\"3\",\"product_id\":\"92\"}]', '/admin/sample/3', '2021-12-27 06:39:25'),
+(292, 81, '127.0.0.1', 'create', 'product_samples', 6, '', '{\"sample_id\":\"3\",\"product_id\":\"92\"}', '/admin/sample/3', '2021-12-27 06:39:25'),
+(293, 81, '127.0.0.1', 'update', 'orders', 0, '{\"id\":\"4\"}', '{\"old\":[{\"id\":\"4\",\"user_id\":\"76\",\"user_full_name\":\"\",\"user_phone\":\"09369532227\",\"city_id\":\"301\",\"province_id\":\"8\",\"postal_code\":\"12345678\",\"address\":\"تهرانپارس،\",\"token\":\"0\",\"order_number\":\"0\",\"weight\":\"normal\",\"item_count\":\"2\",\"grand_total\":\"240000000\",\"discount_total\":\"0\",\"shipping_cost\":\"0\",\"notes\":\"\",\"handler_id\":\"73\",\"sender_id\":\"73\",\"status\":\"2\",\"created_at\":\"2021-11-30 13:19:52\",\"updated_at\":null}],\"new\":{\"sender_id\":\"81\",\"status\":3}}', '/admin/order/status/4', '2021-12-27 06:41:23'),
+(294, 0, '127.0.0.1', 'create', 'active_codes', 345, '', '{\"user_id\":\"81\",\"code\":7958,\"expired_at\":\"2021-12-27 11:13:59\"}', '/admin/login', '2021-12-27 07:43:58'),
+(295, 81, '127.0.0.1', 'delete', 'active_codes', 0, '{\"user_id\":\"81\"}', '[{\"id\":\"345\",\"user_id\":\"81\",\"code\":\"7958\",\"expired_at\":\"2021-12-27 11:13:59\"}]', '/admin/token', '2021-12-27 07:44:14'),
+(296, 81, '127.0.0.1', 'update', 'samples', 0, '{\"id\":\"3\"}', '{\"old\":[{\"id\":\"3\",\"title\":\"عید\",\"user_id\":\"81\",\"code\":\"908705\",\"type\":null,\"percent\":\"10\",\"description\":\"عید\",\"status\":\"1\",\"start_price\":\"11111111\",\"finish_price\":\"222222222\",\"start_at\":\"2021-12-27 09:51:40\",\"finish_at\":\"2022-01-20 09:51:40\",\"updated_at\":null,\"created_at\":\"2021-12-27 09:55:50\"}],\"new\":{\"user_id\":\"81\",\"start_at\":\"2021-12-27 09:51:40\",\"finish_at\":\"2022-01-20 09:51:40\",\"start_price\":\"11111111\",\"finish_price\":\"222222222\",\"code\":\"908705\",\"title\":\"عید\",\"description\":\"عیدبب\",\"percent\":\"10\",\"status\":1}}', '/admin/sample/3', '2021-12-27 07:50:04'),
+(297, 81, '127.0.0.1', 'delete', 'product_samples', 0, '{\"sample_id\":\"3\"}', '[{\"id\":\"6\",\"sample_id\":\"3\",\"product_id\":\"92\"}]', '/admin/sample/3', '2021-12-27 07:50:04'),
+(298, 81, '127.0.0.1', 'create', 'product_samples', 7, '', '{\"sample_id\":\"3\",\"product_id\":\"92\"}', '/admin/sample/3', '2021-12-27 07:50:04'),
+(299, 81, '127.0.0.1', 'delete', 'product_samples', 0, '{\"sample_id\":\"3\"}', '[{\"id\":\"7\",\"sample_id\":\"3\",\"product_id\":\"92\"}]', '/admin/sample/3', '2021-12-27 07:53:20'),
+(300, 81, '127.0.0.1', 'delete', 'samples', 0, '{\"id\":\"3\"}', '[{\"id\":\"3\",\"title\":\"عید\",\"user_id\":\"81\",\"code\":\"908705\",\"type\":null,\"percent\":\"10\",\"description\":\"عیدبب\",\"status\":\"1\",\"start_price\":\"11111111\",\"finish_price\":\"222222222\",\"start_at\":\"2021-12-27 09:51:40\",\"finish_at\":\"2022-01-20 09:51:40\",\"updated_at\":null,\"created_at\":\"2021-12-27 09:55:50\"}]', '/admin/sample/3', '2021-12-27 07:53:20');
 
 -- --------------------------------------------------------
 
@@ -1883,7 +1899,7 @@ INSERT INTO `orders` (`id`, `user_id`, `user_full_name`, `user_phone`, `city_id`
 (1, 76, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 6, 2710000000, 0, 0, 'لطفا کالاها را به موقع برسانید.', 0, 0, 1, '2021-11-30 05:32:54', NULL),
 (2, 76, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 8, 6800000000, 0, 0, '', 77, 77, 3, '2021-11-30 09:45:39', NULL),
 (3, 76, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 3, 2550000000, 0, 0, '', 73, 0, 2, '2021-11-30 09:49:05', NULL),
-(4, 76, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 2, 240000000, 0, 0, '', 73, 73, 2, '2021-11-30 09:49:52', NULL);
+(4, 76, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 2, 240000000, 0, 0, '', 73, 81, 3, '2021-11-30 09:49:52', NULL);
 
 -- --------------------------------------------------------
 
@@ -2680,7 +2696,8 @@ CREATE TABLE `product_samples` (
 INSERT INTO `product_samples` (`id`, `sample_id`, `product_id`) VALUES
 (1, 1, 30),
 (2, 1, 29),
-(3, 1, 26);
+(3, 1, 26),
+(4, 2, 90);
 
 -- --------------------------------------------------------
 
@@ -2856,8 +2873,10 @@ CREATE TABLE `samples` (
   `percent` tinyint DEFAULT NULL COMMENT '%',
   `description` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
   `status` tinyint(1) DEFAULT '1',
-  `start_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `finish_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `start_price` int NOT NULL,
+  `finish_price` int NOT NULL,
+  `start_at` timestamp NOT NULL,
+  `finish_at` timestamp NOT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
@@ -2866,8 +2885,9 @@ CREATE TABLE `samples` (
 -- Dumping data for table `samples`
 --
 
-INSERT INTO `samples` (`id`, `title`, `user_id`, `code`, `type`, `percent`, `description`, `status`, `start_at`, `finish_at`, `updated_at`, `created_at`) VALUES
-(1, 'Error laborum est ip', 70, '517882', NULL, 0, 'Dolore quam similiqu', 1, '2021-10-06 12:39:51', '2021-10-08 12:39:51', NULL, '2021-10-06 12:40:09');
+INSERT INTO `samples` (`id`, `title`, `user_id`, `code`, `type`, `percent`, `description`, `status`, `start_price`, `finish_price`, `start_at`, `finish_at`, `updated_at`, `created_at`) VALUES
+(1, 'Error laborum est ip', 70, '517882', NULL, 0, 'Dolore quam similiqu', 1, 0, 0, '2021-10-06 12:39:51', '2021-10-08 12:39:51', NULL, '2021-10-06 12:40:09'),
+(2, 'sss', 81, '983073', NULL, 10, '111', 0, 0, 0, '2021-12-27 06:06:33', '2022-01-19 06:06:33', NULL, '2021-12-27 06:07:56');
 
 -- --------------------------------------------------------
 
@@ -3371,13 +3391,13 @@ ALTER TABLE `wish_lists`
 -- AUTO_INCREMENT for table `active_codes`
 --
 ALTER TABLE `active_codes`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=345;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=346;
 
 --
 -- AUTO_INCREMENT for table `activity_log`
 --
 ALTER TABLE `activity_log`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=301;
 
 --
 -- AUTO_INCREMENT for table `attributes`
@@ -3527,7 +3547,7 @@ ALTER TABLE `product_discounts`
 -- AUTO_INCREMENT for table `product_samples`
 --
 ALTER TABLE `product_samples`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `product_tags`
@@ -3569,7 +3589,7 @@ ALTER TABLE `role_users`
 -- AUTO_INCREMENT for table `samples`
 --
 ALTER TABLE `samples`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `sellers`

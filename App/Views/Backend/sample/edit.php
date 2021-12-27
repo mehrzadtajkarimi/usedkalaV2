@@ -45,15 +45,23 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="form-group row">
-                    <label class="col-2 col-form-label"> دسته بندی انتخابی</label>
-                    <div class="col-10">
-                        <select name='sample-category[]' id="sample_category" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
-                            <?php foreach ($categories as $value) : ?>
-                                <option value="<?= $value['id'] ?>" <?= in_array($value['id'], $categories_selected) ? 'selected' : ''  ?>><?= $value['name'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group row">
+                        <label for="start_price" class="col-2"> از مبلغ</label>
+                        <div class="col-10">
+                            <input type="number" name="start_price" class="form-control " id="start_price" value="<?= $sample['start_price'] ?? '' ?>" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group row">
+                        <label for="finish_price" class="col-2"> تا مبلغ</label>
+                        <div class="col-10">
+                        <input type="number" name="finish_price" class="form-control " id="finish_price" value="<?= $sample['finish_price'] ?? '' ?>" required>
+                    </div>
                     </div>
                 </div>
             </div>
