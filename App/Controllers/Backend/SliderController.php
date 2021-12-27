@@ -51,8 +51,8 @@ class SliderController extends Controller
         $params_create = array(
             'small_text'  => $params['slider-small'],
             'link'        => $params['slider-link'],
-            'product_id'  => $params['product_id']??'',
-            'category_id' => $params['category_id']??'',
+            'product_id'  => $params['product_id'] ?? '',
+            'category_id' => $params['category_id'] ?? '',
             'description' => $params['slider-description'],
             'status'      => $params['slider-status'] ?? 0,
             'linktype'    => $params['linktype']
@@ -89,7 +89,6 @@ class SliderController extends Controller
             FlashMessage::add("مقادیر بدونه ضمیمه عکس با موفقیت در دیتابیس ذخیره شد", FlashMessage::WARNING);
             return $this->request->redirect('admin/slider');
         }
-
     }
 
     public function show()
@@ -122,13 +121,13 @@ class SliderController extends Controller
         $params_update = array(
             'small_text'  => $params['slider-small'],
             'link'        => $params['slider-link'],
-            'product_id'  => $params['product_id']??'',
-            'category_id' => $params['category_id']??'',
+            'product_id'  => $params['product_id'] ?? '',
+            'category_id' => $params['category_id'] ?? '',
             'description' => $params['slider-description'],
             'status'      => $params['slider-status'] == 'on' ? 1 : 0,
-			'linktype'	  => $params['linktype']
+            'linktype'      => $params['linktype']
         );
-        $this->sliderModel->update_slider($params_update, $id['id']);
+        $this->sliderModel->update_slider($params_update, $id);
 
 
 
@@ -141,7 +140,7 @@ class SliderController extends Controller
             $file_paths = $file->save();
             if ($file_paths) {
 
-                $is_update_photo = $this->photoModel->update_photo('Slider', $id['id'], $file_paths[0], 'slider_image');
+                $is_update_photo = $this->photoModel->update_photo('Slider', $id, $file_paths[0], 'slider_image');
 
 
                 if ($is_update_photo) {
@@ -167,7 +166,7 @@ class SliderController extends Controller
             FlashMessage::add("مقادیر  با موفقیت از دیتابیس حذف شد ");
             return $this->request->redirect('admin/slider');
         }
-        if ($is_deleted_slider ) {
+        if ($is_deleted_slider) {
             FlashMessage::add("اسلایدر بدون عکس با موفقیت از دیتابیس حذف شد", FlashMessage::WARNING);
             return $this->request->redirect('admin/slider');
         }

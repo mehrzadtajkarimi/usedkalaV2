@@ -19,7 +19,7 @@ class CouponController extends Controller
 
     public function __construct()
     {
-        parent:: __construct();
+        parent::__construct();
         $this->productModel       = new Product();
         $this->categoryModel      = new Category();
         $this->couponModel        = new Coupon();
@@ -65,7 +65,7 @@ class CouponController extends Controller
                 'product_id' => $value,
             ]);
         }
-        FlashMessage:: add("مقادیر باموفقیت  ضمیمه شد و با موفقیت در دیتابیس ذخیره شد");
+        FlashMessage::add("مقادیر باموفقیت  ضمیمه شد و با موفقیت در دیتابیس ذخیره شد");
         return $this->request->redirect('admin/coupon');
     }
 
@@ -76,7 +76,7 @@ class CouponController extends Controller
     public function edit()
     {
         $id               = $this->request->get_param('id');
-        $products_by_id   = $this->productCouponModel->read_productCoupon($id['id']);
+        $products_by_id   = $this->productCouponModel->read_productCoupon($id);
 
 
 
@@ -85,7 +85,7 @@ class CouponController extends Controller
                 $products_selected[] = $value['product_id'];
             }
         }
-        
+
 
         $data = array(
             'coupon'              => $this->couponModel->read_coupon($id),
@@ -100,7 +100,7 @@ class CouponController extends Controller
     {
         $params = $this->request->params();
         $id     = $this->request->get_param('id');
-        
+
         $params_update = array(
             'user_id'     => Auth::is_login(),
             'start_at'    => date("Y-m-d H:i:s", $params['start_at']),
@@ -109,21 +109,21 @@ class CouponController extends Controller
             'title'       => $params['coupon-title'],
             'description' => $params['coupon-description'],
             'percent'     => $params['coupon-percent'],
-            'status'      => $params['coupon-status']== 'on'? 1 : 0,
+            'status'      => $params['coupon-status'] == 'on' ? 1 : 0,
         );
-        $this->couponModel->update_coupon($params_update, $id['id']);
+        $this->couponModel->update_coupon($params_update, $id);
 
 
         if (!empty($params['coupon-product'])) {
-            $this->productCouponModel->delete_productCoupon_by_coupon_id($id['id']);
+            $this->productCouponModel->delete_productCoupon_by_coupon_id($id);
             foreach ($params['coupon-product'] as  $value) {
                 $this->productCouponModel->create_productCoupon([
-                    'coupon_id'  => $id['id'],
+                    'coupon_id'  => $id,
                     'product_id' => $value,
                 ], $id);
             }
         }
-        FlashMessage:: add("مقادیر باموفقیت  ضمیمه شد و با موفقیت در دیتابیس ذخیره شد");
+        FlashMessage::add("مقادیر باموفقیت  ضمیمه شد و با موفقیت در دیتابیس ذخیره شد");
         return $this->request->redirect('admin/coupon');
     }
 
@@ -135,10 +135,10 @@ class CouponController extends Controller
         $is_deleted_coupon = $this->couponModel->delete_coupon($id);
 
         if ($is_deleted_coupon) {
-            FlashMessage:: add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
+            FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
             return $this->request->redirect('admin/coupon');
         }
-        FlashMessage:: add(" مشکلی در حذف محصول پیش آمده است", FlashMessage::ERROR);
+        FlashMessage::add(" مشکلی در حذف محصول پیش آمده است", FlashMessage::ERROR);
         return $this->request->redirect('admin/coupon');
     }
 }

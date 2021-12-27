@@ -89,9 +89,9 @@ class BrandController extends Controller
     public function edit()
     {
         $id = $this->request->get_param('id');
-		$brandPhoto=$this->photoModel->read_photo_by_id($id['id'],'Brand');
-		if (count($brandPhoto)>0) $brandPhoto=$brandPhoto[0];
-		
+        $brandPhoto = $this->photoModel->read_photo_by_id($id, 'Brand');
+        if (count($brandPhoto) > 0) $brandPhoto = $brandPhoto[0];
+
         $data = array(
             'brands' => $this->brandModel->read_brand($id),
             'photo' => $brandPhoto
@@ -112,7 +112,7 @@ class BrandController extends Controller
             $file = new UploadedFile($files_param);
             $file_paths = $file->save();
             if ($file_paths) {
-                $is_update_photo = $this->photoModel->update_photo('Brand', $id['id'], $file_paths[0], 'brand_image');
+                $is_update_photo = $this->photoModel->update_photo('Brand', $id, $file_paths[0], 'brand_image');
 
                 if ($is_update_photo) {
                     FlashMessage::add("ویرایش برند با موفقیت انجام شد");
@@ -124,7 +124,7 @@ class BrandController extends Controller
             $this->brandModel->update_brand([
                 'name'      => $params['brand-name'],
                 'sort'      => $params['brand-sort'],
-            ], $id['id']);
+            ], $id);
             FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
         }
         return $this->request->redirect('admin/brand');

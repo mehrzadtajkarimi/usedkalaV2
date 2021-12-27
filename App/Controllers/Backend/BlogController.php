@@ -114,12 +114,12 @@ class BlogController extends Controller
     {
         $id = $this->request->get_param('id');
         $categories_selected = $this->blogCategoriesModel->read_categoryBlog($id) ?: [];
-        $tags_selected       = $this->taggableModel->read_taggable($id['id']) ?: [];
+        $tags_selected       = $this->taggableModel->read_taggable($id) ?: [];
 
-		$photoObj=$this->photoModel->read_single_photo_by_id(0,$id['id'],'Blog');
-		// print_r($photoObj);
-		// die();
-		
+        $photoObj = $this->photoModel->read_single_photo_by_id(0, $id, 'Blog');
+        // print_r($photoObj);
+        // die();
+
         $selectedCats = [];
         foreach ($categories_selected as $selectedCatRow) {
             $selectedCats[$selectedCatRow['id']] = $selectedCatRow;
@@ -129,21 +129,21 @@ class BlogController extends Controller
         foreach ($tags_selected as $selectedTagRow) {
             $selectedTags[$selectedTagRow['tag_id']] = $selectedTagRow;
         }
-		$breadcrumbArr=[
-			"بلاگها"	         => "blog",
-			"ویرایش پست بلاگ" => "#",
-		];
+        $breadcrumbArr = [
+            "بلاگها"             => "blog",
+            "ویرایش پست بلاگ" => "#",
+        ];
 
         $data = array(
             'tags'                => $this->tagModel->read_tag(),
-            'categories'          => $this->categoryModel->category_tree_for_backend(0,'',1),
+            'categories'          => $this->categoryModel->category_tree_for_backend(0, '', 1),
             'blog'                => $this->blogModel->read_blog($id),
             'categories_selected' => $selectedCats,
             'tags_selected'       => $selectedTags,
             'robots'              => Tinyint::category_robots(),
-			'breadcrumb'		  => $breadcrumbArr
+            'breadcrumb'          => $breadcrumbArr
         );
-		if (isset($photoObj[0])) $data['photo']=$photoObj[0];
+        if (isset($photoObj[0])) $data['photo'] = $photoObj[0];
         view('Backend.blog.edit', $data);
     }
 
@@ -153,20 +153,20 @@ class BlogController extends Controller
         $id    = $this->request->get_param('id');
 
         if (!empty($param['blog-category'])) {
-            $this->blogCategoriesModel->delete_blogCategories_by_blog_id($id['id']);
+            $this->blogCategoriesModel->delete_blogCategories_by_blog_id($id);
             foreach ($param['blog-category'] as  $category_id) {
                 $this->blogCategoriesModel->create_blogCategories([
-                    'blog_id'     => $id['id'],
+                    'blog_id'     => $id,
                     'category_id' => $category_id,
                 ]);
             }
         }
         if (!empty($param['blog-tag'])) {
-            $this->taggableModel->delete_taggable($id['id']);
+            $this->taggableModel->delete_taggable($id);
             foreach ($param['blog-tag'] as  $tag_id) {
                 $this->taggableModel->create_taggable([
                     'tag_id'      => $tag_id,
-                    'entity_id'   => $id['id'],
+                    'entity_id'   => $id,
                     'entity_type' => 'Blog',
                 ]);
             }
@@ -182,7 +182,7 @@ class BlogController extends Controller
             'seo_robot'       => $param['seo-robot'],
             'seo_description' => $param['seo-description'],
             'meta_title'      => $param['blog-meta'],
-        ], ['id' => $id['id']]);
+        ], ['id' => $id]);
 
 
 
@@ -195,7 +195,7 @@ class BlogController extends Controller
             $file_paths = $file->save();
             if ($file_paths) {
 
-                $is_update_photo = $this->photoModel->update_photo('Blog', $id['id'], $file_paths[0], 'image_blog');
+                $is_update_photo = $this->photoModel->update_photo('Blog', $id, $file_paths[0], 'image_blog');
 
                 if ($is_update_photo) {
                     FlashMessage::add("ویرایش پست بلاگ با موفقیت انجام شد");

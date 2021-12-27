@@ -86,9 +86,8 @@ class ProductController extends Controller
         $check_file_param_exists = !empty($files_param_tmp_name[0]);
         if ($check_file_param_exists) {
             $product_id = $this->productModel->create_product($params_create);
-            if(!empty($params['related-products-cat']))
-            {
-                foreach ($params['related-products-cat'] as $category_id){
+            if (!empty($params['related-products-cat'])) {
+                foreach ($params['related-products-cat'] as $category_id) {
                     $is_create_product =  $this->relatedModel->create_related([
                         'entity_type' => 'product',
                         'entity_id'   => $product_id,
@@ -97,9 +96,8 @@ class ProductController extends Controller
                     ]);
                 }
             }
-            if(!empty($params['related-products-name']))
-            {
-                foreach ($params['related-products-name'] as $p_id){
+            if (!empty($params['related-products-name'])) {
+                foreach ($params['related-products-name'] as $p_id) {
                     $is_create_product =  $this->relatedModel->create_related([
                         'entity_type' => 'product',
                         'entity_id'   => $product_id,
@@ -165,10 +163,10 @@ class ProductController extends Controller
     {
         $products_id         = $this->request->get_param('id');
         $categories_selected = $this->productCategoriesModel->read_productCategories($products_id);
-        $tags_selected       = $this->taggableModel->read_taggable($products_id['id']);
+        $tags_selected       = $this->taggableModel->read_taggable($products_id);
         $product             = $this->productModel->read_product($products_id);
         $related             = $this->relatedModel->get_related_by_entity_id([
-            'entity_id'   => $products_id['id'],
+            'entity_id'   => $products_id,
             'entity_type' => 'product'
         ]);
         $selectedCats = [];
@@ -180,20 +178,20 @@ class ProductController extends Controller
             $selectedTags[$selectedTagRow['id']] = $selectedTagRow;
         }
         $selectedRelatedCats = [];
-        if($product['status_related'] == 1){
+        if ($product['status_related'] == 1) {
             foreach ($related as $selectedCatRow) {
                 $selectedRelatedCats[$selectedCatRow['id']] = $selectedCatRow['related_id'];
             }
         }
         $selectedRelatedProducts = [];
-        if($product['status_related'] == 2){
+        if ($product['status_related'] == 2) {
             foreach ($related as $selectedCatRow) {
                 $selectedRelatedProducts[$selectedCatRow['id']] = $selectedCatRow['related_id'];
             }
         }
 
-        $photo = $this->photoModel->read_photo_by_id($products_id['id'],'Product');
-		if (count($photo)>0) $photo=$photo[0];
+        $photo = $this->photoModel->read_photo_by_id($products_id, 'Product');
+        if (count($photo) > 0) $photo = $photo[0];
         // var_dump($photo);
         // die();
         $data = array(
@@ -239,27 +237,25 @@ class ProductController extends Controller
             'seo_description' => $params['seo-description'],
             'status_related'  => $params['related-products-status']
         );
-        $this->productModel->update_product($params_updated, $product_id['id']);
+        $this->productModel->update_product($params_updated, $product_id);
 
-        if(!empty($params['related-products-cat']))
-        {
-            $this->relatedModel->delete_related_by_entity_id($product_id['id']);
-            foreach ($params['related-products-cat'] as $category_id){
+        if (!empty($params['related-products-cat'])) {
+            $this->relatedModel->delete_related_by_entity_id($product_id);
+            foreach ($params['related-products-cat'] as $category_id) {
                 $this->relatedModel->create_related([
                     'entity_type' => 'product',
-                    'entity_id'   => $product_id['id'],
+                    'entity_id'   => $product_id,
                     'related_id'  => $category_id,
                     'user_id'     => Auth::is_login(),
                 ]);
             }
         }
-        if(!empty($params['related-products-name']))
-        {
-            $this->relatedModel->delete_related_by_entity_id($product_id['id']);
-            foreach ($params['related-products-name'] as $p_id){
+        if (!empty($params['related-products-name'])) {
+            $this->relatedModel->delete_related_by_entity_id($product_id);
+            foreach ($params['related-products-name'] as $p_id) {
                 $this->relatedModel->create_related([
                     'entity_type' => 'product',
-                    'entity_id'   => $product_id['id'],
+                    'entity_id'   => $product_id,
                     'related_id'  => $p_id,
                     'user_id'     => Auth::is_login(),
                 ]);
@@ -267,20 +263,20 @@ class ProductController extends Controller
         }
 
         if (!empty($params['product-category'])) {
-            $this->productCategoriesModel->delete_productCategories_by_product_id($product_id['id']);
+            $this->productCategoriesModel->delete_productCategories_by_product_id($product_id);
             foreach ($params['product-category'] as  $category_id) {
                 $this->productCategoriesModel->create_productCategories([
-                    'product_id'  => $product_id['id'],
+                    'product_id'  => $product_id,
                     'category_id' => $category_id,
                 ]);
             }
         }
         if (!empty($param['product-tag'])) {
-            $this->taggableModel->delete_taggable($product_id['id']);
+            $this->taggableModel->delete_taggable($product_id);
             foreach ($param['product-tag'] as  $tag_id) {
                 $this->taggableModel->create_taggable([
                     'tag_id'      => $tag_id,
-                    'entity_id'   => $product_id['id'],
+                    'entity_id'   => $product_id,
                     'entity_type' => 'Blog',
                 ]);
             }
@@ -294,7 +290,7 @@ class ProductController extends Controller
             $file_paths = $file->save();
             if ($file_paths) {
 
-                $is_update_photo = $this->photoModel->update_photo('Product', $product_id['id'], $file_paths[0], 'product_image');
+                $is_update_photo = $this->photoModel->update_photo('Product', $product_id, $file_paths[0], 'product_image');
 
                 if ($is_update_photo) {
                     FlashMessage::add("ویرایش محصول با موفقیت انجام شد");
@@ -311,7 +307,7 @@ class ProductController extends Controller
     public function destroy()
     {
         $id                           = $this->request->get_param('id');
-        $is_deleted_productCategories = $this->productCategoriesModel->delete_productCategories_by_product_id($id['id']);
+        $is_deleted_productCategories = $this->productCategoriesModel->delete_productCategories_by_product_id($id);
         $is_deleted_tag               = $this->taggableModel->delete_taggable($id);
         $is_deleted_photo             = $this->photoModel->delete_photo($id);
         $is_deleted_product           = $this->productModel->delete_product($id);

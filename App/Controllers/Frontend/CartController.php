@@ -56,7 +56,7 @@ class CartController  extends Controller
 
         $product_id = $this->request->get_param('id');
         $params     = $this->request->params();
-        $product    = $this->productModel->first(['id' => $product_id['id']]);
+        $product    = $this->productModel->first(['id' => $product_id]);
 
         if (isset($params['product_quantity'])) {
             $product['product_quantity'] = $params['product_quantity'];
@@ -66,7 +66,7 @@ class CartController  extends Controller
         if (isset($params['photo_path'])) {
             $product['photo_path'] = $params['photo_path'];
         } else {
-            $product['photo_path'] = $this->productModel->join_product_to_photo_by_id($product_id['id']);
+            $product['photo_path'] = $this->productModel->join_product_to_photo_by_id($product_id);
             $product['photo_path'] = $product['photo_path'][0]['path'];
         }
         if ($product) {
@@ -77,14 +77,13 @@ class CartController  extends Controller
     public function plus()
     {
         $product_id   = $this->request->get_param('id');
-        $plus_product = $this->convert_numbers('fa', Basket::plus($product_id['id']));
+        $plus_product = $this->convert_numbers('fa', Basket::plus($product_id));
         $discount     = $this->productModel->join_product__with_productDiscounts_discounts_by_product_id($product_id)[0] ?? '';
 
         if ($discount) {
             $total = $this->convert_numbers('fa', number_format(Basket::total($discount)));
         } else {
-
-            $total = $this->convert_numbers('fa', number_format(Basket::total($product_id['id'])));
+            $total = $this->convert_numbers('fa', number_format(Basket::total($product_id)));
         }
 
         $result = [
@@ -96,13 +95,13 @@ class CartController  extends Controller
     public function minus()
     {
         $product_id    = $this->request->get_param('id');
-        $minus_product = $this->convert_numbers('fa', Basket::minus($product_id['id']));
+        $minus_product = $this->convert_numbers('fa', Basket::minus($product_id));
         $discount      = $this->productModel->join_product__with_productDiscounts_discounts_by_product_id($product_id)[0];
 
         if ($discount['id']) {
             $total = $this->convert_numbers('fa', number_format(Basket::total($discount)));
         } else {
-            $total = $this->convert_numbers('fa', number_format(Basket::total($product_id['id'])));
+            $total = $this->convert_numbers('fa', number_format(Basket::total($product_id)));
         }
 
         $result        = [
@@ -115,7 +114,7 @@ class CartController  extends Controller
     public function remove()
     {
         $product_id = $this->request->get_param('id');
-        Basket::remove($product_id['id']);
+        Basket::remove($product_id);
         Request::redirect('cart');
     }
 }

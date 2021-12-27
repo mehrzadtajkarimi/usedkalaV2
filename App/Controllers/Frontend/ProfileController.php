@@ -50,7 +50,7 @@ class ProfileController extends Controller
         //     $this->request->redirect('profile');
         // }
         // dd($user_id);
-        
+
         if (Auth::is_login()) {
             $data = array(
                 'data'       => $this->userModel->join_user_to_photo($user_id),
@@ -75,7 +75,7 @@ class ProfileController extends Controller
             $file = new UploadedFile($files_param);
             $file_paths = $file->save();
             if ($file_paths) {
-                $is_update_photo = $this->photoModel->update_photo('User', $id['id'], $file_paths[0], 'profile_image');
+                $is_update_photo = $this->photoModel->update_photo('User', $id, $file_paths[0], 'profile_image');
 
                 if ($is_update_photo) {
                     FlashMessage::add("ویرایش اطلاعات کاربری با موفقیت انجام شد.");
@@ -98,7 +98,7 @@ class ProfileController extends Controller
                 'gender' => $params['profile-gender'],
                 'jobtitle' => $params['profile-job-title'],
                 'company' => $params['profile-company'],
-            ], $id['id']);
+            ], $id);
             FlashMessage::add("مقادیر  با موفقیت ذخیره شد.");
         }
         return $this->request->redirect('profile');

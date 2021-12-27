@@ -212,7 +212,7 @@ class Product extends MysqlBaseModel
 
     public function join_product__with_productDiscounts_discounts_by_product_id($id)
     {
-        $exists_productDiscount_by_product_id = (new Product_discount())->read_productDiscount_by_product_id($id['id']);
+        $exists_productDiscount_by_product_id = (new Product_discount())->read_productDiscount_by_product_id($id);
         if ($exists_productDiscount_by_product_id) {
             return $this->connection->query("
                 SELECT
@@ -226,7 +226,7 @@ class Product extends MysqlBaseModel
                 ON products.id = product_discounts.product_id
                 INNER JOIN discounts
                 ON product_discounts.discount_id = discounts.id
-                AND products.id ={$id['id']}
+                AND products.id ={$id}
                 ")->fetchAll();
         }
         return false;

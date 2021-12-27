@@ -36,8 +36,8 @@ class CategoryController extends Controller
     public function show()
     {
         $slug = $this->request->get_param('slug');
-        $slug['slug'] = urldecode($slug['slug']);
-        $categoryRow = $this->categoryModel->read_category_by_slug($slug['slug']);
+        $slug = urldecode($slug);
+        $categoryRow = $this->categoryModel->read_category_by_slug($slug);
         $parent_id['id'] = $categoryRow['id'];
 
         $description          = $categoryRow;

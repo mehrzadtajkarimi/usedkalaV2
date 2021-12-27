@@ -13,43 +13,41 @@ class CategoryController extends Controller
 {
     private $categoryModel;
     private $photoModel;
-    private $get_param;
 
     public function __construct()
     {
         parent::__construct();
         $this->categoryModel = new Category;
         $this->photoModel    = new Photo;
-        $this->get_param     = $this->request->get_param();
     }
 
     public function index()
     {
-        $get_param = $this->get_param;
-        if (!isset($get_param['type'])) $get_param['type']='product';
-		$type_key  = $this->type_amounts($get_param['type'])['type_key'];
-		$type_persian = $this->type_amounts($get_param['type'])['type_persian'];
-		$folder_type = $get_param['type'];
-		$data = array(
-			'categories'   => $this->categoryModel->category_tree_for_backend(0,'',$type_key),
-			'robots'       => Tinyint::category_robots(),
-			'type_persian' => $type_persian
-		);
-		return view("Backend.category.index", $data);
+        $get_param = $this->request->get_param();
+        if (!isset($get_param['type'])) $get_param['type'] = 'product';
+        $type_key  = $this->type_amounts($get_param['type'])['type_key'];
+        $type_persian = $this->type_amounts($get_param['type'])['type_persian'];
+        $folder_type = $get_param['type'];
+        $data = array(
+            'categories'   => $this->categoryModel->category_tree_for_backend(0, '', $type_key),
+            'robots'       => Tinyint::category_robots(),
+            'type_persian' => $type_persian
+        );
+        return view("Backend.category.index", $data);
     }
 
 
     public function create()
     {
-        $get_param = $this->get_param;
-        if (!isset($get_param['type'])) $get_param['type']='product';
-		
+        $get_param = $this->request->get_param();
+        if (!isset($get_param['type'])) $get_param['type'] = 'product';
+
         $category = $this->categoryModel->first([
             'id' => $get_param['id']
         ]) ?? 0;
         $data = array(
             'category'     => $category,
-			'type_amounts' => $this->type_amounts($get_param['type']),
+            'type_amounts' => $this->type_amounts($get_param['type']),
             'robots'       => Tinyint::category_robots(),
         );
         return view('Backend.category.create', $data);
@@ -58,9 +56,11 @@ class CategoryController extends Controller
 
     public function store()
     {
-        $get_param = $this->get_param;
-		if (!isset($get_param['type'])) $get_param['type']='product';
-		
+        $get_param = $this->request->get_param();
+        $get_type = $this->request->get_param('type');
+
+        if (!isset($get_param['type'])) $get_param['type'] = 'product';
+
         $type_key  = $this->type_amounts($get_param['type'])['type_key'];
 
         $request = array(
@@ -76,19 +76,17 @@ class CategoryController extends Controller
             'status'          => $get_param['status'] ?? '0',
             'slug'            => create_slug($get_param['slug']),
         );
-		
+
         $files                = $this->request->files();
         $files_param          = $files['image_category'];
         $files_param_tmp_name = $files_param['tmp_name'];
         $file_param_exists    = !empty($files_param_tmp_name[0]);
-		
-        if ($file_param_exists)
-		{
+
+        if ($file_param_exists) {
             $is_create_category = $this->categoryModel->create_category($request);
             $file               = new UploadedFile($files_param);
             $file_paths         = $file->save();
-            if ($file_paths)
-			{
+            if ($file_paths) {
                 $is_create_photo = $this->photoModel->create_photo('Category', $is_create_category, $file_paths[0], 'image_category');
 
                 if ($is_create_category) {
@@ -103,9 +101,7 @@ class CategoryController extends Controller
                 }
                 return $this->request->redirect('admin/category');
             }
-        }
-		else
-		{
+        } else {
             $this->categoryModel->create_category($request);
             FlashMessage::add("مقادیر بدونه ضمیمه عکس با موفقیت  ذخیره شد", FlashMessage::WARNING);
             if ($get_type) {
@@ -120,20 +116,20 @@ class CategoryController extends Controller
     public function edit()
     {
         $id = $this->request->get_param('id');
-		$data=array();
-		$data['category']=$this->categoryModel->first(['id' => $id]);
-		
-		if ($data['category']['type']==0)
-			$data['type_persian']="محصولات";
-		else if ($data['category']['type']==1)
-			$data['type_persian']="بلاگ";
-		else if ($data['category']['type']==2)
-			$data['type_persian']="دیدگاه ها";
-		else
-			$data['type_persian']="[نامشخص]";
-		
-        $data['photo']=$this->photoModel->first(['entity_id' => $id]);
-        $data['robots']=Tinyint::category_robots();
+        $data = array();
+        $data['category'] = $this->categoryModel->first(['id' => $id]);
+
+        if ($data['category']['type'] == 0)
+            $data['type_persian'] = "محصولات";
+        else if ($data['category']['type'] == 1)
+            $data['type_persian'] = "بلاگ";
+        else if ($data['category']['type'] == 2)
+            $data['type_persian'] = "دیدگاه ها";
+        else
+            $data['type_persian'] = "[نامشخص]";
+
+        $data['photo'] = $this->photoModel->first(['entity_id' => $id]);
+        $data['robots'] = Tinyint::category_robots();
         return view('Backend.category.edit', $data);
     }
 
@@ -153,7 +149,7 @@ class CategoryController extends Controller
             $file_paths = $file->save();
             if ($file_paths) {
 
-                $is_update_photo = $this->photoModel->update_photo('Category', $id['id'], $file_paths[0], 'image_category');
+                $is_update_photo = $this->photoModel->update_photo('Category', $id, $file_paths[0], 'image_category');
 
                 if ($is_update_photo) {
                     FlashMessage::add("ویرایش دسته بندی موفقیت انجام شد");
@@ -175,7 +171,7 @@ class CategoryController extends Controller
             ], $id);
             FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
         }
-        return $this->request->redirect('admin/category/'.$id['id'].'/edit');
+        return $this->request->redirect('admin/category/' . $id . '/edit');
     }
 
 
@@ -183,7 +179,7 @@ class CategoryController extends Controller
     public function destroy()
     {
         $id     = $this->request->get_param('id');
-        $is_cat = $this->categoryModel->has(['parent_id' => $id['id']]);
+        $is_cat = $this->categoryModel->has(['parent_id' => $id]);
         if ($is_cat == false) {
             $this->categoryModel->delete_category($id);
             $this->photoModel->delete_photo($id);
@@ -198,23 +194,22 @@ class CategoryController extends Controller
 
     public function type_amounts($type)
     {
-		switch($type)
-		{
-			case "blog":
-				$key=1;
-				$persian="وبلاگ";
-				break;
-				
-			case "comment":
-				$key=2;
-				$persian="دیدگاه ها";
-				break;
-				
-			default:
-				$type="product";
-				$key=0;
-				$persian="محصولات";
-		}
-        return ["type_key"=>$key, "type_persian"=>$persian, "type"=>$type];
+        switch ($type) {
+            case "blog":
+                $key = 1;
+                $persian = "وبلاگ";
+                break;
+
+            case "comment":
+                $key = 2;
+                $persian = "دیدگاه ها";
+                break;
+
+            default:
+                $type = "product";
+                $key = 0;
+                $persian = "محصولات";
+        }
+        return ["type_key" => $key, "type_persian" => $persian, "type" => $type];
     }
 }
