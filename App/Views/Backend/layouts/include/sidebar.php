@@ -39,16 +39,16 @@
         <?php endif; ?>
         <?php if (can('manager-category')) : ?>
             <li class="nav-item has-treeview">
-                <a href="#" class="nav-link <?= is_active(['/admin/category', '/admin/category/blog']) ?> ">
+                <a href="#" class="nav-link <?= is_active(['/admin/category/product', '/admin/category/blog']) ?> ">
                     <p>
                         دسته بندی ها
                         <i class="right fa fa-angle-left"></i>
                     </p>
                     <i class="nav-icon fa fa-book"></i>
                 </a>
-                <ul class="nav nav-treeview <?= is_active(['/admin/category', '/admin/category/blog']) ?> ">
+                <ul class="nav nav-treeview <?= is_active(['/admin/category/product', '/admin/category/blog']) ?> ">
                     <li class="nav-item">
-                        <a href="<?= base_url() ?>admin/category" class="nav-link <?= is_active('/admin/category') ?>">
+                        <a href="<?= base_url() ?>admin/category/product" class="nav-link <?= is_active('/admin/category/product') ?>">
                             <p>لیست دسته بندی محصول</p>
                             <i class="fa fa-circle-o nav-icon"></i>
                         </a>

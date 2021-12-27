@@ -23,7 +23,7 @@
               <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
                   <div class="modal-body">
-                    <form action="<?= base_url() ?>admin/category/0" method="post" enctype="multipart/form-data">
+                    <form action="<?= base_url() ?>admin/category/0/product" method="post" enctype="multipart/form-data">
                       <div class="form-group row">
                         <label for="title" class="col-sm-2 col-form-label">Title</label>
                         <div class="col-sm-10">
@@ -115,9 +115,9 @@
                     <span class="ml-4"><?= $value['name'] ?></span>
                   </div>
                   <div class="col">
-                    <a href="<?= base_url() ?>admin/category/<?= $value['id'] ?>/edit" class="btn btn-warning btn-sm shadow-sm " style="padding: 0px 16px; border-radius: 18px;">ویرایش</a>
-                    <a href="<?= base_url() ?>admin/category/<?= $value['id'] ?>/create" class="btn btn-success btn-sm shadow-sm" style="padding: 0px 20px; border-radius: 18px;">ایجاد زیردسته</a>
-                    <form method="post" action="<?= base_url() ?>admin/category/<?= $value['id'] ?>" class="d-inline">
+                    <a href="<?= base_url() ?>admin/category/<?= $value['id'] ?>/edit/product" class="btn btn-warning btn-sm shadow-sm " style="padding: 0px 16px; border-radius: 18px;">ویرایش</a>
+                    <a href="<?= base_url() ?>admin/category/<?= $value['id'] ?>/create/product" class="btn btn-success btn-sm shadow-sm" style="padding: 0px 20px; border-radius: 18px;">ایجاد زیردسته</a>
+                    <form method="post" action="<?= base_url() ?>admin/category/<?= $value['id'] ?>/product" class="d-inline">
                       <input type="hidden" name="_method" value="delete" />
                       <input type="submit" class="btn btn-danger btn-sm shadow-sm " style="padding: 0px 20px; border-radius: 18px;" onclick="return confirm('آیا برای حذف اطلاعات اطمینان دارید');" value="حذف">
                     </form>
@@ -133,4 +133,4 @@
     </div>
   </div>
 </div>
-<?php include(BASEPATH . "/App/Views/Backend/category/script.php") ?>
+<?php include(BASEPATH . "/App/Views/Backend/category/product/script.php") ?>
