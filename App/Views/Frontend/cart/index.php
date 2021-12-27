@@ -138,6 +138,19 @@
                                                     </tbody>
                                                 </table>
                                                 <!-- .shop_table shop_table_responsive -->
+                                                <form action="<?= base_url() ?>cart/is_coupon" method="post">
+                                                    <div class="row">
+                                                        <div class="col-4">
+                                                            <p> تخفیفات :</p>
+                                                        </div>
+                                                        <div class="col-8">
+                                                            <div class="form-group">
+                                                                <input name="is_coupon" type="text" class="form-control">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button type='submit' class='checkout-button button alt wc-forward d-block'> بـررسـی کـد</button>
+                                                </form>
                                                 <div class="wc-proceed-to-checkout">
                                                     <div class="form-group">
                                                         <label for="order-notes">اطلاعات تکمیلی سفارش</label>

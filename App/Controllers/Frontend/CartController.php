@@ -4,6 +4,7 @@ namespace App\Controllers\Frontend;
 
 use App\Controllers\Controller;
 use App\Core\Request;
+use App\Models\Coupon;
 use App\Models\Product;
 use App\Services\Basket\Basket;
 use App\Services\Session\SessionManager;
@@ -115,6 +116,17 @@ class CartController  extends Controller
     {
         $product_id = $this->request->get_param('id');
         Basket::remove($product_id);
+        Request::redirect('cart');
+    }
+    public function is_coupon()
+    {
+        dd('is_coupon');
+        $params = $this->request->params();
+        $coupon = (new Coupon())->is_coupon($params['is_coupon']);
+        if ($coupon) {
+            dd('yes');
+        }
+        dd('no');
         Request::redirect('cart');
     }
 }

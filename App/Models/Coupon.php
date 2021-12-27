@@ -19,6 +19,10 @@ class Coupon extends MysqlBaseModel
         }
         return $this->first(['id' => $id]);
     }
+    public function is_coupon($code)
+    {
+        return $this->first(['code' => $code]);
+    }
     public function update_coupon(array $params, $id)
     {
         return $this->update($params, ['id' => $id]);
