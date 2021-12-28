@@ -21,7 +21,14 @@ class Coupon extends MysqlBaseModel
     }
     public function is_coupon($code)
     {
-        return $this->first(['code' => $code]);
+        $code= $this->first(['code' => $code]);
+        $start_at = strtotime($code['start_at'])<time();
+        $finish_at = strtotime($code['finish_at'])>time();
+
+        if($start_at && $finish_at){
+            return $code;
+        }
+        return false;
     }
     public function update_coupon(array $params, $id)
     {

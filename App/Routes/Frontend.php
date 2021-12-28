@@ -19,7 +19,7 @@ use App\Middleware\Gate;
  * Route::get('/category/{id}/edit', 'CategoryController@edit');
  * Route::put('/category/{id}', 'CategoryController@update');
  * Route::delete('/category/{id}', 'CategoryController@destroy');
- * 
+ *
  */
 
 Route::group(function () {
@@ -68,7 +68,7 @@ Route::group(function () {
     Route::get('/cart/plus/{id}', 'CartController@plus');
     Route::get('/cart/minus/{id}', 'CartController@minus');
     Route::get('/cart/remove/{id}', 'CartController@remove');
-    Route::post('/cart/is_coupon', 'CartController@is_coupon');
+    Route::post('/cart/has_coupon', 'CartController@has_coupon');
 });
 
 

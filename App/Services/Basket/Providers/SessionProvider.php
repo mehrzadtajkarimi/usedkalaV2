@@ -2,6 +2,7 @@
 
 namespace App\Services\Basket\Providers;
 
+use App\Services\Basket\Basket;
 use App\Services\Basket\Contract\BasketContract;
 
 class SessionProvider implements BasketContract
@@ -59,6 +60,19 @@ class SessionProvider implements BasketContract
             unset($_SESSION['cart'][$item_id]);
         }
     }
+    public function has_coupon(int $percent = null): int
+    {
+        if (is_null($percent)) {
+            return  $_SESSION['cart']['percent'] ?? 0;
+        }
+        if ($this->item_exists('percent')) {
+            if ($_SESSION['cart']['percent'] != $percent) {
+                return $_SESSION['cart']['percent'] = $percent;
+            }
+            return $_SESSION['cart']['percent'];
+        }
+        return  $_SESSION['cart']['percent'] = $percent;
+    }
 
 
     public function total($discounts_percent = null)
@@ -72,6 +86,12 @@ class SessionProvider implements BasketContract
             $count = $this->items()[$discounts_percent['id']]['count'];
             $total_price = ($price * ((100 - $discounts_percent["discounts_percent"]) / 100)) * $count;
         }
+
+        if ($percent = Basket::has_coupon()) {
+            $total_price - (100 - $percent / 100);
+        }
+
+
         return $total_price;
     }
 

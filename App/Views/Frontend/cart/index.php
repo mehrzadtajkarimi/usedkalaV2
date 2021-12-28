@@ -14,7 +14,7 @@
                     <div class="type-page hentry">
                         <div class="entry-content">
                             <div class="woocommerce">
-                                <div class="cart-wrapper">
+                                <div class="cart-wrapper">لل
                                     <form method="post" action="<?= base_url() ?>order/create" class="woocommerce-cart-form order-form">
                                         <table class="shop_table shop_table_responsive cart ">
                                             <thead>
@@ -116,7 +116,7 @@
                                                         <tr class="cart-subtotal">
                                                             <th> تخفیفات :</th>
                                                             <td data-title="Subtotal">
-                                                                <span class="woocommerce-Price-amount amount subtotal">۰ ریال</span>
+                                                                <span class="woocommerce-Price-amount amount subtotal"><?= $cart_coupon ?? 0 ?> % </span>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -138,19 +138,7 @@
                                                     </tbody>
                                                 </table>
                                                 <!-- .shop_table shop_table_responsive -->
-                                                <form action="<?= base_url() ?>cart/is_coupon" method="post">
-                                                    <div class="row">
-                                                        <div class="col-4">
-                                                            <p> تخفیفات :</p>
-                                                        </div>
-                                                        <div class="col-8">
-                                                            <div class="form-group">
-                                                                <input name="is_coupon" type="text" class="form-control">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <button type='submit' class='checkout-button button alt wc-forward d-block'> بـررسـی کـد</button>
-                                                </form>
+
                                                 <div class="wc-proceed-to-checkout">
                                                     <div class="form-group">
                                                         <label for="order-notes">اطلاعات تکمیلی سفارش</label>
@@ -166,6 +154,28 @@
                                             <!-- .cart_totals -->
                                         </div>
                                         <!-- .cart-collaterals -->
+                                    </form>
+                                    <form action="<?= base_url() ?>cart/has_coupon" method="post">
+                                    <div class="card border-0" style="background-color: #f9f9f9;">
+                                        <div class="card-body pt-4 pl-5 pr-5">
+                                            <p class="card-text">
+
+                                                <div class="row">
+                                                    <div class="col-2">
+                                                        <p>  کد تخفیف :</p>
+                                                    </div>
+                                                    <div class="col-7">
+                                                        <div class="form-group">
+                                                            <input name="has_coupon" type="text" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <button type='submit' class='btn btn-block bg-dark text-white'> بـررسـی کـد</button>
+                                                    </div>
+                                                </div>
+                                            </p>
+                                        </div>
+                                    </div>
                                     </form>
                                 </div>
                                 <!-- .cart-wrapper -->

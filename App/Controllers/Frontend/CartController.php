@@ -22,19 +22,28 @@ class CartController  extends Controller
     public function index()
     {
         $cart_items = Basket::items();
+
         $products_is_discount = $this->productModel->join_product__with_productDiscounts_discounts();
         foreach ($products_is_discount as  $value) {
             if ($value['discount_status']) {
                 $discounts[$value['product_id']] = $value['discount_percent'];
             }
         }
+
+        $coupon= $cart_items['percent'];
+        unset($cart_items['percent']);
         foreach ($cart_items as  $value) {
-            $product_ids = array_column($products_is_discount, 0);
-            if (in_array($value['id'], $product_ids)) {
-                $cart_total[] =   $value['count'] * ($value['price'] - (($discounts[$value['id']] / 100) * $value['price']));
+
+            if ($coupon) {
+                $cart_total[] = $value['count'] * ($value['price'] - (($coupon / 100) * $value['price']));
             } else {
-                $cart_total[] = $value['count'] * $value['price'];
-            };
+                $product_ids = array_column($products_is_discount, 0);
+                if (in_array($value['id'], $product_ids)) {
+                    $cart_total[] =   $value['count'] * ($value['price'] - (($discounts[$value['id']] / 100) * $value['price']));
+                } else {
+                    $cart_total[] = $value['count'] * $value['price'];
+                };
+            }
         }
         if (!is_array($cart_total)) {
             SessionManager::set('onLoadMsg', 'سبد خرید خالیست!');
@@ -43,6 +52,7 @@ class CartController  extends Controller
 
         $data = [
             'cart_total'            => array_sum($cart_total ?? []),
+            'cart_coupon'           => $coupon,
             'cart_items'            => $cart_items,
             'discounts'             => $discounts,
             'home_page_active_menu' => "page home page-template-default"
@@ -118,13 +128,14 @@ class CartController  extends Controller
         Basket::remove($product_id);
         Request::redirect('cart');
     }
-    public function is_coupon()
+    public function has_coupon()
     {
-        dd('is_coupon');
         $params = $this->request->params();
-        $coupon = (new Coupon())->is_coupon($params['is_coupon']);
+        $coupon = (new Coupon())->is_coupon($params['has_coupon']);
         if ($coupon) {
-            dd('yes');
+            $has_coupon = Basket::has_coupon($coupon['percent']);
+            // dd($has_coupon);
+            Request::redirect('cart');
         }
         dd('no');
         Request::redirect('cart');
