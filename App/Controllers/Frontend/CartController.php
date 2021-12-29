@@ -8,6 +8,7 @@ use App\Models\Coupon;
 use App\Models\Product;
 use App\Services\Basket\Basket;
 use App\Services\Session\SessionManager;
+use App\Utilities\FlashMessage;
 
 class CartController  extends Controller
 {
@@ -21,6 +22,7 @@ class CartController  extends Controller
     }
     public function index()
     {
+        // $cart_items = Basket::reset();
         $cart_items = Basket::items();
 
         $products_is_discount = $this->productModel->join_product__with_productDiscounts_discounts();
@@ -37,7 +39,7 @@ class CartController  extends Controller
             $product_ids = array_column($products_is_discount, 0);
             if (in_array($value['id'], $product_ids)) {
                 if ($coupon) {
-                    $cart_total[] = $value['count'] * (($value['price'] - (($coupon / 100) * $value['price']))-($value['price'] - (($discounts[$value['id']] / 100) * $value['price'])));
+                    $cart_total[] = $value['count'] * (($value['price'] - (($coupon / 100) * $value['price'])) - ($value['price'] - (($discounts[$value['id']] / 100) * $value['price'])));
                 } else {
                     $cart_total[] = $value['count'] * ($value['price'] - (($discounts[$value['id']] / 100) * $value['price']));
                 }
@@ -134,10 +136,14 @@ class CartController  extends Controller
         $coupon = (new Coupon())->is_coupon($params['has_coupon']);
         if ($coupon) {
             $has_coupon = Basket::has_coupon($coupon['percent']);
-            // dd($has_coupon);
-            Request::redirect('cart');
+            if ($has_coupon) {
+                FlashMessage::add("کد تخفیف با موفقیت ثبت شد");
+                Request::redirect('cart');
+            } else {
+                FlashMessage::add("کد تخفیف اشتباه است",FlashMessage::ERROR);
+                Request::redirect('cart');
+            }
         }
-        dd('no');
         Request::redirect('cart');
     }
 }

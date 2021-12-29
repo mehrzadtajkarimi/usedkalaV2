@@ -103,6 +103,7 @@
                                         <!-- .shop_table shop_table_responsive -->
                                         <!-- .woocommerce-cart-form -->
                                         <div class="cart-collaterals">
+                                            <?= App\Utilities\FlashMessage::show_message(); ?>
                                             <div class="cart_totals">
                                                 <h2>قیمت نهایی</h2>
                                                 <table class="shop_table shop_table_responsive">
@@ -116,7 +117,7 @@
                                                         <tr class="cart-subtotal">
                                                             <th> تخفیفات :</th>
                                                             <td data-title="Subtotal">
-                                                                <span class="woocommerce-Price-amount amount subtotal"><?= $cart_coupon ?? 0 ?> % </span>
+                                                                <span class="woocommerce-Price-amount amount subtotal"><?=  $cart_coupon ? $cart_coupon .'%':'0 ریال' ?></span>
                                                             </td>
                                                         </tr>
                                                         <tr>
