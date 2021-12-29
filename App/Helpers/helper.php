@@ -35,16 +35,14 @@ function view($path, $data = [], $layout = null)
     $path_explode = explode('/', $path);
     $full_path = BASEPATH . "App/Views/$path.php";
     $is_file = is_readable($full_path) && file_exists($full_path);
-    if ($path_explode[0] == 'Frontend')
-	{
+    if ($path_explode[0] == 'Frontend') {
         $data += inject_menu();
         $data += inject_about_menu();
     }
-	if (SessionManager::has('onLoadMsg'))
-	{
-		$data['onLoadMsg']=SessionManager::get('onLoadMsg');
-		SessionManager::remove('onLoadMsg');
-	}
+    if (SessionManager::has('onLoadMsg')) {
+        $data['onLoadMsg'] = SessionManager::get('onLoadMsg');
+        SessionManager::remove('onLoadMsg');
+    }
     if (is_null($layout)) {
         $is_file ? buffering($full_path, $data, $path_explode[0]) : include_once BASEPATH . "App/Views/Error/404.php";
     }
@@ -53,9 +51,9 @@ function view($path, $data = [], $layout = null)
 function inject_menu()
 {
     $cart_items = Basket::items();
+    unset($cart_items['percent']);
     $cart_count = count($cart_items);
 
-    unset($cart_items['percent']);
     foreach ($cart_items as  $value) {
         $cart_total[] = $value['count'] * $value['price'] ?? [];
     }
@@ -64,22 +62,19 @@ function inject_menu()
         'parent_id' => 0,
         'type'      => 0,
     ]);
-    foreach ($categoryLevelOne as $LevelOne)
-	{
+    foreach ($categoryLevelOne as $LevelOne) {
         $level_two = $categoryModel->get('id', [
             'parent_id' => $LevelOne['id'],
             'type'      => 0,
         ]);
-		$firstLevelTwoItem=$categoryModel->join_category_to_photo($LevelOne['id']);
+        $firstLevelTwoItem = $categoryModel->join_category_to_photo($LevelOne['id']);
         $categoryLevelTwo[$LevelOne['id']] = [$firstLevelTwoItem[0]];
-        foreach ($level_two as $level_two_id)
-		{
+        foreach ($level_two as $level_two_id) {
             $categories_level_two = $categoryModel->get('*', ['id' => $level_two_id]);
-            foreach ($categories_level_two as $key => $category_level_two)
-			{
+            foreach ($categories_level_two as $key => $category_level_two) {
                 $categories_level_two_add_photo = $categoryModel->join_category_to_photo($category_level_two['id']);
-                if (count($categories_level_two_add_photo)>0)
-					array_push($categoryLevelTwo[$LevelOne['id']], $categories_level_two_add_photo[$key]);
+                if (count($categories_level_two_add_photo) > 0)
+                    array_push($categoryLevelTwo[$LevelOne['id']], $categories_level_two_add_photo[$key]);
             }
         }
     }
@@ -98,8 +93,8 @@ function inject_menu()
 }
 function inject_about_menu()
 {
-	$settingModel = new Setting;
-	return ["about_menu" => $settingModel->read_setting()];
+    $settingModel = new Setting;
+    return ["about_menu" => $settingModel->read_setting()];
 }
 function create_slug($string)
 {
@@ -120,11 +115,11 @@ function create_slug($string)
         "؛",
         "\r\n",
         "\n",
-		"!",
-		"?",
-		"؟",
-		"«",
-		"»"
+        "!",
+        "?",
+        "؟",
+        "«",
+        "»"
     ], [
         "",
         "",
@@ -143,9 +138,9 @@ function create_slug($string)
         "",
         "",
         "",
-		"",
-		"",
-		""
+        "",
+        "",
+        ""
     ], strip_tags($string));
     return $slug;
 }
@@ -217,10 +212,11 @@ function storage_path($filename)
 function is_active($routeName, $activeClassName = 'active menu-open d-block')
 {
     $request = new  Request();
+    $preg_replace =preg_replace('~\d+/~', '', $request->uri(),1);
     if (is_array($routeName)) {
-        return in_array($request->uri(), $routeName) ? $activeClassName : '';
+        return in_array($preg_replace, $routeName) ? $activeClassName : '';
     }
-    return $request->uri() == $routeName ? $activeClassName : '';
+    return $preg_replace == $routeName ? $activeClassName : '';
 }
 
 function admin_name($name)
@@ -243,7 +239,7 @@ function can(string $name): bool
         $join_roleUser_roles = $roleUserModel->join_roleUser_role($admin_id);
         $rolePermissionModel = new Role_permission();
         foreach ($join_roleUser_roles as  $value) {
-            if ($value['name'] == $name || $value['name'] == 'super-admin' || ($value['name']=='super-user' && $name!="super-admin")) {
+            if ($value['name'] == $name || $value['name'] == 'super-admin' || ($value['name'] == 'super-user' && $name != "super-admin")) {
                 return TRUE;
             }
             $has_permission = $rolePermissionModel->get_permissions($value['id']);
@@ -274,17 +270,17 @@ function wishList()
     return $whishListModel->read_all_wishList_items('Product');
 }
 
-function pagination_count($table, $count, $where=null)
+function pagination_count($table, $count, $where = null)
 {
     // $MysqlBaseModel = new MysqlBaseModel();
-    $query= connection()->count($table,$where);
+    $query = connection()->count($table, $where);
     return floor($query / $count);
 }
 
 function pagination_total_count($count, $key)
 {
     $page = $_GET['page'] ?? 1;
-    return (($page -1 ) * $count) + $key;
+    return (($page - 1) * $count) + $key;
 }
 
 function connection()
@@ -308,4 +304,14 @@ function connection()
     } catch (\PDOException $e) {
         echo '<h1>مشکلی در ارتباط با دیتابیس رخ داد </h1>';
     }
+}
+function level_user()
+{
+    return  [
+        '1' => '* (برنزی)',
+        '2' => '** (نقره ای)',
+        '3' => '*** (طلایی)',
+        '4' => '**** (پلاتین)',
+        '5' => '***** (تیتانیوم)',
+    ];
 }

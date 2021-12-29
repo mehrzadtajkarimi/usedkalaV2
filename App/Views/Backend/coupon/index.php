@@ -59,11 +59,35 @@
                         <i class="fa fa-check text-success "></i>
                       <?php else : ?>
                         <i class="fa fa-times text-danger "></i>
-                      <?php endif; ?>
-                    </div>
+                        <?php endif; ?>
+                      </div>
                     <div>
                       محصول ویژه :
                       <i class="fa fa-times text-danger"></i>
+                    </div>
+                    <div>
+                      سطح کاربــــــر :
+                      <?php if ($value['user_level'] == 1) : ?>
+                        <i class="fa fa-star"  style="color:#CD7F32" aria-hidden="true"></i>
+                      <?php elseif($value['user_level'] == 2): ?>
+                      <i class="fa fa-star" style="color:#aaa9ad" aria-hidden="true"></i>
+                      <i class="fa fa-star" style="color:#aaa9ad" aria-hidden="true"></i>
+                      <?php elseif($value['user_level'] == 3): ?>
+                      <i class="fa fa-star" style="color:#FFD700" aria-hidden="true"></i>
+                      <i class="fa fa-star" style="color:#FFD700" aria-hidden="true"></i>
+                      <i class="fa fa-star" style="color:#FFD700" aria-hidden="true"></i>
+                      <?php elseif($value['user_level'] == 3): ?>
+                      <i class="fa fa-star" style="color:#e5e4e2" aria-hidden="true"></i>
+                      <i class="fa fa-star" style="color:#e5e4e2" aria-hidden="true"></i>
+                      <i class="fa fa-star" style="color:#e5e4e2" aria-hidden="true"></i>
+                      <i class="fa fa-star" style="color:#e5e4e2" aria-hidden="true"></i>
+                      <?php elseif($value['user_level'] == 4): ?>
+                      <i class="fa fa-star" style="color:#878681" aria-hidden="true"></i>
+                      <i class="fa fa-star" style="color:#878681" aria-hidden="true"></i>
+                      <i class="fa fa-star" style="color:#878681" aria-hidden="true"></i>
+                      <i class="fa fa-star" style="color:#878681" aria-hidden="true"></i>
+                      <i class="fa fa-star" style="color:#878681" aria-hidden="true"></i>
+                      <?php endif; ?>
                     </div>
                   </td>
                   <td class="text-center">

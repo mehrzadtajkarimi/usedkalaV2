@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <h5>ویرایش دسته‌بندی «<?= $type_persian ?>»</h5>
+        <h5>ویرایش دسته‌بندی «<?= $category['name']  ?>»</h5>
 
     </div>
     <div class="card-body">

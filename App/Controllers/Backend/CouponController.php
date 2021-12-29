@@ -49,6 +49,9 @@ class CouponController extends Controller
         $params        = $this->request->params();
         $params_create = array(
             'user_id'     => Auth::is_login(),
+            'min_price'   => $params['coupon-min_price'],
+            'max_price'   => $params['coupon-max_price'],
+            'user_level'  => $params['coupon-level'],
             'start_at'    => date("Y-m-d H:i:s", $params['start_at']),
             'finish_at'   => date("Y-m-d H:i:s", $params['finish_at']),
             'code'        => $params['code'],
@@ -103,6 +106,9 @@ class CouponController extends Controller
 
         $params_update = array(
             'user_id'     => Auth::is_login(),
+            'min_price'   => $params['coupon-min_price'],
+            'max_price'   => $params['coupon-max_price'],
+            'user_level'  => $params['coupon-level'],
             'start_at'    => date("Y-m-d H:i:s", $params['start_at']),
             'finish_at'   => date("Y-m-d H:i:s", $params['finish_at']),
             'code'        => $params['coupon-code'],

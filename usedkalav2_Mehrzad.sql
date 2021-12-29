@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 27, 2021 at 07:54 AM
+-- Generation Time: Dec 29, 2021 at 12:12 PM
 -- Server version: 8.0.27-0ubuntu0.20.04.1
--- PHP Version: 8.0.13
+-- PHP Version: 8.0.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -373,7 +373,83 @@ INSERT INTO `activity_log` (`id`, `user_id`, `ip`, `type`, `target_table`, `row_
 (297, 81, '127.0.0.1', 'delete', 'product_samples', 0, '{\"sample_id\":\"3\"}', '[{\"id\":\"6\",\"sample_id\":\"3\",\"product_id\":\"92\"}]', '/admin/sample/3', '2021-12-27 07:50:04'),
 (298, 81, '127.0.0.1', 'create', 'product_samples', 7, '', '{\"sample_id\":\"3\",\"product_id\":\"92\"}', '/admin/sample/3', '2021-12-27 07:50:04'),
 (299, 81, '127.0.0.1', 'delete', 'product_samples', 0, '{\"sample_id\":\"3\"}', '[{\"id\":\"7\",\"sample_id\":\"3\",\"product_id\":\"92\"}]', '/admin/sample/3', '2021-12-27 07:53:20'),
-(300, 81, '127.0.0.1', 'delete', 'samples', 0, '{\"id\":\"3\"}', '[{\"id\":\"3\",\"title\":\"عید\",\"user_id\":\"81\",\"code\":\"908705\",\"type\":null,\"percent\":\"10\",\"description\":\"عیدبب\",\"status\":\"1\",\"start_price\":\"11111111\",\"finish_price\":\"222222222\",\"start_at\":\"2021-12-27 09:51:40\",\"finish_at\":\"2022-01-20 09:51:40\",\"updated_at\":null,\"created_at\":\"2021-12-27 09:55:50\"}]', '/admin/sample/3', '2021-12-27 07:53:20');
+(300, 81, '127.0.0.1', 'delete', 'samples', 0, '{\"id\":\"3\"}', '[{\"id\":\"3\",\"title\":\"عید\",\"user_id\":\"81\",\"code\":\"908705\",\"type\":null,\"percent\":\"10\",\"description\":\"عیدبب\",\"status\":\"1\",\"start_price\":\"11111111\",\"finish_price\":\"222222222\",\"start_at\":\"2021-12-27 09:51:40\",\"finish_at\":\"2022-01-20 09:51:40\",\"updated_at\":null,\"created_at\":\"2021-12-27 09:55:50\"}]', '/admin/sample/3', '2021-12-27 07:53:20'),
+(301, 81, '127.0.0.1', 'create', 'categories', 168, '', '{\"type\":0,\"seo_description\":\"پرفروش ترین ها\",\"seo_title\":\"پرفروش ترین ها\",\"parent_id\":\"0\",\"name\":\"پرفروش ترین ها\",\"H1\":\"پرفروش ترین ها\",\"robots\":\"0\",\"canonical\":\"\",\"description\":\"پرفروش ترین ها\",\"status\":\"1\",\"slug\":\"پرفروش-ترین-ها\"}', '/admin/category/0', '2021-12-27 08:47:30'),
+(302, 81, '127.0.0.1', 'create', 'photos', 304, '', '{\"entity_type\":\"Category\",\"entity_id\":168,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/Screenshot from 2021-12-27 10-48-46.---807b98fc.png\",\"alt\":\"image_category\",\"type\":0}', '/admin/category/0', '2021-12-27 08:47:31'),
+(303, 81, '127.0.0.1', 'create', 'categories', 169, '', '{\"type\":0,\"seo_description\":\"پرفروش ترین ها\",\"seo_title\":\"پرفروش ترین ها\",\"parent_id\":\"0\",\"name\":\"پرفروش ترین ها\",\"H1\":\"پرفروش ترین ها\",\"robots\":\"0\",\"canonical\":\"\",\"description\":\"پرفروش ترین ها\",\"status\":\"1\",\"slug\":\"پرفروش-ترین-ها\"}', '/admin/category/0', '2021-12-27 09:02:04'),
+(304, 81, '127.0.0.1', 'create', 'photos', 305, '', '{\"entity_type\":\"Category\",\"entity_id\":169,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/Screenshot from 2021-12-16 09-34-22.---f0891fdd.png\",\"alt\":\"image_category\",\"type\":0}', '/admin/category/0', '2021-12-27 09:02:04'),
+(305, 81, '127.0.0.1', 'delete', 'categories', 0, '{\"id\":\"169\"}', '[{\"id\":\"169\",\"status\":\"1\",\"description\":\"پرفروش ترین ها\",\"type\":\"0\",\"H1\":\"پرفروش ترین ها\",\"canonical\":\"\",\"robots\":\"0\",\"parent_id\":\"0\",\"name\":\"پرفروش ترین ها\",\"slug\":\"پرفروش-ترین-ها\",\"seo_title\":\"پرفروش ترین ها\",\"seo_description\":\"پرفروش ترین ها\",\"created_at\":\"2021-12-27 12:32:04\"}]', '/admin/category/169', '2021-12-27 09:02:17'),
+(306, 81, '127.0.0.1', 'delete', 'photos', 0, '{\"entity_id\":\"169\"}', '[{\"id\":\"305\",\"entity_id\":\"169\",\"entity_type\":\"Category\",\"type\":\"0\",\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/Screenshot from 2021-12-16 09-34-22.---f0891fdd.png\",\"alt\":\"image_category\",\"created_at\":\"2021-12-27 12:32:04\"}]', '/admin/category/169', '2021-12-27 09:02:17'),
+(307, 81, '127.0.0.1', 'create', 'categories', 170, '', '{\"type\":0,\"seo_description\":\"it\",\"seo_title\":\"it\",\"parent_id\":\"0\",\"name\":\"it\",\"H1\":\"it\",\"robots\":\"0\",\"canonical\":\"\",\"description\":\"it\",\"status\":\"1\",\"slug\":\"it\"}', '/admin/category/0', '2021-12-27 09:18:27'),
+(308, 81, '127.0.0.1', 'create', 'photos', 306, '', '{\"entity_type\":\"Category\",\"entity_id\":170,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/card-4.---39ee1398.jpg\",\"alt\":\"image_category\",\"type\":0}', '/admin/category/0', '2021-12-27 09:18:27'),
+(309, 81, '127.0.0.1', 'create', 'categories', 171, '', '{\"type\":1,\"seo_description\":\"it\",\"seo_title\":\"it\",\"parent_id\":\"0\",\"name\":\"it\",\"H1\":\"it\",\"robots\":\"0\",\"canonical\":\"it\",\"description\":\"it\",\"status\":\"1\",\"slug\":\"it\"}', '/admin/category/0/blog', '2021-12-27 09:22:37'),
+(310, 81, '127.0.0.1', 'create', 'photos', 307, '', '{\"entity_type\":\"Category\",\"entity_id\":171,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/40.---a7f64bb0.jpg\",\"alt\":\"image_category\",\"type\":0}', '/admin/category/0/blog', '2021-12-27 09:22:37'),
+(311, 81, '127.0.0.1', 'create', 'categories', 172, '', '{\"type\":1,\"seo_description\":\"it\",\"seo_title\":\"it\",\"parent_id\":\"0\",\"name\":\"it\",\"H1\":\"it\",\"robots\":\"0\",\"canonical\":\"it\",\"description\":\"it\",\"status\":\"1\",\"slug\":\"it\"}', '/admin/category/0/blog', '2021-12-27 09:22:47'),
+(312, 81, '127.0.0.1', 'create', 'photos', 308, '', '{\"entity_type\":\"Category\",\"entity_id\":172,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/40.---2745d6d1.jpg\",\"alt\":\"image_category\",\"type\":0}', '/admin/category/0/blog', '2021-12-27 09:22:47'),
+(313, 81, '127.0.0.1', 'create', 'categories', 173, '', '{\"type\":1,\"seo_description\":\"hp\",\"seo_title\":\"hp\",\"parent_id\":\"0\",\"name\":\"hp\",\"H1\":\"hp\",\"robots\":\"0\",\"canonical\":\"hp\",\"description\":\"hp\",\"status\":\"1\",\"slug\":\"hp\"}', '/admin/category/0/blog', '2021-12-27 09:31:36'),
+(314, 81, '127.0.0.1', 'create', 'photos', 309, '', '{\"entity_type\":\"Category\",\"entity_id\":173,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/42.---b54766a3.jpg\",\"alt\":\"image_category\",\"type\":0}', '/admin/category/0/blog', '2021-12-27 09:31:36'),
+(315, 81, '127.0.0.1', 'delete', 'categories', 0, '{\"id\":\"172\"}', '[{\"id\":\"172\",\"status\":\"1\",\"description\":\"it\",\"type\":\"1\",\"H1\":\"it\",\"canonical\":\"it\",\"robots\":\"0\",\"parent_id\":\"0\",\"name\":\"it\",\"slug\":\"it\",\"seo_title\":\"it\",\"seo_description\":\"it\",\"created_at\":\"2021-12-27 12:52:47\"}]', '/admin/category/172', '2021-12-27 09:31:42'),
+(316, 81, '127.0.0.1', 'delete', 'photos', 0, '{\"entity_id\":\"172\"}', '[{\"id\":\"308\",\"entity_id\":\"172\",\"entity_type\":\"Category\",\"type\":\"0\",\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/40.---2745d6d1.jpg\",\"alt\":\"image_category\",\"created_at\":\"2021-12-27 12:52:47\"}]', '/admin/category/172', '2021-12-27 09:31:42'),
+(317, 81, '127.0.0.1', 'create', 'categories', 174, '', '{\"type\":1,\"seo_description\":\"ssd\",\"seo_title\":\"ssd\",\"parent_id\":\"0\",\"name\":\"ssd\",\"H1\":\"ssd\",\"robots\":\"0\",\"canonical\":\"ssd\",\"description\":\"ssd\",\"status\":\"1\",\"slug\":\"ssd\"}', '/admin/category/0/blog', '2021-12-27 11:25:48'),
+(318, 81, '127.0.0.1', 'create', 'photos', 310, '', '{\"entity_type\":\"Category\",\"entity_id\":174,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/card-2.---e7c20b35.jpg\",\"alt\":\"image_category\",\"type\":0}', '/admin/category/0/blog', '2021-12-27 11:25:48'),
+(319, 81, '127.0.0.1', 'create', 'categories', 175, '', '{\"type\":0,\"seo_description\":\"product\",\"seo_title\":\"product\",\"parent_id\":\"0\",\"name\":\"product\",\"H1\":\"product\",\"robots\":\"0\",\"canonical\":\"product\",\"description\":\"product\",\"status\":\"1\",\"slug\":\"product\"}', '/admin/category/0/product', '2021-12-27 11:26:18'),
+(320, 81, '127.0.0.1', 'create', 'photos', 311, '', '{\"entity_type\":\"Category\",\"entity_id\":175,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/card-4.---03deb567.jpg\",\"alt\":\"image_category\",\"type\":0}', '/admin/category/0/product', '2021-12-27 11:26:18'),
+(321, 81, '127.0.0.1', 'create', 'categories', 176, '', '{\"type\":1,\"seo_description\":\"ss\",\"seo_title\":\"ss\",\"parent_id\":\"0\",\"name\":\"ss\",\"H1\":\"ss\",\"robots\":\"0\",\"canonical\":\"ss\",\"description\":\"ss\",\"status\":\"1\",\"slug\":\"ss\"}', '/admin/category/0/blog', '2021-12-27 11:33:47'),
+(322, 81, '127.0.0.1', 'create', 'photos', 312, '', '{\"entity_type\":\"Category\",\"entity_id\":176,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/39.---a28b948d.jpg\",\"alt\":\"image_category\",\"type\":0}', '/admin/category/0/blog', '2021-12-27 11:33:47'),
+(323, 81, '127.0.0.1', 'delete', 'categories', 0, '{\"id\":\"176\"}', '[{\"id\":\"176\",\"status\":\"1\",\"description\":\"ss\",\"type\":\"1\",\"H1\":\"ss\",\"canonical\":\"ss\",\"robots\":\"0\",\"parent_id\":\"0\",\"name\":\"ss\",\"slug\":\"ss\",\"seo_title\":\"ss\",\"seo_description\":\"ss\",\"created_at\":\"2021-12-27 15:03:47\"}]', '/admin/category/176/blog', '2021-12-27 11:33:57'),
+(324, 81, '127.0.0.1', 'delete', 'photos', 0, '{\"entity_id\":\"176\"}', '[{\"id\":\"312\",\"entity_id\":\"176\",\"entity_type\":\"Category\",\"type\":\"0\",\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/39.---a28b948d.jpg\",\"alt\":\"image_category\",\"created_at\":\"2021-12-27 15:03:47\"}]', '/admin/category/176/blog', '2021-12-27 11:33:57'),
+(325, 81, '127.0.0.1', 'delete', 'categories', 0, '{\"id\":\"174\"}', '[{\"id\":\"174\",\"status\":\"1\",\"description\":\"ssd\",\"type\":\"1\",\"H1\":\"ssd\",\"canonical\":\"ssd\",\"robots\":\"0\",\"parent_id\":\"0\",\"name\":\"ssd\",\"slug\":\"ssd\",\"seo_title\":\"ssd\",\"seo_description\":\"ssd\",\"created_at\":\"2021-12-27 14:55:48\"}]', '/admin/category/174/blog', '2021-12-27 11:34:00'),
+(326, 81, '127.0.0.1', 'delete', 'photos', 0, '{\"entity_id\":\"174\"}', '[{\"id\":\"310\",\"entity_id\":\"174\",\"entity_type\":\"Category\",\"type\":\"0\",\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/card-2.---e7c20b35.jpg\",\"alt\":\"image_category\",\"created_at\":\"2021-12-27 14:55:48\"}]', '/admin/category/174/blog', '2021-12-27 11:34:00'),
+(327, 81, '127.0.0.1', 'create', 'categories', 177, '', '{\"type\":1,\"seo_description\":\"ssd\",\"seo_title\":\"ssd\",\"parent_id\":\"0\",\"name\":\"ssd\",\"H1\":\"ssd\",\"robots\":\"0\",\"canonical\":\"ssd\",\"description\":\"ssd\",\"status\":\"1\",\"slug\":\"ssd\"}', '/admin/category/0/blog', '2021-12-27 11:34:27'),
+(328, 81, '127.0.0.1', 'create', 'photos', 313, '', '{\"entity_type\":\"Category\",\"entity_id\":177,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/1-1.---fa39d684.jpg\",\"alt\":\"image_category\",\"type\":0}', '/admin/category/0/blog', '2021-12-27 11:34:27'),
+(329, 81, '127.0.0.1', 'delete', 'categories', 0, '{\"id\":\"177\"}', '[{\"id\":\"177\",\"status\":\"1\",\"description\":\"ssd\",\"type\":\"1\",\"H1\":\"ssd\",\"canonical\":\"ssd\",\"robots\":\"0\",\"parent_id\":\"0\",\"name\":\"ssd\",\"slug\":\"ssd\",\"seo_title\":\"ssd\",\"seo_description\":\"ssd\",\"created_at\":\"2021-12-27 15:04:27\"}]', '/admin/category/177/blog', '2021-12-27 11:41:16'),
+(330, 81, '127.0.0.1', 'delete', 'photos', 0, '{\"entity_id\":\"177\"}', '[{\"id\":\"313\",\"entity_id\":\"177\",\"entity_type\":\"Category\",\"type\":\"0\",\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/1-1.---fa39d684.jpg\",\"alt\":\"image_category\",\"created_at\":\"2021-12-27 15:04:27\"}]', '/admin/category/177/blog', '2021-12-27 11:41:16'),
+(331, 81, '127.0.0.1', 'create', 'categories', 178, '', '{\"type\":1,\"seo_description\":\"ssd\",\"seo_title\":\"ssd\",\"parent_id\":\"0\",\"name\":\"ssd\",\"H1\":\"ssd\",\"robots\":\"0\",\"canonical\":\"ssd\",\"description\":\"ssd\",\"status\":\"1\",\"slug\":\"ssd\"}', '/admin/category/0/blog', '2021-12-27 11:41:31'),
+(332, 81, '127.0.0.1', 'create', 'photos', 314, '', '{\"entity_type\":\"Category\",\"entity_id\":178,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/1-1.---0e0ce5a5.jpg\",\"alt\":\"image_category\",\"type\":0}', '/admin/category/0/blog', '2021-12-27 11:41:31'),
+(333, 81, '127.0.0.1', 'create', 'categories', 179, '', '{\"type\":1,\"seo_description\":\"Commodi quisquam vol\",\"seo_title\":\"Ea fugiat elit et \",\"parent_id\":\"0\",\"name\":\"cyreqiwewa@mailinator.com\",\"H1\":\"Dolore ut nesciunt \",\"robots\":\"0\",\"canonical\":\"Officia mollit hic q\",\"description\":\"Dicta voluptate amet dolor omnis rerum nostrum vitae et adipisicing aut id nostrud blanditiis Nam\",\"status\":\"0\",\"slug\":\"Cum-nemo-a-id-fuga\"}', '/admin/category/0/blog', '2021-12-27 11:48:00'),
+(334, 81, '127.0.0.1', 'create', 'categories', 180, '', '{\"type\":1,\"seo_description\":\"Commodi quisquam vol\",\"seo_title\":\"Ea fugiat elit et \",\"parent_id\":\"0\",\"name\":\"cyreqiwewa@mailinator.com\",\"H1\":\"Dolore ut nesciunt \",\"robots\":\"0\",\"canonical\":\"Officia mollit hic q\",\"description\":\"Dicta voluptate amet dolor omnis rerum nostrum vitae et adipisicing aut id nostrud blanditiis Nam\",\"status\":\"0\",\"slug\":\"Cum-nemo-a-id-fuga\"}', '/admin/category/0/blog', '2021-12-27 11:49:08'),
+(335, 81, '127.0.0.1', 'create', 'categories', 181, '', '{\"type\":1,\"seo_description\":\"Commodi quisquam vol\",\"seo_title\":\"Ea fugiat elit et \",\"parent_id\":\"0\",\"name\":\"cyreqiwewa@mailinator.com\",\"H1\":\"Dolore ut nesciunt \",\"robots\":\"0\",\"canonical\":\"Officia mollit hic q\",\"description\":\"Dicta voluptate amet dolor omnis rerum nostrum vitae et adipisicing aut id nostrud blanditiis Nam\",\"status\":\"0\",\"slug\":\"Cum-nemo-a-id-fuga\"}', '/admin/category/0/blog', '2021-12-27 11:49:22'),
+(336, 81, '127.0.0.1', 'create', 'categories', 182, '', '{\"type\":1,\"seo_description\":\"Commodi quisquam vol\",\"seo_title\":\"Ea fugiat elit et \",\"parent_id\":\"0\",\"name\":\"cyreqiwewa@mailinator.com\",\"H1\":\"Dolore ut nesciunt \",\"robots\":\"0\",\"canonical\":\"Officia mollit hic q\",\"description\":\"Dicta voluptate amet dolor omnis rerum nostrum vitae et adipisicing aut id nostrud blanditiis Nam\",\"status\":\"0\",\"slug\":\"Cum-nemo-a-id-fuga\"}', '/admin/category/0/blog', '2021-12-27 11:57:27'),
+(337, 81, '127.0.0.1', 'create', 'photos', 315, '', '{\"entity_type\":\"Category\",\"entity_id\":182,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/37.---80c374f7.jpg\",\"alt\":\"image_category\",\"type\":0}', '/admin/category/0/blog', '2021-12-27 11:57:27'),
+(338, 81, '127.0.0.1', 'delete', 'categories', 0, '{\"id\":\"182\"}', '[{\"id\":\"182\",\"status\":\"0\",\"description\":\"Dicta voluptate amet dolor omnis rerum nostrum vitae et adipisicing aut id nostrud blanditiis Nam\",\"type\":\"1\",\"H1\":\"Dolore ut nesciunt \",\"canonical\":\"Officia mollit hic q\",\"robots\":\"0\",\"parent_id\":\"0\",\"name\":\"cyreqiwewa@mailinator.com\",\"slug\":\"Cum-nemo-a-id-fuga\",\"seo_title\":\"Ea fugiat elit et \",\"seo_description\":\"Commodi quisquam vol\",\"created_at\":\"2021-12-27 15:27:27\"}]', '/admin/category/182/blog', '2021-12-27 11:57:35'),
+(339, 81, '127.0.0.1', 'delete', 'photos', 0, '{\"entity_id\":\"182\"}', '[{\"id\":\"315\",\"entity_id\":\"182\",\"entity_type\":\"Category\",\"type\":\"0\",\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/37.---80c374f7.jpg\",\"alt\":\"image_category\",\"created_at\":\"2021-12-27 15:27:27\"}]', '/admin/category/182/blog', '2021-12-27 11:57:35'),
+(340, 81, '127.0.0.1', 'delete', 'categories', 0, '{\"id\":\"181\"}', '[{\"id\":\"181\",\"status\":\"0\",\"description\":\"Dicta voluptate amet dolor omnis rerum nostrum vitae et adipisicing aut id nostrud blanditiis Nam\",\"type\":\"1\",\"H1\":\"Dolore ut nesciunt \",\"canonical\":\"Officia mollit hic q\",\"robots\":\"0\",\"parent_id\":\"0\",\"name\":\"cyreqiwewa@mailinator.com\",\"slug\":\"Cum-nemo-a-id-fuga\",\"seo_title\":\"Ea fugiat elit et \",\"seo_description\":\"Commodi quisquam vol\",\"created_at\":\"2021-12-27 15:19:22\"}]', '/admin/category/181/blog', '2021-12-27 11:57:38'),
+(341, 81, '127.0.0.1', 'delete', 'photos', 0, '{\"entity_id\":\"181\"}', '[]', '/admin/category/181/blog', '2021-12-27 11:57:38'),
+(342, 81, '127.0.0.1', 'delete', 'categories', 0, '{\"id\":\"180\"}', '[{\"id\":\"180\",\"status\":\"0\",\"description\":\"Dicta voluptate amet dolor omnis rerum nostrum vitae et adipisicing aut id nostrud blanditiis Nam\",\"type\":\"1\",\"H1\":\"Dolore ut nesciunt \",\"canonical\":\"Officia mollit hic q\",\"robots\":\"0\",\"parent_id\":\"0\",\"name\":\"cyreqiwewa@mailinator.com\",\"slug\":\"Cum-nemo-a-id-fuga\",\"seo_title\":\"Ea fugiat elit et \",\"seo_description\":\"Commodi quisquam vol\",\"created_at\":\"2021-12-27 15:19:08\"}]', '/admin/category/180/blog', '2021-12-27 11:57:42'),
+(343, 81, '127.0.0.1', 'delete', 'photos', 0, '{\"entity_id\":\"180\"}', '[]', '/admin/category/180/blog', '2021-12-27 11:57:42'),
+(344, 81, '127.0.0.1', 'delete', 'categories', 0, '{\"id\":\"179\"}', '[{\"id\":\"179\",\"status\":\"0\",\"description\":\"Dicta voluptate amet dolor omnis rerum nostrum vitae et adipisicing aut id nostrud blanditiis Nam\",\"type\":\"1\",\"H1\":\"Dolore ut nesciunt \",\"canonical\":\"Officia mollit hic q\",\"robots\":\"0\",\"parent_id\":\"0\",\"name\":\"cyreqiwewa@mailinator.com\",\"slug\":\"Cum-nemo-a-id-fuga\",\"seo_title\":\"Ea fugiat elit et \",\"seo_description\":\"Commodi quisquam vol\",\"created_at\":\"2021-12-27 15:18:00\"}]', '/admin/category/179/blog', '2021-12-27 11:57:45'),
+(345, 81, '127.0.0.1', 'delete', 'photos', 0, '{\"entity_id\":\"179\"}', '[]', '/admin/category/179/blog', '2021-12-27 11:57:45'),
+(346, 81, '127.0.0.1', 'create', 'categories', 183, '', '{\"type\":1,\"seo_description\":\"Sapiente commodo atq\",\"seo_title\":\"Dolor illum proiden\",\"parent_id\":\"0\",\"name\":\"xorehivefe@mailinator.com\",\"H1\":\"Est iure odit praese\",\"robots\":\"7\",\"canonical\":\"Fuga Voluptatem in\",\"description\":\"Nisi dolore obcaecati ipsa cumque qui quis quas minima necessitatibus sed tempore excepteur qui quod quia libero amet\",\"status\":\"0\",\"slug\":\"Possimus-non-quibus\"}', '/admin/category/0/blog', '2021-12-27 11:57:55'),
+(347, 81, '127.0.0.1', 'create', 'photos', 316, '', '{\"entity_type\":\"Category\",\"entity_id\":183,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/38.---650c187c.jpg\",\"alt\":\"image_category\",\"type\":0}', '/admin/category/0/blog', '2021-12-27 11:57:55'),
+(348, 81, '127.0.0.1', 'update', 'photos', 0, '{\"entity_type\":\"Category\",\"entity_id\":183}', '{\"old\":[{\"id\":\"316\",\"entity_id\":\"183\",\"entity_type\":\"Category\",\"type\":\"0\",\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/38.---650c187c.jpg\",\"alt\":\"image_category\",\"created_at\":\"2021-12-27 15:27:55\"}],\"new\":{\"entity_type\":\"Category\",\"entity_id\":183,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/40.---3824a777.jpg\",\"alt\":\"image_category\",\"type\":0}}', '/admin/category/183/blog', '2021-12-27 11:58:25'),
+(349, 81, '127.0.0.1', 'delete', 'categories', 0, '{\"id\":\"183\"}', '[{\"id\":\"183\",\"status\":\"0\",\"description\":\"Nisi dolore obcaecati ipsa cumque qui quis quas minima necessitatibus sed tempore excepteur qui quod quia libero amet\",\"type\":\"1\",\"H1\":\"Est iure odit praese\",\"canonical\":\"Fuga Voluptatem in\",\"robots\":\"7\",\"parent_id\":\"0\",\"name\":\"xorehivefe@mailinator.com\",\"slug\":\"Possimus-non-quibus\",\"seo_title\":\"Dolor illum proiden\",\"seo_description\":\"Sapiente commodo atq\",\"created_at\":\"2021-12-27 15:27:55\"}]', '/admin/category/183/blog', '2021-12-27 12:00:27'),
+(350, 81, '127.0.0.1', 'delete', 'photos', 0, '{\"entity_id\":\"183\"}', '[{\"id\":\"316\",\"entity_id\":\"183\",\"entity_type\":\"Category\",\"type\":\"0\",\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/40.---3824a777.jpg\",\"alt\":\"image_category\",\"created_at\":\"2021-12-27 15:27:55\"}]', '/admin/category/183/blog', '2021-12-27 12:00:27'),
+(351, 81, '127.0.0.1', 'create', 'categories', 184, '', '{\"type\":1,\"seo_description\":\"Et eveniet sit et \",\"seo_title\":\"Temporibus in est c\",\"parent_id\":\"0\",\"name\":\"xevysoz@mailinator.com\",\"H1\":\"Similique quia aliqu\",\"robots\":\"5\",\"canonical\":\"Laboris error cum om\",\"description\":\"Consequuntur obcaecati perspiciatis quos laboris est et eaque recusandae Et sed eaque sint et voluptas\",\"status\":\"0\",\"slug\":\"Incidunt-voluptatib\"}', '/admin/category/0/blog', '2021-12-27 12:00:38'),
+(352, 81, '127.0.0.1', 'create', 'photos', 317, '', '{\"entity_type\":\"Category\",\"entity_id\":184,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/38.---1f09188c.jpg\",\"alt\":\"image_category\",\"type\":0}', '/admin/category/0/blog', '2021-12-27 12:00:38'),
+(353, 81, '127.0.0.1', 'update', 'photos', 0, '{\"entity_type\":\"Category\",\"entity_id\":184}', '{\"old\":[{\"id\":\"317\",\"entity_id\":\"184\",\"entity_type\":\"Category\",\"type\":\"0\",\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/38.---1f09188c.jpg\",\"alt\":\"image_category\",\"created_at\":\"2021-12-27 15:30:38\"}],\"new\":{\"entity_type\":\"Category\",\"entity_id\":184,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/card-5.---a25e1dfc.jpg\",\"alt\":\"image_category\",\"type\":0}}', '/admin/category/184/blog', '2021-12-27 12:00:50'),
+(354, 0, '127.0.0.1', 'create', 'active_codes', 346, '', '{\"user_id\":\"81\",\"code\":1341,\"expired_at\":\"2021-12-28 08:30:22\"}', '/admin/login', '2021-12-28 05:00:21'),
+(355, 81, '127.0.0.1', 'delete', 'active_codes', 0, '{\"user_id\":\"81\"}', '[{\"id\":\"346\",\"user_id\":\"81\",\"code\":\"1341\",\"expired_at\":\"2021-12-28 08:30:22\"}]', '/admin/token', '2021-12-28 05:00:29'),
+(356, 0, '127.0.0.1', 'create', 'active_codes', 347, '', '{\"user_id\":\"81\",\"code\":2380,\"expired_at\":\"2021-12-28 09:51:48\"}', '/admin/login', '2021-12-28 06:21:47'),
+(357, 81, '127.0.0.1', 'delete', 'active_codes', 0, '{\"user_id\":\"81\"}', '[{\"id\":\"347\",\"user_id\":\"81\",\"code\":\"2380\",\"expired_at\":\"2021-12-28 09:51:48\"}]', '/admin/token', '2021-12-28 06:21:54');
+INSERT INTO `activity_log` (`id`, `user_id`, `ip`, `type`, `target_table`, `row_id`, `where_condition`, `detailed_data`, `uri`, `created_at`) VALUES
+(358, 0, '127.0.0.1', 'create', 'active_codes', 348, '', '{\"user_id\":\"81\",\"code\":1815,\"expired_at\":\"2021-12-28 12:04:08\"}', '/login', '2021-12-28 08:34:07'),
+(359, 81, '127.0.0.1', 'delete', 'active_codes', 0, '{\"user_id\":\"81\"}', '[{\"id\":\"348\",\"user_id\":\"81\",\"code\":\"1815\",\"expired_at\":\"2021-12-28 12:04:08\"}]', '/token', '2021-12-28 08:34:13'),
+(360, 0, '127.0.0.1', 'create', 'active_codes', 349, '', '{\"user_id\":\"81\",\"code\":4747,\"expired_at\":\"2021-12-28 16:08:45\"}', '/admin/login', '2021-12-28 12:38:44'),
+(361, 81, '127.0.0.1', 'delete', 'active_codes', 0, '{\"user_id\":\"81\"}', '[{\"id\":\"349\",\"user_id\":\"81\",\"code\":\"4747\",\"expired_at\":\"2021-12-28 16:08:45\"}]', '/admin/token', '2021-12-28 12:38:50'),
+(362, 81, '127.0.0.1', 'create', 'coupons', 3, '', '{\"user_id\":\"81\",\"start_at\":\"2021-12-28 16:09:10\",\"finish_at\":\"2022-01-20 16:09:10\",\"code\":\"624667\",\"title\":\"شب چله\",\"description\":\"شب چله\",\"percent\":\"20\",\"status\":\"1\"}', '/admin/coupon', '2021-12-28 12:39:47'),
+(363, 0, '127.0.0.1', 'create', 'active_codes', 350, '', '{\"user_id\":\"81\",\"code\":4635,\"expired_at\":\"2021-12-29 08:37:14\"}', '/admin/login', '2021-12-29 05:07:13'),
+(364, 81, '127.0.0.1', 'delete', 'active_codes', 0, '{\"user_id\":\"81\"}', '[{\"id\":\"350\",\"user_id\":\"81\",\"code\":\"4635\",\"expired_at\":\"2021-12-29 08:37:14\"}]', '/admin/token', '2021-12-29 05:07:22'),
+(365, 0, '127.0.0.1', 'create', 'active_codes', 351, '', '{\"user_id\":\"81\",\"code\":2629,\"expired_at\":\"2021-12-29 12:26:22\"}', '/admin/login', '2021-12-29 08:56:21'),
+(366, 0, '127.0.0.1', 'create', 'active_codes', 352, '', '{\"user_id\":\"81\",\"code\":7739,\"expired_at\":\"2021-12-29 12:27:09\"}', '/admin/login', '2021-12-29 08:57:08'),
+(367, 81, '127.0.0.1', 'delete', 'active_codes', 0, '{\"user_id\":\"81\"}', '[{\"id\":\"351\",\"user_id\":\"81\",\"code\":\"2629\",\"expired_at\":\"2021-12-29 12:26:22\"},{\"id\":\"352\",\"user_id\":\"81\",\"code\":\"7739\",\"expired_at\":\"2021-12-29 12:27:09\"}]', '/admin/token', '2021-12-29 08:57:20'),
+(368, 81, '127.0.0.1', 'create', 'coupons', 4, '', '{\"user_id\":\"81\",\"user_level\":\"1\",\"start_at\":\"2021-12-29 12:51:57\",\"finish_at\":\"2022-01-20 12:51:57\",\"code\":\"838703\",\"title\":\"عیدی\",\"description\":\"عیدی\",\"percent\":\"20\",\"status\":\"1\"}', '/admin/coupon', '2021-12-29 09:22:35'),
+(369, 81, '127.0.0.1', 'update', 'coupons', 0, '{\"id\":\"4\"}', '{\"old\":[{\"id\":\"4\",\"title\":\"عیدی\",\"user_id\":\"81\",\"user_level\":\"1\",\"code\":\"838703\",\"type\":null,\"percent\":\"20\",\"description\":\"عیدی\",\"status\":\"1\",\"start_at\":\"2021-12-29 12:51:57\",\"finish_at\":\"2022-01-20 12:51:57\",\"updated_at\":null,\"created_at\":\"2021-12-29 12:52:35\"}],\"new\":{\"user_id\":\"81\",\"start_at\":\"2021-12-29 12:51:57\",\"finish_at\":\"2022-01-20 12:51:57\",\"code\":\"838703\",\"title\":\"عیدی\",\"description\":\"عیدی\",\"percent\":\"20\",\"status\":1}}', '/admin/coupon/4', '2021-12-29 09:28:27'),
+(370, 81, '127.0.0.1', 'update', 'coupons', 0, '{\"id\":\"4\"}', '{\"old\":[{\"id\":\"4\",\"title\":\"عیدی\",\"user_id\":\"81\",\"user_level\":\"1\",\"code\":\"838703\",\"type\":null,\"percent\":\"20\",\"description\":\"عیدی\",\"status\":\"1\",\"start_at\":\"2021-12-29 12:51:57\",\"finish_at\":\"2022-01-20 12:51:57\",\"updated_at\":null,\"created_at\":\"2021-12-29 12:52:35\"}],\"new\":{\"user_id\":\"81\",\"user_level\":\"3\",\"start_at\":\"2021-12-29 12:51:57\",\"finish_at\":\"2022-01-20 12:51:57\",\"code\":\"838703\",\"title\":\"عیدی\",\"description\":\"عیدی\",\"percent\":\"20\",\"status\":1}}', '/admin/coupon/4', '2021-12-29 09:29:27'),
+(371, 81, '127.0.0.1', 'update', 'coupons', 0, '{\"id\":\"4\"}', '{\"old\":[{\"id\":\"4\",\"title\":\"عیدی\",\"user_id\":\"81\",\"user_level\":\"3\",\"code\":\"838703\",\"type\":null,\"percent\":\"20\",\"description\":\"عیدی\",\"status\":\"1\",\"start_at\":\"2021-12-29 12:51:57\",\"finish_at\":\"2022-01-20 12:51:57\",\"updated_at\":null,\"created_at\":\"2021-12-29 12:52:35\"}],\"new\":{\"user_id\":\"81\",\"user_level\":\"3\",\"start_at\":\"2021-12-29 12:51:57\",\"finish_at\":\"2022-01-20 12:51:57\",\"code\":\"838703\",\"title\":\"عیدی\",\"description\":\"عیدی\",\"percent\":\"20\",\"status\":1}}', '/admin/coupon/4', '2021-12-29 09:29:35'),
+(372, 81, '127.0.0.1', 'delete', 'product_coupons', 0, '{\"coupon_id\":4}', '[]', '/admin/coupon/4', '2021-12-29 09:29:35'),
+(373, 81, '127.0.0.1', 'create', 'product_coupons', 4, '', '{\"coupon_id\":\"4\",\"product_id\":\"91\"}', '/admin/coupon/4', '2021-12-29 09:29:35'),
+(374, 0, '127.0.0.1', 'create', 'active_codes', 353, '', '{\"user_id\":\"81\",\"code\":5206,\"expired_at\":\"2021-12-29 15:04:28\"}', '/admin/login', '2021-12-29 11:34:27'),
+(375, 81, '127.0.0.1', 'delete', 'active_codes', 0, '{\"user_id\":\"81\"}', '[{\"id\":\"353\",\"user_id\":\"81\",\"code\":\"5206\",\"expired_at\":\"2021-12-29 15:04:28\"}]', '/admin/token', '2021-12-29 11:34:34');
 
 -- --------------------------------------------------------
 
@@ -583,7 +659,14 @@ INSERT INTO `categories` (`id`, `status`, `description`, `type`, `H1`, `canonica
 (164, 1, '', 0, ' VMware', '', 0, -1, ' VMware', ' VMware', ' VMware', ' VMware', '2021-12-14 08:22:53'),
 (165, 1, '', 0, 'Intel', '', 0, -1, 'Intel', 'Intel', 'Intel', 'Intel', '2021-12-14 08:22:53'),
 (166, 1, '', 0, 'SOPHOS', '', 0, -1, 'SOPHOS', 'SOPHOS', 'SOPHOS', 'SOPHOS', '2021-12-14 08:22:53'),
-(167, 1, '', 0, 'IBM', '', 0, -1, 'IBM', 'IBM', 'IBM', 'IBM', '2021-12-14 08:22:53');
+(167, 1, '', 0, 'IBM', '', 0, -1, 'IBM', 'IBM', 'IBM', 'IBM', '2021-12-14 08:22:53'),
+(168, 1, 'پرفروش ترین ها', 0, 'پرفروش ترین ها', '', 0, 0, 'پرفروش ترین ها', 'پرفروش-ترین-ها', 'پرفروش ترین ها', 'پرفروش ترین ها', '2021-12-27 08:47:30'),
+(170, 1, 'it', 0, 'it', '', 0, 0, 'it', 'it', 'it', 'it', '2021-12-27 09:18:27'),
+(171, 1, 'it', 1, 'it', 'it', 0, 0, 'it', 'it', 'it', 'it', '2021-12-27 09:22:37'),
+(173, 1, 'hp', 1, 'hp', 'hp', 0, 0, 'hp', 'hp', 'hp', 'hp', '2021-12-27 09:31:36'),
+(175, 1, 'product', 0, 'product', 'product', 0, 0, 'product', 'product', 'product', 'product', '2021-12-27 11:26:18'),
+(178, 1, 'ssd', 1, 'ssd', 'ssd', 0, 0, 'ssd', 'ssd', 'ssd', 'ssd', '2021-12-27 11:41:31'),
+(184, 0, 'Consequuntur obcaecati perspiciatis quos laboris est et eaque recusandae Et sed eaque sint et voluptas', 1, 'Similique quia aliqu', 'Laboris error cum om', 5, 0, 'xevysoz@mailinator.com', 'Incidunt-voluptatib', 'Temporibus in est c', 'Et eveniet sit et ', '2021-12-27 12:00:38');
 
 -- --------------------------------------------------------
 
@@ -1797,11 +1880,14 @@ CREATE TABLE `coupons` (
   `id` int NOT NULL,
   `title` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
   `user_id` int NOT NULL,
+  `user_level` tinyint NOT NULL COMMENT '1=Bronze,\r\n2=Silver,\r\n3=Gold,\r\n4=Platinum,\r\n5=Titanium',
   `code` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
   `type` tinyint DEFAULT NULL,
   `percent` tinyint DEFAULT NULL COMMENT '%',
   `description` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
   `status` tinyint(1) DEFAULT '1',
+  `min_price` int NOT NULL,
+  `max_price` int NOT NULL,
   `start_at` timestamp NOT NULL,
   `finish_at` timestamp NOT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -1812,9 +1898,11 @@ CREATE TABLE `coupons` (
 -- Dumping data for table `coupons`
 --
 
-INSERT INTO `coupons` (`id`, `title`, `user_id`, `code`, `type`, `percent`, `description`, `status`, `start_at`, `finish_at`, `updated_at`, `created_at`) VALUES
-(1, 'ماه رمضان', 81, '338918', NULL, 5, 'ماه رمضان', 1, '2021-12-26 07:48:47', '2021-12-26 07:48:47', NULL, '2021-12-26 07:48:52'),
-(2, 'رمضان 2', 81, '112218', NULL, 15, 'رمضان 2', 1, '2021-12-26 09:49:25', '2022-01-19 09:49:25', NULL, '2021-12-26 09:49:56');
+INSERT INTO `coupons` (`id`, `title`, `user_id`, `user_level`, `code`, `type`, `percent`, `description`, `status`, `min_price`, `max_price`, `start_at`, `finish_at`, `updated_at`, `created_at`) VALUES
+(1, 'ماه رمضان', 81, 0, '338918', NULL, 5, 'ماه رمضان', 1, 0, 0, '2021-12-26 07:48:47', '2021-12-26 07:48:47', NULL, '2021-12-26 07:48:52'),
+(2, 'رمضان 2', 81, 0, '112218', NULL, 15, 'رمضان 2', 1, 0, 0, '2021-12-26 09:49:25', '2022-01-19 09:49:25', NULL, '2021-12-26 09:49:56'),
+(3, 'شب چله', 81, 0, '624667', NULL, 20, 'شب چله', 1, 0, 0, '2021-12-28 12:39:10', '2022-01-20 12:39:10', NULL, '2021-12-28 12:39:47'),
+(4, 'عیدی', 81, 3, '838703', NULL, 20, 'عیدی', 1, 0, 0, '2021-12-29 09:21:57', '2022-01-20 09:21:57', NULL, '2021-12-29 09:22:35');
 
 -- --------------------------------------------------------
 
@@ -2218,7 +2306,14 @@ INSERT INTO `photos` (`id`, `entity_id`, `entity_type`, `type`, `path`, `alt`, `
 (300, 13, 'Brand', 0, 'http://usedkalaV2.me/Storage/202112/dell emc.---35ea7b01.png', 'brand_image', '2021-12-14 13:59:19'),
 (301, 12, 'Brand', 0, 'http://usedkalaV2.me/Storage/202112/intel.---cdeea7f9.png', 'brand_image', '2021-12-14 13:59:27'),
 (302, 11, 'Brand', 0, 'http://usedkalaV2.me/Storage/202112/Cisco_logo.svg.---bb349861.png', 'brand_image', '2021-12-14 13:59:35'),
-(303, 10, 'Brand', 0, 'http://usedkalaV2.me/Storage/202112/hpe.---a157fa8c.png', 'brand_image', '2021-12-14 13:59:43');
+(303, 10, 'Brand', 0, 'http://usedkalaV2.me/Storage/202112/hpe.---a157fa8c.png', 'brand_image', '2021-12-14 13:59:43'),
+(304, 168, 'Category', 0, 'http://usedkalaV2.me/Storage/202112/Screenshot from 2021-12-27 10-48-46.---807b98fc.png', 'image_category', '2021-12-27 08:47:31'),
+(306, 170, 'Category', 0, 'http://usedkalaV2.me/Storage/202112/card-4.---39ee1398.jpg', 'image_category', '2021-12-27 09:18:27'),
+(307, 171, 'Category', 0, 'http://usedkalaV2.me/Storage/202112/40.---a7f64bb0.jpg', 'image_category', '2021-12-27 09:22:37'),
+(309, 173, 'Category', 0, 'http://usedkalaV2.me/Storage/202112/42.---b54766a3.jpg', 'image_category', '2021-12-27 09:31:36'),
+(311, 175, 'Category', 0, 'http://usedkalaV2.me/Storage/202112/card-4.---03deb567.jpg', 'image_category', '2021-12-27 11:26:18'),
+(314, 178, 'Category', 0, 'http://usedkalaV2.me/Storage/202112/1-1.---0e0ce5a5.jpg', 'image_category', '2021-12-27 11:41:31'),
+(317, 184, 'Category', 0, 'http://usedkalaV2.me/Storage/202112/card-5.---a25e1dfc.jpg', 'image_category', '2021-12-27 12:00:38');
 
 -- --------------------------------------------------------
 
@@ -2654,7 +2749,8 @@ CREATE TABLE `product_coupons` (
 INSERT INTO `product_coupons` (`id`, `product_id`, `coupon_id`) VALUES
 (1, 83, 1),
 (2, 83, 2),
-(3, 92, 2);
+(3, 92, 2),
+(4, 91, 4);
 
 -- --------------------------------------------------------
 
@@ -3056,7 +3152,7 @@ CREATE TABLE `users` (
   `id` int NOT NULL,
   `city_id` int UNSIGNED DEFAULT NULL,
   `province_id` int UNSIGNED DEFAULT NULL,
-  `user_level` tinyint DEFAULT '1',
+  `user_level` tinyint DEFAULT '1' COMMENT '0=Admin,\r\n1=Bronze,\r\n2=Silver,\r\n3=Gold,\r\n4=Platinum,\r\n5=Titanium,\r\n',
   `phone` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
   `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
   `first_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
@@ -3391,13 +3487,13 @@ ALTER TABLE `wish_lists`
 -- AUTO_INCREMENT for table `active_codes`
 --
 ALTER TABLE `active_codes`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=346;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=354;
 
 --
 -- AUTO_INCREMENT for table `activity_log`
 --
 ALTER TABLE `activity_log`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=301;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=376;
 
 --
 -- AUTO_INCREMENT for table `attributes`
@@ -3445,7 +3541,7 @@ ALTER TABLE `carts`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=168;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
 
 --
 -- AUTO_INCREMENT for table `category_blogs`
@@ -3475,7 +3571,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `coupons`
 --
 ALTER TABLE `coupons`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `discounts`
@@ -3517,7 +3613,7 @@ ALTER TABLE `permission_users`
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=304;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=318;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -3535,7 +3631,7 @@ ALTER TABLE `product_categories`
 -- AUTO_INCREMENT for table `product_coupons`
 --
 ALTER TABLE `product_coupons`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `product_discounts`

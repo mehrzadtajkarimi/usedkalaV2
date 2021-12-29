@@ -23,6 +23,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col">
                     <div class="form-group ">
@@ -34,22 +35,57 @@
             <div class="row">
                 <div class="col">
                     <div class="form-group ">
+                        <label>محصول انتخابی</label>
+                        <select name="coupon-product[]" id="coupon_product" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
+                            <?php foreach ($products as $value) : ?>
+                                <option value="<?= $value['id'] ?>"><?= $value['title'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="coupon-description" class="col-form-label"> توضیحات</label>
+                        <textarea name="coupon-description" type="text" class="form-control" id="coupon-description" placeholder="" rows="4" required></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group ">
                         <label for="coupon-percent">میزان تخفیف %</label>
                         <input name="coupon-percent" type="text" maxlength="3" class="form-control" id="coupon-percent" placeholder="" required>
                     </div>
                 </div>
+                <div class="col">
+                    <div class="form-group ">
+                        <label for="coupon-min_price"> از مبلغ (جمع فاکتور) </label>
+                        <input name="coupon-min_price" type="text" maxlength="3" class="form-control" id="coupon-min_price" placeholder="از چه مبلغی تعلق بگیرد" >
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group ">
+                        <label for="coupon-max_price"> تا مبلغ (جمع فاکتور)</label>
+                        <input name="coupon-max_price" type="text" maxlength="3" class="form-control" id="coupon-max_price" placeholder="تا حداکثر چه مبلغی تعلق بگیرد" >
+                    </div>
+                </div>
             </div>
-            <div class="col">
-                <label>محصول انتخابی</label>
-                <select name="coupon-product[]" id="coupon_product" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
-                    <?php foreach ($products as $value) : ?>
-                        <option value="<?= $value['id'] ?>"><?= $value['title'] ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="coupon-description" class="col-form-label"> توضیحات</label>
-                <textarea name="coupon-description" type="text" class="form-control" id="coupon-description" placeholder="" rows="2" required></textarea>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group ">
+                        <label> لول کاربر</label>
+                        <select title=" درصورت انتخاب شامل همه لول های قبل هم خواهد شد" name="coupon-level" id="" class="form-control">
+                            <option >انتخابی کنید</option>
+                            <?php foreach (level_user() as $key => $value) : ?>
+                                <option value="<?= $key ?>"><?= $value ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
             </div>
             <div class="pt-1 pb-4 form-check disabled ">
                 <input value="1" name="coupon-status" type="checkbox" class="form-check-input " id="coupon-status" checked>
