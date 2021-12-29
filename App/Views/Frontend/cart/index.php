@@ -14,7 +14,7 @@
                     <div class="type-page hentry">
                         <div class="entry-content">
                             <div class="woocommerce">
-                                <div class="cart-wrapper">لل
+                                <div class="cart-wrapper">
                                     <form method="post" action="<?= base_url() ?>order/create" class="woocommerce-cart-form order-form">
                                         <table class="shop_table shop_table_responsive cart ">
                                             <thead>

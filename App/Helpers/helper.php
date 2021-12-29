@@ -54,8 +54,10 @@ function inject_menu()
 {
     $cart_items = Basket::items();
     $cart_count = count($cart_items);
+
+    unset($cart_items['percent']);
     foreach ($cart_items as  $value) {
-        $cart_total[] = $value['count'] * $value['price'];
+        $cart_total[] = $value['count'] * $value['price'] ?? [];
     }
     $categoryModel = new Category;
     $categoryLevelOne = $categoryModel->get('*', [

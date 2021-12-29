@@ -30,20 +30,20 @@ class CartController  extends Controller
             }
         }
 
-        $coupon= $cart_items['percent'];
+        $coupon = $cart_items['percent'] ?? '';
         unset($cart_items['percent']);
         foreach ($cart_items as  $value) {
 
-            if ($coupon) {
-                $cart_total[] = $value['count'] * ($value['price'] - (($coupon / 100) * $value['price']));
-            } else {
-                $product_ids = array_column($products_is_discount, 0);
-                if (in_array($value['id'], $product_ids)) {
-                    $cart_total[] =   $value['count'] * ($value['price'] - (($discounts[$value['id']] / 100) * $value['price']));
+            $product_ids = array_column($products_is_discount, 0);
+            if (in_array($value['id'], $product_ids)) {
+                if ($coupon) {
+                    $cart_total[] = $value['count'] * (($value['price'] - (($coupon / 100) * $value['price']))-($value['price'] - (($discounts[$value['id']] / 100) * $value['price'])));
                 } else {
-                    $cart_total[] = $value['count'] * $value['price'];
-                };
-            }
+                    $cart_total[] = $value['count'] * ($value['price'] - (($discounts[$value['id']] / 100) * $value['price']));
+                }
+            } else {
+                $cart_total[] = $value['count'] * $value['price'];
+            };
         }
         if (!is_array($cart_total)) {
             SessionManager::set('onLoadMsg', 'سبد خرید خالیست!');
