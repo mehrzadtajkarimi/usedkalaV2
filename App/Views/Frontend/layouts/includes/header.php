@@ -38,7 +38,6 @@
 
 
 
-
         </div>
         <!-- /.row -->
     </div>
@@ -116,12 +115,12 @@
         <form class="navbar-search" method="get" action="<?= base_url() ?>search">
             <label class="sr-only screen-reader-text" for="search">جستجو:</label>
             <div class="input-group">
-                <input type="text" id="search" class="form-control search-field product-search-field" dir="ltr" name="s" placeholder="جستجوی محصول" style='font-family: "IRANSans";direction: rtl;' value="<?php if (isset($search_params['s'])) echo $search_params['s'] ?>"/>
+                <input type="text" id="search" class="form-control search-field product-search-field" dir="ltr" name="s" placeholder="جستجوی محصول" style='font-family: "IRANSans";direction: rtl;' value="<?php if (isset($search_params['s'])) echo $search_params['s'] ?>" />
                 <div class="input-group-addon search-categories">
                     <select name='product_cat' id='product_cat' class='postform resizeselect' style='font-family: "IRANSans"'>
                         <option selected='selected' style='font-family: "IRANSans"' value="all">تمامی محصولات</option>
-                        <?php foreach (search_categories() as $category): ?>    
-                            <option style='font-family: "IRANSans"' value="<?= $category['id'] ?>" <?php if(isset($search_params['product_cat']) && $search_params['product_cat'] == $category['id']) echo 'selected="selected"' ?> ><?= $category['name'] ?></option>
+                        <?php foreach (search_categories() as $category) : ?>
+                            <option style='font-family: "IRANSans"' value="<?= $category['id'] ?>" <?php if (isset($search_params['product_cat']) && $search_params['product_cat'] == $category['id']) echo 'selected="selected"' ?>><?= $category['name'] ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>
@@ -156,61 +155,65 @@
             </li>
         </ul>
         <!-- .header-wishlist -->
-        <?php if(isset($cart_items)): ?>
-        <ul id="site-header-cart" class="site-header-cart menu">
-            <li class="animate-dropdown dropdown ">
-                <a class="cart-contents" href="" data-toggle="dropdown" title="View your shopping cart">
-                    <i class="tm tm-shopping-bag"></i>
-                    <span class="count"><?= $cart_count ?></span>
-                    <!-- <span class="amount" dircetion="rtl">
+        <?php if (isset($cart_items)) : ?>
+            <ul id="site-header-cart" class="site-header-cart menu">
+                <li class="animate-dropdown dropdown ">
+                    <a class="cart-contents" href="" data-toggle="dropdown" title="View your shopping cart">
+                        <i class="tm tm-shopping-bag"></i>
+                        <span class="count"><?= $cart_count ?></span>
+                        <!-- <span class="amount" dircetion="rtl">
                                         <span class="price-label">Your Cart</span>&#036;136.99</span> -->
-                </a>
-                <ul class="dropdown-menu dropdown-menu-mini-cart">
-                    <li>
-                        <div class="widget woocommerce widget_shopping_cart">
-                            <div class="widget_shopping_cart_content">
-                                <ul class="woocommerce-mini-cart cart_list product_list_widget ">
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-mini-cart">
+                        <li>
+                            <div class="widget woocommerce widget_shopping_cart">
+                                <div class="widget_shopping_cart_content">
+                                    <ul class="woocommerce-mini-cart cart_list product_list_widget ">
 
 
-                                    <?php foreach ($cart_items as $value) : ?>
-                                        <li class="woocommerce-mini-cart-item mini_cart_item">
-                                            <a href="<?= base_url() ?>cart/remove/<?= $value['id'] ?>" class="remove" aria-label="Remove this item" data-product_id="65" data-product_sku="">×</a>
-                                            <a href="<?= base_url() ?>product/<?= $value['id'] ?>">
-                                                <img src="<?= $value['photo_path'] ?>" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt=""><?= $value['title'] ?>&nbsp;
-                                            </a>
-                                            <span class="quantity"><?= $value['count'] ?> ×
-                                                <span class="woocommerce-Price-amount amount" dir="rtl">
-                                                    <?= number_format($value['price']) ?></span> <span class="woocommerce-Price-currencySymbol">ریال</span>
-                                            </span>
-                                        </li>
-                                    <?php endforeach; ?>
-                                </ul>
-                                <!-- .cart_list -->
-                                <p class="woocommerce-mini-cart__total total">
-                                    <strong>جمع کل:</strong>
-                                    <span class="woocommerce-Price-amount amount" dir="rtl">
-                                        <?= number_format($cart_total) ?></span> <span class="woocommerce-Price-currencySymbol">ریال</span>
+                                        <?php foreach ($cart_items as $value) : ?>
+                                            <li class="woocommerce-mini-cart-item mini_cart_item">
+                                                <a href="<?= base_url() ?>cart/remove/<?= $value['id'] ?>" class="remove" aria-label="Remove this item" data-product_id="65" data-product_sku="">×</a>
+                                                <a href="<?= base_url() ?>product/<?= $value['id'] ?>">
+                                                    <img src="<?= $value['photo_path'] ?>" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt=""><?= $value['title'] ?>&nbsp;
+                                                </a>
+                                                <span class="quantity"><?= $value['count'] ?> ×
+                                                    <span class="woocommerce-Price-amount amount" dir="rtl">
+                                                        <?= number_format($value['price']) ?></span> <span class="woocommerce-Price-currencySymbol">ریال</span>
+                                                </span>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                    <!-- .cart_list -->
+                                    <p class="woocommerce-mini-cart__total total">
+                                        <strong>جمع کل:</strong>
+                                        <span class="woocommerce-Price-amount amount" dir="rtl">
+                                            <?= number_format($cart_total) ?></span> <span class="woocommerce-Price-currencySymbol">ریال</span>
                                     </p>
-                                <p class="woocommerce-mini-cart__buttons buttons">
-                                    <a href="<?= base_url() ?>cart" class="button wc-forward">مشاهده سبد خرید</a>
-									<?php /*
+                                    <p class="woocommerce-mini-cart__buttons buttons">
+                                        <a href="<?= base_url() ?>cart" class="button wc-forward">مشاهده سبد خرید</a>
+                                        <?php /*
                                     <a href="/" class="button checkout wc-forward">Checkout</a>
 									*/ ?>
-                                </p>
+                                    </p>
+                                </div>
+                                <!-- .widget_shopping_cart_content -->
                             </div>
-                            <!-- .widget_shopping_cart_content -->
-                        </div>
-                        <!-- .widget_shopping_cart -->
-                    </li>
-                </ul>
-                <!-- .dropdown-menu-mini-cart -->
-            </li>
-        </ul>
+                            <!-- .widget_shopping_cart -->
+                        </li>
+                    </ul>
+                    <!-- .dropdown-menu-mini-cart -->
+                </li>
+            </ul>
         <?php endif; ?>
         <!-- .site-header-cart -->
     </div>
     <!-- /.row -->
 </div>
+<div class="offset-3 col-6 mt-5">
+    <?= App\Utilities\FlashMessage::show_message(); ?>
+</div>
+
 <!-- .col-full -->
 <div class="col-full handheld-only">
     <div class="handheld-header">

@@ -6,6 +6,7 @@ use App\Controllers\Controller;
 use App\Core\Request;
 use App\Models\Coupon;
 use App\Models\Product;
+use App\Services\Auth\Auth;
 use App\Services\Basket\Basket;
 use App\Services\Session\SessionManager;
 use App\Utilities\FlashMessage;
@@ -22,11 +23,17 @@ class CartController  extends Controller
     }
     public function index()
     {
+        if (!Auth::is_login()) {
+            return $this->request->redirect('');
+        }
         // $cart_items = Basket::reset();
         $cart_items = Basket::items();
 
-        $products_is_discount = $this->productModel->join_product__with_productDiscounts_discounts();
-        foreach ($products_is_discount as  $value) {
+        $products_is_discounts = $this->productModel->join_product__with_productDiscounts_discounts();
+
+
+        // dd($products_is_discounts);
+        foreach ($products_is_discounts as  $value) {
             if ($value['discount_status']) {
                 $discounts[$value['product_id']] = $value['discount_percent'];
             }
@@ -34,14 +41,44 @@ class CartController  extends Controller
 
         $coupon = $cart_items['percent'] ?? '';
         unset($cart_items['percent']);
+
+
+
         foreach ($cart_items as  $value) {
 
-            $product_ids = array_column($products_is_discount, 0);
+
+            $product_ids = array_column($products_is_discounts, 0);
+
+
             if (in_array($value['id'], $product_ids)) {
+                // discount exist
+
+
+
+                $discount = ($discounts[$value['id']] / 100) * $value['price'];
+                $coupon = ($coupon / 100) * $value['price'];
+
+
+                $discount_minus = $value['price'] - $discount;
+                $coupon_minus = $value['price'] - $coupon;
+
+
+dd($discount,$coupon);
+
+
                 if ($coupon) {
-                    $cart_total[] = $value['count'] * (($value['price'] - (($coupon / 100) * $value['price'])) - ($value['price'] - (($discounts[$value['id']] / 100) * $value['price'])));
+
+
+
+                    $cart_total[] =
+                        $value['count'] *
+                        ($value['price'] -  $coupon) +
+                        ($value['price'] -  $discount);
+                    // ($value['price'] - (($discounts[$value['id']] / 100) * $value['price']));
                 } else {
-                    $cart_total[] = $value['count'] * ($value['price'] - (($discounts[$value['id']] / 100) * $value['price']));
+                    $cart_total[] =
+                        $value['count'] *
+                        $value['price'] - (($discounts[$value['id']] / 100) * $value['price']);
                 }
             } else {
                 $cart_total[] = $value['count'] * $value['price'];
@@ -63,9 +100,12 @@ class CartController  extends Controller
         return view('Frontend.cart.index', $data);
     }
 
-
     public function add()
     {
+        if (!Auth::is_login()) {
+            FlashMessage::add(" جهت مشاهده سبد خرید ابتدا باید وارد شوید", FlashMessage::ERROR);
+            Request::redirect('');
+        }
 
         $product_id = $this->request->get_param('id');
         $params     = $this->request->params();
@@ -87,6 +127,7 @@ class CartController  extends Controller
         }
         Request::redirect('cart');
     }
+
     public function plus()
     {
         $product_id   = $this->request->get_param('id');
@@ -105,6 +146,7 @@ class CartController  extends Controller
         ];
         echo json_encode($result, JSON_UNESCAPED_UNICODE);
     }
+
     public function minus()
     {
         $product_id    = $this->request->get_param('id');
@@ -130,17 +172,19 @@ class CartController  extends Controller
         Basket::remove($product_id);
         Request::redirect('cart');
     }
+
     public function has_coupon()
     {
         $params = $this->request->params();
         $coupon = (new Coupon())->is_coupon($params['has_coupon']);
+
         if ($coupon) {
             $has_coupon = Basket::has_coupon($coupon['percent']);
             if ($has_coupon) {
                 FlashMessage::add("کد تخفیف با موفقیت ثبت شد");
                 Request::redirect('cart');
             } else {
-                FlashMessage::add("کد تخفیف اشتباه است",FlashMessage::ERROR);
+                FlashMessage::add("کد تخفیف اشتباه است", FlashMessage::ERROR);
                 Request::redirect('cart');
             }
         }
