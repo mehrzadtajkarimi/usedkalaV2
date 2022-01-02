@@ -228,3 +228,8 @@ h2.product_title
 	background-color: #ffa672;
 	opacity: 1;
 }
+
+.products .product img, .product-loop-categories .product-category a img
+{
+	object-fit: contain;
+}
