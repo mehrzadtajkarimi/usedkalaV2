@@ -72,6 +72,8 @@ class ProductController extends Controller
         // dd($productDiscount['discounts_percent']);
 
         if (count($product) == 0) Request::redirect('');
+		var_dump($params);
+		die();
         $productCat = $this->ProductCatModel->read_productCategories($params);
         $breadcrumb = $this->categoryModel->get_categories_for_product_breadcrumb($productCat[0]['id']);
         $breadcrumb_item = [];
