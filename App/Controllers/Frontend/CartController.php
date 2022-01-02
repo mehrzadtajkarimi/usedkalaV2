@@ -31,27 +31,34 @@ class CartController  extends Controller
 
         $products_is_discounts = $this->productModel->join_product__with_productDiscounts_discounts();
 
-        // dd($cart_items);
-        $coupon = $cart_items['percent'] ?? 0;
-        unset($cart_items['percent']);
-        $exist_coupon   = !empty($coupon);
+        $percent = $cart_items['percent'] ?? false;
 
+        $coupon = 0;
+        if ($percent) {
+            $start_at  = strtotime($cart_items['percent']['start_at']) < time();
+            $finish_at = strtotime($cart_items['percent']['finish_at']) > time();
+            $coupon    = $cart_items['percent']['percent'];
+            unset($cart_items['percent']);
+            if ($start_at && $finish_at) {
+                $exist_coupon = $coupon;  // $coupon = $cart_items['percent']['percent'];
+            } else {
+                $exist_coupon = 0;
+            }
+        }
 
         foreach ($products_is_discounts as  $value) {
             if ($value['discount_status']) {
                 $discounts[$value['product_id']] = $value['discount_percent'];
             }
         }
-        $price_slot = 0;
-        $cart_total = [];
+
 
         foreach ($cart_items as  $value) {
 
-            $exist_discount = in_array($value['id'], array_column($products_is_discounts, 0));
-
+            $exist_discount = in_array($value['id'], array_keys($discounts));
             if ($exist_discount && $exist_coupon) {
                 // discount exist  and  coupon exist
-                $price_discount = $value['count'] * ($value['price'] - (($discounts[$value['id']] / 100) * $value['price']));
+                $price_discount = ($value['price'] - (($discounts[$value['id']] / 100) * $value['price']));
                 $cart_total[] = $value['count'] * ($price_discount - (($coupon / 100) * $price_discount));
             } else if ($exist_discount && !$exist_coupon) {
                 // discount exist  and  coupon not exist
@@ -71,7 +78,7 @@ class CartController  extends Controller
 
         $data = [
             'cart_total'            => array_sum($cart_total ?? []),
-            'cart_coupon'           => $coupon,
+            'cart_coupon'           => $exist_coupon ?? 0,
             'cart_items'            => $cart_items,
             'discounts'             => $discounts,
             'home_page_active_menu' => "page home page-template-default"
@@ -162,7 +169,7 @@ class CartController  extends Controller
         }
 
         if ($coupon) {
-            $has_coupon = Basket::has_coupon($coupon['percent']);
+            $has_coupon = Basket::add_coupon($coupon['percent'], $coupon['start_at'], $coupon['finish_at']);
             if ($has_coupon) {
                 FlashMessage::add("کد تخفیف با موفقیت ثبت شد");
                 Request::redirect('cart');

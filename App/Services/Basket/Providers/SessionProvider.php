@@ -58,19 +58,19 @@ class SessionProvider implements BasketContract
     {
         if ($this->item_exists($item_id)) {
             unset($_SESSION['cart'][$item_id]);
+            // unset($_SESSION['cart']['percent']);
         }
-        // dd($_SESSION['cart']);
-        // if (empty($_SESSION['cart'][$item_id])&& $this->item_exists('percent')) {
-        // if (empty($_SESSION['cart'])) {
-        //     unset($_SESSION['cart']['percent']);
-        // }
-        // if (!$_SESSION['cart'][$item_id]) {
+        // if (count($_SESSION['cart'][$item_id]) == 0) {
         //     unset($_SESSION['cart']['percent']);
         // }
     }
-    public function has_coupon(int $percent): int
+    public function add_coupon(int $percent,$start_at,$finish_at): array 
     {
-        return  $_SESSION['cart']['percent'] = $percent;
+        return  $_SESSION['cart']['percent'] = [
+            'percent' => $percent,
+            'start_at' => $start_at,
+            'finish_at' => $finish_at,
+        ];
     }
 
 
