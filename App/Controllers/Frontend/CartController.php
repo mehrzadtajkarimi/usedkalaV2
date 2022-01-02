@@ -31,58 +31,38 @@ class CartController  extends Controller
 
         $products_is_discounts = $this->productModel->join_product__with_productDiscounts_discounts();
 
+        // dd($cart_items);
+        $coupon = $cart_items['percent'] ?? 0;
+        unset($cart_items['percent']);
+        $exist_coupon   = !empty($coupon);
 
-        // dd($products_is_discounts);
+
         foreach ($products_is_discounts as  $value) {
             if ($value['discount_status']) {
                 $discounts[$value['product_id']] = $value['discount_percent'];
             }
         }
-
-        $coupon = $cart_items['percent'] ?? '';
-        unset($cart_items['percent']);
-
-
+        $price_slot = 0;
+        $cart_total = [];
 
         foreach ($cart_items as  $value) {
 
+            $exist_discount = in_array($value['id'], array_column($products_is_discounts, 0));
 
-            $product_ids = array_column($products_is_discounts, 0);
-
-
-            if (in_array($value['id'], $product_ids)) {
-                // discount exist
-
-
-
-                $discount = ($discounts[$value['id']] / 100) * $value['price'];
-                $coupon = ($coupon / 100) * $value['price'];
-
-
-                $discount_minus = $value['price'] - $discount;
-                $coupon_minus = $value['price'] - $coupon;
-
-
-dd($discount,$coupon);
-
-
-                if ($coupon) {
-
-
-
-                    $cart_total[] =
-                        $value['count'] *
-                        ($value['price'] -  $coupon) +
-                        ($value['price'] -  $discount);
-                    // ($value['price'] - (($discounts[$value['id']] / 100) * $value['price']));
-                } else {
-                    $cart_total[] =
-                        $value['count'] *
-                        $value['price'] - (($discounts[$value['id']] / 100) * $value['price']);
-                }
+            if ($exist_discount && $exist_coupon) {
+                // discount exist  and  coupon exist
+                $price_discount = $value['count'] * ($value['price'] - (($discounts[$value['id']] / 100) * $value['price']));
+                $cart_total[] = $value['count'] * ($price_discount - (($coupon / 100) * $price_discount));
+            } else if ($exist_discount && !$exist_coupon) {
+                // discount exist  and  coupon not exist
+                $cart_total[] = $value['count'] * ($value['price'] - (($discounts[$value['id']] / 100) * $value['price']));
+            } else if (!$exist_discount && $exist_coupon) {
+                // discount not exist  and  coupon exist
+                $cart_total[] = $value['count'] * ($value['price'] - (($coupon / 100) * $value['price']));
             } else {
-                $cart_total[] = $value['count'] * $value['price'];
-            };
+                // discount not exist  and  coupon not exist
+                $cart_total[] =  ($value['count'] *  $value['price']);
+            }
         }
         if (!is_array($cart_total)) {
             SessionManager::set('onLoadMsg', 'سبد خرید خالیست!');
@@ -176,7 +156,10 @@ dd($discount,$coupon);
     public function has_coupon()
     {
         $params = $this->request->params();
-        $coupon = (new Coupon())->is_coupon($params['has_coupon']);
+        if (isset($params['has_coupon'])) {
+            # code...
+            $coupon = (new Coupon())->is_coupon($params['has_coupon']);
+        }
 
         if ($coupon) {
             $has_coupon = Basket::has_coupon($coupon['percent']);
