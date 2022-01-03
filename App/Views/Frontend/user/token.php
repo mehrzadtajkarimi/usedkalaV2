@@ -13,7 +13,7 @@
           </div>
         </div>
         <div class="p-3 ">
-			<form id="form-login" action="javascript:void(0)" method="post" class="m-5" autocomplete="off" onsubmit="$('#tokensubmitbtn').val('در حال ورود...'); $('#tokensubmitbtn').focus();">
+			<form id="form-login" action="<?= base_url() ?>token" method="post" class="m-5" autocomplete="off" onsubmit="$('#tokensubmitbtn').val('در حال ورود...'); $('#tokensubmitbtn').focus();">
 				<div class="form-group  ">
 					<!-- <label class=" align-self-center mb-4" for="token">برای ورود یا ثبت نام شماره چهار رقمی ارسالی به موبایل یا ایمیل را وارد کنید: </label> -->
 					<input name="token" class="form-control" maxlength="4" placeholder="شماره چهار رقمی ارسالی" id="token" autofocus>

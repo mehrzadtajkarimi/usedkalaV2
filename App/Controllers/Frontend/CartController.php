@@ -53,6 +53,8 @@ class CartController  extends Controller
             }
         }
 
+		if (!isset($discounts) || !is_array($discounts)) $discounts=[];
+		
         foreach ($cart_items as  $value) {
             $exist_discount = in_array($value['id'], array_keys($discounts));
             if ($exist_discount && $exist_coupon) {
@@ -75,7 +77,6 @@ class CartController  extends Controller
             Request::redirect('');
         }
 		
-		if (!isset($discounts) || !is_array($discounts)) $discounts=[];
 		
         $data = [
             'cart_total'            => array_sum($cart_total ?? []),

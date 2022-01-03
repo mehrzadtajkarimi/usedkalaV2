@@ -8,4 +8,4 @@ function toggle_responsive()
 }
 window.onresize=function(){toggle_responsive();};
 toggle_responsive();
-setInterval(toggle_responsive,1000);
+setInterval(toggle_responsive,50);

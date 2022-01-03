@@ -19,7 +19,7 @@ class SettingController extends Controller
     public function about()
     {
         $slug = $this->request->get_param('slug');
-		$slug = urldecode($slug['slug']);
+		$slug = urldecode($slug);
 		// var_dump($slug);
 		// die();
         $setting_about = $this->settingModel->read_setting_by_slug($slug);

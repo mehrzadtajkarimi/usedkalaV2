@@ -8,6 +8,8 @@
                             <div class="products">
                                 <?php if (!empty($products)) : ?>
 									<?php
+									if (!isset($discounts) || !is_array($discounts))
+										$discounts=[];
 									$counter=0;
 									foreach ($products as $value)
 									{
