@@ -29,7 +29,7 @@ class BlogController extends Controller
         $this->commentModel  = new Comment();
         $this->taggableModel = new Taggable();
         $this->wishListModel = new Wish_list();
-        $this->jDateModel    = new TimeUtil();
+        $this->jDateObj    = new TimeUtil();
     }
 
     public function index()
@@ -38,7 +38,7 @@ class BlogController extends Controller
 
         $blog = $this->blogModel->join_blog_to_photo();
 		foreach($blog as $postKey=>$postRow)
-			$blog[$postKey]['jDate']=$this->jDateModel->jalaliDate($postRow['created_at']);
+			$blog[$postKey]['jDate']=$this->jDateObj->jalaliDate($postRow['created_at']);
 
         if (is_array($blog)) {
             $data = array(
@@ -73,7 +73,7 @@ class BlogController extends Controller
                 'wish_list'				=> !empty($wish_list) ? $wish_list :[],
                 'auth'					=> SessionManager::get('auth') ?? false,
 				'home_page_active_menu'	=> "right-sidebar single single-post",
-				'postDate'				=> $this->jDateModel->jalaliDate($blog[0]['created_at'])
+				'postDate'				=> $this->jDateObj->jalaliDate($blog[0]['created_at'])
             );
             return view('Frontend.blog.show', $data);
         }

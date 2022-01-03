@@ -32,6 +32,7 @@ class Blog extends MysqlBaseModel
         SELECT blogs.id AS blog_id , blogs.* , photos.* FROM blogs
         INNER JOIN photos
         ON blogs.id = photos.entity_id
+		AND photos.`entity_type` = 'Blog'
         LIMIT $limit
         ")->fetchAll();
     }

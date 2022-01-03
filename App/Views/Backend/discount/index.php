@@ -14,7 +14,7 @@
             </div>
             <!-- Button trigger modal -->
             <a href="<?= base_url() ?>admin/discount/create" type="button" class="mr-2 shadow-sm btn btn-success ">
-              ایجاد کوپن تخفیف
+              ایجاد تخفیف
             </a>
           </div>
         </div>
@@ -41,17 +41,17 @@
             </thead>
             <tbody>
               <?php
-              $count = 0;
-              foreach ($discounts as $value) :
+              // $count = 0;
+              foreach ($discounts as $key=>$value) :
               ?>
                 <tr>
-                  <td class="text-center" title="ردیف"><?= $count++ ?></td>
+                  <td class="text-center" title="ردیف"><?= floor(pagination_total_count(10, $key))+1 ?></td>
                   <td class="text-center"><?= $value['code'] ?></td>
                   <td class="text-center"><?= $value['title'] ?></td>
                   <td class="text-center"><?= $value['percent'] ?></td>
                   <td class="text-center"><?= $value['description'] ?></td>
-                  <td class="text-center"><?= $value['start_at'] ?></td>
-                  <td class="text-center"><?= $value['finish_at'] ?></td>
+                  <td class="text-center"><?= jdate('H:i Y/m/d ',strtotime($value['start_at'])) ?></td>
+                  <td class="text-center"><?= jdate('H:i Y/m/d ',strtotime($value['finish_at'])) ?></td>
                   <td>
                     <div>
                       وضــــــــــعــیـت :
@@ -87,8 +87,29 @@
 
         </div>
       </div>
-      <p class="pr-4 text-muted font-italic">برای به دست آوردن نام متا - تخفیف یا وزن با موس روی نقطه مورد نظر هاور کنید</p>
+      <p class="pr-4 text-muted font-italic">برای به دست آوردن نام متا - تخفیف یا وزن با موس روی نقطه مورد$value['finish_at'] نظر هاور کنید</p>
     </div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item <?php if (pagination_count('discounts', 10) + 1 == 1 || (isset($_GET['page']) && $_GET['page'] == 1) || !isset($_GET['page'])) echo "disabled" ?>">
+          <a class="page-link" href="<?= base_url() ?>admin/discount?page=<?php if (isset($_GET['page']) && $_GET['page'] > 1) echo $_GET['page'] - 1; ?> " aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+        <?php for ($i = 0; $i <=  pagination_count('discounts', 10); $i++) : ?>
+          <li class="page-item <?php if (isset($_GET['page']) && $_GET['page'] == ($i + 1)) echo "active"; else if (!isset($_GET['page']) && ($i + 1) == 1) echo "active" ?>">
+            <a class="page-link" href="<?= base_url() ?>admin/discount?page=<?= $i + 1 ?>"><?= $i + 1 ?></a>
+          </li>
+        <?php endfor; ?>
+        <li class="page-item <?php if (pagination_count('discounts', 10) + 1 == 1 || (isset($_GET['page']) &&  pagination_count('discounts', 10) + 1  == $_GET['page'])) echo "disabled" ?>">
+          <a class="page-link" href="<?= base_url() ?>admin/discount?page=<?php if (isset($_GET['page'])) echo $_GET['page'] + 1; else echo 2 ?>" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </div>
 <?php include(BASEPATH . "/App/Views/Backend/discount/script.php") ?>

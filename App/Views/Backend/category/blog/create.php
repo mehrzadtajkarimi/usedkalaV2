@@ -5,7 +5,7 @@
     </div>
     <div class="card-body">
 
-        <form action="<?= base_url() ?>admin/category/<?= $category['id'] ?>/<?= $type_amounts['type'] ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= base_url() ?>admin/category/<?= $category['id'] ?>/blog ?>" method="post" enctype="multipart/form-data">
             <div class="form-group row">
                 <label for="title" class="col-sm-2 col-form-label">HTML Title</label>
                 <div class="col-sm-10">
@@ -84,6 +84,6 @@
     </div>
 </div>
 <?php
-include(BASEPATH . "App/Views/Backend/category/script.php");
+include(BASEPATH . "App/Views/Backend/category/blog/script.php");
 include_once BASEPATH  . 'App/Views/Backend/layouts/include/ckeditor.php';
 ?>

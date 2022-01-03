@@ -109,7 +109,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="check-delivery" style="display: <?= $value['status'] == 3 ? 'block'  : 'none' ?> ; ">
+                    <div class="check-delivery" style="display: <?= $value['status'] >= 3 ? 'block'  : 'none' ?> ; ">
                       <div class="row d-flex">
                         <div class="offset-3"></div>
                         <div class="col-3 align-self-center">
@@ -125,7 +125,7 @@
                               <div class="fa fa-times-circle-o fa-2x text-danger" aria-hidden="true"></div>
                             <?php endif; ?>
                             <?php if ($value['status'] == 4) : ?>
-                              <div class="fa fa-check-square-o text-success" aria-hidden="true"></div>
+                              <div class="fa fa-check-square-o fa-2x text-success" aria-hidden="true"></div>
                             <?php endif; ?>
                           </span>
 
@@ -184,6 +184,27 @@
         </div>
       </div>
     </div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item <?php if (pagination_count('orders', 10) + 1 == 1 || (isset($_GET['page']) && $_GET['page'] == 1) || !isset($_GET['page'])) echo "disabled" ?>">
+          <a class="page-link" href="<?= base_url() ?>admin/order?page=<?php if (isset($_GET['page']) && $_GET['page'] > 1) echo $_GET['page'] - 1; ?> " aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+          </a>
+        </li>
+        <?php for ($i = 0; $i <=  pagination_count('orders', 10); $i++) : ?>
+          <li class="page-item <?php if (isset($_GET['page']) && $_GET['page'] == ($i + 1)) echo "active"; else if (!isset($_GET['page']) && ($i + 1) == 1) echo "active" ?>">
+            <a class="page-link" href="<?= base_url() ?>admin/order?page=<?= $i + 1 ?>"><?= $i + 1 ?></a>
+          </li>
+        <?php endfor; ?>
+        <li class="page-item <?php if (pagination_count('orders', 10) + 1 == 1 || (isset($_GET['page']) &&  pagination_count('orders', 10) + 1  == $_GET['page'])) echo "disabled" ?>">
+          <a class="page-link" href="<?= base_url() ?>admin/order?page=<?php if (isset($_GET['page'])) echo $_GET['page'] + 1; else echo 2 ?>" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </div>
 

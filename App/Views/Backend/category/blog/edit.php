@@ -1,10 +1,10 @@
 <div class="card">
     <div class="card-header">
-        <h5>ویرایش دسته‌بندی «<?= $type_persian ?>»</h5>
+        <h5>ویرایش دسته‌بندی «<?= $category['name']  ?>»</h5>
 
     </div>
     <div class="card-body">
-        <form action="<?= base_url() ?>admin/category/<?= $category['id'] ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= base_url() ?>admin/category/<?= $category['id'] ?>/blog" method="post" enctype="multipart/form-data">
             <input type="hidden" name="_method" value="patch" />
             <div class="form-group row">
                 <label for="title" class="col-sm-2 col-form-label">HTML Title</label>
@@ -99,13 +99,13 @@
 				<div class="form-group row">
 					<div class="col-sm-10">
 						<button type="submit" class="btn btn-primary">ذخیره</button>
-						<a href="<?= base_url() ?>admin/category" class="btn btn-danger">انصراف</a>
+						<a href="<?= base_url() ?>admin/category/blog" class="btn btn-danger">انصراف</a>
 					</div>
 				</div>
 			</form>
 		</div>
 	</div>
 <?php
-include(BASEPATH . "App/Views/Backend/category/script.php");
+include(BASEPATH . "App/Views/Backend/category/blog/script.php");
 include_once BASEPATH  . 'App/Views/Backend/layouts/include/ckeditor.php';
 ?>

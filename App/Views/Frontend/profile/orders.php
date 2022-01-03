@@ -53,6 +53,7 @@
                                 <th class="text-center">وضعیت</th>
                                 <th class="text-center">تاریخ ایجاد</th>
                                 <th class="text-center">وضعیت / مشاهده</th>
+                                <th class="text-center">ثبت نظرات</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -86,14 +87,50 @@
                                         </span>
                                     </td>
                                     <td class="text-center">
-                                        <?php if ($value['status'] == 4) : ?>
+                                        <?php if ($value['status'] < 3) : ?>
                                             <a class="btn btn-link" href="<?= base_url() ?>profile/orders/<?= $value['id'] ?>">
                                                 مشاهده سفارش
                                             </a>
-                                        <?php else : ?>
+                                        <?php elseif ($value['status'] == 3) : ?>
                                             <a class="btn btn-link" href="<?= base_url() ?>profile/orders/status/<?= $value['id'] ?>">
                                                 تحویل گرفتم
                                             </a>
+                                        <?php elseif ($value['status'] == 4) : ?>
+                                            <a class="btn btn-link" href="<?= base_url() ?>profile/orders/<?= $value['id'] ?>">
+                                                مشاهده سفارش
+                                            </a>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td class="text-center">
+
+                                        <?php if ($value['status'] >= 3) : ?>
+                                            <?php if (is_null($value['notes'])) : ?>
+                                                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#note-<?= $value['id'] ?>">
+                                                    ثبت نظر
+                                                </button>
+                                            <?php else : ?>
+                                                <button type="button" class="btn btn-link" data-toggle="modal" data-target="#note-<?= $value['id'] ?>">
+                                                    مشاهده یا ویرایش
+                                                </button>
+                                            <?php endif; ?>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="note-<?= $value['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                        <form action="<?= base_url() ?>profile/orders/note/<?= $value['id'] ?>" method="POST">
+                                                            <div class="modal-body">
+                                                                <div class="form-group">
+                                                                    <textarea name="order-textarea-notes" class="form-control" rows="5"><?= $value['notes'] ?></textarea>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer border-0 float-right">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">انصراف</button>
+                                                                <button type="submit" class="btn btn-primary">ذخیره</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         <?php endif; ?>
                                     </td>
                                 </tr>

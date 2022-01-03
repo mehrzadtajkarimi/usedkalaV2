@@ -21,7 +21,7 @@ class PermissionController  extends Controller
 
 
         $permissions = $this->permissionModel->read_permission();
-        $data= array(
+        $data = array(
             'permissions' => $permissions,
         );
         return view('Backend.permission.index', $data);
@@ -67,9 +67,9 @@ class PermissionController  extends Controller
         $params_updated = array(
             'name'   => $params['permission-name'],
             'label'  => $params['permission-label'],
-            'status' => $params['permission-status']??0,
+            'status' => $params['permission-status'] ?? 0,
         );
-        $this->permissionModel->update_permission($params_updated, $permission_id['id']);
+        $this->permissionModel->update_permission($params_updated, $permission_id);
 
         FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
         return $this->request->redirect('admin/permission');

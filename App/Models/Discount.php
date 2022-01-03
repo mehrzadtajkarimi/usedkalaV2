@@ -34,8 +34,8 @@ class Discount extends MysqlBaseModel
     {
         return $this->inner_join(
             "discounts.*,
-             category_discounts.id AS category_discounts_id,
-             category_discounts.category_id",
+            category_discounts.id AS category_discounts_id,
+            category_discounts.category_id",
             "category_discounts",
             "id",
             "discount_id",
@@ -56,7 +56,7 @@ class Discount extends MysqlBaseModel
         photos.path AS photo_path,
         photos.alt AS photo_alt
 
-         FROM discounts
+        FROM discounts
 
         INNER JOIN product_discounts
         ON discounts.id = product_discounts.discount_id

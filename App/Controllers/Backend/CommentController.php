@@ -41,16 +41,16 @@ class CommentController extends Controller
         $comments  = $this->commentModel->read_comment() ?? [];
         $product   = [];
         $blog_post = [];
-        foreach ($comments as $key => $value){
+        foreach ($comments as $key => $value) {
             $user = $this->userModel->read_user($value['user_id']);
-            count($user) > 1 ? $comments[$key]['user_name'] = $user['first_name']." ".$user['last_name'] : $comments[$key]['user_name'] = "";
-            if($value['entity_type'] == 'Product'){
+            count($user) > 1 ? $comments[$key]['user_name'] = $user['first_name'] . " " . $user['last_name'] : $comments[$key]['user_name'] = "";
+            if ($value['entity_type'] == 'Product') {
                 $product = $this->productModel->read_product($value['entity_id']);
                 count($product) > 1 ? $comments[$key]['entity_name'] = $product['title'] : $comments[$key]['entity_name'] = "";
             }
-            if($value['entity_type'] == 'Blog'){
+            if ($value['entity_type'] == 'Blog') {
                 $blog_post = $this->blogModel->read_blog($value['entity_id']);
-				if ($blog_post=="") $blog_post=[];
+                if ($blog_post == "") $blog_post = [];
                 count($blog_post) > 1 ? $comments[$key]['entity_name'] = $blog_post['title'] : $comments[$key]['entity_name'] = "";
             }
         }
@@ -92,7 +92,7 @@ class CommentController extends Controller
     public function show()
     {
         $id      = $this->request->get_param('id');
-        $comment = $this->commentModel->join_all_comment_to_user_by_comment_id($id['id'])[0];
+        $comment = $this->commentModel->join_all_comment_to_user_by_comment_id($id)[0];
         $reply   = $this->commentModel->join_all_comment_to_user_by_comment_parent_id($comment['parent_id']);
 
         $data = array(

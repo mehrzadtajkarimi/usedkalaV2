@@ -91,11 +91,11 @@ class RoleController  extends Controller
 
 
         if (!empty($params['role-permission'])) {
-            $this->rolePermissionModel->delete_rolePermission($role_id['id']);
+            $this->rolePermissionModel->delete_rolePermission($role_id);
 
             foreach ($params['role-permission'] as  $permission_id) {
                 $this->rolePermissionModel->create_rolePermission([
-                    'role_id'       => $role_id['id'],
+                    'role_id'       => $role_id,
                     'permission_id' => $permission_id,
                 ]);
             };
@@ -111,8 +111,8 @@ class RoleController  extends Controller
     public function destroy()
     {
         $id = $this->request->get_param('id');
-        $is_deleted_role = $this->roleModel->delete_role($id['id']);
-        $is_deleted_rolePermission = $this->rolePermissionModel->delete_rolePermission($id['id']);
+        $is_deleted_role = $this->roleModel->delete_role($id);
+        $is_deleted_rolePermission = $this->rolePermissionModel->delete_rolePermission($id);
 
         if ($is_deleted_role && $is_deleted_rolePermission) {
             FlashMessage::add("مقادیر  با موفقیت از دیتابیس حذف شد");

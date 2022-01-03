@@ -2,6 +2,7 @@
 
 namespace App\Services\Basket\Providers;
 
+use App\Services\Basket\Basket;
 use App\Services\Basket\Contract\BasketContract;
 
 class SessionProvider implements BasketContract
@@ -41,12 +42,12 @@ class SessionProvider implements BasketContract
 
     public function plus($product_id)
     {
-        $_SESSION['cart'][$product_id]['count'] += 1;
-        return $_SESSION['cart'][$product_id]['count'];
+        return  $_SESSION['cart'][$product_id]['count'] += 1;
     }
+
     public function minus($product_id)
     {
-        if ($_SESSION['cart'][$product_id]['count']>1) {
+        if ($_SESSION['cart'][$product_id]['count'] > 1) {
             $_SESSION['cart'][$product_id]['count'] -= 1;
         }
         return $_SESSION['cart'][$product_id]['count'];
@@ -57,16 +58,41 @@ class SessionProvider implements BasketContract
     {
         if ($this->item_exists($item_id)) {
             unset($_SESSION['cart'][$item_id]);
+            // unset($_SESSION['cart']['percent']);
+        }
+        // if (count($_SESSION['cart'][$item_id]) == 0) {
+        //     unset($_SESSION['cart']['percent']);
+        // }
+    }
+
+    public function add_coupon(int $percent, $start_at, $finish_at): array
+    {
+        return  $_SESSION['cart']['percent'] = [
+            'percent' => $percent,
+            'start_at' => $start_at,
+            'finish_at' => $finish_at,
+        ];
+    }
+    public function remove_coupon()
+    {
+        if (isset($_SESSION['cart']['percent'])) {
+            unset($_SESSION['cart']['percent']);
         }
     }
 
 
-    public function total()
+    public function total($discounts_percent = null)
     {
         $total_price = 0;
-        foreach ($this->items() as $item) {
-            $total_price += $item['price'] * $item['count'];
+        if (is_numeric($discounts_percent)) {
+            $item = $this->items()[$discounts_percent];
+            $total_price = $item['price'] * $item['count'];
+        } else {
+            $price = $this->items()[$discounts_percent['id']]['price'];
+            $count = $this->items()[$discounts_percent['id']]['count'];
+            $total_price = ($price * ((100 - $discounts_percent["discounts_percent"]) / 100)) * $count;
         }
+
         return $total_price;
     }
 

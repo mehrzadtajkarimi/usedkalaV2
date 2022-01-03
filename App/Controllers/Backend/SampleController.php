@@ -21,7 +21,7 @@ class SampleController extends Controller
 
     public function __construct()
     {
-        parent::__construct();
+        parent:: __construct();
         $this->productModel        = new Product();
         $this->categoryModel       = new Category();
         $this->sampleModel         = new Sample();
@@ -42,9 +42,8 @@ class SampleController extends Controller
     public function create()
     {
         $data = array(
-            'products'   => $this->productModel->read_product(),
-            'samples'    => $this->sampleModel->read_sample(),
-            'categories' => $this->categoryModel->category_tree_for_backend(),
+            'products' => $this->productModel->read_product(),
+            'samples'  => $this->sampleModel->read_sample(),
         );
         view('Backend.sample.create', $data);
     }
@@ -55,31 +54,28 @@ class SampleController extends Controller
 
     public function store()
     {
-        $params = $this->request->params();
+        $params        = $this->request->params();
         $params_create = array(
-            'user_id'     => Auth::is_login(),
-            'start_at'    => date("Y-m-d H:i:s", $params['start_at']),
-            'finish_at'   => date("Y-m-d H:i:s", $params['finish_at']),
-            'code'        => $params['code'],
-            'title'       => $params['sample-title'],
-            'description' => $params['sample-description'],
-            'percent'     => $params['sample-percent'],
-            'status'      => $params['product-status'] ?? 0,
+            'user_id'      => Auth::is_login(),
+            'start_at'     => date("Y-m-d H:i:s", $params['start_at']),
+            'finish_at'    => date("Y-m-d H:i:s", $params['finish_at']),
+            'start_price'  => $params['start_price'],
+            'finish_price' => $params['finish_price'],
+            'code'         => $params['code'],
+            'title'        => $params['sample-title'],
+            'description'  => $params['sample-description'],
+            'percent'      => $params['sample-percent'],
+            'status'       => $params['product-status'] ?? 0,
         );
-        $sample_id =  $this->sampleModel->create_sample($params_create);
-        foreach ($params['sample-category'] as  $value) {
-            $this->categorySampleModel->create_categorySample([
-                'sample_id'   => $sample_id,
-                'category_id' => $value,
-            ]);
-        }
+        $sample_id = $this->sampleModel->create_sample($params_create);
+
         foreach ($params['sample-product'] as  $value) {
             $this->productSampleModel->create_productSample([
                 'sample_id'  => $sample_id,
                 'product_id' => $value,
             ]);
         }
-        FlashMessage::add("مقادیر باموفقیت  ضمیمه شد و با موفقیت در دیتابیس ذخیره شد");
+        FlashMessage:: add("مقادیر باموفقیت  ضمیمه شد و با موفقیت در دیتابیس ذخیره شد");
         return $this->request->redirect('admin/sample');
     }
 
@@ -89,15 +85,9 @@ class SampleController extends Controller
 
     public function edit()
     {
-        $id               = $this->request->get_param('id');
-        $categories_by_id = $this->categorySampleModel->read_categorySample($id);
-        $products_by_id   = $this->productSampleModel->read_productSample($id);
+        $id             = $this->request->get_param('id');
+        $products_by_id = $this->productSampleModel->read_productSample($id);
 
-        if ($categories_by_id) {
-            foreach ($categories_by_id as  $value) {
-                $categories_selected[] = $value['id'];
-            }
-        }
         if ($products_by_id) {
             foreach ($products_by_id as  $value) {
                 $products_selected[] = $value['id'];
@@ -118,33 +108,24 @@ class SampleController extends Controller
     public function update()
     {
         $params = $this->request->params();
-        $id = $this->request->get_param('id');
-
+        $id     = $this->request->get_param('id');
 
 
 
         $params_update = array(
-            'user_id'     => Auth::is_login(),
-            'start_at'    => date("Y-m-d H:i:s", $params['start_at']),
-            'finish_at'   => date("Y-m-d H:i:s", $params['finish_at']),
-            'code'        => $params['sample-code'],
-            'title'       => $params['sample-title'],
-            'description' => $params['sample-description'],
-            'percent'     => $params['sample-percent'],
-            'status'      => $params['sample-status'] == 'on' ? 1 : 0,
+            'user_id'      => Auth::is_login(),
+            'start_at'     => date("Y-m-d H:i:s", $params['start_at']),
+            'finish_at'    => date("Y-m-d H:i:s", $params['finish_at']),
+            'start_price'  => $params['start_price'],
+            'finish_price' => $params['finish_price'],
+            'code'         => $params['sample-code'],
+            'title'        => $params['sample-title'],
+            'description'  => $params['sample-description'],
+            'percent'      => $params['sample-percent'],
+            'status'       => $params['sample-status'] == 'on' ? 1 : 0,
         );
         $this->sampleModel->update_sample($params_update, $id);
 
-
-        if (!empty($params['sample-category'])) {
-            $this->categorySampleModel->delete_categorySample_by_sample_id($id);
-            foreach ($params['sample-category'] as  $category_id) {
-                $this->categorySampleModel->create_categorySample([
-                    'sample_id' => $id,
-                    'category_id' => $category_id,
-                ]);
-            }
-        }
         if (!empty($params['sample-product'])) {
             $this->productSampleModel->delete_productSample_by_sample_id($id);
             foreach ($params['sample-product'] as  $value) {
@@ -154,7 +135,7 @@ class SampleController extends Controller
                 ], $id);
             }
         }
-        FlashMessage::add("مقادیر باموفقیت  ضمیمه شد و با موفقیت در دیتابیس ذخیره شد");
+        FlashMessage:: add("مقادیر باموفقیت  ضمیمه شد و با موفقیت در دیتابیس ذخیره شد");
         return $this->request->redirect('admin/sample');
     }
 
@@ -163,16 +144,15 @@ class SampleController extends Controller
     {
         $id = $this->request->get_param('id');
 
-        $is_deleted_categorySample = $this->categorySampleModel->delete_categorySample_by_sample_id($id);
         $is_deleted_productSample  = $this->productSampleModel->delete_productSample_by_sample_id($id);
         $is_deleted_sample         = $this->sampleModel->delete_sample($id);
 
-        if ($is_deleted_categorySample && $is_deleted_productSample && $is_deleted_sample) {
+        if ($is_deleted_productSample && $is_deleted_sample) {
             # code...
-            FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
+            FlashMessage:: add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
             return $this->request->redirect('admin/sample');
         }
-        FlashMessage::add(" مشکلی در حذف محصول پیش آمده است", FlashMessage::ERROR);
+        FlashMessage:: add(" مشکلی در حذف محصول پیش آمده است", FlashMessage::ERROR);
         return $this->request->redirect('admin/sample');
     }
 }

@@ -19,7 +19,7 @@ use App\Middleware\Gate;
  * Route::get('/category/{id}/edit', 'CategoryController@edit');
  * Route::put('/category/{id}', 'CategoryController@update');
  * Route::delete('/category/{id}', 'CategoryController@destroy');
- * 
+ *
  */
 
 Route::group(function () {
@@ -41,6 +41,7 @@ Route::group(function () {
     Route::get('/profile/orders/status/{id}', 'OrderController@status');
     Route::get('/profile/orders/{id}', 'OrderController@show');
     Route::patch('/profile/{id}', 'ProfileController@update');
+    Route::post('/profile/orders/note/{id}', 'OrderController@store_note');
     Route::post('/profile/city/{id}', 'CityController@index');
 });
 
@@ -51,6 +52,7 @@ Route::group(function () {
 Route::group(function () {
     Route::get('/product/{id}/{slug}', 'ProductController@show');
     Route::get('/product/category/{id}/{slug}', 'ProductController@index');
+    Route::get('/product/discounts', 'ProductController@discounts');
     Route::get('/search', 'ProductController@search');
 });
 
@@ -66,6 +68,7 @@ Route::group(function () {
     Route::get('/cart/plus/{id}', 'CartController@plus');
     Route::get('/cart/minus/{id}', 'CartController@minus');
     Route::get('/cart/remove/{id}', 'CartController@remove');
+    Route::post('/cart/has_coupon', 'CartController@has_coupon');
 });
 
 
@@ -97,9 +100,9 @@ Route::group(function () {
 });
 
 Route::group(function () {
-    Route::post('/wishList', 'WishListController@add');
-    Route::get('/wishList', 'WishListController@index');
-    Route::post('/wishList/remove', 'WishListController@remove');
+    Route::post('/wishlist', 'WishListController@add');
+    Route::get('/wishlist', 'WishListController@index');
+    Route::post('/wishlist/remove', 'WishListController@remove');
     // Route::get('/wishList/create', 'WishListController@create');
     // Route::post('/wishList', 'WishListController@store');
     // Route::get('/wishList/{id}', 'WishListController@show');

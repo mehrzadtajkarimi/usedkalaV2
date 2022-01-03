@@ -23,7 +23,8 @@ class Category_discount extends MysqlBaseModel
 
     public function read_categoryDiscount($id = null)
     {
-        $category_id =  $this->get('category_id', ['discount_id' => $id]) ?? '';
-        return $this->connection->select('categories', ['id'], ['id' => $category_id]) ?? false;
+        $category_id =  $this->get('category_id', ['discount_id' => $id]);
+
+        return  $category_id ? $this->connection->select('categories', '*', ['id' => $category_id]) : false;
     }
 }

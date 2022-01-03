@@ -72,7 +72,7 @@ class ExamplesController  extends Controller
         $params_updated = array(
             'name'   => $params['example-name'],
         );
-        $this->exampleModel->update_example($params_updated, $example_id['id']);
+        $this->exampleModel->update_example($params_updated, $example_id);
 
         FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
         return $this->request->redirect('admin/example');

@@ -93,7 +93,7 @@ class AccessController  extends Controller
 
     public function get_access()
     {
-        $user_id = $this->request->params()['id'];
+        $user_id = $this->request->get_param('id');
 
         $result = [];
 
@@ -110,10 +110,10 @@ class AccessController  extends Controller
         $type = $this->request->get_param('type');
 
         if ($type['type'] == 'permission') {
-            $is_deleted_Permission = $this->permissionUserModel->delete_permissionUser($id['id']);
+            $is_deleted_Permission = $this->permissionUserModel->delete_permissionUser($id);
         }
         if ($type['type'] == 'role') {
-            $is_deleted_role =  $this->roleUserModel->delete_roleUser($id['id']);
+            $is_deleted_role =  $this->roleUserModel->delete_roleUser($id);
         }
 
         if ($is_deleted_role ||  $is_deleted_Permission) {
@@ -133,12 +133,12 @@ class AccessController  extends Controller
 
 
         if (!empty($params['access-permission'])) {
-            $is_deleted = $this->rolePermissionModel->delete_rolePermission($permission_id['id']);
+            $is_deleted = $this->rolePermissionModel->delete_rolePermission($permission_id);
             if ($is_deleted) {
                 foreach ($params['access-permission'] as  $role_id) {
                     $this->rolePermissionModel->create_rolePermission([
                         'access_id'       => $role_id,
-                        'permission_id' => $permission_id['id'],
+                        'permission_id' => $permission_id,
                     ]);
                 };
             }
@@ -149,33 +149,32 @@ class AccessController  extends Controller
             'label'  => $params['access-label'],
             'status' => $params['access-status'] ?? 0,
         );
-        $this->roleModel->update_role($params_updated, $permission_id['id']);
+        $this->roleModel->update_role($params_updated, $permission_id);
 
         FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
         return $this->request->redirect('admin/access');
     }
 
-	public function remove_admin()
-	{
-		$id = $this->request->get_param('id');
-		$param = [
+    public function remove_admin()
+    {
+        $id = $this->request->get_param('id');
+        $param = [
             'user_level'    => 1
         ];
-		$is_user_update = $this->userModel->update_user($param, $id['id']);
+        $is_user_update = $this->userModel->update_user($param, $id);
 
-        if ($is_user_update)
-		{
+        if ($is_user_update) {
             FlashMessage::add("ادمین انتخابی با موفقیت به کاربر عادی تبدیل شده و هیچ گونه دسترسی به پنل ادمین نخواهد داشت.");
             return     $this->request->redirect('admin/access');
         }
         FlashMessage::add(" مشکلی در تبدیلِ ادمین به کاربرِ عادی رخ داد ", FlashMessage::ERROR);
         return $this->request->redirect('admin/users');
-	}
+    }
 
     public function destroy()
     {
         $id = $this->request->get_param('id');
-        $is_deleted_rolePermission = $this->rolePermissionModel->delete_rolePermission($id['id']);
+        $is_deleted_rolePermission = $this->rolePermissionModel->delete_rolePermission($id);
 
         if ($is_deleted_rolePermission) {
             FlashMessage::add("مقادیر  با موفقیت از دیتابیس حذف شد");

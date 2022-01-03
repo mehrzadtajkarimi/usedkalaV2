@@ -13,12 +13,15 @@
           </div>
         </div>
         <div class="p-3 ">
-          <form id="form-login" action="<?= base_url() ?>token" method="post" class="m-5" autocomplete="off">
-            <div class="form-group  ">
-              <!-- <label class=" align-self-center mb-4" for="token">برای ورود یا ثبت نام شماره چهار رقمی ارسالی به موبایل یا ایمیل را وارد کنید: </label> -->
-              <input name="token" class="form-control" maxlength="4" placeholder="شماره چهار رقمی ارسالی" id="token" autofocus>
-            </div>
-          </form>
+			<form id="form-login" action="<?= base_url() ?>token" method="post" class="m-5" autocomplete="off" onsubmit="$('#tokensubmitbtn').val('در حال ورود...'); $('#tokensubmitbtn').focus();">
+				<div class="form-group  ">
+					<!-- <label class=" align-self-center mb-4" for="token">برای ورود یا ثبت نام شماره چهار رقمی ارسالی به موبایل یا ایمیل را وارد کنید: </label> -->
+					<input name="token" class="form-control" maxlength="4" placeholder="شماره چهار رقمی ارسالی" id="token" autofocus>
+					<div style="text-align: center; margin-top: 20px;">
+						<input type="submit" id="tokensubmitbtn" value="ورود" class="wpcf7-form-control wpcf7-submit">
+					</div>
+				</div>
+			</form>
         </div>
       </div>
       <!-- <button type="button" class="btn btn-primary mt-4 mb-4">پشتیبانی</button> -->

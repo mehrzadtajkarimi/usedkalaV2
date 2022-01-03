@@ -29,9 +29,9 @@ class UserController  extends Controller
         $all_province = $this->ProvinceModel->read_province();
         $all_city     = $this->CityModel->read_city();
 
-		$users_screen=[];
+        $users_screen = [];
         foreach ($users as $value) {
-            if ($value['province_id']==0) {
+            if ($value['province_id'] == 0) {
                 $users_screen[] = $value;
                 continue;
             } else {
@@ -71,7 +71,7 @@ class UserController  extends Controller
             'email'         => $params['user-email'],
             'status'        => $params['user-status'] ?? 0,
         ];
-        $is_user_update = $this->UserModel->update_user($param, $id['id']);
+        $is_user_update = $this->UserModel->update_user($param, $id);
 
 
         if ($is_user_update) {
@@ -81,23 +81,22 @@ class UserController  extends Controller
         FlashMessage::add(" مشکلی در ویرایش اطلاعات کاربر رخ داد ", FlashMessage::ERROR);
         return     $this->request->redirect('admin/users');
     }
-	
-	public function make_admin()
-	{
-		$id = $this->request->get_param('id');
-		$param = [
+
+    public function make_admin()
+    {
+        $id = $this->request->get_param('id');
+        $param = [
             'user_level'    => 0
         ];
-		$is_user_update = $this->UserModel->update_user($param, $id['id']);
+        $is_user_update = $this->UserModel->update_user($param, $id);
 
-        if ($is_user_update)
-		{
+        if ($is_user_update) {
             FlashMessage::add("کاربر انتخابی با موفقیت به ادمین تبدیل شد و اکنون میتواند یک یا چند نقش یا مجوز را بپذیرد.");
             return $this->request->redirect('admin/access');
         }
         FlashMessage::add(" مشکلی در تبدیلِ کاربر به ادمین رخ داد ", FlashMessage::ERROR);
         return $this->request->redirect('admin/users');
-	}
+    }
 
     public function destroy()
     {

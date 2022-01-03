@@ -13,10 +13,7 @@
 <script type="text/javascript" src="<?= asset_url() ?>Frontend/js/scripts.js"></script>
 <script type="text/javascript" src="<?= asset_url() ?>Frontend/plugins/WOW/dist/wow.min.js"></script>
 <script src="<?= asset_url() ?>Backend/plugins/select2/select2.full.min.js"></script>
-
-<!-- For demo purposes – can be removed on production -->
-<script src="switchstylesheet/switchstylesheet.js"></script>
-<!-- For demo purposes – can be removed on production : End -->
+<script type="text/javascript" src="<?= asset_url() ?>Frontend/js/ukscripts2.js"></script>
 <script>
 <?php
 if (isset($onLoadMsg))

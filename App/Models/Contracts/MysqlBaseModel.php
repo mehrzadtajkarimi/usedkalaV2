@@ -92,13 +92,11 @@ class  MysqlBaseModel extends BaseModel
 
     public function  get($columns = '*', array $where = null): array
     {
-        // start pagination ***to  url -> ?page=1
-        // $page    = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 1;
-        // $start   = ($page - 1) * $this->pageSize;
-        // $where['LIMIT'] = [$start, $this->pageSize];
+        $page    = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 1;
+        $start   = ($page - 1) * $this->pageSize;
+        $where['LIMIT'] = [$start, $this->pageSize];
 
         $where["ORDER"] = ["id" => "DESC"];
-        // end pagination
 
         return $this->connection->select($this->table, $columns, $where);
     }
@@ -212,7 +210,7 @@ class  MysqlBaseModel extends BaseModel
         $where_1 = null,
         $where_2 = null,
         $where_3 = null,
-        $where_4 = null,
+        $where_4 = null
     ) {
         $query = "
         SELECT $column FROM $this->table
@@ -231,7 +229,7 @@ class  MysqlBaseModel extends BaseModel
         if ($where_4) {
             return $this->connection->query("$query AND $where_1 AND $where_2 AND $where_3 AND $where_4")->fetchAll();
         }
-        return $this->connection->query("$query AND $where_1")->fetchAll();
+        return $this->connection->query("$query")->fetchAll();
     }
 
 

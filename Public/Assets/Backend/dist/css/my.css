@@ -2,6 +2,9 @@
 .table.table--vertical_middle th {
   vertical-align: middle;
 }
+.vertical_middle {
+  vertical-align: middle;
+}
 
 .datepicker-plot-area {
   width: 374px !important;

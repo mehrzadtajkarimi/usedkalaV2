@@ -34,7 +34,7 @@ class Request
         if (is_null($key)) {
             return  $this->params;
         }
-        return $this->params ?? in_array('type',$this->params);
+        return  in_array($key, array_keys($this->params)) ? $this->params[$key] : null;
     }
 
     public function segment($key)

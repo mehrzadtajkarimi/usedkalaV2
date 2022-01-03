@@ -28,7 +28,7 @@ class Product_category extends MysqlBaseModel
             'categories',
             'category_id',
             'id',
-            "product_categories.product_id={$product_id['id']}",
+            "product_categories.product_id={$product_id}",
         );
         return $categories;
     }

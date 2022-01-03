@@ -36,7 +36,6 @@ Route::group(function () {
     Route::post('/admin/user/city/{id}', 'UserController@get_city');
     Route::patch('/admin/user/{id}', 'UserController@update');
     Route::delete('/admin/user/{id}', 'UserController@destroy');
-
 });
 
 Route::group(function () {
@@ -53,21 +52,11 @@ Route::group(function () {
 });
 
 Route::group(function () {
-    Route::get('/admin/category', 'CategoryController@index');
     Route::get('/admin/category/{type}', 'CategoryController@index');
-
-    Route::get('/admin/category/{id}/create', 'CategoryController@create');
     Route::get('/admin/category/{id}/create/{type}', 'CategoryController@create');
-
-    // Route::post('/admin/category/{id}', 'CategoryController@store');
     Route::post('/admin/category/{id}/{type}', 'CategoryController@store');
-
-    Route::get('/admin/category/{id}/edit', 'CategoryController@edit');
     Route::get('/admin/category/{id}/edit/{type}', 'CategoryController@edit');
-
-    Route::patch('/admin/category/{id}', 'CategoryController@update');
-
-    Route::delete('/admin/category/{id}', 'CategoryController@destroy');
+    Route::patch('/admin/category/{id}/{type}', 'CategoryController@update');
     Route::delete('/admin/category/{id}/{type}', 'CategoryController@destroy');
 });
 
@@ -100,7 +89,6 @@ Route::group(function () {
     Route::post('/admin/order/get_orders', 'OrderController@get_orders');
     Route::post('/admin/order/get_admin', 'OrderController@get_admin');
     Route::post('/admin/order/status/{id}', 'OrderController@status');
-
 });
 
 Route::group(function () {
@@ -119,6 +107,24 @@ Route::group(function () {
     Route::get('/admin/discount/{id}/edit', 'DiscountController@edit');
     Route::patch('/admin/discount/{id}', 'DiscountController@update');
     Route::delete('/admin/discount/{id}', 'DiscountController@destroy');
+});
+
+Route::group(function () {
+    Route::get('/admin/sample', 'SampleController@index');
+    Route::get('/admin/sample/create', 'SampleController@create');
+    Route::post('/admin/sample', 'SampleController@store');
+    Route::get('/admin/sample/{id}/edit', 'SampleController@edit');
+    Route::patch('/admin/sample/{id}', 'SampleController@update');
+    Route::delete('/admin/sample/{id}', 'SampleController@destroy');
+});
+
+Route::group(function () {
+    Route::get('/admin/coupon', 'CouponController@index');
+    Route::get('/admin/coupon/create', 'CouponController@create');
+    Route::post('/admin/coupon', 'CouponController@store');
+    Route::get('/admin/coupon/{id}/edit', 'CouponController@edit');
+    Route::patch('/admin/coupon/{id}', 'CouponController@update');
+    Route::delete('/admin/coupon/{id}', 'CouponController@destroy');
 });
 
 Route::group(function () {

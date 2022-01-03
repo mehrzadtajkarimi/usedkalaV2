@@ -24,6 +24,9 @@
         <li class="menu-item animate-dropdown">
             <a title="تماس با ما" href="https://usedkala.com/contact">تماس با ما</a>
         </li>
+        <li class="menu-item animate-dropdown"> -->
+            <a title="تخفیف ها" href="https://usedkala.com/product/discounts"> تخفیف ها</a>
+        </li>
     </ul>
 
     <!-- .nav -->

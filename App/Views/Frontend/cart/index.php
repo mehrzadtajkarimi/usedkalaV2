@@ -49,28 +49,51 @@
                                                             </div>
                                                         </td>
                                                         <td data-title="Price" class="product-price text-center ">
-                                                            <span class="woocommerce-Price-amount amount">
-                                                                <span class="woocommerce-Price-amount amount "><?= number_format($value['price']) ?> ریال</span>
+                                                            <span class="">
+                                                                <?php if (in_array($value['id'], array_keys($discounts))) : ?>
+                                                                    <div>
+                                                                        <small>
+                                                                            <del>
+                                                                                <?= number_format($value['price']) ?>
+                                                                            </del>
+                                                                        </small>
+                                                                        <span class="badge badge-pill badge-danger ">%
+                                                                            <?= $discounts[$value['id']] ?>
+                                                                        </span>
+                                                                    </div>
+                                                                    <span class="woocommerce-Price-amount amount">
+                                                                        <span class="woocommerce-Price-amount amount ">
+                                                                            <?= number_format($value['price'] - (($discounts[$value['id']] / 100) * $value['price'])) ?>ریال
+                                                                        </span>
+                                                                    </span>
+                                                                <?php else : ?>
+                                                                    <?= number_format($value['price']) ?> ریال
+                                                                <?php endif; ?>
                                                             </span>
                                                         </td>
-                                                        <td class="product-quantity text-center " data-title="Quantity">
+                                                        <td class=" text-center " data-title="Quantity">
                                                             <div class=" row d-flex justify-content-center">
-                                                                <span class="woocommerce-Price-amount amount  m-2" id="product-quantity"  style="align-self: center">
-                                                                    <span class="woocommerce-Price-amount amount"><?= $value['count'] ?></span>
+                                                                <span class="woocommerce-Price-amount amount product-quantity-<?= $value['id'] ?> m-2" style="align-self: center">
+                                                                    <span class=""><?= $value['count'] ?></span>
                                                                 </span>
+
                                                                 <div class="d-flex flex-column quantity ">
-                                                                    <a href="<?= base_url() ?>cart/plus/<?= $value['id'] ?>" class="fa fa-chevron-up text-muted pr-4 pl-4 pt-4"></a>
-                                                                    <a href="<?= base_url() ?>cart/minus/<?= $value['id'] ?>" class="fa fa-chevron-down text-muted pr-4 pl-4 pb-4 "></a>
-                                                                    <!-- <span  data-href="<?= base_url() ?>cart/plus/<?= $value['id'] ?>" class="fa fa-chevron-up text-muted pr-4 pl-4 pt-4" ></span> -->
-                                                                    <!-- <span  data-href="<?= base_url() ?>cart/minus/<?= $value['id'] ?>" class="fa fa-chevron-down text-muted pr-4 pl-4 pb-4 "></span> -->
+                                                                    <a href="<?= base_url() ?>cart/plus/<?= $value['id'] ?>" data-id="<?= $value['id'] ?>" class="fa fa-chevron-up text-muted pr-4 pl-4 pt-4"></a>
+                                                                    <a href="<?= base_url() ?>cart/minus/<?= $value['id'] ?>" data-id="<?= $value['id'] ?>" class="fa fa-chevron-down text-muted pr-4 pl-4 pb-4 "></a>
                                                                 </div>
 
                                                             </div>
                                                         </td>
                                                         <td data-title="Total" class="product-subtotal text-center ">
-                                                            <span class="woocommerce-Price-amount amount" id="product-total-price">
-                                                                <span class="woocommerce-Price-amount amount subtotal"><?= number_format($value['count'] * $value['price']) ?> ریال</span>
-                                                            </span>
+                                                            <?php if (in_array($value['id'], array_keys($discounts))) : ?>
+                                                                <span class="woocommerce-Price-amount amount product-total-price-<?= $value['id'] ?>">
+                                                                    <span class="woocommerce-Price-amount amount subtotal"><?= number_format($value['count'] * ($value['price'] - (($discounts[$value['id']] / 100) * $value['price']))) ?> ریال</span>
+                                                                </span>
+                                                            <?php else : ?>
+                                                                <span class="woocommerce-Price-amount amount product-total-price-<?= $value['id'] ?>">
+                                                                    <span class="woocommerce-Price-amount amount subtotal"><?= number_format($value['count'] * $value['price']) ?> ریال</span>
+                                                                </span>
+                                                            <?php endif; ?>
                                                             <a title="Remove this item" class="remove" href="<?= base_url() ?>cart/remove/<?= $value['id'] ?>">×</a>
                                                         </td>
                                                     </tr>
@@ -80,6 +103,7 @@
                                         <!-- .shop_table shop_table_responsive -->
                                         <!-- .woocommerce-cart-form -->
                                         <div class="cart-collaterals">
+                                            <?= App\Utilities\FlashMessage::show_message(); ?>
                                             <div class="cart_totals">
                                                 <h2>قیمت نهایی</h2>
                                                 <table class="shop_table shop_table_responsive">
@@ -88,6 +112,12 @@
                                                             <th>مجموع سبد خرید:</th>
                                                             <td data-title="Subtotal">
                                                                 <span class="woocommerce-Price-amount amount"><?= number_format($cart_total) ?> ریال</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="cart-subtotal">
+                                                            <th> تخفیفات :</th>
+                                                            <td data-title="Subtotal">
+                                                                <span class="woocommerce-Price-amount amount subtotal"><?=  $cart_coupon ? $cart_coupon .'%':'0 ریال' ?></span>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -109,6 +139,7 @@
                                                     </tbody>
                                                 </table>
                                                 <!-- .shop_table shop_table_responsive -->
+
                                                 <div class="wc-proceed-to-checkout">
                                                     <div class="form-group">
                                                         <label for="order-notes">اطلاعات تکمیلی سفارش</label>
@@ -124,6 +155,28 @@
                                             <!-- .cart_totals -->
                                         </div>
                                         <!-- .cart-collaterals -->
+                                    </form>
+                                    <form action="<?= base_url() ?>cart/has_coupon" method="post">
+                                    <div class="card border-0" style="background-color: #f9f9f9;">
+                                        <div class="card-body pt-4 pl-5 pr-5">
+                                            <p class="card-text">
+
+                                                <div class="row">
+                                                    <div class="col-2">
+                                                        <p>  کد تخفیف :</p>
+                                                    </div>
+                                                    <div class="col-7">
+                                                        <div class="form-group">
+                                                            <input name="has_coupon" type="text" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <button type='submit' class='btn btn-block bg-dark text-white'> بـررسـی کـد</button>
+                                                    </div>
+                                                </div>
+                                            </p>
+                                        </div>
+                                    </div>
                                     </form>
                                 </div>
                                 <!-- .cart-wrapper -->

@@ -179,6 +179,20 @@ class OrderController  extends Controller
         }
         return $this->request->redirect('admin/order');
     }
+    public function store_note()
+    {
+        $params = $this->request->params();
+        $params_create = array(
+            'notes' => $params['order-textarea-notes'],
+        );
+        $order_id = $this->orderModel->update_order($params_create, $params['id']);
+        if ($order_id) {
+            FlashMessage::add("ایجاد مثال موفقیت انجام شد");
+        } else {
+            FlashMessage::add(" مشکلی در ایجاد مثال رخ داد ", FlashMessage::ERROR);
+        }
+        return $this->request->redirect('profile/orders');
+    }
 
     public function edit()
     {
@@ -198,7 +212,7 @@ class OrderController  extends Controller
         $params_updated = array(
             'name'   => $params['order-name'],
         );
-        $this->orderModel->update_order($params_updated, $order_id['id']);
+        $this->orderModel->update_order($params_updated, $order_id);
 
         FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
         return $this->request->redirect('admin/order');
