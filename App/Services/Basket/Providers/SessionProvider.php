@@ -64,13 +64,20 @@ class SessionProvider implements BasketContract
         //     unset($_SESSION['cart']['percent']);
         // }
     }
-    public function add_coupon(int $percent,$start_at,$finish_at): array 
+
+    public function add_coupon(int $percent, $start_at, $finish_at): array
     {
         return  $_SESSION['cart']['percent'] = [
             'percent' => $percent,
             'start_at' => $start_at,
             'finish_at' => $finish_at,
         ];
+    }
+    public function remove_coupon()
+    {
+        if (isset($_SESSION['cart']['percent'])) {
+            unset($_SESSION['cart']['percent']);
+        }
     }
 
 

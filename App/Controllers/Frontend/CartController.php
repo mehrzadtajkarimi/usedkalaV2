@@ -164,8 +164,8 @@ class CartController  extends Controller
     public function has_coupon()
     {
         $params = $this->request->params();
+        Basket::remove_coupon();
         if (isset($params['has_coupon'])) {
-            # code...
             $coupon = (new Coupon())->is_coupon($params['has_coupon']);
         }
 
@@ -175,10 +175,11 @@ class CartController  extends Controller
                 FlashMessage::add("کد تخفیف با موفقیت ثبت شد");
                 Request::redirect('cart');
             } else {
-                FlashMessage::add("کد تخفیف اشتباه است", FlashMessage::ERROR);
+                FlashMessage::add("ظاهرا مشکلی در ثبت کد تخفیف رخ داده ", FlashMessage::ERROR);
                 Request::redirect('cart');
             }
         }
+        FlashMessage::add("کد تخفیف اشتباه است", FlashMessage::ERROR);
         Request::redirect('cart');
     }
 }
