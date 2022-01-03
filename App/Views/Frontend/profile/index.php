@@ -274,13 +274,15 @@
       </div>
 
     </form>
-    <?php if ($_SESSION['cart'] !== []) : ?>
-      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+
+    <?php //if ($_SESSION['cart'] !== []) : ?>
+      <!-- <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"> -->
         <?php
-        include BASEPATH . "/App/Views/Frontend/cart/index.php";
+       // include BASEPATH . "/App/Views/Frontend/cart/index.php";
         ?>
-      </div>
-    <?php endif; ?>
+      <!-- </div> -->
+    <?php // endif; ?>
+
   </div>
 
 

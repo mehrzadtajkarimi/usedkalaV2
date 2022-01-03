@@ -29,9 +29,9 @@ class CartController  extends Controller
         // $cart_items = Basket::reset();
         $cart_items = Basket::items();
 
-        $products_is_discounts = $this->productModel->join_product__with_productDiscounts_discounts();
-
+        $products_is_discounts = $this->productModel->join_product__with_productDiscounts_discounts()??[];
         $percent = $cart_items['percent'] ?? false;
+
 
         $coupon = 0;
         $exist_coupon = false;
@@ -52,7 +52,6 @@ class CartController  extends Controller
                 $discounts[$value['product_id']] = $value['discount_percent'];
             }
         }
-
 
         foreach ($cart_items as  $value) {
 
