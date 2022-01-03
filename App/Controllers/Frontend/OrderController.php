@@ -86,23 +86,28 @@ class OrderController  extends Controller
     public function create()
     {
         if (Auth::is_login()) {
-            $user_id       = Auth::is_login();
-            $user_info     = $this->userModel->read_user($user_id);
-            $checkArr = [
-                "first_name"    => "نام",
-                "last_name"        => "نام خانوادگی",
-                "province_id"    => "استان",
-                "city_id"        => "شهر",
-                "address"        => "نشانی",
-                "postal_code"    => "کدپستی"
+            $user_id   = Auth::is_login();
+            $user_info = $this->userModel->read_user($user_id);
+
+            // validation required fields for order
+            $checkArr  = [
+                "first_name"  => "نام",
+                "last_name"   => "نام خانوادگی",
+                "province_id" => "استان",
+                "city_id"     => "شهر",
+                "address"     => "نشانی",
+                "postal_code" => "کدپستی"
             ];
             $emptyColumns = "";
-            foreach ($checkArr as $columnName => $persianName)
-                if ($user_info[$columnName] == "")
+            foreach ($checkArr as $columnName => $persianName) {
+                if ($user_info[$columnName] == "") {
+
                     $emptyColumns .= $persianName . "، ";
-            if ($emptyColumns != "") {
-                FlashMessage::add("برای ثبت سفارش، ابتدا فیلدهای «" . mb_substr($emptyColumns, 0, -2, "utf-8") . "» را در پروفایلِ خود، تکمیل کنید.", FlashMessage::ERROR);
-                return $this->request->redirect('profile');
+                }
+                if ($emptyColumns != "") {
+                    FlashMessage::add("برای ثبت سفارش، ابتدا فیلدهای «" . mb_substr($emptyColumns, 0, -2, "utf-8") . "» را در پروفایلِ خود، تکمیل کنید.", FlashMessage::ERROR);
+                    return $this->request->redirect('profile');
+                }
             }
 
             $token         = 0;
