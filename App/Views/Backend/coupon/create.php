@@ -7,7 +7,7 @@
 
         <form action="<?= base_url() ?>admin/coupon" method="post" class="p-1">
             <input type="hidden" name="code" value="<?= rand(100000, 999999) ?>">
-            <div class="row">
+            <div class="row"  >
                 <div class="col">
                     <div class="form-group">
                         <label for="Input1" class=""> شروع</label>
@@ -32,18 +32,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-group ">
-                        <label>محصول انتخابی</label>
-                        <select name="coupon-product[]" id="coupon_product" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
-                            <?php foreach ($products as $value) : ?>
-                                <option value="<?= $value['id'] ?>"><?= $value['title'] ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                </div>
-            </div>
+
 
             <div class="row">
                 <div class="col">
@@ -58,19 +47,19 @@
                 <div class="col">
                     <div class="form-group ">
                         <label for="coupon-percent">میزان تخفیف %</label>
-                        <input name="coupon-percent" type="text" maxlength="3" class="form-control" id="coupon-percent" placeholder="" required>
+                        <input name="coupon-percent" type="number" maxlength="3" class="form-control" id="coupon-percent" placeholder="" required>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col coupon-product_all_price" style="display:none">
                     <div class="form-group ">
                         <label for="coupon-min_price"> از مبلغ (جمع فاکتور) </label>
-                        <input name="coupon-min_price" type="text" maxlength="3" class="form-control" id="coupon-min_price" placeholder="از چه مبلغی تعلق بگیرد" >
+                        <input name="coupon-min_price" type="text" maxlength="3" class="form-control" id="coupon-min_price" placeholder="از چه مبلغی تعلق بگیرد">
                     </div>
                 </div>
-                <div class="col">
+                <div class="col coupon-product_all_price" style="display:none">
                     <div class="form-group ">
                         <label for="coupon-max_price"> تا مبلغ (جمع فاکتور)</label>
-                        <input name="coupon-max_price" type="text" maxlength="3" class="form-control" id="coupon-max_price" placeholder="تا حداکثر چه مبلغی تعلق بگیرد" >
+                        <input name="coupon-max_price" type="text" maxlength="3" class="form-control" id="coupon-max_price" placeholder="تا حداکثر چه مبلغی تعلق بگیرد">
                     </div>
                 </div>
             </div>
@@ -79,15 +68,37 @@
                     <div class="form-group ">
                         <label> لول کاربر</label>
                         <select title=" درصورت انتخاب شامل همه لول های قبل هم خواهد شد" name="coupon-level" id="" class="form-control">
-                            <option >انتخابی کنید</option>
+                            <option>انتخابی کنید</option>
                             <?php foreach (level_user() as $key => $value) : ?>
                                 <option value="<?= $key ?>"><?= $value ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
                 </div>
+                <div class="col coupon-product_all_coupon" style="display:none">
+                    <div class="form-group ">
+                        <label>محصول انتخابی</label>
+                        <select name="coupon-product[]" id="coupon_product" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
+                            <?php foreach ($products as $value) : ?>
+                                <option value="<?= $value['id'] ?>"><?= $value['title'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
             </div>
-            <div class="pt-1 pb-4 form-check disabled ">
+            <div class="pt-1  form-check  ">
+                <input value="1" name="coupon-all_coupon" type="checkbox" class="form-check-input " id="coupon-all_coupon" checked>
+                <label class="form-check-label" for="coupon-all_coupon">
+                    همه محصولات قابل استفاده می باشد
+                </label>
+            </div>
+            <div class="pt-1 form-check  ">
+                <input value="1" name="coupon-all_price" type="checkbox" class="form-check-input " id="coupon-all_price" checked>
+                <label class="form-check-label" for="coupon-all_price">
+                    همه مبالغ فاکتور قابل استفاده می باشد
+                </label>
+            </div>
+            <div class="pt-1 pb-4 form-check  ">
                 <input value="1" name="coupon-status" type="checkbox" class="form-check-input " id="coupon-status" checked>
                 <label class="form-check-label" for="coupon-status">
                     وضعیت

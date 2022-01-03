@@ -21,15 +21,44 @@ class Coupon extends MysqlBaseModel
     }
     public function is_coupon($code)
     {
-        $code= $this->first(['code' => $code]);
-        $start_at = strtotime($code['start_at'])<time();
-        $finish_at = strtotime($code['finish_at'])>time();
+        $code = $this->first(['code' => $code]);
 
-        if($start_at && $finish_at){
-            return $code;
+        if (is_null($code)) {
+            return false;
         }
+
+        $start_at = strtotime($code['start_at']) < time();
+        $finish_at = strtotime($code['finish_at']) > time();
+
+
+        // all products
+        if ($code['all_product'] == 1) {
+            if ($start_at && $finish_at) {
+                return $code;
+            }
+            return false;
+        }
+
+        // selected products
+        $productCoupons = $this->join_coupon_productCoupons($code['id']);
+        if (isset($productCoupons[0]['product_id']) && $productCoupons[0]['product_id'] != 0) {
+
+
+            // check if product is in basket or not return false;
+            // check if by relation product_coupons has coupon_id or product is in basket equal not return false;
+
+
+            if ($start_at && $finish_at) {
+                return $code;
+            }
+            return false;
+        }
+
         return false;
     }
+
+
+
     public function update_coupon(array $params, $id)
     {
         return $this->update($params, ['id' => $id]);
@@ -40,17 +69,14 @@ class Coupon extends MysqlBaseModel
         return $this->delete(['id' => $id]);
     }
 
-
-    public function join_coupon__with_category($id)
+    public function join_coupon_productCoupons($id)
     {
         return $this->inner_join(
-            "coupons.*,
-            category_coupons.id AS category_coupons_id,
-            category_coupons.category_id",
-            "category_coupons",
+            "product_coupons.product_id",
+            "product_coupons",
             "id",
             "coupon_id",
-            "coupons.id=$id",
+            "product_coupons.coupon_id=$id",
         );
     }
 

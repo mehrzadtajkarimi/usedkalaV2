@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 29, 2021 at 12:12 PM
+-- Generation Time: Jan 03, 2022 at 09:46 AM
 -- Server version: 8.0.27-0ubuntu0.20.04.1
 -- PHP Version: 8.0.14
 
@@ -449,7 +449,11 @@ INSERT INTO `activity_log` (`id`, `user_id`, `ip`, `type`, `target_table`, `row_
 (372, 81, '127.0.0.1', 'delete', 'product_coupons', 0, '{\"coupon_id\":4}', '[]', '/admin/coupon/4', '2021-12-29 09:29:35'),
 (373, 81, '127.0.0.1', 'create', 'product_coupons', 4, '', '{\"coupon_id\":\"4\",\"product_id\":\"91\"}', '/admin/coupon/4', '2021-12-29 09:29:35'),
 (374, 0, '127.0.0.1', 'create', 'active_codes', 353, '', '{\"user_id\":\"81\",\"code\":5206,\"expired_at\":\"2021-12-29 15:04:28\"}', '/admin/login', '2021-12-29 11:34:27'),
-(375, 81, '127.0.0.1', 'delete', 'active_codes', 0, '{\"user_id\":\"81\"}', '[{\"id\":\"353\",\"user_id\":\"81\",\"code\":\"5206\",\"expired_at\":\"2021-12-29 15:04:28\"}]', '/admin/token', '2021-12-29 11:34:34');
+(375, 81, '127.0.0.1', 'delete', 'active_codes', 0, '{\"user_id\":\"81\"}', '[{\"id\":\"353\",\"user_id\":\"81\",\"code\":\"5206\",\"expired_at\":\"2021-12-29 15:04:28\"}]', '/admin/token', '2021-12-29 11:34:34'),
+(376, 0, '127.0.0.1', 'create', 'active_codes', 354, '', '{\"user_id\":\"81\",\"code\":3572,\"expired_at\":\"2022-01-03 08:32:46\"}', '/admin/login', '2022-01-03 05:02:45'),
+(377, 81, '127.0.0.1', 'delete', 'active_codes', 0, '{\"user_id\":\"81\"}', '[{\"id\":\"354\",\"user_id\":\"81\",\"code\":\"3572\",\"expired_at\":\"2022-01-03 08:32:46\"}]', '/admin/token', '2022-01-03 05:02:56'),
+(378, 81, '127.0.0.1', 'create', 'coupons', 5, '', '{\"user_id\":\"81\",\"min_price\":\"\",\"max_price\":\"\",\"user_level\":\"1\",\"start_at\":\"2022-01-03 09:42:22\",\"finish_at\":\"2022-01-20 09:42:22\",\"code\":\"680375\",\"title\":\"dd\",\"description\":\"dd\",\"percent\":\"10\",\"status\":\"1\"}', '/admin/coupon', '2022-01-03 06:13:00'),
+(379, 81, '127.0.0.1', 'create', 'product_coupons', 5, '', '{\"coupon_id\":\"5\",\"product_id\":\"84\"}', '/admin/coupon', '2022-01-03 06:13:00');
 
 -- --------------------------------------------------------
 
@@ -1886,6 +1890,7 @@ CREATE TABLE `coupons` (
   `percent` tinyint DEFAULT NULL COMMENT '%',
   `description` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
   `status` tinyint(1) DEFAULT '1',
+  `all_product` tinyint(1) DEFAULT '1' COMMENT '1=all_product,\r\n0=relation_product_coupons\r\n',
   `min_price` int NOT NULL,
   `max_price` int NOT NULL,
   `start_at` timestamp NOT NULL,
@@ -1898,11 +1903,12 @@ CREATE TABLE `coupons` (
 -- Dumping data for table `coupons`
 --
 
-INSERT INTO `coupons` (`id`, `title`, `user_id`, `user_level`, `code`, `type`, `percent`, `description`, `status`, `min_price`, `max_price`, `start_at`, `finish_at`, `updated_at`, `created_at`) VALUES
-(1, 'ماه رمضان', 81, 0, '338918', NULL, 5, 'ماه رمضان', 1, 0, 0, '2021-12-26 07:48:47', '2021-12-26 07:48:47', NULL, '2021-12-26 07:48:52'),
-(2, 'رمضان 2', 81, 0, '112218', NULL, 15, 'رمضان 2', 1, 0, 0, '2021-12-26 09:49:25', '2022-01-19 09:49:25', NULL, '2021-12-26 09:49:56'),
-(3, 'شب چله', 81, 0, '624667', NULL, 20, 'شب چله', 1, 0, 0, '2021-12-28 12:39:10', '2022-01-20 12:39:10', NULL, '2021-12-28 12:39:47'),
-(4, 'عیدی', 81, 3, '838703', NULL, 20, 'عیدی', 1, 0, 0, '2021-12-29 09:21:57', '2022-01-20 09:21:57', NULL, '2021-12-29 09:22:35');
+INSERT INTO `coupons` (`id`, `title`, `user_id`, `user_level`, `code`, `type`, `percent`, `description`, `status`, `all_product`, `min_price`, `max_price`, `start_at`, `finish_at`, `updated_at`, `created_at`) VALUES
+(1, 'ماه رمضان', 81, 0, '338918', NULL, 5, 'ماه رمضان', 1, 0, 0, 0, '2021-12-26 07:48:47', '2021-12-26 07:48:47', NULL, '2021-12-26 07:48:52'),
+(2, 'رمضان 2', 81, 0, '112218', NULL, 15, 'رمضان 2', 1, 0, 0, 0, '2021-12-26 09:49:25', '2022-01-19 09:49:25', NULL, '2021-12-26 09:49:56'),
+(3, 'شب چله', 81, 0, '624667', NULL, 20, 'شب چله', 1, 1, 0, 0, '2021-12-28 12:39:10', '2022-01-20 12:39:10', NULL, '2021-12-28 12:39:47'),
+(4, 'عیدی', 81, 3, '838703', NULL, 20, 'عیدی', 1, 0, 0, 0, '2021-12-29 09:21:57', '2022-01-20 09:21:57', NULL, '2021-12-29 09:22:35'),
+(5, 'dd', 81, 1, '680375', NULL, 10, 'dd', 1, 0, 0, 0, '2022-01-03 06:12:22', '2022-01-20 06:12:22', NULL, '2022-01-03 06:13:00');
 
 -- --------------------------------------------------------
 
@@ -2750,7 +2756,8 @@ INSERT INTO `product_coupons` (`id`, `product_id`, `coupon_id`) VALUES
 (1, 83, 1),
 (2, 83, 2),
 (3, 92, 2),
-(4, 91, 4);
+(4, 91, 4),
+(5, 84, 5);
 
 -- --------------------------------------------------------
 
@@ -3487,13 +3494,13 @@ ALTER TABLE `wish_lists`
 -- AUTO_INCREMENT for table `active_codes`
 --
 ALTER TABLE `active_codes`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=354;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=355;
 
 --
 -- AUTO_INCREMENT for table `activity_log`
 --
 ALTER TABLE `activity_log`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=376;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=380;
 
 --
 -- AUTO_INCREMENT for table `attributes`
@@ -3571,7 +3578,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `coupons`
 --
 ALTER TABLE `coupons`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `discounts`
@@ -3631,7 +3638,7 @@ ALTER TABLE `product_categories`
 -- AUTO_INCREMENT for table `product_coupons`
 --
 ALTER TABLE `product_coupons`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `product_discounts`
