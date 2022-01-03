@@ -81,6 +81,7 @@ class CategoryController extends Controller
                 'auth'              => SessionManager::get('auth') ?? false,
                 'selected_wishlist' => $selected_wishlist,
                 'breadcrumb'        => $breadcrumb_item,
+				'home_page_active_menu' => "full-width",
             );
             return view('Frontend.category.show', $data);
         }

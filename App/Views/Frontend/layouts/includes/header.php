@@ -137,6 +137,7 @@
             <!-- .input-group -->
         </form>
         <!-- .navbar-search -->
+		<?php /*
         <ul class="header-compare nav navbar-nav">
             <li class="nav-item">
                 <a href="compare.html" class="nav-link">
@@ -146,9 +147,10 @@
             </li>
         </ul>
         <!-- .header-compare -->
+		*/ ?>
         <ul class="header-wishlist nav navbar-nav">
             <li class="nav-item">
-                <a href="<?= base_url() ?>wishList" class="nav-link">
+                <a href="<?= base_url() ?>wishlist" class="nav-link">
                     <i class="tm tm-favorites"></i>
                     <span id="top-cart-wishlist-count" class="value"><?= count(wishList()) ?></span>
                 </a>

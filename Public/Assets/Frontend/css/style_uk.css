@@ -229,7 +229,7 @@ h2.product_title
 	opacity: 1;
 }
 
-.products .product img, .product-loop-categories .product-category a img
+img.uksquareimg
 {
 	object-fit: contain;
 }

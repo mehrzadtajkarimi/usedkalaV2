@@ -100,9 +100,9 @@ Route::group(function () {
 });
 
 Route::group(function () {
-    Route::post('/wishList', 'WishListController@add');
-    Route::get('/wishList', 'WishListController@index');
-    Route::post('/wishList/remove', 'WishListController@remove');
+    Route::post('/wishlist', 'WishListController@add');
+    Route::get('/wishlist', 'WishListController@index');
+    Route::post('/wishlist/remove', 'WishListController@remove');
     // Route::get('/wishList/create', 'WishListController@create');
     // Route::post('/wishList', 'WishListController@store');
     // Route::get('/wishList/{id}', 'WishListController@show');

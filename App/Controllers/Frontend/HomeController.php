@@ -16,6 +16,7 @@ use App\Models\Setting;
 use App\Models\Slider;
 use App\Models\Wish_list;
 use App\Services\Basket\Basket;
+use App\Utilities\TimeUtil;
 
 class HomeController extends Controller
 {
@@ -44,6 +45,7 @@ class HomeController extends Controller
         $this->productCategoryModel  = new Product_category();
         $this->blogModel             = new Blog();
         $this->wishListModel         = new Wish_list();
+		$this->jDateObj    = new TimeUtil();
     }
 
     public function index()
@@ -67,12 +69,17 @@ class HomeController extends Controller
         $wishlist_products       = $this->wishListModel->read_all_wishList_items('Product');
         $home_page_active_menu   = 'page-template-template-homepage-v1';
         $selected_wishlist       = [];
-        foreach ($wishlist_products as $key => $value){
+		
+		foreach($latest_blogs as $key=>$blogRow)
+			$latest_blogs[$key]['created_at']=$this->jDateObj->jalaliDate($latest_blogs[$key]['created_at']);
+		
+        foreach ($wishlist_products as $key => $value)
             $selected_wishlist[] = $value['entity_id'];
-        }
-        foreach ($brands as $key => $value) {
+        
+        foreach ($brands as $key => $value)
             $brands[$key]['product'] = $this->productModel->join_product__with_photo_by_brand_id($value['id']);
-        }
+        
+		$brands=array_reverse($brands);
 
         foreach ($sliders as $key => $value) {
             $photos = $this->photoModel->read_photo_by_id($value['id'], 'Slider', true)[0];

@@ -59,22 +59,18 @@ class ProductController extends Controller
 
     public function show()
     {
-        $params = $this->request->params();
-        $photos             = $this->photoModel->read_photo_by_id($params['id'], 'Product');
-        $photo              = $this->photoModel->read_single_photo_by_id('0', $params['id'], 'Product')[0];
-        $product            = $this->productModel->read_product($params['id']);
-        $productBrand       = $this->productModel->product_brand($params['id']);
-        $productDiscount    = $this->productModel->join_product__with_productDiscounts_discounts_by_product_id($params)[0] ?? '';
-        $productCommentLike = $this->productModel->join_product__with_comment_and_like($params['id']) ?? '';
-        $productTag         = $this->taggableModel->join_taggable('products', $params['id']) ?? '';
-        $wish_list          = $this->wishListModel->read_wishList($params['id'], 'Product');
-
-        // dd($productDiscount['discounts_percent']);
+        $productID = $this->request->get_param('id');
+        $photos             = $this->photoModel->read_photo_by_id($productID, 'Product');
+        $photo              = $this->photoModel->read_single_photo_by_id('0', $productID, 'Product')[0];
+        $product            = $this->productModel->read_product($productID);
+        $productBrand       = $this->productModel->product_brand($productID);
+        $productDiscount    = $this->productModel->join_product__with_productDiscounts_discounts_by_product_id($productID)[0] ?? '';
+        $productCommentLike = $this->productModel->join_product__with_comment_and_like($productID) ?? '';
+        $productTag         = $this->taggableModel->join_taggable('products', $productID) ?? '';
+        $wish_list          = $this->wishListModel->read_wishList($productID, 'Product');
 
         if (count($product) == 0) Request::redirect('');
-		var_dump($params);
-		die();
-        $productCat = $this->ProductCatModel->read_productCategories($params);
+        $productCat = $this->ProductCatModel->read_productCategories($productID);
         $breadcrumb = $this->categoryModel->get_categories_for_product_breadcrumb($productCat[0]['id']);
         $breadcrumb_item = [];
         foreach (array_reverse($breadcrumb) as $key => $value) {
@@ -84,7 +80,7 @@ class ProductController extends Controller
             }
         }
         $product_relation = $this->relatedModel->get_related_by_entity_id([
-            'entity_id'   => $params['id'],
+            'entity_id'   => $productID,
             'entity_type' => 'product'
         ]);
         $related_products = [];
@@ -128,7 +124,7 @@ class ProductController extends Controller
         $related_products = array_unique($related_products_unique, SORT_REGULAR);
 
         $data = array(
-            'product_id'            => $params['id'],
+            'product_id'            => $productID,
             'comments'              => $productCommentLike ?? [],
             'tags'                  => $productTag ?? [],
             'photos'                => $photos,

@@ -190,7 +190,7 @@ $slideCount = count($sliders);
                                                                 <a href="#" rel="nofollow" class="add_to_wishlist <?php if (in_array($value['product_id'], $selected_wishlist)) echo 'active'; ?>" data-id="<?= $value['product_id'] ?>">افزودن به علاقه مندی ها</a>
                                                             </div>
                                                             <a href="<?= base_url() . 'product/' . $value['product_id'] . '/' . $value['slug'] ?>" class="woocommerce-LoopProduct-link">
-                                                                <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image" alt="">
+                                                                <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image uksquareimg" alt="">
                                                                 <span class="price">
                                                                     <ins>
                                                                         <span class="amount" dircetion="rtl"> </span>
@@ -227,7 +227,7 @@ $slideCount = count($sliders);
                                                                 <a href="#" rel="nofollow" class="add_to_wishlist <?php if (in_array($value['id'], $selected_wishlist)) echo 'active'; ?>" data-id="<?= $value['id'] ?>">افزودن به علاقه مندی ها</a>
                                                             </div>
                                                             <a href="<?= base_url() . 'product/' . $value['id'] . '/' . $value['slug'] ?>" class="woocommerce-LoopProduct-link">
-                                                                <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image" alt="<?= $value['alt'] ?>">
+                                                                <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image uksquareimg" alt="<?= $value['alt'] ?>">
                                                                 <span class="price">
                                                                     <ins>
                                                                         <span class="amount" dircetion="rtl"></span>
@@ -266,7 +266,7 @@ $slideCount = count($sliders);
                                                                 <a href="#" rel="nofollow" class="add_to_wishlist <?php if (in_array($value['product_id'], $selected_wishlist)) echo 'active'; ?>" data-id="<?= $value['product_id'] ?>">افزودن به علاقه مندی ها</a>
                                                             </div>
                                                             <a href="<?= base_url() . 'product/'  . $value['product_id'] . '/' . $value['slug'] ?>" class="woocommerce-LoopProduct-link">
-                                                                <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image" alt="<?= $value['alt'] ?>">
+                                                                <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image uksquareimg" alt="<?= $value['alt'] ?>">
                                                                 <span class="price">
                                                                     <ins>
                                                                         <span class="amount" dircetion="rtl"> </span>
@@ -326,7 +326,7 @@ $slideCount = count($sliders);
                                 <?php foreach ($featured_products as $key => $value) : ?>
                                     <div class="product-category product <?= $key === array_key_first($featured_products) ? 'first' : '' ?> <?= $key === array_key_last($featured_products) ? 'last' : '' ?>">
                                         <a href="<?= base_url() . 'product/'  . $value['0'] . '/' . $value['slug'] ?>">
-                                            <img width="224" height="197" src="<?= $value['path'] ?>" alt="<?= $value['alt'] ?>">
+                                            <img width="224" height="197" src="<?= $value['path'] ?>" alt="<?= $value['alt'] ?>" class="uksquareimg">
                                             <h2 class="woocommerce-loop-category__title">
                                                 <?= $value['title'] ?>
                                             </h2>
@@ -371,7 +371,7 @@ $slideCount = count($sliders);
                                                                 <a href="#" rel="nofollow" class="add_to_wishlist <?php if (in_array($value['0'], $selected_wishlist)) echo 'active'; ?>" data-id="<?= $value['0'] ?>">افزودن به علاقه مندی ها</a>
                                                             </div>
                                                             <a class="woocommerce-LoopProduct-link" href="<?= base_url() . 'product/' . $value['0'] . '/' . $value['slug'] ?>">
-                                                                <img class="wp-post-image" src="<?= $value['path'] ?>" alt="">
+                                                                <img class="wp-post-image uksquareimg" src="<?= $value['path'] ?>" alt="">
                                                             </a>
                                                             <div class="media-body" style="direction: rtl;">
                                                                 <a class="woocommerce-LoopProduct-link " href="<?= base_url() . 'product/' . $value['0'] . '/' . $value['slug'] ?>">
@@ -402,8 +402,7 @@ $slideCount = count($sliders);
                                                                 </a>
                                                                 <div class="hover-area">
                                                                     <a class="button add_to_cart_button" href="<?= base_url() ?>cart/add/<?= $value['0'] ?>">افزودن به سبد خرید</a>
-                                                                    <a href="compare.html" class="add-to-compare-link">Add to
-                                                                        compare</a>
+                                                                    <a href="compare.html" class="add-to-compare-link">افزودن به مقایسه</a>
                                                                 </div>
                                                                 <!-- .hover-area -->
                                                             </div>
@@ -452,7 +451,7 @@ $slideCount = count($sliders);
                                                             <a href="#" rel="nofollow" class="add_to_wishlist <?php if (in_array($value['id'], $selected_wishlist)) echo 'active'; ?>" data-id="<?= $value['id'] ?>">افزودن به علاقه مندی ها</a>
                                                         </div>
                                                         <a href="<?= base_url() . 'product/' . $value['id'] . '/' . $value['slug'] ?>" class="woocommerce-LoopProduct-link">
-                                                            <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image" alt="<?= $value['alt'] ?>">
+                                                            <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image uksquareimg" alt="<?= $value['alt'] ?>">
                                                             <span class="price">
                                                                 <ins>
                                                                     <span class="amount" dircetion="rtl"> </span>
@@ -493,7 +492,7 @@ $slideCount = count($sliders);
                                                                 <span class="woocommerce-Price-amount amount" dir="rtl">
                                                                     2,000,000 ریال</span>
                                                             </span-->
-                                                            <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image" alt="<?= $value['alt'] ?>">
+                                                            <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image uksquareimg" alt="<?= $value['alt'] ?>">
                                                             <span class="price">
                                                                 <ins>
                                                                     <span class="amount" dircetion="rtl"> <?= number_format($value['price']) ?>
@@ -585,7 +584,7 @@ $slideCount = count($sliders);
                                         <div class="landscape-product product">
                                             <a class="woocommerce-LoopProduct-link" href="<?= base_url() . 'product/' . $value['id'] . '/' . $value['slug'] ?>">
                                                 <div class="media">
-                                                    <img class="wp-post-image" src="<?= $value['path'] ?>" alt="<?= $value['alt'] ?>">
+                                                    <img class="wp-post-image uksquareimg" src="<?= $value['path'] ?>" alt="<?= $value['alt'] ?>">
                                                     <div class="media-body" style="direction: rtl;">
                                                         <span class="price">
                                                             <ins>
@@ -682,7 +681,7 @@ $slideCount = count($sliders);
                                                                 <a href="#" rel="nofollow" class="add_to_wishlist <?php if (in_array($value['id'], $selected_wishlist)) echo 'active'; ?>" data-id="<?= $value['id'] ?>">افزودن به علاقه مندی ها</a>
                                                             </div>
                                                             <a href="<?= base_url() . 'product/' . $value['id'] . '/' . $value['slug'] ?>" class="woocommerce-LoopProduct-link">
-                                                                <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image" alt="<?= $value['alt'] ?>">
+                                                                <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image uksquareimg" alt="<?= $value['alt'] ?>">
                                                                 <span class="price">
                                                                     <ins>
                                                                         <span class="amount" dircetion="rtl"> </span>
@@ -725,18 +724,18 @@ $slideCount = count($sliders);
                                 <div class="products">
                                     <?php foreach ($latest_blogs as $value) : ?>
                                         <div class="landscape-product product">
-                                            <a class="woocommerce-LoopProduct-link" href="<?= base_url() . 'product/' . $value['id'] ?>">
+                                            <a class="woocommerce-LoopProduct-link" href="<?= base_url() . 'blog/' . $value['slug'] ?>">
                                                 <div class="media">
                                                     <img class="wp-post-image" src="<?= $value['path'] ?>" alt="">
                                                     <div class="media-body" style="direction: rtl;">
                                                         <span class="price">
                                                             <ins>
-                                                                <span class="amount" dircetion="rtl"> جدید ترین هاردها رسید</span>
+                                                                <span class="amount" dircetion="rtl"><?= $value['title'] ?></span>
                                                             </ins>
                                                             <br>
-                                                            <span style="color:#acacac;font-size: 0.8em;">25 آبان 1398</span>
+                                                            <span style="color:#acacac;font-size: 0.8em;"><?= $value['created_at'] ?></span>
                                                         </span>
-                                                        <h2 class="woocommerce-loop-product__title">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. </h2>
+                                                        <h2 class="woocommerce-loop-product__title"><?= $value['meta_title'] ?></h2>
                                                     </div>
                                                     <!-- .media-body -->
                                                 </div>
@@ -756,7 +755,7 @@ $slideCount = count($sliders);
                 </section>
                 <!-- .section-products-carousel-tabs-->
                 <div class="banner full-width-banner">
-                    <a href="shop.html">
+                    <a href="<?= base_url() ?>blog">
                         <div style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>Frontend/images/banner/full-width.png); height: 236px;" class="banner-bg">
                             <div class="caption">
                                 <div class="banner-info">
@@ -765,7 +764,7 @@ $slideCount = count($sliders);
                                         <h4 class="subtitle">برای دریافت اخبار روز دنیای فناوری در خبرنامه
                                             ما عضو شوید</h4>
                                 </div>
-                                <span class="banner-action button">جستجوی اخبار
+                                <span class="banner-action button">مرور اخبار
                                     <i class="feature-icon d-flex ml-4 tm tm-long-arrow-left"></i>
                                 </span>
                             </div>
@@ -781,7 +780,7 @@ $slideCount = count($sliders);
                     <div class="col-full" data-ride="tm-slick-carousel" data-wrap=".brands" data-slick='{"rtl":true,"slidesToShow":6,"slidesToScroll":1,"dots":false,"arrows":true,"responsive":[{"breakpoint":400,"settings":{"slidesToShow":1,"slidesToScroll":1}},{"breakpoint":800,"settings":{"slidesToShow":3,"slidesToScroll":3}},{"breakpoint":992,"settings":{"slidesToShow":3,"slidesToScroll":3}},{"breakpoint":1200,"settings":{"slidesToShow":4,"slidesToScroll":4}},{"breakpoint":1400,"settings":{"slidesToShow":5,"slidesToScroll":5}}]}'>
                         <div class="brands">
                             <div class="item">
-                                <a href="shop.html">
+                                <a>
                                     <figure>
                                         <figcaption class="text-overlay">
                                             <div class="info">
@@ -795,7 +794,7 @@ $slideCount = count($sliders);
                             </div>
                             <!-- .item -->
                             <div class="item">
-                                <a href="shop.html">
+                                <a>
                                     <figure>
                                         <figcaption class="text-overlay">
                                             <div class="info">
@@ -809,7 +808,7 @@ $slideCount = count($sliders);
                             </div>
                             <!-- .item -->
                             <div class="item">
-                                <a href="shop.html">
+                                <a>
                                     <figure>
                                         <figcaption class="text-overlay">
                                             <div class="info">
@@ -823,7 +822,7 @@ $slideCount = count($sliders);
                             </div>
                             <!-- .item -->
                             <div class="item">
-                                <a href="shop.html">
+                                <a>
                                     <figure>
                                         <figcaption class="text-overlay">
                                             <div class="info">
@@ -837,7 +836,7 @@ $slideCount = count($sliders);
                             </div>
                             <!-- .item -->
                             <div class="item">
-                                <a href="shop.html">
+                                <a>
                                     <figure>
                                         <figcaption class="text-overlay">
                                             <div class="info">
@@ -851,7 +850,7 @@ $slideCount = count($sliders);
                             </div>
                             <!-- .item -->
                             <div class="item">
-                                <a href="shop.html">
+                                <a>
                                     <figure>
                                         <figcaption class="text-overlay">
                                             <div class="info">
@@ -865,7 +864,7 @@ $slideCount = count($sliders);
                             </div>
                             <!-- .item -->
                             <div class="item">
-                                <a href="shop.html">
+                                <a>
                                     <figure>
                                         <figcaption class="text-overlay">
                                             <div class="info">
@@ -879,7 +878,7 @@ $slideCount = count($sliders);
                             </div>
                             <!-- .item -->
                             <div class="item">
-                                <a href="shop.html">
+                                <a>
                                     <figure>
                                         <figcaption class="text-overlay">
                                             <div class="info">
@@ -893,7 +892,7 @@ $slideCount = count($sliders);
                             </div>
                             <!-- .item -->
                             <div class="item">
-                                <a href="shop.html">
+                                <a>
                                     <figure>
                                         <figcaption class="text-overlay">
                                             <div class="info">
@@ -908,7 +907,7 @@ $slideCount = count($sliders);
                             </div>
                             <!-- .item -->
                             <div class="item">
-                                <a href="shop.html">
+                                <a>
                                     <figure>
                                         <figcaption class="text-overlay">
                                             <div class="info">
@@ -922,7 +921,7 @@ $slideCount = count($sliders);
                             </div>
                             <!-- .item -->
                             <div class="item">
-                                <a href="shop.html">
+                                <a>
                                     <figure>
                                         <figcaption class="text-overlay">
                                             <div class="info">
@@ -936,7 +935,7 @@ $slideCount = count($sliders);
                             </div>
                             <!-- .item -->
                             <div class="item">
-                                <a href="shop.html">
+                                <a>
                                     <figure>
                                         <figcaption class="text-overlay">
                                             <div class="info">

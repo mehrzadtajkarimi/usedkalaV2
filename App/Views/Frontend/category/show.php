@@ -27,7 +27,7 @@
                                         <!-- change  id categories rename categories_id -->
                                         <a href="<?= base_url() ?>category/<?= $value['slug'] ?>">
                                             <?php if ($value['path'] != "") : ?>
-                                                <img src="<?= $value['path'] ?>" alt="Ultrabooks" width="224" height="197">
+                                                <img src="<?= $value['path'] ?>" alt="<?= $value['alt'] ?>" class="uksquareimg" width="224" height="197">
                                             <?php endif; ?>
                                             <h2 class="woocommerce-loop-category__title">
                                                 <?= $value['name'] ?>

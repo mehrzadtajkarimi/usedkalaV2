@@ -75,9 +75,8 @@
               </span>
               <div class="media-body" style="direction: rtl;">
                 <span class="call-us-title">شماره های تماس</span>
-                <span class="call-us-text" dir="ltr">+98-21-42922</span>
-                <address class="footer-contact-address"> تهران، خیابان قائم مقام فراهانی،
-                  بالاتر از میدان شعاع، کوچه شبنم، پلاک ۱، ساختمان مفتاح</address>
+                <span class="call-us-text" dir="ltr">021-88343580</span>
+                <address class="footer-contact-address">تهران، خیابان قائم مقام فراهانی، میدان شعاع، پلاک یک، واحد دو</address>
                 <!-- <a href="#" class="footer-address-map-link">
                                                 <i class="tm tm-map-marker"></i>Find us on map</a> -->
               </div>
@@ -131,27 +130,22 @@
         <div class="columns">
           <aside class="widget clearfix">
             <div class="body">
-              <h4 class="widget-title">محصولات دیگر</h4>
+              <h4 class="widget-title">دسته بندی محصولات</h4>
               <div class="menu-footer-menu-1-container">
                 <ul id="menu-footer-menu-1" class="menu">
+					<?php
+					foreach ($categoryLevelOne as $valueLevelOne)
+					{
+						if ($valueLevelOne['status'] == 1 &&  $valueLevelOne['type'] == 0)
+						{
+					?>
                   <li class="menu-item">
-                    <a href="shop.html">دوربین مداربسته</a>
+                    <a href="<?= base_url() ?>category/<?= $valueLevelOne['slug'] ?>"><?= $valueLevelOne['name'] ?></a>
                   </li>
-                  <li class="menu-item">
-                    <a href="shop.html">تجهیزات اکتیو شبکه</a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="shop.html">تجهیزات پسیو شبکه</a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="shop.html">ابزارآلات شبکه</a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="shop.html">ابزار سنجش شبکه</a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="shop.html">ذخیره ساز</a>
-                  </li>
+					<?php
+						}
+					}
+					?>
                 </ul>
               </div>
               <!-- .menu-footer-menu-1-container -->
@@ -161,30 +155,29 @@
           <!-- .widget -->
         </div>
         <!-- .columns -->
+		<?php
+		if (isset($sale_products) && count($sale_products)>0)
+		{
+		?>
         <div class="columns">
           <aside class="widget clearfix">
             <div class="body">
-              <h4 class="widget-title">تمامی محصولات</h4>
+              <h4 class="widget-title">پرفروش ترین محصولات</h4>
               <div class="menu-footer-menu-2-container">
                 <ul id="menu-footer-menu-2" class="menu">
+					<?php
+					$counter=0;
+					foreach ($sale_products as $productRow)
+					{
+						$counter++;
+					?>
                   <li class="menu-item">
-                    <a href="shop.html">سرور</a>
+                    <a href="<?= base_url() ?>product/<?= $productRow['product_id'] ?>/<?= $productRow['slug'] ?>"><?= $productRow['title'] ?></a>
                   </li>
-                  <li class="menu-item">
-                    <a href="shop.html">سوئیچ</a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="shop.html">روتر</a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="shop.html">فایروال</a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="shop.html">تلفن اینترنتی</a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="shop.html">تمامی تجهیزات شبکه</a>
-                  </li>
+					<?php
+						if ($counter==6) break;
+					}
+					?>
                 </ul>
               </div>
               <!-- .menu-footer-menu-2-container -->
@@ -193,6 +186,9 @@
           </aside>
           <!-- .widget -->
         </div>
+		<?php
+		}
+		?>
         <!-- .columns -->
         <div class="columns">
           <aside class="widget clearfix">
@@ -201,25 +197,16 @@
               <div class="menu-footer-menu-3-container">
                 <ul id="menu-footer-menu-3" class="menu">
                   <li class="menu-item">
-                    <a href="login-and-register.html">حساب کاربری</a>
+                    <a href="<?= base_url() ?>profile">حساب کاربری</a>
                   </li>
                   <li class="menu-item">
-                    <a href="track-your-order.html">پیگیری ارسال</a>
+                    <a href="<?= base_url() ?>profile">پیگیری ارسال</a>
                   </li>
                   <li class="menu-item">
-                    <a href="shop.html">خریدها</a>
+                    <a href="<?= base_url() ?>profile">خریدها</a>
                   </li>
                   <li class="menu-item">
-                    <a href="wishlist.html">علاقه مندی ها</a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="about.html">درباره ما</a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="terms-and-conditions.html">بازگرداندن محصول</a>
-                  </li>
-                  <li class="menu-item">
-                    <a href="faq.html">سوالات متداول</a>
+                    <a href="<?= base_url() ?>wishlist">علاقه مندی ها</a>
                   </li>
                 </ul>
               </div>

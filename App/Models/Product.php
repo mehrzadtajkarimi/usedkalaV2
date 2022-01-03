@@ -19,6 +19,13 @@ class Product extends MysqlBaseModel
         }
         return $this->first(['id' => $id]);
     }
+    public function read_product_all($id = null)
+    {
+        if (is_null($id)) {
+            return $this->get_all();
+        }
+        return $this->first(['id' => $id]);
+    }
     public function product_brand($id = null)
     {
         if ($id != null)
@@ -72,16 +79,18 @@ class Product extends MysqlBaseModel
     }
     public function join_product_to_photo__for_latest_product()
     {
-        return $this->inner_join_limit(
-            "products.*,products.id AS product_id,photos.path,photos.alt",
-            "photos",
-            "id",
-            "entity_id",
-            "photos.type=0",
-            "photos.entity_type='Product'",
-            "3",
-            "products.created_at",
-        );
+        // return $this->inner_join_limit(
+            // "products.*,products.id AS product_id,photos.path,photos.alt",
+            // "photos",
+            // "id",
+            // "entity_id",
+            // "photos.type=0",
+            // "photos.entity_type='Product'",
+            // "3",
+            // "products.created_at",
+        // );
+		return $this->query("SELECT pro.*, img.`path`, img.`alt`, pro.`id` as product_id FROM `products` as pro INNER JOIN `photos` as img
+			ON pro.`id` = img.`entity_id` WHERE img.`entity_type` = 'Product' AND img.`type` = 0 ORDER BY pro.`created_at` DESC LIMIT 0, 3");
     }
     public function join_product_to_photo__for_sale_product()
     {
@@ -290,7 +299,7 @@ class Product extends MysqlBaseModel
         //     "photos.type=0",
         //     "photos.entity_type='Product'",
         // );
-        return $this->query("SELECT * FROM `products` as `pros` INNER JOIN `photos` as `img`
+        return $this->query("SELECT pros.*,img.`path`,img.`alt` FROM `products` as `pros` INNER JOIN `photos` as `img`
         ON `img`.`entity_id` = pros.`id` AND `img`.`entity_type` = 'Product' AND 
         `img`.`type` = 0 WHERE pros.brand_id=$brand_id");
     }

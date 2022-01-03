@@ -56,14 +56,14 @@ class CartController  extends Controller
 
 
                 $discount = ($discounts[$value['id']] / 100) * $value['price'];
-                $coupon = ($coupon / 100) * $value['price'];
+                $coupon = (intval($coupon) / 100) * $value['price'];
 
 
                 $discount_minus = $value['price'] - $discount;
                 $coupon_minus = $value['price'] - $coupon;
 
 
-dd($discount,$coupon);
+// dd($discount,$coupon);
 
 
                 if ($coupon) {
@@ -88,7 +88,9 @@ dd($discount,$coupon);
             SessionManager::set('onLoadMsg', 'سبد خرید خالیست!');
             Request::redirect('');
         }
-
+		
+		if (!isset($discounts) || !is_array($discounts)) $discounts=[];
+		
         $data = [
             'cart_total'            => array_sum($cart_total ?? []),
             'cart_coupon'           => $coupon,

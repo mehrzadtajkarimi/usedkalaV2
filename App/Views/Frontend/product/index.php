@@ -7,14 +7,22 @@
                         <div class="woocommerce columns-7">
                             <div class="products">
                                 <?php if (!empty($products)) : ?>
-                                    <?php foreach ($products as $value) : ?>
-                                        <div class="product first">
+									<?php
+									$counter=0;
+									foreach ($products as $value)
+									{
+										$counter++;
+										if ($counter%7==1) $classStr=" first";
+										else if ($counter%7==0) $classStr=" last";
+										else $classStr="";
+									?>
+                                        <div class="product<?= $classStr ?>">
                                             <div class="yith-wcwl-add-to-wishlist">
                                                 <a href="#" rel="nofollow" class="add_to_wishlist <?= in_array($value['id'], $selected_wishlist) ? 'active' : '' ?>" data-id="<?= $value['id'] ?>" data-type="Product"> افزودن به علاقه‌مندی‌ها</a>
                                             </div>
                                             <!-- .yith-wcwl-add-to-wishlist -->
                                             <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" href="<?= base_url() ?>product/<?= $value['id'] ?>/<?= $value['slug'] ?>">
-                                                <img alt="" class="attachment-shop_catalog size-shop_catalog wp-post-image" src="<?= $value['path'] ?>" width="224" height="197">
+                                                <img alt="<?= $value['alt'] ?>" class="attachment-shop_catalog size-shop_catalog wp-post-image uksquareimg" src="<?= $value['path'] ?>" width="224" height="197">
                                                 <span class="price">
                                                     <?php if (in_array($value['id'], array_keys($discounts))) : ?>
                                                         <div>
@@ -45,7 +53,9 @@
                                             </div>
                                             <!-- .hover-area -->
                                         </div>
-                                    <?php endforeach; ?>
+                                    <?php
+									}
+									?>
                                 <?php else : ?>
                                     <div class="alert alert-warning">محصولی یافت نشد </div>
                                 <?php endif; ?>

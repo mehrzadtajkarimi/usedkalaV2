@@ -30968,7 +30968,7 @@ dl.variation dd {
     color: #626060;
     font-size: 1em;
     overflow: hidden;
-    max-height: 42px;
+    height: 42px;
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 0;
