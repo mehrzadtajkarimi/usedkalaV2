@@ -34,6 +34,7 @@ class CartController  extends Controller
         $percent = $cart_items['percent'] ?? false;
 
         $coupon = 0;
+        $exist_coupon = false;
         if ($percent) {
             $start_at  = strtotime($cart_items['percent']['start_at']) < time();
             $finish_at = strtotime($cart_items['percent']['finish_at']) > time();
@@ -42,7 +43,7 @@ class CartController  extends Controller
             if ($start_at && $finish_at) {
                 $exist_coupon = $coupon;  // $coupon = $cart_items['percent']['percent'];
             } else {
-                $exist_coupon = 0;
+                $exist_coupon = false;
             }
         }
 
