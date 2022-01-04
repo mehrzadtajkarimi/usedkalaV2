@@ -110,6 +110,9 @@ class OrderController  extends Controller
                 }
             }
 
+
+
+            // dd($_SESSION ?? []);
             $token         = 0;
             $order_number  = 0;
             $totalPrice    = 0;
