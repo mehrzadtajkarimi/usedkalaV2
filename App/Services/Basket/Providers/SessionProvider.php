@@ -96,6 +96,14 @@ class SessionProvider implements BasketContract
         return $total_price;
     }
 
+    public function add_grand_total($item_id, $total)
+    {
+        if (isset($_SESSION['cart'][$item_id])) {
+            return $_SESSION['cart'][$item_id]['grand_total'] = $total;
+        }
+        return false;
+    }
+
 
 
     public function reset()

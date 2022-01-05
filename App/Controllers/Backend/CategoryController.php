@@ -195,7 +195,7 @@ class CategoryController extends Controller
     public function type_amounts($type)
     {
         switch ($type) {
-            case "blog": 
+            case "blog":
                 $type    = "blog";
                 $key     = 1;
                 $persian = "وبلاگ";

@@ -29,7 +29,7 @@ class CartController  extends Controller
         // $cart_items = Basket::reset();
         $cart_items = Basket::items();
 
-        $products_is_discounts = $this->productModel->join_product__with_productDiscounts_discounts()??[];
+        $products_is_discounts = $this->productModel->join_product__with_productDiscounts_discounts() ?? [];
         $percent = $cart_items['percent'] ?? false;
 
 
@@ -60,25 +60,28 @@ class CartController  extends Controller
             if ($exist_discount && $exist_coupon) {
                 // discount exist  and  coupon exist
                 $price_discount = ($value['price'] - (($discounts[$value['id']] / 100) * $value['price']));
-                $cart_total[] = $value['count'] * ($price_discount - (($coupon / 100) * $price_discount));
+                $cart_total[$value['id']] = $value['count'] * ($price_discount - (($coupon / 100) * $price_discount));
             } else if ($exist_discount && !$exist_coupon) {
                 // discount exist  and  coupon not exist
-                $cart_total[] = $value['count'] * ($value['price'] - (($discounts[$value['id']] / 100) * $value['price']));
+                $cart_total[$value['id']] = $value['count'] * ($value['price'] - (($discounts[$value['id']] / 100) * $value['price']));
             } else if (!$exist_discount && $exist_coupon) {
                 // discount not exist  and  coupon exist
-                $cart_total[] = $value['count'] * ($value['price'] - (($coupon / 100) * $value['price']));
+                $cart_total[$value['id']] = $value['count'] * ($value['price'] - (($coupon / 100) * $value['price']));
             } else {
                 // discount not exist  and  coupon not exist
-                $cart_total[] =  ($value['count'] *  $value['price']);
+                $cart_total[$value['id']] = ($value['count'] *  $value['price']);
             }
+        }
+
+        foreach ($cart_items as  $value) {
+            Basket::add_grand_total($value['id'], $cart_total[$value['id']]);
         }
         if (!is_array($cart_total)) {
             SessionManager::set('onLoadMsg', 'سبد خرید خالیست!');
             Request::redirect('');
         }
-		
-		
-        $data = [
+        
+		$data = [
             'cart_total'            => array_sum($cart_total ?? []),
             'cart_coupon'           => $exist_coupon ?? 0,
             'cart_items'            => $cart_items,

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 03, 2022 at 09:46 AM
+-- Generation Time: Jan 04, 2022 at 09:45 AM
 -- Server version: 8.0.27-0ubuntu0.20.04.1
 -- PHP Version: 8.0.14
 
@@ -453,7 +453,42 @@ INSERT INTO `activity_log` (`id`, `user_id`, `ip`, `type`, `target_table`, `row_
 (376, 0, '127.0.0.1', 'create', 'active_codes', 354, '', '{\"user_id\":\"81\",\"code\":3572,\"expired_at\":\"2022-01-03 08:32:46\"}', '/admin/login', '2022-01-03 05:02:45'),
 (377, 81, '127.0.0.1', 'delete', 'active_codes', 0, '{\"user_id\":\"81\"}', '[{\"id\":\"354\",\"user_id\":\"81\",\"code\":\"3572\",\"expired_at\":\"2022-01-03 08:32:46\"}]', '/admin/token', '2022-01-03 05:02:56'),
 (378, 81, '127.0.0.1', 'create', 'coupons', 5, '', '{\"user_id\":\"81\",\"min_price\":\"\",\"max_price\":\"\",\"user_level\":\"1\",\"start_at\":\"2022-01-03 09:42:22\",\"finish_at\":\"2022-01-20 09:42:22\",\"code\":\"680375\",\"title\":\"dd\",\"description\":\"dd\",\"percent\":\"10\",\"status\":\"1\"}', '/admin/coupon', '2022-01-03 06:13:00'),
-(379, 81, '127.0.0.1', 'create', 'product_coupons', 5, '', '{\"coupon_id\":\"5\",\"product_id\":\"84\"}', '/admin/coupon', '2022-01-03 06:13:00');
+(379, 81, '127.0.0.1', 'create', 'product_coupons', 5, '', '{\"coupon_id\":\"5\",\"product_id\":\"84\"}', '/admin/coupon', '2022-01-03 06:13:00'),
+(380, 0, '127.0.0.1', 'create', 'active_codes', 355, '', '{\"user_id\":\"81\",\"code\":1081,\"expired_at\":\"2022-01-03 14:27:31\"}', '/login', '2022-01-03 10:57:30'),
+(381, 81, '127.0.0.1', 'delete', 'active_codes', 0, '{\"user_id\":\"81\"}', '[{\"id\":\"355\",\"user_id\":\"81\",\"code\":\"1081\",\"expired_at\":\"2022-01-03 14:27:31\"}]', '/token', '2022-01-03 10:57:39'),
+(382, 81, '127.0.0.1', 'update', 'users', 0, '{\"id\":\"81\"}', '{\"old\":[{\"id\":\"81\",\"city_id\":null,\"province_id\":null,\"user_level\":\"0\",\"phone\":\"09128897603\",\"email\":null,\"first_name\":\"مهرزاد\",\"last_name\":\"تاج کریمی\",\"company\":null,\"jobtitle\":null,\"national_code\":null,\"postal_code\":null,\"address\":null,\"birthday\":null,\"gender\":null,\"status\":\"1\",\"bank_name\":null,\"bank_number\":null,\"ip\":null,\"email_verified_at\":null,\"created_at\":\"2021-12-14 17:50:00\",\"updated_at\":null}],\"new\":{\"first_name\":\"مهرزاد\",\"last_name\":\"تاج کریمی\",\"phone\":\"09128897603\",\"email\":\"\",\"address\":\"dfgzsdfgg\",\"province_id\":\"3\",\"city_id\":\"100\",\"postal_code\":\"1000000000\",\"national_code\":\"\",\"birthday\":\"1641208393\",\"gender\":null,\"jobtitle\":\"\",\"company\":\"\"}}', '/profile/81', '2022-01-03 11:13:51'),
+(383, 81, '127.0.0.1', 'create', 'orders', 5, '', '{\"user_id\":\"81\",\"user_full_name\":\"مهرزاد تاج کریمی\",\"user_phone\":\"09128897603\",\"city_id\":\"100\",\"province_id\":\"3\",\"postal_code\":\"1000000000\",\"address\":\"dfgzsdfgg\",\"token\":0,\"order_number\":0,\"weight\":\"normal\",\"item_count\":1,\"grand_total\":2000000,\"discount_total\":0,\"shipping_cost\":0,\"notes\":\"44\"}', '/order/create', '2022-01-03 11:14:00'),
+(384, 81, '127.0.0.1', 'create', 'order_items', 7, '', '{\"order_id\":\"5\",\"product_id\":\"85\",\"quantity\":1,\"price\":\"2000000\",\"discount\":0}', '/order/create', '2022-01-03 11:14:00'),
+(385, 81, '127.0.0.1', 'create', 'orders', 6, '', '{\"user_id\":\"81\",\"user_full_name\":\"مهرزاد تاج کریمی\",\"user_phone\":\"09128897603\",\"city_id\":\"100\",\"province_id\":\"3\",\"postal_code\":\"1000000000\",\"address\":\"dfgzsdfgg\",\"token\":0,\"order_number\":0,\"weight\":\"normal\",\"item_count\":2,\"grand_total\":11000000,\"discount_total\":0,\"shipping_cost\":0,\"notes\":\"\"}', '/order/create', '2022-01-03 11:35:08'),
+(386, 81, '127.0.0.1', 'create', 'order_items', 8, '', '{\"order_id\":\"6\",\"product_id\":\"86\",\"quantity\":1,\"price\":\"7500000\",\"discount\":0}', '/order/create', '2022-01-03 11:35:08'),
+(387, 81, '127.0.0.1', 'create', 'order_items', 9, '', '{\"order_id\":\"6\",\"product_id\":\"83\",\"quantity\":1,\"price\":\"3500000\",\"discount\":0}', '/order/create', '2022-01-03 11:35:08'),
+(388, 0, '127.0.0.1', 'create', 'active_codes', 356, '', '{\"user_id\":\"81\",\"code\":5963,\"expired_at\":\"2022-01-03 17:12:40\"}', '/admin/login', '2022-01-03 13:42:39'),
+(389, 81, '127.0.0.1', 'delete', 'active_codes', 0, '{\"user_id\":\"81\"}', '[{\"id\":\"356\",\"user_id\":\"81\",\"code\":\"5963\",\"expired_at\":\"2022-01-03 17:12:40\"}]', '/admin/token', '2022-01-03 13:42:47'),
+(390, 81, '127.0.0.1', 'create', 'categories', 185, '', '{\"type\":0,\"seo_description\":\"یی\",\"seo_title\":\"یی\",\"parent_id\":\"0\",\"name\":\"یی\",\"H1\":\"یی\",\"robots\":\"0\",\"canonical\":\"یی\",\"description\":\"یی\",\"status\":\"1\",\"slug\":\"یی\"}', '/admin/category/0/product', '2022-01-03 13:50:42'),
+(391, 81, '127.0.0.1', 'create', 'photos', 318, '', '{\"entity_type\":\"Category\",\"entity_id\":185,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202201\\/35.---90eaa26f.jpg\",\"alt\":\"image_category\",\"type\":0}', '/admin/category/0/product', '2022-01-03 13:50:42'),
+(392, 0, '127.0.0.1', 'create', 'active_codes', 357, '', '{\"user_id\":\"81\",\"code\":4092,\"expired_at\":\"2022-01-04 10:23:30\"}', '/admin/login', '2022-01-04 06:53:29'),
+(393, 81, '127.0.0.1', 'delete', 'active_codes', 0, '{\"user_id\":\"81\"}', '[{\"id\":\"357\",\"user_id\":\"81\",\"code\":\"4092\",\"expired_at\":\"2022-01-04 10:23:30\"}]', '/admin/token', '2022-01-04 06:53:44'),
+(394, 81, '127.0.0.1', 'create', 'categories', 186, '', '{\"type\":0,\"seo_description\":\"dd\",\"seo_title\":\"dd\",\"parent_id\":\"185\",\"name\":\"dd\",\"H1\":\"dd\",\"robots\":\"3\",\"canonical\":null,\"description\":\"<p>dd<\\/p>\\r\\n\",\"status\":\"1\",\"slug\":\"dd\"}', '/admin/category/185/product', '2022-01-04 06:56:36'),
+(395, 81, '127.0.0.1', 'create', 'photos', 319, '', '{\"entity_type\":\"Category\",\"entity_id\":186,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202201\\/39.---818d9cc6.jpg\",\"alt\":\"image_category\",\"type\":0}', '/admin/category/185/product', '2022-01-04 06:56:36'),
+(396, 81, '127.0.0.1', 'update', 'photos', 0, '{\"entity_type\":\"Category\",\"entity_id\":186}', '{\"old\":[{\"id\":\"319\",\"entity_id\":\"186\",\"entity_type\":\"Category\",\"type\":\"0\",\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202201\\/39.---818d9cc6.jpg\",\"alt\":\"image_category\",\"created_at\":\"2022-01-04 10:26:36\"}],\"new\":{\"entity_type\":\"Category\",\"entity_id\":186,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202201\\/card-3.---3b1fca36.jpg\",\"alt\":\"image_category\",\"type\":0}}', '/admin/category/186/product', '2022-01-04 06:57:30'),
+(397, 81, '127.0.0.1', 'update', 'photos', 0, '{\"entity_type\":\"Category\",\"entity_id\":186}', '{\"old\":[{\"id\":\"319\",\"entity_id\":\"186\",\"entity_type\":\"Category\",\"type\":\"0\",\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202201\\/card-3.---3b1fca36.jpg\",\"alt\":\"image_category\",\"created_at\":\"2022-01-04 10:26:36\"}],\"new\":{\"entity_type\":\"Category\",\"entity_id\":186,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202201\\/36.---b312db70.jpg\",\"alt\":\"image_category\",\"type\":0}}', '/admin/category/186/product', '2022-01-04 07:00:09'),
+(398, 81, '127.0.0.1', 'update', 'categories', 0, '{\"id\":\"186\"}', '{\"old\":[{\"id\":\"186\",\"status\":\"1\",\"description\":\"<p>dd<\\/p>\\r\\n\",\"type\":\"0\",\"H1\":\"dd\",\"canonical\":null,\"robots\":\"3\",\"parent_id\":\"185\",\"name\":\"dd\",\"slug\":\"dd\",\"seo_title\":\"dd\",\"seo_description\":\"dd\",\"created_at\":\"2022-01-04 10:26:36\"}],\"new\":{\"slug\":\"hhdd\",\"seo_description\":\"hhdd\",\"seo_title\":\"hhdd\",\"name\":\"hhdd\",\"H1\":\"hhdd\",\"robots\":\"3\",\"canonical\":\"\",\"description\":\"<p>hhdd<\\/p>\\r\\n\",\"status\":1}}', '/admin/category/186/product', '2022-01-04 07:11:42'),
+(399, 81, '127.0.0.1', 'delete', 'categories', 0, '{\"id\":\"186\"}', '[{\"id\":\"186\",\"status\":\"1\",\"description\":\"<p>hhdd<\\/p>\\r\\n\",\"type\":\"0\",\"H1\":\"hhdd\",\"canonical\":\"\",\"robots\":\"3\",\"parent_id\":\"185\",\"name\":\"hhdd\",\"slug\":\"hhdd\",\"seo_title\":\"hhdd\",\"seo_description\":\"hhdd\",\"created_at\":\"2022-01-04 10:26:36\"}]', '/admin/category/186/product', '2022-01-04 07:12:02'),
+(400, 81, '127.0.0.1', 'delete', 'photos', 0, '{\"entity_id\":\"186\"}', '[{\"id\":\"319\",\"entity_id\":\"186\",\"entity_type\":\"Category\",\"type\":\"0\",\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202201\\/36.---b312db70.jpg\",\"alt\":\"image_category\",\"created_at\":\"2022-01-04 10:26:36\"}]', '/admin/category/186/product', '2022-01-04 07:12:02'),
+(401, 81, '127.0.0.1', 'create', 'categories', 187, '', '{\"type\":1,\"seo_description\":\"Esse doloribus nesci\",\"seo_title\":\"Nesciunt autem sint\",\"parent_id\":\"0\",\"name\":\"xusesukow@mailinator.com\",\"H1\":\"Dolorem molestiae ne\",\"robots\":\"7\",\"canonical\":\"Nesciunt iusto aspe\",\"description\":\"Culpa eius amet non in adipisci esse id ipsum atque excepteur culpa eveniet atque ut veniam eaque ut placeat nostr\",\"status\":\"1\",\"slug\":\"Id-elit-quae-repell\"}', '/admin/category/0/blog', '2022-01-04 07:23:50'),
+(402, 81, '127.0.0.1', 'create', 'photos', 320, '', '{\"entity_type\":\"Category\",\"entity_id\":187,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202201\\/36.---28038b78.jpg\",\"alt\":\"image_category\",\"type\":0}', '/admin/category/0/blog', '2022-01-04 07:23:50'),
+(403, 81, '127.0.0.1', 'create', 'categories', 188, '', '{\"type\":1,\"seo_description\":\"Esse doloribus nesci\",\"seo_title\":\"Nesciunt autem sint\",\"parent_id\":\"0\",\"name\":\"xusesukow@mailinator.com\",\"H1\":\"Dolorem molestiae ne\",\"robots\":\"7\",\"canonical\":\"Nesciunt iusto aspe\",\"description\":\"Culpa eius amet non in adipisci esse id ipsum atque excepteur culpa eveniet atque ut veniam eaque ut placeat nostr\",\"status\":\"1\",\"slug\":\"Id-elit-quae-repell\"}', '/admin/category/0/blog', '2022-01-04 07:23:53'),
+(404, 81, '127.0.0.1', 'create', 'photos', 321, '', '{\"entity_type\":\"Category\",\"entity_id\":188,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202201\\/36.---67e46db5.jpg\",\"alt\":\"image_category\",\"type\":0}', '/admin/category/0/blog', '2022-01-04 07:23:53'),
+(405, 81, '127.0.0.1', 'delete', 'categories', 0, '{\"id\":\"188\"}', '[{\"id\":\"188\",\"status\":\"1\",\"description\":\"Culpa eius amet non in adipisci esse id ipsum atque excepteur culpa eveniet atque ut veniam eaque ut placeat nostr\",\"type\":\"1\",\"H1\":\"Dolorem molestiae ne\",\"canonical\":\"Nesciunt iusto aspe\",\"robots\":\"7\",\"parent_id\":\"0\",\"name\":\"xusesukow@mailinator.com\",\"slug\":\"Id-elit-quae-repell\",\"seo_title\":\"Nesciunt autem sint\",\"seo_description\":\"Esse doloribus nesci\",\"created_at\":\"2022-01-04 10:53:53\"}]', '/admin/category/188/blog', '2022-01-04 07:23:59'),
+(406, 81, '127.0.0.1', 'delete', 'photos', 0, '{\"entity_id\":\"188\"}', '[{\"id\":\"321\",\"entity_id\":\"188\",\"entity_type\":\"Category\",\"type\":\"0\",\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202201\\/36.---67e46db5.jpg\",\"alt\":\"image_category\",\"created_at\":\"2022-01-04 10:53:53\"}]', '/admin/category/188/blog', '2022-01-04 07:23:59'),
+(407, 81, '127.0.0.1', 'delete', 'categories', 0, '{\"id\":\"187\"}', '[{\"id\":\"187\",\"status\":\"1\",\"description\":\"Culpa eius amet non in adipisci esse id ipsum atque excepteur culpa eveniet atque ut veniam eaque ut placeat nostr\",\"type\":\"1\",\"H1\":\"Dolorem molestiae ne\",\"canonical\":\"Nesciunt iusto aspe\",\"robots\":\"7\",\"parent_id\":\"0\",\"name\":\"xusesukow@mailinator.com\",\"slug\":\"Id-elit-quae-repell\",\"seo_title\":\"Nesciunt autem sint\",\"seo_description\":\"Esse doloribus nesci\",\"created_at\":\"2022-01-04 10:53:50\"}]', '/admin/category/187/blog', '2022-01-04 07:24:02'),
+(408, 81, '127.0.0.1', 'delete', 'photos', 0, '{\"entity_id\":\"187\"}', '[{\"id\":\"320\",\"entity_id\":\"187\",\"entity_type\":\"Category\",\"type\":\"0\",\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202201\\/36.---28038b78.jpg\",\"alt\":\"image_category\",\"created_at\":\"2022-01-04 10:53:50\"}]', '/admin/category/187/blog', '2022-01-04 07:24:02'),
+(409, 81, '127.0.0.1', 'delete', 'categories', 0, '{\"id\":\"184\"}', '[{\"id\":\"184\",\"status\":\"0\",\"description\":\"Consequuntur obcaecati perspiciatis quos laboris est et eaque recusandae Et sed eaque sint et voluptas\",\"type\":\"1\",\"H1\":\"Similique quia aliqu\",\"canonical\":\"Laboris error cum om\",\"robots\":\"5\",\"parent_id\":\"0\",\"name\":\"xevysoz@mailinator.com\",\"slug\":\"Incidunt-voluptatib\",\"seo_title\":\"Temporibus in est c\",\"seo_description\":\"Et eveniet sit et \",\"created_at\":\"2021-12-27 15:30:38\"}]', '/admin/category/184/blog', '2022-01-04 07:24:05'),
+(410, 81, '127.0.0.1', 'delete', 'photos', 0, '{\"entity_id\":\"184\"}', '[{\"id\":\"317\",\"entity_id\":\"184\",\"entity_type\":\"Category\",\"type\":\"0\",\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/card-5.---a25e1dfc.jpg\",\"alt\":\"image_category\",\"created_at\":\"2021-12-27 15:30:38\"}]', '/admin/category/184/blog', '2022-01-04 07:24:05'),
+(411, 81, '127.0.0.1', 'create', 'categories', 189, '', '{\"type\":1,\"seo_description\":\"Sed temporibus in iu\",\"seo_title\":\"Et officiis optio q\",\"parent_id\":\"0\",\"name\":\"retefa@mailinator.com\",\"H1\":\"Suscipit tenetur sol\",\"robots\":\"4\",\"canonical\":\"Alias sit aut susci\",\"description\":\"Id maxime veritatis qui eum explicabo Labore nulla et deserunt consequatur minus rerum\",\"status\":\"1\",\"slug\":\"Voluptatem-Minima-c\"}', '/admin/category/0/blog', '2022-01-04 07:24:14'),
+(412, 81, '127.0.0.1', 'create', 'photos', 322, '', '{\"entity_type\":\"Category\",\"entity_id\":189,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202201\\/38.---ddece540.jpg\",\"alt\":\"image_category\",\"type\":0}', '/admin/category/189/blog', '2022-01-04 07:24:36'),
+(413, 0, '127.0.0.1', 'create', 'active_codes', 358, '', '{\"user_id\":\"81\",\"code\":1232,\"expired_at\":\"2022-01-04 12:15:35\"}', '/admin/login', '2022-01-04 08:45:34'),
+(414, 81, '127.0.0.1', 'delete', 'active_codes', 0, '{\"user_id\":\"81\"}', '[{\"id\":\"358\",\"user_id\":\"81\",\"code\":\"1232\",\"expired_at\":\"2022-01-04 12:15:35\"}]', '/admin/token', '2022-01-04 08:45:44');
 
 -- --------------------------------------------------------
 
@@ -670,7 +705,8 @@ INSERT INTO `categories` (`id`, `status`, `description`, `type`, `H1`, `canonica
 (173, 1, 'hp', 1, 'hp', 'hp', 0, 0, 'hp', 'hp', 'hp', 'hp', '2021-12-27 09:31:36'),
 (175, 1, 'product', 0, 'product', 'product', 0, 0, 'product', 'product', 'product', 'product', '2021-12-27 11:26:18'),
 (178, 1, 'ssd', 1, 'ssd', 'ssd', 0, 0, 'ssd', 'ssd', 'ssd', 'ssd', '2021-12-27 11:41:31'),
-(184, 0, 'Consequuntur obcaecati perspiciatis quos laboris est et eaque recusandae Et sed eaque sint et voluptas', 1, 'Similique quia aliqu', 'Laboris error cum om', 5, 0, 'xevysoz@mailinator.com', 'Incidunt-voluptatib', 'Temporibus in est c', 'Et eveniet sit et ', '2021-12-27 12:00:38');
+(185, 1, 'یی', 0, 'یی', 'یی', 0, 0, 'یی', 'یی', 'یی', 'یی', '2022-01-03 13:50:42'),
+(189, 1, 'Id maxime veritatis qui eum explicabo Labore nulla et deserunt consequatur minus rerum', 1, 'Suscipit tenetur sol', 'Alias sit aut susci', 4, 0, 'retefa@mailinator.com', 'Voluptatem-Minima-c', 'Et officiis optio q', 'Sed temporibus in iu', '2022-01-04 07:24:14');
 
 -- --------------------------------------------------------
 
@@ -1993,7 +2029,9 @@ INSERT INTO `orders` (`id`, `user_id`, `user_full_name`, `user_phone`, `city_id`
 (1, 76, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 6, 2710000000, 0, 0, 'لطفا کالاها را به موقع برسانید.', 0, 0, 1, '2021-11-30 05:32:54', NULL),
 (2, 76, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 8, 6800000000, 0, 0, '', 77, 77, 3, '2021-11-30 09:45:39', NULL),
 (3, 76, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 3, 2550000000, 0, 0, '', 73, 0, 2, '2021-11-30 09:49:05', NULL),
-(4, 76, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 2, 240000000, 0, 0, '', 73, 81, 3, '2021-11-30 09:49:52', NULL);
+(4, 76, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 2, 240000000, 0, 0, '', 73, 81, 3, '2021-11-30 09:49:52', NULL),
+(5, 81, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 2000000, 0, 0, '44', NULL, NULL, 1, '2022-01-03 11:14:00', NULL),
+(6, 81, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 2, 11000000, 0, 0, '', NULL, NULL, 1, '2022-01-03 11:35:08', NULL);
 
 -- --------------------------------------------------------
 
@@ -2021,7 +2059,10 @@ INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`, `price`, 
 (3, 1, 30, 3, 120000000, 0, NULL),
 (4, 2, 32, 8, 850000000, 0, NULL),
 (5, 3, 32, 3, 850000000, 0, NULL),
-(6, 4, 30, 2, 120000000, 0, NULL);
+(6, 4, 30, 2, 120000000, 0, NULL),
+(7, 5, 85, 1, 2000000, 0, NULL),
+(8, 6, 86, 1, 7500000, 0, NULL),
+(9, 6, 83, 1, 3500000, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -2319,7 +2360,8 @@ INSERT INTO `photos` (`id`, `entity_id`, `entity_type`, `type`, `path`, `alt`, `
 (309, 173, 'Category', 0, 'http://usedkalaV2.me/Storage/202112/42.---b54766a3.jpg', 'image_category', '2021-12-27 09:31:36'),
 (311, 175, 'Category', 0, 'http://usedkalaV2.me/Storage/202112/card-4.---03deb567.jpg', 'image_category', '2021-12-27 11:26:18'),
 (314, 178, 'Category', 0, 'http://usedkalaV2.me/Storage/202112/1-1.---0e0ce5a5.jpg', 'image_category', '2021-12-27 11:41:31'),
-(317, 184, 'Category', 0, 'http://usedkalaV2.me/Storage/202112/card-5.---a25e1dfc.jpg', 'image_category', '2021-12-27 12:00:38');
+(318, 185, 'Category', 0, 'http://usedkalaV2.me/Storage/202201/35.---90eaa26f.jpg', 'image_category', '2022-01-03 13:50:42'),
+(322, 189, 'Category', 0, 'http://usedkalaV2.me/Storage/202201/38.---ddece540.jpg', 'image_category', '2022-01-04 07:24:36');
 
 -- --------------------------------------------------------
 
@@ -3014,6 +3056,7 @@ CREATE TABLE `sellers` (
 
 CREATE TABLE `settings` (
   `id` int NOT NULL,
+  `entity_id` tinyint NOT NULL COMMENT '1-about,\r\n2-footer',
   `slug` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
   `key` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
   `value` text CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
@@ -3024,8 +3067,8 @@ CREATE TABLE `settings` (
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`id`, `slug`, `key`, `value`, `created_at`) VALUES
-(4, 'درباره-یوزدکالا', 'درباره یوزدکالا', '<p>لورم ایپسوم</p>\r\n', '2021-09-28 17:03:31');
+INSERT INTO `settings` (`id`, `entity_id`, `slug`, `key`, `value`, `created_at`) VALUES
+(4, 0, 'درباره-یوزدکالا', 'درباره یوزدکالا', '<p>لورم ایپسوم</p>\r\n', '2021-09-28 17:03:31');
 
 -- --------------------------------------------------------
 
@@ -3188,7 +3231,7 @@ INSERT INTO `users` (`id`, `city_id`, `province_id`, `user_level`, `phone`, `ema
 (73, NULL, 0, 0, '09363175161', 'sn7091@yahoo.com', 'سیاوش', 'نوروزی', NULL, NULL, NULL, NULL, '', NULL, NULL, 1, NULL, NULL, NULL, NULL, '2021-10-26 09:17:57', NULL),
 (76, 1, 1, 0, '09369532227', 'moon.star125@yahoo.com', 'میثاق', 'محرری', 'مفتاح رایانه افزار', 'برنامه نویس', '0015158731', '1', 'تهرانپارس،', '722771648', 1, 1, NULL, NULL, NULL, NULL, '2021-11-27 09:26:38', NULL),
 (80, NULL, NULL, 0, '09199837091', NULL, 'سیاوش', 'نوروزی', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, '2021-12-14 12:05:41', NULL),
-(81, NULL, NULL, 0, '09128897603', NULL, 'مهرزاد', 'تاج کریمی', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, '2021-12-14 14:20:00', NULL),
+(81, 100, 3, 0, '09128897603', '', 'مهرزاد', 'تاج کریمی', '', '', '', '1000000000', 'dfgzsdfgg', '1641208393', NULL, 1, NULL, NULL, NULL, NULL, '2021-12-14 14:20:00', NULL),
 (82, NULL, NULL, 0, '09378454043', NULL, 'میثم', 'علی‌قلی‌پور', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, '2021-12-14 14:20:00', NULL),
 (83, NULL, NULL, 0, '09124953770', NULL, 'سجاد', 'رضایی', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, '2021-12-14 14:20:00', NULL),
 (84, NULL, NULL, 0, '09359312383', NULL, 'علی', 'حریرساز', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, '2021-12-14 14:21:59', NULL);
@@ -3494,13 +3537,13 @@ ALTER TABLE `wish_lists`
 -- AUTO_INCREMENT for table `active_codes`
 --
 ALTER TABLE `active_codes`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=355;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=359;
 
 --
 -- AUTO_INCREMENT for table `activity_log`
 --
 ALTER TABLE `activity_log`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=380;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=415;
 
 --
 -- AUTO_INCREMENT for table `attributes`
@@ -3548,7 +3591,7 @@ ALTER TABLE `carts`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=190;
 
 --
 -- AUTO_INCREMENT for table `category_blogs`
@@ -3596,13 +3639,13 @@ ALTER TABLE `likes`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `permissions`
@@ -3620,7 +3663,7 @@ ALTER TABLE `permission_users`
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=318;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=323;
 
 --
 -- AUTO_INCREMENT for table `products`

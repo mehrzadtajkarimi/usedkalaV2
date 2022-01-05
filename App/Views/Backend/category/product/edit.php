@@ -4,7 +4,7 @@
 
     </div>
     <div class="card-body">
-        <form action="<?= base_url() ?>admin/category/<?= $category['id'] ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= base_url() ?>admin/category/<?= $category['id'] ?>/product" method="post" enctype="multipart/form-data">
             <input type="hidden" name="_method" value="patch" />
             <div class="form-group row">
                 <label for="title" class="col-sm-2 col-form-label">HTML Title</label>
