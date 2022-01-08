@@ -124,7 +124,8 @@ class OrderController  extends Controller
             $notes         = $params['order-notes'];
             foreach ($_SESSION['cart'] as $value) {
                 $totalCount  += $value['count'];
-                $totalPrice  += ($value['count'] * $value['price']) + $totalDiscount + $shipping;
+                $totalPrice  += $value['grand_total'];
+                // $totalPrice  += ($value['count'] * $value['price']) + $totalDiscount + $shipping;
                 $totalWeight += $value['weight'];
             }
             $params_create = array(

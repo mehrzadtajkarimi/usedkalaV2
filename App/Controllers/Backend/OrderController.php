@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\Order_Item;
 use App\Models\OrderItem;
 use App\Models\Photo;
+use App\Models\Product;
 use App\Models\User;
 use App\Services\Auth\Auth;
 use App\Services\Upload\UploadedFile;
@@ -18,6 +19,7 @@ class OrderController extends Controller
     private $orderModel;
     private $userModel;
     private $orderItemModel;
+    private $productModel;
 
     public function __construct()
     {
@@ -26,6 +28,7 @@ class OrderController extends Controller
         $this->orderModel     = new Order();
         $this->orderItemModel = new Order_Item();
         $this->userModel      = new User();
+        $this->productModel   = new Product();
     }
 
     public function index()
@@ -63,9 +66,22 @@ class OrderController extends Controller
     {
         $order_id = $this->request->params()['order_id'];
 
-        $result = $this->orderItemModel->join__orderItem_whit_product_by_order_id($order_id);
+        $results = [];
 
-        echo json_encode($result);
+        $results += $this->orderItemModel->join__orderItem_whit_product_by_order_id($order_id);
+
+        $products_is_discounts = $this->productModel->join_product__with_productDiscounts_discounts() ?? [];
+
+        foreach ($results as $key =>  $value) {
+            foreach ($products_is_discounts as $key => $discount) {
+                if ($discount['discount_status'] == 1 && $value['product_id'] == $discount['product_id']) {
+                    $discount_percent =  $value['quantity'] * ($value['price'] - (($discount['discount_percent'] / 100) * $value['price']));
+                    $results[$key] += ['discount_percent' => $discount_percent];
+                }
+            }
+        }
+
+        echo json_encode($results);
     }
 
     public function status()
@@ -97,6 +113,5 @@ class OrderController extends Controller
             // ], $order_id);
             // echo  $result;
         }
-
     }
 }

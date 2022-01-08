@@ -134,35 +134,66 @@
                     data = JSON.parse(response);
 
 
-                    // console.log(order);
+                    // console.log(jQuery.inArray('discount_percent', data)> 0);
                     order_tbody.empty();
                     $(data).each(function(key, value) {
-                        // console.log(value);
+                        console.log(value);
                         order_tr.fadeIn(1000).delay(200);
+                        if (value['discount_percent']) {
 
-                        order_tbody.append(`
-                            <tr>
-                                <td class='text-center'>
-                                    <pre class='text-muted '>` + key + `</pre>
-                                </td>
-                                <td class='text-center'>
-                                    <span class='text-muted '>` + value['title'] + `</span>
-                                </td>
-                                <td class='text-center'>
-                                    <pre class='text-muted '>` + number_format(value['price']) + `</pre>
-                                </td>
-                                <td class='text-center'>
-                                    <pre class='text-muted '>` + number_format(value['quantity']) + `</pre>
-                                </td>
-                                <td class='text-center'>
-                                    <pre class='text-muted '>` + number_format(value['quantity'] * value['price']) + `</pre>
-                                </td>
-                            </tr>
-                        `);
+                            order_tbody.append(`
+                                <tr>
+                                    <td class='text-center'>
+                                        <pre class='text-muted '>` + key + `</pre>
+                                    </td>
+                                    <td class='text-center'>
+                                        <span class='text-muted '>` + value['title'] + `</span>
+                                    </td>
+                                    <td class='text-center'>
+                                        <small>
+                                            <del class='text-danger'>
+                                                ` + number_format(value['price']) + `
+                                            </del>
+                                        </small>
+                                        <pre class='text-muted '>` + number_format(value['discount_percent']) + `</pre>
+                                    </td>
+                                    <td class='text-center'>
+                                        <pre class='text-muted '>` + number_format(value['quantity']) + `</pre>
+                                    </td>
+                                    <td class='text-center'>
+                                        <pre class='text-muted '>` + number_format(value['quantity'] * value['discount_percent']) + `</pre>
+                                    </td>
+                                </tr>
+                            `);
+                        } else {
+                            order_tbody.append(`
+                                <tr>
+                                    <td class='text-center'>
+                                        <pre class='text-muted '>` + key + `</pre>
+                                    </td>
+                                    <td class='text-center'>
+                                        <span class='text-muted '>` + value['title'] + `</span>
+                                    </td>
+                                    <td class='text-center'>
+                                        <pre class='text-muted '>` + number_format(value['price']) + `</pre>
+                                    </td>
+                                    <td class='text-center'>
+                                        <pre class='text-muted '>` + number_format(value['quantity']) + `</pre>
+                                    </td>
+                                    <td class='text-center'>
+                                        <pre class='text-muted '>` + number_format(value['quantity'] * value['price']) + `</pre>
+                                    </td>
+                                </tr>
+                            `);
+                        };
                     });
                     var sum = 0;
                     $(data).each(function(key, value) {
-                        sum += Number(value['quantity'] * value['price']);
+                        if (value['discount_percent']) {
+                            sum += Number(value['quantity'] * value['discount_percent']);
+                        } else {
+                            sum += Number(value['quantity'] * value['price']);
+                        }
                     });
                     let created_at = new Date(data[0]['created_at']).toLocaleDateString('fa-IR');
                     console.log(created_at);

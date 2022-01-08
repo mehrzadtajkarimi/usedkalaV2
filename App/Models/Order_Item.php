@@ -28,6 +28,7 @@ class Order_Item extends MysqlBaseModel
     {
         $products = $this->inner_join_two(
             "products.title,
+            products.id AS product_id,
             order_items.quantity,
             order_items.price,
             order_items.discount,
