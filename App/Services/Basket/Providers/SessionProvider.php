@@ -65,11 +65,12 @@ class SessionProvider implements BasketContract
         // }
     }
 
-    public function add_coupon(int $percent, $start_at, $finish_at): array
+    public function add_coupon(int $coupon_id,int $percent, $start_at, $finish_at): array
     {
         return  $_SESSION['cart']['percent'] = [
-            'percent' => $percent,
-            'start_at' => $start_at,
+            'coupon_id' => $coupon_id,
+            'percent'   => $percent,
+            'start_at'  => $start_at,
             'finish_at' => $finish_at,
         ];
     }

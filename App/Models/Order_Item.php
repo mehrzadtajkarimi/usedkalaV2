@@ -32,6 +32,7 @@ class Order_Item extends MysqlBaseModel
             order_items.quantity,
             order_items.price,
             order_items.discount,
+            orders.coupon_id,
             orders.address,
             orders.created_at
             ",

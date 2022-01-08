@@ -134,7 +134,7 @@
                     data = JSON.parse(response);
 
 
-                    // console.log(jQuery.inArray('discount_percent', data)> 0);
+                    console.log( data);
                     order_tbody.empty();
                     $(data).each(function(key, value) {
                         console.log(value);

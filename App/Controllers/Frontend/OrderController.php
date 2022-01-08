@@ -112,7 +112,7 @@ class OrderController  extends Controller
 
 
 
-            // dd($_SESSION ?? []);
+            // dd($_SESSION['cart']['percent']['coupon_id'] ?? []); 
             $token         = 0;
             $order_number  = 0;
             $totalPrice    = 0;
@@ -130,6 +130,7 @@ class OrderController  extends Controller
             }
             $params_create = array(
                 'user_id'        => $user_id,
+                'coupon_id'      => $_SESSION['cart']['percent']['coupon_id'] ?? 0,
                 'user_full_name' => $user_info['first_name'] . " " . $user_info['last_name'],
                 'user_phone'     => $user_info['phone'],
                 'city_id'        => $user_info['city_id'],
@@ -138,12 +139,12 @@ class OrderController  extends Controller
                 'address'        => $user_info['address'],
                 'token'          => $token,
                 'order_number'   => $order_number,
-                'weight'         => 'normal',
                 'item_count'     => $totalCount,
                 'grand_total'    => $totalPrice,
                 'discount_total' => $totalDiscount,
                 'shipping_cost'  => $shipping,
-                'notes'          => $notes
+                'notes'          => $notes,
+                'weight'         => 'normal',
             );
             $order_id = $this->orderModel->create_order($params_create);
 

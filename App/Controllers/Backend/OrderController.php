@@ -3,6 +3,7 @@
 namespace App\Controllers\Backend;
 
 use App\Controllers\Controller;
+use App\Models\Coupon;
 use App\Models\Order;
 use App\Models\Order_Item;
 use App\Models\OrderItem;
@@ -10,6 +11,7 @@ use App\Models\Photo;
 use App\Models\Product;
 use App\Models\User;
 use App\Services\Auth\Auth;
+use App\Services\Basket\Basket;
 use App\Services\Upload\UploadedFile;
 use App\Utilities\FlashMessage;
 
@@ -20,6 +22,7 @@ class OrderController extends Controller
     private $userModel;
     private $orderItemModel;
     private $productModel;
+    private $couponModel;
 
     public function __construct()
     {
@@ -29,6 +32,7 @@ class OrderController extends Controller
         $this->orderItemModel = new Order_Item();
         $this->userModel      = new User();
         $this->productModel   = new Product();
+        $this->couponModel   = new Coupon();
     }
 
     public function index()
@@ -72,13 +76,35 @@ class OrderController extends Controller
 
         $products_is_discounts = $this->productModel->join_product__with_productDiscounts_discounts() ?? [];
 
+
+
+
+
         foreach ($results as $key =>  $value) {
-            foreach ($products_is_discounts as $key => $discount) {
+
+            foreach ($products_is_discounts as $discount) {
                 if ($discount['discount_status'] == 1 && $value['product_id'] == $discount['product_id']) {
                     $discount_percent =  $value['quantity'] * ($value['price'] - (($discount['discount_percent'] / 100) * $value['price']));
                     $results[$key] += ['discount_percent' => $discount_percent];
                 }
             }
+
+            if ($value['coupon_id']) {
+                $coupon =  $this->couponModel->read_coupon($value['coupon_id']);
+
+                $start_at  = strtotime($coupon['start_at']) < time();
+                $finish_at = strtotime($coupon['finish_at']) > time();
+
+                if ($start_at && $finish_at) {
+                    $discount_coupon =  $value['quantity'] * ($value['price'] - (($coupon['percent'] / 100) * $value['price']));
+
+                    $results[$key] += ['percent' => $coupon['percent']];
+                    $results[$key] += ['discount_coupon' =>   $discount_coupon];
+                }
+            }
+
+
+
         }
 
         echo json_encode($results);

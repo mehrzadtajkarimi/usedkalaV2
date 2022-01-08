@@ -39,7 +39,8 @@ class CartController  extends Controller
             $start_at  = strtotime($cart_items['percent']['start_at']) < time();
             $finish_at = strtotime($cart_items['percent']['finish_at']) > time();
             $coupon    = $cart_items['percent']['percent'];
-            unset($cart_items['percent']);
+            // unset($cart_items['percent']);
+            $cart_items =array_slice($cart_items,0,1);
             if ($start_at && $finish_at) {
                 $exist_coupon = $coupon;  // $coupon = $cart_items['percent']['percent'];
             } else {
@@ -55,7 +56,7 @@ class CartController  extends Controller
 
 		if (!isset($discounts) || !is_array($discounts)) $discounts=[];
 		
-        foreach ($cart_items as  $value) {
+        foreach ($cart_items as $value) {
             $exist_discount = in_array($value['id'], array_keys($discounts));
             if ($exist_discount && $exist_coupon) {
                 // discount exist  and  coupon exist
@@ -80,6 +81,7 @@ class CartController  extends Controller
             SessionManager::set('onLoadMsg', 'سبد خرید خالیست!');
             Request::redirect('');
         }
+
         
 		$data = [
             'cart_total'            => array_sum($cart_total ?? []),
@@ -174,7 +176,7 @@ class CartController  extends Controller
         }
 
         if ($coupon) {
-            $has_coupon = Basket::add_coupon($coupon['percent'], $coupon['start_at'], $coupon['finish_at']);
+            $has_coupon = Basket::add_coupon($coupon['id'],$coupon['percent'], $coupon['start_at'], $coupon['finish_at']);
             if ($has_coupon) {
                 FlashMessage::add("کد تخفیف با موفقیت ثبت شد");
                 Request::redirect('cart');
