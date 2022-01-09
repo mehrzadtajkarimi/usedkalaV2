@@ -176,7 +176,7 @@
                                         <?php foreach ($cart_items as $value) : ?>
                                             <li class="woocommerce-mini-cart-item mini_cart_item">
                                                 <a href="<?= base_url() ?>cart/remove/<?= $value['id'] ?>" class="remove" aria-label="Remove this item" data-product_id="65" data-product_sku="">×</a>
-                                                <a href="<?= base_url() ?>product/<?= $value['id'] ?>">
+                                                <a href="<?= base_url() ?>product/<?= $value['id'] ?>/<?= $value['title'] ?>">
                                                     <img src="<?= $value['photo_path'] ?>" class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" alt=""><?= $value['title'] ?>&nbsp;
                                                 </a>
                                                 <span class="quantity"><?= $value['count'] ?> ×

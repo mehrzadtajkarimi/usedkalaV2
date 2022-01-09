@@ -40,11 +40,11 @@
                                                         </td>
                                                         <td data-title="Product" class="product-name ">
                                                             <div class="media cart-item-product-detail ">
-                                                                <a href="single-product-fullwidth.html ">
+                                                                <a href="<?= base_url() ?>product/<?= $value['id'] ?>/<?= $value['title'] ?>">
                                                                     <img width="180" height="180" alt="" class="wp-post-image" src="<?= $value['photo_path'] ?>">
                                                                 </a>
                                                                 <div class="media-body align-self-center ">
-                                                                    <a href="<?= base_url() ?>product/<?= $value['id'] ?>"><?= $value['title'] ?></a>
+                                                                    <a href="<?= base_url() ?>product/<?= $value['id'] ?>/<?= $value['title'] ?>"><?= $value['title'] ?></a>
                                                                 </div>
                                                             </div>
                                                         </td>
