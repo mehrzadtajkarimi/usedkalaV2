@@ -42,7 +42,7 @@ class CategoryController extends Controller
 
         $description          = $categoryRow;
         $categories           = $this->categoryModel->category_tree_for_frontend($parent_id, $slug);
-        $products             = $this->productModel->join_product__with_single_photo_by_category_id($parent_id['id']);
+        $products             = $this->productModel->join_product_to_single_photo__with__productDiscounts_discounts__productCategory_by_category_id($parent_id['id']);
         $products_is_discount = $this->productModel->join_product__with_productDiscounts_discounts();
         $breadcrumb           = $this->categoryModel->get_categories_for_product_breadcrumb($parent_id);
         $wishlist_products    = $this->wishListModel->read_all_wishList_items('Product');

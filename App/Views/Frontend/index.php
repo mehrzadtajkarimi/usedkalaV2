@@ -227,7 +227,7 @@ $slideCount = count($sliders);
                                                                 <a href="#" rel="nofollow" class="add_to_wishlist <?php if (in_array($value['id'], $selected_wishlist)) echo 'active'; ?>" data-id="<?= $value['id'] ?>">افزودن به علاقه مندی ها</a>
                                                             </div>
                                                             <a href="<?= base_url() . 'product/' . $value['id'] . '/' . $value['slug'] ?>" class="woocommerce-LoopProduct-link">
-                                                                <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image uksquareimg" alt="<?= $value['alt'] ?>">
+                                                                <img src="<?= $value['photos_path'] ?>" width="224" height="197" class="wp-post-image uksquareimg" alt="<?= $value['photos_alt'] ??'' ?>">
                                                                 <span class="price">
                                                                     <ins>
                                                                         <span class="amount" dircetion="rtl"></span>

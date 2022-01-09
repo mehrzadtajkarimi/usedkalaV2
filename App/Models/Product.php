@@ -182,9 +182,9 @@ class Product extends MysqlBaseModel
         FROM products
         INNER JOIN photos
         ON products.id = photos.entity_id
-        INNER JOIN product_discounts
+        LEFT JOIN product_discounts
         ON products.id = product_discounts.product_id
-        INNER JOIN discounts
+        LEFT JOIN discounts
         ON product_discounts.discount_id = discounts.id
         INNER JOIN product_categories
         ON products.id = product_categories.product_id
@@ -318,8 +318,8 @@ class Product extends MysqlBaseModel
         return $this->query("
         SELECT
         products.*,
-        photos.path,
-        photos.alt
+        photos.path AS photos_path,
+        photos.alt AS photos_alt
         FROM products
         INNER JOIN product_categories
         ON product_categories.product_id = products.id
