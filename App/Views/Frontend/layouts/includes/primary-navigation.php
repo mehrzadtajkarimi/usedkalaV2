@@ -23,6 +23,6 @@
         <a title="تماس با ما" href="<?= base_url() ?>contact">تماس با ما</a>
     </li>
     <li class="menu-item animate-dropdown"> 
-        <a title="تخفیف ها" href="<?= base_url() ?>product/discounts"> تخفیف ها</a>
+        <a title="تخفیف ها" href="<?= base_url() ?>product/لیست محصولات تخفیف دار"> تخفیف ها</a>
     </li>
 </ul>

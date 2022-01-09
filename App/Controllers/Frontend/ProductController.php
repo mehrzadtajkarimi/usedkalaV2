@@ -44,6 +44,9 @@ class ProductController extends Controller
     public function index()
     {
         $products          = $this->productModel->join_product_to_photo__with_productDiscounts_discounts();
+
+
+        // dd($products);
         $wishlist_products = $this->wishListModel->read_all_wishList_items('Product');
         $selected_wishlist = [];
         foreach ($wishlist_products as  $value) {
@@ -174,15 +177,15 @@ class ProductController extends Controller
     }
     
     
-    public function discounts()
-    {
-        $products = $this->productModel->join_product_to_photo__with_productDiscounts_discounts();
+    // public function discounts()
+    // {
+    //     $products = $this->productModel->join_product_to_photo__with_productDiscounts_discounts();
         
-        $data= array(
-            'products'=> $products,
+    //     $data= array(
+    //         'products'=> $products,
             
-        );
-        view('Frontend.discount.index', $data);
+    //     );
+    //     view('Frontend.discount.index', $data);
         
-    }
+    // }
 }

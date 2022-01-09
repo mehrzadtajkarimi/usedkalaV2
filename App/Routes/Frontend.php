@@ -51,8 +51,8 @@ Route::group(function () {
 
 Route::group(function () {
     Route::get('/product/{id}/{slug}', 'ProductController@show');
-    Route::get('/product/category/{id}/{slug}', 'ProductController@index');
-    Route::get('/product/discounts', 'ProductController@discounts');
+    Route::get('/product/{slug}', 'ProductController@index');
+    // Route::get('/product/discounts', 'ProductController@discounts');
     Route::get('/search', 'ProductController@search');
 });
 
