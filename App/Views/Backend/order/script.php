@@ -132,15 +132,12 @@
                 },
                 success: function(response) {
                     data = JSON.parse(response);
-
-
                     console.log(data);
                     order_tbody.empty();
                     $(data).each(function(key, value) {
                         console.log(value);
                         order_tr.fadeIn(1000).delay(200);
                         if (value['discount_percent']) {
-
                             order_tbody.append(`
                                 <tr>
                                     <td class='text-center'>
@@ -187,6 +184,7 @@
                             `);
                         };
                     });
+
                     var sum = 0;
                     $(data).each(function(key, value) {
                         discount_percent = value['percent'] > 0 ? value['percent'] : 0;
@@ -202,15 +200,11 @@
                     });
                     let created_at = new Date(data[0]['created_at']).toLocaleDateString('fa-IR');
                     console.log(created_at);
-
-
-                    if (discount_percent) {
-
+                    if (discount_percent > 0) {
                         order_tfoot.append(`
                             <tr>
                                 <td colspan="10">
-                                    <div class="row">
-    
+                                    <div class="row">    
                                     <div class="col-3">
                                         <b class='text-muted font-weight-bold d-block'>آدرس : ` + data[0]['address'] + `</b>
                                         <b class='text-muted font-weight-bold d-block'>تاریــخ  : ` + created_at + `</b>
@@ -230,8 +224,7 @@
                         order_tfoot.append(`
                             <tr>
                                 <td colspan="10">
-                                    <div class="row">
-    
+                                    <div class="row">    
                                     <div class="col-3">
                                         <b class='text-muted font-weight-bold d-block'>آدرس : ` + data[0]['address'] + `</b>
                                         <b class='text-muted font-weight-bold d-block'>تاریــخ  : ` + created_at + `</b>
@@ -248,11 +241,8 @@
                             </tr>
                         `);
                     }
-
                 },
             });
-
-
         });
 
 

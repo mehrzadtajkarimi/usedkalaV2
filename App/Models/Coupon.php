@@ -23,35 +23,33 @@ class Coupon extends MysqlBaseModel
     {
         $code = $this->first(['code' => $code]);
 
-        if (is_null($code)) {
-            return false;
-        }
-
-        $start_at = strtotime($code['start_at']) < time();
-        $finish_at = strtotime($code['finish_at']) > time();
+        if ($code) {
+            $start_at  = strtotime($code['start_at']) < time();
+            $finish_at = strtotime($code['finish_at']) > time();
 
 
-        // all products
-        if ($code['all_product'] == 1) {
-            if ($start_at && $finish_at) {
-                return $code;
+            // all products
+            if ($code['all_product'] == 1) {
+                if ($start_at && $finish_at) {
+                    return $code;
+                }
+                return false;
             }
-            return false;
-        }
 
-        // selected products
-        $productCoupons = $this->join_coupon_productCoupons($code['id']);
-        if (isset($productCoupons[0]['product_id']) && $productCoupons[0]['product_id'] != 0) {
+            // selected products
+            $productCoupons = $this->join_coupon_productCoupons($code['id']);
+            if (isset($productCoupons[0]['product_id']) && $productCoupons[0]['product_id'] != 0) {
 
 
-            // check if product is in basket or not return false;
-            // check if by relation product_coupons has coupon_id or product is in basket equal not return false;
+                // check if product is in basket or not return false;
+                // check if by relation product_coupons has coupon_id or product is in basket equal not return false;
 
 
-            if ($start_at && $finish_at) {
-                return $code;
+                if ($start_at && $finish_at) {
+                    return $code;
+                }
+                return false;
             }
-            return false;
         }
 
         return false;

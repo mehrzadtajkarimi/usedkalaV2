@@ -96,10 +96,7 @@ class OrderController extends Controller
                     $results[$key] += ['discount_percent' => $discount_percent];
                 }
             }
-
-
-
-
+            
             if ($discount_coupon && $discount_percent) {
 
                 if ($start_at && $finish_at) {

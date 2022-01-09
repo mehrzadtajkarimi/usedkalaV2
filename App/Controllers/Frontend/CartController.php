@@ -15,11 +15,13 @@ class CartController  extends Controller
 {
 
     private $productModel;
+    private $couponModel;
 
     public function __construct()
     {
         parent::__construct();
         $this->productModel   = new Product;
+        $this->couponModel   = new Coupon;
     }
     public function index()
     {
@@ -170,9 +172,15 @@ class CartController  extends Controller
     public function has_coupon()
     {
         $params = $this->request->params();
+        $code_coupon = $params['has_coupon'];
+        $coupon = $this->couponModel->first(['code' => $code_coupon]);
+
+        // dd($coupon);
+        
         Basket::remove_coupon();
-        if (isset($params['has_coupon'])) {
-            $coupon = (new Coupon())->is_coupon($params['has_coupon']);
+        if (isset($code_coupon )) {
+            // dd($code_coupon);
+            $coupon = (new Coupon())->is_coupon($code_coupon);
         }
 
         if ($coupon) {

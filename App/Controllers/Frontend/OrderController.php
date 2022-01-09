@@ -58,13 +58,16 @@ class OrderController  extends Controller
         $id          = $this->request->get_param('id');
         $order       = $this->orderModel->read_order_by_user_id($user_id, $id);
         $order_items = $this->orderItemModel->read_orderItem_by_order_id($order[0]['id']);
+        // dd($order_items);
         foreach ($order_items as $key => $value) {
             $order_items_info[] = $this->productModel->read_product($value['product_id']);
             $order_items_img[] = $this->photoModel->read_photo_by_id($value['product_id'], 'Product', true);
         }
+
         foreach ($order_items_info as $key => $value) {
-            $order_items[$key]['order_item_name'] = $value['title'];
-            $order_items[$key]['slug'] = $value['slug'];
+            // var_dump($value['title']);
+            $order_items[$key]['order_item_name'] = $value['title'] ?? '';
+            $order_items[$key]['slug'] = $value['slug'] ?? '';
         }
         foreach ($order_items_img as $key => $value) {
             $order_items[$key]['img_path'] = $value[0]['path'];
@@ -147,8 +150,8 @@ class OrderController  extends Controller
                 'weight'         => 'normal',
             );
             $order_id = $this->orderModel->create_order($params_create);
-
-            foreach ($_SESSION['cart'] as $value) {
+            $carts = array_slice($_SESSION['cart'], 0, 1);
+            foreach ($carts as $value) {
                 $single_product_id            = $value['id'];
                 $single_product_quantity      = $value['count'];
                 $single_product_price         = $value['price'];
