@@ -134,7 +134,7 @@
                     data = JSON.parse(response);
 
 
-                    console.log( data);
+                    console.log(data);
                     order_tbody.empty();
                     $(data).each(function(key, value) {
                         console.log(value);
@@ -189,34 +189,65 @@
                     });
                     var sum = 0;
                     $(data).each(function(key, value) {
-                        if (value['discount_percent']) {
+                        discount_percent = value['percent'] > 0 ? value['percent'] : 0;
+                        if (value['discount_percent'] && value['discount_coupon']) {
+                            sum += Number(value['quantity'] * value['discount_coupon']);
+                        } else if (value['discount_percent']) {
                             sum += Number(value['quantity'] * value['discount_percent']);
+                        } else if (value['discount_coupon']) {
+                            sum += Number(value['quantity'] * value['discount_coupon']);
                         } else {
                             sum += Number(value['quantity'] * value['price']);
-                        }
+                        };
                     });
                     let created_at = new Date(data[0]['created_at']).toLocaleDateString('fa-IR');
                     console.log(created_at);
-                    order_tfoot.append(`
-                        <tr>
-                            <td colspan="10">
-                                <div class="row">
 
-                                <div class="col-3">
-                                    <b class='text-muted font-weight-bold d-block'>آدرس : ` + data[0]['address'] + `</b>
-                                    <b class='text-muted font-weight-bold d-block'>تاریــخ  : ` + created_at + `</b>
-                                </div>
-                                    <div class="offset-5"></div>
-                                    <div class="col-2">
-                                        <pre class='text-muted font-weight-bold'>جمع کل</pre>
+
+                    if (discount_percent) {
+
+                        order_tfoot.append(`
+                            <tr>
+                                <td colspan="10">
+                                    <div class="row">
+    
+                                    <div class="col-3">
+                                        <b class='text-muted font-weight-bold d-block'>آدرس : ` + data[0]['address'] + `</b>
+                                        <b class='text-muted font-weight-bold d-block'>تاریــخ  : ` + created_at + `</b>
                                     </div>
-                                    <div class="col-2">
-                                        <pre class='text-muted font-weight-bold'>` + number_format(sum) + `</pre>
+                                        <div class="offset-5"></div>
+                                        <div class="col-2">
+                                            <pre class='text-muted font-weight-bold'> جمع کل + ` + discount_percent + ` تخفیف</pre>
+                                        </div>
+                                        <div class="col-2">
+                                            <pre class='text-muted font-weight-bold'>` + number_format(sum) + `</pre>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                        </tr>
-                    `);
+                                </td>
+                            </tr>
+                        `);
+                    } else {
+                        order_tfoot.append(`
+                            <tr>
+                                <td colspan="10">
+                                    <div class="row">
+    
+                                    <div class="col-3">
+                                        <b class='text-muted font-weight-bold d-block'>آدرس : ` + data[0]['address'] + `</b>
+                                        <b class='text-muted font-weight-bold d-block'>تاریــخ  : ` + created_at + `</b>
+                                    </div>
+                                        <div class="offset-5"></div>
+                                        <div class="col-2">
+                                            <pre class='text-muted font-weight-bold'>جمع کل</pre>
+                                        </div>
+                                        <div class="col-2">
+                                            <pre class='text-muted font-weight-bold'>` + number_format(sum) + `</pre>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        `);
+                    }
 
                 },
             });
