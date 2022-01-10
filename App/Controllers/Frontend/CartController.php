@@ -28,25 +28,25 @@ class CartController  extends Controller
         if (!Auth::is_login()) {
             return $this->request->redirect('');
         }
-        // $cart_items = Basket::reset();
-        $cart_items = Basket::items();
+        $coupon = 0;
+        $cart_coupon = false;
+        $exist_coupon = false;
+        $exist_discount = false;
 
         $products_is_discounts = $this->productModel->join_product__with_productDiscounts_discounts() ?? [];
-        $percent = $cart_items['percent'] ?? false;
 
-
-        $coupon = 0;
-        $exist_coupon = false;
+        $percent = $_SESSION['cart_percent'] ?? false;
+        // $cart_items = Basket::reset();
+        $cart_items = Basket::items();
+        // dd($cart_items);
         if ($percent) {
-            $start_at  = strtotime($cart_items['percent']['start_at']) < time();
-            $finish_at = strtotime($cart_items['percent']['finish_at']) > time();
-            $coupon    = $cart_items['percent']['percent'];
-            // unset($cart_items['percent']);
-            $cart_items =array_slice($cart_items,0,1);
+            $start_at  = strtotime($_SESSION['cart_percent']['start_at']) < time();
+            $finish_at = strtotime($_SESSION['cart_percent']['finish_at']) > time();
+            $coupon    = $_SESSION['cart_percent']['percent'];
             if ($start_at && $finish_at) {
-                $exist_coupon = $coupon;  // $coupon = $cart_items['percent']['percent'];
+                $cart_coupon = $coupon;  // $coupon = $cart_items['percent']['percent'];
             } else {
-                $exist_coupon = false;
+                $cart_coupon = false;
             }
         }
 
@@ -56,24 +56,31 @@ class CartController  extends Controller
             }
         }
 
-		if (!isset($discounts) || !is_array($discounts)) $discounts=[];
-		
+        if (!isset($discounts) || !is_array($discounts)) $discounts = [];
+
         foreach ($cart_items as $value) {
-            $exist_discount = in_array($value['id'], array_keys($discounts));
-            if ($exist_discount && $exist_coupon) {
+            $cart_discount = in_array($value['id'], array_keys($discounts));
+            if ($cart_discount && $cart_coupon) {
                 // discount exist  and  coupon exist
                 $price_discount = ($value['price'] - (($discounts[$value['id']] / 100) * $value['price']));
                 $cart_total[$value['id']] = $value['count'] * ($price_discount - (($coupon / 100) * $price_discount));
-            } else if ($exist_discount && !$exist_coupon) {
+                $exist_discount = true;
+                $exist_coupon = true;
+            } else if ($cart_discount && !$cart_coupon) {
                 // discount exist  and  coupon not exist
                 $cart_total[$value['id']] = $value['count'] * ($value['price'] - (($discounts[$value['id']] / 100) * $value['price']));
-            } else if (!$exist_discount && $exist_coupon) {
+                $exist_discount = true;
+                $exist_coupon = false;
+            } else if (!$cart_discount && $cart_coupon) {
                 // discount not exist  and  coupon exist
                 $cart_total[$value['id']] = $value['count'] * ($value['price'] - (($coupon / 100) * $value['price']));
+                $exist_discount = false;
+                $exist_coupon = true;
             } else {
                 // discount not exist  and  coupon not exist
                 $cart_total[$value['id']] = ($value['count'] *  $value['price']);
             }
+            $cart_total_real[$value['id']] = ($value['count'] *  $value['price']);
         }
 
         foreach ($cart_items as  $value) {
@@ -84,10 +91,13 @@ class CartController  extends Controller
             Request::redirect('');
         }
 
-        
-		$data = [
+
+        $data = [
             'cart_total'            => array_sum($cart_total ?? []),
-            'cart_coupon'           => $exist_coupon ?? 0,
+            'cart_total_real'       => array_sum($cart_total_real ?? []),
+            'exist_discount'        => $exist_discount,
+            'exist_coupon'          => $exist_coupon,
+            'cart_coupon'           => $cart_coupon,
             'cart_items'            => $cart_items,
             'discounts'             => $discounts,
             'home_page_active_menu' => "page home page-template-default"
@@ -107,6 +117,11 @@ class CartController  extends Controller
         $params     = $this->request->params();
         $product    = $this->productModel->first(['id' => $product_id]);
 
+        if (!$product) {
+            FlashMessage::add("محصولی با این مشخصات یافت نشد", FlashMessage::ERROR);
+            Request::redirect('');
+        }
+
         if (isset($params['product_quantity'])) {
             $product['product_quantity'] = $params['product_quantity'];
         } else {
@@ -118,9 +133,28 @@ class CartController  extends Controller
             $product['photo_path'] = $this->productModel->join_product_to_photo_by_id($product_id);
             $product['photo_path'] = $product['photo_path'][0]['path'];
         }
-        if ($product) {
-            Basket::add($product);
+
+        // dd($product);
+        $product_added = [
+            'id'               => $product['id'],
+            'title'            => $product['title'],
+            'title_english'    => $product['title_english'],
+            'price'            => $product['price'],
+            'product_quantity' => $product['product_quantity'],
+            'count'            => $product['count'],
+            'photo_path'       => $product['photo_path'],
+            'weight'           => $product['weight'],
+            'status'           => $product['status'],
+            'status_related'   => $product['status_related']
+        ];
+
+
+        if ($product_added) {
+            Basket::add($product_added);
         }
+        // if ($product) {
+        //     Basket::add($product);
+        // }
         Request::redirect('cart');
     }
 
@@ -176,15 +210,15 @@ class CartController  extends Controller
         $coupon = $this->couponModel->first(['code' => $code_coupon]);
 
         // dd($coupon);
-        
+
         Basket::remove_coupon();
-        if (isset($code_coupon )) {
+        if (isset($code_coupon)) {
             // dd($code_coupon);
             $coupon = (new Coupon())->is_coupon($code_coupon);
         }
 
         if ($coupon) {
-            $has_coupon = Basket::add_coupon($coupon['id'],$coupon['percent'], $coupon['start_at'], $coupon['finish_at']);
+            $has_coupon = Basket::add_coupon($coupon['id'], $coupon['percent'], $coupon['start_at'], $coupon['finish_at']);
             if ($has_coupon) {
                 FlashMessage::add("کد تخفیف با موفقیت ثبت شد");
                 Request::redirect('cart');

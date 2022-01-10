@@ -111,15 +111,38 @@
                                                         <tr class="cart-subtotal">
                                                             <th>مجموع سبد خرید:</th>
                                                             <td data-title="Subtotal">
-                                                                <span class="woocommerce-Price-amount amount"><?= number_format($cart_total) ?> ریال</span>
+                                                                <span class="woocommerce-Price-amount amount"><?= number_format($cart_total_real) ?> ریال</span>
                                                             </td>
                                                         </tr>
-                                                        <tr class="cart-subtotal">
-                                                            <th> تخفیفات :</th>
-                                                            <td data-title="Subtotal">
-                                                                <span class="woocommerce-Price-amount amount subtotal"><?=  $cart_coupon ? $cart_coupon .'%':'0 ریال' ?></span>
-                                                            </td>
-                                                        </tr>
+                                                        <?php if ($exist_coupon && $exist_discount) : ?>
+                                                            <tr class="cart-subtotal">
+                                                                <th> کد تخفیف :</th>
+                                                                <td data-title="Subtotal">
+                                                                    <span class="woocommerce-Price-amount amount subtotal"><?= $cart_coupon . '%' ?></span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr class="cart-subtotal">
+                                                                <th> تخفیف محصول :</th>
+                                                                <td data-title="Subtotal">
+                                                                    <span class="woocommerce-Price-amount amount subtotal"><?= $discounts[$value['id']] . '%' ?></span>
+                                                                </td>
+                                                            </tr>
+                                                        <?php elseif ($exist_coupon) : ?>
+
+                                                            <tr class="cart-subtotal">
+                                                                <th> کد تخفیف :</th>
+                                                                <td data-title="Subtotal">
+                                                                    <span class="woocommerce-Price-amount amount subtotal"><?= $cart_coupon . '%' ?></span>
+                                                                </td>
+                                                            </tr>
+                                                        <?php elseif ($exist_discount) : ?>
+                                                            <tr class="cart-subtotal">
+                                                                <th> تخفیف محصول :</th>
+                                                                <td data-title="Subtotal">
+                                                                    <span class="woocommerce-Price-amount amount subtotal"><?= $discounts[$value['id']] . '%' ?></span>
+                                                                </td>
+                                                            </tr>
+                                                        <?php endif; ?>
                                                         <tr>
                                                             <th>هزینه ارسال:</th>
                                                             <td data-title="Shipping">۰ ریال</td>
@@ -128,6 +151,18 @@
                                                             <th>هزینه بسته بندی:</th>
                                                             <td data-title="Shipping">۰ ریال</td>
                                                         </tr>
+                                                            <tr class="text-muted">
+                                                                <small>
+                                                                    <th> مجموع سود شما از خرید:</th>
+                                                                    <td data-title="Total">
+                                                                        <strong>
+                                                                            <span class="woocommerce-Price-amount amount"><?= number_format($cart_total_real - $cart_total ) ?> ریال</span>
+                                                                        </strong>
+                                                                    </td>
+                                                                </small>
+                                                            </tr>
+
+
                                                         <tr class="order-total">
                                                             <th>مجموع کل:</th>
                                                             <td data-title="Total">
@@ -157,13 +192,13 @@
                                         <!-- .cart-collaterals -->
                                     </form>
                                     <form action="<?= base_url() ?>cart/has_coupon" method="post">
-                                    <div class="card border-0" style="background-color: #f9f9f9;">
-                                        <div class="card-body pt-4 pl-5 pr-5">
-                                            <p class="card-text">
+                                        <div class="card border-0" style="background-color: #f9f9f9;">
+                                            <div class="card-body pt-4 pl-5 pr-5">
+                                                <p class="card-text">
 
                                                 <div class="row">
                                                     <div class="col-2">
-                                                        <p>  کد تخفیف :</p>
+                                                        <p> کد تخفیف :</p>
                                                     </div>
                                                     <div class="col-7">
                                                         <div class="form-group">
@@ -174,9 +209,9 @@
                                                         <button type='submit' class='btn btn-block bg-dark text-white'> بـررسـی کـد</button>
                                                     </div>
                                                 </div>
-                                            </p>
+                                                </p>
+                                            </div>
                                         </div>
-                                    </div>
                                     </form>
                                 </div>
                                 <!-- .cart-wrapper -->
