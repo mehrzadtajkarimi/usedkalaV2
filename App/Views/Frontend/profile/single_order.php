@@ -66,8 +66,8 @@
                         <div>
                             <span>تعداد اقلام سفارش: </span><span class="woocommerce-Price-amount amount"><?= $value['item_count'] ?></span>
                         </div>
-                        <div>
-                            <span>مبلغ کل سفارش: </span><span class="woocommerce-Price-amount amount"><?= number_format($value['grand_total']) ?> ریال</span>
+                        <div class="text-danger">
+                            <b>مبلغ کل سفارش: </b><b class="woocommerce-Price-amount amount"><?= number_format($value['grand_total']) ?> ریال</b>
                         </div>
                         <div>
                             <span>تخفیف کل سفارش: </span><span class="woocommerce-Price-amount amount"><?= number_format($value['discount_total']) ?> ریال</span>
@@ -119,7 +119,7 @@
                                     </td>
                                     <td class="text-center">
                                         <span class="woocommerce-Price-amount amount">
-                                            <?= number_format($value['discount']) ?> ریال
+                                            <?= number_format($value['price'] * $value['quantity']) ?> ریال
                                         </span>
                                     </td>
                                     <td class="text-center">

@@ -11,6 +11,7 @@ use App\Models\Photo;
 use App\Models\Province;
 use App\Models\Product;
 use App\Services\Auth\Auth;
+use App\Services\Basket\Basket;
 use App\Utilities\FlashMessage;
 use App\Services\Session\SessionManager;
 
@@ -63,7 +64,6 @@ class OrderController  extends Controller
             $order_items_info[] = $this->productModel->read_product($value['product_id']);
             $order_items_img[] = $this->photoModel->read_photo_by_id($value['product_id'], 'Product', true);
         }
-
         foreach ($order_items_info as $key => $value) {
             // var_dump($value['title']);
             $order_items[$key]['order_item_name'] = $value['title'] ?? '';
@@ -150,12 +150,14 @@ class OrderController  extends Controller
                 'weight'         => 'normal',
             );
             $order_id = $this->orderModel->create_order($params_create);
-            $carts = array_slice($_SESSION['cart'], 0, 1);
+            $carts = Basket::items();
+
+            // dd($carts);
             foreach ($carts as $value) {
                 $single_product_id            = $value['id'];
                 $single_product_quantity      = $value['count'];
                 $single_product_price         = $value['price'];
-                $single_product_discount      = 0;
+                $single_product_discount      = $value['grand_total'];
                 $single_product_params_create = [
                     'order_id'   => $order_id,
                     'product_id' => $single_product_id,

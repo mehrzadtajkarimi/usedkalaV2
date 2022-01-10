@@ -11,7 +11,7 @@
 
 
               <!-- Button trigger modal -->
-              
+
               <div class="row">
                 <div class="col-8">
                   <span type="button" class="btn" data-toggle="modal" data-target="#form-modal-edit-photo" title="جهت ویرایش کلیک کتید">
