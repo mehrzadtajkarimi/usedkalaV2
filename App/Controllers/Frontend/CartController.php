@@ -59,7 +59,7 @@ class CartController  extends Controller
         if (!isset($discounts) || !is_array($discounts)) $discounts = [];
 
         foreach ($cart_items as $value) {
-            $cart_discount = in_array($value['id'], array_keys($discounts));
+            $cart_discount = array_key_exists($value['id'], $discounts);
             if ($cart_discount && $cart_coupon) {
                 // discount exist  and  coupon exist
                 $price_discount = ($value['price'] - (($discounts[$value['id']] / 100) * $value['price']));
@@ -81,28 +81,41 @@ class CartController  extends Controller
             $cart_total_real[$value['id']] = ($value['count'] *  $value['price']);
         }
 
-        foreach ($cart_items as $value) {
-            $cart_discount = in_array($value['id'], array_keys($discounts));
-            if ($cart_discount && $cart_coupon) {
-                // discount exist  and  coupon exist
-                $exist_discount = true;
-                $exist_coupon = true;
-                break;
-            } else if ($cart_discount && !$cart_coupon) {
-                // discount exist  and  coupon not exist
-                $exist_discount = true;
-                $exist_coupon = false;
-                break;
-            } else if (!$cart_discount && $cart_coupon) {
-                // discount not exist  and  coupon exist
-                $exist_discount = false;
-                $exist_coupon = true;
-                break;
-            }
-            // discount not exist  and  coupon not exist
+
+
+
+        $id_items = array_column($cart_items, 'id');
+        $id_discounts = array_keys($discounts);
+
+        $id_items__exist__id_discounts = array_diff($id_items, $id_discounts);
+        $count_cart_item = count($id_items);
+        $count_diff__items_and_discounts = count($id_items__exist__id_discounts);
+
+
+        if ($count_cart_item == $count_diff__items_and_discounts || $count_cart_item >= $count_diff__items_and_discounts ) {
+            $is_discounts = true ;
         }
 
-        // dd($cart_items,$exist_coupon,$exist_discount,array_keys($discounts));
+
+
+
+        if ($is_discounts && $cart_coupon) {
+            // discount exist  and  coupon exist
+            $exist_discount = true;
+            $exist_coupon = true;
+        } else if ($is_discounts && !$cart_coupon) {
+            // discount exist  and  coupon not exist
+            $exist_discount = true;
+            $exist_coupon = false;
+        } else if (!$is_discounts && $cart_coupon) {
+            // discount not exist  and  coupon exist
+            $exist_discount = false;
+            $exist_coupon = true;
+        }
+
+
+
+
         foreach ($cart_items as  $value) {
             Basket::add_grand_total($value['id'], $cart_total[$value['id']]);
         }
