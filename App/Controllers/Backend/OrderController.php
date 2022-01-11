@@ -6,14 +6,11 @@ use App\Controllers\Controller;
 use App\Models\Coupon;
 use App\Models\Order;
 use App\Models\Order_Item;
-use App\Models\OrderItem;
 use App\Models\Photo;
 use App\Models\Product;
 use App\Models\User;
 use App\Services\Auth\Auth;
-use App\Services\Basket\Basket;
-use App\Services\Upload\UploadedFile;
-use App\Utilities\FlashMessage;
+
 
 class OrderController extends Controller
 {
@@ -96,14 +93,14 @@ class OrderController extends Controller
                     $results[$key] += ['discount_percent' => $discount_percent];
                 }
             }
-            
+
             if ($discount_coupon && $discount_percent) {
 
                 if ($start_at && $finish_at) {
-                    $coupon_price__mines__discount_price =   ($discount_percent- (($discount_coupon['percent'] / 100) * $discount_percent));
+                    $coupon_price__mines__discount_price =   ($discount_percent - (($discount_coupon['percent'] / 100) * $discount_percent));
 
                     $results[$key] += ['percent' => $discount_coupon['percent']];
-                    $results[$key] += ['discount_coupon' =>   $coupon_price__mines__discount_price ];
+                    $results[$key] += ['discount_coupon' =>   $coupon_price__mines__discount_price];
                 }
             }
             if ($discount_coupon) {
@@ -112,10 +109,29 @@ class OrderController extends Controller
                     $coupon_price =  $value['quantity'] * ($value['price'] - (($discount_coupon['percent'] / 100) * $value['price']));
 
                     $results[$key] += ['percent' => $discount_coupon['percent']];
-                    $results[$key] += ['discount_coupon' =>   $coupon_price ];
+                    $results[$key] += ['discount_coupon' =>   $coupon_price];
                 }
             }
+
+            // if ($results[$key]['discount_percent'] && $results[$key]['discount_coupon']) {
+            //     // discount exist  and  coupon exist
+            //     $results[$key]['exist_discount'] = '1';
+            //     $results[$key]['exist_coupon'] = '1';
+            // } else if ($results[$key]['discount_percent'] && !$results[$key]['discount_coupon']) {
+            //     // discount exist  and  coupon not exist
+            //     $results[$key]['exist_discount'] = '1';
+            //     $results[$key]['exist_coupon']  = '0';
+            // } else if (!$results[$key]['discount_percent'] && $results[$key]['discount_coupon']) {
+            //     // discount not exist  and  coupon exist
+            //     $results[$key]['exist_discount'] = '0';
+            //     $results[$key]['exist_coupon'] = '1';
+            // }else{
+            //     $results[$key]['exist_discount'] = '0';
+            //     $results[$key]['exist_coupon'] = '0';
+            // }
         }
+
+
 
         echo json_encode($results);
     }

@@ -60,9 +60,9 @@ class SessionProvider implements BasketContract
             unset($_SESSION['cart'][$item_id]);
             // unset($_SESSION['cart']['percent']);
         }
-        // if (count($_SESSION['cart'][$item_id]) == 0) {
-        //     unset($_SESSION['cart']['percent']);
-        // }
+        if (count($_SESSION['cart']) == 0) {
+            unset($_SESSION['cart_percent']);
+        }
     }
 
     public function add_coupon(int $coupon_id,int $percent, $start_at, $finish_at): array
@@ -76,8 +76,8 @@ class SessionProvider implements BasketContract
     }
     public function remove_coupon()
     {
-        if (isset($_SESSION['cart']['percent'])) {
-            unset($_SESSION['cart']['percent']);
+        if (isset($_SESSION['cart_percent'])) {
+            unset($_SESSION['cart_percent']);
         }
     }
 
