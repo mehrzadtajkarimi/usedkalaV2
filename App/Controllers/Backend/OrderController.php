@@ -105,6 +105,7 @@ class OrderController extends Controller
             }
             if ($discount_coupon) {
 
+                dd('dd');
                 if ($start_at && $finish_at) {
                     $coupon_price =  $value['quantity'] * ($value['price'] - (($discount_coupon['percent'] / 100) * $value['price']));
 

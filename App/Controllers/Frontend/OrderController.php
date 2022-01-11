@@ -133,7 +133,7 @@ class OrderController  extends Controller
             }
             $params_create = array(
                 'user_id'        => $user_id,
-                'coupon_id'      => $_SESSION['cart']['percent']['coupon_id'] ?? 0,
+                'coupon_id'      => $_SESSION['cart_percent']['coupon_id'] ?? 0,
                 'user_full_name' => $user_info['first_name'] . " " . $user_info['last_name'],
                 'user_phone'     => $user_info['phone'],
                 'city_id'        => $user_info['city_id'],
@@ -170,6 +170,7 @@ class OrderController  extends Controller
             if (!empty($order_item_id)) {
                 FlashMessage::add("ثبت سفارش با موفقیت انجام شد");
                 unset($_SESSION['cart']);
+                unset($_SESSION['cart_percent']);
             } else {
                 FlashMessage::add(" مشکلی در ثبت سفارش رخ داد ", FlashMessage::ERROR);
             }

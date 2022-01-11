@@ -92,9 +92,11 @@ class CartController  extends Controller
         $count_diff__items_and_discounts = count($id_items__exist__id_discounts);
 
 
-        if ($count_cart_item == $count_diff__items_and_discounts || $count_cart_item >= $count_diff__items_and_discounts ) {
-            $is_discounts = true ;
+        $is_discounts =false;
+        if ($count_cart_item > $count_diff__items_and_discounts) {
+            $is_discounts = true;
         }
+        // dd($is_discounts,$count_diff__items_and_discounts);
 
 
 
@@ -124,13 +126,12 @@ class CartController  extends Controller
             Request::redirect('');
         }
 
-
         $data = [
             'cart_total'            => array_sum($cart_total ?? []),
             'cart_total_real'       => array_sum($cart_total_real ?? []),
             'cart_total_discount'   => array_sum($cart_total_discount ?? []),
-            'exist_discount'        => $exist_discount,
-            'exist_coupon'          => $exist_coupon,
+            'exist_discount'        => $exist_discount ?? false,
+            'exist_coupon'          => $exist_coupon ?? false,
             'cart_coupon'           => $cart_coupon,
             'cart_items'            => $cart_items,
             'discounts'             => $discounts ?? [],

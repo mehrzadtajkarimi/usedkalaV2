@@ -188,14 +188,20 @@
                     var sum = 0;
                     $(data).each(function(key, value) {
                         discount_percent = value['percent'] > 0 ? value['percent'] : 0;
+
                         if (value['discount_percent'] && value['discount_coupon']) {
                             sum += Number(value['quantity'] * value['discount_coupon']);
                         } else if (value['discount_percent']) {
+                            console.log(value['discount_coupon']);
+
                             sum += Number(value['quantity'] * value['discount_percent']);
                         } else if (value['discount_coupon']) {
+
                             sum += Number(value['quantity'] * value['discount_coupon']);
                         } else {
+
                             sum += Number(value['quantity'] * value['price']);
+
                         };
                     });
                     let created_at = new Date(data[0]['created_at']).toLocaleDateString('fa-IR');
