@@ -40,14 +40,17 @@ class OrderController  extends Controller
     public function index()
     {
         $user_id = SessionManager::get('auth');
+        $orders =$this->orderModel->read_order_by_user_id($user_id) ;
+
+
 
         if (Auth::is_login()) {
             $data = array(
                 'data'       => $this->userModel->join_user_to_photo($user_id),
+                'orders'     => $orders,
                 'cart_total' => array_sum($cart_total ?? []),
-                'orders'     => $this->orderModel->read_order_by_user_id($user_id)
             );
-            return view('Frontend.profile.orders', $data);
+            return view('Frontend.order.orders', $data);
         }
 
         return $this->request->redirect('login');
@@ -59,13 +62,30 @@ class OrderController  extends Controller
         $id          = $this->request->get_param('id');
         $order       = $this->orderModel->read_order_by_user_id($user_id, $id);
         $order_items = $this->orderItemModel->read_orderItem_by_order_id($order[0]['id']);
-        // dd($order_items);
+        $products_is_discounts = $this->productModel->join_product__with_productDiscounts_discounts() ?? [];
+
+
+
+
+        foreach ($products_is_discounts as  $value) {
+            if ($value['discount_status']) {
+                $discounts[$value['product_id']] = $value['discount_percent'];
+            }
+        }
+
+
+        // dd($order_items ,$discounts);
         foreach ($order_items as $key => $value) {
             $order_items_info[] = $this->productModel->read_product($value['product_id']);
             $order_items_img[] = $this->photoModel->read_photo_by_id($value['product_id'], 'Product', true);
+            
+            if (array_key_exists($value['product_id'], $discounts)) {
+                $order_items[$key]['discount'] = $value['quantity'] * ($value['price'] - (($discounts[$value['product_id']] / 100) * $value['price']));
+            }
         }
         foreach ($order_items_info as $key => $value) {
             // var_dump($value['title']);
+
             $order_items[$key]['order_item_name'] = $value['title'] ?? '';
             $order_items[$key]['slug'] = $value['slug'] ?? '';
         }
@@ -82,7 +102,7 @@ class OrderController  extends Controller
                 'city'        => $this->cityModel->read_city($order[0]['city_id']),
                 'province'    => $this->provinceModel->read_province($order[0]['province_id']),
             );
-            return view('Frontend.profile.single_order', $data);
+            return view('Frontend.order.single_order', $data);
         }
     }
 

@@ -29,7 +29,7 @@ class OrderController extends Controller
         $this->orderItemModel = new Order_Item();
         $this->userModel      = new User();
         $this->productModel   = new Product();
-        $this->couponModel   = new Coupon();
+        $this->couponModel    = new Coupon();
     }
 
     public function index()
@@ -74,9 +74,6 @@ class OrderController extends Controller
         $products_is_discounts = $this->productModel->join_product__with_productDiscounts_discounts() ?? [];
 
 
-
-
-
         foreach ($results as $key =>  $value) {
 
             $discount_coupon = $value['coupon_id'] > 0 ? $this->couponModel->read_coupon($value['coupon_id']) : false;
@@ -105,7 +102,6 @@ class OrderController extends Controller
             }
             if ($discount_coupon) {
 
-                dd('dd');
                 if ($start_at && $finish_at) {
                     $coupon_price =  $value['quantity'] * ($value['price'] - (($discount_coupon['percent'] / 100) * $value['price']));
 
@@ -114,22 +110,6 @@ class OrderController extends Controller
                 }
             }
 
-            // if ($results[$key]['discount_percent'] && $results[$key]['discount_coupon']) {
-            //     // discount exist  and  coupon exist
-            //     $results[$key]['exist_discount'] = '1';
-            //     $results[$key]['exist_coupon'] = '1';
-            // } else if ($results[$key]['discount_percent'] && !$results[$key]['discount_coupon']) {
-            //     // discount exist  and  coupon not exist
-            //     $results[$key]['exist_discount'] = '1';
-            //     $results[$key]['exist_coupon']  = '0';
-            // } else if (!$results[$key]['discount_percent'] && $results[$key]['discount_coupon']) {
-            //     // discount not exist  and  coupon exist
-            //     $results[$key]['exist_discount'] = '0';
-            //     $results[$key]['exist_coupon'] = '1';
-            // }else{
-            //     $results[$key]['exist_discount'] = '0';
-            //     $results[$key]['exist_coupon'] = '0';
-            // }
         }
 
 
@@ -146,16 +126,16 @@ class OrderController extends Controller
 
         if ($status == 2) {
             $result = $this->orderModel->update_order([
-                'handler_id' =>  $admin_id,
-                'status' =>  2,
+                'handler_id' => $admin_id,
+                'status'     => 2,
             ], $order_id);
             echo  $result;
         }
 
         if ($status == 3) {
             $result = $this->orderModel->update_order([
-                'sender_id' =>  $admin_id,
-                'status' =>  3,
+                'sender_id' => $admin_id,
+                'status'    => 3,
             ], $order_id);
             echo  $result;
         }

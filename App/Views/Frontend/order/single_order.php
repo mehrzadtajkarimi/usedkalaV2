@@ -119,7 +119,7 @@
                                     </td>
                                     <td class="text-center">
                                         <span class="woocommerce-Price-amount amount">
-                                            <?= number_format($value['price'] * $value['quantity']) ?> ریال
+                                            <?= number_format($value['discount']) ?> ریال
                                         </span>
                                     </td>
                                     <td class="text-center">
