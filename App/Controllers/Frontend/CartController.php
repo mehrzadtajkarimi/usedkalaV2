@@ -66,31 +66,40 @@ class CartController  extends Controller
                 $cart_total[$value['id']] = $value['count'] * ($price_discount - (($coupon / 100) * $price_discount));
 
                 $cart_total_discount[$value['id']] = $value['count'] * ($value['price'] * ($discounts[$value['id']] / 100));
-
-                $exist_discount = true;
-                $exist_coupon = true;
-
             } else if ($cart_discount && !$cart_coupon) {
                 // discount exist  and  coupon not exist
                 $cart_total[$value['id']] = $value['count'] * ($value['price'] - (($discounts[$value['id']] / 100) * $value['price']));
 
                 $cart_total_discount[$value['id']] = $value['count'] * ($value['price'] * ($discounts[$value['id']] / 100));
-
-                $exist_discount = true;
-                $exist_coupon = false;
-
             } else if (!$cart_discount && $cart_coupon) {
                 // discount not exist  and  coupon exist
                 $cart_total[$value['id']] = $value['count'] * ($value['price'] - (($coupon / 100) * $value['price']));
-
-                $exist_discount = false;
-                $exist_coupon = true;
-
             } else {
                 // discount not exist  and  coupon not exist
                 $cart_total[$value['id']] = ($value['count'] *  $value['price']);
             }
             $cart_total_real[$value['id']] = ($value['count'] *  $value['price']);
+        }
+        foreach ($cart_items as $value) {
+            $cart_discount = in_array($value['id'], array_keys($discounts));
+            if ($cart_discount && $cart_coupon) {
+                // discount exist  and  coupon exist
+                $exist_discount = true;
+                $exist_coupon = true;
+                break;
+            } else if ($cart_discount && !$cart_coupon) {
+                // discount exist  and  coupon not exist
+                $exist_discount = true;
+                $exist_coupon = false;
+                break;
+            } else if (!$cart_discount && $cart_coupon) {
+                // discount not exist  and  coupon exist
+                $exist_discount = false;
+                $exist_coupon = true;
+                break;
+            }
+            // discount not exist  and  coupon not exist
+            break;
         }
 
         foreach ($cart_items as  $value) {
@@ -110,7 +119,7 @@ class CartController  extends Controller
             'exist_coupon'          => $exist_coupon,
             'cart_coupon'           => $cart_coupon,
             'cart_items'            => $cart_items,
-            'discounts'             => $discounts??[],
+            'discounts'             => $discounts ?? [],
             'home_page_active_menu' => "page home page-template-default"
         ];
 

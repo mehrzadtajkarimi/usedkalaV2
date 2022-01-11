@@ -115,6 +115,7 @@
                                                             </td>
                                                         </tr>
                                                         <?php if ($exist_coupon && $exist_discount) : ?>
+                                                            dd
                                                             <tr class="cart-subtotal">
                                                                 <th> کد تخفیف :</th>
                                                                 <td data-title="Subtotal">
