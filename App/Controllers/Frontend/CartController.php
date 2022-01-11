@@ -80,6 +80,7 @@ class CartController  extends Controller
             }
             $cart_total_real[$value['id']] = ($value['count'] *  $value['price']);
         }
+
         foreach ($cart_items as $value) {
             $cart_discount = in_array($value['id'], array_keys($discounts));
             if ($cart_discount && $cart_coupon) {
@@ -99,9 +100,9 @@ class CartController  extends Controller
                 break;
             }
             // discount not exist  and  coupon not exist
-            break;
         }
 
+        // dd($cart_items,$exist_coupon,$exist_discount,array_keys($discounts));
         foreach ($cart_items as  $value) {
             Basket::add_grand_total($value['id'], $cart_total[$value['id']]);
         }
