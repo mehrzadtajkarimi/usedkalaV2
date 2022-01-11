@@ -124,7 +124,7 @@
                                                             <tr class="cart-subtotal">
                                                                 <th> تخفیف محصول :</th>
                                                                 <td data-title="Subtotal">
-                                                                    <span class="woocommerce-Price-amount amount subtotal"><?= $discounts[$value['id']] . '%' ?></span>
+                                                                    <span class="woocommerce-Price-amount amount subtotal"><?=  number_format($cart_total_discount ) ?></span>
                                                                 </td>
                                                             </tr>
                                                         <?php elseif ($exist_coupon) : ?>
@@ -139,7 +139,7 @@
                                                             <tr class="cart-subtotal">
                                                                 <th> تخفیف محصول :</th>
                                                                 <td data-title="Subtotal">
-                                                                    <span class="woocommerce-Price-amount amount subtotal"><?= $discounts[$value['id']] . '%' ?></span>
+                                                                    <span class="woocommerce-Price-amount amount subtotal"><?= number_format($cart_total_discount)   ?></span>
                                                                 </td>
                                                             </tr>
                                                         <?php endif; ?>

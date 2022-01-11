@@ -64,18 +64,28 @@ class CartController  extends Controller
                 // discount exist  and  coupon exist
                 $price_discount = ($value['price'] - (($discounts[$value['id']] / 100) * $value['price']));
                 $cart_total[$value['id']] = $value['count'] * ($price_discount - (($coupon / 100) * $price_discount));
+
+                $cart_total_discount[$value['id']] = $value['count'] * ($value['price'] * ($discounts[$value['id']] / 100));
+
                 $exist_discount = true;
                 $exist_coupon = true;
+
             } else if ($cart_discount && !$cart_coupon) {
                 // discount exist  and  coupon not exist
                 $cart_total[$value['id']] = $value['count'] * ($value['price'] - (($discounts[$value['id']] / 100) * $value['price']));
+
+                $cart_total_discount[$value['id']] = $value['count'] * ($value['price'] * ($discounts[$value['id']] / 100));
+
                 $exist_discount = true;
                 $exist_coupon = false;
+
             } else if (!$cart_discount && $cart_coupon) {
                 // discount not exist  and  coupon exist
                 $cart_total[$value['id']] = $value['count'] * ($value['price'] - (($coupon / 100) * $value['price']));
+
                 $exist_discount = false;
                 $exist_coupon = true;
+
             } else {
                 // discount not exist  and  coupon not exist
                 $cart_total[$value['id']] = ($value['count'] *  $value['price']);
@@ -95,11 +105,12 @@ class CartController  extends Controller
         $data = [
             'cart_total'            => array_sum($cart_total ?? []),
             'cart_total_real'       => array_sum($cart_total_real ?? []),
+            'cart_total_discount'   => array_sum($cart_total_discount ?? []),
             'exist_discount'        => $exist_discount,
             'exist_coupon'          => $exist_coupon,
             'cart_coupon'           => $cart_coupon,
             'cart_items'            => $cart_items,
-            'discounts'             => $discounts,
+            'discounts'             => $discounts??[],
             'home_page_active_menu' => "page home page-template-default"
         ];
 
