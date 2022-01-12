@@ -49,7 +49,7 @@
                             <span>شماره سفارش: </span><span><?= $value['order_number'] ?></span>
                         </div>
                         <div>
-                            <h6>اطلاعات  تحویل گیرنده سفارش</h6>
+                            <h6>اطلاعات تحویل گیرنده سفارش</h6>
                             <div>
                                 <span>نام و نام خانوادگی: </span><span><?= $value['user_full_name'] ?></span>
                             </div>
@@ -107,16 +107,40 @@
                                             <?= number_format($value['quantity']) ?>
                                         </span>
                                     </td>
-                                    <td class="text-center">
-                                        <span class="woocommerce-Price-amount amount">
-                                            <?= number_format($value['price']) ?> ریال
-                                        </span>
-                                    </td>
-                                    <td class="text-center">
-                                        <span class="woocommerce-Price-amount amount">
-                                            <?= number_format($value['price'] * $value['quantity']) ?> ریال
-                                        </span>
-                                    </td>
+                                    <?php if (!empty($value['discount_code'])) : ?>
+
+                                        <td class="text-center">
+                                            <div>
+                                                <small>
+                                                    <del class="text-danger">
+                                                        <?= number_format($value['price']) ?>
+                                                    </del>
+                                                </small>
+                                                <div class="woocommerce-Price-amount amount">
+                                                    <?= number_format($value['discount_code'] ) ?>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    <?php else : ?>
+                                        <td class="text-center">
+                                            <span class="woocommerce-Price-amount amount">
+                                                <?= number_format($value['price']) ?> ریال
+                                            </span>
+                                        </td>
+                                    <?php endif; ?>
+                                    <?php if (!empty($value['discount_code'])) : ?>
+                                        <td class="text-center">
+                                            <span class="woocommerce-Price-amount amount">
+                                                <?= number_format($value['discount_code'] * $value['quantity']) ?> ریال
+                                            </span>
+                                        </td>
+                                    <?php else : ?>
+                                        <td class="text-center">
+                                            <span class="woocommerce-Price-amount amount">
+                                                <?= number_format($value['price'] * $value['quantity']) ?> ریال
+                                            </span>
+                                        </td>
+                                    <?php endif; ?>
                                     <td class="text-center">
                                         <span class="woocommerce-Price-amount amount">
                                             <?= number_format($value['discount']) ?> ریال
