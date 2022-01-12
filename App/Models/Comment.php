@@ -19,12 +19,12 @@ class Comment extends MysqlBaseModel
         }
         return $this->find_by_id($id);
     }
-    public function read_comment__by__user_id_entity_type($user_id, $entity_type, $entity_id = false)
+    public function read_comment__by__user_id_entity_type($user_id, $entity_type, $id = false)
     {
-        if ($entity_id) {
+        if ($id) {
             return $this->get_all([
+                'id'          => $id,
                 'user_id'     => $user_id,
-                'entity_id'   => $entity_id,
                 'entity_type' => $entity_type,
             ]) ?? false;
         }

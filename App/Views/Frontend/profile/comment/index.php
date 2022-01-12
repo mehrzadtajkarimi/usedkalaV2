@@ -59,10 +59,16 @@
                 <?php foreach ($comments as $value) : ?>
                   <tr>
                     <td>
-                      <a href="<?= base_url() ?>profile/comment/<?= $value['entity_id'] ?>" class="card-text d-block">
-                      <?= $value['title'] ?>
-
-                    </a>
+                      <?php if( $value['status'] ==0): ?>
+                        <a href="<?= base_url() ?>profile/comment/<?= $value['id'] ?>" class="card-text d-block">
+                          <?= $value['title'] ?>
+                        </a>
+                        <small class="text-danger">در انتظار تایید</small>
+                      <?php else: ?>
+                        <a href="<?= base_url() ?>profile/comment/<?= $value['id'] ?>" class="card-text d-block">
+                          <?= $value['title'] ?>
+                        </a>
+                      <?php endif; ?>
                     </td>
                   </tr>
                 <?php endforeach; ?>
