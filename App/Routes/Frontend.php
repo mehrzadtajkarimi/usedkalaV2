@@ -43,6 +43,8 @@ Route::group(function () {
     Route::patch('/profile/{id}', 'ProfileController@update');
     Route::post('/profile/orders/note/{id}', 'OrderController@store_note');
     Route::post('/profile/city/{id}', 'CityController@index');
+    Route::get('/profile/comment', 'CommentController@index');
+    Route::get('/profile/comment/{id}', 'CommentController@show');
 });
 
 Route::group(function () {
@@ -92,6 +94,8 @@ Route::group(function () {
 
 Route::group(function () {
     Route::post('/comment/{type}/{id}/{slug}', 'CommentController@add');
+    Route::get('/comment', 'CommentController@index');
+    Route::get('/comment/{id}', 'CommentController@show');
 });
 
 Route::group(function () {

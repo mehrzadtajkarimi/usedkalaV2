@@ -1,7 +1,7 @@
 <!-- Main content -->
 <section class="content">
   <div class="col-full desktop-only">
-    <form action="<?= base_url() ?>profile/<?= $data['id'] ?>" method="post" enctype="multipart/form-data">
+    <form action="<?= base_url() ?>profile/<?= $user['id'] ?>" method="post" enctype="multipart/form-data">
       <input type="hidden" name="_method" value="patch" />
       <div class="mt-4 row">
         <div class="col-2">
@@ -15,12 +15,13 @@
               <div class="row">
                 <div class="col-8">
                   <span type="button" class="btn" data-toggle="modal" data-target="#form-modal-edit-photo" title="جهت ویرایش کلیک کتید">
-                    <img id="img-edit" src="<?= $data['path'] ??  asset_url() . 'Frontend/images/users/user4-128x128.jpg' ?> " class="rounded img-fluid profile-img" data-img-name="" alt="<?= $data['alt'] ?? '' ?>" />
+                    <img id="img-edit" src="<?= $user['path'] ??  asset_url() . 'Frontend/images/users/user4-128x128.jpg' ?> " class="rounded img-fluid profile-img" data-img-name="" alt="<?= $user['alt'] ?? '' ?>" />
                   </span>
                 </div>
                 <div class="col-4 text-center mt-4">
-                  <small class="text-muted " ><?= $data['first_name'] ?></small><hr class=" m-0" >
-                  <small class="text-muted"><?= $data['last_name'] ?></small>
+                  <small class="text-muted "><?= $user['first_name'] ?></small>
+                  <hr class=" m-0">
+                  <small class="text-muted"><?= $user['last_name'] ?></small>
                 </div>
               </div>
               <!-- Modal -->
@@ -38,18 +39,11 @@
               </div>
               <?php include(BASEPATH . "App/Views/Frontend/user/script.php") ?>
 
+              <!-- sidebar -->
 
+              <?php include(BASEPATH . "App/Views/Frontend/profile/layouts/sidebar.php") ?>
 
-              <div class="mt-3">
-                <div class="list-group list-group-flush">
-                  <a href="<?= base_url() ?>profile" class="list-group-item list-group-item-action font-weight-bold">ویرایش پروفایل</a>
-                  <a href="<?= base_url() ?>profile/orders" class="list-group-item list-group-item-action font-weight-bold">سفارش‌های من</a>
-                  <a href="#" class="list-group-item list-group-item-action font-weight-bold">نظرات</a>
-                  <a href="#" class="list-group-item list-group-item-action font-weight-bold">کارت های هدیه</a>
-                  <a href="#" class="list-group-item list-group-item-action font-weight-bold">بازدید های اخیر</a>
-                </div>
-                <a href="<?= base_url() ?>logout" class="mt-5 btn btn-primary btn-lg active btn-block" role="button" aria-pressed="true">خروج</a>
-              </div>
+              <!-- sidebar -->
             </div>
           </div>
         </div>
@@ -86,13 +80,13 @@
                 <div class="col">
                   <div class="form-group">
                     <label for="profile-name">نام:</label>
-                    <input name="profile-name" type="text" class="form-control" id="profile-name" value="<?= $data['first_name'] ?>" placeholder="نام خود را وارد نمایید">
+                    <input name="profile-name" type="text" class="form-control" id="profile-name" value="<?= $user['first_name'] ?>" placeholder="نام خود را وارد نمایید">
                   </div>
                 </div>
                 <div class="col">
                   <div class="form-group">
                     <label for="profile-family">نام خانوادگی:</label>
-                    <input name="profile-family" type="text" class="form-control" id="profile-family" value="<?= $data['last_name'] ?>" placeholder="نام  خانوادگی را وارد نمایید">
+                    <input name="profile-family" type="text" class="form-control" id="profile-family" value="<?= $user['last_name'] ?>" placeholder="نام  خانوادگی را وارد نمایید">
                   </div>
                 </div>
               </div>
@@ -104,13 +98,13 @@
                       <small class="text-muted">(امکان ویرایش تلفن همراه میسر نمی باشد)</small>
                     </label>
 
-                    <input name="profile-phone" type="text" class="form-control" id="profile-phone" value="<?= $data['phone'] ?>" readonly>
+                    <input name="profile-phone" type="text" class="form-control" id="profile-phone" value="<?= $user['phone'] ?>" readonly>
                   </div>
                 </div>
                 <div class="col">
                   <div class="form-group">
                     <label for="profile-email">ایمیل :</label>
-                    <input name="profile-email" type="email" class="form-control" id="profile-email" value="<?= $data['email'] ?>" placeholder="ایمیل خود را وارد نمایید">
+                    <input name="profile-email" type="email" class="form-control" id="profile-email" value="<?= $user['email'] ?>" placeholder="ایمیل خود را وارد نمایید">
                   </div>
                 </div>
               </div>
@@ -120,7 +114,7 @@
                     <label for="profile-national-code">
                       کد ملی:
                     </label>
-                    <input name="profile-national-code" type="text" class="form-control" id="profile-national-code" value="<?= $data['national_code'] ?>">
+                    <input name="profile-national-code" type="text" class="form-control" id="profile-national-code" value="<?= $user['national_code'] ?>">
                   </div>
                 </div>
               </div>
@@ -130,7 +124,7 @@
                     <label for="profile-birthday">
                       تاریخ تولد:
                     </label>
-                    <input type="text" class="form-control profile-birthday" value="<?= date("Y-m-d H:i:s", $data['birthday']) ?>">
+                    <input type="text" class="form-control profile-birthday" value="<?= date("Y-m-d H:i:s", $user['birthday']) ?>">
                     <input type="hidden" id="profile-birthday" name="profile-birthday">
                   </div>
                 </div>
@@ -141,9 +135,9 @@
                     </label>
                     <div>
                       <label for="male">مذکر</label>
-                      <input type="radio" name="profile-gender" id="male" value="1" <?= $data['gender'] == "1" ? 'checked="checked"' : '' ?>>
+                      <input type="radio" name="profile-gender" id="male" value="1" <?= $user['gender'] == "1" ? 'checked="checked"' : '' ?>>
                       <label for="female">مونث</label>
-                      <input type="radio" name="profile-gender" id="female" value="2" <?= $data['gender'] == "2" ? 'checked="checked"' : '' ?>>
+                      <input type="radio" name="profile-gender" id="female" value="2" <?= $user['gender'] == "2" ? 'checked="checked"' : '' ?>>
                     </div>
                   </div>
                 </div>
@@ -152,13 +146,13 @@
                 <div class="col">
                   <div class="form-group">
                     <label for="profile-job-title">عنوان شغلی:</label>
-                    <input name="profile-job-title" type="text" class="form-control" id="profile-job-title" value="<?= $data['jobtitle'] ?>" placeholder="عنوان شغلی خود را وارد نمایید">
+                    <input name="profile-job-title" type="text" class="form-control" id="profile-job-title" value="<?= $user['jobtitle'] ?>" placeholder="عنوان شغلی خود را وارد نمایید">
                   </div>
                 </div>
                 <div class="col">
                   <div class="form-group">
                     <label for="profile-company">عنوان شرکت:</label>
-                    <input name="profile-company" type="text" class="form-control" id="profile-company" value="<?= $data['company'] ?>" placeholder="نام شرکتی که در آن شاغل هستید را وارد نمایید">
+                    <input name="profile-company" type="text" class="form-control" id="profile-company" value="<?= $user['company'] ?>" placeholder="نام شرکتی که در آن شاغل هستید را وارد نمایید">
                   </div>
                 </div>
               </div>
@@ -169,19 +163,19 @@
                   <div class="form-group d-flex">
                     <label for="profile-province" class="mr-2 profile-label">استان:</label>
                     <select name="profile-province" class="form-select" data-width="80%" id="profile-province">
-                      <?php if (!isset($data['province_id'])) : ?>
+                      <?php if (!isset($user['province_id'])) : ?>
                         <option value="" disabled selected>انتخاب کنید</option>
                       <?php endif; ?>
                       <?php foreach ($provinces as $value) : ?>
-                        <option value="<?= $value['id'] ?>" <?= $data['province_id'] == $value['id'] ?  'selected' : ''  ?>><?= $value['name'] ?></option>
+                        <option value="<?= $value['id'] ?>" <?= $user['province_id'] == $value['id'] ?  'selected' : ''  ?>><?= $value['name'] ?></option>
                       <?php endforeach ?>
                     </select>
                   </div>
                 </div>
                 <div class="col profile-city-placeholder">
                   <label for="profile-city">شهر:</label>
-                  <select name="profile-city" id="profile-city" data-city-id="<?= $data['city_id'] ?? $data['city_id'] ?>">
-                    <?php if (!isset($data['city_id'])) : ?>
+                  <select name="profile-city" id="profile-city" data-city-id="<?= $user['city_id'] ?? $user['city_id'] ?>">
+                    <?php if (!isset($user['city_id'])) : ?>
                       <option value="" disabled selected>ابتدا شهر را انتخاب کنید</option>
                     <?php endif; ?>
                   </select>
@@ -189,7 +183,7 @@
                 <div class="col">
                   <div class="form-group d-flex">
                     <label for="profile-postalCode" class="profile-postalCode profile-label">کد پستی:</label>
-                    <input type="number" name="profile-postalCode" class="form-control" min="1000000000" max="9999999999" id="profile-postalCode" value="<?= $data['postal_code'] ?>">
+                    <input type="number" name="profile-postalCode" class="form-control" min="1000000000" max="9999999999" id="profile-postalCode" value="<?= $user['postal_code'] ?>">
                   </div>
                 </div>
               </div>
@@ -197,7 +191,7 @@
                 <div class="col">
                   <div class="form-group">
                     <label for="profile-address">آدرس :</label>
-                    <input name="profile-address" type="text" class="form-control" id="profile-address" value="<?= $data['address'] ?>" placeholder="آدرس خود را وارد نمایید">
+                    <input name="profile-address" type="text" class="form-control" id="profile-address" value="<?= $user['address'] ?>" placeholder="آدرس خود را وارد نمایید">
                   </div>
                 </div>
               </div>
@@ -275,13 +269,15 @@
 
     </form>
 
-    <?php //if ($_SESSION['cart'] !== []) : ?>
-      <!-- <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"> -->
-        <?php
-       // include BASEPATH . "/App/Views/Frontend/cart/index.php";
-        ?>
-      <!-- </div> -->
-    <?php // endif; ?>
+    <?php //if ($_SESSION['cart'] !== []) : 
+    ?>
+    <!-- <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"> -->
+    <?php
+    // include BASEPATH . "/App/Views/Frontend/cart/index.php";
+    ?>
+    <!-- </div> -->
+    <?php // endif; 
+    ?>
 
   </div>
 

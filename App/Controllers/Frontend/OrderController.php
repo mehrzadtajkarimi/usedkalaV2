@@ -41,16 +41,16 @@ class OrderController  extends Controller
     {
         $user_id = SessionManager::get('auth');
         $orders =$this->orderModel->read_order_by_user_id($user_id) ;
-
-
+        $user = $this->userModel->join_user_to_photo($user_id);
 
         if (Auth::is_login()) {
             $data = array(
+                'user'       => $user,
                 'data'       => $this->userModel->join_user_to_photo($user_id),
                 'orders'     => $orders,
                 'cart_total' => array_sum($cart_total ?? []),
             );
-            return view('Frontend.order.orders', $data);
+            return view('Frontend.profile.order.index', $data);
         }
 
         return $this->request->redirect('login');
@@ -102,7 +102,7 @@ class OrderController  extends Controller
                 'city'        => $this->cityModel->read_city($order[0]['city_id']),
                 'province'    => $this->provinceModel->read_province($order[0]['province_id']),
             );
-            return view('Frontend.order.single_order', $data);
+            return view('Frontend.profile.order.show', $data);
         }
     }
 
@@ -238,7 +238,7 @@ class OrderController  extends Controller
         $data = array(
             'order' => $order,
         );
-        view('Backend.order.edit', $data);
+        view('Frontend.profile.order.edit', $data);
     }
 
     public function update()
