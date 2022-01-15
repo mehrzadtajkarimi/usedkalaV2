@@ -31,54 +31,54 @@
               </tr>
             </thead>
             <tbody>
+              <style>
+                .chkbx input[type=checkbox] {
+                  display: none;
+                }
+
+                .chkbx {
+                  position: relative;
+                  cursor: pointer;
+                }
+
+                .chkbx .x {
+                  display: block;
+                  width: 90px;
+                  height: 31px;
+                  border: 2px solid #D3D3BE;
+                  border-radius: 60px;
+                  transition: 0.5s;
+                }
+
+                .chkbx .x:before {
+                  content: "";
+                  position: absolute;
+                  width: 23px;
+                  height: 23px;
+                  top: 4px;
+                  left: 4px;
+                  box-sizing: border-box;
+                  background: #D3D3BE;
+                  border: 2px solid #D3D3BE;
+                  border-radius: 40px;
+                  transition: 0.5s;
+                }
+
+                .chkbx :checked~.x:before {
+                  background: #dc3545;
+                  border-color: #dc3545;
+                  transform: translatex(58px);
+                }
+
+                .chkbx :checked~.x {
+                  border-color: #dc3545;
+                }
+              </style>
               <?php foreach ($orders as $value) : ?>
                 <tr>
                   <td class="text-center"><?= $value['user_full_name'] ?></td>
                   <td class="text-center"><?= $value['user_phone'] ?></td>
                   <td class="text-center" style="height: 118px;">
-                    <style>
-                      .chkbx input[type=checkbox] {
-                        display: none;
-                      }
-
-                      .chkbx {
-                        position: relative;
-                        cursor: pointer;
-                      }
-
-                      .chkbx .x {
-                        display: block;
-                        width: 90px;
-                        height: 31px;
-                        border: 2px solid #D3D3BE;
-                        border-radius: 60px;
-                        transition: 0.5s;
-                      }
-
-                      .chkbx .x:before {
-                        content: "";
-                        position: absolute;
-                        width: 23px;
-                        height: 23px;
-                        top: 4px;
-                        left: 4px;
-                        box-sizing: border-box;
-                        background: #D3D3BE;
-                        border: 2px solid #D3D3BE;
-                        border-radius: 40px;
-                        transition: 0.5s;
-                      }
-
-                      .chkbx :checked~.x:before {
-                        background: #dc3545;
-                        border-color: #dc3545;
-                        transform: translatex(58px);
-                      }
-
-                      .chkbx :checked~.x {
-                        border-color: #dc3545;
-                      }
-                    </style>
                     <div class="check-handler" style="display: <?= $value['status'] == 1 ? 'block'  : 'none' ?> ; ">
                       <div class="row ">
                         <div class="offset-3"></div>
@@ -146,6 +146,68 @@
                     <?php endif; ?>
 
                     <td class="text-center">
+                      <?php if ($value['status'] >= 3) : ?>
+                        <button data-id="<?= $value['id'] ?>" class="shadow-sm  btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModalCenters-<?= $value['id'] ?>" style="padding: 0px 9px; border-radius: 18px;">
+                          روش ارسال
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade bd-example-modal-lg" id="exampleModalCenters-<?= $value['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle<?= $value['id'] ?>" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+
+                              <div class="modal-body">
+                                <form   action="<?= base_url() ?>admin/order/tracker/<?= $value['id'] ?>" method="post" >
+                                  <div class="form-group row">
+                                    <label for="status_sender_<?= $value['id'] ?>" class="col-3 col-form-label"> ارسال</label>
+                                    <div class="col-9">
+                                      <select name='status-sender' id="status_sender_<?= $value['id'] ?>" class="form-control status_sender">
+                                        <option value="0">انتخاب کنید</option>
+                                        <option value="1"> پست</option>
+                                        <option value="2">پست بار</option>
+                                        <option value="3"> چاپار</option>
+                                        <option value="4"> الوپیک</option>
+                                        <option value="5"> اسنپ باکس</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <div class="form-group row tracker  tracker-post" style="display: none">
+                                    <label for="tracker-post-<?= $value['id'] ?>" class="col-3 col-form-label">پست </label>
+                                    <div class="col-9">
+                                      <input name="tracker-post" type="text" class="form-control" id="tracker-post-<?= $value['id'] ?>" placeholder="شماره سفارش پست" >
+                                    </div>
+                                  </div>
+                                  <div class="form-group row tracker tracker-postbar" style="display: none">
+                                    <label for="tracker-postbar-<?= $value['id'] ?>" class="col-3 col-form-label">پست بار</label>
+                                    <div class="col-9">
+                                      <input name="tracker-postbar" type="text" class="form-control" id="tracker-postbar-<?= $value['id'] ?>" placeholder="شماره سفارش  پست بار" >
+                                    </div>
+                                  </div>
+                                  <div class="form-group row tracker tracker-chapar" style="display: none">
+                                    <label for="tracker-chapar-<?= $value['id'] ?>" class="col-3 col-form-label">چاپار</label>
+                                    <div class="col-9">
+                                      <input name="tracker-chapar" type="text" class="form-control" id="tracker-chapar-<?= $value['id'] ?>" placeholder="شماره سفارش چاپار" >
+                                    </div>
+                                  </div>
+                                  <div class="form-group row tracker tracker-alopeyk" style="display: none">
+                                    <label for="tracker-alopeyk-<?= $value['id'] ?>" class="col-3 col-form-label">الوپیک</label>
+                                    <div class="col-9">
+                                      <input name="tracker-alopeyk" type="text" class="form-control" id="tracker-alopeyk-<?= $value['id'] ?>" placeholder="شماره سفارش الوپیک" >
+                                    </div>
+                                  </div>
+                                  <div class="form-group row tracker tracker-snappـbox" style="display: none">
+                                    <label for="tracker-snappـbox-<?= $value['id'] ?>" class="col-3 col-form-label">اسنپ باکس</label>
+                                    <div class="col-9">
+                                      <input name="tracker-snappـbox" type="text" class="form-control" id="tracker-snappـbox-<?= $value['id'] ?>" placeholder="شماره سفارش اسنپ باکس" required>
+                                    </div>
+                                  </div>
+
+                                  <button type="submit" class="float-left btn btn-primary btn-block btn-submit-order-tracing">ذخیره </button>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      <?php endif; ?>
                       <button data-id="<?= $value['id'] ?>" class="shadow-sm access-show btn btn-warning btn-sm" style="padding: 0px 16px; border-radius: 18px;">
                         نـمایــــــش
                       </button>
@@ -160,7 +222,7 @@
                   <td colspan="10" class=" ">
                     <table class="table  table-hover table--vertical_middle ">
                       <thead>
-                        <tr  class="">
+                        <tr class="">
                           <th class="text-center" scope="col">#</th>
                           <th class="text-center" scope="col">نام</th>
                           <th class="text-center" scope="col">قیمت</th>
@@ -193,12 +255,14 @@
           </a>
         </li>
         <?php for ($i = 0; $i <=  pagination_count('orders', 10); $i++) : ?>
-          <li class="page-item <?php if (isset($_GET['page']) && $_GET['page'] == ($i + 1)) echo "active"; else if (!isset($_GET['page']) && ($i + 1) == 1) echo "active" ?>">
+          <li class="page-item <?php if (isset($_GET['page']) && $_GET['page'] == ($i + 1)) echo "active";
+                                else if (!isset($_GET['page']) && ($i + 1) == 1) echo "active" ?>">
             <a class="page-link" href="<?= base_url() ?>admin/order?page=<?= $i + 1 ?>"><?= $i + 1 ?></a>
           </li>
         <?php endfor; ?>
         <li class="page-item <?php if (pagination_count('orders', 10) + 1 == 1 || (isset($_GET['page']) &&  pagination_count('orders', 10) + 1  == $_GET['page'])) echo "disabled" ?>">
-          <a class="page-link" href="<?= base_url() ?>admin/order?page=<?php if (isset($_GET['page'])) echo $_GET['page'] + 1; else echo 2 ?>" aria-label="Next">
+          <a class="page-link" href="<?= base_url() ?>admin/order?page=<?php if (isset($_GET['page'])) echo $_GET['page'] + 1;
+                                                                        else echo 2 ?>" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
             <span class="sr-only">Next</span>
           </a>

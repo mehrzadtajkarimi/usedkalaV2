@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 09, 2022 at 07:33 AM
+-- Generation Time: Jan 15, 2022 at 12:50 PM
 -- Server version: 8.0.27-0ubuntu0.20.04.1
 -- PHP Version: 8.0.14
 
@@ -558,7 +558,50 @@ INSERT INTO `activity_log` (`id`, `user_id`, `ip`, `type`, `target_table`, `row_
 (480, 0, '127.0.0.1', 'create', 'active_codes', 363, '', '{\"user_id\":\"81\",\"code\":2135,\"expired_at\":\"2022-01-09 09:30:19\"}', '/admin/login', '2022-01-09 06:00:18'),
 (481, 81, '127.0.0.1', 'delete', 'active_codes', 0, '{\"user_id\":\"81\"}', '[{\"id\":\"363\",\"user_id\":\"81\",\"code\":\"2135\",\"expired_at\":\"2022-01-09 09:30:19\"}]', '/admin/token', '2022-01-09 06:00:35'),
 (482, 81, '127.0.0.1', 'create', 'orders', 23, '', '{\"user_id\":\"81\",\"coupon_id\":2,\"user_full_name\":\"مهرزاد تاج کریمی\",\"user_phone\":\"09128897603\",\"city_id\":\"100\",\"province_id\":\"3\",\"postal_code\":\"1000000000\",\"address\":\"dfgzsdfgg\",\"token\":0,\"order_number\":0,\"item_count\":1,\"grand_total\":850000,\"discount_total\":0,\"shipping_cost\":0,\"notes\":\"\",\"weight\":\"normal\"}', '/order/create', '2022-01-09 07:28:30'),
-(483, 81, '127.0.0.1', 'create', 'order_items', 35, '', '{\"order_id\":\"23\",\"product_id\":\"85\",\"quantity\":1,\"price\":\"2000000\",\"discount\":0}', '/order/create', '2022-01-09 07:28:30');
+(483, 81, '127.0.0.1', 'create', 'order_items', 35, '', '{\"order_id\":\"23\",\"product_id\":\"85\",\"quantity\":1,\"price\":\"2000000\",\"discount\":0}', '/order/create', '2022-01-09 07:28:30'),
+(484, 0, '127.0.0.1', 'create', 'active_codes', 364, '', '{\"user_id\":\"81\",\"code\":8819,\"expired_at\":\"2022-01-09 14:28:43\"}', '/admin/login', '2022-01-09 10:58:42'),
+(485, 81, '127.0.0.1', 'delete', 'active_codes', 0, '{\"user_id\":\"81\"}', '[{\"id\":\"364\",\"user_id\":\"81\",\"code\":\"8819\",\"expired_at\":\"2022-01-09 14:28:43\"}]', '/admin/token', '2022-01-09 10:58:51'),
+(486, 81, '127.0.0.1', 'delete', 'categories', 0, '{\"id\":\"185\"}', '[{\"id\":\"185\",\"status\":\"1\",\"description\":\"یی\",\"type\":\"0\",\"H1\":\"یی\",\"canonical\":\"یی\",\"robots\":\"0\",\"parent_id\":\"0\",\"name\":\"یی\",\"slug\":\"یی\",\"seo_title\":\"یی\",\"seo_description\":\"یی\",\"created_at\":\"2022-01-03 17:20:42\"}]', '/admin/category/185/product', '2022-01-09 11:43:22'),
+(487, 81, '127.0.0.1', 'delete', 'photos', 0, '{\"entity_id\":\"185\"}', '[{\"id\":\"318\",\"entity_id\":\"185\",\"entity_type\":\"Category\",\"type\":\"0\",\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202201\\/35.---90eaa26f.jpg\",\"alt\":\"image_category\",\"created_at\":\"2022-01-03 17:20:42\"}]', '/admin/category/185/product', '2022-01-09 11:43:22'),
+(488, 81, '127.0.0.1', 'delete', 'categories', 0, '{\"id\":\"175\"}', '[{\"id\":\"175\",\"status\":\"1\",\"description\":\"product\",\"type\":\"0\",\"H1\":\"product\",\"canonical\":\"product\",\"robots\":\"0\",\"parent_id\":\"0\",\"name\":\"product\",\"slug\":\"product\",\"seo_title\":\"product\",\"seo_description\":\"product\",\"created_at\":\"2021-12-27 14:56:18\"}]', '/admin/category/175/product', '2022-01-09 11:43:26'),
+(489, 81, '127.0.0.1', 'delete', 'photos', 0, '{\"entity_id\":\"175\"}', '[{\"id\":\"311\",\"entity_id\":\"175\",\"entity_type\":\"Category\",\"type\":\"0\",\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/card-4.---03deb567.jpg\",\"alt\":\"image_category\",\"created_at\":\"2021-12-27 14:56:18\"}]', '/admin/category/175/product', '2022-01-09 11:43:26'),
+(490, 81, '127.0.0.1', 'delete', 'categories', 0, '{\"id\":\"170\"}', '[{\"id\":\"170\",\"status\":\"1\",\"description\":\"it\",\"type\":\"0\",\"H1\":\"it\",\"canonical\":\"\",\"robots\":\"0\",\"parent_id\":\"0\",\"name\":\"it\",\"slug\":\"it\",\"seo_title\":\"it\",\"seo_description\":\"it\",\"created_at\":\"2021-12-27 12:48:27\"}]', '/admin/category/170/product', '2022-01-09 11:43:29'),
+(491, 81, '127.0.0.1', 'delete', 'photos', 0, '{\"entity_id\":\"170\"}', '[{\"id\":\"306\",\"entity_id\":\"170\",\"entity_type\":\"Category\",\"type\":\"0\",\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/card-4.---39ee1398.jpg\",\"alt\":\"image_category\",\"created_at\":\"2021-12-27 12:48:27\"}]', '/admin/category/170/product', '2022-01-09 11:43:29'),
+(492, 81, '127.0.0.1', 'create', 'photos', 323, '', '{\"entity_type\":\"Category\",\"entity_id\":111,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202201\\/home-v12-background.---face2bfe.jpg\",\"alt\":\"image_category\",\"type\":0}', '/admin/category/111/product', '2022-01-09 11:46:09'),
+(493, 81, '127.0.0.1', 'update', 'photos', 0, '{\"entity_type\":\"Category\",\"entity_id\":111}', '{\"old\":[{\"id\":\"323\",\"entity_id\":\"111\",\"entity_type\":\"Category\",\"type\":\"0\",\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202201\\/home-v12-background.---face2bfe.jpg\",\"alt\":\"image_category\",\"created_at\":\"2022-01-09 15:16:09\"}],\"new\":{\"entity_type\":\"Category\",\"entity_id\":111,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202201\\/home-v9-img-1.---176734ba.jpg\",\"alt\":\"image_category\",\"type\":0}}', '/admin/category/111/product', '2022-01-09 11:46:25'),
+(494, 81, '127.0.0.1', 'delete', 'categories', 0, '{\"id\":\"111\"}', '[{\"id\":\"111\",\"status\":\"0\",\"description\":\"\",\"type\":\"0\",\"H1\":\"پرفروش ترین ها\",\"canonical\":\"\",\"robots\":\"0\",\"parent_id\":\"0\",\"name\":\"پرفروش ترین ها\",\"slug\":\"پرفروش-ترین-ها\",\"seo_title\":\"پرفروش ترین ها\",\"seo_description\":\"پرفروش ترین ها\",\"created_at\":\"2021-12-14 11:52:52\"}]', '/admin/category/111/product', '2022-01-09 11:47:53'),
+(495, 81, '127.0.0.1', 'delete', 'photos', 0, '{\"entity_id\":\"111\"}', '[{\"id\":\"323\",\"entity_id\":\"111\",\"entity_type\":\"Category\",\"type\":\"0\",\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202201\\/home-v9-img-1.---176734ba.jpg\",\"alt\":\"image_category\",\"created_at\":\"2022-01-09 15:16:09\"}]', '/admin/category/111/product', '2022-01-09 11:47:53'),
+(496, 81, '127.0.0.1', 'create', 'categories', 190, '', '{\"type\":0,\"seo_description\":\"ff\",\"seo_title\":\"ff\",\"parent_id\":\"168\",\"name\":\"ff\",\"H1\":\"ff\",\"robots\":\"0\",\"canonical\":null,\"description\":\"<p>ff<\\/p>\\r\\n\",\"status\":\"1\",\"slug\":\"ff\"}', '/admin/category/168/product', '2022-01-09 11:52:48'),
+(497, 81, '127.0.0.1', 'create', 'photos', 324, '', '{\"entity_type\":\"Category\",\"entity_id\":190,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202201\\/home-v12-background.---65083477.jpg\",\"alt\":\"image_category\",\"type\":0}', '/admin/category/168/product', '2022-01-09 11:52:48'),
+(498, 81, '127.0.0.1', 'delete', 'categories', 0, '{\"id\":\"190\"}', '[{\"id\":\"190\",\"status\":\"1\",\"description\":\"<p>ff<\\/p>\\r\\n\",\"type\":\"0\",\"H1\":\"ff\",\"canonical\":null,\"robots\":\"0\",\"parent_id\":\"168\",\"name\":\"ff\",\"slug\":\"ff\",\"seo_title\":\"ff\",\"seo_description\":\"ff\",\"created_at\":\"2022-01-09 15:22:48\"}]', '/admin/category/190/product', '2022-01-09 11:53:20'),
+(499, 81, '127.0.0.1', 'delete', 'photos', 0, '{\"entity_id\":\"190\"}', '[{\"id\":\"324\",\"entity_id\":\"190\",\"entity_type\":\"Category\",\"type\":\"0\",\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202201\\/home-v12-background.---65083477.jpg\",\"alt\":\"image_category\",\"created_at\":\"2022-01-09 15:22:48\"}]', '/admin/category/190/product', '2022-01-09 11:53:20'),
+(500, 81, '127.0.0.1', 'create', 'categories', 191, '', '{\"type\":0,\"seo_description\":\"ff\",\"seo_title\":\"ff\",\"parent_id\":\"0\",\"name\":\"ff\",\"H1\":\"ff\",\"robots\":\"0\",\"canonical\":\"ff\",\"description\":\"ff\",\"status\":\"1\",\"slug\":\"ff\"}', '/admin/category/0/product', '2022-01-09 11:53:41'),
+(501, 81, '127.0.0.1', 'create', 'photos', 325, '', '{\"entity_type\":\"Category\",\"entity_id\":191,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202201\\/home-v12-background.---c3100f30.jpg\",\"alt\":\"image_category\",\"type\":0}', '/admin/category/0/product', '2022-01-09 11:53:41');
+INSERT INTO `activity_log` (`id`, `user_id`, `ip`, `type`, `target_table`, `row_id`, `where_condition`, `detailed_data`, `uri`, `created_at`) VALUES
+(502, 81, '127.0.0.1', 'delete', 'categories', 0, '{\"id\":\"191\"}', '[{\"id\":\"191\",\"status\":\"1\",\"description\":\"ff\",\"type\":\"0\",\"H1\":\"ff\",\"canonical\":\"ff\",\"robots\":\"0\",\"parent_id\":\"0\",\"name\":\"ff\",\"slug\":\"ff\",\"seo_title\":\"ff\",\"seo_description\":\"ff\",\"created_at\":\"2022-01-09 15:23:41\"}]', '/admin/category/191/product', '2022-01-09 12:02:49'),
+(503, 81, '127.0.0.1', 'delete', 'photos', 0, '{\"entity_id\":\"191\"}', '[{\"id\":\"325\",\"entity_id\":\"191\",\"entity_type\":\"Category\",\"type\":\"0\",\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202201\\/home-v12-background.---c3100f30.jpg\",\"alt\":\"image_category\",\"created_at\":\"2022-01-09 15:23:41\"}]', '/admin/category/191/product', '2022-01-09 12:02:49'),
+(504, 81, '127.0.0.1', 'create', 'categories', 192, '', '{\"type\":0,\"seo_description\":\"gg\",\"seo_title\":\"gg\",\"parent_id\":\"0\",\"name\":\"gg\",\"H1\":\"gg\",\"robots\":\"0\",\"canonical\":\"gg\",\"description\":\"gg\",\"status\":\"1\",\"slug\":\"gg\"}', '/admin/category/0/product', '2022-01-09 12:05:25'),
+(505, 81, '127.0.0.1', 'create', 'categories', 193, '', '{\"type\":0,\"seo_description\":\"gg\",\"seo_title\":\"gg\",\"parent_id\":\"0\",\"name\":\"gg\",\"H1\":\"gg\",\"robots\":\"0\",\"canonical\":\"gg\",\"description\":\"gg\",\"status\":\"1\",\"slug\":\"gg\"}', '/admin/category/0/product', '2022-01-09 12:10:41'),
+(506, 81, '127.0.0.1', 'create', 'categories', 194, '', '{\"type\":0,\"seo_description\":\"gg\",\"seo_title\":\"gg\",\"parent_id\":\"0\",\"name\":\"gg\",\"H1\":\"gg\",\"robots\":\"0\",\"canonical\":\"gg\",\"description\":\"gg\",\"status\":\"1\",\"slug\":\"gg\"}', '/admin/category/0/product', '2022-01-09 12:10:59'),
+(507, 81, '127.0.0.1', 'create', 'photos', 326, '', '{\"entity_type\":\"Category\",\"entity_id\":194,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202201\\/home-v9-img-2.---d0a13fd5.png\",\"alt\":\"image_category\",\"type\":0}', '/admin/category/0/product', '2022-01-09 12:10:59'),
+(508, 81, '127.0.0.1', 'delete', 'categories', 0, '{\"id\":\"194\"}', '[{\"id\":\"194\",\"status\":\"1\",\"description\":\"gg\",\"type\":\"0\",\"H1\":\"gg\",\"canonical\":\"gg\",\"robots\":\"0\",\"parent_id\":\"0\",\"name\":\"gg\",\"slug\":\"gg\",\"seo_title\":\"gg\",\"seo_description\":\"gg\",\"created_at\":\"2022-01-09 15:40:59\"}]', '/admin/category/194/product', '2022-01-09 12:11:02'),
+(509, 81, '127.0.0.1', 'delete', 'photos', 0, '{\"entity_id\":\"194\"}', '[{\"id\":\"326\",\"entity_id\":\"194\",\"entity_type\":\"Category\",\"type\":\"0\",\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202201\\/home-v9-img-2.---d0a13fd5.png\",\"alt\":\"image_category\",\"created_at\":\"2022-01-09 15:40:59\"}]', '/admin/category/194/product', '2022-01-09 12:11:02'),
+(510, 81, '127.0.0.1', 'delete', 'categories', 0, '{\"id\":\"193\"}', '[{\"id\":\"193\",\"status\":\"1\",\"description\":\"gg\",\"type\":\"0\",\"H1\":\"gg\",\"canonical\":\"gg\",\"robots\":\"0\",\"parent_id\":\"0\",\"name\":\"gg\",\"slug\":\"gg\",\"seo_title\":\"gg\",\"seo_description\":\"gg\",\"created_at\":\"2022-01-09 15:40:41\"}]', '/admin/category/193/product', '2022-01-09 12:11:05'),
+(511, 81, '127.0.0.1', 'delete', 'photos', 0, '{\"entity_id\":\"193\"}', '[]', '/admin/category/193/product', '2022-01-09 12:11:05'),
+(512, 81, '127.0.0.1', 'delete', 'categories', 0, '{\"id\":\"192\"}', '[{\"id\":\"192\",\"status\":\"1\",\"description\":\"gg\",\"type\":\"0\",\"H1\":\"gg\",\"canonical\":\"gg\",\"robots\":\"0\",\"parent_id\":\"0\",\"name\":\"gg\",\"slug\":\"gg\",\"seo_title\":\"gg\",\"seo_description\":\"gg\",\"created_at\":\"2022-01-09 15:35:25\"}]', '/admin/category/192/product', '2022-01-09 12:11:08'),
+(513, 81, '127.0.0.1', 'delete', 'photos', 0, '{\"entity_id\":\"192\"}', '[]', '/admin/category/192/product', '2022-01-09 12:11:08'),
+(514, 81, '127.0.0.1', 'update', 'photos', 0, '{\"entity_type\":\"Category\",\"entity_id\":168}', '{\"old\":[{\"id\":\"304\",\"entity_id\":\"168\",\"entity_type\":\"Category\",\"type\":\"0\",\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202112\\/Screenshot from 2021-12-27 10-48-46.---807b98fc.png\",\"alt\":\"image_category\",\"created_at\":\"2021-12-27 12:17:31\"}],\"new\":{\"entity_type\":\"Category\",\"entity_id\":168,\"path\":\"http:\\/\\/usedkalaV2.me\\/Storage\\/202201\\/home-v12-background.---708391ff.jpg\",\"alt\":\"image_category\",\"type\":0}}', '/admin/category/168/product', '2022-01-09 12:11:23'),
+(515, 0, '127.0.0.1', 'create', 'active_codes', 365, '', '{\"user_id\":\"81\",\"code\":6932,\"expired_at\":\"2022-01-15 08:30:58\"}', '/login', '2022-01-15 05:00:57'),
+(516, 81, '127.0.0.1', 'delete', 'active_codes', 0, '{\"user_id\":\"81\"}', '[{\"id\":\"365\",\"user_id\":\"81\",\"code\":\"6932\",\"expired_at\":\"2022-01-15 08:30:58\"}]', '/token', '2022-01-15 05:01:42'),
+(517, 81, '127.0.0.1', 'update', 'users', 0, '{\"id\":\"85\"}', '{\"old\":[{\"id\":\"85\",\"city_id\":null,\"province_id\":null,\"user_level\":\"1\",\"phone\":\"091288976063\",\"email\":null,\"first_name\":null,\"last_name\":null,\"company\":null,\"jobtitle\":null,\"national_code\":null,\"postal_code\":null,\"address\":null,\"birthday\":null,\"gender\":null,\"status\":\"1\",\"bank_name\":null,\"bank_number\":null,\"ip\":null,\"email_verified_at\":null,\"created_at\":\"2022-01-08 09:18:13\",\"updated_at\":null}],\"new\":{\"first_name\":\"مهرزاد\",\"last_name\":\"تاج کریمی \",\"national_code\":\"0073591521\",\"province_id\":\"8\",\"city_id\":\"301\",\"postal_code\":\"072012346\",\"address\":\"مهراباد جنوبی خیابان رجبی \",\"email\":\" mehrzadth@gmail.com\",\"status\":\"1\"}}', '/admin/user/85', '2022-01-15 05:13:15'),
+(518, 81, '127.0.0.1', 'update', 'orders', 0, '{\"id\":\"23\"}', '{\"old\":[{\"id\":\"23\",\"user_id\":\"81\",\"coupon_id\":\"2\",\"user_full_name\":\"مهرزاد تاج کریمی\",\"user_phone\":\"09128897603\",\"city_id\":\"100\",\"province_id\":\"3\",\"postal_code\":\"1000000000\",\"address\":\"dfgzsdfgg\",\"token\":\"0\",\"order_number\":\"0\",\"weight\":\"normal\",\"item_count\":\"1\",\"grand_total\":\"850000\",\"discount_total\":\"0\",\"shipping_cost\":\"0\",\"notes\":\"\",\"handler_id\":null,\"sender_id\":null,\"status\":\"1\",\"created_at\":\"2022-01-09 10:58:30\",\"updated_at\":null}],\"new\":{\"handler_id\":\"81\",\"status\":2}}', '/admin/order/status/23', '2022-01-15 05:16:24'),
+(519, 81, '127.0.0.1', 'update', 'orders', 0, '{\"id\":\"22\"}', '{\"old\":[{\"id\":\"22\",\"user_id\":\"81\",\"coupon_id\":\"6\",\"user_full_name\":\"مهرزاد تاج کریمی\",\"user_phone\":\"09128897603\",\"city_id\":\"100\",\"province_id\":\"3\",\"postal_code\":\"1000000000\",\"address\":\"dfgzsdfgg\",\"token\":\"0\",\"order_number\":\"0\",\"weight\":\"normal\",\"item_count\":\"1\",\"grand_total\":\"900000\",\"discount_total\":\"0\",\"shipping_cost\":\"0\",\"notes\":\"\",\"handler_id\":\"81\",\"sender_id\":null,\"status\":\"2\",\"created_at\":\"2022-01-09 08:20:16\",\"updated_at\":null}],\"new\":{\"sender_id\":\"81\",\"status\":3}}', '/admin/order/status/22', '2022-01-15 05:16:46'),
+(520, 81, '127.0.0.1', 'update', 'orders', 0, '{\"id\":\"23\"}', '{\"old\":[{\"id\":\"23\",\"user_id\":\"81\",\"coupon_id\":\"2\",\"user_full_name\":\"مهرزاد تاج کریمی\",\"user_phone\":\"09128897603\",\"city_id\":\"100\",\"province_id\":\"3\",\"postal_code\":\"1000000000\",\"address\":\"dfgzsdfgg\",\"token\":\"0\",\"order_number\":\"0\",\"weight\":\"normal\",\"item_count\":\"1\",\"grand_total\":\"850000\",\"discount_total\":\"0\",\"shipping_cost\":\"0\",\"notes\":\"\",\"handler_id\":null,\"sender_id\":null,\"status\":\"1\",\"created_at\":\"2022-01-09 10:58:30\",\"updated_at\":null}],\"new\":{\"handler_id\":\"81\",\"status\":2}}', '/admin/order/status/23', '2022-01-15 05:51:58'),
+(521, 81, '127.0.0.1', 'update', 'orders', 0, '{\"id\":\"23\"}', '{\"old\":[{\"id\":\"23\",\"user_id\":\"81\",\"coupon_id\":\"2\",\"user_full_name\":\"مهرزاد تاج کریمی\",\"user_phone\":\"09128897603\",\"city_id\":\"100\",\"province_id\":\"3\",\"postal_code\":\"1000000000\",\"address\":\"dfgzsdfgg\",\"token\":\"0\",\"order_number\":\"0\",\"weight\":\"normal\",\"item_count\":\"1\",\"grand_total\":\"850000\",\"discount_total\":\"0\",\"shipping_cost\":\"0\",\"notes\":\"\",\"handler_id\":\"81\",\"sender_id\":null,\"status\":\"2\",\"created_at\":\"2022-01-09 10:58:30\",\"updated_at\":null}],\"new\":{\"sender_id\":\"81\",\"status\":3}}', '/admin/order/status/23', '2022-01-15 05:52:12'),
+(522, 81, '127.0.0.1', 'update', 'orders', 0, '{\"id\":\"23\"}', '{\"old\":[{\"id\":\"23\",\"user_id\":\"81\",\"coupon_id\":\"2\",\"user_full_name\":\"مهرزاد تاج کریمی\",\"user_phone\":\"09128897603\",\"city_id\":\"100\",\"province_id\":\"3\",\"postal_code\":\"1000000000\",\"address\":\"dfgzsdfgg\",\"token\":\"0\",\"order_number\":\"0\",\"weight\":\"normal\",\"item_count\":\"1\",\"grand_total\":\"850000\",\"discount_total\":\"0\",\"shipping_cost\":\"0\",\"notes\":\"\",\"handler_id\":null,\"sender_id\":null,\"status\":\"1\",\"created_at\":\"2022-01-09 10:58:30\",\"updated_at\":null}],\"new\":{\"handler_id\":\"81\",\"status\":2}}', '/admin/order/status/23', '2022-01-15 05:53:05'),
+(523, 81, '127.0.0.1', 'update', 'orders', 0, '{\"id\":\"23\"}', '{\"old\":[{\"id\":\"23\",\"user_id\":\"81\",\"coupon_id\":\"2\",\"user_full_name\":\"مهرزاد تاج کریمی\",\"user_phone\":\"09128897603\",\"city_id\":\"100\",\"province_id\":\"3\",\"postal_code\":\"1000000000\",\"address\":\"dfgzsdfgg\",\"token\":\"0\",\"order_number\":\"0\",\"weight\":\"normal\",\"item_count\":\"1\",\"grand_total\":\"850000\",\"discount_total\":\"0\",\"shipping_cost\":\"0\",\"notes\":\"\",\"handler_id\":\"81\",\"sender_id\":null,\"tracking\":\"0\",\"status_sender\":\"0\",\"status\":\"2\",\"created_at\":\"2022-01-09 10:58:30\",\"updated_at\":null}],\"new\":{\"sender_id\":\"81\",\"status\":3}}', '/admin/order/status/23', '2022-01-15 09:31:41'),
+(524, 81, '127.0.0.1', 'update', 'orders', 0, '{\"id\":\"23\"}', '{\"old\":[{\"id\":\"23\",\"user_id\":\"81\",\"coupon_id\":\"2\",\"user_full_name\":\"مهرزاد تاج کریمی\",\"user_phone\":\"09128897603\",\"city_id\":\"100\",\"province_id\":\"3\",\"postal_code\":\"1000000000\",\"address\":\"dfgzsdfgg\",\"token\":\"0\",\"order_number\":\"0\",\"weight\":\"normal\",\"item_count\":\"1\",\"grand_total\":\"850000\",\"discount_total\":\"0\",\"shipping_cost\":\"0\",\"notes\":\"\",\"handler_id\":\"81\",\"sender_id\":\"81\",\"tracking\":\"0\",\"status_sender\":\"0\",\"status\":\"3\",\"created_at\":\"2022-01-09 10:58:30\",\"updated_at\":null}],\"new\":{\"tracker\":{\"postbar\":\"4556456\"},\"status_sender\":\"2\"}}', '/admin/order/tracker/23', '2022-01-15 12:34:26'),
+(525, 81, '127.0.0.1', 'update', 'orders', 0, '{\"id\":\"23\"}', '{\"old\":[{\"id\":\"23\",\"user_id\":\"81\",\"coupon_id\":\"2\",\"user_full_name\":\"مهرزاد تاج کریمی\",\"user_phone\":\"09128897603\",\"city_id\":\"100\",\"province_id\":\"3\",\"postal_code\":\"1000000000\",\"address\":\"dfgzsdfgg\",\"token\":\"0\",\"order_number\":\"0\",\"weight\":\"normal\",\"item_count\":\"1\",\"grand_total\":\"850000\",\"discount_total\":\"0\",\"shipping_cost\":\"0\",\"notes\":\"\",\"handler_id\":\"81\",\"sender_id\":\"81\",\"tracking\":\"0\",\"status_sender\":\"0\",\"status\":\"3\",\"created_at\":\"2022-01-09 10:58:30\",\"updated_at\":null}],\"new\":{\"tracking\":{\"postbar\":\"4556456\"},\"status_sender\":\"2\"}}', '/admin/order/tracker/23', '2022-01-15 12:34:59');
 
 -- --------------------------------------------------------
 
@@ -715,7 +758,6 @@ INSERT INTO `categories` (`id`, `status`, `description`, `type`, `H1`, `canonica
 (108, 1, '', 0, 'تجهیزات شبکه', '', 0, 0, 'تجهیزات شبکه', 'تجهیزات-شبکه', 'تجهیزات شبکه', 'تجهیزات شبکه', '2021-12-14 08:22:52'),
 (109, 0, '', 0, 'جدیدترین محصولات', '', 0, 0, 'جدیدترین محصولات', 'جدیدترین-محصولات', 'جدیدترین محصولات', 'جدیدترین محصولات', '2021-12-14 08:22:52'),
 (110, 0, '', 0, 'حراجی', '', 0, 0, 'حراجی', 'حراجی', 'حراجی', 'حراجی', '2021-12-14 08:22:52'),
-(111, 0, '', 0, 'پرفروش ترین ها', '', 0, 0, 'پرفروش ترین ها', 'پرفروش-ترین-ها', 'پرفروش ترین ها', 'پرفروش ترین ها', '2021-12-14 08:22:52'),
 (112, 1, '', 0, 'سرور باندلی - BTO', '', 0, 106, 'سرور باندلی - BTO', 'سرور-باندلی---BTO', 'سرور باندلی - BTO', 'سرور باندلی - BTO', '2021-12-14 08:22:52'),
 (113, 1, '', 0, 'قطعات داخل سرور', '', 0, 106, 'قطعات داخل سرور', 'قطعات-داخل-سرور', 'قطعات داخل سرور', 'قطعات داخل سرور', '2021-12-14 08:22:52'),
 (114, 1, '', 0, 'Storage', '', 0, 107, 'Storage', 'Storage', 'Storage', 'Storage', '2021-12-14 08:22:52'),
@@ -770,12 +812,9 @@ INSERT INTO `categories` (`id`, `status`, `description`, `type`, `H1`, `canonica
 (166, 1, '', 0, 'SOPHOS', '', 0, -1, 'SOPHOS', 'SOPHOS', 'SOPHOS', 'SOPHOS', '2021-12-14 08:22:53'),
 (167, 1, '', 0, 'IBM', '', 0, -1, 'IBM', 'IBM', 'IBM', 'IBM', '2021-12-14 08:22:53'),
 (168, 1, 'پرفروش ترین ها', 0, 'پرفروش ترین ها', '', 0, 0, 'پرفروش ترین ها', 'پرفروش-ترین-ها', 'پرفروش ترین ها', 'پرفروش ترین ها', '2021-12-27 08:47:30'),
-(170, 1, 'it', 0, 'it', '', 0, 0, 'it', 'it', 'it', 'it', '2021-12-27 09:18:27'),
 (171, 1, 'it', 1, 'it', 'it', 0, 0, 'it', 'it', 'it', 'it', '2021-12-27 09:22:37'),
 (173, 1, 'hp', 1, 'hp', 'hp', 0, 0, 'hp', 'hp', 'hp', 'hp', '2021-12-27 09:31:36'),
-(175, 1, 'product', 0, 'product', 'product', 0, 0, 'product', 'product', 'product', 'product', '2021-12-27 11:26:18'),
 (178, 1, 'ssd', 1, 'ssd', 'ssd', 0, 0, 'ssd', 'ssd', 'ssd', 'ssd', '2021-12-27 11:41:31'),
-(185, 1, 'یی', 0, 'یی', 'یی', 0, 0, 'یی', 'یی', 'یی', 'یی', '2022-01-03 13:50:42'),
 (189, 1, 'Id maxime veritatis qui eum explicabo Labore nulla et deserunt consequatur minus rerum', 1, 'Suscipit tenetur sol', 'Alias sit aut susci', 4, 0, 'retefa@mailinator.com', 'Voluptatem-Minima-c', 'Et officiis optio q', 'Sed temporibus in iu', '2022-01-04 07:24:14');
 
 -- --------------------------------------------------------
@@ -2088,6 +2127,8 @@ CREATE TABLE `orders` (
   `notes` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
   `handler_id` int DEFAULT NULL,
   `sender_id` int DEFAULT NULL,
+  `tracking` int NOT NULL,
+  `status_sender` tinyint(1) NOT NULL COMMENT ' 0 = none , 1 = post , 2 = postbar , 3 = chapar , 4 = alopeyk , 5 = snappـbox',
   `status` tinyint(1) DEFAULT '1' COMMENT '0 = delete,\r\n1 = default,\r\n2 = handler,\r\n3 = sender,\r\n4 = delivery',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -2097,30 +2138,30 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `user_id`, `coupon_id`, `user_full_name`, `user_phone`, `city_id`, `province_id`, `postal_code`, `address`, `token`, `order_number`, `weight`, `item_count`, `grand_total`, `discount_total`, `shipping_cost`, `notes`, `handler_id`, `sender_id`, `status`, `created_at`, `updated_at`) VALUES
-(1, 76, 0, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 6, 2710000000, 0, 0, 'لطفا کالاها را به موقع برسانید.', 0, 0, 1, '2021-11-30 05:32:54', NULL),
-(2, 76, 0, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 8, 6800000000, 0, 0, '', 77, 77, 3, '2021-11-30 09:45:39', NULL),
-(3, 76, 0, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 3, 2550000000, 0, 0, '', 73, 0, 2, '2021-11-30 09:49:05', NULL),
-(4, 76, 0, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 2, 240000000, 0, 0, '', 73, 81, 3, '2021-11-30 09:49:52', NULL),
-(5, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 2000000, 0, 0, '44', NULL, NULL, 1, '2022-01-03 11:14:00', NULL),
-(6, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 2, 11000000, 0, 0, '', NULL, NULL, 1, '2022-01-03 11:35:08', NULL),
-(7, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 500000, 0, 0, '', NULL, NULL, 1, '2022-01-08 04:32:58', NULL),
-(8, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 3150000, 0, 0, '', 81, NULL, 2, '2022-01-08 04:49:08', NULL),
-(9, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 2, 4650000, 0, 0, '', 81, NULL, 2, '2022-01-08 04:49:37', NULL),
-(10, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 418500, 0, 0, '', 81, 81, 2, '2022-01-08 08:51:08', NULL),
-(11, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 900000, 0, 0, '', NULL, NULL, 1, '2022-01-08 09:40:04', NULL),
-(12, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 1800000, 0, 0, '', 81, NULL, 2, '2022-01-08 09:44:55', NULL),
-(13, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 418500, 0, 0, '', 81, NULL, 2, '2022-01-08 10:50:09', NULL),
-(14, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 2835000, 0, 0, '', 81, NULL, 2, '2022-01-08 11:11:01', NULL),
-(15, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 7000000, 0, 0, '', 81, NULL, 2, '2022-01-08 11:21:17', NULL),
-(16, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 900000, 0, 0, '', 81, NULL, 2, '2022-01-08 11:21:39', NULL),
-(17, 81, 6, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 900000, 0, 0, '', 81, NULL, 2, '2022-01-08 11:45:53', NULL),
-(18, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 0, 0, 0, 0, '', 81, NULL, 2, '2022-01-08 11:48:34', NULL),
-(19, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 0, 0, 0, 0, '', 81, NULL, 2, '2022-01-08 11:48:44', NULL),
-(20, 81, 6, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 2835000, 0, 0, '', 81, NULL, 2, '2022-01-08 12:28:30', NULL),
-(21, 81, 6, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 2835000, 0, 0, '', 81, NULL, 2, '2022-01-09 04:35:46', NULL),
-(22, 81, 6, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 900000, 0, 0, '', 81, NULL, 2, '2022-01-09 04:50:16', NULL),
-(23, 81, 2, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 850000, 0, 0, '', NULL, NULL, 1, '2022-01-09 07:28:30', NULL);
+INSERT INTO `orders` (`id`, `user_id`, `coupon_id`, `user_full_name`, `user_phone`, `city_id`, `province_id`, `postal_code`, `address`, `token`, `order_number`, `weight`, `item_count`, `grand_total`, `discount_total`, `shipping_cost`, `notes`, `handler_id`, `sender_id`, `tracking`, `status_sender`, `status`, `created_at`, `updated_at`) VALUES
+(1, 76, 0, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 6, 2710000000, 0, 0, 'لطفا کالاها را به موقع برسانید.', 0, 0, 0, 0, 1, '2021-11-30 05:32:54', NULL),
+(2, 76, 0, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 8, 6800000000, 0, 0, '', 77, 77, 0, 0, 3, '2021-11-30 09:45:39', NULL),
+(3, 76, 0, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 3, 2550000000, 0, 0, '', 73, 0, 0, 0, 2, '2021-11-30 09:49:05', NULL),
+(4, 76, 0, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 2, 240000000, 0, 0, '', 73, 81, 0, 0, 3, '2021-11-30 09:49:52', NULL),
+(5, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 2000000, 0, 0, '44', NULL, NULL, 0, 0, 1, '2022-01-03 11:14:00', NULL),
+(6, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 2, 11000000, 0, 0, '', NULL, NULL, 0, 0, 1, '2022-01-03 11:35:08', NULL),
+(7, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 500000, 0, 0, '', NULL, NULL, 0, 0, 1, '2022-01-08 04:32:58', NULL),
+(8, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 3150000, 0, 0, '', 81, NULL, 0, 0, 2, '2022-01-08 04:49:08', NULL),
+(9, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 2, 4650000, 0, 0, '', 81, NULL, 0, 0, 2, '2022-01-08 04:49:37', NULL),
+(10, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 418500, 0, 0, '', 81, 81, 0, 0, 2, '2022-01-08 08:51:08', NULL),
+(11, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 900000, 0, 0, '', NULL, NULL, 0, 0, 1, '2022-01-08 09:40:04', NULL),
+(12, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 1800000, 0, 0, '', 81, NULL, 0, 0, 2, '2022-01-08 09:44:55', NULL),
+(13, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 418500, 0, 0, '', 81, NULL, 0, 0, 2, '2022-01-08 10:50:09', NULL),
+(14, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 2835000, 0, 0, '', 81, NULL, 0, 0, 2, '2022-01-08 11:11:01', NULL),
+(15, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 7000000, 0, 0, '', 81, NULL, 0, 0, 2, '2022-01-08 11:21:17', NULL),
+(16, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 900000, 0, 0, '', 81, NULL, 0, 0, 2, '2022-01-08 11:21:39', NULL),
+(17, 81, 6, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 900000, 0, 0, '', 81, NULL, 0, 0, 2, '2022-01-08 11:45:53', NULL),
+(18, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 0, 0, 0, 0, '', 81, NULL, 0, 0, 2, '2022-01-08 11:48:34', NULL),
+(19, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 0, 0, 0, 0, '', 81, NULL, 0, 0, 2, '2022-01-08 11:48:44', NULL),
+(20, 81, 6, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 2835000, 0, 0, '', 81, NULL, 0, 0, 2, '2022-01-08 12:28:30', NULL),
+(21, 81, 6, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 2835000, 0, 0, '', 81, NULL, 0, 0, 2, '2022-01-09 04:35:46', NULL),
+(22, 81, 6, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 900000, 0, 0, '', 81, 81, 0, 0, 3, '2022-01-09 04:50:16', NULL),
+(23, 81, 2, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 850000, 0, 0, '', 81, 81, 0, 2, 3, '2022-01-09 07:28:30', NULL);
 
 -- --------------------------------------------------------
 
@@ -2459,13 +2500,10 @@ INSERT INTO `photos` (`id`, `entity_id`, `entity_type`, `type`, `path`, `alt`, `
 (301, 12, 'Brand', 0, 'http://usedkalaV2.me/Storage/202112/intel.---cdeea7f9.png', 'brand_image', '2021-12-14 13:59:27'),
 (302, 11, 'Brand', 0, 'http://usedkalaV2.me/Storage/202112/Cisco_logo.svg.---bb349861.png', 'brand_image', '2021-12-14 13:59:35'),
 (303, 10, 'Brand', 0, 'http://usedkalaV2.me/Storage/202112/hpe.---a157fa8c.png', 'brand_image', '2021-12-14 13:59:43'),
-(304, 168, 'Category', 0, 'http://usedkalaV2.me/Storage/202112/Screenshot from 2021-12-27 10-48-46.---807b98fc.png', 'image_category', '2021-12-27 08:47:31'),
-(306, 170, 'Category', 0, 'http://usedkalaV2.me/Storage/202112/card-4.---39ee1398.jpg', 'image_category', '2021-12-27 09:18:27'),
+(304, 168, 'Category', 0, 'http://usedkalaV2.me/Storage/202201/home-v12-background.---708391ff.jpg', 'image_category', '2021-12-27 08:47:31'),
 (307, 171, 'Category', 0, 'http://usedkalaV2.me/Storage/202112/40.---a7f64bb0.jpg', 'image_category', '2021-12-27 09:22:37'),
 (309, 173, 'Category', 0, 'http://usedkalaV2.me/Storage/202112/42.---b54766a3.jpg', 'image_category', '2021-12-27 09:31:36'),
-(311, 175, 'Category', 0, 'http://usedkalaV2.me/Storage/202112/card-4.---03deb567.jpg', 'image_category', '2021-12-27 11:26:18'),
 (314, 178, 'Category', 0, 'http://usedkalaV2.me/Storage/202112/1-1.---0e0ce5a5.jpg', 'image_category', '2021-12-27 11:41:31'),
-(318, 185, 'Category', 0, 'http://usedkalaV2.me/Storage/202201/35.---90eaa26f.jpg', 'image_category', '2022-01-03 13:50:42'),
 (322, 189, 'Category', 0, 'http://usedkalaV2.me/Storage/202201/38.---ddece540.jpg', 'image_category', '2022-01-04 07:24:36');
 
 -- --------------------------------------------------------
@@ -3340,7 +3378,7 @@ INSERT INTO `users` (`id`, `city_id`, `province_id`, `user_level`, `phone`, `ema
 (82, NULL, NULL, 0, '09378454043', NULL, 'میثم', 'علی‌قلی‌پور', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, '2021-12-14 14:20:00', NULL),
 (83, NULL, NULL, 0, '09124953770', NULL, 'سجاد', 'رضایی', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, '2021-12-14 14:20:00', NULL),
 (84, NULL, NULL, 0, '09359312383', NULL, 'علی', 'حریرساز', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, '2021-12-14 14:21:59', NULL),
-(85, NULL, NULL, 1, '091288976063', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, '2022-01-08 05:48:13', NULL);
+(85, 301, 8, 1, '091288976063', ' mehrzadth@gmail.com', 'مهرزاد', 'تاج کریمی ', NULL, NULL, '0073591521', '072012346', 'مهراباد جنوبی خیابان رجبی ', NULL, NULL, 1, NULL, NULL, NULL, NULL, '2022-01-08 05:48:13', NULL);
 
 -- --------------------------------------------------------
 
@@ -3643,13 +3681,13 @@ ALTER TABLE `wish_lists`
 -- AUTO_INCREMENT for table `active_codes`
 --
 ALTER TABLE `active_codes`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=364;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=366;
 
 --
 -- AUTO_INCREMENT for table `activity_log`
 --
 ALTER TABLE `activity_log`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=484;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=526;
 
 --
 -- AUTO_INCREMENT for table `attributes`
@@ -3697,7 +3735,7 @@ ALTER TABLE `carts`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=190;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=195;
 
 --
 -- AUTO_INCREMENT for table `category_blogs`
@@ -3769,7 +3807,7 @@ ALTER TABLE `permission_users`
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=323;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=327;
 
 --
 -- AUTO_INCREMENT for table `products`

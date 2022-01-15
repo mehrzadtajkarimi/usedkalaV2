@@ -16,6 +16,59 @@
             }
         });
 
+
+        $('.status_sender').click(function(e) {
+
+            $('.tracker').fadeOut(0);
+            $('.tracker input').prop('required', false).val('');
+            if (this.value == 1) {
+                $('.tracker-post input').prop('required', true);
+                $('.tracker-post').fadeIn(400);
+            }
+            if (this.value == 2) {
+                $('.tracker-postbar input').prop('required', true);
+                $('.tracker-postbar').fadeIn(400);
+            }
+            if (this.value == 3) {
+                $('.tracker-chapar input').prop('required', true);
+                $('.tracker-chapar').fadeIn(400);
+            }
+            if (this.value == 4) {
+                $('.tracker-alopeyk input').prop('required', true);
+                $('.tracker-alopeyk').fadeIn(400);
+            }
+            if (this.value == 5) {
+                $('.tracker-snappـbox input').prop('required', true);
+                $('.tracker-snappـbox').fadeIn(400)
+            }
+        });
+
+        $('.btn-submit-order-tracing').click(function() {
+
+            $('.form-order-tracing').submit(function(e) {
+                e.preventDefault();
+                alert('Success');
+                that = $('.form-order-tracing');
+                id = that.data('id');
+                url = that.val('action');
+
+                $.ajax({
+                    type: "post",
+                    url: url,
+                    data: {
+                        'id': id
+                    },
+                    success: function(response) {
+                        alert(response);
+                    }
+                });
+
+
+            });
+        });
+
+
+
         $('#order-category').select2({
             'placeholder': 'دسته بندی های مورد نظر را انتخاب کنید'
         });

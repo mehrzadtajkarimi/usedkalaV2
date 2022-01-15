@@ -109,7 +109,6 @@ class OrderController extends Controller
                     $results[$key] += ['discount_coupon' =>   $coupon_price];
                 }
             }
-
         }
 
 
@@ -146,5 +145,26 @@ class OrderController extends Controller
             // ], $order_id);
             // echo  $result;
         }
+    }
+
+    public function tracker()
+    {
+        $param = $this->request->params();
+        $status_sender = $param['status-sender'];
+        $order_id = $this->request->get_param('id');
+        $trackers = array(
+            $param['tracker-post'],
+            $param['tracker-postbar'],
+            $param['tracker-chapar'],
+            $param['tracker-snappـbox'],
+            $param['tracker-alopeyk'],
+        );
+
+        $filter_array = array_filter($trackers);
+        $result = $this->orderModel->update_order([
+            'tracking' => implode(', ', $filter_array),
+            'status_sender' => $status_sender,
+        ], $order_id);
+        echo  $result;
     }
 }

@@ -34,6 +34,7 @@ Route::group(function () {
     Route::get('/admin/users', 'UserController@index');
     Route::get('/admin/user/makeadmin/{id}', 'UserController@make_admin');
     Route::post('/admin/user/city/{id}', 'UserController@get_city');
+   
     Route::patch('/admin/user/{id}', 'UserController@update');
     Route::delete('/admin/user/{id}', 'UserController@destroy');
 });
@@ -89,6 +90,7 @@ Route::group(function () {
     Route::post('/admin/order/get_orders', 'OrderController@get_orders');
     Route::post('/admin/order/get_admin', 'OrderController@get_admin');
     Route::post('/admin/order/status/{id}', 'OrderController@status');
+    Route::post('/admin/order/tracker/{id}', 'OrderController@tracker');
 });
 
 Route::group(function () {
