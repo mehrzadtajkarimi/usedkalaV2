@@ -86,10 +86,8 @@ class DiscountController extends Controller
     public function edit()
     {
         $id               = $this->request->get_param('id');
-        $categories_by_id = $this->categoryDiscountModel->read_categoryDiscount($id);
-        $products_by_id   = $this->productDiscountModel->read_productDiscount($id);
-		
-		// die('ok');
+        $categories_by_id = $this->categoryDiscountModel->join__with__categoryDiscount__product($id);
+        $products_by_id   = $this->productDiscountModel->join__with__productDiscount__product($id);
 
         if ($categories_by_id) {
             foreach ($categories_by_id as  $value) {
