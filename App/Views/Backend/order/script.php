@@ -81,6 +81,7 @@
             var order_id = $(that).data('id');
             if ($(that).is(':checked')) {
                 var type = 2;
+                location.reload();
             }
             $.ajax({
                 type: "post",
