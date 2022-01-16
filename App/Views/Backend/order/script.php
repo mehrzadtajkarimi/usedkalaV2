@@ -81,7 +81,8 @@
             var order_id = $(that).data('id');
             if ($(that).is(':checked')) {
                 var type = 2;
-                location.reload();
+                 // location.reload();
+                location=location;
             }
             $.ajax({
                 type: "post",
@@ -109,7 +110,8 @@
                 var type = 3;
                 if (status_sender) {
                     var isGood = confirm('لطفا ابتدا روش ارسال را مشخص کنید');
-                    location.reload();
+                    // location.reload();
+                    location=location;
                 }
             }
             $.ajax({
