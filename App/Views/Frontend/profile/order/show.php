@@ -41,7 +41,7 @@
                     <?php foreach ($order as $value) : ?>
 					<div>
 						<div>
-							<span>شماره سفارش: </span><span><?= $value['order_number'] ?></span>
+							<span>شماره سفارش: </span><span><?= $value['id'] ?></span>
 						</div>
 						<div>
 							<span>تعداد اقلام سفارش: </span><span class="woocommerce-Price-amount amount"><?= $value['item_count'] ?></span>
