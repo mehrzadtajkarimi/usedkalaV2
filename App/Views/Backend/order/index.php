@@ -27,6 +27,7 @@
                 <th class="text-center" scope="col">وضعیت</th>
                 <th class="text-center" scope="col">رسیدگی شده توسط</th>
                 <th class="text-center" scope="col">ارسال شده توسط</th>
+                <th class="text-center" scope="col"> ارسال از طریق</th>
                 <th class="text-center" scope="col">نمایش</th>
               </tr>
             </thead>
@@ -103,7 +104,7 @@
                         </div>
                         <div class="col-3">
                           <label class="chkbx">
-                            <input class="check-box-sender check-box-sender-<?= $value['id'] ?>" data-id="<?= $value['id'] ?>" <?= $value['status'] == 3 ? 'checked' : '' ?> onclick="return confirm(' آیا برای تغییر وضعیت اطلاعات اطمینان دارید... \n بعد از تغییر وضعیت به حالت بررسی \nبه نام شما ثبت شده و دیگر امکان بازگشت وجود نخواهد داشت ');" type="checkbox">
+                            <input class="check-box-sender check-box-sender-<?= $value['id'] ?>" data-status_sender="<?= $value['status_sender'] == 0 ?>" data-id="<?= $value['id'] ?>" <?= $value['status'] == 3 ? 'checked' : '' ?> type="checkbox">
                             <span class="x"></span>
                           </label>
                         </div>
@@ -141,12 +142,21 @@
                       <td class="text-center">
                         <button type="button" data-id="<?= $value['id'] ?>" class="btn btn-link sender">مشاهده</button>
                       </td>
+                      <?php if ($value['status_sender'] != 0) : ?>
+                        <td class="text-center">
+                          <div style="color:#007bff"  ><?= array_key_exists($value['status_sender'],status_sender())? status_sender()[$value['status_sender']] : '' ?></div>
+                          <small class="text-muted"><?= $value['tracking'] ?></small>
+                        </td>
+                      <?php else : ?>
+                        <td></td>
+                      <?php endif; ?>
                     <?php else : ?>
+                      <td></td>
                       <td></td>
                     <?php endif; ?>
 
                     <td class="text-center">
-                      <?php if ($value['status'] >= 3) : ?>
+                      <?php if ($value['status'] >= 2 && $value['status_sender'] == 0) : ?>
                         <button data-id="<?= $value['id'] ?>" class="shadow-sm  btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModalCenters-<?= $value['id'] ?>" style="padding: 0px 9px; border-radius: 18px;">
                           روش ارسال
                         </button>
@@ -156,7 +166,7 @@
                             <div class="modal-content">
 
                               <div class="modal-body">
-                                <form   action="<?= base_url() ?>admin/order/tracker/<?= $value['id'] ?>" method="post" >
+                                <form action="<?= base_url() ?>admin/order/tracker/<?= $value['id'] ?>" method="post">
                                   <div class="form-group row">
                                     <label for="status_sender_<?= $value['id'] ?>" class="col-3 col-form-label"> ارسال</label>
                                     <div class="col-9">
@@ -173,25 +183,25 @@
                                   <div class="form-group row tracker  tracker-post" style="display: none">
                                     <label for="tracker-post-<?= $value['id'] ?>" class="col-3 col-form-label">پست </label>
                                     <div class="col-9">
-                                      <input name="tracker-post" type="text" class="form-control" id="tracker-post-<?= $value['id'] ?>" placeholder="شماره سفارش پست" >
+                                      <input name="tracker-post" type="text" class="form-control" id="tracker-post-<?= $value['id'] ?>" placeholder="شماره سفارش پست">
                                     </div>
                                   </div>
                                   <div class="form-group row tracker tracker-postbar" style="display: none">
                                     <label for="tracker-postbar-<?= $value['id'] ?>" class="col-3 col-form-label">پست بار</label>
                                     <div class="col-9">
-                                      <input name="tracker-postbar" type="text" class="form-control" id="tracker-postbar-<?= $value['id'] ?>" placeholder="شماره سفارش  پست بار" >
+                                      <input name="tracker-postbar" type="text" class="form-control" id="tracker-postbar-<?= $value['id'] ?>" placeholder="شماره سفارش  پست بار">
                                     </div>
                                   </div>
                                   <div class="form-group row tracker tracker-chapar" style="display: none">
                                     <label for="tracker-chapar-<?= $value['id'] ?>" class="col-3 col-form-label">چاپار</label>
                                     <div class="col-9">
-                                      <input name="tracker-chapar" type="text" class="form-control" id="tracker-chapar-<?= $value['id'] ?>" placeholder="شماره سفارش چاپار" >
+                                      <input name="tracker-chapar" type="text" class="form-control" id="tracker-chapar-<?= $value['id'] ?>" placeholder="شماره سفارش چاپار">
                                     </div>
                                   </div>
                                   <div class="form-group row tracker tracker-alopeyk" style="display: none">
                                     <label for="tracker-alopeyk-<?= $value['id'] ?>" class="col-3 col-form-label">الوپیک</label>
                                     <div class="col-9">
-                                      <input name="tracker-alopeyk" type="text" class="form-control" id="tracker-alopeyk-<?= $value['id'] ?>" placeholder="شماره سفارش الوپیک" >
+                                      <input name="tracker-alopeyk" type="text" class="form-control" id="tracker-alopeyk-<?= $value['id'] ?>" placeholder="شماره سفارش الوپیک">
                                     </div>
                                   </div>
                                   <div class="form-group row tracker tracker-snappـbox" style="display: none">
@@ -213,6 +223,7 @@
                       </button>
                     </td>
                   <?php else : ?>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>

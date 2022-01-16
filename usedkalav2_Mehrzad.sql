@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 15, 2022 at 12:50 PM
+-- Generation Time: Jan 16, 2022 at 06:18 AM
 -- Server version: 8.0.27-0ubuntu0.20.04.1
 -- PHP Version: 8.0.14
 
@@ -601,7 +601,13 @@ INSERT INTO `activity_log` (`id`, `user_id`, `ip`, `type`, `target_table`, `row_
 (522, 81, '127.0.0.1', 'update', 'orders', 0, '{\"id\":\"23\"}', '{\"old\":[{\"id\":\"23\",\"user_id\":\"81\",\"coupon_id\":\"2\",\"user_full_name\":\"مهرزاد تاج کریمی\",\"user_phone\":\"09128897603\",\"city_id\":\"100\",\"province_id\":\"3\",\"postal_code\":\"1000000000\",\"address\":\"dfgzsdfgg\",\"token\":\"0\",\"order_number\":\"0\",\"weight\":\"normal\",\"item_count\":\"1\",\"grand_total\":\"850000\",\"discount_total\":\"0\",\"shipping_cost\":\"0\",\"notes\":\"\",\"handler_id\":null,\"sender_id\":null,\"status\":\"1\",\"created_at\":\"2022-01-09 10:58:30\",\"updated_at\":null}],\"new\":{\"handler_id\":\"81\",\"status\":2}}', '/admin/order/status/23', '2022-01-15 05:53:05'),
 (523, 81, '127.0.0.1', 'update', 'orders', 0, '{\"id\":\"23\"}', '{\"old\":[{\"id\":\"23\",\"user_id\":\"81\",\"coupon_id\":\"2\",\"user_full_name\":\"مهرزاد تاج کریمی\",\"user_phone\":\"09128897603\",\"city_id\":\"100\",\"province_id\":\"3\",\"postal_code\":\"1000000000\",\"address\":\"dfgzsdfgg\",\"token\":\"0\",\"order_number\":\"0\",\"weight\":\"normal\",\"item_count\":\"1\",\"grand_total\":\"850000\",\"discount_total\":\"0\",\"shipping_cost\":\"0\",\"notes\":\"\",\"handler_id\":\"81\",\"sender_id\":null,\"tracking\":\"0\",\"status_sender\":\"0\",\"status\":\"2\",\"created_at\":\"2022-01-09 10:58:30\",\"updated_at\":null}],\"new\":{\"sender_id\":\"81\",\"status\":3}}', '/admin/order/status/23', '2022-01-15 09:31:41'),
 (524, 81, '127.0.0.1', 'update', 'orders', 0, '{\"id\":\"23\"}', '{\"old\":[{\"id\":\"23\",\"user_id\":\"81\",\"coupon_id\":\"2\",\"user_full_name\":\"مهرزاد تاج کریمی\",\"user_phone\":\"09128897603\",\"city_id\":\"100\",\"province_id\":\"3\",\"postal_code\":\"1000000000\",\"address\":\"dfgzsdfgg\",\"token\":\"0\",\"order_number\":\"0\",\"weight\":\"normal\",\"item_count\":\"1\",\"grand_total\":\"850000\",\"discount_total\":\"0\",\"shipping_cost\":\"0\",\"notes\":\"\",\"handler_id\":\"81\",\"sender_id\":\"81\",\"tracking\":\"0\",\"status_sender\":\"0\",\"status\":\"3\",\"created_at\":\"2022-01-09 10:58:30\",\"updated_at\":null}],\"new\":{\"tracker\":{\"postbar\":\"4556456\"},\"status_sender\":\"2\"}}', '/admin/order/tracker/23', '2022-01-15 12:34:26'),
-(525, 81, '127.0.0.1', 'update', 'orders', 0, '{\"id\":\"23\"}', '{\"old\":[{\"id\":\"23\",\"user_id\":\"81\",\"coupon_id\":\"2\",\"user_full_name\":\"مهرزاد تاج کریمی\",\"user_phone\":\"09128897603\",\"city_id\":\"100\",\"province_id\":\"3\",\"postal_code\":\"1000000000\",\"address\":\"dfgzsdfgg\",\"token\":\"0\",\"order_number\":\"0\",\"weight\":\"normal\",\"item_count\":\"1\",\"grand_total\":\"850000\",\"discount_total\":\"0\",\"shipping_cost\":\"0\",\"notes\":\"\",\"handler_id\":\"81\",\"sender_id\":\"81\",\"tracking\":\"0\",\"status_sender\":\"0\",\"status\":\"3\",\"created_at\":\"2022-01-09 10:58:30\",\"updated_at\":null}],\"new\":{\"tracking\":{\"postbar\":\"4556456\"},\"status_sender\":\"2\"}}', '/admin/order/tracker/23', '2022-01-15 12:34:59');
+(525, 81, '127.0.0.1', 'update', 'orders', 0, '{\"id\":\"23\"}', '{\"old\":[{\"id\":\"23\",\"user_id\":\"81\",\"coupon_id\":\"2\",\"user_full_name\":\"مهرزاد تاج کریمی\",\"user_phone\":\"09128897603\",\"city_id\":\"100\",\"province_id\":\"3\",\"postal_code\":\"1000000000\",\"address\":\"dfgzsdfgg\",\"token\":\"0\",\"order_number\":\"0\",\"weight\":\"normal\",\"item_count\":\"1\",\"grand_total\":\"850000\",\"discount_total\":\"0\",\"shipping_cost\":\"0\",\"notes\":\"\",\"handler_id\":\"81\",\"sender_id\":\"81\",\"tracking\":\"0\",\"status_sender\":\"0\",\"status\":\"3\",\"created_at\":\"2022-01-09 10:58:30\",\"updated_at\":null}],\"new\":{\"tracking\":{\"postbar\":\"4556456\"},\"status_sender\":\"2\"}}', '/admin/order/tracker/23', '2022-01-15 12:34:59'),
+(526, 81, '127.0.0.1', 'update', 'orders', 0, '{\"id\":\"23\"}', '{\"old\":[{\"id\":\"23\",\"user_id\":\"81\",\"coupon_id\":\"2\",\"user_full_name\":\"مهرزاد تاج کریمی\",\"user_phone\":\"09128897603\",\"city_id\":\"100\",\"province_id\":\"3\",\"postal_code\":\"1000000000\",\"address\":\"dfgzsdfgg\",\"token\":\"0\",\"order_number\":\"0\",\"weight\":\"normal\",\"item_count\":\"1\",\"grand_total\":\"850000\",\"discount_total\":\"0\",\"shipping_cost\":\"0\",\"notes\":\"\",\"handler_id\":\"81\",\"sender_id\":\"81\",\"tracking\":\"0\",\"status_sender\":\"2\",\"status\":\"3\",\"created_at\":\"2022-01-09 10:58:30\",\"updated_at\":null}],\"new\":{\"tracking\":\"4556456\",\"status_sender\":\"2\"}}', '/admin/order/tracker/23', '2022-01-15 12:52:03'),
+(527, 0, '127.0.0.1', 'create', 'active_codes', 366, '', '{\"user_id\":\"81\",\"code\":2199,\"expired_at\":\"2022-01-16 08:07:59\"}', '/admin/login', '2022-01-16 04:37:58'),
+(528, 81, '127.0.0.1', 'delete', 'active_codes', 0, '{\"user_id\":\"81\"}', '[{\"id\":\"366\",\"user_id\":\"81\",\"code\":\"2199\",\"expired_at\":\"2022-01-16 08:07:59\"}]', '/admin/token', '2022-01-16 04:38:06'),
+(529, 81, '127.0.0.1', 'update', 'orders', 0, '{\"id\":\"23\"}', '{\"old\":[{\"id\":\"23\",\"user_id\":\"81\",\"coupon_id\":\"2\",\"user_full_name\":\"مهرزاد تاج کریمی\",\"user_phone\":\"09128897603\",\"city_id\":\"100\",\"province_id\":\"3\",\"postal_code\":\"1000000000\",\"address\":\"dfgzsdfgg\",\"token\":\"0\",\"order_number\":\"0\",\"weight\":\"normal\",\"item_count\":\"1\",\"grand_total\":\"850000\",\"discount_total\":\"0\",\"shipping_cost\":\"0\",\"notes\":\"\",\"handler_id\":\"81\",\"sender_id\":\"81\",\"tracking\":\"4556456\",\"status_sender\":\"2\",\"status\":\"3\",\"created_at\":\"2022-01-09 10:58:30\",\"updated_at\":null}],\"new\":{\"tracking\":\"45564\",\"status_sender\":\"2\"}}', '/admin/order/tracker/23', '2022-01-16 04:40:04'),
+(530, 81, '127.0.0.1', 'update', 'orders', 0, '{\"id\":\"22\"}', '{\"old\":[{\"id\":\"22\",\"user_id\":\"81\",\"coupon_id\":\"6\",\"user_full_name\":\"مهرزاد تاج کریمی\",\"user_phone\":\"09128897603\",\"city_id\":\"100\",\"province_id\":\"3\",\"postal_code\":\"1000000000\",\"address\":\"dfgzsdfgg\",\"token\":\"0\",\"order_number\":\"0\",\"weight\":\"normal\",\"item_count\":\"1\",\"grand_total\":\"900000\",\"discount_total\":\"0\",\"shipping_cost\":\"0\",\"notes\":\"\",\"handler_id\":\"81\",\"sender_id\":\"81\",\"tracking\":\"0\",\"status_sender\":\"0\",\"status\":\"3\",\"created_at\":\"2022-01-09 08:20:16\",\"updated_at\":null}],\"new\":{\"tracking\":\"3464564\",\"status_sender\":\"4\"}}', '/admin/order/tracker/22', '2022-01-16 04:49:55'),
+(531, 81, '127.0.0.1', 'update', 'orders', 0, '{\"id\":\"21\"}', '{\"old\":[{\"id\":\"21\",\"user_id\":\"81\",\"coupon_id\":\"6\",\"user_full_name\":\"مهرزاد تاج کریمی\",\"user_phone\":\"09128897603\",\"city_id\":\"100\",\"province_id\":\"3\",\"postal_code\":\"1000000000\",\"address\":\"dfgzsdfgg\",\"token\":\"0\",\"order_number\":\"0\",\"weight\":\"normal\",\"item_count\":\"1\",\"grand_total\":\"2835000\",\"discount_total\":\"0\",\"shipping_cost\":\"0\",\"notes\":\"\",\"handler_id\":\"81\",\"sender_id\":null,\"tracking\":\"0\",\"status_sender\":\"0\",\"status\":\"1\",\"created_at\":\"2022-01-09 08:05:46\",\"updated_at\":null}],\"new\":{\"handler_id\":\"81\",\"status\":2}}', '/admin/order/status/21', '2022-01-16 06:05:37');
 
 -- --------------------------------------------------------
 
@@ -652,7 +658,7 @@ CREATE TABLE `blogs` (
   `slug` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
   `title` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
   `value` text CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
-  `seo_robot` tinyint NOT NULL COMMENT '0=Index 1=Noindex 2=Nofollow 3=Follow 4=None 5=Noimageindex 6=Noarchive 7=Nocache',
+  `seo_robot` tinyint NOT NULL COMMENT '[\r\n0=>''Index'',\r\n1=>''Noindex'',\r\n2=>''Nofollow'',\r\n3=>''Follow'',\r\n4=>''None'',\r\n5=>''Noimageindex'', 6=>''Noarchive'',\r\n7=>''Nocache''\r\n]',
   `seo_canonical` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
   `seo_H1` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
   `seo_description` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
@@ -693,7 +699,7 @@ CREATE TABLE `brands` (
   `html_title` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT '',
   `html_desc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci,
   `canonical` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT '',
-  `robots` tinyint DEFAULT '0' COMMENT '0=Noindex 1=Index 2=Nofollow 3=Follow 4=None 5=Noimageindex 6=Noarchive 7=Nocache',
+  `robots` tinyint DEFAULT '0' COMMENT '[\r\n0=>''Noindex'',\r\n1=>''Index'',\r\n2=>''Nofollow'',\r\n3=>''Follow'',\r\n4=>''None'',\r\n5=>''Noimageindex'',\r\n6=>''Noarchive'',\r\n7=>''Nocache''\r\n]',
   `logo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
   `sort` int DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -2127,9 +2133,9 @@ CREATE TABLE `orders` (
   `notes` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci DEFAULT NULL,
   `handler_id` int DEFAULT NULL,
   `sender_id` int DEFAULT NULL,
-  `tracking` int NOT NULL,
-  `status_sender` tinyint(1) NOT NULL COMMENT ' 0 = none , 1 = post , 2 = postbar , 3 = chapar , 4 = alopeyk , 5 = snappـbox',
-  `status` tinyint(1) DEFAULT '1' COMMENT '0 = delete,\r\n1 = default,\r\n2 = handler,\r\n3 = sender,\r\n4 = delivery',
+  `tracking` varchar(255) COLLATE utf8mb4_persian_ci NOT NULL,
+  `status_sender` tinyint(1) NOT NULL DEFAULT '0' COMMENT '[\r\n 0 => ''none'' ,\r\n 1 => ''post'' ,\r\n 2 => ''postbar'' ,\r\n 3 => ''chapar'' ,\r\n 4 => ''alopeyk'' ,\r\n 5 => ''snappـbox''\r\n]',
+  `status` tinyint(1) DEFAULT '1' COMMENT '[\r\n0 => ''delete'',\r\n1 => ''default'',\r\n2 => ''handler'',\r\n3 => ''sender'',\r\n4 => ''delivery''\r\n]',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
@@ -2139,29 +2145,29 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `coupon_id`, `user_full_name`, `user_phone`, `city_id`, `province_id`, `postal_code`, `address`, `token`, `order_number`, `weight`, `item_count`, `grand_total`, `discount_total`, `shipping_cost`, `notes`, `handler_id`, `sender_id`, `tracking`, `status_sender`, `status`, `created_at`, `updated_at`) VALUES
-(1, 76, 0, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 6, 2710000000, 0, 0, 'لطفا کالاها را به موقع برسانید.', 0, 0, 0, 0, 1, '2021-11-30 05:32:54', NULL),
-(2, 76, 0, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 8, 6800000000, 0, 0, '', 77, 77, 0, 0, 3, '2021-11-30 09:45:39', NULL),
-(3, 76, 0, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 3, 2550000000, 0, 0, '', 73, 0, 0, 0, 2, '2021-11-30 09:49:05', NULL),
-(4, 76, 0, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 2, 240000000, 0, 0, '', 73, 81, 0, 0, 3, '2021-11-30 09:49:52', NULL),
-(5, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 2000000, 0, 0, '44', NULL, NULL, 0, 0, 1, '2022-01-03 11:14:00', NULL),
-(6, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 2, 11000000, 0, 0, '', NULL, NULL, 0, 0, 1, '2022-01-03 11:35:08', NULL),
-(7, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 500000, 0, 0, '', NULL, NULL, 0, 0, 1, '2022-01-08 04:32:58', NULL),
-(8, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 3150000, 0, 0, '', 81, NULL, 0, 0, 2, '2022-01-08 04:49:08', NULL),
-(9, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 2, 4650000, 0, 0, '', 81, NULL, 0, 0, 2, '2022-01-08 04:49:37', NULL),
-(10, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 418500, 0, 0, '', 81, 81, 0, 0, 2, '2022-01-08 08:51:08', NULL),
-(11, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 900000, 0, 0, '', NULL, NULL, 0, 0, 1, '2022-01-08 09:40:04', NULL),
-(12, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 1800000, 0, 0, '', 81, NULL, 0, 0, 2, '2022-01-08 09:44:55', NULL),
-(13, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 418500, 0, 0, '', 81, NULL, 0, 0, 2, '2022-01-08 10:50:09', NULL),
-(14, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 2835000, 0, 0, '', 81, NULL, 0, 0, 2, '2022-01-08 11:11:01', NULL),
-(15, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 7000000, 0, 0, '', 81, NULL, 0, 0, 2, '2022-01-08 11:21:17', NULL),
-(16, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 900000, 0, 0, '', 81, NULL, 0, 0, 2, '2022-01-08 11:21:39', NULL),
-(17, 81, 6, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 900000, 0, 0, '', 81, NULL, 0, 0, 2, '2022-01-08 11:45:53', NULL),
-(18, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 0, 0, 0, 0, '', 81, NULL, 0, 0, 2, '2022-01-08 11:48:34', NULL),
-(19, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 0, 0, 0, 0, '', 81, NULL, 0, 0, 2, '2022-01-08 11:48:44', NULL),
-(20, 81, 6, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 2835000, 0, 0, '', 81, NULL, 0, 0, 2, '2022-01-08 12:28:30', NULL),
-(21, 81, 6, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 2835000, 0, 0, '', 81, NULL, 0, 0, 2, '2022-01-09 04:35:46', NULL),
-(22, 81, 6, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 900000, 0, 0, '', 81, 81, 0, 0, 3, '2022-01-09 04:50:16', NULL),
-(23, 81, 2, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 850000, 0, 0, '', 81, 81, 0, 2, 3, '2022-01-09 07:28:30', NULL);
+(1, 76, 0, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 6, 2710000000, 0, 0, 'لطفا کالاها را به موقع برسانید.', 0, 0, '0', 0, 1, '2021-11-30 05:32:54', NULL),
+(2, 76, 0, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 8, 6800000000, 0, 0, '', 77, 77, '0', 0, 3, '2021-11-30 09:45:39', NULL),
+(3, 76, 0, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 3, 2550000000, 0, 0, '', 73, 0, '0', 0, 2, '2021-11-30 09:49:05', NULL),
+(4, 76, 0, '', '09369532227', 301, 8, 12345678, 'تهرانپارس،', '0', 0, 'normal', 2, 240000000, 0, 0, '', 73, 81, '0', 0, 3, '2021-11-30 09:49:52', NULL),
+(5, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 2000000, 0, 0, '44', NULL, NULL, '0', 0, 1, '2022-01-03 11:14:00', NULL),
+(6, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 2, 11000000, 0, 0, '', NULL, NULL, '0', 0, 1, '2022-01-03 11:35:08', NULL),
+(7, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 500000, 0, 0, '', NULL, NULL, '0', 0, 1, '2022-01-08 04:32:58', NULL),
+(8, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 3150000, 0, 0, '', 81, NULL, '0', 0, 2, '2022-01-08 04:49:08', NULL),
+(9, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 2, 4650000, 0, 0, '', 81, NULL, '0', 0, 2, '2022-01-08 04:49:37', NULL),
+(10, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 418500, 0, 0, '', 81, 81, '0', 0, 2, '2022-01-08 08:51:08', NULL),
+(11, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 900000, 0, 0, '', NULL, NULL, '0', 0, 1, '2022-01-08 09:40:04', NULL),
+(12, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 1800000, 0, 0, '', 81, NULL, '0', 0, 2, '2022-01-08 09:44:55', NULL),
+(13, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 418500, 0, 0, '', 81, NULL, '0', 0, 2, '2022-01-08 10:50:09', NULL),
+(14, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 2835000, 0, 0, '', 81, NULL, '0', 0, 2, '2022-01-08 11:11:01', NULL),
+(15, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 7000000, 0, 0, '', 81, NULL, '0', 0, 2, '2022-01-08 11:21:17', NULL),
+(16, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 900000, 0, 0, '', 81, NULL, '0', 0, 2, '2022-01-08 11:21:39', NULL),
+(17, 81, 6, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 900000, 0, 0, '', 81, NULL, '0', 0, 2, '2022-01-08 11:45:53', NULL),
+(18, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 0, 0, 0, 0, '', 81, NULL, '0', 0, 2, '2022-01-08 11:48:34', NULL),
+(19, 81, 0, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 0, 0, 0, 0, '', 81, NULL, '0', 0, 2, '2022-01-08 11:48:44', NULL),
+(20, 81, 6, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 2835000, 0, 0, '', 81, NULL, '0', 0, 2, '2022-01-08 12:28:30', NULL),
+(21, 81, 6, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 2835000, 0, 0, '', 81, NULL, '0', 0, 2, '2022-01-09 04:35:46', NULL),
+(22, 81, 6, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 900000, 0, 0, '', 81, 81, '3464564', 4, 3, '2022-01-09 04:50:16', NULL),
+(23, 81, 2, 'مهرزاد تاج کریمی', '09128897603', 100, 3, 1000000000, 'dfgzsdfgg', '0', 0, 'normal', 1, 850000, 0, 0, '', 81, 81, '45564', 2, 3, '2022-01-09 07:28:30', NULL);
 
 -- --------------------------------------------------------
 
@@ -3681,13 +3687,13 @@ ALTER TABLE `wish_lists`
 -- AUTO_INCREMENT for table `active_codes`
 --
 ALTER TABLE `active_codes`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=366;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=367;
 
 --
 -- AUTO_INCREMENT for table `activity_log`
 --
 ALTER TABLE `activity_log`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=526;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=532;
 
 --
 -- AUTO_INCREMENT for table `attributes`

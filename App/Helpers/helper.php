@@ -212,7 +212,7 @@ function storage_path($filename)
 function is_active($routeName, $activeClassName = 'active menu-open d-block')
 {
     $request = new  Request();
-    $preg_replace =preg_replace('~\d+/~', '', $request->uri(),1);
+    $preg_replace = preg_replace('~\d+/~', '', $request->uri(), 1);
     if (is_array($routeName)) {
         return in_array($preg_replace, $routeName) ? $activeClassName : '';
     }
@@ -305,7 +305,7 @@ function connection()
         echo '<h1>مشکلی در ارتباط با دیتابیس رخ داد </h1>';
     }
 }
-function level_user()
+function level_user() :array
 {
     return  [
         '1' => '* (برنزی)',
@@ -313,5 +313,16 @@ function level_user()
         '3' => '*** (طلایی)',
         '4' => '**** (پلاتین)',
         '5' => '***** (تیتانیوم)',
+    ];
+}
+function status_sender(): array
+{
+    return  [
+        0 => 'none',
+        1 => 'post',
+        2 => 'postbar',
+        3 => 'chapar',
+        4 => 'alopeyk',
+        5 => 'snappـbox'
     ];
 }
