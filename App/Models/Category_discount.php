@@ -21,10 +21,19 @@ class Category_discount extends MysqlBaseModel
         return  $this->create($params);
     }
 
-    public function read_categoryDiscount($id = null)
+    public function join__with__categoryDiscount__product($discount_id = null)
     {
-        $category_id =  $this->get('category_id', ['discount_id' => $id]);
-
-        return  $category_id ? $this->connection->select('categories', '*', ['id' => $category_id]) : false;
+        $category_id =  $this->first(['discount_id' => $discount_id])??false;
+        if ($category_id) {
+            return $this->inner_join(
+                "*",
+                "categories",
+                "category_id",
+                "id",
+                "category_discounts.discount_id = $discount_id",
+            );
+        }
+        return array();
+        
     }
 }

@@ -51,7 +51,7 @@
             </div>
             <div class="col">
                 <label>محصول انتخابی</label>
-                <select name="discount-product[]" id="discount_product" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
+                <select name="discount-product[]" id="discount_product" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple" required>
                     <?php foreach ($products as $value) : ?>
                         <option value="<?= $value['id'] ?>"><?= $value['title'] ?></option>
                     <?php endforeach; ?>
