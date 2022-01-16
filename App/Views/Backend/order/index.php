@@ -22,6 +22,7 @@
           <table class="table table--vertical_middle ">
             <thead>
               <tr>
+                <th class="text-center" scope="col">شماره سفارش</th>
                 <th class="text-center" scope="col">نام</th>
                 <th class="text-center" scope="col">شماره موبایل</th>
                 <th class="text-center" scope="col">وضعیت</th>
@@ -77,6 +78,7 @@
               </style>
               <?php foreach ($orders as $value) : ?>
                 <tr>
+                  <td class="text-center"><?= $value['id'] ?></td>
                   <td class="text-center"><?= $value['user_full_name'] ?></td>
                   <td class="text-center"><?= $value['user_phone'] ?></td>
                   <td class="text-center" style="height: 118px;">
