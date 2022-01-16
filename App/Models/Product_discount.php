@@ -27,8 +27,11 @@ class Product_discount extends MysqlBaseModel
 
     public function read_productDiscount($discount_id = null)
     {
+		// var_dump($discount_id);
         $product_id =  $this->get('product_id', ['discount_id' => $discount_id]);
-        return $this->connection->select('products',['id', 'title'], ['id' => $product_id]);
+		// var_dump($product_id);
+		// die();
+        return $this->connection->select('products',['id', 'title'], ['id' => $product_id[0]]);
     }
 
     public function read_productDiscount_by_product_id( $product_id)

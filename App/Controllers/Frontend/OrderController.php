@@ -79,6 +79,8 @@ class OrderController  extends Controller
             $order_items_info[] = $this->productModel->read_product($value['product_id']);
             $order_items_img[] = $this->photoModel->read_photo_by_id($value['product_id'], 'Product', true);
             
+			if (!isset($discounts)) $discounts=[];
+			
             if (array_key_exists($value['product_id'], $discounts)) {
                 $order_items[$key]['discount_code'] = $value['quantity'] * ($value['price'] - (($discounts[$value['product_id']] / 100) * $value['price']));
             }

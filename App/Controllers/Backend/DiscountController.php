@@ -88,6 +88,8 @@ class DiscountController extends Controller
         $id               = $this->request->get_param('id');
         $categories_by_id = $this->categoryDiscountModel->read_categoryDiscount($id);
         $products_by_id   = $this->productDiscountModel->read_productDiscount($id);
+		
+		// die('ok');
 
         if ($categories_by_id) {
             foreach ($categories_by_id as  $value) {
