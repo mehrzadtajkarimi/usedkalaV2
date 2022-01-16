@@ -62,7 +62,7 @@
                             <?php foreach ($orders as $value) : ?>
                                 <tr class="text-center">
                                     <td class="text-center amount">
-                                        <?= $value['order_number'] ?>
+                                        <?= $value['id'] ?>
                                     </td>
                                     <td class="text-center amount">
                                         <?= $value['item_count'] ?>

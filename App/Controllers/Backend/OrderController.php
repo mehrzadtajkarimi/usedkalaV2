@@ -10,7 +10,7 @@ use App\Models\Photo;
 use App\Models\Product;
 use App\Models\User;
 use App\Services\Auth\Auth;
-
+use App\Utilities\FlashMessage;
 
 class OrderController extends Controller
 {
@@ -165,6 +165,11 @@ class OrderController extends Controller
             'tracking' => implode(', ', $filter_array),
             'status_sender' => $status_sender,
         ], $order_id);
-        echo  $result;
+        if ($result) {
+            FlashMessage::add(" موفقیت آمیز بود");
+            return $this->request->redirect('admin/order');
+        }
+        FlashMessage::add(" مشکلی در ثبت رخ داده است", FlashMessage::ERROR);
+        return $this->request->redirect('admin/order');
     }
 }

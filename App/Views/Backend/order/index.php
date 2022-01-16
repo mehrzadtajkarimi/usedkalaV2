@@ -22,6 +22,7 @@
           <table class="table table--vertical_middle ">
             <thead>
               <tr>
+                <th class="text-center" scope="col">شماره سفارش</th>
                 <th class="text-center" scope="col">نام</th>
                 <th class="text-center" scope="col">شماره موبایل</th>
                 <th class="text-center" scope="col">وضعیت</th>
@@ -77,6 +78,7 @@
               </style>
               <?php foreach ($orders as $value) : ?>
                 <tr>
+                  <td class="text-center"><?= $value['id'] ?></td>
                   <td class="text-center"><?= $value['user_full_name'] ?></td>
                   <td class="text-center"><?= $value['user_phone'] ?></td>
                   <td class="text-center" style="height: 118px;">
@@ -144,7 +146,7 @@
                       </td>
                       <?php if ($value['status_sender'] != 0) : ?>
                         <td class="text-center">
-                          <div style="color:#007bff"  ><?= array_key_exists($value['status_sender'],status_sender())? status_sender()[$value['status_sender']] : '' ?></div>
+                          <div style="color:#007bff" ><?= array_key_exists($value['status_sender'],status_sender())? status_sender()[$value['status_sender']] : '' ?></div>
                           <small class="text-muted"><?= $value['tracking'] ?></small>
                         </td>
                       <?php else : ?>
