@@ -1,5 +1,5 @@
 <section class="content">
-    <div class="col-full desktop-only">
+    <div class="col-full">
         <div class="mt-4 row">
             <div class="col-2">
                 <div class="card">
@@ -36,46 +36,49 @@
                 </div>
             </div>
             <div class="col-10">
-                <h3>اطلاعات سفارش:</h3>
-                <div>
+                <h3 class="ukorderdetails_title">اطلاعات سفارش:</h3>
+                <div class="ukorderdetails">
                     <?php foreach ($order as $value) : ?>
-                        <div>
-                            <span>شماره سفارش: </span><span><?= $value['order_number'] ?></span>
-                        </div>
-                        <div>
-                            <h6>اطلاعات تحویل گیرنده سفارش</h6>
-                            <div>
-                                <span>نام و نام خانوادگی: </span><span><?= $value['user_full_name'] ?></span>
-                            </div>
-                            <div>
-                                <span>شماره تماس: </span><span class="woocommerce-Price-amount amount"><?= $value['user_phone'] ?></span>
-                            </div>
-                            <div>
-                                <span>آدرس: </span><span class="woocommerce-Price-amount amount"><?= $province['name'] ?>، <?= $city['name'] ?>، <?= $value['address'] ?></span>
-                            </div>
-                            <div>
-                                <span>کد پستی: </span><span class="woocommerce-Price-amount amount"><?= $value['postal_code'] ?></span>
-                            </div>
-                        </div>
-                        <div>
-                            <span>تعداد اقلام سفارش: </span><span class="woocommerce-Price-amount amount"><?= $value['item_count'] ?></span>
-                        </div>
-                        <div class="text-danger">
-                            <b>مبلغ کل سفارش: </b><b class="woocommerce-Price-amount amount"><?= number_format($value['grand_total']) ?> ریال</b>
-                        </div>
-                        <div>
-                            <span>تخفیف کل سفارش: </span><span class="woocommerce-Price-amount amount"><?= number_format($value['discount_total']) ?> ریال</span>
-                        </div>
-                        <div>
-                            <span>هزینه ارسال سفارش: </span><span class="woocommerce-Price-amount amount"><?= number_format($value['shipping_cost']) ?> ریال</span>
-                        </div>
-                        <div>
-                            <span>اطلاعات تکمیلی سفارش: </span><span class="woocommerce-Price-amount amount"><?= $value['notes'] ?></span>
-                        </div>
+					<div>
+						<div>
+							<span>شماره سفارش: </span><span><?= $value['order_number'] ?></span>
+						</div>
+						<div>
+							<span>تعداد اقلام سفارش: </span><span class="woocommerce-Price-amount amount"><?= $value['item_count'] ?></span>
+						</div>
+						<div class="text-danger">
+							<span><b>مبلغ کل سفارش: </b></span><span><b class="woocommerce-Price-amount amount"><?= number_format($value['grand_total']) ?> ریال</b></span>
+						</div>
+						<?php /*
+						<div>
+							<span>تخفیف کل سفارش: </span><span class="woocommerce-Price-amount amount"><?= number_format($value['discount_total']) ?> ریال</span>
+						</div> */ ?>
+						<div>
+							<span>هزینه ارسال سفارش: </span><span class="woocommerce-Price-amount amount"><?= number_format($value['shipping_cost']) ?> ریال</span>
+						</div>
+						<div>
+							<span>توضیحات: </span><span class="woocommerce-Price-amount amount"><?= $value['notes'] ?></span>
+						</div>
+					</div>
+					<div>
+						<h6>اطلاعات تحویل گیرنده سفارش:</h6>
+						<div>
+							<span>نام و نام خانوادگی: </span><span><?= $value['user_full_name'] ?></span>
+						</div>
+						<div>
+							<span>شماره تماس: </span><span class="woocommerce-Price-amount amount"><?= $value['user_phone'] ?></span>
+						</div>
+						<div>
+							<span>آدرس: </span><span class="woocommerce-Price-amount amount"><?= $province['name'] ?>، <?= $city['name'] ?>، <?= $value['address'] ?></span>
+						</div>
+						<div>
+							<span>کد پستی: </span><span class="woocommerce-Price-amount amount"><?= $value['postal_code'] ?></span>
+						</div>
+					</div>
                     <?php endforeach; ?>
                 </div>
                 <div>
-                    <table class="shop_table shop_table_responsive cart ">
+                    <table class="shop_table shop_table_responsive cart ukorderproducts">
                         <thead>
                             <tr>
                                 <th class="text-center">&nbsp;</th>
@@ -83,7 +86,7 @@
                                 <th class="text-center">تعداد محصول</th>
                                 <th class="text-center">قیمت واحد</th>
                                 <th class="text-center">قیمت کل</th>
-                                <th class="text-center">تخفیف</th>
+                                <th class="text-center">قیمت کل با کد تخفیف</th>
                                 <th class="text-center">&nbsp;</th>
                             </tr>
                         </thead>
