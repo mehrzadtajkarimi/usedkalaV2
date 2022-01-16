@@ -111,27 +111,21 @@
                     location.reload();
                 }
             }
-            if (isGood && !status_sender) {
-             alert(!status_sender);   
-                die();
-                $.ajax({
-                    type: "post",
-                    url: '<?= base_url() ?>admin/order/status/' + order_id,
-                    data: {
-                        'order_id': order_id,
-                        'type': type
-                    },
-                    success: function(response) {
-                        if (response) {
-                            $('.check-box-sender-' + order_id).parents().eq(3).fadeOut(1000, function() {
-                                $('.check-box-delivery-' + order_id).parents().eq(2).fadeIn(1000);
-                            });
-                        }
-
-                    },
-                });
-            } 
-
+            $.ajax({
+                type: "post",
+                url: '<?= base_url() ?>admin/order/status/' + order_id,
+                data: {
+                    'order_id': order_id,
+                    'type': type
+                },
+                success: function(response) {
+                    if (response) {
+                        $('.check-box-sender-' + order_id).parents().eq(3).fadeOut(1000, function() {
+                            $('.check-box-delivery-' + order_id).parents().eq(2).fadeIn(1000);
+                        });
+                    }
+                },
+            });
         });
 
         $('.check-box-delivery').on('change', function() {

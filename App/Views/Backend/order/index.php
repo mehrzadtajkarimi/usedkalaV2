@@ -144,7 +144,7 @@
                       </td>
                       <?php if ($value['status_sender'] != 0) : ?>
                         <td class="text-center">
-                          <div style="color:#007bff"  ><?= array_key_exists($value['status_sender'],status_sender())? status_sender()[$value['status_sender']] : '' ?></div>
+                          <div style="color:#007bff" ><?= array_key_exists($value['status_sender'],status_sender())? status_sender()[$value['status_sender']] : '' ?></div>
                           <small class="text-muted"><?= $value['tracking'] ?></small>
                         </td>
                       <?php else : ?>
