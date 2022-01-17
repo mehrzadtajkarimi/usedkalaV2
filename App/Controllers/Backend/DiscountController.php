@@ -44,7 +44,7 @@ class DiscountController extends Controller
         $data = array(
             'products'          => $this->productModel->read_product_all(),
             'discounts'         => $this->discountModel->read_discount(),
-            'categories'        => $this->categoryModel->category_tree_for_backend(),
+            // 'categories'        => $this->categoryModel->category_tree_for_backend(),
         );
         view('Backend.discount.create', $data);
     }
@@ -86,26 +86,27 @@ class DiscountController extends Controller
     public function edit()
     {
         $id               = $this->request->get_param('id');
-        $categories_by_id = $this->categoryDiscountModel->join__with__categoryDiscount__product($id);
+        // $categories_by_id = $this->categoryDiscountModel->join__with__categoryDiscount__product($id);
+        // if ($categories_by_id) {
+        //     foreach ($categories_by_id as  $value) {
+        //         $categories_selected[] = $value['id'];
+        //     }
+        // }
+        
         $products_by_id   = $this->productDiscountModel->join__with__productDiscount__product($id);
 
-        if ($categories_by_id) {
-            foreach ($categories_by_id as  $value) {
-                $categories_selected[] = $value['id'];
-            }
-        }
         if ($products_by_id) {
             foreach ($products_by_id as  $value) {
                 $products_selected[] = $value['id'];
             }
         }
-
         $data = array(
+            // 'categories'          => $this->categoryModel->category_tree_for_backend(),
+            // 'categories_selected' => $categories_selected ?? [],
+
             'discount'            => $this->discountModel->read_discount($id),
-            'categories'          => $this->categoryModel->category_tree_for_backend(),
-            'products'            => $this->productModel->read_product(),
+            'products'            => $this->productModel->read_product_all(),
             'products_selected'   => $products_selected ?? [],
-            'categories_selected' => $categories_selected ?? [],
         );
         view('Backend.discount.edit', $data);
     }

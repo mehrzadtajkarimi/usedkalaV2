@@ -37,7 +37,7 @@ class Product_discount extends MysqlBaseModel
     public function join__with__productDiscount__product($discount_id = null)
     {
         return $this->inner_join(
-            "*",
+            "products.title,products.id",
             "products",
             "product_id",
             "id",
