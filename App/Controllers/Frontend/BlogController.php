@@ -29,7 +29,7 @@ class BlogController extends Controller
         $this->commentModel  = new Comment();
         $this->taggableModel = new Taggable();
         $this->wishListModel = new Wish_list();
-        $this->jDateObj    = new TimeUtil();
+        $this->jDateObj      = new TimeUtil();
     }
 
     public function index()
