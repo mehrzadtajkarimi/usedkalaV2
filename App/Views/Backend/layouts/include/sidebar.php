@@ -218,7 +218,7 @@
                 <ul class="nav nav-treeview <?= is_active(['/admin/setting','/admin/setting/create','/admin/setting/edit','/admin/footer','/admin/footer/create','/admin/footer/edit', '/admin/slider','/admin/slider/edit']) ?>">
                     <li class="nav-item">
                         <a href="<?= base_url() ?>admin/setting" class="nav-link  <?= is_active(['/admin/setting','/admin/setting/create','/admin/setting/edit']) ?>">
-                            <p>صفحات درباره ما</p>
+                            <p>ویژگی ها</p>
                             <i class="fa fa-circle-o nav-icon"></i>
                         </a>
                     </li>

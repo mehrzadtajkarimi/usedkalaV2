@@ -152,8 +152,15 @@ Route::group(function () {
     Route::get('/admin/setting/{id}/edit', 'SettingController@edit');
     Route::patch('/admin/setting/{id}', 'SettingController@update');
     Route::delete('/admin/setting/{id}', 'SettingController@destroy');
-});
 
+
+
+
+});
+Route::group(function () {
+
+    Route::get('/admin/property', 'PropertyController@index');
+});
 Route::group(function () {
     Route::get('/admin/permission', 'PermissionController@index');
     Route::post('/admin/permission/upload', 'PermissionController@upload');

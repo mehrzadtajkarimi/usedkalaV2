@@ -32,4 +32,4 @@ class Example extends MysqlBaseModel
         return $this->delete(['id' => $id]);
     }
 }
-}
+

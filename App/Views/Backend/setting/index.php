@@ -3,7 +3,7 @@
     <div class="card-header">
       <div class="row">
         <div class="col-4">
-          <h3 class="p-3 card-title">صفحات درباره ما</h3>
+          <h3 class="p-3 card-title">لیست ویژگی ها</h3>
         </div>
         <div class="offset-4"> </div>
         <div class="col-4">
@@ -15,7 +15,7 @@
 
             <!-- Button trigger modal -->
             <a href="<?= base_url() ?>admin/setting/create" type="button" class="mr-2 shadow-sm btn btn-success " >
-              ایجاد صفحه
+              ایجاد ویژگی
             </a>
 
 
@@ -29,16 +29,20 @@
         <table class="table table--vertical_middle ">
           <thead>
             <tr>
+              <th class="text-center" scope="col">ردیف</th>
+              <th class="text-center" scope="col">کلید</th>
               <th class="text-center" scope="col">نام</th>
-              <th class="text-center" scope="col">نمایش</th>
+              <th class="text-center" scope="col">اقدامات</th>
             </tr>
           </thead>
           <tbody>
             <?php foreach ($settings as $value) : ?>
               <tr>
+                <td class="text-center"><?= $value['id'] ?></td>
                 <td class="text-center"><?= $value['key'] ?></td>
+                <td class="text-center"><?= $value['value'] ?></td>
                 <td class="text-center">
-                  <a href="<?= base_url() ?>admin/setting/<?= $value['id'] ?>/edit" type="button" class="shadow-sm btn btn-success btn-sm " style="padding: 0px 20px; border-radius: 18px;">
+                  <a href="<?= base_url() ?>admin/setting/<?= $value['id'] ?>/edit" type="button" class="shadow-sm btn btn-warning btn-sm " style="padding: 0px 20px; border-radius: 18px;">
                     ویرایش
                   </a>
                   <form method="post" action="<?= base_url() ?>admin/setting/<?= $value['id'] ?>" class="d-inline">

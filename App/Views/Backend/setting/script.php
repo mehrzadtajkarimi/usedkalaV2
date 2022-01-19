@@ -67,5 +67,30 @@
         //     // without images_upload_url set, Upload tab won't show up
         //     images_upload_url: '/admin/setting/upload',
         // });
+
+
+        $('#show-slug').click(function(e) {
+            if ($('#show-slug').is(':checked')) {
+                $('#slug').fadeIn(400);
+            } else {
+                $('#slug').fadeOut(100);
+            }
+        });
+
+        // $('#show-description').click(function (e) {
+        //     if ($(this).is(':checked')) {
+        //         $('.description').attr('id', 'textarea').attr('checked', true).fadeIn(400);
+        //         location.reload();
+
+        //     } else {
+        //         $('.description').fadeOut(100).attr('id', '');
+        //     }
+
+        // });
+
+
+
+
+
     });
 </script>

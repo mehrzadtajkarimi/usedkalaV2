@@ -20,11 +20,9 @@ class SettingController extends Controller
     {
         $slug = $this->request->get_param('slug');
 		$slug = urldecode($slug);
-		// var_dump($slug);
-		// die();
         $setting_about = $this->settingModel->read_setting_by_slug($slug);
-		// print_r($setting_about);
-		// die();
+
+
         if (is_array($setting_about)) {
             $data = array(
                 'setting'    => $setting_about[0]??[],

@@ -12,13 +12,11 @@ class SettingController extends Controller
 {
 
     public $settingModel;
-    public $photoModel;
 
     public function __construct()
     {
         parent::__construct();
         $this->settingModel = new Setting();
-        $this->photoModel = new Photo();
     }
 
     public function index()
@@ -44,7 +42,8 @@ class SettingController extends Controller
         $params_create = array(
             'key'   => $params['key'],
             'value' => $params['value'],
-            'slug'  => create_slug($params['slug'])
+            'description' => $params['description'],
+            'slug'  => $params['slug']?create_slug($params['slug']):'',
         );
 
         $files = $this->request->files();
@@ -72,7 +71,6 @@ class SettingController extends Controller
         $id = $this->request->get_param('id');
         $data = array(
             'setting' => $this->settingModel->read_setting($id),
-
         );
         view('Backend.setting.edit', $data);
     }
@@ -81,11 +79,32 @@ class SettingController extends Controller
         $param = $this->request->params();
         $id = $this->request->get_param('id');
 
-        $this->settingModel->update([
-            'key'   => $param['key'],
-            'value' => $param['value'],
-            'slug'  => create_slug($param['slug'])
-        ], ['id' => $id]);
+        if (empty($param['slug'])  && empty($param['description'])) {
+            $this->settingModel->update([
+                'key'   => $param['key'],
+                'value' => $param['value'],
+            ], ['id' => $id]);
+        }elseif(!empty($param['slug'])  && empty($param['description'])){
+            $this->settingModel->update([
+                'key'   => $param['key'],
+                'value' => $param['value'],
+                'slug'  => create_slug($param['slug']),
+            ], ['id' => $id]);
+        }elseif(empty($param['slug']) && !empty($param['description'])){
+            $this->settingModel->update([
+                'key'         => $param['key'],
+                'value'       => $param['value'],
+                'description' => $param['description'],
+            ], ['id' => $id]);
+        }else{
+            $this->settingModel->update([
+                'key'         => $param['key'],
+                'value'       => $param['value'],
+                'slug'        => create_slug($param['slug']),
+                'description' => $param['description'],
+            ], ['id' => $id]);
+        }
+
         FlashMessage::add("مقادیر باموفقیت  ضمیمه شد ");
         return $this->request->redirect('admin/setting');
     }
