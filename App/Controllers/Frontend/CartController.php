@@ -6,6 +6,7 @@ use App\Controllers\Controller;
 use App\Core\Request;
 use App\Models\Coupon;
 use App\Models\Product;
+use App\Models\Setting;
 use App\Services\Auth\Auth;
 use App\Services\Basket\Basket;
 use App\Services\Session\SessionManager;
@@ -16,12 +17,14 @@ class CartController  extends Controller
 
     private $productModel;
     private $couponModel;
+    private $settingModel;
 
     public function __construct()
     {
         parent::__construct();
-        $this->productModel   = new Product;
-        $this->couponModel   = new Coupon;
+        $this->productModel = new Product;
+        $this->couponModel  = new Coupon;
+        $this->settingModel = new Setting;
     }
     public function index()
     {
@@ -92,7 +95,7 @@ class CartController  extends Controller
         $count_diff__items_and_discounts = count($id_items__exist__id_discounts);
 
 
-        $is_discounts =false;
+        $is_discounts = false;
         if ($count_cart_item > $count_diff__items_and_discounts) {
             $is_discounts = true;
         }
@@ -125,11 +128,13 @@ class CartController  extends Controller
             SessionManager::set('onLoadMsg', 'سبد خرید خالیست!');
             Request::redirect('');
         }
+        $free_shipping = $this->settingModel->get_setting('free_shipping');
 
         $data = [
             'cart_total'            => array_sum($cart_total ?? []),
             'cart_total_real'       => array_sum($cart_total_real ?? []),
             'cart_total_discount'   => array_sum($cart_total_discount ?? []),
+            'free_shipping'         => array_sum($cart_total) >= $free_shipping ? true : false,
             'exist_discount'        => $exist_discount ?? false,
             'exist_coupon'          => $exist_coupon ?? false,
             'cart_coupon'           => $cart_coupon,

@@ -124,7 +124,7 @@
                                                             <tr class="cart-subtotal">
                                                                 <th> تخفیف محصول :</th>
                                                                 <td data-title="Subtotal">
-                                                                    <span class="woocommerce-Price-amount amount subtotal"><?=  number_format($cart_total_discount ) ?></span>
+                                                                    <span class="woocommerce-Price-amount amount subtotal"><?= number_format($cart_total_discount) ?></span>
                                                                 </td>
                                                             </tr>
                                                         <?php elseif ($exist_coupon) : ?>
@@ -145,22 +145,28 @@
                                                         <?php endif; ?>
                                                         <tr>
                                                             <th>هزینه ارسال:</th>
-                                                            <td data-title="Shipping">۰ ریال</td>
+                                                            <td data-title="Shipping">
+                                                                <?php if ($free_shipping) : ?>
+                                                                    ارسال رایگان
+                                                                <?php else : ?>
+                                                                0
+                                                                <?php endif; ?>
+                                                            </td>
                                                         </tr>
                                                         <tr>
                                                             <th>هزینه بسته بندی:</th>
                                                             <td data-title="Shipping">۰ ریال</td>
                                                         </tr>
-                                                            <tr class="text-muted">
-                                                                <small>
-                                                                    <th> مجموع سود شما از خرید:</th>
-                                                                    <td data-title="Total">
-                                                                        <strong>
-                                                                            <span class="woocommerce-Price-amount amount"><?= number_format($cart_total_real - $cart_total ) ?> ریال</span>
-                                                                        </strong>
-                                                                    </td>
-                                                                </small>
-                                                            </tr>
+                                                        <tr class="text-muted">
+                                                            <small>
+                                                                <th> مجموع سود شما از خرید:</th>
+                                                                <td data-title="Total">
+                                                                    <strong>
+                                                                        <span class="woocommerce-Price-amount amount"><?= number_format($cart_total_real - $cart_total) ?> ریال</span>
+                                                                    </strong>
+                                                                </td>
+                                                            </small>
+                                                        </tr>
 
 
                                                         <tr class="order-total">

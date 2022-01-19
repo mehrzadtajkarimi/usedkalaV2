@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 19, 2022 at 12:38 PM
+-- Generation Time: Jan 19, 2022 at 12:55 PM
 -- Server version: 8.0.27-0ubuntu0.20.04.1
 -- PHP Version: 8.0.14
 
@@ -3706,7 +3706,8 @@ ALTER TABLE `sellers`
 -- Indexes for table `settings`
 --
 ALTER TABLE `settings`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `key` (`key`);
 
 --
 -- Indexes for table `site_contents`
