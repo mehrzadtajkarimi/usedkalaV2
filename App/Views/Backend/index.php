@@ -243,3 +243,6 @@
   </div>
   <!-- /.row -->
 </div>
+
+
+<?php include(BASEPATH . "/App/Views/Backend/script.php") ?>

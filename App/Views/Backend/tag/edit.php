@@ -9,7 +9,7 @@
             <div class="form-group row">
                 <label for="tag" class="col-sm-2 col-form-label">تگ</label>
                 <div class="col-sm-10">
-                    <input name="tag" type="text" class="form-control" id="tag" value="<?= $tag['tag'] ?? '' ?>" placeholder="نام زیر دسته را وارد نمایید" autofocus>
+                    <input name="tag" type="text" class="form-control" id="tag" value="<?= $tag['tag'] ?? '' ?>" placeholder="نام زیر دسته را وارد نمایید" autofocus required>
                 </div>
             </div>
 

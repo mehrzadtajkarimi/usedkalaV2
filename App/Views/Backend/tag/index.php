@@ -28,7 +28,7 @@
 
                       <div class="form-group row">
                         <label for="tag" class="col-2"> نام تگ</label>
-                        <input name="tag" type="text" class="form-control col-10" id="tag" rows="1" placeholder="">
+                        <input name="tag" type="text" class="form-control col-10" id="tag" rows="1" placeholder="" required>
                       </div>
                       <button type="submit" class="float-left btn btn-primary btn-block">ذخیره </button>
                     </form>
