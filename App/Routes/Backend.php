@@ -106,6 +106,7 @@ Route::group(function () {
     Route::get('/admin/discount', 'DiscountController@index');
     Route::get('/admin/discount/create', 'DiscountController@create');
     Route::post('/admin/discount', 'DiscountController@store');
+    Route::post('/admin/discount/show', 'DiscountController@show');
     Route::get('/admin/discount/{id}/edit', 'DiscountController@edit');
     Route::patch('/admin/discount/{id}', 'DiscountController@update');
     Route::delete('/admin/discount/{id}', 'DiscountController@destroy');

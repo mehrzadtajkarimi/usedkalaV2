@@ -31,7 +31,7 @@
             <tr>
               <th class="text-center" scope="col">ردیف</th>
               <th class="text-center" scope="col">کلید</th>
-              <th class="text-center" scope="col">نام</th>
+              <th class="text-center" scope="col">مقدار</th>
               <th class="text-center" scope="col">اقدامات</th>
             </tr>
           </thead>

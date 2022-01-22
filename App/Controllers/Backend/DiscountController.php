@@ -81,18 +81,23 @@ class DiscountController extends Controller
 
     public function show()
     {
+        $id = $this->request->get_param('id');
+
+        $discount = $this->productDiscountModel->join__with__productDiscount__product($id);
+
+        echo json_encode( $discount);
     }
 
     public function edit()
     {
-        $id               = $this->request->get_param('id');
+        $id = $this->request->get_param('id');
         // $categories_by_id = $this->categoryDiscountModel->join__with__categoryDiscount__product($id);
         // if ($categories_by_id) {
         //     foreach ($categories_by_id as  $value) {
         //         $categories_selected[] = $value['id'];
         //     }
         // }
-        
+
         $products_by_id   = $this->productDiscountModel->join__with__productDiscount__product($id);
 
         if ($products_by_id) {
@@ -119,7 +124,7 @@ class DiscountController extends Controller
 
 
 
-        
+
         $params_update = array(
             'user_id'     => Auth::is_login(),
             'start_at'    => date("Y-m-d H:i:s", $params['start_at']),
@@ -128,7 +133,7 @@ class DiscountController extends Controller
             'title'       => $params['discount-title'],
             'description' => $params['discount-description'],
             'percent'     => $params['discount-percent'],
-            'status'      => $params['discount-status']== 'on'? 1 : 0,
+            'status'      => $params['discount-status'] == 'on' ? 1 : 0,
         );
         $this->discountModel->update_discount($params_update, $id);
 
@@ -160,9 +165,9 @@ class DiscountController extends Controller
     {
         $id = $this->request->get_param('id');
 
-        $is_deleted_categoryDiscount=   $this->categoryDiscountModel->delete_categoryDiscount_by_discount_id($id);
-        $is_deleted_productDiscount=  $this->productDiscountModel->delete_productDiscount_by_category_id($id);
-        $is_deleted_discount=  $this->discountModel->delete_discount($id);
+        $is_deleted_categoryDiscount =   $this->categoryDiscountModel->delete_categoryDiscount_by_discount_id($id);
+        $is_deleted_productDiscount =  $this->productDiscountModel->delete_productDiscount_by_category_id($id);
+        $is_deleted_discount =  $this->discountModel->delete_discount($id);
 
         if ($is_deleted_categoryDiscount && $is_deleted_productDiscount && $is_deleted_discount) {
             # code...
