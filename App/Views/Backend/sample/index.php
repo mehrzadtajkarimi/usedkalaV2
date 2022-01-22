@@ -35,7 +35,7 @@
                 <th class="text-center" scope="col">از تاریخ</th>
                 <th class="text-center" scope="col">تا تاریخ</th>
                 <th class="text-center" scope="col">وضعیت</th>
-                <th class="text-center" scope="col">مشاهده</th>
+                <!-- <th class="text-center" scope="col">مشاهده</th> -->
                 <th class="text-center" scope="col"> اصلاحات</th>
               </tr>
             </thead>
@@ -52,7 +52,7 @@
                   <td class="text-center"><?= $value['description'] ?></td>
                   <td class="text-center"><?= $value['start_at'] ?></td>
                   <td class="text-center"><?= $value['finish_at'] ?></td>
-                  <td>
+                  <td class="text-center">
                     <div>
                       وضــــــــــعــیـت :
                       <?php if ($value['status'] == 1) : ?>
@@ -66,11 +66,11 @@
                       <i class="fa fa-times text-danger"></i>
                     </div>
                   </td>
-                  <td class="text-center">
+                  <!-- <td class="text-center">
                     <a href="" class="p-4">
                       <i class="fa fa-folder-open fa-2x text-muted" aria-hidden="true"></i>
                     </a>
-                  </td>
+                  </td> -->
                   <td class="text-center ">
                       <a href="<?= base_url() ?>admin/sample/<?= $value['id'] ?>/edit" class="p-0 pl-2 pr-2 shadow-sm btn btn-warning btn-sm" style=" border-radius: 18px;">ویــرایـش</a>
                       <form method="post" action="<?= base_url() ?>admin/sample/<?= $value['id'] ?>" class="d-inline">

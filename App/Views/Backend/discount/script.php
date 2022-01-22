@@ -8,7 +8,7 @@
             'placeholder': 'نقش های مورد نظر را انتخاب کنید'
         });
 
-        $('.btn_show_discant').click(function(e) {
+        $('.btn_show_discant').one('click',function(e) {
             var id = $(this).data('id');
             var url = "/admin/discount/show";
 
