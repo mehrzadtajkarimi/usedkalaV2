@@ -40,7 +40,7 @@ class OrderController  extends Controller
     public function index()
     {
         $user_id = SessionManager::get('auth');
-        $orders =$this->orderModel->read_order_by_user_id($user_id) ;
+        $orders = $this->orderModel->read_order_by_user_id($user_id);
         $user = $this->userModel->join_user_to_photo($user_id);
 
         if (Auth::is_login()) {
@@ -78,9 +78,9 @@ class OrderController  extends Controller
         foreach ($order_items as $key => $value) {
             $order_items_info[] = $this->productModel->read_product($value['product_id']);
             $order_items_img[] = $this->photoModel->read_photo_by_id($value['product_id'], 'Product', true);
-            
-			if (!isset($discounts)) $discounts=[];
-			
+
+            if (!isset($discounts)) $discounts = [];
+
             if (array_key_exists($value['product_id'], $discounts)) {
                 $order_items[$key]['discount_code'] = $value['quantity'] * ($value['price'] - (($discounts[$value['product_id']] / 100) * $value['price']));
             }
@@ -135,23 +135,20 @@ class OrderController  extends Controller
                 }
             }
 
-
-
             // dd($_SESSION['cart']['percent']['coupon_id'] ?? []); 
             $token         = 0;
             $order_number  = 0;
             $totalPrice    = 0;
             $totalCount    = 0;
             $totalWeight   = 0;
-            $totalDiscount = 0;
             $shipping      = 0;
             $params        = $this->request->params();
             $notes         = $params['order-notes'];
+            $totalDiscount = $params['discount_total'] ?? 0;
             foreach ($_SESSION['cart'] as $value) {
-                $totalCount  += $value['count'];
-                $totalPrice  += $value['grand_total'];
-                // $totalPrice  += ($value['count'] * $value['price']) + $totalDiscount + $shipping;
-                $totalWeight += $value['weight'];
+                $totalCount    += $value['count'];
+                $totalPrice    += $value['grand_total'];
+                $totalWeight   += $value['weight'];
             }
             $params_create = array(
                 'user_id'        => $user_id,

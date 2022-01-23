@@ -326,3 +326,9 @@ function status_sender(): array
         5 => 'snappـbox'
     ];
 }
+
+function jalaliDate($sqlTimestamp , $format = 'j F Y')
+{
+    $unixTimestamp=strtotime($sqlTimestamp);
+    return jdate($format,$unixTimestamp);
+}

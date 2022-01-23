@@ -210,5 +210,4 @@
     </ul>
   </nav>
 </div>
-</div>
 <?php include(BASEPATH . "/App/Views/Backend/slider/script.php") ?>

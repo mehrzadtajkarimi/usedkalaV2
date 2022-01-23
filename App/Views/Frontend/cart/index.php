@@ -149,7 +149,7 @@
                                                                 <?php if ($free_shipping) : ?>
                                                                     ارسال رایگان
                                                                 <?php else : ?>
-                                                                0
+                                                                    0
                                                                 <?php endif; ?>
                                                             </td>
                                                         </tr>
@@ -162,6 +162,7 @@
                                                                 <th> مجموع سود شما از خرید:</th>
                                                                 <td data-title="Total">
                                                                     <strong>
+                                                                        <input type="hidden" name="discount_total" value="<?= $cart_total_real - $cart_total ?> ">
                                                                         <span class="woocommerce-Price-amount amount"><?= number_format($cart_total_real - $cart_total) ?> ریال</span>
                                                                     </strong>
                                                                 </td>
