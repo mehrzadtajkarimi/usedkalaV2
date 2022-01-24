@@ -16,16 +16,16 @@
       var salesChart = new Chart($salesChart, {
         type: 'bar',
         data: {
-          labels: ['JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
+          labels: ['فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور', 'مهر', 'آبان', 'آذر', 'دی', 'بهمن', 'اسفند'],
           datasets: [{
               backgroundColor: '#007bff',
               borderColor: '#007bff',
-              data: [1000, 2000, 3000, 2500, 2700, 2500, 3000]
+              data: [1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000],
             },
             {
               backgroundColor: '#ced4da',
               borderColor: '#ced4da',
-              data: [700, 1700, 2700, 2000, 1800, 1500, 2000]
+              data: [500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500],
             }
           ]
         },
@@ -44,7 +44,7 @@
           },
           scales: {
             yAxes: [{
-              display: false,
+              // display: false,
               gridLines: {
                 display: true,
                 lineWidth: '4px',
@@ -55,13 +55,13 @@
                 beginAtZero: true,
 
                 // Include a dollar sign in the ticks
-                callback: function(value, index, values) {
-                  if (value >= 1000) {
-                    value /= 1000
-                    value += 'k'
-                  }
-                  return '$' + value
-                }
+                // callback: function(value, index, values) {
+                //   if (value >= 1000) {
+                //     value /= 1000
+                //     value += 'k'
+                //   }
+                //   return '$' + value
+                // }
               }, ticksStyle)
             }],
             xAxes: [{

@@ -79,13 +79,14 @@ class HomeController extends Controller
                 array_sum(array_column($esfand, 'discount_total')),
             ],
 
-            'max_total' => $this->orderModel->read_max_total(),  // max total of all orders
-            'min_total' => $this->orderModel->read_min_total(),  // min total of all orders
-            'max_discount' => $this->orderModel->read_max_discount(),  // max discount of all orders
+            'count_order'  => $this->orderModel->count_order(),         // count all order
+            'max_total'    => $this->orderModel->read_max_total(),      // max total of all orders
+            'min_total'    => $this->orderModel->read_min_total(),      // min total of all orders
+            'max_discount' => $this->orderModel->read_max_discount(),   // max discount of all orders
 
 
-            'avg_grand' => $this->orderModel->read_avg_grand(),
-            'avg_discount' => $this->orderModel->read_avg_discount(),
+            'avg_grand'    => $this->orderModel->read_avg_grand(),      // avg grand total of all orders
+            'avg_discount' => $this->orderModel->read_avg_discount(),   // avg discount of all orders
 
         );
         // print_r(json_encode($data['discount']));die;

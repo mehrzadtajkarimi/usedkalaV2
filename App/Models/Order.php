@@ -27,6 +27,10 @@ class Order extends MysqlBaseModel
         ]);
         // WHERE age BETWEEN 200 AND 500
     }
+    public function count_order()
+    {
+        return  $this->connection->count($this->table, "id");
+    }
     public function read_avg_grand()
     {
         return  $this->connection->avg($this->table, "grand_total");
