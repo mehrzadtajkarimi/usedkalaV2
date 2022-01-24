@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-header no-border">
           <div class="d-flex justify-content-between">
-            <h3 class="card-title">کاربران آنلاین</h3>
+            <h3 class="card-title"> نمودار فروش</h3>
             <a href="javascript:void(0);">مشاهده گزارش</a>
           </div>
         </div>
@@ -21,7 +21,6 @@
               <span class="text-muted">از هفته گذشته</span>
             </p>
           </div>
-          <!-- /.d-flex -->
 
           <div class="position-relative mb-4">
             <canvas id="visitors-chart" height="200"></canvas>
@@ -38,7 +37,6 @@
           </div>
         </div>
       </div>
-      <!-- /.card -->
 
       <div class="card">
         <div class="card-header no-border">
@@ -144,9 +142,7 @@
           </table>
         </div>
       </div>
-      <!-- /.card -->
     </div>
-    <!-- /.col-md-6 -->
     <div class="col-lg-6">
       <div class="card">
         <div class="card-header no-border">
@@ -168,8 +164,6 @@
               <span class="text-muted">از ماه گذشته</span>
             </p>
           </div>
-          <!-- /.d-flex -->
-
           <div class="position-relative mb-4">
             <canvas id="sales-chart" height="200"></canvas>
           </div>
@@ -185,7 +179,6 @@
           </div>
         </div>
       </div>
-      <!-- /.card -->
 
       <div class="card">
         <div class="card-header no-border">
@@ -211,7 +204,6 @@
               <span class="text-muted">نرخ تبدیل</span>
             </p>
           </div>
-          <!-- /.d-flex -->
           <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
             <p class="text-warning text-xl">
               <i class="ion ion-ios-cart-outline"></i>
@@ -235,13 +227,10 @@
               <span class="text-muted">نرخ ثبت نام</span>
             </p>
           </div>
-          <!-- /.d-flex -->
         </div>
       </div>
     </div>
-    <!-- /.col-md-6 -->
   </div>
-  <!-- /.row -->
 </div>
 
 

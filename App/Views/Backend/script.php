@@ -44,7 +44,7 @@
           },
           scales: {
             yAxes: [{
-              // display: false,
+              display: false,
               gridLines: {
                 display: true,
                 lineWidth: '4px',
@@ -78,10 +78,10 @@
       var $visitorsChart = $('#visitors-chart')
       var visitorsChart = new Chart($visitorsChart, {
         data: {
-          labels: ['18th', '20th', '22nd', '24th', '26th', '28th', '30th'],
+          labels: ['فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور', 'مهر', 'آبان', 'آذر', 'دی', 'بهمن', 'اسفند'],
           datasets: [{
               type: 'line',
-              data: [100, 120, 170, 167, 180, 177, 160],
+              data: <?= json_encode( $grand) ?>,
               backgroundColor: 'transparent',
               borderColor: '#007bff',
               pointBorderColor: '#007bff',
@@ -92,7 +92,7 @@
             },
             {
               type: 'line',
-              data: [60, 80, 70, 67, 80, 77, 100],
+              data: <?= json_encode( $discount) ?>,
               backgroundColor: 'tansparent',
               borderColor: '#ced4da',
               pointBorderColor: '#ced4da',
@@ -118,7 +118,7 @@
           },
           scales: {
             yAxes: [{
-              // display: false,
+              display: false,
               gridLines: {
                 display: true,
                 lineWidth: '4px',
@@ -127,7 +127,7 @@
               },
               ticks: $.extend({
                 beginAtZero: true,
-                suggestedMax: 200
+                suggestedMax:  <?= max($grand ) ?>,
               }, ticksStyle)
             }],
             xAxes: [{
