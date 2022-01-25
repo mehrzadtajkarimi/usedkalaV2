@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Contracts\MysqlBaseModel;
+use Medoo\Medoo;
 
 class Order extends MysqlBaseModel
 {
@@ -50,8 +51,17 @@ class Order extends MysqlBaseModel
     public function read_min_total()
     {
         return  $this->connection->min($this->table, "grand_total");
-        // WHERE age BETWEEN 200 AND 500
     }
+
+    public function comparison($date_comparison, $date, $time, $total = 'grand_total')
+    {
+        $key =  $date . '-' . $time; // example   this-month
+        $result = $date_comparison[$key];
+        return  $this->connection->sum($this->table, $total, [
+            "created_at[<>]" => [$result['to'], $result['as']]
+        ]);
+    }
+
 
 
     public function read_order_by_user_id($user_id, $id = null)

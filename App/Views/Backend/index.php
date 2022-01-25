@@ -23,7 +23,11 @@
             </p>
             <p class="mr-auto d-flex flex-column text-right">
               <span class="text-success ">
-                <i class="fa fa-arrow-up"></i> %
+                <?php if ($change_sale_mount > 0) : ?>
+                  <i class="fa fa-arrow-up"></i> <?= $change_sale_mount ?>%
+                <?php else : ?>
+                  <i class="fa text-danger fa-arrow-down"></i> <?= $change_sale_mount ?>%
+                <?php endif; ?>
               </span>
               <span class="text-muted">از ماه گذشته</span>
             </p>
