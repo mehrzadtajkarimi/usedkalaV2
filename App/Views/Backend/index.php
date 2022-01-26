@@ -5,7 +5,53 @@
         <div class="card-header no-border">
           <div class="d-flex justify-content-between">
             <h3 class="card-title"> نمودار فروش</h3>
-            <a href="javascript:void(0);">مشاهده گزارش</a>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter">
+              مشاهده گزارش
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <form action="<?= base_url() ?>admin/report" method="post">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="my-modal-title">گزارش فروش</h5>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="col">
+                          <div class="form-group">
+                            <label for="Input1" class=""> شروع</label>
+                            <input type="text" class="form-control start_at" id="Input1">
+                            <input type="hidden" id="start_at" name="start_at">
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-group">
+                            <label for="Input2" class=""> پایان</label>
+                            <input type="text" class="form-control finish_at" id="Input2">
+                            <input type="hidden" id="finish_at" name="finish_at">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <label>گزارش بر اساس </label>
+                        <select name="discount-product" id="discount_product" class="form-control">
+                          <option value="1">همه </option>
+                          <option value="2">با تخفیف </option>
+                          <option value="3">بدون تخفیف </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="modal-footer row">
+                      <button type="submit" class="btn btn-primary col ml-2">نمایش </button>
+                      <button type="button" class="btn btn-secondary col" data-dismiss="modal">انصراف</button>
+                    </div>
+                  </form>
+                  </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="card-body">
@@ -22,14 +68,52 @@
 
             </p>
             <p class="mr-auto d-flex flex-column text-right">
-              <span class="text-success ">
-                <?php if ($change_sale_mount > 0) : ?>
+              <?php if ($change_sale_year >= 0) : ?>
+                <span class="text-success ">
+                  <i class="fa fa-arrow-up"></i> <?= $change_sale_year ?>%
+                </span>
+              <?php else : ?>
+                <span class="text-danger ">
+                  <i class="fa text-danger fa-arrow-down"></i> <?= $change_sale_year ?>%
+                </span>
+              <?php endif; ?>
+              <span class="text-muted">از سال گذشته</span>
+            </p>
+            <p class="mr-auto d-flex flex-column text-right">
+              <?php if ($change_sale_mount >= 0) : ?>
+                <span class="text-success ">
                   <i class="fa fa-arrow-up"></i> <?= $change_sale_mount ?>%
-                <?php else : ?>
+                </span>
+              <?php else : ?>
+                <span class="text-danger ">
                   <i class="fa text-danger fa-arrow-down"></i> <?= $change_sale_mount ?>%
-                <?php endif; ?>
-              </span>
+                </span>
+              <?php endif; ?>
               <span class="text-muted">از ماه گذشته</span>
+            </p>
+            <p class="mr-auto d-flex flex-column text-right">
+              <?php if ($change_sale_week >= 0) : ?>
+                <span class="text-success ">
+                  <i class="fa fa-arrow-up"></i> <?= $change_sale_week ?>%
+                </span>
+              <?php else : ?>
+                <span class="text-danger ">
+                  <i class="fa text-danger fa-arrow-down"></i> <?= $change_sale_week ?>%
+                </span>
+              <?php endif; ?>
+              <span class="text-muted">از هفته گذشته</span>
+            </p>
+            <p class="mr-auto d-flex flex-column text-right">
+              <?php if ($change_sale_day >= 0) : ?>
+                <span class="text-success ">
+                  <i class="fa fa-arrow-up"></i> <?= $change_sale_day ?>%
+                </span>
+              <?php else : ?>
+                <span class="text-danger ">
+                  <i class="fa text-danger fa-arrow-down"></i> <?= $change_sale_day ?>%
+                </span>
+              <?php endif; ?>
+              <span class="text-muted">از روز گذشته</span>
             </p>
           </div>
 

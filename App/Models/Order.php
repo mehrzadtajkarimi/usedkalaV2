@@ -53,12 +53,10 @@ class Order extends MysqlBaseModel
         return  $this->connection->min($this->table, "grand_total");
     }
 
-    public function comparison($date_comparison, $date, $time, $total = 'grand_total')
+    public function comparison($comparison, $total = 'grand_total')
     {
-        $key =  $date . '-' . $time; // example   this-month
-        $result = $date_comparison[$key];
         return  $this->connection->sum($this->table, $total, [
-            "created_at[<>]" => [$result['to'], $result['as']]
+            "created_at[<>]" => [$comparison['to'], $comparison['as']]
         ]);
     }
 
