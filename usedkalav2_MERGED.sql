@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 26, 2022 at 11:20 AM
+-- Generation Time: Jan 26, 2022 at 05:16 PM
 -- Server version: 10.3.32-MariaDB-log-cll-lve
 -- PHP Version: 7.3.33
 
@@ -485,7 +485,27 @@ INSERT INTO `activity_log` (`id`, `user_id`, `ip`, `type`, `target_table`, `row_
 (405, 0, '46.209.63.120', 'create', 'active_codes', 384, '', '{\"user_id\":\"84\",\"code\":1652,\"expired_at\":\"2022-01-25 13:31:40\"}', '/admin/login', '2022-01-25 10:01:39'),
 (406, 84, '46.209.63.120', 'delete', 'active_codes', 0, '{\"user_id\":\"84\"}', '[{\"id\":\"384\",\"user_id\":\"84\",\"code\":\"1652\",\"expired_at\":\"2022-01-25 13:31:40\"}]', '/admin/token', '2022-01-25 10:01:47'),
 (407, 0, '46.209.63.120', 'create', 'active_codes', 385, '', '{\"user_id\":\"84\",\"code\":2022,\"expired_at\":\"2022-01-25 15:39:45\"}', '/admin/login', '2022-01-25 12:09:44'),
-(408, 84, '46.209.63.120', 'delete', 'active_codes', 0, '{\"user_id\":\"84\"}', '[{\"id\":\"385\",\"user_id\":\"84\",\"code\":\"2022\",\"expired_at\":\"2022-01-25 15:39:45\"}]', '/admin/token', '2022-01-25 12:09:53');
+(408, 84, '46.209.63.120', 'delete', 'active_codes', 0, '{\"user_id\":\"84\"}', '[{\"id\":\"385\",\"user_id\":\"84\",\"code\":\"2022\",\"expired_at\":\"2022-01-25 15:39:45\"}]', '/admin/token', '2022-01-25 12:09:53'),
+(409, 0, '46.209.63.120', 'create', 'active_codes', 386, '', '{\"user_id\":\"82\",\"code\":3076,\"expired_at\":\"2022-01-26 16:04:06\"}', '/admin/login', '2022-01-26 12:34:05'),
+(410, 0, '46.209.63.120', 'create', 'active_codes', 387, '', '{\"user_id\":\"82\",\"code\":8715,\"expired_at\":\"2022-01-26 16:04:06\"}', '/admin/login', '2022-01-26 12:34:05'),
+(411, 82, '46.209.63.120', 'delete', 'active_codes', 0, '{\"user_id\":\"82\"}', '[{\"id\":\"386\",\"user_id\":\"82\",\"code\":\"3076\",\"expired_at\":\"2022-01-26 16:04:06\"},{\"id\":\"387\",\"user_id\":\"82\",\"code\":\"8715\",\"expired_at\":\"2022-01-26 16:04:06\"}]', '/admin/token', '2022-01-26 12:34:19'),
+(412, 0, '46.209.63.120', 'create', 'active_codes', 388, '', '{\"user_id\":\"85\",\"code\":5349,\"expired_at\":\"2022-01-26 16:04:55\"}', '/admin/login', '2022-01-26 12:34:54'),
+(413, 85, '46.209.63.120', 'delete', 'active_codes', 0, '{\"user_id\":\"85\"}', '[{\"id\":\"388\",\"user_id\":\"85\",\"code\":\"5349\",\"expired_at\":\"2022-01-26 16:04:55\"}]', '/admin/token', '2022-01-26 12:35:03'),
+(414, 82, '46.209.63.120', 'delete', 'product_categories', 0, '{\"product_id\":93}', '[{\"id\":\"323\",\"product_id\":\"93\",\"category_id\":\"106\"}]', '/admin/product/93', '2022-01-26 12:35:27'),
+(415, 82, '46.209.63.120', 'delete', 'taggables', 0, '{\"entity_id\":\"93\"}', '[]', '/admin/product/93', '2022-01-26 12:35:27'),
+(416, 82, '46.209.63.120', 'delete', 'photos', 0, '{\"entity_id\":\"93\"}', '[]', '/admin/product/93', '2022-01-26 12:35:27'),
+(417, 82, '46.209.63.120', 'delete', 'products', 0, '{\"id\":\"93\"}', '[{\"id\":\"93\",\"brand_id\":\"10\",\"user_id\":\"83\",\"title\":\"سرور اچ پی dl680\",\"title_english\":\"\",\"seo_robot\":\"0\",\"seo_canonical\":\"\",\"seo_H1\":\"hggh\",\"seo_description\":\"ghghgh\",\"seo_title\":\"ghgh\",\"meta_title\":\"اگر قصد خرید پاور بانک دارید می توانید در صفحه پاور بانک‌های شرکت تکین مال بهترین پاور بانک‌های بازار را ببینید و متناسب با نیاز و علاقه خود یکی را انتخاب کنید. تلاش ما این است محصولات را به طور کامل معرفی نماییم تا با مطالعه محتوای مربوط به هر محصول، با اطمینان کامل و خیال آسوده خرید پاور بانک خود را انجام دهید. در ادامه معرفی شارژر همراه انکر مدل A1277 PowerCore ظرفیت 26800 میلی آمپر ساعت را برای شما آورده‌ایم. امیدواریم راهنمای خرید پاور بانک کاملی برای شما باشد.\\r\\n\\r\\n\",\"description\":\"<p dir=\\\"rtl\\\">اگر قصد خرید پاور بانک دارید می توانید در صفحه پاور بانک&zwnj;های شرکت تکین مال بهترین پاور بانک&zwnj;های بازار را ببینید و متناسب با نیاز و علاقه خود یکی را انتخاب کنید. تلاش ما این است محصولات را به طور کامل معرفی نماییم تا با مطالعه محتوای مربوط به هر محصول، با اطمینان کامل و خیال آسوده خرید پاور بانک خود را انجام دهید. در ادامه معرفی شارژر همراه انکر مدل A1277 PowerCore ظرفیت 26800 میلی آمپر ساعت را برای شما آورده&zwnj;ایم. امیدواریم راهنمای خرید پاور بانک کاملی برای شما باشد.<\\/p>\\r\\n\",\"price\":\"120000\",\"featured\":null,\"image\":null,\"slug\":\"dl680\",\"sale\":\"0\",\"status\":\"1\",\"status_related\":null,\"sku\":\"674756-01\",\"quantity\":\"3\",\"weight\":\"6565\",\"created_at\":\"2021-12-22 14:33:56\",\"updated_at\":null,\"published_at\":null,\"started_at\":null,\"end_at\":null}]', '/admin/product/93', '2022-01-26 12:35:27'),
+(418, 82, '46.209.63.120', 'delete', 'product_categories', 0, '{\"product_id\":94}', '[]', '/admin/product/94', '2022-01-26 12:35:30'),
+(419, 82, '46.209.63.120', 'delete', 'taggables', 0, '{\"entity_id\":\"94\"}', '[]', '/admin/product/94', '2022-01-26 12:35:30'),
+(420, 82, '46.209.63.120', 'delete', 'photos', 0, '{\"entity_id\":\"94\"}', '[]', '/admin/product/94', '2022-01-26 12:35:30'),
+(421, 82, '46.209.63.120', 'delete', 'products', 0, '{\"id\":\"94\"}', '[{\"id\":\"94\",\"brand_id\":\"14\",\"user_id\":\"83\",\"title\":\"سرور اچ پی dl680\",\"title_english\":\"\",\"seo_robot\":\"0\",\"seo_canonical\":\"\",\"seo_H1\":\"1277 PowerCore ظرفیت \",\"seo_description\":\"1277 PowerCore ظرفیت \",\"seo_title\":\"ghgh\",\"meta_title\":\"اگر قصد خرید پاور بانک دارید می توانید در صفحه پاور بانک‌های شرکت تکین مال بهترین پاور بانک‌های بازار را ببینید و متناسب با نیاز و علاقه خود یکی را انتخاب کنید. تلاش ما این است محصولات را به طور کامل معرفی نماییم تا با مطالعه محتوای مربوط به هر محصول، با اطمینان کامل و خیال آسوده خرید پاور بانک خود را انجام دهید. در ادامه معرفی شارژر همراه انکر مدل A1277 PowerCore ظرفیت 26800 میلی آمپر ساعت را برای شما آورده‌ایم. امیدواریم راهنمای خرید پاور بانک کاملی برای شما باشد.\\r\\n\\r\\n\",\"description\":\"<p dir=\\\"rtl\\\">اگر قصد خرید پاور بانک دارید می توانید در صفحه پاور بانک&zwnj;های شرکت تکین مال بهترین پاور بانک&zwnj;های بازار را ببینید و متناسب با نیاز و علاقه خود یکی را انتخاب کنید. تلاش ما این است محصولات را به طور کامل معرفی نماییم تا با مطالعه محتوای مربوط به هر محصول، با اطمینان کامل و خیال آسوده خرید پاور بانک خود را انجام دهید. در ادامه معرفی شارژر همراه انکر مدل A1277 PowerCore ظرفیت 26800 میلی آمپر ساعت را برای شما آورده&zwnj;ایم. امیدواریم راهنمای خرید پاور بانک کاملی برای شما باشد.<\\/p>\\r\\n\",\"price\":\"785656\",\"featured\":null,\"image\":null,\"slug\":\"dl680\",\"sale\":\"0\",\"status\":\"1\",\"status_related\":null,\"sku\":\"674756-01\",\"quantity\":\"6\",\"weight\":\"7\",\"created_at\":\"2021-12-22 14:47:43\",\"updated_at\":null,\"published_at\":null,\"started_at\":null,\"end_at\":null}]', '/admin/product/94', '2022-01-26 12:35:30'),
+(422, 0, '46.209.63.120', 'create', 'active_codes', 389, '', '{\"user_id\":\"80\",\"code\":5800,\"expired_at\":\"2022-01-26 16:21:05\"}', '/login', '2022-01-26 12:51:04'),
+(423, 80, '46.209.63.120', 'delete', 'active_codes', 0, '{\"user_id\":\"80\"}', '[{\"id\":\"389\",\"user_id\":\"80\",\"code\":\"5800\",\"expired_at\":\"2022-01-26 16:21:05\"}]', '/token', '2022-01-26 12:51:20');
+INSERT INTO `activity_log` (`id`, `user_id`, `ip`, `type`, `target_table`, `row_id`, `where_condition`, `detailed_data`, `uri`, `created_at`) VALUES
+(424, 80, '46.209.63.120', 'create', 'wish_lists', 3, '', '{\"entity_id\":\"77\",\"entity_type\":\"Product\",\"user_id\":\"80\"}', '/wishlist', '2022-01-26 12:53:19'),
+(425, 85, '46.209.63.120', 'create', 'products', 95, '', '{\"user_id\":\"85\",\"slug\":\"کش-سرور-HP-512MB-FBWC-for-P-Series-Smart-Array-PN:661069-B21\",\"title\":\"کش سرور HP 512MB FBWC for P-Series Smart Array P\\/N:661069-B21\",\"price\":\"3500000\",\"brand_id\":\"14\",\"sku\":\"\",\"weight\":\"10\",\"quantity\":\"50\",\"meta_title\":\"کش سرور اچ پی به شماره فنی 512MB 534916-B21 برای یک پارچه سازی هارد بر روی سرور های نسل 8 به کار میرود. شما می توانید از ایزارهایی که شرکت HP در اختیار شما قرار می دهد، استفاده کنید. زیرساخت ها اهمیت فراوانی دارند زیرا پایه و اساس تمام اطلاعات و برنامه های کاربردی کسب و کار شما می باشند. ProLiant کیفیت، قابلیت اطمینان و کارایی لازم را برای حفظ زیرساخت های شما را فراهم می کند.\\r\\n\\r\\n از آنجا که حتی کوچکترین نقص می تواند منجر به خرابی و شکست کسب و کار شما شود، حافظه سرور یکی از مهمترین مؤلفه ها می باشد.\",\"description\":\"\",\"seo_H1\":\"کش سرور اچ پی 512MB\",\"seo_canonical\":\"\",\"seo_title\":\"خرید و بهترین قیمت کش سرور HP 512M10661069-B21 | یوزدکالا\",\"seo_description\":\"خرید و بهترین قیمت کش سرور HP 512MB FBWC Smart Array P\\/N:661069-B21 | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا\",\"seo_robot\":\"0\",\"status_related\":\"0\"}', '/admin/product', '2022-01-26 12:57:53'),
+(426, 85, '46.209.63.120', 'create', 'product_categories', 339, '', '{\"product_id\":\"95\",\"category_id\":\"153\"}', '/admin/product', '2022-01-26 12:57:53'),
+(427, 85, '46.209.63.120', 'create', 'photos', 305, '', '{\"entity_type\":\"Product\",\"entity_id\":95,\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202201\\/cache 512MB g8.---2047fd78.jpg\",\"alt\":\"product_image\",\"type\":0}', '/admin/product', '2022-01-26 12:57:53');
 
 -- --------------------------------------------------------
 
@@ -2046,6 +2066,33 @@ INSERT INTO `order_items` (`id`, `order_id`, `product_id`, `quantity`, `price`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pagemetas`
+--
+
+CREATE TABLE `pagemetas` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) COLLATE utf8_persian_ci NOT NULL,
+  `path` varchar(255) COLLATE utf8_persian_ci NOT NULL,
+  `html_title` varchar(255) COLLATE utf8_persian_ci NOT NULL,
+  `html_desc` text COLLATE utf8_persian_ci NOT NULL,
+  `robots` varchar(255) COLLATE utf8_persian_ci DEFAULT NULL,
+  `canonical` varchar(500) COLLATE utf8_persian_ci DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+--
+-- Dumping data for table `pagemetas`
+--
+
+INSERT INTO `pagemetas` (`id`, `title`, `path`, `html_title`, `html_desc`, `robots`, `canonical`) VALUES
+(1, 'صفحه نخست', '', 'فروشگاه آنلاین یوزدکالا', 'تجهیزات دست دوم شبکه و مراکز داده همراه با گارانتی', 'index, follow', ''),
+(2, 'وبلاگ', 'blog', 'وبلاگ یوزدکالا', 'جدیدترین اخبار و مقالاتِ صنعتِ فناوریِ اطلاعات و شبکه های کامپیوتری را در وبلاگِ یوزدکالا بخوانید.', 'index, follow', NULL),
+(3, 'تماس با ما', 'contact', 'تماس با یوزدکالا', 'فرم تماس با یوزدکالا و راههای تماس', 'index, follow', NULL),
+(4, 'فروشگاه', 'shop', 'فروشگاه اینترنتی یوزدکالا', 'تجهیزات دست دوم شبکه و مراکز داده همراه با گارانتی', 'index, follow', NULL),
+(5, 'تخفیف ها', 'product/discounts', 'تخفیف های یوزدکالا', '', 'index, follow', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `permissions`
 --
 
@@ -2333,7 +2380,8 @@ INSERT INTO `photos` (`id`, `entity_id`, `entity_type`, `type`, `path`, `alt`, `
 (301, 12, 'Brand', 0, 'https://usedkala.com/Storage/202112/intel.---cdeea7f9.png', 'brand_image', '2021-12-14 10:29:27'),
 (302, 11, 'Brand', 0, 'https://usedkala.com/Storage/202112/Cisco_logo.svg.---bb349861.png', 'brand_image', '2021-12-14 10:29:35'),
 (303, 10, 'Brand', 0, 'https://usedkala.com/Storage/202112/hpe.---a157fa8c.png', 'brand_image', '2021-12-14 10:29:43'),
-(304, 80, 'User', 0, 'https://usedkala.com/Storage/202201/1517636632815.---956f7fdf.jpg', 'profile_image', '2022-01-03 13:31:00');
+(304, 80, 'User', 0, 'https://usedkala.com/Storage/202201/1517636632815.---956f7fdf.jpg', 'profile_image', '2022-01-03 13:31:00'),
+(305, 95, 'Product', 0, 'https://usedkala.com/Storage/202201/cache 512MB g8.---2047fd78.jpg', 'product_image', '2022-01-26 12:57:53');
 
 -- --------------------------------------------------------
 
@@ -2469,8 +2517,7 @@ INSERT INTO `products` (`id`, `brand_id`, `user_id`, `title`, `title_english`, `
 (90, 14, 0, 'کابل1متری Ext SAS-P/N:389665-B21 اچ پی HP', 'HP Ext SAS 1m Cable P/N:389665-B21', NULL, NULL, NULL, 'خرید و بهترین قیمت کابل1متری Ext SAS-P/N:389665-B21 اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت کابل1متری Ext SAS-P/N:389665-B21 اچ پی HP | یوزدکالا', NULL, '', 1000000, NULL, NULL, 'کابل1متری-Ext-SAS-PN389665-B21-اچ-پی-HP', 0, 1, 0, NULL, 0, NULL, '2021-12-14 10:38:32', NULL, NULL, NULL, NULL),
 (91, 14, 0, 'کابل 30متری SW LC/LC-P/N:224692-B26 اچ پی HP', 'HP 30m SW LC/LC FC Cable Kit P/N:221692-B26', NULL, NULL, NULL, 'خرید و بهترین قیمت کابل 30متری SW LC/LC-P/N:224692-B26 اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت کابل 30متری SW LC/LC-P/N:224692-B26 اچ پی HP | یوزدکالا', NULL, '', 10000000, NULL, NULL, 'کابل-30متری-SW-LCLC-PN224692-B26-اچ-پی-HP', 0, 1, 0, NULL, 0, NULL, '2021-12-14 10:38:32', NULL, NULL, NULL, NULL),
 (92, 10, 80, 'لایسنس P/N:512485-B21 اچ پی ای HPE', 'HPE iLO Adv incl 1yr TSU 1-Svr Lic P/N:512485-B21', 0, '', '', 'خرید و بهترین قیمت لایسنس P/N:512485-B21 اچ پی ای HPE | مناسبترین قیمت انواع لایسنس در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت لایسنس P/N:512485-B21 اچ پی ای HPE | یوزدکالا', '', '', 20000000, 1, NULL, 'لایسنس-PN512485-B21-اچ-پی-ای-HPE', 1, 0, 0, '', 0, 0, '2021-12-14 10:38:32', NULL, NULL, NULL, NULL),
-(93, 10, 83, 'سرور اچ پی dl680', '', 0, '', 'hggh', 'ghghgh', 'ghgh', 'اگر قصد خرید پاور بانک دارید می توانید در صفحه پاور بانک‌های شرکت تکین مال بهترین پاور بانک‌های بازار را ببینید و متناسب با نیاز و علاقه خود یکی را انتخاب کنید. تلاش ما این است محصولات را به طور کامل معرفی نماییم تا با مطالعه محتوای مربوط به هر محصول، با اطمینان کامل و خیال آسوده خرید پاور بانک خود را انجام دهید. در ادامه معرفی شارژر همراه انکر مدل A1277 PowerCore ظرفیت 26800 میلی آمپر ساعت را برای شما آورده‌ایم. امیدواریم راهنمای خرید پاور بانک کاملی برای شما باشد.\r\n\r\n', '<p dir=\"rtl\">اگر قصد خرید پاور بانک دارید می توانید در صفحه پاور بانک&zwnj;های شرکت تکین مال بهترین پاور بانک&zwnj;های بازار را ببینید و متناسب با نیاز و علاقه خود یکی را انتخاب کنید. تلاش ما این است محصولات را به طور کامل معرفی نماییم تا با مطالعه محتوای مربوط به هر محصول، با اطمینان کامل و خیال آسوده خرید پاور بانک خود را انجام دهید. در ادامه معرفی شارژر همراه انکر مدل A1277 PowerCore ظرفیت 26800 میلی آمپر ساعت را برای شما آورده&zwnj;ایم. امیدواریم راهنمای خرید پاور بانک کاملی برای شما باشد.</p>\r\n', 120000, NULL, NULL, 'dl680', 0, 1, NULL, '674756-01', 3, 6565, '2021-12-22 11:03:56', NULL, NULL, NULL, NULL),
-(94, 14, 83, 'سرور اچ پی dl680', '', 0, '', '1277 PowerCore ظرفیت ', '1277 PowerCore ظرفیت ', 'ghgh', 'اگر قصد خرید پاور بانک دارید می توانید در صفحه پاور بانک‌های شرکت تکین مال بهترین پاور بانک‌های بازار را ببینید و متناسب با نیاز و علاقه خود یکی را انتخاب کنید. تلاش ما این است محصولات را به طور کامل معرفی نماییم تا با مطالعه محتوای مربوط به هر محصول، با اطمینان کامل و خیال آسوده خرید پاور بانک خود را انجام دهید. در ادامه معرفی شارژر همراه انکر مدل A1277 PowerCore ظرفیت 26800 میلی آمپر ساعت را برای شما آورده‌ایم. امیدواریم راهنمای خرید پاور بانک کاملی برای شما باشد.\r\n\r\n', '<p dir=\"rtl\">اگر قصد خرید پاور بانک دارید می توانید در صفحه پاور بانک&zwnj;های شرکت تکین مال بهترین پاور بانک&zwnj;های بازار را ببینید و متناسب با نیاز و علاقه خود یکی را انتخاب کنید. تلاش ما این است محصولات را به طور کامل معرفی نماییم تا با مطالعه محتوای مربوط به هر محصول، با اطمینان کامل و خیال آسوده خرید پاور بانک خود را انجام دهید. در ادامه معرفی شارژر همراه انکر مدل A1277 PowerCore ظرفیت 26800 میلی آمپر ساعت را برای شما آورده&zwnj;ایم. امیدواریم راهنمای خرید پاور بانک کاملی برای شما باشد.</p>\r\n', 785656, NULL, NULL, 'dl680', 0, 1, NULL, '674756-01', 6, 7, '2021-12-22 11:17:43', NULL, NULL, NULL, NULL);
+(95, 14, 85, 'کش سرور HP 512MB FBWC for P-Series Smart Array P/N:661069-B21', '', 0, '', 'کش سرور اچ پی 512MB', 'خرید و بهترین قیمت کش سرور HP 512MB FBWC Smart Array P/N:661069-B21 | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت کش سرور HP 512M10661069-B21 | یوزدکالا', 'کش سرور اچ پی به شماره فنی 512MB 534916-B21 برای یک پارچه سازی هارد بر روی سرور های نسل 8 به کار میرود. شما می توانید از ایزارهایی که شرکت HP در اختیار شما قرار می دهد، استفاده کنید. زیرساخت ها اهمیت فراوانی دارند زیرا پایه و اساس تمام اطلاعات و برنامه های کاربردی کسب و کار شما می باشند. ProLiant کیفیت، قابلیت اطمینان و کارایی لازم را برای حفظ زیرساخت های شما را فراهم می کند.\r\n\r\n از آنجا که حتی کوچکترین نقص می تواند منجر به خرابی و شکست کسب و کار شما شود، حافظه سرور یکی از مهمترین مؤلفه ها می باشد.', '', 3500000, NULL, NULL, 'کش-سرور-HP-512MB-FBWC-for-P-Series-Smart-Array-PN:661069-B21', 0, 1, 0, '', 50, 10, '2022-01-26 12:57:53', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2748,11 +2795,11 @@ INSERT INTO `product_categories` (`id`, `product_id`, `category_id`) VALUES
 (320, 79, 106),
 (321, 79, 113),
 (322, 79, 160),
-(323, 93, 106),
 (335, 1, 111),
 (336, 1, 108),
 (337, 1, 106),
-(338, 1, 112);
+(338, 1, 112),
+(339, 95, 153);
 
 -- --------------------------------------------------------
 
@@ -3230,6 +3277,13 @@ CREATE TABLE `wish_lists` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
 --
+-- Dumping data for table `wish_lists`
+--
+
+INSERT INTO `wish_lists` (`id`, `user_id`, `entity_id`, `entity_type`, `ctreated_at`) VALUES
+(3, 80, 77, 'Product', '2022-01-26 12:53:19');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -3348,6 +3402,12 @@ ALTER TABLE `orders`
 -- Indexes for table `order_items`
 --
 ALTER TABLE `order_items`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pagemetas`
+--
+ALTER TABLE `pagemetas`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -3503,13 +3563,13 @@ ALTER TABLE `wish_lists`
 -- AUTO_INCREMENT for table `active_codes`
 --
 ALTER TABLE `active_codes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=386;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=390;
 
 --
 -- AUTO_INCREMENT for table `activity_log`
 --
 ALTER TABLE `activity_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=409;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=428;
 
 --
 -- AUTO_INCREMENT for table `attributes`
@@ -3608,6 +3668,12 @@ ALTER TABLE `order_items`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `pagemetas`
+--
+ALTER TABLE `pagemetas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
@@ -3623,19 +3689,19 @@ ALTER TABLE `permission_users`
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=305;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=306;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT for table `product_categories`
 --
 ALTER TABLE `product_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=339;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=340;
 
 --
 -- AUTO_INCREMENT for table `product_discounts`
@@ -3749,7 +3815,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `wish_lists`
 --
 ALTER TABLE `wish_lists`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
