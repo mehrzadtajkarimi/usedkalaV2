@@ -19,6 +19,13 @@ class Discount extends MysqlBaseModel
         }
         return $this->first(['id' => $id]);
     }
+    public function read_discount_all($id = null)
+    {
+        if (is_null($id)) {
+            return $this->get_all();
+        }
+        return $this->first(['id' => $id]);
+    }
     public function update_discount(array $params, $id)
     {
         return $this->update($params, ['id' => $id]);

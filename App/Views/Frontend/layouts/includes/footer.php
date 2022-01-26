@@ -74,8 +74,8 @@
                 <i class="tm tm-call-us-footer"></i>
               </span>
               <div class="media-body" style="direction: rtl;">
-                <span class="call-us-title">شماره های تماس</span>
-                <span class="call-us-text" dir="ltr">021-88343580</span>
+                <span class="call-us-title">شماره تماس</span>
+                <a href="tel:+982188343580"><span class="call-us-text" dir="ltr">021-88343580</span></a>
                 <address class="footer-contact-address">تهران، خیابان قائم مقام فراهانی، میدان شعاع، پلاک یک، واحد دو</address>
                 <!-- <a href="#" class="footer-address-map-link">
                                                 <i class="tm tm-map-marker"></i>Find us on map</a> -->

@@ -34,6 +34,7 @@ Route::group(function () {
     Route::get('/admin/users', 'UserController@index');
     Route::get('/admin/user/makeadmin/{id}', 'UserController@make_admin');
     Route::post('/admin/user/city/{id}', 'UserController@get_city');
+   
     Route::patch('/admin/user/{id}', 'UserController@update');
     Route::delete('/admin/user/{id}', 'UserController@destroy');
 });
@@ -89,6 +90,7 @@ Route::group(function () {
     Route::post('/admin/order/get_orders', 'OrderController@get_orders');
     Route::post('/admin/order/get_admin', 'OrderController@get_admin');
     Route::post('/admin/order/status/{id}', 'OrderController@status');
+    Route::post('/admin/order/tracker/{id}', 'OrderController@tracker');
 });
 
 Route::group(function () {
@@ -104,6 +106,7 @@ Route::group(function () {
     Route::get('/admin/discount', 'DiscountController@index');
     Route::get('/admin/discount/create', 'DiscountController@create');
     Route::post('/admin/discount', 'DiscountController@store');
+    Route::post('/admin/discount/show', 'DiscountController@show');
     Route::get('/admin/discount/{id}/edit', 'DiscountController@edit');
     Route::patch('/admin/discount/{id}', 'DiscountController@update');
     Route::delete('/admin/discount/{id}', 'DiscountController@destroy');
@@ -150,8 +153,24 @@ Route::group(function () {
     Route::get('/admin/setting/{id}/edit', 'SettingController@edit');
     Route::patch('/admin/setting/{id}', 'SettingController@update');
     Route::delete('/admin/setting/{id}', 'SettingController@destroy');
-});
 
+
+
+
+});
+Route::group(function () {
+    Route::get('/admin/pagemetas', 'PageMetasController@index');
+    // Route::post('/admin/setting/upload', 'SettingController@upload');
+    // Route::get('/admin/setting/create', 'SettingController@create');
+    // Route::post('/admin/setting', 'SettingController@store');
+    Route::get('/admin/pagemetas/{id}/edit', 'PageMetasController@edit');
+    Route::patch('/admin/pagemetas/{id}', 'PageMetasController@update');
+    // Route::delete('/admin/setting/{id}', 'SettingController@destroy');
+});
+Route::group(function () {
+
+    Route::get('/admin/property', 'PropertyController@index');
+});
 Route::group(function () {
     Route::get('/admin/permission', 'PermissionController@index');
     Route::post('/admin/permission/upload', 'PermissionController@upload');

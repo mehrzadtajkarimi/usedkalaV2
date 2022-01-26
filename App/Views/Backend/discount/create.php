@@ -39,7 +39,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <!-- <div class="col">
                 <div class="form-group ">
                     <label> دسته بندی انتخابی</label>
                     <select name='discount-category[]' id="discount_category" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
@@ -48,10 +48,10 @@
                         <?php endforeach; ?>
                     </select>
                 </div>
-            </div>
+            </div> -->
             <div class="col">
                 <label>محصول انتخابی</label>
-                <select name="discount-product[]" id="discount_product" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple">
+                <select name="discount-product[]" id="discount_product" class="form-control select2 select2-hidden-accessible" style="width: 100%;text-align: right" multiple="multiple" required>
                     <?php foreach ($products as $value) : ?>
                         <option value="<?= $value['id'] ?>"><?= $value['title'] ?></option>
                     <?php endforeach; ?>

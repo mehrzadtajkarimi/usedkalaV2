@@ -81,12 +81,12 @@ class  MysqlBaseModel extends BaseModel
         return $this->get('*');
     }
 
-    public function get_all($where = null): array
+    public function get_all($where = null, $columns="*"): array
     {
         if($where == null){
-            return $this->connection->select($this->table, "*");
+            return $this->connection->select($this->table, $columns);
         } else {
-            return $this->connection->select($this->table, "*", $where);
+            return $this->connection->select($this->table, $columns, $where);
         }
     }
 

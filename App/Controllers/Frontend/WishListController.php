@@ -28,12 +28,14 @@ class WishListController extends Controller
     {
 
         $wishlist_products = $this->WishListModel->read_all_wishList_items('Product');
+		// print_r($wishlist_products);
+		// die();
         $products          = [];
         $selected_wishlist = [];
         foreach ($wishlist_products as $key => $value){
-            $products[] = $this->productModel->read_product($value['entity_id']);
-            $photo[] = $this->photoModel->read_single_photo_by_id('0', $value['entity_id'], 'Product')[0];
-            $products[$key]['path'] = $photo[$key]['path'];
+            $products[] = $this->productModel->join_product_to_single_photo__with__productDiscounts_by_product_id($value['entity_id']);
+            // $photo[] = $this->photoModel->read_single_photo_by_id('0', $value['entity_id'], 'Product')[0];
+            // $products[$key]['path'] = $photo[$key]['path'];
             $selected_wishlist[] = $value['entity_id'];
         }
 
@@ -41,6 +43,7 @@ class WishListController extends Controller
             'products'          => $products,
             'selected_wishlist' => $selected_wishlist,
             'auth'              => Auth::is_login(),
+			'home_page_active_menu' => "full-width"
         ];
 
         return view('Frontend.product.index', $data);

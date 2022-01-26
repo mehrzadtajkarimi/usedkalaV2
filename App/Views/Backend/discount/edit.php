@@ -45,7 +45,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
+            <!-- <div class="col">
                 <div class="form-group row">
                     <label class="col-2 col-form-label"> دسته بندی انتخابی</label>
                     <div class="col-10">
@@ -56,7 +56,7 @@
                         </select>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="col">
                 <div class="form-group row">
                     <label class="col-2 col-form-label">محصول انتخابی</label>

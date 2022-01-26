@@ -30,7 +30,7 @@
           <thead>
             <tr>
               <th class="text-center" scope="col">نام</th>
-              <th class="text-center" scope="col">نمایش</th>
+              <th class="text-center" scope="col">اقدامات</th>
             </tr>
           </thead>
           <tbody>

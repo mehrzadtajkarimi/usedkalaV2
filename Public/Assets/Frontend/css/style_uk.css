@@ -233,3 +233,40 @@ img.uksquareimg
 {
 	object-fit: contain;
 }
+
+.ukorderdetails_title
+{
+	margin: 0;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #dfdfdf
+}
+.ukorderdetails
+{
+	display: flex;
+	direction: rtl;
+}
+.ukorderdetails > div
+{
+	flex-basis: 50%;
+}
+.ukorderdetails > div > div
+{
+	padding-top: 15px;
+}
+.ukorderdetails > div > div > span:first-child
+{
+	display: inline-block;
+	vertical-align: top;
+	width: 140px;
+	color: #6dc4b4;
+	font-weight: 500;
+}
+.ukorderdetails h6
+{
+	margin-top: 15px;
+	margin-bottom: 0;
+}
+.ukorderproducts
+{
+	margin-top: 75px;
+}

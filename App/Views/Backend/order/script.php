@@ -16,6 +16,59 @@
             }
         });
 
+
+        $('.status_sender').click(function(e) {
+
+            $('.tracker').fadeOut(0);
+            $('.tracker input').prop('required', false).val('');
+            if (this.value == 1) {
+                $('.tracker-post input').prop('required', true);
+                $('.tracker-post').fadeIn(400);
+            }
+            if (this.value == 2) {
+                $('.tracker-postbar input').prop('required', true);
+                $('.tracker-postbar').fadeIn(400);
+            }
+            if (this.value == 3) {
+                $('.tracker-chapar input').prop('required', true);
+                $('.tracker-chapar').fadeIn(400);
+            }
+            if (this.value == 4) {
+                $('.tracker-alopeyk input').prop('required', true);
+                $('.tracker-alopeyk').fadeIn(400);
+            }
+            if (this.value == 5) {
+                $('.tracker-snappـbox input').prop('required', true);
+                $('.tracker-snappـbox').fadeIn(400)
+            }
+        });
+
+        $('.btn-submit-order-tracing').click(function() {
+
+            $('.form-order-tracing').submit(function(e) {
+                e.preventDefault();
+                alert('Success');
+                that = $('.form-order-tracing');
+                id = that.data('id');
+                url = that.val('action');
+
+                $.ajax({
+                    type: "post",
+                    url: url,
+                    data: {
+                        'id': id
+                    },
+                    success: function(response) {
+                        alert(response);
+                    }
+                });
+
+
+            });
+        });
+
+
+
         $('#order-category').select2({
             'placeholder': 'دسته بندی های مورد نظر را انتخاب کنید'
         });
@@ -28,6 +81,8 @@
             var order_id = $(that).data('id');
             if ($(that).is(':checked')) {
                 var type = 2;
+                 // location.reload();
+                location=location;
             }
             $.ajax({
                 type: "post",
@@ -49,8 +104,15 @@
         $('.check-box-sender').on('change', function() {
             var that = $(this);
             var order_id = $(that).data('id');
+            var status_sender = $(that).data('status_sender');
+
             if ($(that).is(':checked')) {
                 var type = 3;
+                if (status_sender) {
+                    var isGood = confirm('لطفا ابتدا روش ارسال را مشخص کنید');
+                    // location.reload();
+                    location=location;
+                }
             }
             $.ajax({
                 type: "post",
@@ -65,7 +127,6 @@
                             $('.check-box-delivery-' + order_id).parents().eq(2).fadeIn(1000);
                         });
                     }
-
                 },
             });
         });
@@ -132,65 +193,123 @@
                 },
                 success: function(response) {
                     data = JSON.parse(response);
-
-
-                    // console.log(order);
+                    console.log(data);
                     order_tbody.empty();
                     $(data).each(function(key, value) {
-                        // console.log(value);
+                        console.log(value);
                         order_tr.fadeIn(1000).delay(200);
-
-                        order_tbody.append(`
-                            <tr>
-                                <td class='text-center'>
-                                    <pre class='text-muted '>` + key + `</pre>
-                                </td>
-                                <td class='text-center'>
-                                    <span class='text-muted '>` + value['title'] + `</span>
-                                </td>
-                                <td class='text-center'>
-                                    <pre class='text-muted '>` + number_format(value['price']) + `</pre>
-                                </td>
-                                <td class='text-center'>
-                                    <pre class='text-muted '>` + number_format(value['quantity']) + `</pre>
-                                </td>
-                                <td class='text-center'>
-                                    <pre class='text-muted '>` + number_format(value['quantity'] * value['price']) + `</pre>
-                                </td>
-                            </tr>
-                        `);
+                        if (value['discount_percent']) {
+                            order_tbody.append(`
+                                <tr>
+                                    <td class='text-center'>
+                                        <pre class='text-muted '>` + key + `</pre>
+                                    </td>
+                                    <td class='text-center'>
+                                        <span class='text-muted '>` + value['title'] + `</span>
+                                    </td>
+                                    <td class='text-center'>
+                                        <small>
+                                            <del class='text-danger'>
+                                                ` + number_format(value['price']) + `
+                                            </del>
+                                        </small>
+                                        <pre class='text-muted '>` + number_format(value['discount_percent']) + `</pre>
+                                    </td>
+                                    <td class='text-center'>
+                                        <pre class='text-muted '>` + number_format(value['quantity']) + `</pre>
+                                    </td>
+                                    <td class='text-center'>
+                                        <pre class='text-muted '>` + number_format(value['quantity'] * value['discount_percent']) + `</pre>
+                                    </td>
+                                </tr>
+                            `);
+                        } else {
+                            order_tbody.append(`
+                                <tr>
+                                    <td class='text-center'>
+                                        <pre class='text-muted '>` + key + `</pre>
+                                    </td>
+                                    <td class='text-center'>
+                                        <span class='text-muted '>` + value['title'] + `</span>
+                                    </td>
+                                    <td class='text-center'>
+                                        <pre class='text-muted '>` + number_format(value['price']) + `</pre>
+                                    </td>
+                                    <td class='text-center'>
+                                        <pre class='text-muted '>` + number_format(value['quantity']) + `</pre>
+                                    </td>
+                                    <td class='text-center'>
+                                        <pre class='text-muted '>` + number_format(value['quantity'] * value['price']) + `</pre>
+                                    </td>
+                                </tr>
+                            `);
+                        };
                     });
+
                     var sum = 0;
                     $(data).each(function(key, value) {
-                        sum += Number(value['quantity'] * value['price']);
+                        discount_percent = value['percent'] > 0 ? value['percent'] : 0;
+
+                        if (value['discount_percent'] && value['discount_coupon']) {
+                            sum += Number(value['quantity'] * value['discount_coupon']);
+                        } else if (value['discount_percent']) {
+                            console.log(value['discount_coupon']);
+
+                            sum += Number(value['quantity'] * value['discount_percent']);
+                        } else if (value['discount_coupon']) {
+
+                            sum += Number(value['quantity'] * value['discount_coupon']);
+                        } else {
+
+                            sum += Number(value['quantity'] * value['price']);
+
+                        };
                     });
                     let created_at = new Date(data[0]['created_at']).toLocaleDateString('fa-IR');
                     console.log(created_at);
-                    order_tfoot.append(`
-                        <tr>
-                            <td colspan="10">
-                                <div class="row">
-
-                                <div class="col-3">
-                                    <b class='text-muted font-weight-bold d-block'>آدرس : ` + data[0]['address'] + `</b>
-                                    <b class='text-muted font-weight-bold d-block'>تاریــخ  : ` + created_at + `</b>
-                                </div>
-                                    <div class="offset-5"></div>
-                                    <div class="col-2">
-                                        <pre class='text-muted font-weight-bold'>جمع کل</pre>
+                    if (discount_percent > 0) {
+                        order_tfoot.append(`
+                            <tr>
+                                <td colspan="10">
+                                    <div class="row">    
+                                    <div class="col-3">
+                                        <b class='text-muted font-weight-bold d-block'>آدرس : ` + data[0]['address'] + `</b>
+                                        <b class='text-muted font-weight-bold d-block'>تاریــخ  : ` + created_at + `</b>
                                     </div>
-                                    <div class="col-2">
-                                        <pre class='text-muted font-weight-bold'>` + number_format(sum) + `</pre>
+                                        <div class="offset-5"></div>
+                                        <div class="col-2">
+                                            <pre class='text-muted font-weight-bold'> جمع کل + ` + discount_percent + ` تخفیف</pre>
+                                        </div>
+                                        <div class="col-2">
+                                            <pre class='text-muted font-weight-bold'>` + number_format(sum) + `</pre>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                        </tr>
-                    `);
-
+                                </td>
+                            </tr>
+                        `);
+                    } else {
+                        order_tfoot.append(`
+                            <tr>
+                                <td colspan="10">
+                                    <div class="row">    
+                                    <div class="col-3">
+                                        <b class='text-muted font-weight-bold d-block'>آدرس : ` + data[0]['address'] + `</b>
+                                        <b class='text-muted font-weight-bold d-block'>تاریــخ  : ` + created_at + `</b>
+                                    </div>
+                                        <div class="offset-5"></div>
+                                        <div class="col-2">
+                                            <pre class='text-muted font-weight-bold'>جمع کل</pre>
+                                        </div>
+                                        <div class="col-2">
+                                            <pre class='text-muted font-weight-bold'>` + number_format(sum) + `</pre>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        `);
+                    }
                 },
             });
-
-
         });
 
 

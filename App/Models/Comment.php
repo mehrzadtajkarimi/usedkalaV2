@@ -19,20 +19,28 @@ class Comment extends MysqlBaseModel
         }
         return $this->find_by_id($id);
     }
+    public function read_comment__by__user_id_entity_type($user_id, $entity_type, $id = false)
+    {
+        if ($id) {
+            return $this->get_all([
+                'id'          => $id,
+                'user_id'     => $user_id,
+                'entity_type' => $entity_type,
+            ]) ?? false;
+        }
+
+        return $this->get_all([
+            'user_id'     => $user_id,
+            'entity_type' => $entity_type,
+        ]) ?? false;
+    }
     public function read_comment_replies($comment_id, $blog_id, $entity_type)
     {
         return $this->get('*', [
             'entity_type' => $entity_type,
             'entity_id'   => $blog_id,
             'parent_id'   => $comment_id,
-        ])[0]??[];
-    }
-    public function read_comment_by_key($key = null)
-    {
-        if (is_null($key)) {
-            return $this->all();
-        }
-        return $this->get('*', ['key' => $key]);
+        ])[0] ?? [];
     }
 
     public function update_comment(array $params, $id)
@@ -52,30 +60,8 @@ class Comment extends MysqlBaseModel
     {
         return $this->delete(['id' => $id]);
     }
-    public function join_comment_to_user($type)
-    {
-        return $this->inner_join(
-            "*",
-            "users",
-            "entity_id",
-            "id",
-            "comments.status=1",
-            "comments.entity_type=$type",
-        );
-    }
-    public function join_all_comment_to_user()
-    {
-        return  $this->connection->query("
-        SELECT
-        *
-        FROM users
-        INNER JOIN comments
-        ON  users.id=comments.user_id
-        AND comments.parent_id='0'
-        ORDER BY
-        comments.id DESC
-        ")->fetchAll();
-    }
+
+
     public function join_all_comment_to_user_by_comment_id($id = null)
     {
         return  $this->connection->query("
@@ -101,16 +87,5 @@ class Comment extends MysqlBaseModel
         ORDER BY
         comments.id DESC
         ")->fetchAll();
-    }
-    public function join_comment_to_user_by_comment_id($comment_id = null)
-    {
-        return $this->inner_join(
-            "comments.id AS comment_id , comments.* , users.*",
-            "users",
-            "id",
-            "entity_id",
-            "comments.id={$comment_id['id']}",
-            "comments.entity_type='comment'",
-        );
     }
 }

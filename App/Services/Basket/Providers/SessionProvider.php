@@ -60,23 +60,24 @@ class SessionProvider implements BasketContract
             unset($_SESSION['cart'][$item_id]);
             // unset($_SESSION['cart']['percent']);
         }
-        // if (count($_SESSION['cart'][$item_id]) == 0) {
-        //     unset($_SESSION['cart']['percent']);
-        // }
+        if (count($_SESSION['cart']) == 0) {
+            unset($_SESSION['cart_percent']);
+        }
     }
 
-    public function add_coupon(int $percent, $start_at, $finish_at): array
+    public function add_coupon(int $coupon_id,int $percent, $start_at, $finish_at): array
     {
-        return  $_SESSION['cart']['percent'] = [
-            'percent' => $percent,
-            'start_at' => $start_at,
+        return  $_SESSION['cart_percent']= [
+            'coupon_id' => $coupon_id,
+            'percent'   => $percent,
+            'start_at'  => $start_at,
             'finish_at' => $finish_at,
         ];
     }
     public function remove_coupon()
     {
-        if (isset($_SESSION['cart']['percent'])) {
-            unset($_SESSION['cart']['percent']);
+        if (isset($_SESSION['cart_percent'])) {
+            unset($_SESSION['cart_percent']);
         }
     }
 
@@ -94,6 +95,14 @@ class SessionProvider implements BasketContract
         }
 
         return $total_price;
+    }
+
+    public function add_grand_total($item_id, $total)
+    {
+        if (isset($_SESSION['cart'][$item_id])) {
+            return $_SESSION['cart'][$item_id]['grand_total'] = $total;
+        }
+        return false;
     }
 
 

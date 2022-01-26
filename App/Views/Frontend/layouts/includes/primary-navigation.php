@@ -1,6 +1,6 @@
 <ul id="menu-primary-menu" class="nav yamm">
     <li class="sale-clr menu-item animate-dropdown">
-        <a title="صفحه نخست" href="<?= base_url() ?>">فروشگاه</a>
+        <a title="صفحه نخست" href="<?= base_url() ?>shop">فروشگاه</a>
     </li>
     <li class="yamm-fw menu-item animate-dropdown">
         <a title="وبلاگ" href="<?= base_url() ?>blog">وبلاگ</a>

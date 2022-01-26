@@ -42,16 +42,16 @@
             <tbody>
               <?php
               // $count = 0;
-              foreach ($discounts as $key=>$value) :
+              foreach ($discounts as $key => $value) :
               ?>
                 <tr>
-                  <td class="text-center" title="ردیف"><?= floor(pagination_total_count(10, $key))+1 ?></td>
+                  <td class="text-center" title="ردیف"><?= floor(pagination_total_count(10, $key)) + 1 ?></td>
                   <td class="text-center"><?= $value['code'] ?></td>
                   <td class="text-center"><?= $value['title'] ?></td>
                   <td class="text-center"><?= $value['percent'] ?></td>
                   <td class="text-center"><?= $value['description'] ?></td>
-                  <td class="text-center"><?= jdate('H:i Y/m/d ',strtotime($value['start_at'])) ?></td>
-                  <td class="text-center"><?= jdate('H:i Y/m/d ',strtotime($value['finish_at'])) ?></td>
+                  <td class="text-center"><?= jdate('H:i Y/m/d ', strtotime($value['start_at'])) ?></td>
+                  <td class="text-center"><?= jdate('H:i Y/m/d ', strtotime($value['finish_at'])) ?></td>
                   <td>
                     <div>
                       وضــــــــــعــیـت :
@@ -67,16 +67,19 @@
                     </div>
                   </td>
                   <td class="text-center">
-                    <a href="" class="p-4">
-                      <i class="fa fa-folder-open fa-2x text-muted" aria-hidden="true"></i>
-                    </a>
+                      <i class="fa fa-folder-open fa-2x text-muted btn_show_discant" data-id="<?= $value['id'] ?>" aria-hidden="true"></i>
                   </td>
                   <td class="text-center ">
-                      <a href="<?= base_url() ?>admin/discount/<?= $value['id'] ?>/edit" class="p-0 pl-2 pr-2 shadow-sm btn btn-warning btn-sm" style=" border-radius: 18px;">ویــرایـش</a>
-                      <form method="post" action="<?= base_url() ?>admin/discount/<?= $value['id'] ?>" class="d-inline">
-                        <input type="hidden" name="_method" value="delete" />
-                        <input type="submit" class="p-0 pl-2 pr-2 shadow-sm btn btn-danger btn-sm" style="border-radius: 18px;" onclick="return confirm('آیا برای حذف اطلاعات اطمینان دارید');" value="حــــــــذف">
-                      </form>
+                    <a href="<?= base_url() ?>admin/discount/<?= $value['id'] ?>/edit" class="p-0 pl-2 pr-2 shadow-sm btn btn-warning btn-sm" style=" border-radius: 18px;">ویــرایـش</a>
+                    <form method="post" action="<?= base_url() ?>admin/discount/<?= $value['id'] ?>" class="d-inline">
+                      <input type="hidden" name="_method" value="delete" />
+                      <input type="submit" class="p-0 pl-2 pr-2 shadow-sm btn btn-danger btn-sm" style="border-radius: 18px;" onclick="return confirm('آیا برای حذف اطلاعات اطمینان دارید');" value="حــــــــذف">
+                    </form>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="10" class=" show_discant_<?= $value['id'] ?> " style="display: none">
+
                   </td>
                 </tr>
               <?php
@@ -98,12 +101,14 @@
           </a>
         </li>
         <?php for ($i = 0; $i <=  pagination_count('discounts', 10); $i++) : ?>
-          <li class="page-item <?php if (isset($_GET['page']) && $_GET['page'] == ($i + 1)) echo "active"; else if (!isset($_GET['page']) && ($i + 1) == 1) echo "active" ?>">
+          <li class="page-item <?php if (isset($_GET['page']) && $_GET['page'] == ($i + 1)) echo "active";
+                                else if (!isset($_GET['page']) && ($i + 1) == 1) echo "active" ?>">
             <a class="page-link" href="<?= base_url() ?>admin/discount?page=<?= $i + 1 ?>"><?= $i + 1 ?></a>
           </li>
         <?php endfor; ?>
         <li class="page-item <?php if (pagination_count('discounts', 10) + 1 == 1 || (isset($_GET['page']) &&  pagination_count('discounts', 10) + 1  == $_GET['page'])) echo "disabled" ?>">
-          <a class="page-link" href="<?= base_url() ?>admin/discount?page=<?php if (isset($_GET['page'])) echo $_GET['page'] + 1; else echo 2 ?>" aria-label="Next">
+          <a class="page-link" href="<?= base_url() ?>admin/discount?page=<?php if (isset($_GET['page'])) echo $_GET['page'] + 1;
+                                                                          else echo 2 ?>" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
             <span class="sr-only">Next</span>
           </a>

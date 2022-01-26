@@ -4,24 +4,34 @@
       <div class="card">
         <div class="card-header no-border">
           <div class="d-flex justify-content-between">
-            <h3 class="card-title">کاربران آنلاین</h3>
+            <h3 class="card-title"> نمودار فروش</h3>
             <a href="javascript:void(0);">مشاهده گزارش</a>
           </div>
         </div>
         <div class="card-body">
           <div class="d-flex">
             <p class="d-flex flex-column">
-              <span class="text-bold text-lg">820</span>
-              <span>بازدید کننده در طول زمان</span>
+              <span>
+                <span class="text-bold text-lg"><?= $count_order ?></span>
+                <span> سفارش</span>
+              </span>
+              <span>
+                <span class="text-bold text-lg"><?= number_format($avg_grand) ?></span>
+                <span>میانگین سفارشات</span>
+              </span>
+
             </p>
             <p class="mr-auto d-flex flex-column text-right">
-              <span class="text-success">
-                <i class="fa fa-arrow-up"></i> 12.5%
+              <span class="text-success ">
+                <?php if ($change_sale_mount > 0) : ?>
+                  <i class="fa fa-arrow-up"></i> <?= $change_sale_mount ?>%
+                <?php else : ?>
+                  <i class="fa text-danger fa-arrow-down"></i> <?= $change_sale_mount ?>%
+                <?php endif; ?>
               </span>
-              <span class="text-muted">از هفته گذشته</span>
+              <span class="text-muted">از ماه گذشته</span>
             </p>
           </div>
-          <!-- /.d-flex -->
 
           <div class="position-relative mb-4">
             <canvas id="visitors-chart" height="200"></canvas>
@@ -29,16 +39,15 @@
 
           <div class="d-flex flex-row justify-content-end">
             <span class="ml-2">
-              <i class="fa fa-square text-primary"></i> این هفته
+              <i class="fa fa-square text-primary"></i> مجموع سفارشات
             </span>
 
             <span>
-              <i class="fa fa-square text-gray"></i> هفته گذشته
+              <i class="fa fa-square " style="color:#ced4da"></i> مجموع تخفیفات
             </span>
           </div>
         </div>
       </div>
-      <!-- /.card -->
 
       <div class="card">
         <div class="card-header no-border">
@@ -144,9 +153,7 @@
           </table>
         </div>
       </div>
-      <!-- /.card -->
     </div>
-    <!-- /.col-md-6 -->
     <div class="col-lg-6">
       <div class="card">
         <div class="card-header no-border">
@@ -168,8 +175,6 @@
               <span class="text-muted">از ماه گذشته</span>
             </p>
           </div>
-          <!-- /.d-flex -->
-
           <div class="position-relative mb-4">
             <canvas id="sales-chart" height="200"></canvas>
           </div>
@@ -185,7 +190,6 @@
           </div>
         </div>
       </div>
-      <!-- /.card -->
 
       <div class="card">
         <div class="card-header no-border">
@@ -211,7 +215,6 @@
               <span class="text-muted">نرخ تبدیل</span>
             </p>
           </div>
-          <!-- /.d-flex -->
           <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
             <p class="text-warning text-xl">
               <i class="ion ion-ios-cart-outline"></i>
@@ -235,11 +238,11 @@
               <span class="text-muted">نرخ ثبت نام</span>
             </p>
           </div>
-          <!-- /.d-flex -->
         </div>
       </div>
     </div>
-    <!-- /.col-md-6 -->
   </div>
-  <!-- /.row -->
 </div>
+
+
+<?php include(BASEPATH . "/App/Views/Backend/script.php") ?>

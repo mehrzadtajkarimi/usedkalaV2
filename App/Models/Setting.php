@@ -19,6 +19,10 @@ class Setting extends MysqlBaseModel
         }
         return $this->find_by_id($id);
     }
+    public function get_setting($key)
+    {
+        return $this->get('value',['key'=>$key])[0];
+    }
     public function read_setting_by_slug($slug=null)
     {
         if (is_null($slug)) {

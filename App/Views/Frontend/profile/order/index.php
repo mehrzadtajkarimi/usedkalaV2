@@ -9,9 +9,18 @@
 
 
                         <!-- Button trigger modal -->
-                        <span type="button" class="btn" data-toggle="modal" data-target="#form-modal-edit-photo" title="جهت ویرایش کلیک کتید">
-                            <img id="img-edit" src="<?= $data['path'] ??  asset_url() . 'Frontend/images/users/user4-128x128.jpg' ?> " class="rounded img-fluid profile-img" data-img-name="" alt="<?= $data['alt'] ?? '' ?>" />
-                        </span>
+                        <div class="row">
+                            <div class="col-8">
+                                <span type="button" class="btn" data-toggle="modal" data-target="#form-modal-edit-photo" title="جهت ویرایش کلیک کتید">
+                                    <img id="img-edit" src="<?= $user['path'] ??  asset_url() . 'Frontend/images/users/user4-128x128.jpg' ?> " class="rounded img-fluid profile-img" data-img-name="" alt="<?= $data['alt'] ?? '' ?>" />
+                                </span>
+                            </div>
+                            <div class="col-4 text-center mt-4">
+                                <small class="text-muted "><?= $user['first_name'] ?></small>
+                                <hr class=" m-0">
+                                <small class="text-muted"><?= $user['last_name'] ?></small>
+                            </div>
+                        </div>
                         <!-- Modal -->
                         <div id="form-modal-edit-photo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -27,18 +36,11 @@
                         </div>
                         <?php include(BASEPATH . "App/Views/Frontend/user/script.php") ?>
 
+                        <!-- sidebar -->
 
+                        <?php include(BASEPATH . "App/Views/Frontend/profile/layouts/sidebar.php") ?>
 
-                        <div class="mt-3">
-                            <div class="list-group list-group-flush">
-                                <a href="<?= base_url() ?>profile" class="list-group-item list-group-item-action font-weight-bold">ویرایش پروفایل</a>
-                                <a href="<?= base_url() ?>profile/orders" class="list-group-item list-group-item-action font-weight-bold">سفارش‌های من</a>
-                                <a href="#" class="list-group-item list-group-item-action font-weight-bold">نظرات</a>
-                                <a href="#" class="list-group-item list-group-item-action font-weight-bold">کارت های هدیه</a>
-                                <a href="#" class="list-group-item list-group-item-action font-weight-bold">بازدید های اخیر</a>
-                            </div>
-                            <a href="<?= base_url() ?>logout" class="mt-5 btn btn-primary btn-lg active btn-block" role="button" aria-pressed="true">خروج</a>
-                        </div>
+                        <!-- sidebar -->
                     </div>
                 </div>
             </div>
@@ -60,7 +62,7 @@
                             <?php foreach ($orders as $value) : ?>
                                 <tr class="text-center">
                                     <td class="text-center amount">
-                                        <?= $value['order_number'] ?>
+                                        <?= $value['id'] ?>
                                     </td>
                                     <td class="text-center amount">
                                         <?= $value['item_count'] ?>

@@ -38,7 +38,7 @@ class ProfileController extends Controller
     public function is_login()
     {
         $user_id = SessionManager::get('auth');
-
+        $user = $this->userModel->join_user_to_photo($user_id);
 
         $cart_items = Basket::items();
 
@@ -53,7 +53,7 @@ class ProfileController extends Controller
 
         if (Auth::is_login()) {
             $data = array(
-                'data'       => $this->userModel->join_user_to_photo($user_id),
+                'user'       => $user,
                 'cart_total' => array_sum($cart_total ?? []),
                 'cart_items' => $cart_items,
                 'provinces'  => $this->provinceModel->read_province()
@@ -85,19 +85,19 @@ class ProfileController extends Controller
             }
         } else {
             $this->userModel->update_user([
-                'first_name'  => $params['profile-name'],
-                'last_name'   => $params['profile-family'],
-                'phone'       => $params['profile-phone'],
-                'email'       => $params['profile-email'],
-                'address'     => $params['profile-address'],
-                'province_id' => $params['profile-province'],
-                'city_id'     => $params['profile-city'],
-                'postal_code' => $params['profile-postalCode'],
+                'first_name'    => $params['profile-name'],
+                'last_name'     => $params['profile-family'],
+                'phone'         => $params['profile-phone'],
+                'email'         => $params['profile-email'],
+                'address'       => $params['profile-address'],
+                'province_id'   => $params['profile-province'],
+                'city_id'       => $params['profile-city'],
+                'postal_code'   => $params['profile-postalCode'],
                 'national_code' => $params['profile-national-code'],
-                'birthday' => $params['profile-birthday'],
-                'gender' => $params['profile-gender'],
-                'jobtitle' => $params['profile-job-title'],
-                'company' => $params['profile-company'],
+                'birthday'      => $params['profile-birthday'],
+                'gender'        => $params['profile-gender'],
+                'jobtitle'      => $params['profile-job-title'],
+                'company'       => $params['profile-company'],
             ], $id);
             FlashMessage::add("مقادیر  با موفقیت ذخیره شد.");
         }

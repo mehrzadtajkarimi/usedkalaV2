@@ -58,19 +58,19 @@ function inject_menu()
         $cart_total[] = $value['count'] * $value['price'] ?? [];
     }
     $categoryModel = new Category;
-    $categoryLevelOne = $categoryModel->get('*', [
+    $categoryLevelOne = $categoryModel->get_all([
         'parent_id' => 0,
         'type'      => 0,
     ]);
     foreach ($categoryLevelOne as $LevelOne) {
-        $level_two = $categoryModel->get('id', [
+        $level_two = $categoryModel->get_all([
             'parent_id' => $LevelOne['id'],
             'type'      => 0,
-        ]);
+        ],'id');
         $firstLevelTwoItem = $categoryModel->join_category_to_photo($LevelOne['id']);
         $categoryLevelTwo[$LevelOne['id']] = [$firstLevelTwoItem[0]];
         foreach ($level_two as $level_two_id) {
-            $categories_level_two = $categoryModel->get('*', ['id' => $level_two_id]);
+            $categories_level_two = $categoryModel->get_all(['id' => $level_two_id]);
             foreach ($categories_level_two as $key => $category_level_two) {
                 $categories_level_two_add_photo = $categoryModel->join_category_to_photo($category_level_two['id']);
                 if (count($categories_level_two_add_photo) > 0)
@@ -81,7 +81,7 @@ function inject_menu()
 
     if ($categoryLevelOne) {
         return  [
-            'categoryLevelOne' => array_reverse($categoryLevelOne),
+            'categoryLevelOne' => $categoryLevelOne,
             'categoryLevelTwo' => $categoryLevelTwo,
             'cart_total'       => array_sum($cart_total ?? []),
             'cart_count'       => $cart_count,
@@ -212,7 +212,7 @@ function storage_path($filename)
 function is_active($routeName, $activeClassName = 'active menu-open d-block')
 {
     $request = new  Request();
-    $preg_replace =preg_replace('~\d+/~', '', $request->uri(),1);
+    $preg_replace = preg_replace('~\d+/~', '', $request->uri(), 1);
     if (is_array($routeName)) {
         return in_array($preg_replace, $routeName) ? $activeClassName : '';
     }
@@ -305,7 +305,7 @@ function connection()
         echo '<h1>مشکلی در ارتباط با دیتابیس رخ داد </h1>';
     }
 }
-function level_user()
+function level_user() :array
 {
     return  [
         '1' => '* (برنزی)',
@@ -314,4 +314,30 @@ function level_user()
         '4' => '**** (پلاتین)',
         '5' => '***** (تیتانیوم)',
     ];
+}
+function status_sender(): array
+{
+    return  [
+        0 => 'none',
+        1 => 'post',
+        2 => 'postbar',
+        3 => 'chapar',
+        4 => 'alopeyk',
+        5 => 'snappـbox'
+    ];
+}
+
+function jalaliDate($sqlTimestamp , $format = 'j F Y')
+{
+    $unixTimestamp=strtotime($sqlTimestamp);
+    return jdate($format,$unixTimestamp);
+}
+
+function numRows($queryStr)
+{
+	$CON=mysqli_connect($_ENV['DB_HOST'],$_ENV['DB_USER'],$_ENV['DB_PASS'],$_ENV['DB_NAME']);
+	mysqli_query($CON,"SET NAMES utf8");
+	mysqli_query($CON,"SET CHARACTER_SET utf8");
+	$numRowsQuery=mysqli_query($CON,$queryStr);
+	return mysqli_num_rows($numRowsQuery);
 }

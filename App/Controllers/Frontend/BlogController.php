@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Taggable;
 use App\Models\Wish_list;
+use App\Models\PageMetas;
 use App\Services\Session\SessionManager;
 use App\Utilities\TimeUtil;
 
@@ -20,6 +21,7 @@ class BlogController extends Controller
     private $commentModel;
     private $taggableModel;
     private $wishListModel;
+	private $pageMetasModel;
 
     public function __construct()
     {
@@ -29,7 +31,8 @@ class BlogController extends Controller
         $this->commentModel  = new Comment();
         $this->taggableModel = new Taggable();
         $this->wishListModel = new Wish_list();
-        $this->jDateObj    = new TimeUtil();
+        $this->jDateObj      = new TimeUtil();
+		$this->pageMetasModel         = new PageMetas();
     }
 
     public function index()
@@ -39,12 +42,18 @@ class BlogController extends Controller
         $blog = $this->blogModel->join_blog_to_photo();
 		foreach($blog as $postKey=>$postRow)
 			$blog[$postKey]['jDate']=$this->jDateObj->jalaliDate($postRow['created_at']);
-
+		
+		$pageMetas=$this->pageMetasModel->read_pagemeta(2);
+		
         if (is_array($blog)) {
             $data = array(
                 'blogs'                 => $blog,
                 'categories'            => $this->categoryModel->read_category_by_type(1),   //1=blog
-				'home_page_active_menu' => "right-sidebar"
+				'home_page_active_menu' => "right-sidebar",
+				'headSeoTitle' => $pageMetas['html_title'],
+				'headSeoDescription' => $pageMetas['html_desc'],
+				'headSeoRobots' => $pageMetas['robots'],
+				'headSeoCanonical' => $pageMetas['canonical']
             );
             return view('Frontend.blog.index', $data);
         }

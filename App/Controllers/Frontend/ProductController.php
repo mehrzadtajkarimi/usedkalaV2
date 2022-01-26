@@ -14,6 +14,8 @@ use App\Models\Product_category;
 use App\Models\Related;
 use App\Models\Taggable;
 use App\Models\Wish_list;
+use App\Models\PageMetas;
+use App\Utilities\Tinyint;
 use App\Services\Session\SessionManager;
 
 class ProductController extends Controller
@@ -25,6 +27,7 @@ class ProductController extends Controller
     private $taggableModel;
     private $relatedModel;
     private $categoryModel;
+	private $pageMetasModel;
 
     public function __construct()
     {
@@ -39,11 +42,38 @@ class ProductController extends Controller
         $this->relatedModel         = new Related();
         $this->categoryModel        = new Category();
         $this->discountModel        = new Discount();
+		$this->pageMetasModel         = new PageMetas();
     }
 
     public function index()
     {
+        $products          = $this->productModel->join_product_to_photo_all();
+		$pageMetas=$this->pageMetasModel->read_pagemeta(4);
+		
+        $wishlist_products = $this->wishListModel->read_all_wishList_items('Product');
+        $selected_wishlist = [];
+        foreach ($wishlist_products as  $value) {
+            $selected_wishlist[] = $value['entity_id'];
+        }
+        $data     = array(
+            'products'          => $products['rowsInPage'],
+			'page_count'		=> $products['pageCount'],
+            'auth'              => SessionManager::get('auth') ?? false,
+            'selected_wishlist' => $selected_wishlist,
+			'home_page_active_menu' => "full-width",
+			'headSeoTitle' => $pageMetas['html_title'],
+			'headSeoDescription' => $pageMetas['html_desc'],
+			'headSeoRobots' => $pageMetas['robots'],
+			'headSeoCanonical' => $pageMetas['canonical']
+        );
+        view('Frontend.product.index', $data);
+    }
+    public function indexDiscounts()
+    {
         $products          = $this->productModel->join_product_to_photo__with_productDiscounts_discounts();
+		$pageMetas=$this->pageMetasModel->read_pagemeta(5);
+
+        // dd($products);
         $wishlist_products = $this->wishListModel->read_all_wishList_items('Product');
         $selected_wishlist = [];
         foreach ($wishlist_products as  $value) {
@@ -53,16 +83,23 @@ class ProductController extends Controller
             'products'          => $products,
             'auth'              => SessionManager::get('auth') ?? false,
             'selected_wishlist' => $selected_wishlist,
+			'home_page_active_menu' => "full-width",
+			'headSeoTitle' => $pageMetas['html_title'],
+			'headSeoDescription' => $pageMetas['html_desc'],
+			'headSeoRobots' => $pageMetas['robots'],
+			'headSeoCanonical' => $pageMetas['canonical']
         );
         view('Frontend.product.index', $data);
     }
 
     public function show()
     {
-        $productID = $this->request->get_param('id');
+        $product            = $this->productModel->read_product_byslug($this->request->get_param('slug'));
+		// var_dump($this->request->get_param('slug'));
+		// die();
+        $productID = $product['id'];
         $photos             = $this->photoModel->read_photo_by_id($productID, 'Product');
         $photo              = $this->photoModel->read_single_photo_by_id('0', $productID, 'Product')[0];
-        $product            = $this->productModel->read_product($productID);
         $productBrand       = $this->productModel->product_brand($productID);
         $productDiscount    = $this->productModel->join_product__with_productDiscounts_discounts_by_product_id($productID)[0] ?? '';
         $productCommentLike = $this->productModel->join_product__with_comment_and_like($productID) ?? '';
@@ -137,6 +174,10 @@ class ProductController extends Controller
             'home_page_active_menu' => "single-product full-width normal",
             'related_products'      => $related_products,
             'breadcrumb'            => $breadcrumb_item,
+			'headSeoTitle' => $product['seo_title'],
+			'headSeoDescription' => $product['seo_description'],
+			'headSeoRobots' => $product['seo_robot']!=NULL?Tinyint::category_robots()[$product['seo_robot']]:"index, follow",
+			'headSeoCanonical' => $product['seo_canonical']
         );
         return view('Frontend.product.show', $data);
     }
@@ -174,15 +215,15 @@ class ProductController extends Controller
     }
     
     
-    public function discounts()
-    {
-        $products = $this->productModel->join_product_to_photo__with_productDiscounts_discounts();
+    // public function discounts()
+    // {
+    //     $products = $this->productModel->join_product_to_photo__with_productDiscounts_discounts();
         
-        $data= array(
-            'products'=> $products,
+    //     $data= array(
+    //         'products'=> $products,
             
-        );
-        view('Frontend.discount.index', $data);
+    //     );
+    //     view('Frontend.discount.index', $data);
         
-    }
+    // }
 }

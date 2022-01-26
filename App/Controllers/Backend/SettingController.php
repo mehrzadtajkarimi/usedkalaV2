@@ -84,7 +84,11 @@ class SettingController extends Controller
         $this->settingModel->update([
             'key'   => $param['key'],
             'value' => $param['value'],
-            'slug'  => create_slug($param['slug'])
+            'slug'  => create_slug($param['slug']),
+			'html_title'   => $param['html_title'],
+            'html_desc' => $param['html_desc'],
+            'robots' => $param['robots'],
+            'canonical' => $param['canonical']
         ], ['id' => $id]);
         FlashMessage::add("مقادیر باموفقیت  ضمیمه شد ");
         return $this->request->redirect('admin/setting');

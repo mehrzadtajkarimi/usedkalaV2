@@ -189,7 +189,7 @@ $slideCount = count($sliders);
                                                             <div class="yith-wcwl-add-to-wishlist">
                                                                 <a href="#" rel="nofollow" class="add_to_wishlist <?php if (in_array($value['product_id'], $selected_wishlist)) echo 'active'; ?>" data-id="<?= $value['product_id'] ?>">افزودن به علاقه مندی ها</a>
                                                             </div>
-                                                            <a href="<?= base_url() . 'product/' . $value['product_id'] . '/' . $value['slug'] ?>" class="woocommerce-LoopProduct-link">
+                                                            <a href="<?= base_url() . 'product/' . $value['slug'] ?>" class="woocommerce-LoopProduct-link">
                                                                 <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image uksquareimg" alt="">
                                                                 <span class="price">
                                                                     <ins>
@@ -226,8 +226,8 @@ $slideCount = count($sliders);
                                                             <div class="yith-wcwl-add-to-wishlist">
                                                                 <a href="#" rel="nofollow" class="add_to_wishlist <?php if (in_array($value['id'], $selected_wishlist)) echo 'active'; ?>" data-id="<?= $value['id'] ?>">افزودن به علاقه مندی ها</a>
                                                             </div>
-                                                            <a href="<?= base_url() . 'product/' . $value['id'] . '/' . $value['slug'] ?>" class="woocommerce-LoopProduct-link">
-                                                                <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image uksquareimg" alt="<?= $value['alt'] ?>">
+                                                            <a href="<?= base_url() . 'product/' . $value['slug'] ?>" class="woocommerce-LoopProduct-link">
+                                                                <img src="<?= $value['photos_path'] ?>" width="224" height="197" class="wp-post-image uksquareimg" alt="<?= $value['photos_alt'] ??'' ?>">
                                                                 <span class="price">
                                                                     <ins>
                                                                         <span class="amount" dircetion="rtl"></span>
@@ -265,7 +265,7 @@ $slideCount = count($sliders);
                                                             <div class="yith-wcwl-add-to-wishlist">
                                                                 <a href="#" rel="nofollow" class="add_to_wishlist <?php if (in_array($value['product_id'], $selected_wishlist)) echo 'active'; ?>" data-id="<?= $value['product_id'] ?>">افزودن به علاقه مندی ها</a>
                                                             </div>
-                                                            <a href="<?= base_url() . 'product/'  . $value['product_id'] . '/' . $value['slug'] ?>" class="woocommerce-LoopProduct-link">
+                                                            <a href="<?= base_url() . 'product/'  . $value['slug'] ?>" class="woocommerce-LoopProduct-link">
                                                                 <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image uksquareimg" alt="<?= $value['alt'] ?>">
                                                                 <span class="price">
                                                                     <ins>
@@ -325,7 +325,7 @@ $slideCount = count($sliders);
                             <div class="products">
                                 <?php foreach ($featured_products as $key => $value) : ?>
                                     <div class="product-category product <?= $key === array_key_first($featured_products) ? 'first' : '' ?> <?= $key === array_key_last($featured_products) ? 'last' : '' ?>">
-                                        <a href="<?= base_url() . 'product/'  . $value['0'] . '/' . $value['slug'] ?>">
+                                        <a href="<?= base_url() . 'product/'  . $value['slug'] ?>">
                                             <img width="224" height="197" src="<?= $value['path'] ?>" alt="<?= $value['alt'] ?>" class="uksquareimg">
                                             <h2 class="woocommerce-loop-category__title">
                                                 <?= $value['title'] ?>
@@ -370,11 +370,11 @@ $slideCount = count($sliders);
                                                             <div class="yith-wcwl-add-to-wishlist">
                                                                 <a href="#" rel="nofollow" class="add_to_wishlist <?php if (in_array($value['0'], $selected_wishlist)) echo 'active'; ?>" data-id="<?= $value['0'] ?>">افزودن به علاقه مندی ها</a>
                                                             </div>
-                                                            <a class="woocommerce-LoopProduct-link" href="<?= base_url() . 'product/' . $value['0'] . '/' . $value['slug'] ?>">
+                                                            <a class="woocommerce-LoopProduct-link" href="<?= base_url() . 'product/' . $value['slug'] ?>">
                                                                 <img class="wp-post-image uksquareimg" src="<?= $value['path'] ?>" alt="">
                                                             </a>
                                                             <div class="media-body" style="direction: rtl;">
-                                                                <a class="woocommerce-LoopProduct-link " href="<?= base_url() . 'product/' . $value['0'] . '/' . $value['slug'] ?>">
+                                                                <a class="woocommerce-LoopProduct-link " href="<?= base_url() . 'product/' . $value['slug'] ?>">
                                                                     <span class="price">
                                                                         <ins>
                                                                             <span class="amount" dircetion="rtl"> <?= number_format($value['price']) ?> ریال</span>
@@ -450,7 +450,7 @@ $slideCount = count($sliders);
                                                         <div class="yith-wcwl-add-to-wishlist">
                                                             <a href="#" rel="nofollow" class="add_to_wishlist <?php if (in_array($value['id'], $selected_wishlist)) echo 'active'; ?>" data-id="<?= $value['id'] ?>">افزودن به علاقه مندی ها</a>
                                                         </div>
-                                                        <a href="<?= base_url() . 'product/' . $value['id'] . '/' . $value['slug'] ?>" class="woocommerce-LoopProduct-link">
+                                                        <a href="<?= base_url() . 'product/' . $value['slug'] ?>" class="woocommerce-LoopProduct-link">
                                                             <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image uksquareimg" alt="<?= $value['alt'] ?>">
                                                             <span class="price">
                                                                 <ins>
@@ -487,7 +487,7 @@ $slideCount = count($sliders);
                                                         <div class="yith-wcwl-add-to-wishlist">
                                                             <a href="#" rel="nofollow" class="add_to_wishlist <?php if (in_array($value['id'], $selected_wishlist)) echo 'active'; ?>" data-id="<?= $value['id'] ?>">افزودن به علاقه مندی ها</a>
                                                         </div>
-                                                        <a href="<?= base_url() . 'product/' . $value['id'] . '/' . $value['slug'] ?>" class="woocommerce-LoopProduct-link">
+                                                        <a href="<?= base_url() . 'product/' . $value['slug'] ?>" class="woocommerce-LoopProduct-link">
                                                             <!--span class="onsale">
                                                                 <span class="woocommerce-Price-amount amount" dir="rtl">
                                                                     2,000,000 ریال</span>
@@ -529,7 +529,7 @@ $slideCount = count($sliders);
                 <div class="banners">
                     <div class="row">
                         <div class="banner banner-long text-in-left">
-                            <a href="shop.html">
+                            <a href="javascript:void(0)">
                                 <div style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>Frontend/images/banner/3-2.jpg); height: 259px;padding-right: 10px;justify-content: right;" class="banner-bg">
                                     <div class="caption">
                                         <div class="banner-info">
@@ -547,7 +547,7 @@ $slideCount = count($sliders);
                         </div>
                         <!-- /.banner -->
                         <div class="banner banner-short text-in-right">
-                            <a href="shop.html">
+                            <a href="javascript:void(0)">
                                 <div style="background-size: cover; background-position: center center; background-image: url( <?= asset_url() ?>Frontend/images/banner/3-3.jpg); height: 259px;" class="banner-bg">
                                     <div class="caption">
                                         <div class="banner-info">
@@ -582,7 +582,7 @@ $slideCount = count($sliders);
                                 <div class="products">
                                     <?php foreach ($product_racks as $value) : ?>
                                         <div class="landscape-product product">
-                                            <a class="woocommerce-LoopProduct-link" href="<?= base_url() . 'product/' . $value['id'] . '/' . $value['slug'] ?>">
+                                            <a class="woocommerce-LoopProduct-link" href="<?= base_url() . 'product/' . $value['slug'] ?>">
                                                 <div class="media">
                                                     <img class="wp-post-image uksquareimg" src="<?= $value['path'] ?>" alt="<?= $value['alt'] ?>">
                                                     <div class="media-body" style="direction: rtl;">
@@ -680,7 +680,7 @@ $slideCount = count($sliders);
                                                             <div class="yith-wcwl-add-to-wishlist">
                                                                 <a href="#" rel="nofollow" class="add_to_wishlist <?php if (in_array($value['id'], $selected_wishlist)) echo 'active'; ?>" data-id="<?= $value['id'] ?>">افزودن به علاقه مندی ها</a>
                                                             </div>
-                                                            <a href="<?= base_url() . 'product/' . $value['id'] . '/' . $value['slug'] ?>" class="woocommerce-LoopProduct-link">
+                                                            <a href="<?= base_url() . 'product/' . $value['slug'] ?>" class="woocommerce-LoopProduct-link">
                                                                 <img src="<?= $value['path'] ?>" width="224" height="197" class="wp-post-image uksquareimg" alt="<?= $value['alt'] ?>">
                                                                 <span class="price">
                                                                     <ins>
@@ -981,7 +981,7 @@ $slideCount = count($sliders);
         e.preventDefault();
         var wish_list_btn = $(this);
         if (!wish_list_btn.hasClass('active')) {
-            var action = '<?= base_url() ?>wishList';
+            var action = '<?= base_url() ?>wishlist';
             $.ajax({
                 type: "post",
                 url: action,
@@ -1005,7 +1005,7 @@ $slideCount = count($sliders);
 
             });
         } else {
-            var action = '<?= base_url() ?>wishList/remove';
+            var action = '<?= base_url() ?>wishlist/remove';
             $.ajax({
                 type: "post",
                 url: action,

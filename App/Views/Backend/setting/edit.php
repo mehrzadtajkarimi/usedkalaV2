@@ -13,11 +13,37 @@
                 </div>
             </div>
             <div class="form-group row">
-                <label for="slug" class="col-sm-2 col-form-label"> slug </label>
+                <label for="slug" class="col-sm-2 col-form-label">Slug</label>
                 <div class="col-sm-10">
                     <input name="slug" type="text" class="form-control" id="slug" value="<?= $setting['slug'] ?? '' ?>" placeholder="" required>
                 </div>
             </div>
+			
+            <div class="form-group row">
+                <label for="html_title" class="col-sm-2 col-form-label">Html Title</label>
+                <div class="col-sm-10">
+                    <input name="html_title" type="text" class="form-control" id="html_title" value="<?= $setting['html_title'] ?? '' ?>" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="input_html_desc" class="col-sm-2 col-form-label">Html Description</label>
+                <div class="col-sm-10">
+                    <input name="html_desc" type="text" class="form-control" id="input_html_desc" value="<?= $setting['html_desc'] ?? '' ?>" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="input_robots" class="col-sm-2 col-form-label">Robots</label>
+                <div class="col-sm-10">
+                    <input name="robots" type="text" class="form-control" id="input_robots" value="<?= $setting['robots'] ?? '' ?>" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="input_canonical" class="col-sm-2 col-form-label">Canonical</label>
+                <div class="col-sm-10">
+                    <input name="canonical" type="text" class="form-control" id="input_canonical" value="<?= $setting['canonical'] ?? '' ?>">
+                </div>
+            </div>
+			
             <div class="form-group ">
                 <textarea name="value" id="textarea"><?= $setting['value'] ?></textarea>
             </div>
