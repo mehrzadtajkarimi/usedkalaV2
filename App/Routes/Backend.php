@@ -159,6 +159,15 @@ Route::group(function () {
 
 });
 Route::group(function () {
+    Route::get('/admin/pagemetas', 'PageMetasController@index');
+    // Route::post('/admin/setting/upload', 'SettingController@upload');
+    // Route::get('/admin/setting/create', 'SettingController@create');
+    // Route::post('/admin/setting', 'SettingController@store');
+    Route::get('/admin/pagemetas/{id}/edit', 'PageMetasController@edit');
+    Route::patch('/admin/pagemetas/{id}', 'PageMetasController@update');
+    // Route::delete('/admin/setting/{id}', 'SettingController@destroy');
+});
+Route::group(function () {
 
     Route::get('/admin/property', 'PropertyController@index');
 });

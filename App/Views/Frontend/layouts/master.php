@@ -1,14 +1,8 @@
 <!DOCTYPE html>
 <html lang="fa-IR" itemscope="itemscope" itemtype="http://schema.org/WebPage">
 
-<!-- Mirrored from transvelo.github.io/techmarket-html/home-v1.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 30 Oct 2019 07:08:35 GMT -->
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-<!-- /Added by HTTrack -->
-
 <head>
-    <?php include_once BASEPATH  . 'App/Views/Frontend/layouts/includes/head.php' ?>
-
+<?php include_once BASEPATH  . 'App/Views/Frontend/layouts/includes/head.php' ?>
 </head>
 
 <body dir="rtl" class="woocommerce-active <?= $home_page_active_menu ??'' ?>  can-uppercase" onmousemove="mover(event)">

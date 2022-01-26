@@ -52,9 +52,9 @@ Route::group(function () {
 });
 
 Route::group(function () {
-    Route::get('/product/{id}/{slug}', 'ProductController@show');
-    Route::get('/product/{slug}', 'ProductController@index');
-    // Route::get('/product/discounts', 'ProductController@discounts');
+    Route::get('/shop', 'ProductController@index');
+    Route::get('/product/discounts', 'ProductController@indexDiscounts');
+    Route::get('/product/{slug}', 'ProductController@show');
     Route::get('/search', 'ProductController@search');
 });
 

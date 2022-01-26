@@ -19,7 +19,7 @@
                                                         <a href="#" rel="nofollow" class="add_to_wishlist <?= in_array($value['id'], $selected_wishlist) ? 'active' : '' ?>" data-id="<?= $value['id'] ?>" data-type="Product"> افزودن به علاقه‌مندی‌ها</a>
                                                     </div>
                                                     <!-- .yith-wcwl-add-to-wishlist -->
-                                                    <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" href="<?= base_url() ?>product/<?= $value['id'] ?>/<?= $value['slug'] ?>">
+                                                    <a class="woocommerce-LoopProduct-link woocommerce-loop-product__link" href="<?= base_url() ?>product/<?= $value['slug'] ?>">
                                                         <img alt="<?= $value['photos_alt'] ?? '' ?>" class="attachment-shop_catalog size-shop_catalog wp-post-image uksquareimg" src="<?= $value['photos_path'] ?>" width="224" height="197">
                                                         <span class="price">
                                                             <?php if ($value['discounts_percent'] > 0) : ?>
@@ -304,8 +304,8 @@
                             <!-- .tab-pane -->
                         </div>
                         <!-- .tab-content -->
-                        <?php /*
                     <div class="shop-control-bar-bottom">
+                        <?php /*
                         <form class="form-techmarket-wc-ppp" method="POST">
                             <select class="techmarket-wc-wppp-select c-select" onchange="this.form.submit()" name="ppp">
                                 <option value="20">Show 20</option>
@@ -321,23 +321,33 @@
                             Showing 1–15 of 73 results
                         </p>
                         <!-- .woocommerce-result-count -->
-                        <nav class="woocommerce-pagination">
+						 */ 
+						 ?>
+                        <nav class="woocommerce-pagination" dir="ltr" style="justify-content: left;">
                             <ul class="page-numbers">
-                                <li>
-                                    <span class="page-numbers current">1</span>
-                                </li>
-                                <li><a href="#" class="page-numbers">2</a></li>
-                                <li><a href="#" class="page-numbers">3</a></li>
-                                <li><a href="#" class="page-numbers">4</a></li>
-                                <li><a href="#" class="page-numbers">5</a></li>
-                                <li><a href="#" class="next page-numbers">→</a></li>
+								<?php
+								if (isset($page_count))
+								{
+									if (!isset($_GET['page']) || !is_numeric($_GET['page']))
+										$_GET['page']=1;
+									
+									for ($pageNumber=1;$pageNumber<=$page_count;$pageNumber++)
+									{
+										if ($_GET['page']==$pageNumber)
+											$str='<span class="page-numbers current">'.$pageNumber.'</span>';
+										else
+											$str='<a href="?page='.$pageNumber.'" class="page-numbers">'.$pageNumber.'</a>';
+										echo '<li>'.$str.'</li>';
+									}
+								}
+								?>
                             </ul>
                             <!-- .page-numbers -->
                         </nav>
                         <!-- .woocommerce-pagination -->
                     </div>
                     <!-- .shop-control-bar-bottom -->
-                */ ?>
+               
             </main>
 
         </div>

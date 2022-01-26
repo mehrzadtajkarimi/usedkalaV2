@@ -15,6 +15,7 @@ use App\Models\Product_discount;
 use App\Models\Setting;
 use App\Models\Slider;
 use App\Models\Wish_list;
+use App\Models\PageMetas;
 use App\Services\Basket\Basket;
 use App\Utilities\TimeUtil;
 
@@ -30,6 +31,7 @@ class HomeController extends Controller
     private $productCategoryModel;
     private $wishListModel;
     private $blogModel;
+    private $pageMetasModel;
     public function __construct()
     {
         parent::__construct();
@@ -45,6 +47,7 @@ class HomeController extends Controller
         $this->productCategoryModel  = new Product_category();
         $this->blogModel             = new Blog();
         $this->wishListModel         = new Wish_list();
+        $this->pageMetasModel         = new PageMetas();
 		$this->jDateObj    = new TimeUtil();
     }
 
@@ -69,6 +72,7 @@ class HomeController extends Controller
         $wishlist_products       = $this->wishListModel->read_all_wishList_items('Product');
         $home_page_active_menu   = 'page-template-template-homepage-v1';
         $selected_wishlist       = [];
+		$pageMetas=$this->pageMetasModel->read_pagemeta(1);
 		
 		foreach($latest_blogs as $key=>$blogRow)
 			$latest_blogs[$key]['created_at']=$this->jDateObj->jalaliDate($latest_blogs[$key]['created_at']);
@@ -106,7 +110,11 @@ class HomeController extends Controller
             'setting'               => $setting,
             'latest_blogs'          => $latest_blogs,
             'home_page_active_menu' => $home_page_active_menu,
-            'selected_wishlist'     => $selected_wishlist
+            'selected_wishlist'     => $selected_wishlist,
+			'headSeoTitle' => $pageMetas['html_title'],
+			'headSeoDescription' => $pageMetas['html_desc'],
+			'headSeoRobots' => $pageMetas['robots'],
+			'headSeoCanonical' => $pageMetas['canonical']
         );
         return view('Frontend.index', $data);
     }

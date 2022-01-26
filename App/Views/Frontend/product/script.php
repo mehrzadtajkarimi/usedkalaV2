@@ -19,7 +19,7 @@
     }
 
     $(document).ready(function() {
-        if(window.location.href == '<?= base_url() ?>wishList'){
+        if(window.location.href == '<?= base_url() ?>wishlist'){
             if(isEmpty($('.products'))){
                 $('.products-row').append('<div class="alert alert-warning">محصولی یافت نشد</div>')
             }
@@ -104,7 +104,7 @@
         $('.wish_list_btn').click(function() {
             var wish_list_btn = $(this);
             if(!wish_list_btn.hasClass('text-danger')){
-                var action = '<?= base_url() ?>wishList';
+                var action = '<?= base_url() ?>wishlist';
                 $.ajax({
                     type: "post",
                     url: action,
@@ -129,7 +129,7 @@
     
                 });
             } else {
-                var action = '<?= base_url() ?>wishList/remove';
+                var action = '<?= base_url() ?>wishlist/remove';
                 $.ajax({
                     type: "post",
                     url: action,
@@ -155,7 +155,7 @@
             e.preventDefault();
             var wish_list_btn = $(this);
             if(!wish_list_btn.hasClass('active')){
-                var action = '<?= base_url() ?>wishList';
+                var action = '<?= base_url() ?>wishlist';
                 $.ajax({
                     type: "post",
                     url: action,
@@ -179,7 +179,7 @@
     
                 });
             } else {
-                var action = '<?= base_url() ?>wishList/remove';
+                var action = '<?= base_url() ?>wishlist/remove';
                 $.ajax({
                     type: "post",
                     url: action,

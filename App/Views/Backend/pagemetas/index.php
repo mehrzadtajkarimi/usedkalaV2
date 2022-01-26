@@ -3,24 +3,10 @@
     <div class="card-header">
       <div class="row">
         <div class="col-4">
-          <h3 class="p-3 card-title">صفحات درباره ما</h3>
+          <h3 class="p-3 card-title">متای صفحات اصلی</h3>
         </div>
         <div class="offset-4"> </div>
-        <div class="col-4">
-          <div class="input-group input-group-sm">
-            <input type="text" name="table_search" class="float-right form-control" placeholder="جستجو">
-            <div class="input-group-append">
-              <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-            </div>
-
-            <!-- Button trigger modal -->
-            <a href="<?= base_url() ?>admin/setting/create" type="button" class="mr-2 shadow-sm btn btn-success " >
-              ایجاد صفحه
-            </a>
-
-
-        </div>
-      </div>
+        
     </div>
   </div>
   <div class="p-0 card-body table-responsive">
@@ -34,17 +20,13 @@
             </tr>
           </thead>
           <tbody>
-            <?php foreach ($settings as $value) : ?>
+            <?php foreach ($pagemetas as $value) : ?>
               <tr>
-                <td class="text-center"><?= $value['key'] ?></td>
+                <td class="text-center"><?= $value['title'] ?></td>
                 <td class="text-center">
-                  <a href="<?= base_url() ?>admin/setting/<?= $value['id'] ?>/edit" type="button" class="shadow-sm btn btn-success btn-sm " style="padding: 0px 20px; border-radius: 18px;">
-                    ویرایش
+                  <a href="<?= base_url() ?>admin/pagemetas/<?= $value['id'] ?>/edit" type="button" class="shadow-sm btn btn-success btn-sm " style="padding: 0px 20px; border-radius: 18px;">
+                    ویرایش متا
                   </a>
-                  <form method="post" action="<?= base_url() ?>admin/setting/<?= $value['id'] ?>" class="d-inline">
-                      <input type="hidden" name="_method" value="delete" />
-                      <input type="submit" class="shadow-sm btn btn-danger btn-sm " style="padding: 0px 20px; border-radius: 18px;" onclick="return confirm('آیا برای حذف اطلاعات اطمینان دارید');" value="حـــــذف">
-                    </form>
                 </td>
               </tr>
             <?php endforeach; ?>
@@ -57,18 +39,18 @@
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
       <li class="page-item <?php if (pagination_count('settings', 10) + 1 == 1 || (isset($_GET['page']) && $_GET['page'] == 1) || !isset($_GET['page'])) echo "disabled" ?>">
-        <a class="page-link" href="<?= base_url() ?>admin/setting?page=<?php if (isset($_GET['page']) && $_GET['page'] > 1) echo $_GET['page'] - 1; ?> " aria-label="Previous">
+        <a class="page-link" href="<?= base_url() ?>admin/pagemetas?page=<?php if (isset($_GET['page']) && $_GET['page'] > 1) echo $_GET['page'] - 1; ?> " aria-label="Previous">
           <span aria-hidden="true">&laquo;</span>
           <span class="sr-only">Previous</span>
         </a>
       </li>
       <?php for ($i = 0; $i <=  pagination_count('settings', 10); $i++) : ?>
         <li class="page-item <?php if (isset($_GET['page']) && $_GET['page'] == ($i + 1)) echo "active"; else if (!isset($_GET['page']) && ($i + 1) == 1) echo "active" ?>">
-          <a class="page-link" href="<?= base_url() ?>admin/setting?page=<?= $i + 1 ?>"><?= $i + 1 ?></a>
+          <a class="page-link" href="<?= base_url() ?>admin/pagemetas?page=<?= $i + 1 ?>"><?= $i + 1 ?></a>
         </li>
       <?php endfor; ?>
       <li class="page-item <?php if (pagination_count('settings', 10) + 1 == 1 || (isset($_GET['page']) &&  pagination_count('settings', 10) + 1  == $_GET['page'])) echo "disabled" ?>">
-        <a class="page-link" href="<?= base_url() ?>admin/setting?page=<?php if (isset($_GET['page'])) echo $_GET['page'] + 1; else echo 2 ?>" aria-label="Next">
+        <a class="page-link" href="<?= base_url() ?>admin/pagemetas?page=<?php if (isset($_GET['page'])) echo $_GET['page'] + 1; else echo 2 ?>" aria-label="Next">
           <span aria-hidden="true">&raquo;</span>
           <span class="sr-only">Next</span>
         </a>

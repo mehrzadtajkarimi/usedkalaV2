@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Wish_list;
 use App\Utilities\FlashMessage;
+use App\Utilities\Tinyint;
 use App\Services\Session\SessionManager;
 
 class CategoryController extends Controller
@@ -35,6 +36,7 @@ class CategoryController extends Controller
 
     public function show()
     {
+		
         $slug = $this->request->get_param('slug');
         $slug = urldecode($slug);
         $categoryRow = $this->categoryModel->read_category_by_slug($slug);
@@ -74,14 +76,18 @@ class CategoryController extends Controller
         }
         if (is_array($categories)) {
             $data = array(
-                'categories'        => $categories,
-                'description'       => $description,
-                'products'          => $products,
-                'discounts'         => $discounts??[],
-                'auth'              => SessionManager::get('auth') ?? false,
-                'selected_wishlist' => $selected_wishlist,
-                'breadcrumb'        => $breadcrumb_item,
+                'categories'       		=> $categories,
+                'description'      	 	=> $description,
+                'products'          	=> $products,
+                'discounts'         	=> $discounts??[],
+                'auth'              	=> SessionManager::get('auth') ?? false,
+                'selected_wishlist' 	=> $selected_wishlist,
+                'breadcrumb'        	=> $breadcrumb_item,
 				'home_page_active_menu' => "full-width",
+				'headSeoTitle' 			=> $description['seo_title'],
+				'headSeoDescription'	=> $description['seo_description'],
+				'headSeoRobots'			=> Tinyint::category_robots()[$description['robots']],
+				'headSeoCanonical'		=> $description['canonical']
             );
             return view('Frontend.category.show', $data);
         }

@@ -15,10 +15,10 @@
 			<main id="main" class="site-main">
 				<article class="post format-image">
 					<header class="entry-header">
-						<h1 class="entry-title"><?= $setting['value'] ?></h1>
+						<h1 class="entry-title"><?= $setting['key'] ?></h1>
 					</header>
 					<!-- .entry-header -->
-					<div class="entry-content" itemprop="articleBody"><?= $setting['description'] ?></div>
+					<div class="entry-content" itemprop="articleBody"><?= $setting['value'] ?></div>
 					<!-- .entry-content -->
 				</article>
 				<!-- .post -->

@@ -19,6 +19,14 @@ class Product extends MysqlBaseModel
         }
         return $this->first(['id' => $id]);
     }
+    public function read_product_byslug($slug = null)
+    {
+        if (is_null($slug)) {
+            return $this->all();
+        }
+		$slug = urldecode($slug);
+        return $this->first(['slug' => $slug]);
+    }
     public function read_product_all($id = null)
     {
         if (is_null($id)) {
@@ -92,6 +100,27 @@ class Product extends MysqlBaseModel
 		return $this->query("SELECT pro.*, img.`path`, img.`alt`, pro.`id` as product_id FROM `products` as pro INNER JOIN `photos` as img
 			ON pro.`id` = img.`entity_id` WHERE img.`entity_type` = 'Product' AND img.`type` = 0 ORDER BY pro.`created_at` DESC LIMIT 0, 3");
     }
+    public function join_product_to_photo_all()
+    {
+		$page    = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 1;
+        $start   = ($page - 1) * $this->pageSize;
+		
+		$queryStr="SELECT pro.*, img.`path` as photos_path, img.`alt` as photos_alt, pro.`id` as product_id,
+			dis.`title` AS discounts_title, dis.`percent` AS discounts_percent, dis.`id` AS discounts_id, dis.`status` AS discounts_status
+			FROM `products` as pro INNER JOIN `photos` as img
+				ON pro.`id` = img.`entity_id` AND img.`entity_type` = 'Product' AND img.`type` = 0
+			LEFT JOIN `product_discounts` as disrel
+				ON pro.id = disrel.`product_id`
+			LEFT JOIN `discounts` as dis
+				ON disrel.`discount_id` = dis.`id`
+			ORDER BY pro.`created_at` LIMIT $start, ".$this->pageSize;
+		$pageQueryStr=substr($queryStr,0,stripos($queryStr," LIMIT"));
+		
+		return [
+			"rowsInPage"=>$this->query($queryStr),
+			"pageCount"=>ceil((numRows($pageQueryStr))/($this->pageSize))
+		];
+    }
     public function join_product_to_photo__for_sale_product()
     {
         return $this->inner_join_sale(
@@ -164,6 +193,7 @@ class Product extends MysqlBaseModel
         FROM products
         INNER JOIN photos
         ON products.id = photos.entity_id
+		AND photos.`entity_type` = 'Product'
         INNER JOIN product_discounts
         ON products.id = product_discounts.product_id
         INNER JOIN discounts
@@ -192,6 +222,26 @@ class Product extends MysqlBaseModel
         AND product_categories.category_id =$id
         AND photos.type =0
         ")->fetchAll();
+    }
+    public function join_product_to_single_photo__with__productDiscounts_by_product_id($id)
+    {
+        return $this->connection->query("
+        SELECT
+        products.*,
+			discounts.percent AS discounts_percent,
+			photos.path AS photos_path,
+			photos.alt AS photos_alt
+        FROM products
+        INNER JOIN photos
+			ON products.id = photos.entity_id
+			AND photos.entity_type ='Product'
+			AND photos.type =0
+        LEFT JOIN product_discounts
+			ON products.id = product_discounts.product_id
+        LEFT JOIN discounts
+			ON product_discounts.discount_id = discounts.id
+        WHERE `products`.`id`='$id'
+        ")->fetchAll()[0];
     }
     public function join_product_to_brand($id)
     {
