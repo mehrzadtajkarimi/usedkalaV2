@@ -51,6 +51,9 @@ class HomeController extends Controller
 
     public function report()
     {
+        $params = $this->request->params();
+
+        // dd($params);
         $data = [
             'orders' => $this->orderModel->read_order(),
         ];

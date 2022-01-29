@@ -14,7 +14,7 @@
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
-                    <form action="<?= base_url() ?>admin/report" method="post">
+                  <form action="<?= base_url() ?>admin/report" method="post">
                     <div class="modal-header">
                       <h5 class="modal-title" id="my-modal-title">گزارش فروش</h5>
                     </div>
@@ -49,7 +49,7 @@
                       <button type="button" class="btn btn-secondary col" data-dismiss="modal">انصراف</button>
                     </div>
                   </form>
-                  </div>
+                </div>
               </div>
             </div>
           </div>
