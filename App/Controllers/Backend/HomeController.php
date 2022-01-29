@@ -4,6 +4,7 @@ namespace App\Controllers\Backend;
 
 use App\Controllers\Controller;
 use App\Models\Order;
+use App\Services\Auth\Auth;
 use App\Utilities\FlashMessage;
 
 class HomeController extends Controller
@@ -57,17 +58,34 @@ class HomeController extends Controller
         $as = date('Y-m-d H:i:s', $params['start_at']);
         $to = date('Y-m-d H:i:s', $params['finish_at']);
 
-        $order=$this->orderModel->read_order_between($as, $to);
+        $msg_as = jdate('l , j F Y ', $params['start_at']);
+        $msg_to = jdate('l , j F Y ', $params['finish_at']);
 
-        if (empty($order)) {
-            FlashMessage::add('در این تاریخ فروشی صورت نگرفته', FlashMessage::ERROR );
+        // dd($params['order-type']);
+
+        if ($params['order-type'] == 'all') {
+            $order = $this->orderModel->get_orders($as, $to, 'all');
+        } else if ($params['order-type'] == 'discount_total') {
+            $order = $this->orderModel->get_orders($as, $to, 'discount_total');
+        } else if ($params['order-type'] == 'grand_total') {
+            $order = $this->orderModel->get_orders($as, $to, 'grand_total');
+        } else {
+            FlashMessage::add("مورد مورد نظر یافت نشد", FlashMessage::WARNING);
             return $this->request->redirect('admin');
         }
+
+        if (empty($order)) {
+            FlashMessage::add("از (($msg_as)) تا (($msg_to)) این تاریخ فروشی صورت نگرفته", FlashMessage::ERROR);
+            return $this->request->redirect('admin');
+        }
+
         $data = [
-            'orders' => $this->orderModel->read_order_between($as, $to),
-            'as' => $params['start_at'],
-            'to' => $params['finish_at'],
+            'orders' => $order,
+            'as'     => $params['start_at'],
+            'to'     => $params['finish_at'],
+            'user'   => Auth::user(),
         ];
+
         return view('Backend.report.index', $data);
     }
 
