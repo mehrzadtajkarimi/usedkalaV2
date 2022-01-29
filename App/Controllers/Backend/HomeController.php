@@ -4,6 +4,7 @@ namespace App\Controllers\Backend;
 
 use App\Controllers\Controller;
 use App\Models\Order;
+use App\Utilities\FlashMessage;
 
 class HomeController extends Controller
 {
@@ -53,9 +54,19 @@ class HomeController extends Controller
     {
         $params = $this->request->params();
 
-        // dd($params);
+        $as = date('Y-m-d H:i:s', $params['start_at']);
+        $to = date('Y-m-d H:i:s', $params['finish_at']);
+
+        $order=$this->orderModel->read_order_between($as, $to);
+
+        if (empty($order)) {
+            FlashMessage::add('در این تاریخ فروشی صورت نگرفته', FlashMessage::ERROR );
+            return $this->request->redirect('admin');
+        }
         $data = [
-            'orders' => $this->orderModel->read_order(),
+            'orders' => $this->orderModel->read_order_between($as, $to),
+            'as' => $params['start_at'],
+            'to' => $params['finish_at'],
         ];
         return view('Backend.report.index', $data);
     }
@@ -132,6 +143,4 @@ class HomeController extends Controller
 
         ];
     }
-
-
 }

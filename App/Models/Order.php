@@ -21,9 +21,21 @@ class Order extends MysqlBaseModel
         }
         return $this->first(['id' => $id]);
     }
+    public function get_orders($as, $to,$total='grand_total')
+    {
+        // dd($as, $to);
+        if ($total == 'grand_total') {
+            return  $this->connection->select($this->table, ["grand_total", "discount_total","user_full_name","address","created_at"], [
+                "created_at[<>]" => [$as, $to],
+                "grand_total" => $total== 'grand_total' ? :"created_at DESC",
+            ]);
+        }
+        // WHERE age BETWEEN 200 AND 500
+    }
     public function read_order_between($as, $to)
     {
-        return  $this->connection->select($this->table, ["grand_total", "discount_total"], [
+        // dd($as, $to);
+        return  $this->connection->select($this->table, ["grand_total", "discount_total","user_full_name","address","created_at"], [
             "created_at[<>]" => [$as, $to]
         ]);
         // WHERE age BETWEEN 200 AND 500

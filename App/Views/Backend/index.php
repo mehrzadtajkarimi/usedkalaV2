@@ -37,7 +37,7 @@
                       </div>
                       <div class="col">
                         <label>گزارش بر اساس </label>
-                        <select name="discount-product" id="discount_product" class="form-control">
+                        <select name="order-type" id="discount_product" class="form-control">
                           <option value="1">همه </option>
                           <option value="2">با تخفیف </option>
                           <option value="3">بدون تخفیف </option>
