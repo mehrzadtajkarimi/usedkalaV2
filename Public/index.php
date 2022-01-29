@@ -1,5 +1,5 @@
 <?php
-if (substr($_SERVER['REQUEST_URI'],-1,1)=="/")
+if ($_SERVER['REQUEST_URI']!="/" && substr($_SERVER['REQUEST_URI'],-1,1)=="/")
 {
 	header("location: ".substr($_SERVER['REQUEST_URI'],0,strlen($_SERVER['REQUEST_URI'])-1));
 	exit;

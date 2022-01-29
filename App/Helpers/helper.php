@@ -119,7 +119,8 @@ function create_slug($string)
         "?",
         "؟",
         "«",
-        "»"
+        "»",
+		":"
     ], [
         "",
         "",
@@ -140,7 +141,8 @@ function create_slug($string)
         "",
         "",
         "",
-        ""
+        "",
+		""
     ], strip_tags($string));
     return $slug;
 }

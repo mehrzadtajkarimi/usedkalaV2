@@ -147,11 +147,11 @@
                                             تبدیل به ادمین
                                         </button></a><?php } ?>
                                 <!-- Button trigger modal -->
-                                <button href="" class="p-0 pl-2 pr-2 shadow-sm btn btn-warning btn-sm" style=" border-radius: 18px;" data-toggle="modal" data-target="#exampleModalCenter">
+                                <button href="" class="p-0 pl-2 pr-2 shadow-sm btn btn-warning btn-sm" style=" border-radius: 18px;" data-toggle="modal" data-target="#userEditModal<?= $value['id'] ?>">
                                     ویــرایـش
                                 </button>
                                 <!-- Modal -->
-                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal fade" id="userEditModal<?= $value['id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                                         <div class="modal-content">
                                             <div class="modal-body">
