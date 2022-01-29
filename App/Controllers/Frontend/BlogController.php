@@ -43,7 +43,7 @@ class BlogController extends Controller
 		foreach($blog as $postKey=>$postRow)
 			$blog[$postKey]['jDate']=$this->jDateObj->jalaliDate($postRow['created_at']);
 		
-		$pageMetas=$this->pageMetasModel->read_pagemeta(2);
+		$pageMetas=$this->pageMetasModel->read_pageMeta(2);
 		
         if (is_array($blog)) {
             $data = array(

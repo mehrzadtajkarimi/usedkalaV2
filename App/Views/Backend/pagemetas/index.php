@@ -20,7 +20,7 @@
             </tr>
           </thead>
           <tbody>
-            <?php foreach ($pagemetas as $value) : ?>
+            <?php foreach ($pageMetas as $value) : ?>
               <tr>
                 <td class="text-center"><?= $value['title'] ?></td>
                 <td class="text-center">

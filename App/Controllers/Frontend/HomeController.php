@@ -72,7 +72,7 @@ class HomeController extends Controller
         $wishlist_products       = $this->wishListModel->read_all_wishList_items('Product');
         $home_page_active_menu   = 'page-template-template-homepage-v1';
         $selected_wishlist       = [];
-		$pageMetas=$this->pageMetasModel->read_pagemeta(1);
+		$pageMetas=$this->pageMetasModel->read_pageMeta(1);
 		
 		foreach($latest_blogs as $key=>$blogRow)
 			$latest_blogs[$key]['created_at']=$this->jDateObj->jalaliDate($latest_blogs[$key]['created_at']);

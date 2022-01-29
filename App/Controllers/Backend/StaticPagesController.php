@@ -26,7 +26,7 @@ class StaticPagesController extends Controller
         $data = array(
             'staticPages'    => $this->staticPagesModel->read_staticPages(),
         );
-        return view('Backend.staticpages.index', $data);
+        return view('Backend.staticPages.index', $data);
     }
 
     public function create()
@@ -34,7 +34,7 @@ class StaticPagesController extends Controller
         $data = array(
             'staticPages'    => $this->staticPagesModel->read_staticPages(),
         );
-        return view('Backend.staticpages.create', $data);
+        return view('Backend.staticPages.create', $data);
     }
 
     public function store()
@@ -74,7 +74,7 @@ class StaticPagesController extends Controller
             'staticPage' => $this->staticPagesModel->read_staticPages($id),
 
         );
-        view('Backend.staticpages.edit', $data);
+        view('Backend.staticPages.edit', $data);
     }
     public function update()
     {

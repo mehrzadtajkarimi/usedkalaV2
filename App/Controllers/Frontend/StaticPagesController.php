@@ -66,7 +66,7 @@ class StaticPagesController extends Controller
     public function contact()
     {
         $slug = $this->request->get_param('slug');
-		$pageMetas=$this->pageMetasModel->read_pagemeta(3);
+		$pageMetas=$this->pageMetasModel->read_pageMeta(3);
 
         $setting_contact = $this->staticPagesModel->read_staticPages_by_key('contact');
 

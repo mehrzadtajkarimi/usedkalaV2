@@ -8,14 +8,14 @@ class PageMetas extends MysqlBaseModel
 {
     protected $table = 'pagemetas';
 
-    public function read_pagemeta($id=null)
+    public function read_pageMeta($id=null)
     {
         if (is_null($id)) {
             return $this->all();
         }
         return $this->find_by_id($id);
     }
-    public function update_pagemeta(array $params , $id)
+    public function update_pageMeta(array $params , $id)
     {
         return $this->update($params, ['id' => $id]);
     }

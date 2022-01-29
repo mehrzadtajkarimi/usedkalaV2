@@ -1,37 +1,37 @@
 <div class="card">
     <div class="card-header">
-        <h5>ویرایش متای «<?= $pagemeta['title'] ?>»</h5>
+        <h5>ویرایش متای «<?= $pageMeta['title'] ?>»</h5>
 
     </div>
     <div class="card-body">
-        <form action="<?= base_url() ?>admin/pagemetas/<?= $pagemeta['id'] ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= base_url() ?>admin/pagemetas/<?= $pageMeta['id'] ?>" method="post" enctype="multipart/form-data">
             <input type="hidden" name="_method" value="patch" />
 			
             <div class="form-group row">
                 <label for="key" class="col-sm-2 col-form-label">HTML Title</label>
                 <div class="col-sm-10">
-                    <input name="html_title" type="text" class="form-control" id="key" value="<?= $pagemeta['html_title'] ?? '' ?>" required autofocus>
+                    <input name="html_title" type="text" class="form-control" id="key" value="<?= $pageMeta['html_title'] ?? '' ?>" required autofocus>
                 </div>
             </div>
 			
             <div class="form-group row">
                 <label for="slug" class="col-sm-2 col-form-label">HTML Description</label>
                 <div class="col-sm-10">
-                    <input name="html_desc" type="text" class="form-control" id="slug" value="<?= $pagemeta['html_desc'] ?? '' ?>" required>
+                    <input name="html_desc" type="text" class="form-control" id="slug" value="<?= $pageMeta['html_desc'] ?? '' ?>" required>
                 </div>
             </div>
 			
             <div class="form-group row">
                 <label for="slug" class="col-sm-2 col-form-label">Robots</label>
                 <div class="col-sm-10">
-                    <input name="robots" type="text" class="form-control" id="slug" value="<?= $pagemeta['robots'] ?? '' ?>" required>
+                    <input name="robots" type="text" class="form-control" id="slug" value="<?= $pageMeta['robots'] ?? '' ?>" required>
                 </div>
             </div>
 			
             <div class="form-group row">
                 <label for="slug" class="col-sm-2 col-form-label">Canonical</label>
                 <div class="col-sm-10">
-                    <input name="canonical" type="text" class="form-control" id="slug" value="<?= $pagemeta['canonical'] ?? '' ?>">
+                    <input name="canonical" type="text" class="form-control" id="slug" value="<?= $pageMeta['canonical'] ?? '' ?>">
                 </div>
             </div>
 						

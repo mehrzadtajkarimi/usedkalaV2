@@ -20,18 +20,18 @@ class PageMetasController extends Controller
     public function index()
     {
         $data = array(
-            'pagemetas'    => $this->pageMetasModel->read_pagemeta(),
+            'pageMetas'    => $this->pageMetasModel->read_pageMeta(),
         );
-        return view('Backend.pagemetas.index', $data);
+        return view('Backend.pageMetas.index', $data);
     }
 
     public function edit()
     {
         $id = $this->request->get_param('id');
         $data = array(
-            'pagemeta' => $this->pageMetasModel->read_pagemeta($id),
+            'pageMeta' => $this->pageMetasModel->read_pageMeta($id),
         );
-        view('Backend.pagemetas.edit', $data);
+        view('Backend.pageMetas.edit', $data);
     }
 	
     public function update()

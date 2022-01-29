@@ -48,7 +48,7 @@ class ProductController extends Controller
     public function index()
     {
         $products          = $this->productModel->join_product_to_photo_all();
-		$pageMetas=$this->pageMetasModel->read_pagemeta(4);
+		$pageMetas=$this->pageMetasModel->read_pageMeta(4);
 		
         $wishlist_products = $this->wishListModel->read_all_wishList_items('Product');
         $selected_wishlist = [];
@@ -71,7 +71,7 @@ class ProductController extends Controller
     public function indexDiscounts()
     {
         $products          = $this->productModel->join_product_to_photo__with_productDiscounts_discounts();
-		$pageMetas=$this->pageMetasModel->read_pagemeta(5);
+		$pageMetas=$this->pageMetasModel->read_pageMeta(5);
 
         // dd($products);
         $wishlist_products = $this->wishListModel->read_all_wishList_items('Product');
