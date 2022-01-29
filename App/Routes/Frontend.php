@@ -75,7 +75,7 @@ Route::group(function () {
 
 
 Route::group(function () {
-    Route::get('/about/{slug}', 'SettingController@about');
+    Route::get('/about/{slug}', 'StaticPagesController@about');
     // Route::get('/about/posts/{slug}', 'SettingController@post');
     // Route::get('/about/rules/{slug}', 'SettingController@rule');
     Route::get('/contact', 'SettingController@contact');

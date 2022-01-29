@@ -154,19 +154,21 @@ Route::group(function () {
     Route::get('/admin/setting/{id}/edit', 'SettingController@edit');
     Route::patch('/admin/setting/{id}', 'SettingController@update');
     Route::delete('/admin/setting/{id}', 'SettingController@destroy');
-
-
-
-
 });
 Route::group(function () {
+    Route::get('/admin/staticpages', 'StaticPagesController@index');
+    Route::post('/admin/staticpages/upload', 'StaticPagesController@upload');
+    Route::get('/admin/staticpages/create', 'StaticPagesController@create');
+    Route::post('/admin/staticpages', 'StaticPagesController@store');
+    Route::get('/admin/staticpages/{id}/edit', 'StaticPagesController@edit');
+    Route::patch('/admin/staticpages/{id}', 'StaticPagesController@update');
+    Route::delete('/admin/staticpages/{id}', 'StaticPagesController@destroy');
+});
+
+Route::group(function () {
     Route::get('/admin/pagemetas', 'PageMetasController@index');
-    // Route::post('/admin/setting/upload', 'SettingController@upload');
-    // Route::get('/admin/setting/create', 'SettingController@create');
-    // Route::post('/admin/setting', 'SettingController@store');
     Route::get('/admin/pagemetas/{id}/edit', 'PageMetasController@edit');
     Route::patch('/admin/pagemetas/{id}', 'PageMetasController@update');
-    // Route::delete('/admin/setting/{id}', 'SettingController@destroy');
 });
 Route::group(function () {
 

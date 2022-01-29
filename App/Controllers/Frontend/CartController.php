@@ -219,10 +219,12 @@ class CartController  extends Controller
 
     public function minus()
     {
-        $product_id    = $this->request->get_param('id');
+        $product_id    = intval($this->request->get_param('id'));
         $minus_product = $this->convert_numbers('fa', Basket::minus($product_id));
-        $discount      = $this->productModel->join_product__with_productDiscounts_discounts_by_product_id($product_id)[0];
-
+        $discount      = $this->productModel->join_product__with_productDiscounts_discounts_by_product_id($product_id);
+		if ($discount) $discount=$discount[0];
+		else $discount['id']=false;
+		
         if ($discount['id']) {
             $total = $this->convert_numbers('fa', number_format(Basket::total($discount)));
         } else {

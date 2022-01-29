@@ -4,37 +4,37 @@ namespace App\Controllers\Backend;
 
 use App\Controllers\Controller;
 use App\Models\Photo;
-use App\Models\Setting;
+use App\Models\StaticPages;
 use App\Services\Upload\UploadedFile;
 use App\Utilities\FlashMessage;
 
-class SettingController extends Controller
+class StaticPagesController extends Controller
 {
 
-    public $settingModel;
+    public $staticPagesModel;
     public $photoModel;
 
     public function __construct()
     {
         parent::__construct();
-        $this->settingModel = new Setting();
+        $this->staticPagesModel = new StaticPages();
         $this->photoModel = new Photo();
     }
 
     public function index()
     {
         $data = array(
-            'settings'    => $this->settingModel->read_setting(),
+            'staticPages'    => $this->staticPagesModel->read_staticpages(),
         );
-        return view('Backend.setting.index', $data);
+        return view('Backend.staticpages.index', $data);
     }
 
     public function create()
     {
         $data = array(
-            'settings'    => $this->settingModel->read_setting(),
+            'staticPages'    => $this->staticPagesModel->read_staticpages(),
         );
-        return view('Backend.setting.create', $data);
+        return view('Backend.staticpages.create', $data);
     }
 
     public function store()
@@ -43,7 +43,8 @@ class SettingController extends Controller
 
         $params_create = array(
             'key'   => $params['key'],
-            'value' => $params['value']
+            'value' => $params['value'],
+            'slug'  => create_slug($params['slug'])
         );
 
         $files = $this->request->files();
@@ -60,32 +61,37 @@ class SettingController extends Controller
             }
         }
 
-        $this->settingModel->create_setting($params_create);
+        $this->staticPagesModel->create_staticpages($params_create);
 
         FlashMessage::add("مقادیر با موفقیت در دیتابیس ذخیره شد");
-        return $this->request->redirect('admin/setting');
+        return $this->request->redirect('admin/staticpages');
     }
 
     public function edit()
     {
         $id = $this->request->get_param('id');
         $data = array(
-            'setting' => $this->settingModel->read_setting($id),
+            'staticPage' => $this->staticPagesModel->read_staticpages($id),
 
         );
-        view('Backend.setting.edit', $data);
+        view('Backend.staticpages.edit', $data);
     }
     public function update()
     {
         $param = $this->request->params();
         $id = $this->request->get_param('id');
 
-        $this->settingModel->update([
+        $this->staticPagesModel->update([
             'key'   => $param['key'],
-            'value' => $param['value']
+            'value' => $param['value'],
+            'slug'  => create_slug($param['slug']),
+			'html_title'   => $param['html_title'],
+            'html_desc' => $param['html_desc'],
+            'robots' => $param['robots'],
+            'canonical' => $param['canonical']
         ], ['id' => $id]);
         FlashMessage::add("مقادیر باموفقیت  ضمیمه شد ");
-        return $this->request->redirect('admin/setting');
+        return $this->request->redirect('admin/staticpages');
     }
     public function upload()
     {
@@ -109,13 +115,13 @@ class SettingController extends Controller
     {
         $id = $this->request->get_param('id');
 
-        $is_deleted_setting =  $this->settingModel->delete_setting($id);
+        $is_deleted_staticpages =  $this->staticPagesModel->delete_staticpages($id);
 
-        if ($is_deleted_setting) {
+        if ($is_deleted_staticpages) {
             FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
-            return $this->request->redirect('admin/setting');
+            return $this->request->redirect('admin/staticpages');
         }
         FlashMessage::add(" مشکلی در حذف محصول پیش آمده است", FlashMessage::ERROR);
-        return $this->request->redirect('admin/setting');
+        return $this->request->redirect('admin/staticpages');
     }
 }

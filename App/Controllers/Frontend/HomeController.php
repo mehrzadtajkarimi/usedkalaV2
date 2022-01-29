@@ -12,7 +12,7 @@ use App\Models\Photo;
 use App\Models\Product;
 use App\Models\Product_category;
 use App\Models\Product_discount;
-use App\Models\Setting;
+use App\Models\StaticPages;
 use App\Models\Slider;
 use App\Models\Wish_list;
 use App\Models\PageMetas;
@@ -26,7 +26,7 @@ class HomeController extends Controller
     private $photoModel;
     private $productModel;
     private $brandModel;
-    private $settingModel;
+    private $staticPagesModel;
     private $categoryModel;
     private $productCategoryModel;
     private $wishListModel;
@@ -42,7 +42,7 @@ class HomeController extends Controller
         $this->discountModel         = new Discount();
         $this->productModel          = new Product();
         $this->brandModel            = new Brand();
-        $this->settingModel          = new Setting();
+        $this->staticPagesModel          = new StaticPages();
         $this->categoryModel         = new Category();
         $this->productCategoryModel  = new Product_category();
         $this->blogModel             = new Blog();
@@ -67,7 +67,7 @@ class HomeController extends Controller
         $products_cisco          = $this->productModel->join_product_to_photo_by_brand_id($brand_id);
         $sliders                 = $this->sliderModel->read_slider();
         $brands                  = $this->brandModel->read_brand();
-        $setting                 = $this->settingModel->read_setting();
+        $staticPage                 = $this->staticPagesModel->read_staticpages();
         $latest_blogs            = $this->blogModel->join_blog_to_photo_by_limit(2);
         $wishlist_products       = $this->wishListModel->read_all_wishList_items('Product');
         $home_page_active_menu   = 'page-template-template-homepage-v1';
@@ -107,7 +107,7 @@ class HomeController extends Controller
             'sale_products'         => $sale_products,
             'featured_products'     => $featured_products,
             'sliders'               => $sliders,
-            'setting'               => $setting,
+            'staticPage'               => $staticPage,
             'latest_blogs'          => $latest_blogs,
             'home_page_active_menu' => $home_page_active_menu,
             'selected_wishlist'     => $selected_wishlist,

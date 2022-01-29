@@ -9,6 +9,7 @@
             $.get({
                 url: url,
                 success: function(result) {
+					// console.log(url+" result: "+result);
                     result = JSON.parse(result);
                     $(".product-quantity-" + id).html(result.count);
                     $(".product-total-price-" + id).html(result.total + " ریال");
