@@ -24,7 +24,7 @@ class StaticPagesController extends Controller
     public function index()
     {
         $data = array(
-            'staticPages'    => $this->staticPagesModel->read_staticpages(),
+            'staticPages'    => $this->staticPagesModel->read_staticPages(),
         );
         return view('Backend.staticpages.index', $data);
     }
@@ -32,7 +32,7 @@ class StaticPagesController extends Controller
     public function create()
     {
         $data = array(
-            'staticPages'    => $this->staticPagesModel->read_staticpages(),
+            'staticPages'    => $this->staticPagesModel->read_staticPages(),
         );
         return view('Backend.staticpages.create', $data);
     }
@@ -61,7 +61,7 @@ class StaticPagesController extends Controller
             }
         }
 
-        $this->staticPagesModel->create_staticpages($params_create);
+        $this->staticPagesModel->create_staticPages($params_create);
 
         FlashMessage::add("مقادیر با موفقیت در دیتابیس ذخیره شد");
         return $this->request->redirect('admin/staticpages');
@@ -71,7 +71,7 @@ class StaticPagesController extends Controller
     {
         $id = $this->request->get_param('id');
         $data = array(
-            'staticPage' => $this->staticPagesModel->read_staticpages($id),
+            'staticPage' => $this->staticPagesModel->read_staticPages($id),
 
         );
         view('Backend.staticpages.edit', $data);
@@ -115,9 +115,9 @@ class StaticPagesController extends Controller
     {
         $id = $this->request->get_param('id');
 
-        $is_deleted_staticpages =  $this->staticPagesModel->delete_staticpages($id);
+        $is_deleted_staticPages =  $this->staticPagesModel->delete_staticPages($id);
 
-        if ($is_deleted_staticpages) {
+        if ($is_deleted_staticPages) {
             FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
             return $this->request->redirect('admin/staticpages');
         }

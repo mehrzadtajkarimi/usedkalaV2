@@ -94,7 +94,7 @@ function inject_menu()
 function inject_about_menu()
 {
     $staticPagesModel = new StaticPages;
-    return ["about_menu" => $staticPagesModel->read_staticpages()];
+    return ["about_menu" => $staticPagesModel->read_staticPages()];
 }
 function create_slug($string)
 {

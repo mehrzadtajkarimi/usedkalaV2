@@ -67,7 +67,7 @@ class HomeController extends Controller
         $products_cisco          = $this->productModel->join_product_to_photo_by_brand_id($brand_id);
         $sliders                 = $this->sliderModel->read_slider();
         $brands                  = $this->brandModel->read_brand();
-        $staticPage                 = $this->staticPagesModel->read_staticpages();
+        $staticPage                 = $this->staticPagesModel->read_staticPages();
         $latest_blogs            = $this->blogModel->join_blog_to_photo_by_limit(2);
         $wishlist_products       = $this->wishListModel->read_all_wishList_items('Product');
         $home_page_active_menu   = 'page-template-template-homepage-v1';

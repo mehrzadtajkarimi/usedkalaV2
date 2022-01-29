@@ -23,7 +23,7 @@ class StaticPagesController extends Controller
     {
         $slug = $this->request->get_param('slug');
 		$slug = urldecode($slug);
-        $setting_about = $this->staticPagesModel->read_staticpages_by_slug($slug);
+        $setting_about = $this->staticPagesModel->read_staticPages_by_slug($slug);
 
         if (is_array($setting_about)) {
             $data = array(
@@ -41,7 +41,7 @@ class StaticPagesController extends Controller
     {
         $slug = $this->request->get_param('slug');
 
-        $setting_post = $this->staticPagesModel->read_staticpages_by_key('post');
+        $setting_post = $this->staticPagesModel->read_staticPages_by_key('post');
 
         if (is_array($setting_post)) {
             $data = array(
@@ -54,7 +54,7 @@ class StaticPagesController extends Controller
     {
         $slug = $this->request->get_param('slug');
 
-        $setting_rule = $this->staticPagesModel->read_staticpages_by_key('rule');
+        $setting_rule = $this->staticPagesModel->read_staticPages_by_key('rule');
 
         if (is_array($setting_rule)) {
             $data = array(
@@ -68,7 +68,7 @@ class StaticPagesController extends Controller
         $slug = $this->request->get_param('slug');
 		$pageMetas=$this->pageMetasModel->read_pagemeta(3);
 
-        $setting_contact = $this->staticPagesModel->read_staticpages_by_key('contact');
+        $setting_contact = $this->staticPagesModel->read_staticPages_by_key('contact');
 
         if (is_array($setting_contact)) {
             $data = array(
