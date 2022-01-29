@@ -39,22 +39,22 @@
         <?php endif; ?>
         <?php if (can('manager-category')) : ?>
             <li class="nav-item has-treeview">
-                <a href="#" class="nav-link <?= is_active(['/admin/category/product','/admin/category/edit/product','/admin/category/create/product', '/admin/category/blog','/admin/category/edit/blog','/admin/category/create/blog']) ?> ">
+                <a href="#" class="nav-link <?= is_active(['/admin/category/product', '/admin/category/edit/product', '/admin/category/create/product', '/admin/category/blog', '/admin/category/edit/blog', '/admin/category/create/blog']) ?> ">
                     <p>
                         دسته بندی ها
                         <i class="right fa fa-angle-left"></i>
                     </p>
                     <i class="nav-icon fa fa-book"></i>
                 </a>
-                <ul class="nav nav-treeview <?= is_active(['/admin/category/product','/admin/category/edit/product','/admin/category/create/product', '/admin/category/blog','/admin/category/edit/blog','/admin/category/create/blog']) ?> ">
+                <ul class="nav nav-treeview <?= is_active(['/admin/category/product', '/admin/category/edit/product', '/admin/category/create/product', '/admin/category/blog', '/admin/category/edit/blog', '/admin/category/create/blog']) ?> ">
                     <li class="nav-item">
-                        <a href="<?= base_url() ?>admin/category/product" class="nav-link <?= is_active(['/admin/category/product','/admin/category/edit/product','/admin/category/create/product']) ?>">
+                        <a href="<?= base_url() ?>admin/category/product" class="nav-link <?= is_active(['/admin/category/product', '/admin/category/edit/product', '/admin/category/create/product']) ?>">
                             <p>لیست دسته بندی محصول</p>
                             <i class="fa fa-circle-o nav-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url() ?>admin/category/blog" class="nav-link <?= is_active(['/admin/category/blog','/admin/category/edit/blog','/admin/category/create/blog']) ?>">
+                        <a href="<?= base_url() ?>admin/category/blog" class="nav-link <?= is_active(['/admin/category/blog', '/admin/category/edit/blog', '/admin/category/create/blog']) ?>">
                             <p>لیست دسته بندی وبـــــلاگ</p>
                             <i class="fa fa-circle-o nav-icon"></i>
                         </a>
@@ -64,22 +64,22 @@
         <?php endif; ?>
         <?php if (can('manager-product')) : ?>
             <li class="nav-item has-treeview">
-                <a href="#" class="nav-link <?= is_active(['/admin/product','/admin/product/edit', '/admin/brand','/admin/brand/edit']) ?> ">
+                <a href="#" class="nav-link <?= is_active(['/admin/product', '/admin/product/edit', '/admin/brand', '/admin/brand/edit']) ?> ">
                     <p>
                         محصولات
                         <i class="right fa fa-angle-left"></i>
                     </p>
                     <i class="nav-icon fa fa-product-hunt"></i>
                 </a>
-                <ul class="nav nav-treeview <?= is_active(['/admin/product','/admin/product/edit', '/admin/brand','/admin/brand/edit']) ?>">
+                <ul class="nav nav-treeview <?= is_active(['/admin/product', '/admin/product/edit', '/admin/brand', '/admin/brand/edit']) ?>">
                     <li class="nav-item">
-                        <a href="<?= base_url() ?>admin/product" class="nav-link <?= is_active(['/admin/product','/admin/product/edit']) ?>">
+                        <a href="<?= base_url() ?>admin/product" class="nav-link <?= is_active(['/admin/product', '/admin/product/edit']) ?>">
                             <p>لیست محصولات </p>
                             <i class="fa fa-circle-o nav-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url() ?>admin/brand" class="nav-link <?= is_active(['/admin/brand','/admin/brand/edit']) ?>">
+                        <a href="<?= base_url() ?>admin/brand" class="nav-link <?= is_active(['/admin/brand', '/admin/brand/edit']) ?>">
                             <p>لیست برند ها </p>
                             <i class="fa fa-circle-o nav-icon"></i>
                         </a>
@@ -89,7 +89,7 @@
         <?php endif; ?>
         <?php if (can('manager-tag')) : ?>
             <li class="nav-item has-treeview">
-                <a href="#" class="nav-link  <?= is_active(['/admin/tag','/admin/tag/edit']) ?>">
+                <a href="#" class="nav-link  <?= is_active(['/admin/tag', '/admin/tag/edit']) ?>">
                     <p>
                         (برچسب) تگ
                         <i class="right fa fa-angle-left"></i>
@@ -97,9 +97,9 @@
                     <i class="fa fa-tags nav-icon" aria-hidden="true"></i>
                 </a>
 
-                <ul class="nav nav-treeview  <?= is_active(['/admin/tag','/admin/tag/edit']) ?>">
+                <ul class="nav nav-treeview  <?= is_active(['/admin/tag', '/admin/tag/edit']) ?>">
                     <li class="nav-item">
-                        <a href="<?= base_url() ?>admin/tag" class="nav-link <?= is_active(['/admin/tag','/admin/tag/edit']) ?>">
+                        <a href="<?= base_url() ?>admin/tag" class="nav-link <?= is_active(['/admin/tag', '/admin/tag/edit']) ?>">
                             <p>لیست تگ ها</p>
                             <i class="fa fa-circle-o nav-icon"></i>
                         </a>
@@ -109,16 +109,16 @@
         <?php endif; ?>
         <?php if (can('manager-blog')) : ?>
             <li class="nav-item has-treeview">
-                <a href="#" class="nav-link  <?= is_active(['/admin/blog','/admin/blog/edit']) ?>">
+                <a href="#" class="nav-link  <?= is_active(['/admin/blog', '/admin/blog/edit']) ?>">
                     <p>
                         بلاگها
                         <i class="right fa fa-angle-left"></i>
                     </p>
                     <i class="nav-icon fa fa-rss-square"></i>
                 </a>
-                <ul class="nav nav-treeview <?= is_active(['/admin/blog','/admin/blog/edit']) ?>">
+                <ul class="nav nav-treeview <?= is_active(['/admin/blog', '/admin/blog/edit']) ?>">
                     <li class="nav-item">
-                        <a href="<?= base_url() ?>admin/blog" class="nav-link <?= is_active(['/admin/blog','/admin/blog/edit']) ?>">
+                        <a href="<?= base_url() ?>admin/blog" class="nav-link <?= is_active(['/admin/blog', '/admin/blog/edit']) ?>">
                             <p>لیست بلاگ </p>
                             <i class="fa fa-circle-o nav-icon"></i>
                         </a>
@@ -128,7 +128,7 @@
         <?php endif; ?>
         <?php if (can('manager-discount')) : ?>
             <li class="nav-item has-treeview">
-                <a href="#" class="nav-link <?= is_active(['/admin/discount','/admin/discount/create','/admin/discount/edit', '/admin/coupon','/admin/coupon/create','/admin/coupon/edit','/admin/sample','/admin/sample/create','/admin/sample/edit']) ?>">
+                <a href="#" class="nav-link <?= is_active(['/admin/discount', '/admin/discount/create', '/admin/discount/edit', '/admin/coupon', '/admin/coupon/create', '/admin/coupon/edit', '/admin/sample', '/admin/sample/create', '/admin/sample/edit']) ?>">
                     <p>
                         تخفیفات
                         <i class="right fa fa-angle-left"></i>
@@ -136,21 +136,21 @@
                     <i class="fa fa-bullhorn nav-icon"></i>
                 </a>
 
-                <ul class="nav nav-treeview <?= is_active(['/admin/discount','/admin/discount/create','/admin/discount/edit','/admin/coupon','/admin/coupon/create','/admin/coupon/edit','/admin/sample','/admin/sample/create','/admin/sample/edit']) ?>">
+                <ul class="nav nav-treeview <?= is_active(['/admin/discount', '/admin/discount/create', '/admin/discount/edit', '/admin/coupon', '/admin/coupon/create', '/admin/coupon/edit', '/admin/sample', '/admin/sample/create', '/admin/sample/edit']) ?>">
                     <li class="nav-item">
-                        <a href="<?= base_url() ?>admin/discount" class="nav-link  <?= is_active(['/admin/discount','/admin/discount/create','/admin/discount/edit']) ?>">
+                        <a href="<?= base_url() ?>admin/discount" class="nav-link  <?= is_active(['/admin/discount', '/admin/discount/create', '/admin/discount/edit']) ?>">
                             <p>لیست تخفیفات</p>
                             <i class="fa fa-circle-o nav-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url() ?>admin/coupon" class="nav-link  <?= is_active(['/admin/coupon','/admin/coupon/create','/admin/coupon/edit']) ?>">
+                        <a href="<?= base_url() ?>admin/coupon" class="nav-link  <?= is_active(['/admin/coupon', '/admin/coupon/create', '/admin/coupon/edit']) ?>">
                             <p>لیست کد تخفیف</p>
                             <i class="fa fa-circle-o nav-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url() ?>admin/sample" class="nav-link  <?= is_active(['/admin/sample','/admin/sample/create','/admin/sample/edit']) ?>">
+                        <a href="<?= base_url() ?>admin/sample" class="nav-link  <?= is_active(['/admin/sample', '/admin/sample/create', '/admin/sample/edit']) ?>">
                             <p>لیست اشانتیون</p>
                             <i class="fa fa-circle-o nav-icon"></i>
                         </a>
@@ -229,13 +229,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url() ?>admin/footer" class="nav-link  <?= is_active(['/admin/footer','/admin/footer/create','/admin/footer/edit']) ?>">
+                        <a href="<?= base_url() ?>admin/footer" class="nav-link  <?= is_active(['/admin/footer', '/admin/footer/create', '/admin/footer/edit']) ?>">
                             <p>پاورقی</p>
                             <i class="fa fa-circle-o nav-icon"></i>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="<?= base_url() ?>admin/slider" class="nav-link  <?= is_active(['/admin/slider','/admin/slider/edit']) ?>">
+                        <a href="<?= base_url() ?>admin/slider" class="nav-link  <?= is_active(['/admin/slider', '/admin/slider/edit']) ?>">
                             <p>اسلایدر</p>
                             <i class="fa fa-circle-o nav-icon"></i>
                         </a>
