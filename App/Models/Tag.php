@@ -15,7 +15,7 @@ class Tag extends MysqlBaseModel
     public function read_tag($id=null)
     {
         if (is_null($id)) {
-            return $this->all();
+            return $this->get_all();
         }
         return  $this->get( '*', [
             'id'   => $id,

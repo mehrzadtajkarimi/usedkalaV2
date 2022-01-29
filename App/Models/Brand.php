@@ -15,7 +15,7 @@ class Brand extends MysqlBaseModel
     public function read_brand($id=null)
     {
         if (is_null($id)) {
-            return $this->all();
+            return $this->get_all();
         }
         return $this->find($id);
     }

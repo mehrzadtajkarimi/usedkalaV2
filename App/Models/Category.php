@@ -15,7 +15,7 @@ class Category extends MysqlBaseModel
 
     public function category_tree_for_backend($parent_id = 0, $sub_mark = '', $type=0)
     {
-        $get_categories = $this->get('*', [
+        $get_categories = $this->get_all([
             'parent_id' => $parent_id,
             'type'      => $type,
         ]);
@@ -30,7 +30,7 @@ class Category extends MysqlBaseModel
                         'slug'   => $value['slug'],
                     )
                 );
-                $this->category_tree_for_backend($value['id'], $sub_mark . ' <b> &#10010; </b> ');
+                $this->category_tree_for_backend($value['id'], $sub_mark . ' <b> &#10010; </b> ', $type);
             }
         }
         return $this->property_category_tree_for_backend;
