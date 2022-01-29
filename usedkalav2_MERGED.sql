@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 26, 2022 at 05:16 PM
+-- Generation Time: Jan 29, 2022 at 05:09 PM
 -- Server version: 10.3.32-MariaDB-log-cll-lve
 -- PHP Version: 7.3.33
 
@@ -505,7 +505,31 @@ INSERT INTO `activity_log` (`id`, `user_id`, `ip`, `type`, `target_table`, `row_
 (424, 80, '46.209.63.120', 'create', 'wish_lists', 3, '', '{\"entity_id\":\"77\",\"entity_type\":\"Product\",\"user_id\":\"80\"}', '/wishlist', '2022-01-26 12:53:19'),
 (425, 85, '46.209.63.120', 'create', 'products', 95, '', '{\"user_id\":\"85\",\"slug\":\"کش-سرور-HP-512MB-FBWC-for-P-Series-Smart-Array-PN:661069-B21\",\"title\":\"کش سرور HP 512MB FBWC for P-Series Smart Array P\\/N:661069-B21\",\"price\":\"3500000\",\"brand_id\":\"14\",\"sku\":\"\",\"weight\":\"10\",\"quantity\":\"50\",\"meta_title\":\"کش سرور اچ پی به شماره فنی 512MB 534916-B21 برای یک پارچه سازی هارد بر روی سرور های نسل 8 به کار میرود. شما می توانید از ایزارهایی که شرکت HP در اختیار شما قرار می دهد، استفاده کنید. زیرساخت ها اهمیت فراوانی دارند زیرا پایه و اساس تمام اطلاعات و برنامه های کاربردی کسب و کار شما می باشند. ProLiant کیفیت، قابلیت اطمینان و کارایی لازم را برای حفظ زیرساخت های شما را فراهم می کند.\\r\\n\\r\\n از آنجا که حتی کوچکترین نقص می تواند منجر به خرابی و شکست کسب و کار شما شود، حافظه سرور یکی از مهمترین مؤلفه ها می باشد.\",\"description\":\"\",\"seo_H1\":\"کش سرور اچ پی 512MB\",\"seo_canonical\":\"\",\"seo_title\":\"خرید و بهترین قیمت کش سرور HP 512M10661069-B21 | یوزدکالا\",\"seo_description\":\"خرید و بهترین قیمت کش سرور HP 512MB FBWC Smart Array P\\/N:661069-B21 | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا\",\"seo_robot\":\"0\",\"status_related\":\"0\"}', '/admin/product', '2022-01-26 12:57:53'),
 (426, 85, '46.209.63.120', 'create', 'product_categories', 339, '', '{\"product_id\":\"95\",\"category_id\":\"153\"}', '/admin/product', '2022-01-26 12:57:53'),
-(427, 85, '46.209.63.120', 'create', 'photos', 305, '', '{\"entity_type\":\"Product\",\"entity_id\":95,\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202201\\/cache 512MB g8.---2047fd78.jpg\",\"alt\":\"product_image\",\"type\":0}', '/admin/product', '2022-01-26 12:57:53');
+(427, 85, '46.209.63.120', 'create', 'photos', 305, '', '{\"entity_type\":\"Product\",\"entity_id\":95,\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202201\\/cache 512MB g8.---2047fd78.jpg\",\"alt\":\"product_image\",\"type\":0}', '/admin/product', '2022-01-26 12:57:53'),
+(428, 82, '46.209.63.120', 'create', 'products', 96, '', '{\"user_id\":\"82\",\"slug\":\"کش-سرور-HP-512MB-P-Series-BBWC-Upgrade-PN:462967-B21\",\"title\":\"کش سرور HP 512MB P-Series BBWC Upgrade P\\/N:462967-B21\",\"price\":\"1000000\",\"brand_id\":\"14\",\"sku\":\"\",\"weight\":\"10\",\"quantity\":\"50\",\"meta_title\":\"کش سرور 512MB  براس سرور نسل 7  قابل نصب بر روی کنترول P410 و کنترولر های نسل 7\",\"description\":\"\",\"seo_H1\":\"کش سرور G7\",\"seo_canonical\":\"\",\"seo_title\":\"خرید و بهترین قیمت کش سرور HP 512MB P-Series BBWC Upgrade P\\/N:462967-B21 | یوزدکالا\",\"seo_description\":\"خرید و بهترین قیمت کش سرور HP 512MB P-Series BBWC Upgrade P\\/N:462967-B21 | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا\",\"seo_robot\":\"0\",\"status_related\":\"0\"}', '/admin/product', '2022-01-26 13:52:09'),
+(429, 82, '46.209.63.120', 'create', 'product_categories', 340, '', '{\"product_id\":\"96\",\"category_id\":\"153\"}', '/admin/product', '2022-01-26 13:52:09'),
+(430, 82, '46.209.63.120', 'create', 'photos', 306, '', '{\"entity_type\":\"Product\",\"entity_id\":96,\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202201\\/cache 512MB g7.---0bb47e1a.jpg\",\"alt\":\"product_image\",\"type\":0}', '/admin/product', '2022-01-26 13:52:09'),
+(431, 82, '46.209.63.120', 'update', 'products', 0, '{\"id\":\"95\"}', '{\"old\":[{\"id\":\"95\",\"brand_id\":\"14\",\"user_id\":\"85\",\"title\":\"کش سرور HP 512MB FBWC for P-Series Smart Array P\\/N:661069-B21\",\"title_english\":\"\",\"seo_robot\":\"0\",\"seo_canonical\":\"\",\"seo_H1\":\"کش سرور اچ پی 512MB\",\"seo_description\":\"خرید و بهترین قیمت کش سرور HP 512MB FBWC Smart Array P\\/N:661069-B21 | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا\",\"seo_title\":\"خرید و بهترین قیمت کش سرور HP 512M10661069-B21 | یوزدکالا\",\"meta_title\":\"کش سرور اچ پی به شماره فنی 512MB 534916-B21 برای یک پارچه سازی هارد بر روی سرور های نسل 8 به کار میرود. شما می توانید از ایزارهایی که شرکت HP در اختیار شما قرار می دهد، استفاده کنید. زیرساخت ها اهمیت فراوانی دارند زیرا پایه و اساس تمام اطلاعات و برنامه های کاربردی کسب و کار شما می باشند. ProLiant کیفیت، قابلیت اطمینان و کارایی لازم را برای حفظ زیرساخت های شما را فراهم می کند.\\r\\n\\r\\n از آنجا که حتی کوچکترین نقص می تواند منجر به خرابی و شکست کسب و کار شما شود، حافظه سرور یکی از مهمترین مؤلفه ها می باشد.\",\"description\":\"\",\"price\":\"3500000\",\"featured\":null,\"image\":null,\"slug\":\"کش-سرور-HP-512MB-FBWC-for-P-Series-Smart-Array-PN:661069-B21\",\"sale\":\"0\",\"status\":\"1\",\"status_related\":\"0\",\"sku\":\"\",\"quantity\":\"50\",\"weight\":\"10\",\"created_at\":\"2022-01-26 16:27:53\",\"updated_at\":null,\"published_at\":null,\"started_at\":null,\"end_at\":null}],\"new\":{\"user_id\":\"82\",\"slug\":\"کش-سرور-HP-512MB-FBWC-for-P-Series-Smart-Array-PN:661069-B21\",\"title\":\"کش سرور HP 512MB FBWC for P-Series Smart Array P\\/N:661069-B21\",\"price\":\"3500000\",\"brand_id\":\"14\",\"sku\":\"\",\"weight\":\"10\",\"quantity\":\"50\",\"meta_title\":\"کش سرور اچ پی به شماره فنی 512MB  برای یک پارچه سازی هارد بر روی سرور های نسل 8 به کار میرود. شما می توانید از ایزارهایی که شرکت HP در اختیار شما قرار می دهد، استفاده کنید. زیرساخت ها اهمیت فراوانی دارند زیرا پایه و اساس تمام اطلاعات و برنامه های کاربردی کسب و کار شما می باشند. ProLiant کیفیت، قابلیت اطمینان و کارایی لازم را برای حفظ زیرساخت های شما را فراهم می کند.\\r\\n\\r\\n از آنجا که حتی کوچکترین نقص می تواند منجر به خرابی و شکست کسب و کار شما شود، حافظه سرور یکی از مهمترین مؤلفه ها می باشد.\",\"description\":\"\",\"featured\":1,\"sale\":1,\"status\":\"on\",\"seo_H1\":\"کش سرور اچ پی 512MB\",\"seo_canonical\":\"\",\"seo_title\":\"خرید و بهترین قیمت کش سرور HP 512MB FBWC Smart Array P\\/N:661069-B21 | یوزدکالا\",\"seo_robot\":\"0\",\"seo_description\":\"خرید و بهترین قیمت کش سرور HP 512MB FBWC Smart Array P\\/N:661069-B21 | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا\",\"status_related\":\"0\"}}', '/admin/product/95', '2022-01-26 14:04:32'),
+(432, 82, '46.209.63.120', 'delete', 'product_categories', 0, '{\"product_id\":95}', '[{\"id\":\"339\",\"product_id\":\"95\",\"category_id\":\"153\"}]', '/admin/product/95', '2022-01-26 14:04:32'),
+(433, 82, '46.209.63.120', 'create', 'product_categories', 341, '', '{\"product_id\":\"95\",\"category_id\":\"153\"}', '/admin/product/95', '2022-01-26 14:04:32'),
+(434, 82, '46.209.63.120', 'create', 'products', 97, '', '{\"user_id\":\"82\",\"slug\":\"کش-سرور-HP-512MB-Flash-Backed-Write-Cache-PN:534916-B21\",\"title\":\"کش سرور HP 512MB Flash Backed Write Cache P\\/N:534916-B21\",\"price\":\"7000000\",\"brand_id\":\"14\",\"sku\":\"\",\"weight\":\"10\",\"quantity\":\"10\",\"meta_title\":\"کش سرور اچ پی، مربوط به سرور های نسل 7\",\"description\":\"\",\"seo_H1\":\"کش سرور اچ پی 512MB\",\"seo_canonical\":\"\",\"seo_title\":\"خرید و بهترین قیمت کش سرور HP 512MB Flash Backed Write Cache P\\/N:534916-B21 | یوزدکالا\",\"seo_description\":\"خرید و بهترین قیمت کش سرور HP 512MB Flash Backed Write Cache P\\/N:534916-B21 | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا\",\"seo_robot\":\"0\",\"status_related\":\"0\"}', '/admin/product', '2022-01-26 14:06:18'),
+(435, 82, '46.209.63.120', 'create', 'product_categories', 342, '', '{\"product_id\":\"97\",\"category_id\":\"153\"}', '/admin/product', '2022-01-26 14:06:18'),
+(436, 82, '46.209.63.120', 'create', 'photos', 307, '', '{\"entity_type\":\"Product\",\"entity_id\":97,\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202201\\/cache 512MB g7.2.---d1983175.jpg\",\"alt\":\"product_image\",\"type\":0}', '/admin/product', '2022-01-26 14:06:18'),
+(437, 82, '46.209.63.120', 'create', 'tags', 5, '', '{\"tag\":\"کش سرور\"}', '/admin/tag', '2022-01-26 14:06:50'),
+(438, 82, '46.209.63.120', 'update', 'photos', 0, '{\"entity_type\":\"Category\",\"entity_id\":153}', '{\"old\":[{\"id\":\"219\",\"entity_id\":\"153\",\"entity_type\":\"Category\",\"type\":\"0\",\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202112\\/memory upgrade kit.---84912c39.jpg\",\"alt\":\"image_category\",\"created_at\":\"2021-12-14 12:45:03\"}],\"new\":{\"entity_type\":\"Category\",\"entity_id\":153,\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202201\\/cache.---14e19955.jpg\",\"alt\":\"image_category\",\"type\":0}}', '/admin/category/153/product', '2022-01-26 14:10:14'),
+(439, 82, '46.209.63.120', 'update', 'categories', 0, '{\"id\":\"153\"}', '{\"old\":[{\"id\":\"153\",\"status\":\"1\",\"description\":\"\",\"type\":\"0\",\"H1\":\"Memory Upgrade\",\"canonical\":\"\",\"robots\":\"0\",\"parent_id\":\"113\",\"name\":\"Memory Upgrade\",\"slug\":\"Memory-Upgrade\",\"seo_title\":\"Memory Upgrade\",\"seo_description\":\"Memory Upgrade\",\"created_at\":\"2021-12-14 11:52:53\"}],\"new\":{\"slug\":\"Memory-Upgrade\",\"seo_description\":\"Memory Upgrade\",\"seo_title\":\"Memory Upgrade\",\"name\":\"Memory Upgrade\",\"H1\":\"Memory Upgrade\",\"robots\":\"0\",\"canonical\":\"\",\"description\":\"\",\"status\":1}}', '/admin/category/153/product', '2022-01-26 14:15:21'),
+(440, 82, '46.209.63.120', 'update', 'photos', 0, '{\"entity_type\":\"Category\",\"entity_id\":158}', '{\"old\":[{\"id\":\"214\",\"entity_id\":\"158\",\"entity_type\":\"Category\",\"type\":\"0\",\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202112\\/VMware_FUS4_ENG_M_CP_VMware_Fusion_4_Software_823248.---ace03ad7.jpg\",\"alt\":\"image_category\",\"created_at\":\"2021-12-14 12:41:37\"}],\"new\":{\"entity_type\":\"Category\",\"entity_id\":158,\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202201\\/licenc.---b8a2038d.jpg\",\"alt\":\"image_category\",\"type\":0}}', '/admin/category/158/product', '2022-01-26 14:16:09'),
+(441, 82, '46.209.63.120', 'update', 'photos', 0, '{\"entity_type\":\"Category\",\"entity_id\":159}', '{\"old\":[{\"id\":\"213\",\"entity_id\":\"159\",\"entity_type\":\"Category\",\"type\":\"0\",\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202112\\/network controller.---d68db64c.png\",\"alt\":\"image_category\",\"created_at\":\"2021-12-14 12:40:15\"}],\"new\":{\"entity_type\":\"Category\",\"entity_id\":159,\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202201\\/network conteroller.---07b9dbd1.png\",\"alt\":\"image_category\",\"type\":0}}', '/admin/category/159/product', '2022-01-26 14:22:01'),
+(442, 0, '46.209.63.120', 'create', 'active_codes', 390, '', '{\"user_id\":\"85\",\"code\":1463,\"expired_at\":\"2022-01-29 10:52:33\"}', '/admin/login', '2022-01-29 07:22:32'),
+(443, 85, '46.209.63.120', 'delete', 'active_codes', 0, '{\"user_id\":\"85\"}', '[{\"id\":\"390\",\"user_id\":\"85\",\"code\":\"1463\",\"expired_at\":\"2022-01-29 10:52:33\"}]', '/admin/token', '2022-01-29 07:22:40'),
+(444, 0, '46.209.63.120', 'create', 'active_codes', 391, '', '{\"user_id\":\"85\",\"code\":7696,\"expired_at\":\"2022-01-29 11:34:39\"}', '/admin/login', '2022-01-29 08:04:38'),
+(445, 85, '46.209.63.120', 'delete', 'active_codes', 0, '{\"user_id\":\"85\"}', '[{\"id\":\"391\",\"user_id\":\"85\",\"code\":\"7696\",\"expired_at\":\"2022-01-29 11:34:39\"}]', '/admin/token', '2022-01-29 08:04:48'),
+(446, 0, '46.209.63.120', 'create', 'active_codes', 392, '', '{\"user_id\":\"80\",\"code\":1002,\"expired_at\":\"2022-01-29 15:46:32\"}', '/admin/login', '2022-01-29 12:16:31'),
+(447, 80, '46.209.63.120', 'delete', 'active_codes', 0, '{\"user_id\":\"80\"}', '[{\"id\":\"392\",\"user_id\":\"80\",\"code\":\"1002\",\"expired_at\":\"2022-01-29 15:46:32\"}]', '/admin/token', '2022-01-29 12:16:38'),
+(448, 80, '46.209.63.120', 'update', 'users', 0, '{\"id\":\"89\"}', '{\"old\":[{\"id\":\"89\",\"city_id\":\"301\",\"province_id\":\"8\",\"user_level\":\"1\",\"phone\":\"09352373910\",\"email\":\"usedkalaa@gmail.com\",\"first_name\":\"usedkala\",\"last_name\":\"\",\"company\":\"یوزد کالا\",\"jobtitle\":\"فروش تجهیزات شبکه\",\"national_code\":\"\",\"postal_code\":\"\",\"address\":\"تهران، خیابان قائم مقام فراهانی، میدان شعاع، پلاک یک، واحد دو\",\"birthday\":\"1641803195\",\"gender\":\"1\",\"status\":\"1\",\"bank_name\":null,\"bank_number\":null,\"ip\":null,\"email_verified_at\":null,\"created_at\":\"2022-01-10 11:56:21\",\"updated_at\":null}],\"new\":{\"first_name\":\"usedkalaa\",\"last_name\":\"\",\"national_code\":\"\",\"province_id\":\"8\",\"city_id\":\"301\",\"postal_code\":\"\",\"address\":\"تهران، خیابان قائم مقام فراهانی، میدان شعاع، پلاک یک، واحد دو\",\"email\":\"usedkalaa@gmail.com\",\"status\":\"1\"}}', '/admin/user/89', '2022-01-29 12:23:40'),
+(449, 80, '46.209.63.120', 'update', 'users', 0, '{\"id\":\"89\"}', '{\"old\":[{\"id\":\"89\",\"city_id\":\"301\",\"province_id\":\"8\",\"user_level\":\"1\",\"phone\":\"09352373910\",\"email\":\"usedkalaa@gmail.com\",\"first_name\":\"usedkalaa\",\"last_name\":\"\",\"company\":\"یوزد کالا\",\"jobtitle\":\"فروش تجهیزات شبکه\",\"national_code\":\"\",\"postal_code\":\"\",\"address\":\"تهران، خیابان قائم مقام فراهانی، میدان شعاع، پلاک یک، واحد دو\",\"birthday\":\"1641803195\",\"gender\":\"1\",\"status\":\"1\",\"bank_name\":null,\"bank_number\":null,\"ip\":null,\"email_verified_at\":null,\"created_at\":\"2022-01-10 11:56:21\",\"updated_at\":null}],\"new\":{\"first_name\":\"usedkala\",\"last_name\":\"\",\"national_code\":\"\",\"province_id\":\"8\",\"city_id\":\"301\",\"postal_code\":\"\",\"address\":\"تهران، خیابان قائم مقام فراهانی، میدان شعاع، پلاک یک، واحد دو\",\"email\":\"usedkalaa@gmail.com\",\"status\":\"1\"}}', '/admin/user/89', '2022-01-29 12:23:45'),
+(450, 0, '46.209.63.120', 'create', 'active_codes', 393, '', '{\"user_id\":\"80\",\"code\":8350,\"expired_at\":\"2022-01-29 17:07:29\"}', '/admin/login', '2022-01-29 13:37:28'),
+(451, 80, '46.209.63.120', 'delete', 'active_codes', 0, '{\"user_id\":\"80\"}', '[{\"id\":\"393\",\"user_id\":\"80\",\"code\":\"8350\",\"expired_at\":\"2022-01-29 17:07:29\"}]', '/admin/token', '2022-01-29 13:37:38');
 
 -- --------------------------------------------------------
 
@@ -2289,13 +2313,13 @@ INSERT INTO `photos` (`id`, `entity_id`, `entity_type`, `type`, `path`, `alt`, `
 (210, 114, 'Category', 0, 'https://usedkala.com/Storage/202112/3par8000.---c26ad887.jpg', 'image_category', '2021-12-14 09:07:34'),
 (211, 113, 'Category', 0, 'https://usedkala.com/Storage/202112/bios.---2252c959.jpg', 'image_category', '2021-12-14 09:08:44'),
 (212, 160, 'Category', 0, 'https://usedkala.com/Storage/202112/storage accessories.---0e7a37fd.jpeg', 'image_category', '2021-12-14 09:09:04'),
-(213, 159, 'Category', 0, 'https://usedkala.com/Storage/202112/network controller.---d68db64c.png', 'image_category', '2021-12-14 09:10:15'),
-(214, 158, 'Category', 0, 'https://usedkala.com/Storage/202112/VMware_FUS4_ENG_M_CP_VMware_Fusion_4_Software_823248.---ace03ad7.jpg', 'image_category', '2021-12-14 09:11:37'),
+(213, 159, 'Category', 0, 'https://usedkala.com/Storage/202201/network conteroller.---07b9dbd1.png', 'image_category', '2021-12-14 09:10:15'),
+(214, 158, 'Category', 0, 'https://usedkala.com/Storage/202201/licenc.---b8a2038d.jpg', 'image_category', '2021-12-14 09:11:37'),
 (215, 157, 'Category', 0, 'https://usedkala.com/Storage/202112/storage controller.---85ce8841.jpg', 'image_category', '2021-12-14 09:12:40'),
 (216, 156, 'Category', 0, 'https://usedkala.com/Storage/202112/hba.---056e3f92.jpg', 'image_category', '2021-12-14 09:13:13'),
 (217, 155, 'Category', 0, 'https://usedkala.com/Storage/202112/power.---81a23f84.jpg', 'image_category', '2021-12-14 09:13:43'),
 (218, 154, 'Category', 0, 'https://usedkala.com/Storage/202112/optical drive.---dbf9b509.jpg', 'image_category', '2021-12-14 09:14:16'),
-(219, 153, 'Category', 0, 'https://usedkala.com/Storage/202112/memory upgrade kit.---84912c39.jpg', 'image_category', '2021-12-14 09:15:03'),
+(219, 153, 'Category', 0, 'https://usedkala.com/Storage/202201/cache.---14e19955.jpg', 'image_category', '2021-12-14 09:15:03'),
 (220, 152, 'Category', 0, 'https://usedkala.com/Storage/202112/hpe hdd.---f0c053f5.jpg', 'image_category', '2021-12-14 09:15:47'),
 (221, 151, 'Category', 0, 'https://usedkala.com/Storage/202112/hpe ram.---3181fc34.jpg', 'image_category', '2021-12-14 09:16:21'),
 (222, 150, 'Category', 0, 'https://usedkala.com/Storage/202112/heatsink-for-dell-poweredge-r310-r410.---bb94290b.jpg', 'image_category', '2021-12-14 09:17:16'),
@@ -2381,7 +2405,9 @@ INSERT INTO `photos` (`id`, `entity_id`, `entity_type`, `type`, `path`, `alt`, `
 (302, 11, 'Brand', 0, 'https://usedkala.com/Storage/202112/Cisco_logo.svg.---bb349861.png', 'brand_image', '2021-12-14 10:29:35'),
 (303, 10, 'Brand', 0, 'https://usedkala.com/Storage/202112/hpe.---a157fa8c.png', 'brand_image', '2021-12-14 10:29:43'),
 (304, 80, 'User', 0, 'https://usedkala.com/Storage/202201/1517636632815.---956f7fdf.jpg', 'profile_image', '2022-01-03 13:31:00'),
-(305, 95, 'Product', 0, 'https://usedkala.com/Storage/202201/cache 512MB g8.---2047fd78.jpg', 'product_image', '2022-01-26 12:57:53');
+(305, 95, 'Product', 0, 'https://usedkala.com/Storage/202201/cache 512MB g8.---2047fd78.jpg', 'product_image', '2022-01-26 12:57:53'),
+(306, 96, 'Product', 0, 'https://usedkala.com/Storage/202201/cache 512MB g7.---0bb47e1a.jpg', 'product_image', '2022-01-26 13:52:09'),
+(307, 97, 'Product', 0, 'https://usedkala.com/Storage/202201/cache 512MB g7.2.---d1983175.jpg', 'product_image', '2022-01-26 14:06:18');
 
 -- --------------------------------------------------------
 
@@ -2517,7 +2543,9 @@ INSERT INTO `products` (`id`, `brand_id`, `user_id`, `title`, `title_english`, `
 (90, 14, 0, 'کابل1متری Ext SAS-P/N:389665-B21 اچ پی HP', 'HP Ext SAS 1m Cable P/N:389665-B21', NULL, NULL, NULL, 'خرید و بهترین قیمت کابل1متری Ext SAS-P/N:389665-B21 اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت کابل1متری Ext SAS-P/N:389665-B21 اچ پی HP | یوزدکالا', NULL, '', 1000000, NULL, NULL, 'کابل1متری-Ext-SAS-PN389665-B21-اچ-پی-HP', 0, 1, 0, NULL, 0, NULL, '2021-12-14 10:38:32', NULL, NULL, NULL, NULL),
 (91, 14, 0, 'کابل 30متری SW LC/LC-P/N:224692-B26 اچ پی HP', 'HP 30m SW LC/LC FC Cable Kit P/N:221692-B26', NULL, NULL, NULL, 'خرید و بهترین قیمت کابل 30متری SW LC/LC-P/N:224692-B26 اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت کابل 30متری SW LC/LC-P/N:224692-B26 اچ پی HP | یوزدکالا', NULL, '', 10000000, NULL, NULL, 'کابل-30متری-SW-LCLC-PN224692-B26-اچ-پی-HP', 0, 1, 0, NULL, 0, NULL, '2021-12-14 10:38:32', NULL, NULL, NULL, NULL),
 (92, 10, 80, 'لایسنس P/N:512485-B21 اچ پی ای HPE', 'HPE iLO Adv incl 1yr TSU 1-Svr Lic P/N:512485-B21', 0, '', '', 'خرید و بهترین قیمت لایسنس P/N:512485-B21 اچ پی ای HPE | مناسبترین قیمت انواع لایسنس در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت لایسنس P/N:512485-B21 اچ پی ای HPE | یوزدکالا', '', '', 20000000, 1, NULL, 'لایسنس-PN512485-B21-اچ-پی-ای-HPE', 1, 0, 0, '', 0, 0, '2021-12-14 10:38:32', NULL, NULL, NULL, NULL),
-(95, 14, 85, 'کش سرور HP 512MB FBWC for P-Series Smart Array P/N:661069-B21', '', 0, '', 'کش سرور اچ پی 512MB', 'خرید و بهترین قیمت کش سرور HP 512MB FBWC Smart Array P/N:661069-B21 | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت کش سرور HP 512M10661069-B21 | یوزدکالا', 'کش سرور اچ پی به شماره فنی 512MB 534916-B21 برای یک پارچه سازی هارد بر روی سرور های نسل 8 به کار میرود. شما می توانید از ایزارهایی که شرکت HP در اختیار شما قرار می دهد، استفاده کنید. زیرساخت ها اهمیت فراوانی دارند زیرا پایه و اساس تمام اطلاعات و برنامه های کاربردی کسب و کار شما می باشند. ProLiant کیفیت، قابلیت اطمینان و کارایی لازم را برای حفظ زیرساخت های شما را فراهم می کند.\r\n\r\n از آنجا که حتی کوچکترین نقص می تواند منجر به خرابی و شکست کسب و کار شما شود، حافظه سرور یکی از مهمترین مؤلفه ها می باشد.', '', 3500000, NULL, NULL, 'کش-سرور-HP-512MB-FBWC-for-P-Series-Smart-Array-PN:661069-B21', 0, 1, 0, '', 50, 10, '2022-01-26 12:57:53', NULL, NULL, NULL, NULL);
+(95, 14, 82, 'کش سرور HP 512MB FBWC for P-Series Smart Array P/N:661069-B21', '', 0, '', 'کش سرور اچ پی 512MB', 'خرید و بهترین قیمت کش سرور HP 512MB FBWC Smart Array P/N:661069-B21 | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت کش سرور HP 512MB FBWC Smart Array P/N:661069-B21 | یوزدکالا', 'کش سرور اچ پی به شماره فنی 512MB  برای یک پارچه سازی هارد بر روی سرور های نسل 8 به کار میرود. شما می توانید از ایزارهایی که شرکت HP در اختیار شما قرار می دهد، استفاده کنید. زیرساخت ها اهمیت فراوانی دارند زیرا پایه و اساس تمام اطلاعات و برنامه های کاربردی کسب و کار شما می باشند. ProLiant کیفیت، قابلیت اطمینان و کارایی لازم را برای حفظ زیرساخت های شما را فراهم می کند.\r\n\r\n از آنجا که حتی کوچکترین نقص می تواند منجر به خرابی و شکست کسب و کار شما شود، حافظه سرور یکی از مهمترین مؤلفه ها می باشد.', '', 3500000, 1, NULL, 'کش-سرور-HP-512MB-FBWC-for-P-Series-Smart-Array-PN661069-B21', 1, 0, 0, '', 50, 10, '2022-01-26 12:57:53', NULL, NULL, NULL, NULL),
+(96, 14, 82, 'کش سرور HP 512MB P-Series BBWC Upgrade P/N:462967-B21', '', 0, '', 'کش سرور G7', 'خرید و بهترین قیمت کش سرور HP 512MB P-Series BBWC Upgrade P/N:462967-B21 | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت کش سرور HP 512MB P-Series BBWC Upgrade P/N:462967-B21 | یوزدکالا', 'کش سرور 512MB  براس سرور نسل 7  قابل نصب بر روی کنترول P410 و کنترولر های نسل 7', '', 1000000, NULL, NULL, 'کش-سرور-HP-512MB-P-Series-BBWC-Upgrade-PN462967-B21', 0, 1, 0, '', 50, 10, '2022-01-26 13:52:09', NULL, NULL, NULL, NULL),
+(97, 14, 82, 'کش سرور HP 512MB Flash Backed Write Cache P/N:534916-B21', '', 0, '', 'کش سرور اچ پی 512MB', 'خرید و بهترین قیمت کش سرور HP 512MB Flash Backed Write Cache P/N:534916-B21 | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت کش سرور HP 512MB Flash Backed Write Cache P/N:534916-B21 | یوزدکالا', 'کش سرور اچ پی، مربوط به سرور های نسل 7', '', 7000000, NULL, NULL, 'کش-سرور-HP-512MB-Flash-Backed-Write-Cache-PN534916-B21', 0, 1, 0, '', 10, 10, '2022-01-26 14:06:18', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2799,7 +2827,9 @@ INSERT INTO `product_categories` (`id`, `product_id`, `category_id`) VALUES
 (336, 1, 108),
 (337, 1, 106),
 (338, 1, 112),
-(339, 95, 153);
+(340, 96, 153),
+(341, 95, 153),
+(342, 97, 153);
 
 -- --------------------------------------------------------
 
@@ -3078,10 +3108,8 @@ CREATE TABLE `sellers` (
 
 CREATE TABLE `settings` (
   `id` int(11) NOT NULL,
-  `key` varchar(64) COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `value` text COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `description` text COLLATE utf8mb4_persian_ci DEFAULT NULL,
-  `slug` varchar(100) COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `key` varchar(64) COLLATE utf8mb4_persian_ci NOT NULL,
+  `value` varchar(256) COLLATE utf8mb4_persian_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
@@ -3089,8 +3117,8 @@ CREATE TABLE `settings` (
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`id`, `key`, `value`, `description`, `slug`, `created_at`) VALUES
-(4, 'درباره یوزدکالا', '<p>لورم ایپسوم</p>\r\n', NULL, 'درباره-یوزدکالا', '2021-09-28 17:03:31');
+INSERT INTO `settings` (`id`, `key`, `value`, `created_at`) VALUES
+(1, 'free_shipping', '1000000', '2022-01-19 09:06:24');
 
 -- --------------------------------------------------------
 
@@ -3134,6 +3162,31 @@ INSERT INTO `sliders` (`id`, `small_text`, `linktype`, `link`, `product_id`, `ca
 (6, '  ', 'category', 'http://google.com', 0, 64, 0, 1, '', '2021-11-13 09:44:50'),
 (7, ' جشن خردادگان مبارک باد!  ', 'link', 'http://google.com', 0, 0, 0, 1, 'جشن خردادگان یکی از جشنهای اساطیری و کهنِ ایران‌زمین می‌باشد.', '2021-11-13 09:55:20'),
 (9, 'سرور های hp       ', 'link', 'hhhhhhh', 33, 0, 0, 0, 'سرور های hp', '2021-11-17 09:14:16');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `staticpages`
+--
+
+CREATE TABLE `staticpages` (
+  `id` int(11) NOT NULL,
+  `slug` varchar(100) COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `key` varchar(64) COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `value` text COLLATE utf8mb4_persian_ci NOT NULL,
+  `html_title` varchar(500) COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `html_desc` text COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `robots` varchar(255) COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `canonical` varchar(500) COLLATE utf8mb4_persian_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
+
+--
+-- Dumping data for table `staticpages`
+--
+
+INSERT INTO `staticpages` (`id`, `slug`, `key`, `value`, `html_title`, `html_desc`, `robots`, `canonical`, `created_at`) VALUES
+(4, 'درباره-یوزدکالا', 'درباره‌ یوزدکالا', '<p>لورم ایپسوم</p>\r\n', 'درباره یوزدکالا', 'درباره یوزدکالا', 'index, follow', '', '2021-09-28 17:03:31');
 
 -- --------------------------------------------------------
 
@@ -3196,7 +3249,8 @@ INSERT INTO `tags` (`id`, `tag`, `created_at`) VALUES
 (1, 'سرور', '2021-11-08 05:50:01'),
 (2, 'هارد ', '2021-11-08 05:50:16'),
 (3, 'تلفن تحت شبکه', '2021-11-10 15:00:03'),
-(4, 'سوئیچ شبکه', '2021-12-13 14:35:20');
+(4, 'سوئیچ شبکه', '2021-12-13 14:35:20'),
+(5, 'کش سرور', '2022-01-26 14:06:50');
 
 -- --------------------------------------------------------
 
@@ -3504,7 +3558,8 @@ ALTER TABLE `sellers`
 -- Indexes for table `settings`
 --
 ALTER TABLE `settings`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `key` (`key`);
 
 --
 -- Indexes for table `site_contents`
@@ -3516,6 +3571,12 @@ ALTER TABLE `site_contents`
 -- Indexes for table `sliders`
 --
 ALTER TABLE `sliders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `staticpages`
+--
+ALTER TABLE `staticpages`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -3563,13 +3624,13 @@ ALTER TABLE `wish_lists`
 -- AUTO_INCREMENT for table `active_codes`
 --
 ALTER TABLE `active_codes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=390;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=394;
 
 --
 -- AUTO_INCREMENT for table `activity_log`
 --
 ALTER TABLE `activity_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=428;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=452;
 
 --
 -- AUTO_INCREMENT for table `attributes`
@@ -3689,19 +3750,19 @@ ALTER TABLE `permission_users`
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=306;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=308;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT for table `product_categories`
 --
 ALTER TABLE `product_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=340;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=343;
 
 --
 -- AUTO_INCREMENT for table `product_discounts`
@@ -3767,7 +3828,7 @@ ALTER TABLE `sellers`
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `site_contents`
@@ -3780,6 +3841,12 @@ ALTER TABLE `site_contents`
 --
 ALTER TABLE `sliders`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `staticpages`
+--
+ALTER TABLE `staticpages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `suppliers`
@@ -3797,7 +3864,7 @@ ALTER TABLE `taggables`
 -- AUTO_INCREMENT for table `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tickets`
