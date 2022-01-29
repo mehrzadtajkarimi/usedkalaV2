@@ -24,21 +24,23 @@
                     <div class="col-sm-4 invoice-col">
                         <address>
                             <strong>فروشگاه یوزد کالا</strong><br>
-                            آدرس<br>
-                            خیابان<br>
-                            تلفن : (۸۰۴) ۱۲۳-۵۴۳۲<br>
-                            ایمیل : info@roocket.ir
+                            <b>آدرس : </b> <?= '---' ?>
+                            <br>
+                            <b>تــــلفن :</b> <?= $user["phone"] ?>
+                            <br>
+                            <b>ایــمیل :</b> <?= '---' ?>
+                            <br>
+                            <b>کد گزارش :</b> <?= substr(md5(mt_rand()), 0, 3) ?>
                         </address>
                     </div>
                     <!-- /.col -->
                     <div class="col-sm-4 invoice-col">
                         <br>
-                        <b>کد گزارش :</b> ۴F۳S۸J<br>
-                        <b> از تاریخ :</b>
-                        <?= jdate('l , j F Y   H:i:s ',$as); ?><br>
-                        <b> تا تاریخ :</b>
-                        <?= jdate('l , j F Y   H:i:s ',$to); ?><br>
-                        <b>اکانت :</b> ۹۶۸-۳۴۵۶۷
+                        <b> از تـــــــاریخ :</b>
+                        <?= jdate('l , j F Y   H:i:s ', $as); ?><br>
+                        <b> تا تـــــــاریخ :</b>
+                        <?= jdate('l , j F Y   H:i:s ', $to); ?><br>
+                        <b>گزارشــــــگر :</b> <?= $user["first_name"] .  ' ' . $user["last_name"] ?>
                     </div>
                     <!-- /.col -->
                 </div>
@@ -54,17 +56,19 @@
                                     <th>نام کاربر</th>
                                     <th>توضیحات</th>
                                     <th>آدرس</th>
+                                    <th>جمع تخفیف</th>
                                     <th>جمع پرداختی</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php foreach ($orders as $value): ?>
+                                <?php foreach ($orders as $value) : ?>
                                     <tr>
                                         <td>۱</td>
                                         <td><?= $value['user_full_name'] ?></td>
-                                        <td><?= $value['note']??'---' ?></td>
+                                        <td><?= $value['note'] ?? '---' ?></td>
                                         <td><?= $value['address'] ?> </td>
-                                        <td><?= number_format($value['grand_total'] ) ?> </td>
+                                        <td><?= number_format($value['discount_total'] ?? 0) ?> </td>
+                                        <td><?= number_format($value['grand_total']) ?> </td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>

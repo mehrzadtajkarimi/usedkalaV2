@@ -31,6 +31,11 @@ class SessionProvider extends AuthProvider
     {
         return $_SESSION[self::AUTH_KEY] ?? false;
     }
+    public function user()
+    {
+        $id=  $_SESSION[self::AUTH_KEY] ?? false;
+        return $this->user_model->read_user($id);
+    }
 
     public function logout()
     {
