@@ -209,7 +209,8 @@ class ProductController extends Controller
             'products'          => $products,
             'auth'              => SessionManager::get('auth') ?? false,
             'selected_wishlist' => $selected_wishlist,
-            'search_params'     => $params
+            'search_params'     => $params,
+			'home_page_active_menu' => "full-width",
         );
         view('Frontend.product.index', $data);
     }
