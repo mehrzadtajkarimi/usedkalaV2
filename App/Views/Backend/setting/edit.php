@@ -6,47 +6,14 @@
     <div class="card-body">
         <form action="<?= base_url() ?>admin/setting/<?= $setting['id'] ?>" method="post" enctype="multipart/form-data">
             <input type="hidden" name="_method" value="patch" />
-            <div class="form-group row">
-                <label for="key" class="col-sm-2 col-form-label">موضوع</label>
-                <div class="col-sm-10">
-                    <input name="key" type="text" class="form-control" id="key" value="<?= $setting['key'] ?? '' ?>" placeholder="نام زیر دسته را وارد نمایید" autofocus>
-                </div>
+            <div class="form-group">
+                <label for="key" class=" col-form-label"> کلید (فقط حروف انگلیسی) </label>
+				<input name="key" type="text" class="form-control" id="key" value="<?= $setting['key'] ?? '' ?>" autofocus>
             </div>
-            <div class="form-group row">
-                <label for="slug" class="col-sm-2 col-form-label">Slug</label>
-                <div class="col-sm-10">
-                    <input name="slug" type="text" class="form-control" id="slug" value="<?= $setting['slug'] ?? '' ?>" placeholder="" required>
-                </div>
-            </div>
-			
-            <div class="form-group row">
-                <label for="html_title" class="col-sm-2 col-form-label">Html Title</label>
-                <div class="col-sm-10">
-                    <input name="html_title" type="text" class="form-control" id="html_title" value="<?= $setting['html_title'] ?? '' ?>" required>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="input_html_desc" class="col-sm-2 col-form-label">Html Description</label>
-                <div class="col-sm-10">
-                    <input name="html_desc" type="text" class="form-control" id="input_html_desc" value="<?= $setting['html_desc'] ?? '' ?>" required>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="input_robots" class="col-sm-2 col-form-label">Robots</label>
-                <div class="col-sm-10">
-                    <input name="robots" type="text" class="form-control" id="input_robots" value="<?= $setting['robots'] ?? '' ?>" required>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="input_canonical" class="col-sm-2 col-form-label">Canonical</label>
-                <div class="col-sm-10">
-                    <input name="canonical" type="text" class="form-control" id="input_canonical" value="<?= $setting['canonical'] ?? '' ?>">
-                </div>
-            </div>
-			
             <div class="form-group ">
-                <textarea name="value" id="textarea"><?= $setting['value'] ?></textarea>
-            </div>
+				<label for="value" class=" col-form-label"> مقدار </label>
+				<input name="value" type="text" class="form-control" id="value" value="<?= $setting['value'] ?? '' ?>" placeholder="" required>
+			</div>
             <div class="form-group row">
                 <div class="col-sm-10">
                     <button type="submit" class="btn btn-primary">ذخیره</button>

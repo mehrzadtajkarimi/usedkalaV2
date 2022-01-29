@@ -3,35 +3,35 @@
 namespace App\Controllers\Backend;
 
 use App\Controllers\Controller;
-use App\Models\PageMetas;
+use App\Models\PageMeta;
 use App\Utilities\FlashMessage;
 
-class PageMetasController extends Controller
+class PageMetaController extends Controller
 {
 
-    public $pageMetasModel;
+    public $pageMetaModel;
 
     public function __construct()
     {
         parent::__construct();
-        $this->pageMetasModel = new PageMetas();
+        $this->pageMetaModel = new PageMeta();
     }
 
     public function index()
     {
         $data = array(
-            'pagemetas'    => $this->pageMetasModel->read_pagemeta(),
+            'pageMeta'    => $this->pageMetaModel->read_pageMeta(),
         );
-        return view('Backend.pagemetas.index', $data);
+        return view('Backend.pageMeta.index', $data);
     }
 
     public function edit()
     {
         $id = $this->request->get_param('id');
         $data = array(
-            'pagemeta' => $this->pageMetasModel->read_pagemeta($id),
+            'pageMeta' => $this->pageMetaModel->read_pageMeta($id),
         );
-        view('Backend.pagemetas.edit', $data);
+        view('Backend.pageMeta.edit', $data);
     }
 	
     public function update()
@@ -39,13 +39,13 @@ class PageMetasController extends Controller
         $param = $this->request->params();
         $id = $this->request->get_param('id');
 
-        $this->pageMetasModel->update([
+        $this->pageMetaModel->update([
             'html_title'   => $param['html_title'],
             'html_desc' => $param['html_desc'],
             'robots' => $param['robots'],
             'canonical' => $param['canonical']
         ], ['id' => $id]);
         FlashMessage::add("تغییرات با موفقیت ثبت شد.");
-        return $this->request->redirect('admin/pagemetas/'.$id.'/edit');
+        return $this->request->redirect('admin/pagemeta/'.$id.'/edit');
     }
 }

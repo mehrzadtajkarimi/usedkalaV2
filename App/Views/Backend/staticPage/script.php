@@ -1,5 +1,6 @@
 <script>
     $(document).ready(function() {
+
         // tinymce.init({
         //     selector: '#mytextarea',
         //     plugins: [
@@ -10,9 +11,17 @@
         //     toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
         //     content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
         //     height: 400,
+
+
+
+
+
+
         //     setup: function(ed) {
+
         //         var fileInput = $('<input id="tinymce-uploader" type="file" name="pic" accept="image/*" style="display:none">');
         //         $(ed.getElement()).parent().append(fileInput);
+
         //         fileInput.on("change", function() {
         //             console.log('salam');
         //             var file = this.files[0];
@@ -37,6 +46,7 @@
         //             });
         //             reader.readAsDataURL(file);
         //         });
+
         //         ed.ui.registry.addButton('image_upload', {
         //             text: 'Upload Image',
         //             icon: 'image',
@@ -44,15 +54,21 @@
         //                 fileInput.trigger('click');
         //             }
         //         });
+
         //     }
         // });
+
+
         // tinymce.init({
         //     selector: 'textarea#mytextarea',
         //     plugins: 'image code',
         //     toolbar: 'undo redo | image code',
+
         //     // without images_upload_url set, Upload tab won't show up
         //     images_upload_url: '/admin/setting/upload',
         // });
+
+
         $('#show-slug').click(function(e) {
             if ($('#show-slug').is(':checked')) {
                 $('#slug').fadeIn(400);
@@ -60,13 +76,21 @@
                 $('#slug').fadeOut(100);
             }
         });
+
         // $('#show-description').click(function (e) {
         //     if ($(this).is(':checked')) {
         //         $('.description').attr('id', 'textarea').attr('checked', true).fadeIn(400);
         //         location.reload();
+
         //     } else {
         //         $('.description').fadeOut(100).attr('id', '');
         //     }
+
         // });
+
+
+
+
+
     });
 </script>

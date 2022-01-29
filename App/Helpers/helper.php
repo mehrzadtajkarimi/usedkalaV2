@@ -11,7 +11,7 @@ use App\Models\Role_permission;
 use App\Models\Role_user;
 use App\Models\User;
 use App\Models\Wish_list;
-use App\Models\Setting;
+use App\Models\StaticPage;
 use App\Services\Auth\Auth;
 use App\Services\Basket\Basket;
 use App\Services\Session\SessionManager;
@@ -93,8 +93,8 @@ function inject_menu()
 }
 function inject_about_menu()
 {
-    $settingModel = new Setting;
-    return ["about_menu" => $settingModel->read_setting()];
+    $staticPageModel = new StaticPage;
+    return ["about_menu" => $staticPageModel->read_staticPage()];
 }
 function create_slug($string)
 {
@@ -119,7 +119,8 @@ function create_slug($string)
         "?",
         "؟",
         "«",
-        "»"
+        "»",
+		":"
     ], [
         "",
         "",
@@ -140,7 +141,8 @@ function create_slug($string)
         "",
         "",
         "",
-        ""
+        "",
+		""
     ], strip_tags($string));
     return $slug;
 }
@@ -340,4 +342,22 @@ function numRows($queryStr)
 	mysqli_query($CON,"SET CHARACTER_SET utf8");
 	$numRowsQuery=mysqli_query($CON,$queryStr);
 	return mysqli_num_rows($numRowsQuery);
+}
+
+function replaceAll($str,$reverse=false)
+{
+	$standard = array("0","1","2","3","4","5","6","7","8","9");
+	$east_arabic = array("۰","۱","۲","۳","۴","۵","۶","۷","۸","۹");
+	if (!$reverse) return str_replace($standard , $east_arabic , $str);
+	else return str_replace( $east_arabic ,$standard , $str);
+}
+
+function generate_random_string($length = 10) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
 }

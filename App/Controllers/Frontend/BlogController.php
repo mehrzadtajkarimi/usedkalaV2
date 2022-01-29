@@ -9,7 +9,7 @@ use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Taggable;
 use App\Models\Wish_list;
-use App\Models\PageMetas;
+use App\Models\PageMeta;
 use App\Services\Session\SessionManager;
 use App\Utilities\TimeUtil;
 
@@ -21,7 +21,7 @@ class BlogController extends Controller
     private $commentModel;
     private $taggableModel;
     private $wishListModel;
-	private $pageMetasModel;
+	private $pageMetaModel;
 
     public function __construct()
     {
@@ -32,7 +32,7 @@ class BlogController extends Controller
         $this->taggableModel = new Taggable();
         $this->wishListModel = new Wish_list();
         $this->jDateObj      = new TimeUtil();
-		$this->pageMetasModel         = new PageMetas();
+		$this->pageMetaModel         = new PageMeta();
     }
 
     public function index()
@@ -43,7 +43,7 @@ class BlogController extends Controller
 		foreach($blog as $postKey=>$postRow)
 			$blog[$postKey]['jDate']=$this->jDateObj->jalaliDate($postRow['created_at']);
 		
-		$pageMetas=$this->pageMetasModel->read_pagemeta(2);
+		$pageMetas=$this->pageMetaModel->read_pageMeta(2);
 		
         if (is_array($blog)) {
             $data = array(

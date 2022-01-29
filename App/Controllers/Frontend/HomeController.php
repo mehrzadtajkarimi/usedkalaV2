@@ -12,10 +12,10 @@ use App\Models\Photo;
 use App\Models\Product;
 use App\Models\Product_category;
 use App\Models\Product_discount;
-use App\Models\Setting;
+use App\Models\StaticPage;
 use App\Models\Slider;
 use App\Models\Wish_list;
-use App\Models\PageMetas;
+use App\Models\PageMeta;
 use App\Services\Basket\Basket;
 use App\Utilities\TimeUtil;
 
@@ -26,12 +26,12 @@ class HomeController extends Controller
     private $photoModel;
     private $productModel;
     private $brandModel;
-    private $settingModel;
+    private $staticPageModel;
     private $categoryModel;
     private $productCategoryModel;
     private $wishListModel;
     private $blogModel;
-    private $pageMetasModel;
+    private $pageMetaModel;
     public function __construct()
     {
         parent::__construct();
@@ -42,12 +42,12 @@ class HomeController extends Controller
         $this->discountModel         = new Discount();
         $this->productModel          = new Product();
         $this->brandModel            = new Brand();
-        $this->settingModel          = new Setting();
+        $this->staticPageModel          = new StaticPage();
         $this->categoryModel         = new Category();
         $this->productCategoryModel  = new Product_category();
         $this->blogModel             = new Blog();
         $this->wishListModel         = new Wish_list();
-        $this->pageMetasModel         = new PageMetas();
+        $this->pageMetaModel         = new PageMeta();
 		$this->jDateObj    = new TimeUtil();
     }
 
@@ -67,12 +67,12 @@ class HomeController extends Controller
         $products_cisco          = $this->productModel->join_product_to_photo_by_brand_id($brand_id);
         $sliders                 = $this->sliderModel->read_slider();
         $brands                  = $this->brandModel->read_brand();
-        $setting                 = $this->settingModel->read_setting();
+        $staticPage                 = $this->staticPageModel->read_staticPage();
         $latest_blogs            = $this->blogModel->join_blog_to_photo_by_limit(2);
         $wishlist_products       = $this->wishListModel->read_all_wishList_items('Product');
         $home_page_active_menu   = 'page-template-template-homepage-v1';
         $selected_wishlist       = [];
-		$pageMetas=$this->pageMetasModel->read_pagemeta(1);
+		$pageMetas=$this->pageMetaModel->read_pageMeta(1);
 		
 		foreach($latest_blogs as $key=>$blogRow)
 			$latest_blogs[$key]['created_at']=$this->jDateObj->jalaliDate($latest_blogs[$key]['created_at']);
@@ -107,7 +107,7 @@ class HomeController extends Controller
             'sale_products'         => $sale_products,
             'featured_products'     => $featured_products,
             'sliders'               => $sliders,
-            'setting'               => $setting,
+            'staticPage'               => $staticPage,
             'latest_blogs'          => $latest_blogs,
             'home_page_active_menu' => $home_page_active_menu,
             'selected_wishlist'     => $selected_wishlist,

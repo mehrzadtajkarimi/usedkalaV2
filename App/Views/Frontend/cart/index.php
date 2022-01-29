@@ -16,7 +16,7 @@
                             <div class="woocommerce">
                                 <div class="cart-wrapper">
                                     <form method="post" action="<?= base_url() ?>order/create" class="woocommerce-cart-form order-form">
-                                        <table class="shop_table shop_table_responsive cart ">
+                                        <table class="shop_table shop_table_responsive cart " style="height: 0">
                                             <thead>
                                                 <tr>
                                                     <th class="text-center product-remove">&nbsp;</th>
@@ -54,11 +54,11 @@
                                                                     <div>
                                                                         <small>
                                                                             <del>
-                                                                                <?= number_format($value['price']) ?>
+                                                                                <?= replaceAll(number_format($value['price'])) ?>
                                                                             </del>
                                                                         </small>
                                                                         <span class="badge badge-pill badge-danger ">%
-                                                                            <?= $discounts[$value['id']] ?>
+                                                                            <?= replaceAll($discounts[$value['id']]) ?>
                                                                         </span>
                                                                     </div>
                                                                     <span class="woocommerce-Price-amount amount">
@@ -67,7 +67,7 @@
                                                                         </span>
                                                                     </span>
                                                                 <?php else : ?>
-                                                                    <?= number_format($value['price']) ?> ریال
+                                                                    <?= replaceAll(number_format($value['price'])) ?> ریال
                                                                 <?php endif; ?>
                                                             </span>
                                                         </td>

@@ -382,14 +382,52 @@ class Product extends MysqlBaseModel
 
     public function search_product_by_name($name)
     {
-        return $this->get('*', ['title[~]' => $name]);
+        // return $this->get('*', ['title[~]' => $name]);
+		return $this->connection->query("
+        SELECT
+        products.*,
+			discounts.percent AS discounts_percent,
+			photos.path AS photos_path,
+			photos.alt AS photos_alt
+        FROM products
+        INNER JOIN photos
+			ON products.id = photos.entity_id
+			AND photos.entity_type ='Product'
+			AND photos.type =0
+        LEFT JOIN product_discounts
+			ON products.id = product_discounts.product_id
+        LEFT JOIN discounts
+			ON product_discounts.discount_id = discounts.id
+        WHERE products.`title` LIKE '%".$name."%'
+        ")->fetchAll();
     }
 
     public function join_products_to_categories_by_cat_id($cat_id, $title)
     {
-        return $this->query("SELECT pros.*, pix.path, pix.alt FROM `products` as pros
-            INNER JOIN `product_categories` as rels INNER JOIN `photos` as pix 
-            ON rels.`product_id` = pros.`id` AND pix.`entity_id` = pros.`id`
-            WHERE pix.type = 0 AND pix.`entity_type` = 'Product' AND rels.`category_id` = '$cat_id' AND pros.`title` LIKE '%" . $title . "%' ");
+        // return $this->query("SELECT pros.*, pix.path, pix.alt FROM `products` as pros
+            // INNER JOIN `product_categories` as rels INNER JOIN `photos` as pix 
+            // ON rels.`product_id` = pros.`id` AND pix.`entity_id` = pros.`id`
+            // WHERE pix.type = 0 AND pix.`entity_type` = 'Product' AND rels.`category_id` = '$cat_id' AND pros.`title` LIKE '%" . $title . "%' ");
+		
+		return $this->connection->query("
+        SELECT
+        products.*,
+			discounts.`percent` AS discounts_percent,
+			photos.`path` AS photos_path,
+			photos.`alt` AS photos_alt
+        FROM products
+        INNER JOIN photos
+			ON products.`id` = photos.`entity_id`
+			AND photos.`entity_type` ='Product'
+			AND photos.`type` = 0
+		INNER JOIN product_categories
+			ON products.`id` = product_categories.`product_id`
+			AND product_categories.`category_id` = '".$cat_id."'
+        LEFT JOIN product_discounts
+			ON products.`id` = product_discounts.`product_id`
+        LEFT JOIN discounts
+			ON product_discounts.`discount_id` = discounts.`id`
+        WHERE products.`title` LIKE '%".$title."%'
+        ")->fetchAll();
     }
 }

@@ -4,6 +4,8 @@ namespace App\Controllers\Backend;
 
 use App\Controllers\Controller;
 use App\Models\Order;
+use App\Services\Auth\Auth;
+use App\Utilities\FlashMessage;
 
 class HomeController extends Controller
 {
@@ -18,57 +20,100 @@ class HomeController extends Controller
 
     public function index()
     {
-        // dd( date('Y-m-d H:i:s'),date('Y-m-d H:i:s', strtotime("-1 month")),date('Y-m-d H:i:s', strtotime("-2 month")));
-        $date_comparison = [
-            'this-day' => [
+        $this_day   = (int) $this->orderModel->comparison($this->between_dates('this', 'day'));
+        $this_week  = (int) $this->orderModel->comparison($this->between_dates('this', 'week'));
+        $this_month = (int) $this->orderModel->comparison($this->between_dates('this', 'month'));
+        $this_year  = (int) $this->orderModel->comparison($this->between_dates('this', 'year'));
+        $last_day   = (int) $this->orderModel->comparison($this->between_dates('last', 'day'));
+        $last_week  = (int) $this->orderModel->comparison($this->between_dates('last', 'week'));
+        $last_month = (int) $this->orderModel->comparison($this->between_dates('last', 'month'));
+        $last_year  = (int) $this->orderModel->comparison($this->between_dates('last', 'year'));
+
+        $data = array(
+            'grand'    => $this->calculations_mount('grand'),
+            'discount' => $this->calculations_mount('discount'),
+
+            'count_order'  => $this->orderModel->count_order(),         // count all order
+            'max_total'    => $this->orderModel->read_max_total(),      // max total of all orders
+            'min_total'    => $this->orderModel->read_min_total(),      // min total of all orders
+            'max_discount' => $this->orderModel->read_max_discount(),   // max discount of all orders
+
+            'change_sale_day'   => $this_day && $last_day ? $this->percentage_change($this_day, $last_day) : 0,           // percentage change of sale day
+            'change_sale_week'  => $this_week && $last_week ? $this->percentage_change($this_week, $last_week) : 0,       // percentage change of sale week
+            'change_sale_mount' => $this_month && $last_month ? $this->percentage_change($this_month, $last_month) : 0,   // percentage change of sale mount
+            'change_sale_year'  => $this_year && $last_year ? $this->percentage_change($this_year, $last_year) : 0,       // percentage change of sale year
+
+            'avg_grand'    => $this->orderModel->read_avg_grand(),      // avg grand total of all orders
+            'avg_discount' => $this->orderModel->read_avg_discount(),   // avg discount of all orders
+
+        );
+        return view('Backend.index', $data);
+    }
+
+
+    public function report()
+    {
+        $params = $this->request->params();
+
+        $as = date('Y-m-d H:i:s', $params['start_at']);
+        $to = date('Y-m-d H:i:s', $params['finish_at']);
+
+        $msg_as = jdate('l , j F Y ', $params['start_at']);
+        $msg_to = jdate('l , j F Y ', $params['finish_at']);
+
+        // dd($params['order-type']);
+
+        if ($params['order-type'] == 'all') {
+            $order = $this->orderModel->get_orders($as, $to, 'all');
+        } else if ($params['order-type'] == 'discount_total') {
+            $order = $this->orderModel->get_orders($as, $to, 'discount_total');
+        } else if ($params['order-type'] == 'grand_total') {
+            $order = $this->orderModel->get_orders($as, $to, 'grand_total');
+        } else {
+            FlashMessage::add("مورد مورد نظر یافت نشد", FlashMessage::WARNING);
+            return $this->request->redirect('admin');
+        }
+
+        if (empty($order)) {
+            FlashMessage::add("از (($msg_as)) تا (($msg_to)) این تاریخ فروشی صورت نگرفته", FlashMessage::ERROR);
+            return $this->request->redirect('admin');
+        }
+
+        $data = [
+            'orders' => $order,
+            'as'     => $params['start_at'],
+            'to'     => $params['finish_at'],
+            'user'   => Auth::user(),
+        ];
+
+        return view('Backend.report.index', $data);
+    }
+
+    public function between_dates($When, $topic)
+    {
+        if ($When === 'this') {
+            return  [
                 'as' => date('Y-m-d H:i:s'),
-                'to' => date('Y-m-d H:i:s', strtotime("-1 day")),
-            ],
-            'last-day' => [
-                'as' => date('Y-m-d H:i:s', strtotime("-1 day")),
-                'to' => date('Y-m-d H:i:s', strtotime("-2 day")),
-            ],
+                'to' => date('Y-m-d H:i:s', strtotime("-1 $topic")),
+            ];
+        }
+        if ($When === 'last') {
+            return [
+                'as' => date('Y-m-d H:i:s', strtotime("-1 $topic")),
+                'to' => date('Y-m-d H:i:s', strtotime("-2 $topic")),
+            ];
+        }
+    }
 
-            'this-week' => [
-                'as' => date('Y-m-d H:i:s'),
-                'to' => date('Y-m-d H:i:s', strtotime("-1 week")),
-            ],
-            'last-week' => [
-                'as' => date('Y-m-d H:i:s', strtotime("-1 week")),
-                'to' => date('Y-m-d H:i:s', strtotime("-2 week")),
-            ],
+    public function percentage_change($original_value,  $new_value): int // محاسبه درصد تغییر
+    {
+        if ($original_value > 0 && $new_value > 0) {
+            return ($new_value - $original_value) / $original_value * 100;
+        }
+    }
 
-            'this-month' => [
-                'as' => date('Y-m-d H:i:s'),
-                'to' => date('Y-m-d H:i:s', strtotime("-1 month")),
-            ],
-            'last-month' => [
-                'as' => date('Y-m-d H:i:s', strtotime("-1 month")),
-                'to' => date('Y-m-d H:i:s', strtotime("-2 month")),
-            ],
-
-            'this-year' => [
-                'as' => date('Y-m-d H:i:s'),
-                'to' => date('Y-m-d H:i:s', strtotime("-1 year")),
-            ],
-            'last-year' => [
-                'as' => date('Y-m-d H:i:s', strtotime("-1 year")),
-                'to' => date('Y-m-d H:i:s', strtotime("-2 year")),
-            ],
-        ]; //end data_comparison_mount
-
-
-        $this_day   = (int) $this->orderModel->comparison($date_comparison, 'this', 'day');
-        $this_week  = (int) $this->orderModel->comparison($date_comparison, 'this', 'week');
-        $this_month = (int) $this->orderModel->comparison($date_comparison, 'this', 'month');
-        $this_year  = (int) $this->orderModel->comparison($date_comparison, 'this', 'year');
-
-        $last_day   = (int) $this->orderModel->comparison($date_comparison, 'last', 'day');
-        $last_week  = (int) $this->orderModel->comparison($date_comparison, 'last', 'week');
-        $last_month = (int) $this->orderModel->comparison($date_comparison, 'last', 'month');
-        $last_year  = (int)$this->orderModel->comparison($date_comparison, 'last', 'year');
-
-
+    public function calculations_mount($requested): array
+    {
         // $shamsi_1400 = [1616272200, 1618947000, 1621625400, 1624303800, 1626982200, 1629660600, 1632342600, 1634934600, 1637526600, 1640118600, 1642710600, 1645302600]; // array key is month shamsi example(فروردین - ساعت 12 شب)
         $shamsi_1400 = [
             '2021-03-21 00:00:00',
@@ -100,59 +145,20 @@ class HomeController extends Controller
         $bhman      = $this->orderModel->read_order_between($shamsi_1400[10], $shamsi_1400[11]);
         $esfand     = $this->orderModel->read_order_between($shamsi_1400[11], $shamsi_1400[11]);
 
-        $data = array(
-            'grand' => [
-                array_sum(array_column($farvardin, 'grand_total')),
-                array_sum(array_column($ordebhesht, 'grand_total')),
-                array_sum(array_column($khordad, 'grand_total')),
-                array_sum(array_column($tir, 'grand_total')),
-                array_sum(array_column($mordad, 'grand_total')),
-                array_sum(array_column($shhrivar, 'grand_total')),
-                array_sum(array_column($mehr, 'grand_total')),
-                array_sum(array_column($aban, 'grand_total')),
-                array_sum(array_column($azar, 'grand_total')),
-                array_sum(array_column($day, 'grand_total')),
-                array_sum(array_column($bhman, 'grand_total')),
-                array_sum(array_column($esfand, 'grand_total')),
-            ],
-            'discount' => [
-                array_sum(array_column($farvardin, 'discount_total')),
-                array_sum(array_column($ordebhesht, 'discount_total')),
-                array_sum(array_column($khordad, 'discount_total')),
-                array_sum(array_column($tir, 'discount_total')),
-                array_sum(array_column($mordad, 'discount_total')),
-                array_sum(array_column($shhrivar, 'discount_total')),
-                array_sum(array_column($mehr, 'discount_total')),
-                array_sum(array_column($aban, 'discount_total')),
-                array_sum(array_column($azar, 'discount_total')),
-                array_sum(array_column($day, 'discount_total')),
-                array_sum(array_column($bhman, 'discount_total')),
-                array_sum(array_column($esfand, 'discount_total')),
-            ],
+        return   [
+            array_sum(array_column($farvardin, $requested . '_total')),
+            array_sum(array_column($ordebhesht, $requested . '_total')),
+            array_sum(array_column($khordad, $requested . '_total')),
+            array_sum(array_column($tir, $requested . '_total')),
+            array_sum(array_column($mordad, $requested . '_total')),
+            array_sum(array_column($shhrivar, $requested . '_total')),
+            array_sum(array_column($mehr, $requested . '_total')),
+            array_sum(array_column($aban, $requested . '_total')),
+            array_sum(array_column($azar, $requested . '_total')),
+            array_sum(array_column($day, $requested . '_total')),
+            array_sum(array_column($bhman, $requested . '_total')),
+            array_sum(array_column($esfand, $requested . '_total')),
 
-            'count_order'  => $this->orderModel->count_order(),         // count all order
-            'max_total'    => $this->orderModel->read_max_total(),      // max total of all orders
-            'min_total'    => $this->orderModel->read_min_total(),      // min total of all orders
-            'max_discount' => $this->orderModel->read_max_discount(),   // max discount of all orders
-
-            'change_sale_day'   => $this_day && $last_day ? $this->percentage_change($this_day, $last_day) : 0,           // percentage change of sale day
-            'change_sale_week'  => $this_week && $last_week ? $this->percentage_change($this_week, $last_week) : 0,       // percentage change of sale week
-            'change_sale_mount' => $this_month && $last_month ? $this->percentage_change($this_month, $last_month) : 0,   // percentage change of sale mount
-            'change_sale_year'  => $this_year && $last_year ? $this->percentage_change($this_year, $last_year) : 0,       // percentage change of sale year
-
-            'avg_grand'    => $this->orderModel->read_avg_grand(),      // avg grand total of all orders
-            'avg_discount' => $this->orderModel->read_avg_discount(),   // avg discount of all orders
-
-        );
-        // print_r(json_encode($data['change_sale_mount']));die;
-
-        return view('Backend.index', $data);
-    }
-
-    public function percentage_change($original_value,  $new_value): int // محاسبه درصد تغییر
-    {
-        if ($original_value > 0 && $new_value > 0) {
-            return ($new_value - $original_value) / $original_value * 100;
-        }
+        ];
     }
 }

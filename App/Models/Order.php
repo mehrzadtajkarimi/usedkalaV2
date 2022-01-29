@@ -21,9 +21,30 @@ class Order extends MysqlBaseModel
         }
         return $this->first(['id' => $id]);
     }
+    public function get_orders($as, $to, $total)
+    {
+        if ($total == 'all') {
+            return  $this->connection->select($this->table, ["grand_total", "discount_total", "user_full_name", "address", "created_at"], [
+                "created_at[<>]" => [$as, $to],
+            ]);
+        }
+        if ($total == 'discount_total') {
+            return  $this->connection->select($this->table, ["grand_total", "discount_total", "user_full_name", "address", "created_at"], [
+                "created_at[<>]"    => [$as, $to],
+                "discount_total[!]" => 0,
+            ]);
+        }
+        if ($total == 'grand_total') {
+            return  $this->connection->select($this->table, ["grand_total", "discount_total", "user_full_name", "address", "created_at"], [
+                "created_at[<>]" => [$as, $to],
+                "discount_total" => 0,
+            ]);
+        }
+    }
     public function read_order_between($as, $to)
     {
-        return  $this->connection->select($this->table, ["grand_total", "discount_total"], [
+        // dd($as, $to);
+        return  $this->connection->select($this->table, ["grand_total", "discount_total", "user_full_name", "address", "created_at"], [
             "created_at[<>]" => [$as, $to]
         ]);
         // WHERE age BETWEEN 200 AND 500
@@ -53,12 +74,10 @@ class Order extends MysqlBaseModel
         return  $this->connection->min($this->table, "grand_total");
     }
 
-    public function comparison($date_comparison, $date, $time, $total = 'grand_total')
+    public function comparison($comparison, $total = 'grand_total')
     {
-        $key =  $date . '-' . $time; // example   this-month
-        $result = $date_comparison[$key];
         return  $this->connection->sum($this->table, $total, [
-            "created_at[<>]" => [$result['to'], $result['as']]
+            "created_at[<>]" => [$comparison['to'], $comparison['as']]
         ]);
     }
 
