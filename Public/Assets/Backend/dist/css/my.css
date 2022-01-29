@@ -6,6 +6,16 @@
   vertical-align: middle;
 }
 
+
+@media print {
+  .noPrint {
+      display: none;
+  }
+  body {
+      margin: 1.6cm;
+  }
+}
+
 .datepicker-plot-area {
   width: 374px !important;
   font-size: 1rem;
@@ -150,6 +160,7 @@
 .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
   color: #ffffff;
 }
+
 
 .select2-container .select2-selection--single .select2-selection__rendered {
   padding-right: 10px;

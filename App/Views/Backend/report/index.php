@@ -1,10 +1,3 @@
-<style>
-    @media print {
-        .noPrint {
-            display: none;
-        }
-    }
-</style>
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
@@ -42,11 +35,9 @@
                         <br>
                         <b>کد گزارش :</b> ۴F۳S۸J<br>
                         <b> از تاریخ :</b>
-                        -----
-                        <br>
+                        <?= jdate('l , j F Y   H:i:s ',$as); ?><br>
                         <b> تا تاریخ :</b>
-                        -----
-                        <br>
+                        <?= jdate('l , j F Y   H:i:s ',$to); ?><br>
                         <b>اکانت :</b> ۹۶۸-۳۴۵۶۷
                     </div>
                     <!-- /.col -->
