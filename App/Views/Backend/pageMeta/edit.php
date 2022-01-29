@@ -4,7 +4,7 @@
 
     </div>
     <div class="card-body">
-        <form action="<?= base_url() ?>admin/pagemetas/<?= $pageMeta['id'] ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= base_url() ?>admin/pagemeta/<?= $pageMeta['id'] ?>" method="post" enctype="multipart/form-data">
             <input type="hidden" name="_method" value="patch" />
 			
             <div class="form-group row">
@@ -38,7 +38,7 @@
             <div class="form-group row">
                 <div class="col-sm-10">
                     <button type="submit" class="btn btn-primary">ذخیره</button>
-                    <a href="<?= base_url() ?>admin/pagemetas" class="btn btn-danger">انصراف</a>
+                    <a href="<?= base_url() ?>admin/pagemeta" class="btn btn-danger">انصراف</a>
                 </div>
             </div>
 			

@@ -3,27 +3,27 @@
 namespace App\Controllers\Frontend;
 
 use App\Controllers\Controller;
-use App\Models\StaticPages;
-use App\Models\PageMetas;
+use App\Models\StaticPage;
+use App\Models\PageMeta;
 
-class StaticPagesController extends Controller
+class StaticPageController extends Controller
 {
 
-    public $staticPagesModel;
-	private $pageMetasModel;
+    public $staticPageModel;
+	private $pageMetaModel;
 
     public function __construct()
     {
         parent::__construct();
-        $this->staticPagesModel = new StaticPages();
-		$this->pageMetasModel         = new PageMetas();
+        $this->staticPageModel = new StaticPage();
+		$this->pageMetaModel         = new PageMeta();
     }
 
     public function about()
     {
         $slug = $this->request->get_param('slug');
 		$slug = urldecode($slug);
-        $setting_about = $this->staticPagesModel->read_staticPages_by_slug($slug);
+        $setting_about = $this->staticPageModel->read_staticPage_by_slug($slug);
 
         if (is_array($setting_about)) {
             $data = array(
@@ -41,7 +41,7 @@ class StaticPagesController extends Controller
     {
         $slug = $this->request->get_param('slug');
 
-        $setting_post = $this->staticPagesModel->read_staticPages_by_key('post');
+        $setting_post = $this->staticPageModel->read_staticPage_by_key('post');
 
         if (is_array($setting_post)) {
             $data = array(
@@ -54,7 +54,7 @@ class StaticPagesController extends Controller
     {
         $slug = $this->request->get_param('slug');
 
-        $setting_rule = $this->staticPagesModel->read_staticPages_by_key('rule');
+        $setting_rule = $this->staticPageModel->read_staticPage_by_key('rule');
 
         if (is_array($setting_rule)) {
             $data = array(
@@ -66,9 +66,9 @@ class StaticPagesController extends Controller
     public function contact()
     {
         $slug = $this->request->get_param('slug');
-		$pageMetas=$this->pageMetasModel->read_pageMeta(3);
+		$pageMetas=$this->pageMetaModel->read_pageMeta(3);
 
-        $setting_contact = $this->staticPagesModel->read_staticPages_by_key('contact');
+        $setting_contact = $this->staticPageModel->read_staticPage_by_key('contact');
 
         if (is_array($setting_contact)) {
             $data = array(

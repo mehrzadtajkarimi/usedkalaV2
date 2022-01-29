@@ -156,19 +156,19 @@ Route::group(function () {
     Route::delete('/admin/setting/{id}', 'SettingController@destroy');
 });
 Route::group(function () {
-    Route::get('/admin/staticpages', 'StaticPagesController@index');
-    Route::post('/admin/staticpages/upload', 'StaticPagesController@upload');
-    Route::get('/admin/staticpages/create', 'StaticPagesController@create');
-    Route::post('/admin/staticpages', 'StaticPagesController@store');
-    Route::get('/admin/staticpages/{id}/edit', 'StaticPagesController@edit');
-    Route::patch('/admin/staticpages/{id}', 'StaticPagesController@update');
-    Route::delete('/admin/staticpages/{id}', 'StaticPagesController@destroy');
+    Route::get('/admin/staticpage', 'StaticPageController@index');
+    Route::post('/admin/staticpage/upload', 'StaticPageController@upload');
+    Route::get('/admin/staticpage/create', 'StaticPageController@create');
+    Route::post('/admin/staticpage', 'StaticPageController@store');
+    Route::get('/admin/staticpage/{id}/edit', 'StaticPageController@edit');
+    Route::patch('/admin/staticpage/{id}', 'StaticPageController@update');
+    Route::delete('/admin/staticpage/{id}', 'StaticPageController@destroy');
 });
 
 Route::group(function () {
-    Route::get('/admin/pagemetas', 'PageMetasController@index');
-    Route::get('/admin/pagemetas/{id}/edit', 'PageMetasController@edit');
-    Route::patch('/admin/pagemetas/{id}', 'PageMetasController@update');
+    Route::get('/admin/pagemeta', 'PageMetaController@index');
+    Route::get('/admin/pagemeta/{id}/edit', 'PageMetaController@edit');
+    Route::patch('/admin/pagemeta/{id}', 'PageMetaController@update');
 });
 Route::group(function () {
 

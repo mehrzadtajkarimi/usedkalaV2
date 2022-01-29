@@ -3,7 +3,7 @@
 
 </div>
 <div class="card-body">
-    <form action="<?= base_url() ?>admin/staticpages" method="post" enctype="multipart/form-data">
+    <form action="<?= base_url() ?>admin/staticpage" method="post" enctype="multipart/form-data">
         <div class="form-group ">
             <label for="key" class=" col-form-label"> موضوع </label>
             <input name="key" type="text" class="form-control" id="key" placeholder="" required>
@@ -21,6 +21,6 @@
 </div>
 </div>
 <?php
-include(BASEPATH . "/App/Views/Backend/staticpages/script.php");
+include(BASEPATH . "/App/Views/Backend/staticpage/script.php");
 include_once BASEPATH  . 'App/Views/Backend/layouts/include/ckeditor.php';
 ?>

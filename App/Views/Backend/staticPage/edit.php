@@ -1,10 +1,10 @@
 <div class="card">
     <div class="card-header">
-        <h5>ویرایش (( <?= $staticPage['key'] ?> ))</h5>
+        <h5>ویرایش «<?= $staticPage['key'] ?>»</h5>
 
     </div>
     <div class="card-body">
-        <form action="<?= base_url() ?>admin/staticpages/<?= $staticPage['id'] ?>" method="post" enctype="multipart/form-data">
+        <form action="<?= base_url() ?>admin/staticpage/<?= $staticPage['id'] ?>" method="post" enctype="multipart/form-data">
             <input type="hidden" name="_method" value="patch" />
             <div class="form-group row">
                 <label for="key" class="col-sm-2 col-form-label">موضوع</label>
@@ -50,7 +50,7 @@
             <div class="form-group row">
                 <div class="col-sm-10">
                     <button type="submit" class="btn btn-primary">ذخیره</button>
-                    <a href="<?= base_url() ?>admin/staticpages" class="btn btn-danger">انصراف</a>
+                    <a href="<?= base_url() ?>admin/staticpage" class="btn btn-danger">انصراف</a>
                 </div>
             </div>
         </form>

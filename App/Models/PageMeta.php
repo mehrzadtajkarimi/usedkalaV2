@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\Contracts\MysqlBaseModel;
 
-class PageMetas extends MysqlBaseModel
+class PageMeta extends MysqlBaseModel
 {
     protected $table = 'pagemetas';
 

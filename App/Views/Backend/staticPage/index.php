@@ -14,7 +14,7 @@
             </div>
 
             <!-- Button trigger modal -->
-            <a href="<?= base_url() ?>admin/staticpages/create" type="button" class="mr-2 shadow-sm btn btn-success " >
+            <a href="<?= base_url() ?>admin/staticpage/create" type="button" class="mr-2 shadow-sm btn btn-success " >
               ایجاد صفحه
             </a>
 
@@ -34,14 +34,14 @@
             </tr>
           </thead>
           <tbody>
-            <?php foreach ($staticPages as $value) : ?>
+            <?php foreach ($staticPage as $value) : ?>
               <tr>
                 <td class="text-center"><?= $value['key'] ?></td>
                 <td class="text-center">
-                  <a href="<?= base_url() ?>admin/staticpages/<?= $value['id'] ?>/edit" type="button" class="shadow-sm btn btn-success btn-sm " style="padding: 0px 20px; border-radius: 18px;">
+                  <a href="<?= base_url() ?>admin/staticpage/<?= $value['id'] ?>/edit" type="button" class="shadow-sm btn btn-success btn-sm " style="padding: 0px 20px; border-radius: 18px;">
                     ویرایش
                   </a>
-                  <form method="post" action="<?= base_url() ?>admin/staticpages/<?= $value['id'] ?>" class="d-inline">
+                  <form method="post" action="<?= base_url() ?>admin/staticpage/<?= $value['id'] ?>" class="d-inline">
                       <input type="hidden" name="_method" value="delete" />
                       <input type="submit" class="shadow-sm btn btn-danger btn-sm " style="padding: 0px 20px; border-radius: 18px;" onclick="return confirm('آیا برای حذف اطلاعات اطمینان دارید');" value="حـــــذف">
                     </form>
@@ -57,18 +57,18 @@
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
       <li class="page-item <?php if (pagination_count('staticpages', 10) + 1 == 1 || (isset($_GET['page']) && $_GET['page'] == 1) || !isset($_GET['page'])) echo "disabled" ?>">
-        <a class="page-link" href="<?= base_url() ?>admin/staticpages?page=<?php if (isset($_GET['page']) && $_GET['page'] > 1) echo $_GET['page'] - 1; ?> " aria-label="Previous">
+        <a class="page-link" href="<?= base_url() ?>admin/staticpage?page=<?php if (isset($_GET['page']) && $_GET['page'] > 1) echo $_GET['page'] - 1; ?> " aria-label="Previous">
           <span aria-hidden="true">&laquo;</span>
           <span class="sr-only">Previous</span>
         </a>
       </li>
       <?php for ($i = 0; $i <=  pagination_count('staticpages', 10); $i++) : ?>
         <li class="page-item <?php if (isset($_GET['page']) && $_GET['page'] == ($i + 1)) echo "active"; else if (!isset($_GET['page']) && ($i + 1) == 1) echo "active" ?>">
-          <a class="page-link" href="<?= base_url() ?>admin/staticpages?page=<?= $i + 1 ?>"><?= $i + 1 ?></a>
+          <a class="page-link" href="<?= base_url() ?>admin/staticpage?page=<?= $i + 1 ?>"><?= $i + 1 ?></a>
         </li>
       <?php endfor; ?>
       <li class="page-item <?php if (pagination_count('staticpages', 10) + 1 == 1 || (isset($_GET['page']) &&  pagination_count('staticpages', 10) + 1  == $_GET['page'])) echo "disabled" ?>">
-        <a class="page-link" href="<?= base_url() ?>admin/staticpages?page=<?php if (isset($_GET['page'])) echo $_GET['page'] + 1; else echo 2 ?>" aria-label="Next">
+        <a class="page-link" href="<?= base_url() ?>admin/staticpage?page=<?php if (isset($_GET['page'])) echo $_GET['page'] + 1; else echo 2 ?>" aria-label="Next">
           <span aria-hidden="true">&raquo;</span>
           <span class="sr-only">Next</span>
         </a>

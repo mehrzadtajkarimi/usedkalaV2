@@ -14,7 +14,7 @@ use App\Models\Product_category;
 use App\Models\Related;
 use App\Models\Taggable;
 use App\Models\Wish_list;
-use App\Models\PageMetas;
+use App\Models\PageMeta;
 use App\Utilities\Tinyint;
 use App\Services\Session\SessionManager;
 
@@ -27,7 +27,7 @@ class ProductController extends Controller
     private $taggableModel;
     private $relatedModel;
     private $categoryModel;
-	private $pageMetasModel;
+	private $pageMetaModel;
 
     public function __construct()
     {
@@ -42,13 +42,13 @@ class ProductController extends Controller
         $this->relatedModel         = new Related();
         $this->categoryModel        = new Category();
         $this->discountModel        = new Discount();
-		$this->pageMetasModel         = new PageMetas();
+		$this->pageMetaModel         = new PageMeta();
     }
 
     public function index()
     {
         $products          = $this->productModel->join_product_to_photo_all();
-		$pageMetas=$this->pageMetasModel->read_pageMeta(4);
+		$pageMetas=$this->pageMetaModel->read_pageMeta(4);
 		
         $wishlist_products = $this->wishListModel->read_all_wishList_items('Product');
         $selected_wishlist = [];
@@ -71,7 +71,7 @@ class ProductController extends Controller
     public function indexDiscounts()
     {
         $products          = $this->productModel->join_product_to_photo__with_productDiscounts_discounts();
-		$pageMetas=$this->pageMetasModel->read_pageMeta(5);
+		$pageMetas=$this->pageMetaModel->read_pageMeta(5);
 
         // dd($products);
         $wishlist_products = $this->wishListModel->read_all_wishList_items('Product');

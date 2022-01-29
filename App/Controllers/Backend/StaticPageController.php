@@ -4,37 +4,37 @@ namespace App\Controllers\Backend;
 
 use App\Controllers\Controller;
 use App\Models\Photo;
-use App\Models\StaticPages;
+use App\Models\StaticPage;
 use App\Services\Upload\UploadedFile;
 use App\Utilities\FlashMessage;
 
-class StaticPagesController extends Controller
+class StaticPageController extends Controller
 {
 
-    public $staticPagesModel;
+    public $staticPageModel;
     public $photoModel;
 
     public function __construct()
     {
         parent::__construct();
-        $this->staticPagesModel = new StaticPages();
+        $this->staticPageModel = new StaticPage();
         $this->photoModel = new Photo();
     }
 
     public function index()
     {
         $data = array(
-            'staticPages'    => $this->staticPagesModel->read_staticPages(),
+            'staticPage'    => $this->staticPageModel->read_staticPage(),
         );
-        return view('Backend.staticPages.index', $data);
+        return view('Backend.staticPage.index', $data);
     }
 
     public function create()
     {
-        $data = array(
-            'staticPages'    => $this->staticPagesModel->read_staticPages(),
+		 $data = array(
+            'staticPage'    => $this->staticPageModel->read_staticPage(),
         );
-        return view('Backend.staticPages.create', $data);
+        return view('Backend.staticPage.create', $data);
     }
 
     public function store()
@@ -61,27 +61,27 @@ class StaticPagesController extends Controller
             }
         }
 
-        $this->staticPagesModel->create_staticPages($params_create);
+        $this->staticPageModel->create_staticPage($params_create);
 
         FlashMessage::add("مقادیر با موفقیت در دیتابیس ذخیره شد");
-        return $this->request->redirect('admin/staticpages');
+        return $this->request->redirect('admin/staticpage');
     }
 
     public function edit()
     {
         $id = $this->request->get_param('id');
         $data = array(
-            'staticPage' => $this->staticPagesModel->read_staticPages($id),
+            'staticPage' => $this->staticPageModel->read_staticPage($id),
 
         );
-        view('Backend.staticPages.edit', $data);
+        view('Backend.staticPage.edit', $data);
     }
     public function update()
     {
         $param = $this->request->params();
         $id = $this->request->get_param('id');
 
-        $this->staticPagesModel->update([
+        $this->staticPageModel->update([
             'key'   => $param['key'],
             'value' => $param['value'],
             'slug'  => create_slug($param['slug']),
@@ -91,7 +91,7 @@ class StaticPagesController extends Controller
             'canonical' => $param['canonical']
         ], ['id' => $id]);
         FlashMessage::add("مقادیر باموفقیت  ضمیمه شد ");
-        return $this->request->redirect('admin/staticpages');
+        return $this->request->redirect('admin/staticpage');
     }
     public function upload()
     {
@@ -115,13 +115,13 @@ class StaticPagesController extends Controller
     {
         $id = $this->request->get_param('id');
 
-        $is_deleted_staticPages =  $this->staticPagesModel->delete_staticPages($id);
+        $is_deleted_staticPage =  $this->staticPageModel->delete_staticPage($id);
 
-        if ($is_deleted_staticPages) {
+        if ($is_deleted_staticPage) {
             FlashMessage::add("مقادیر  با موفقیت در دیتابیس ذخیره شد");
-            return $this->request->redirect('admin/staticpages');
+            return $this->request->redirect('admin/staticpage');
         }
         FlashMessage::add(" مشکلی در حذف محصول پیش آمده است", FlashMessage::ERROR);
-        return $this->request->redirect('admin/staticpages');
+        return $this->request->redirect('admin/staticpage');
     }
 }

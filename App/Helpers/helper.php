@@ -11,7 +11,7 @@ use App\Models\Role_permission;
 use App\Models\Role_user;
 use App\Models\User;
 use App\Models\Wish_list;
-use App\Models\StaticPages;
+use App\Models\StaticPage;
 use App\Services\Auth\Auth;
 use App\Services\Basket\Basket;
 use App\Services\Session\SessionManager;
@@ -93,8 +93,8 @@ function inject_menu()
 }
 function inject_about_menu()
 {
-    $staticPagesModel = new StaticPages;
-    return ["about_menu" => $staticPagesModel->read_staticPages()];
+    $staticPageModel = new StaticPage;
+    return ["about_menu" => $staticPageModel->read_staticPage()];
 }
 function create_slug($string)
 {
