@@ -190,12 +190,9 @@ class  MysqlBaseModel extends BaseModel
     {
         return $this->connection->select($this->table, $columns, $where);
     }
-    public function query($query = null)
+    public function query($query)
     {
-		if ($query!=NULL)
-			return $this->connection->query($query)->fetchAll();
-		else
-			return false;
+		return $this->connection->query($query)->fetchAll();
     }
 
 
