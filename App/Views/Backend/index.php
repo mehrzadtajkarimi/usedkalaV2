@@ -1,6 +1,143 @@
 <div class="container-fluid">
   <div class="row">
+    <div class="col-lg-12">
+
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="info-box">
+            <span class="info-box-icon bg-info elevation-1"><i class="fa fa-gear"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">ترافیک Cpu</span>
+              <span class="info-box-number">
+                ۱۰
+                <small>%</small>
+              </span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="info-box mb-3">
+            <span class="info-box-icon bg-danger elevation-1"><i class="fa fa-google-plus"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">لایک‌ها</span>
+              <span class="info-box-number">۴۱,۴۱۰</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+
+        <!-- fix for small devices only -->
+        <div class="clearfix hidden-md-up"></div>
+
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="info-box mb-3">
+            <span class="info-box-icon bg-success elevation-1"><i class="fa fa-shopping-cart"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">فروش</span>
+              <span class="info-box-number">۷۶۰</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="info-box mb-3">
+            <span class="info-box-icon bg-warning elevation-1"><i class="fa fa-users"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">اعضای جدید</span>
+              <span class="info-box-number">۲,۰۰۰</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">پرفروش ترین ها</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-widget="remove"><i class="fa fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="chart-responsive">
+                <canvas id="pieChart" style="width: 373px; height: 158px;" width="334" height="141"></canvas>
+              </div>
+              <!-- ./chart-responsive -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-4">
+              <ul class="chart-legend clearfix"></ul>
+              <?php foreach ($chart_pir as $key => $value): ?>
+                <li><i class="fa fa-circle-o <?= "text-$chart_pir_color[$key]" ?>"></i> <?= $value['product_name'] ?></li>
+              <?php endforeach; ?>
+              </ul>
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer bg-white p-0">
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                ایران
+                <span class="float-left text-danger">
+                  <i class="fa fa-arrow-down text-sm"></i>
+                  ۱۲%</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                انگلیس
+                <span class="float-left text-success">
+                  <i class="fa fa-arrow-up text-sm"></i> ۴%
+                </span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                چین
+                <span class="float-left text-warning">
+                  <i class="fa fa-arrow-left text-sm"></i> ۰%
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- /.footer -->
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
     <div class="col-lg-6">
+
       <div class="card">
         <div class="card-header no-border">
           <div class="d-flex justify-content-between">

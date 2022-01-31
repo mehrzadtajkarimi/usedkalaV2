@@ -27,7 +27,8 @@
 
 
    <script src="<?= asset_url() ?>Backend/plugins/bootstrap/js/bootstrap.min.js"></script>
-   <script src="<?= asset_url() ?>Backend/plugins/chart.js/Chart.min.js"></script>
+   <!--script src="<?= asset_url() ?>Backend/plugins/chartjs-old/Chart.min.js"></!--script-->
+   <script src="<?= asset_url() ?>Backend/plugins/chart.js/Chart.min.js"></!script>
    <script src="<?= asset_url() ?>Backend/plugins/WOW/dist/wow.min.js"></script>
    <!-- <script src="<?= asset_url() ?>Backend/dist/js/demo.js"></script> -->
    <!-- <script src="<?= asset_url() ?>Backend/dist/js/pages/dashboard3.js"></script> -->

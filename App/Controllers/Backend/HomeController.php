@@ -4,6 +4,7 @@ namespace App\Controllers\Backend;
 
 use App\Controllers\Controller;
 use App\Models\Order;
+use App\Models\Order_Item;
 use App\Services\Auth\Auth;
 use App\Utilities\FlashMessage;
 
@@ -11,15 +12,25 @@ class HomeController extends Controller
 {
 
     private $orderModel;
+    private $orderItemModel;
+
     public function __construct()
     {
         parent::__construct();
-        $this->orderModel  = new Order();
+        $this->orderModel     = new Order();
+        $this->orderItemModel = new Order_Item();
     }
 
 
     public function index()
     {
+
+// $a=$this->orderItemModel->join__orderItem_whit_product_sort(0,5);
+
+//         print_r(json_encode(array_column($a,'grand_total')));
+
+//         die;
+
         $this_day   = (int) $this->orderModel->comparison($this->between_dates('this', 'day'));
         $this_week  = (int) $this->orderModel->comparison($this->between_dates('this', 'week'));
         $this_month = (int) $this->orderModel->comparison($this->between_dates('this', 'month'));
@@ -32,6 +43,9 @@ class HomeController extends Controller
         $data = array(
             'grand'    => $this->calculations_mount('grand'),
             'discount' => $this->calculations_mount('discount'),
+
+            'chart_pir'       => $this->orderItemModel->join__orderItem_whit_product_sort(0, 5),
+            'chart_pir_color' => ['danger', 'success', 'warning',  'primary','muted'],
 
             'count_order'  => $this->orderModel->count_order(),         // count all order
             'max_total'    => $this->orderModel->read_max_total(),      // max total of all orders

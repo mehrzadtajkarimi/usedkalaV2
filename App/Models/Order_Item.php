@@ -20,10 +20,17 @@ class Order_Item extends MysqlBaseModel
         }
         return $this->first(['id' => $id]);
     }
+
+    public function read_orderItemDisc()
+    {
+        return $this->get('*', ['discount', '>', 0]);
+    }
+
     public function read_orderItem_by_order_id($id)
     {
         return $this->get_all(['order_id' => $id]);
     }
+
     public function join__orderItem_whit_product_by_order_id($order_id)
     {
         $products = $this->inner_join_two(
@@ -46,8 +53,37 @@ class Order_Item extends MysqlBaseModel
         );
 
         return $products;
+    }
 
+    public function join__orderItem_whit_product_sort($as, $ta)
+    {
+        $products = $this->query(
+            "
+            SELECT
+            products.title AS product_name,
+            products.id AS product_id,
+            sum(order_items.price) AS grand_total,
+            sum(order_items.quantity) AS quantity_total
+            FROM order_items
+            INNER JOIN products
+            ON order_items.product_id = products.id
+            GROUP BY order_items.product_id "
 
+        );
+
+        return $products;
+    }
+
+    public function join__orderItem_whit_product()
+    {
+        $products = $this->inner_join(
+            "*",
+            "products",
+            "product_id",
+            "id",
+        );
+
+        return $products;
     }
 
     public function update_orderItem(array $params, $id)
