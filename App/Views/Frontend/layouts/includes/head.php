@@ -30,3 +30,4 @@
 
 	<script type="text/javascript" src="<?= asset_url() ?>Frontend/js/jquery.min.js"></script>
 	<script type="text/javascript" src="<?= asset_url() ?>Frontend/js/ukscripts.js"></script>
+	<meta name="google-site-verification" content="SxOLL5V1M6lat6I41rH4Omu8qrdBKSgTayx_TdCXrBU" />
