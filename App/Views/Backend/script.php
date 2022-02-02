@@ -145,14 +145,40 @@
 
 
 
+
     var ctx = document.getElementById("pieChart").getContext('2d');
+    var data = <?= json_encode(array_column($chart_pir_year, 'grand_total')) ?>;
+    $('#btn_date').children('button').click(function(e) {
+      e.preventDefault();
+      var that = $(this);
+      var btn = $(this).data('id');
+
+      that.addClass('active').siblings().removeClass('active');
+      var year = <?= json_encode(array_column($chart_pir_year, 'grand_total')) ?>;
+      var month = <?= json_encode(array_column($chart_pir_month, 'grand_total')) ?>;
+      var week = <?= json_encode(array_column($chart_pir_week, 'grand_total')) ?>;
+      var day = <?= json_encode(array_column($chart_pir_day, 'grand_total')) ?>;
+      
+      if (btn == 'year') {
+        data = year.length > 0 ? year : 0;
+      } else if (btn == 'month') {
+        data = month.length > 0 ? month : year;
+      } else if (btn == 'week') {
+        data = week.length > 0 ? week : month;
+      } else if (btn == 'day') {
+        data = day.length > 0 ? day : week;
+      }
+
+    });
+
+
     var myChart = new Chart(ctx, {
       type: 'doughnut',
       data: {
         // labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
         datasets: [{
           label: '# of Votes',
-          data: <?= json_encode(array_column($chart_pir,'grand_total')) ?>,
+          data: data,
           backgroundColor: [
             'rgba(220, 53, 69)',
             'rgba(40, 167, 69)',
@@ -170,7 +196,6 @@
         }]
       },
     });
-
 
 
 

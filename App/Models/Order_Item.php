@@ -55,23 +55,29 @@ class Order_Item extends MysqlBaseModel
         return $products;
     }
 
-    public function join__orderItem_whit_product_sort($as, $ta)
+    public function join__orderItem_whit_product_sort( $limit_at, $date)
     {
-        $products = $this->query(
+        $as = $date['as'];
+        $ta = $date['to'];
+        // dd($date);
+        $products_limit = $this->query(
             "
             SELECT
             products.title AS product_name,
             products.id AS product_id,
             sum(order_items.price) AS grand_total,
-            sum(order_items.quantity) AS quantity_total
+            sum(order_items.quantity) AS quantity_total,
+            count(order_items.id) AS count_order_items
             FROM order_items
             INNER JOIN products
             ON order_items.product_id = products.id
-            GROUP BY order_items.product_id "
-
+            WHERE order_items.created_at <= '$as' AND order_items.created_at >= '$ta'
+            GROUP BY order_items.product_id
+            LIMIT $limit_at
+"
         );
 
-        return $products;
+        return $products_limit;
     }
 
     public function join__orderItem_whit_product()

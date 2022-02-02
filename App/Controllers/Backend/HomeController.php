@@ -39,12 +39,14 @@ class HomeController extends Controller
         $last_week  = (int) $this->orderModel->comparison($this->between_dates('last', 'week'));
         $last_month = (int) $this->orderModel->comparison($this->between_dates('last', 'month'));
         $last_year  = (int) $this->orderModel->comparison($this->between_dates('last', 'year'));
-
         $data = array(
             'grand'    => $this->calculations_mount('grand'),
             'discount' => $this->calculations_mount('discount'),
 
-            'chart_pir'       => $this->orderItemModel->join__orderItem_whit_product_sort(0, 5),
+            'chart_pir_day'   => $this->orderItemModel->join__orderItem_whit_product_sort( '5',$this->between_dates('this', 'day')),
+            'chart_pir_week'  => $this->orderItemModel->join__orderItem_whit_product_sort( '5',$this->between_dates('this', 'week')),
+            'chart_pir_month' => $this->orderItemModel->join__orderItem_whit_product_sort( '5',$this->between_dates('this', 'month')),
+            'chart_pir_year'  => $this->orderItemModel->join__orderItem_whit_product_sort( '5',$this->between_dates('this', 'year')),
             'chart_pir_color' => ['danger', 'success', 'warning',  'primary','muted'],
 
             'count_order'  => $this->orderModel->count_order(),         // count all order
@@ -61,6 +63,9 @@ class HomeController extends Controller
             'avg_discount' => $this->orderModel->read_avg_discount(),   // avg discount of all orders
 
         );
+        // dd($data['chart_pir_day'],$data['chart_pir_week'],$data['chart_pir_month'],$data['chart_pir_year']);
+
+        // dd(empty($data['chart_pir_day']),empty($data['chart_pir_week']),empty($data['chart_pir_month']),empty($data['chart_pir_year']));
         return view('Backend.index', $data);
     }
 
