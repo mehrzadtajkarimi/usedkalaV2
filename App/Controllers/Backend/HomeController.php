@@ -25,12 +25,6 @@ class HomeController extends Controller
     public function index()
     {
 
-// $a=$this->orderItemModel->join__orderItem_whit_product_sort(0,5);
-
-//         print_r(json_encode(array_column($a,'grand_total')));
-
-//         die;
-
         $this_day   = (int) $this->orderModel->comparison($this->between_dates('this', 'day'));
         $this_week  = (int) $this->orderModel->comparison($this->between_dates('this', 'week'));
         $this_month = (int) $this->orderModel->comparison($this->between_dates('this', 'month'));
@@ -43,11 +37,9 @@ class HomeController extends Controller
             'grand'    => $this->calculations_mount('grand'),
             'discount' => $this->calculations_mount('discount'),
 
-            'chart_pir_day'   => $this->orderItemModel->join__orderItem_whit_product_sort( '5',$this->between_dates('this', 'day')),
-            'chart_pir_week'  => $this->orderItemModel->join__orderItem_whit_product_sort( '5',$this->between_dates('this', 'week')),
-            'chart_pir_month' => $this->orderItemModel->join__orderItem_whit_product_sort( '5',$this->between_dates('this', 'month')),
-            'chart_pir_year'  => $this->orderItemModel->join__orderItem_whit_product_sort( '5',$this->between_dates('this', 'year')),
-            'chart_pir_color' => ['danger', 'success', 'warning',  'primary','muted'],
+
+            'chart_pir'  => $this->orderItemModel->join__orderItem_whit_product_sort('5', $this->between_dates('this', 'year')),
+            'chart_pir_color' => ['danger', 'success', 'warning',  'primary', 'muted'],
 
             'count_order'  => $this->orderModel->count_order(),         // count all order
             'max_total'    => $this->orderModel->read_max_total(),      // max total of all orders
@@ -179,5 +171,16 @@ class HomeController extends Controller
             array_sum(array_column($esfand, $requested . '_total')),
 
         ];
+    }
+
+
+
+    public function bestsellers()
+    {
+        $params = $this->request->get_param('time');
+        $data = [
+            'chart_pir' => $this->orderItemModel->join__orderItem_whit_product_sort('5', $this->between_dates('this', $params)),
+        ];
+        echo  json_encode($data);
     }
 }

@@ -82,22 +82,22 @@
         </div>
         <div class="card-body">
           <div class="btn-group mb-3" id="btn_date">
-            <button type="button" data-id="year" class="btn btn-danger active">سال</button>
-            <button type="button" data-id="mount" class="btn btn-danger">ماه</button>
-            <button type="button" data-id="week" class="btn btn-danger">هفته</button>
-            <button type="button" data-id="day" class="btn btn-danger">روز</button>
+            <button type="button" data-time="year" class="btn btn-danger active">سال</button>
+            <button type="button" data-time="month" class="btn btn-danger">ماه</button>
+            <button type="button" data-time="week" class="btn btn-danger">هفته</button>
+            <button type="button" data-time="day" class="btn btn-danger">روز</button>
           </div>
 
           <div class="row">
             <div class="col-md-8">
               <div class="chart-responsive">
-                <canvas id="pieChart" style="width: 373px; height: 158px;" width="334" height="141"></canvas>
+                <canvas id="pieChart"  width="334" height="141"></canvas>
               </div>
             </div>
             <div class="col-md-4">
               <ul class="chart-legend clearfix">
-                <li>
-                  <?php foreach ($chart_pir_year as $key => $value) : ?>
+                <li id="li-chart-pir">
+                  <?php foreach ($chart_pir as $key => $value) : ?>
                     <i class="fa fa-circle-o <?= "text-$chart_pir_color[$key]" ?>"><?= $value['product_name'] ?></i>
                   <?php endforeach; ?>
                 </li>

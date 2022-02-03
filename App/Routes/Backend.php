@@ -30,6 +30,7 @@ use App\Middleware\Gate;
 Route::group(function () {
     Route::get('/admin', 'HomeController@index');
     Route::post('/admin/report', 'HomeController@report');
+    Route::post('/admin/bestsellers', 'HomeController@Bestsellers');
 });
 Route::group(function () {
     Route::get('/admin/users', 'UserController@index');

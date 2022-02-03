@@ -55,11 +55,10 @@ class Order_Item extends MysqlBaseModel
         return $products;
     }
 
-    public function join__orderItem_whit_product_sort( $limit_at, $date)
+    public function join__orderItem_whit_product_sort($limit_at, $date)
     {
         $as = $date['as'];
         $ta = $date['to'];
-        // dd($date);
         $products_limit = $this->query(
             "
             SELECT
