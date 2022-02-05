@@ -145,14 +145,65 @@
 
 
 
+    $('#btn_date').children('button').click(function(e) {
+      e.preventDefault();
+      var that = $(this);
+      var li_chart_pir = $('#li-chart-pir');
+      var time = $(this).data('time');
+      var chart_pir_color = ['danger', 'success', 'warning', 'primary', 'muted'];
+      that.addClass('active').siblings().removeClass('active');
+
+      $.ajax({
+        type: "post",
+        url: "<?= base_url() ?>admin/bestsellers",
+        data: {
+          'time': time
+        },
+        success: function(response) {
+          var parsed_data = JSON.parse(response);
+
+          var data = [];
+          li_chart_pir.empty();
+          $(parsed_data.chart_pir).each(function(key, value) {
+            data.push(value['grand_total']);
+            li_chart_pir.append(`
+                            <i class="fa fa-circle-o  text-` + chart_pir_color[key] + `">` + value['product_name'] + ` </i>
+                        `);
+          });
+
+          var ctx = document.getElementById("pieChart").getContext('2d');
+          var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+              datasets: [{
+                data: data,
+                backgroundColor: [
+                  'rgba(220, 53, 69)',
+                  'rgba(40, 167, 69)',
+                  'rgba(255, 193, 7)',
+                  'rgba(0, 123, 255)',
+                  'rgba(108, 117, 125)'
+                ],
+                borderColor: [
+                  'rgba(220, 53, 69)',
+                  'rgba(40, 167, 69)',
+                  'rgba(255, 193, 7)',
+                  'rgba(0, 123, 255)',
+                  'rgba(108, 117, 125)'
+                ],
+              }]
+            },
+          });
+        }
+      });
+    });
+
     var ctx = document.getElementById("pieChart").getContext('2d');
     var myChart = new Chart(ctx, {
       type: 'doughnut',
       data: {
-        // labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
         datasets: [{
-          label: '# of Votes',
-          data: <?= json_encode(array_column($chart_pir,'grand_total')) ?>,
+          data: <?= json_encode(array_column($chart_pir, 'grand_total')) ?? 1 ?>,
           backgroundColor: [
             'rgba(220, 53, 69)',
             'rgba(40, 167, 69)',
@@ -170,7 +221,6 @@
         }]
       },
     });
-
 
 
 
