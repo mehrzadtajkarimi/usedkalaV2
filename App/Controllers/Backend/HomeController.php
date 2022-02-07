@@ -13,6 +13,7 @@ class HomeController extends Controller
 
     private $orderModel;
     private $orderItemModel;
+    private $limit_chart_pir = 5;
 
     public function __construct()
     {
@@ -33,12 +34,26 @@ class HomeController extends Controller
         $last_week  = (int) $this->orderModel->comparison($this->between_dates('last', 'week'));
         $last_month = (int) $this->orderModel->comparison($this->between_dates('last', 'month'));
         $last_year  = (int) $this->orderModel->comparison($this->between_dates('last', 'year'));
+
+        $this_item_day   = (int) $this->orderItemModel->comparison($this->limit_chart_pir,$this->between_dates('this', 'day'));
+        $this_item_week  = (int) $this->orderItemModel->comparison($this->limit_chart_pir,$this->between_dates('this', 'week'));
+        $this_item_month = (int) $this->orderItemModel->comparison($this->limit_chart_pir,$this->between_dates('this', 'month'));
+        $this_item_year  = (int) $this->orderItemModel->comparison($this->limit_chart_pir,$this->between_dates('this', 'year'));
+        $last_item_day   = (int) $this->orderItemModel->comparison($this->limit_chart_pir,$this->between_dates('last', 'day'));
+        $last_item_week  = (int) $this->orderItemModel->comparison($this->limit_chart_pir,$this->between_dates('last', 'week'));
+        $last_item_month = (int) $this->orderItemModel->comparison($this->limit_chart_pir,$this->between_dates('last', 'month'));
+        $last_item_year  = (int) $this->orderItemModel->comparison($this->limit_chart_pir,$this->between_dates('last', 'year'));
+
+        $chart_pri = $this->orderItemModel->join__orderItem_whit_product_sort($this->limit_chart_pir,$this->between_dates('this', 'year'));
+
+
+
         $data = array(
             'grand'    => $this->calculations_mount('grand'),
             'discount' => $this->calculations_mount('discount'),
 
-
-            'chart_pir'  => $this->orderItemModel->join__orderItem_whit_product_sort('5', $this->between_dates('this', 'year')),
+            'chart_pir'  => $chart_pri,
+            'chart_pir_percent'  => $chart_pri,
             'chart_pir_color' => ['danger', 'success', 'warning',  'primary', 'muted'],
 
             'count_order'  => $this->orderModel->count_order(),         // count all order
@@ -50,6 +65,11 @@ class HomeController extends Controller
             'change_sale_week'  => $this_week && $last_week ? $this->percentage_change($this_week, $last_week) : 0,       // percentage change of sale week
             'change_sale_mount' => $this_month && $last_month ? $this->percentage_change($this_month, $last_month) : 0,   // percentage change of sale mount
             'change_sale_year'  => $this_year && $last_year ? $this->percentage_change($this_year, $last_year) : 0,       // percentage change of sale year
+
+            'change_item_sale_day'   => $this_item_day && $last_item_day ? $this->percentage_change($this_item_day, $last_item_day) : 0,           // percentage change of sale day
+            'change_item_sale_week'  => $this_item_week && $last_item_week ? $this->percentage_change($this_item_week, $last_item_week) : 0,       // percentage change of sale week
+            'change_item_sale_mount' => $this_item_month && $last_item_month ? $this->percentage_change($this_item_month, $last_item_month) : 0,   // percentage change of sale mount
+            'change_item_sale_year'  => $this_item_year && $last_item_year ? $this->percentage_change($this_item_year, $last_item_year) : 0,       // percentage change of sale year
 
             'avg_grand'    => $this->orderModel->read_avg_grand(),      // avg grand total of all orders
             'avg_discount' => $this->orderModel->read_avg_discount(),   // avg discount of all orders

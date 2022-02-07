@@ -91,51 +91,35 @@
           <div class="row">
             <div class="col-md-8">
               <div class="chart-responsive">
-                <canvas id="pieChart"  width="334" height="141"></canvas>
+                <canvas id="pieChart" width="334" height="70"></canvas>
               </div>
             </div>
             <div class="col-md-4">
-              <ul class="chart-legend clearfix">
-                <li id="li-chart-pir">
-                  <?php foreach ($chart_pir as $key => $value) : ?>
+              <ul class="chart-legend clearfix" id="li-chart-pir">
+                <?php foreach ($chart_pir as $key => $value) : ?>
+                  <li>
                     <i class="fa fa-circle-o <?= "text-$chart_pir_color[$key]" ?>"><?= $value['product_name'] ?></i>
-                  <?php endforeach; ?>
-                </li>
+                  </li>
+                <?php endforeach; ?>
               </ul>
             </div>
           </div>
         </div>
         <div class="card-footer bg-white p-0">
           <ul class="nav nav-pills flex-column">
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                ایران
-                <span class="float-left text-danger">
-                  <i class="fa fa-arrow-down text-sm"></i>
-                  ۱۲%</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                انگلیس
-                <span class="float-left text-success">
-                  <i class="fa fa-arrow-up text-sm"></i> ۴%
-                </span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                چین
-                <span class="float-left text-warning">
-                  <i class="fa fa-arrow-left text-sm"></i> ۰%
-                </span>
-              </a>
-            </li>
+            <!-- <?php foreach ($change_item_sale_year as $value): ?> -->
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  ایران
+                  <span class="float-left text-danger">
+                    <i class="fa fa-arrow-down text-sm"></i>
+                    ۱۲%</span>
+                </a>
+              </li>
+            <!-- <?php endforeach; ?> -->
           </ul>
         </div>
-        <!-- /.footer -->
       </div>
-
     </div>
   </div>
   <div class="row">

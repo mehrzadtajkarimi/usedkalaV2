@@ -167,8 +167,10 @@
           $(parsed_data.chart_pir).each(function(key, value) {
             data.push(value['grand_total']);
             li_chart_pir.append(`
-                            <i class="fa fa-circle-o  text-` + chart_pir_color[key] + `">` + value['product_name'] + ` </i>
-                        `);
+              <li>
+                  <i class="fa fa-circle-o  text-` + chart_pir_color[key] + `">` + value['product_name'] + ` </i>
+              </li>
+            `);
           });
 
           var ctx = document.getElementById("pieChart").getContext('2d');

@@ -176,7 +176,7 @@ class OrderController  extends Controller
                 $single_product_id            = $value['id'];
                 $single_product_quantity      = $value['count'];
                 $single_product_price         = $value['price'];
-                $single_product_discount      = $value['grand_total'];
+                $single_product_discount      = $value['discount_total'];
                 $single_product_params_create = [
                     'order_id'   => $order_id,
                     'product_id' => $single_product_id,
