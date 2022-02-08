@@ -89,7 +89,7 @@ class Order_Item extends MysqlBaseModel
                 FROM order_items
                 INNER JOIN products
                 ON order_items.product_id = products.id
-                WHERE order_items.created_at <= '$as' AND order_items.created_at >= '$ta'
+                WHERE order_items.created_at BETWEEN '$ta' AND '$as'
                 GROUP BY order_items.product_id
                 LIMIT $limit_at
             ");
@@ -112,13 +112,11 @@ class Order_Item extends MysqlBaseModel
 
         $as = $comparison['as'];
         $ta = $comparison['to'];
-        return $this->query("
+        $result = $this->query("
                 SELECT
-                products.title AS product_name,
                 products.id AS product_id,
-                sum(order_items.price) AS grand_total,
-                sum(order_items.quantity) AS quantity_total,
-                count(order_items.id) AS count_order_items
+                products.title AS product_name,
+                sum(order_items.price) AS grand_total
                 FROM order_items
                 INNER JOIN products
                 ON order_items.product_id = products.id
@@ -127,7 +125,10 @@ class Order_Item extends MysqlBaseModel
                 ORDER BY order_items.price DESC
                 LIMIT $limit
                 ");
+                // return array_column($result, 'product_id','grand_total');
+                // return array_column($result, 'grand_total','product_name');
 
+        return array_column($result, 'grand_total','product_id');
     }
 
     public function update_orderItem(array $params, $id)

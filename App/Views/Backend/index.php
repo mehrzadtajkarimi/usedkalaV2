@@ -106,17 +106,19 @@
           </div>
         </div>
         <div class="card-footer bg-white p-0">
-          <ul class="nav nav-pills flex-column">
-            <!-- <?php foreach ($change_item_sale_year as $value): ?> -->
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  ایران
-                  <span class="float-left text-danger">
-                    <i class="fa fa-arrow-down text-sm"></i>
-                    ۱۲%</span>
-                </a>
-              </li>
-            <!-- <?php endforeach; ?> -->
+          <ul class="nav nav-pills flex-column" id="change-item-sale">
+            <?php foreach ($change_item_sale_year as $value): ?>
+              <?php if(!empty($value)): ?>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                  <?= $value[1] ?>
+                    <span class="float-left text-<?= $value[0] > 0 ?  'success' :'danger'  ?>">
+                      <i class="fa fa-arrow-<?= $value[0] > 0 ? 'up' : 'down' ?>"text-sm"></i>
+                      <?= $value[0] ?>%</span>
+                  </a>
+                </li>
+              <?php endif; ?>
+            <?php endforeach; ?>
           </ul>
         </div>
       </div>

@@ -149,9 +149,53 @@
       e.preventDefault();
       var that = $(this);
       var li_chart_pir = $('#li-chart-pir');
+      var change_item_sale = $('#change-item-sale');
       var time = $(this).data('time');
       var chart_pir_color = ['danger', 'success', 'warning', 'primary', 'muted'];
       that.addClass('active').siblings().removeClass('active');
+
+      $.ajax({
+        type: "post",
+        url: "<?= base_url() ?>admin/bestsellers/cent",
+        data: {
+          'time': time
+        },
+        success: function(response) {
+          var parsed_data = JSON.parse(response);
+          change_item_sale.empty();
+          $(parsed_data.change_item_sale).each(function(key, value) {
+            if (value) {
+              if (value[0] > 0) {
+                change_item_sale.append(`
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                    ` + value[1] + `
+                      <span class="float-left text-success">
+                        <i class="fa fa-arrow-up' text-sm"></i>
+                        ` + value[0] + `%
+                        </span>
+                    </a>
+                  </li>
+              `);
+              } else {
+                change_item_sale.append(`
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                    ` + value[1] + `
+                      <span class="float-left text-danger">
+                        <i class="fa fa-arrow-down' text-sm"></i>
+                        ` + value[0] + `%
+                        </span>
+                    </a>
+                  </li>
+              `);
+              }
+            }
+          });
+        }
+      });
+
+
 
       $.ajax({
         type: "post",

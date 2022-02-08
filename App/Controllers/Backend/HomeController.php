@@ -2,10 +2,10 @@
 
 namespace App\Controllers\Backend;
 
-use App\Controllers\Controller;
 use App\Models\Order;
 use App\Models\Order_Item;
 use App\Services\Auth\Auth;
+use App\Controllers\Controller;
 use App\Utilities\FlashMessage;
 
 class HomeController extends Controller
@@ -35,16 +35,27 @@ class HomeController extends Controller
         $last_month = (int) $this->orderModel->comparison($this->between_dates('last', 'month'));
         $last_year  = (int) $this->orderModel->comparison($this->between_dates('last', 'year'));
 
-        $this_item_day   = (int) $this->orderItemModel->comparison($this->limit_chart_pir,$this->between_dates('this', 'day'));
-        $this_item_week  = (int) $this->orderItemModel->comparison($this->limit_chart_pir,$this->between_dates('this', 'week'));
-        $this_item_month = (int) $this->orderItemModel->comparison($this->limit_chart_pir,$this->between_dates('this', 'month'));
-        $this_item_year  = (int) $this->orderItemModel->comparison($this->limit_chart_pir,$this->between_dates('this', 'year'));
-        $last_item_day   = (int) $this->orderItemModel->comparison($this->limit_chart_pir,$this->between_dates('last', 'day'));
-        $last_item_week  = (int) $this->orderItemModel->comparison($this->limit_chart_pir,$this->between_dates('last', 'week'));
-        $last_item_month = (int) $this->orderItemModel->comparison($this->limit_chart_pir,$this->between_dates('last', 'month'));
-        $last_item_year  = (int) $this->orderItemModel->comparison($this->limit_chart_pir,$this->between_dates('last', 'year'));
 
-        $chart_pri = $this->orderItemModel->join__orderItem_whit_product_sort($this->limit_chart_pir,$this->between_dates('this', 'year'));
+
+
+        // dd($this_item_year, $last_item_year);
+        // dd(array_keys(array_intersect_key($this_item_year, $last_item_year)) );
+        // dd(array_intersect_key($this_item_year, $last_item_year) );
+        // dd(array_diff($this_item_year, $last_item_year) );
+
+
+
+        // $this_day   = $this->product_change_percentage('day');
+        // $this_week  = $this->product_change_percentage('week');
+        // $this_month = $this->product_change_percentage('month');
+        // $this_year  = $this->product_change_percentage('year');
+        // $last_day   = $this->product_change_percentage('day');
+        // $last_week  = $this->product_change_percentage('week');
+        // $last_month = $this->product_change_percentage('month');
+        // $last_year  = $this->product_change_percentage('year');
+
+
+        // dd( $this_year);
 
 
 
@@ -52,8 +63,7 @@ class HomeController extends Controller
             'grand'    => $this->calculations_mount('grand'),
             'discount' => $this->calculations_mount('discount'),
 
-            'chart_pir'  => $chart_pri,
-            'chart_pir_percent'  => $chart_pri,
+            'chart_pir'  => $this->orderItemModel->join__orderItem_whit_product_sort($this->limit_chart_pir, $this->between_dates('this', 'year')),
             'chart_pir_color' => ['danger', 'success', 'warning',  'primary', 'muted'],
 
             'count_order'  => $this->orderModel->count_order(),         // count all order
@@ -66,19 +76,44 @@ class HomeController extends Controller
             'change_sale_mount' => $this_month && $last_month ? $this->percentage_change($this_month, $last_month) : 0,   // percentage change of sale mount
             'change_sale_year'  => $this_year && $last_year ? $this->percentage_change($this_year, $last_year) : 0,       // percentage change of sale year
 
-            'change_item_sale_day'   => $this_item_day && $last_item_day ? $this->percentage_change($this_item_day, $last_item_day) : 0,           // percentage change of sale day
-            'change_item_sale_week'  => $this_item_week && $last_item_week ? $this->percentage_change($this_item_week, $last_item_week) : 0,       // percentage change of sale week
-            'change_item_sale_mount' => $this_item_month && $last_item_month ? $this->percentage_change($this_item_month, $last_item_month) : 0,   // percentage change of sale mount
-            'change_item_sale_year'  => $this_item_year && $last_item_year ? $this->percentage_change($this_item_year, $last_item_year) : 0,       // percentage change of sale year
+            'change_item_sale_day'   => $this->product_change_percentage('day'),
+            'change_item_sale_week'  => $this->product_change_percentage('week'),
+            'change_item_sale_mount' => $this->product_change_percentage('month'),
+            'change_item_sale_year'  => $this->product_change_percentage('year'),
+
+
 
             'avg_grand'    => $this->orderModel->read_avg_grand(),      // avg grand total of all orders
             'avg_discount' => $this->orderModel->read_avg_discount(),   // avg discount of all orders
 
         );
-        // dd($data['chart_pir_day'],$data['chart_pir_week'],$data['chart_pir_month'],$data['chart_pir_year']);
+        // dd($data['change_item_sale_day'], $data['change_item_sale_week'], $data['change_item_sale_mount'], $data['change_item_sale_year']);
 
         // dd(empty($data['chart_pir_day']),empty($data['chart_pir_week']),empty($data['chart_pir_month']),empty($data['chart_pir_year']));
         return view('Backend.index', $data);
+    }
+
+    public function product_change_percentage($when = 'year')
+    {
+        $cent = [];
+        $this_items   = $this->orderItemModel->join__orderItem_whit_product_sort($this->limit_chart_pir, $this->between_dates('this', $when)) ?? false;
+        $last_items   = $this->orderItemModel->join__orderItem_whit_product_sort($this->limit_chart_pir, $this->between_dates('last', $when)) ?? false;
+
+
+
+        $this_items_column   = array_column($this_items, 'grand_total', 'product_id');
+        $last_items_column   = array_column($last_items, 'grand_total', 'product_id');
+
+        $this_items_name   =    array_column($this_items, 'product_name', 'product_id');
+
+        foreach ($this_items_column as $key => $value) {
+            if (in_array($key, array_keys($last_items_column))) {
+                $cent[$key] = [round(($value - $last_items_column[$key]) / $last_items_column[$key] * 100), $this_items_name[$key]];
+            } else {
+                $cent[$key] = 0;
+            }
+        }
+        return $cent;
     }
 
 
@@ -143,6 +178,13 @@ class HomeController extends Controller
         }
     }
 
+    public function percentage_item_change($original_value,  $new_value): int // محاسبه درصد تغییر
+    {
+        if ($original_value > 0 && $new_value > 0) {
+            return ($new_value - $original_value) / $original_value * 100;
+        }
+    }
+
     public function calculations_mount($requested): array
     {
         // $shamsi_1400 = [1616272200, 1618947000, 1621625400, 1624303800, 1626982200, 1629660600, 1632342600, 1634934600, 1637526600, 1640118600, 1642710600, 1645302600]; // array key is month shamsi example(فروردین - ساعت 12 شب)
@@ -200,6 +242,17 @@ class HomeController extends Controller
         $params = $this->request->get_param('time');
         $data = [
             'chart_pir' => $this->orderItemModel->join__orderItem_whit_product_sort('5', $this->between_dates('this', $params)),
+        ];
+        echo  json_encode($data);
+    }
+
+
+    public function bestsellers_cent()
+    {
+        $params = $this->request->get_param('time');
+
+        $data = [
+            'change_item_sale'   => array_values($this->product_change_percentage($params)),
         ];
         echo  json_encode($data);
     }
