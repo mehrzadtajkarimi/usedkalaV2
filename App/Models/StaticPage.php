@@ -23,7 +23,6 @@ class StaticPage extends MysqlBaseModel
     {
         return $this->get('value',['key'=>$key])[0];
     }
-
     public function read_staticPage_by_key($key=null)
     {
         if (is_null($key)) {

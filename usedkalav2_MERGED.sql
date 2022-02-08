@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 29, 2022 at 05:09 PM
+-- Generation Time: Feb 05, 2022 at 11:13 AM
 -- Server version: 10.3.32-MariaDB-log-cll-lve
 -- PHP Version: 7.3.33
 
@@ -45,7 +45,9 @@ INSERT INTO `active_codes` (`id`, `user_id`, `code`, `expired_at`) VALUES
 (326, 79, 1250, '2021-12-13 13:19:03'),
 (331, 73, 4078, '2021-12-14 12:05:59'),
 (353, 86, 7474, '2021-12-20 12:00:46'),
-(354, 86, 1329, '2021-12-20 12:00:51');
+(354, 86, 1329, '2021-12-20 12:00:51'),
+(396, 84, 8419, '2022-02-01 10:46:09'),
+(397, 84, 6508, '2022-02-01 10:47:17');
 
 -- --------------------------------------------------------
 
@@ -529,7 +531,119 @@ INSERT INTO `activity_log` (`id`, `user_id`, `ip`, `type`, `target_table`, `row_
 (448, 80, '46.209.63.120', 'update', 'users', 0, '{\"id\":\"89\"}', '{\"old\":[{\"id\":\"89\",\"city_id\":\"301\",\"province_id\":\"8\",\"user_level\":\"1\",\"phone\":\"09352373910\",\"email\":\"usedkalaa@gmail.com\",\"first_name\":\"usedkala\",\"last_name\":\"\",\"company\":\"یوزد کالا\",\"jobtitle\":\"فروش تجهیزات شبکه\",\"national_code\":\"\",\"postal_code\":\"\",\"address\":\"تهران، خیابان قائم مقام فراهانی، میدان شعاع، پلاک یک، واحد دو\",\"birthday\":\"1641803195\",\"gender\":\"1\",\"status\":\"1\",\"bank_name\":null,\"bank_number\":null,\"ip\":null,\"email_verified_at\":null,\"created_at\":\"2022-01-10 11:56:21\",\"updated_at\":null}],\"new\":{\"first_name\":\"usedkalaa\",\"last_name\":\"\",\"national_code\":\"\",\"province_id\":\"8\",\"city_id\":\"301\",\"postal_code\":\"\",\"address\":\"تهران، خیابان قائم مقام فراهانی، میدان شعاع، پلاک یک، واحد دو\",\"email\":\"usedkalaa@gmail.com\",\"status\":\"1\"}}', '/admin/user/89', '2022-01-29 12:23:40'),
 (449, 80, '46.209.63.120', 'update', 'users', 0, '{\"id\":\"89\"}', '{\"old\":[{\"id\":\"89\",\"city_id\":\"301\",\"province_id\":\"8\",\"user_level\":\"1\",\"phone\":\"09352373910\",\"email\":\"usedkalaa@gmail.com\",\"first_name\":\"usedkalaa\",\"last_name\":\"\",\"company\":\"یوزد کالا\",\"jobtitle\":\"فروش تجهیزات شبکه\",\"national_code\":\"\",\"postal_code\":\"\",\"address\":\"تهران، خیابان قائم مقام فراهانی، میدان شعاع، پلاک یک، واحد دو\",\"birthday\":\"1641803195\",\"gender\":\"1\",\"status\":\"1\",\"bank_name\":null,\"bank_number\":null,\"ip\":null,\"email_verified_at\":null,\"created_at\":\"2022-01-10 11:56:21\",\"updated_at\":null}],\"new\":{\"first_name\":\"usedkala\",\"last_name\":\"\",\"national_code\":\"\",\"province_id\":\"8\",\"city_id\":\"301\",\"postal_code\":\"\",\"address\":\"تهران، خیابان قائم مقام فراهانی، میدان شعاع، پلاک یک، واحد دو\",\"email\":\"usedkalaa@gmail.com\",\"status\":\"1\"}}', '/admin/user/89', '2022-01-29 12:23:45'),
 (450, 0, '46.209.63.120', 'create', 'active_codes', 393, '', '{\"user_id\":\"80\",\"code\":8350,\"expired_at\":\"2022-01-29 17:07:29\"}', '/admin/login', '2022-01-29 13:37:28'),
-(451, 80, '46.209.63.120', 'delete', 'active_codes', 0, '{\"user_id\":\"80\"}', '[{\"id\":\"393\",\"user_id\":\"80\",\"code\":\"8350\",\"expired_at\":\"2022-01-29 17:07:29\"}]', '/admin/token', '2022-01-29 13:37:38');
+(451, 80, '46.209.63.120', 'delete', 'active_codes', 0, '{\"user_id\":\"80\"}', '[{\"id\":\"393\",\"user_id\":\"80\",\"code\":\"8350\",\"expired_at\":\"2022-01-29 17:07:29\"}]', '/admin/token', '2022-01-29 13:37:38'),
+(452, 0, '46.209.63.120', 'create', 'active_codes', 394, '', '{\"user_id\":\"85\",\"code\":4158,\"expired_at\":\"2022-01-31 09:02:11\"}', '/admin/login', '2022-01-31 05:32:10'),
+(453, 85, '46.209.63.120', 'delete', 'active_codes', 0, '{\"user_id\":\"85\"}', '[{\"id\":\"394\",\"user_id\":\"85\",\"code\":\"4158\",\"expired_at\":\"2022-01-31 09:02:11\"}]', '/admin/token', '2022-01-31 05:32:23'),
+(454, 85, '46.209.63.120', 'create', 'products', 98, '', '{\"user_id\":\"85\",\"slug\":\"سرور-DL360P-G8-8SFF-PN654081-B21-اچ-پی-HP\",\"title\":\"سرور DL360P G8 8SFF P\\/N:654081-B21 اچ پی HP\",\"price\":\"150000000\",\"brand_id\":\"14\",\"sku\":\"\",\"weight\":\"25\",\"quantity\":\"10\",\"meta_title\":\"سرور تک یونیت نسل 8 \",\"description\":\"\",\"seo_H1\":\"سرور G8\",\"seo_canonical\":\"\",\"seo_title\":\"خرید و بهترین قیمت سرور DL360P G8 8SFF P\\/N:654081-B21 اچ پی HP | یوزدکالا\",\"seo_description\":\"خرید و بهترین قیمت سرور DL360P G8 8SFF P\\/N:654081-B21 اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا\",\"seo_robot\":\"0\",\"status_related\":\"1\"}', '/admin/product', '2022-01-31 06:13:17'),
+(455, 85, '46.209.63.120', 'create', 'relateds', 52, '', '{\"entity_type\":\"product\",\"entity_id\":\"98\",\"related_id\":\"112\",\"user_id\":\"85\"}', '/admin/product', '2022-01-31 06:13:17'),
+(456, 85, '46.209.63.120', 'create', 'product_categories', 343, '', '{\"product_id\":\"98\",\"category_id\":\"112\"}', '/admin/product', '2022-01-31 06:13:17'),
+(457, 85, '46.209.63.120', 'create', 'taggables', 6, '', '{\"entity_type\":\"Product\",\"entity_id\":\"98\",\"tag_id\":\"1\"}', '/admin/product', '2022-01-31 06:13:17'),
+(458, 85, '46.209.63.120', 'create', 'photos', 308, '', '{\"entity_type\":\"Product\",\"entity_id\":98,\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202201\\/DL360 G8.---e5b9d62a.png\",\"alt\":\"product_image\",\"type\":0}', '/admin/product', '2022-01-31 06:13:17'),
+(459, 85, '46.209.63.120', 'update', 'products', 0, '{\"id\":\"98\"}', '{\"old\":[{\"id\":\"98\",\"brand_id\":\"14\",\"user_id\":\"85\",\"title\":\"سرور DL360P G8 8SFF P\\/N:654081-B21 اچ پی HP\",\"title_english\":\"\",\"seo_robot\":\"0\",\"seo_canonical\":\"\",\"seo_H1\":\"سرور G8\",\"seo_description\":\"خرید و بهترین قیمت سرور DL360P G8 8SFF P\\/N:654081-B21 اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا\",\"seo_title\":\"خرید و بهترین قیمت سرور DL360P G8 8SFF P\\/N:654081-B21 اچ پی HP | یوزدکالا\",\"meta_title\":\"سرور تک یونیت نسل 8 \",\"description\":\"\",\"price\":\"150000000\",\"featured\":null,\"image\":null,\"slug\":\"سرور-DL360P-G8-8SFF-PN654081-B21-اچ-پی-HP\",\"sale\":\"0\",\"status\":\"1\",\"status_related\":\"1\",\"sku\":\"\",\"quantity\":\"10\",\"weight\":\"25\",\"created_at\":\"2022-01-31 09:43:17\",\"updated_at\":null,\"published_at\":null,\"started_at\":null,\"end_at\":null}],\"new\":{\"user_id\":\"85\",\"slug\":\"سرور-DL360P-G8-8SFF-PN654081-B21-اچ-پی-HP\",\"title\":\"سرور DL360P G8 8SFF P\\/N:654081-B21 اچ پی HP\",\"price\":\"40000000\",\"brand_id\":\"14\",\"sku\":\"\",\"weight\":\"25\",\"quantity\":\"10\",\"meta_title\":\"سرور تک یونیت نسل 8 \",\"description\":\"\",\"featured\":1,\"sale\":1,\"status\":\"on\",\"seo_H1\":\"سرور G8\",\"seo_canonical\":\"\",\"seo_title\":\"خرید و بهترین قیمت سرور DL360P G8 8SFF P\\/N:654081-B21 اچ پی HP | یوزدکالا\",\"seo_robot\":\"0\",\"seo_description\":\"خرید و بهترین قیمت سرور DL360P G8 8SFF P\\/N:654081-B21 اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا\",\"status_related\":\"1\"}}', '/admin/product/98', '2022-01-31 06:14:20'),
+(460, 85, '46.209.63.120', 'delete', 'relateds', 0, '{\"entity_id\":\"98\"}', '[{\"id\":\"52\",\"entity_type\":\"product\",\"entity_id\":\"98\",\"related_id\":\"112\",\"user_id\":\"85\",\"created_at\":\"2022-01-31 09:43:17\"}]', '/admin/product/98', '2022-01-31 06:14:20'),
+(461, 85, '46.209.63.120', 'create', 'relateds', 53, '', '{\"entity_type\":\"product\",\"entity_id\":\"98\",\"related_id\":\"112\",\"user_id\":\"85\"}', '/admin/product/98', '2022-01-31 06:14:20'),
+(462, 85, '46.209.63.120', 'delete', 'product_categories', 0, '{\"product_id\":98}', '[{\"id\":\"343\",\"product_id\":\"98\",\"category_id\":\"112\"}]', '/admin/product/98', '2022-01-31 06:14:20'),
+(463, 85, '46.209.63.120', 'create', 'product_categories', 344, '', '{\"product_id\":\"98\",\"category_id\":\"112\"}', '/admin/product/98', '2022-01-31 06:14:20'),
+(464, 0, '46.209.63.120', 'create', 'active_codes', 395, '', '{\"user_id\":\"84\",\"code\":5155,\"expired_at\":\"2022-02-01 13:03:23\"}', '/admin/login', '2022-02-01 09:33:22'),
+(465, 84, '46.209.63.120', 'delete', 'active_codes', 0, '{\"user_id\":\"84\"}', '[{\"id\":\"395\",\"user_id\":\"84\",\"code\":\"5155\",\"expired_at\":\"2022-02-01 13:03:23\"}]', '/admin/token', '2022-02-01 09:33:48'),
+(466, 0, '46.209.63.120', 'create', 'active_codes', 396, '', '{\"user_id\":\"84\",\"code\":8419,\"expired_at\":\"2022-02-01 14:16:09\"}', '/admin/login', '2022-02-01 10:46:08'),
+(467, 0, '46.209.63.120', 'create', 'active_codes', 397, '', '{\"user_id\":\"84\",\"code\":6508,\"expired_at\":\"2022-02-01 14:17:17\"}', '/admin/login', '2022-02-01 10:47:16'),
+(468, 0, '46.209.63.120', 'create', 'active_codes', 398, '', '{\"user_id\":\"85\",\"code\":3431,\"expired_at\":\"2022-02-01 15:21:49\"}', '/admin/login', '2022-02-01 11:51:48'),
+(469, 0, '46.209.63.120', 'create', 'active_codes', 399, '', '{\"user_id\":\"85\",\"code\":8320,\"expired_at\":\"2022-02-01 15:22:33\"}', '/admin/login', '2022-02-01 11:52:32'),
+(470, 85, '46.209.63.120', 'delete', 'active_codes', 0, '{\"user_id\":\"85\"}', '[{\"id\":\"398\",\"user_id\":\"85\",\"code\":\"3431\",\"expired_at\":\"2022-02-01 15:21:49\"},{\"id\":\"399\",\"user_id\":\"85\",\"code\":\"8320\",\"expired_at\":\"2022-02-01 15:22:33\"}]', '/admin/token', '2022-02-01 11:53:11'),
+(471, 85, '46.209.63.120', 'create', 'products', 99, '', '{\"user_id\":\"85\",\"slug\":\"سرور-DL380-Gen9-12LFF-CTO-Server-PN719061-B21-اچ-پی-HP\",\"title\":\"سرور DL380 Gen9 12LFF CTO Server P\\/N:719061-B21  اچ پی HP\",\"price\":\"280000000\",\"brand_id\":\"10\",\"sku\":\"\",\"weight\":\"30\",\"quantity\":\"10\",\"meta_title\":\"سرور دو یونیت نسل 9\",\"description\":\"\",\"seo_H1\":\"سرور G9\",\"seo_canonical\":\"\",\"seo_title\":\"خرید و بهترین قیمت سرور سرور DL380 Gen9 12LFF CTO Server P\\/N:719061-B21  اچ پی HP | یوزدکالا\",\"seo_description\":\"خرید و بهترین قیمت سرور سرور DL380 Gen9 12LFF CTO Server P\\/N:719061-B21  اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا\",\"seo_robot\":\"0\",\"status_related\":\"1\"}', '/admin/product', '2022-02-01 12:05:09'),
+(472, 85, '46.209.63.120', 'create', 'relateds', 54, '', '{\"entity_type\":\"product\",\"entity_id\":\"99\",\"related_id\":\"112\",\"user_id\":\"85\"}', '/admin/product', '2022-02-01 12:05:09'),
+(473, 85, '46.209.63.120', 'create', 'product_categories', 345, '', '{\"product_id\":\"99\",\"category_id\":\"112\"}', '/admin/product', '2022-02-01 12:05:09'),
+(474, 85, '46.209.63.120', 'create', 'photos', 309, '', '{\"entity_type\":\"Product\",\"entity_id\":99,\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202202\\/DL380 G9 12LFF.---c1079bfc.jpg\",\"alt\":\"product_image\",\"type\":0}', '/admin/product', '2022-02-01 12:05:10'),
+(475, 85, '46.209.63.120', 'create', 'photos', 310, '', '{\"entity_type\":\"Product\",\"entity_id\":99,\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202202\\/DL380 G9 12LFF -2.---0bd2ab74.jpg\",\"alt\":\"product_image\",\"type\":1}', '/admin/product', '2022-02-01 12:05:10'),
+(476, 85, '46.209.63.120', 'create', 'photos', 311, '', '{\"entity_type\":\"Product\",\"entity_id\":99,\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202202\\/DL380 G9 12LFF -3.---e3484f5a.png\",\"alt\":\"product_image\",\"type\":2}', '/admin/product', '2022-02-01 12:05:10'),
+(477, 85, '46.209.63.120', 'update', 'products', 0, '{\"id\":\"99\"}', '{\"old\":[{\"id\":\"99\",\"brand_id\":\"10\",\"user_id\":\"85\",\"title\":\"سرور DL380 Gen9 12LFF CTO Server P\\/N:719061-B21  اچ پی HP\",\"title_english\":\"\",\"seo_robot\":\"0\",\"seo_canonical\":\"\",\"seo_H1\":\"سرور G9\",\"seo_description\":\"خرید و بهترین قیمت سرور سرور DL380 Gen9 12LFF CTO Server P\\/N:719061-B21  اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا\",\"seo_title\":\"خرید و بهترین قیمت سرور سرور DL380 Gen9 12LFF CTO Server P\\/N:719061-B21  اچ پی HP | یوزدکالا\",\"meta_title\":\"سرور دو یونیت نسل 9\",\"description\":\"\",\"price\":\"280000000\",\"featured\":null,\"image\":null,\"slug\":\"سرور-DL380-Gen9-12LFF-CTO-Server-PN719061-B21-اچ-پی-HP\",\"sale\":\"0\",\"status\":\"1\",\"status_related\":\"1\",\"sku\":\"\",\"quantity\":\"10\",\"weight\":\"30\",\"created_at\":\"2022-02-01 15:35:09\",\"updated_at\":null,\"published_at\":null,\"started_at\":null,\"end_at\":null}],\"new\":{\"user_id\":\"85\",\"slug\":\"سرور-DL380-Gen9-12LFF-CTO-Server-PN719061-B21-اچ-پی-HP\",\"title\":\"سرور DL380 Gen9 12LFF CTO Server P\\/N:719061-B21  اچ پی HP\",\"price\":\"280000000\",\"brand_id\":\"10\",\"sku\":\"\",\"weight\":\"30\",\"quantity\":\"10\",\"meta_title\":\"سرور دو یونیت نسل 9\",\"description\":\"\",\"featured\":1,\"sale\":1,\"status\":\"on\",\"seo_H1\":\"سرور G9\",\"seo_canonical\":\"\",\"seo_title\":\"خرید و بهترین قیمت سرور سرور DL380 Gen9 12LFF CTO Server P\\/N:719061-B21  اچ پی HP | یوزدکالا\",\"seo_robot\":\"0\",\"seo_description\":\"خرید و بهترین قیمت سرور سرور DL380 Gen9 12LFF CTO Server P\\/N:719061-B21  اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا\",\"status_related\":\"1\"}}', '/admin/product/99', '2022-02-01 12:06:22'),
+(478, 85, '46.209.63.120', 'delete', 'relateds', 0, '{\"entity_id\":\"99\"}', '[{\"id\":\"54\",\"entity_type\":\"product\",\"entity_id\":\"99\",\"related_id\":\"112\",\"user_id\":\"85\",\"created_at\":\"2022-02-01 15:35:09\"}]', '/admin/product/99', '2022-02-01 12:06:22'),
+(479, 85, '46.209.63.120', 'create', 'relateds', 55, '', '{\"entity_type\":\"product\",\"entity_id\":\"99\",\"related_id\":\"112\",\"user_id\":\"85\"}', '/admin/product/99', '2022-02-01 12:06:22'),
+(480, 85, '46.209.63.120', 'delete', 'product_categories', 0, '{\"product_id\":99}', '[{\"id\":\"345\",\"product_id\":\"99\",\"category_id\":\"112\"}]', '/admin/product/99', '2022-02-01 12:06:22'),
+(481, 85, '46.209.63.120', 'create', 'product_categories', 346, '', '{\"product_id\":\"99\",\"category_id\":\"112\"}', '/admin/product/99', '2022-02-01 12:06:22'),
+(482, 85, '46.209.63.120', 'update', 'photos', 0, '{\"entity_type\":\"Product\",\"entity_id\":99}', '{\"old\":[{\"id\":\"309\",\"entity_id\":\"99\",\"entity_type\":\"Product\",\"type\":\"0\",\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202202\\/DL380 G9 12LFF.---c1079bfc.jpg\",\"alt\":\"product_image\",\"created_at\":\"2022-02-01 15:35:10\"},{\"id\":\"310\",\"entity_id\":\"99\",\"entity_type\":\"Product\",\"type\":\"1\",\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202202\\/DL380 G9 12LFF -2.---0bd2ab74.jpg\",\"alt\":\"product_image\",\"created_at\":\"2022-02-01 15:35:10\"},{\"id\":\"311\",\"entity_id\":\"99\",\"entity_type\":\"Product\",\"type\":\"2\",\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202202\\/DL380 G9 12LFF -3.---e3484f5a.png\",\"alt\":\"product_image\",\"created_at\":\"2022-02-01 15:35:10\"}],\"new\":{\"entity_type\":\"Product\",\"entity_id\":99,\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202202\\/DL380 G9 12LFF.---8880843a.jpg\",\"alt\":\"product_image\",\"type\":0}}', '/admin/product/99', '2022-02-01 12:06:22'),
+(483, 85, '46.209.63.120', 'create', 'products', 100, '', '{\"user_id\":\"85\",\"slug\":\"سرور-DL360P-G9-8SFF-PN755258-B21-اچ-پی-HP\",\"title\":\"سرور DL360P G9 8SFF P\\/N:755258-B21 اچ پی HP\",\"price\":\"140000000\",\"brand_id\":\"10\",\"sku\":\"\",\"weight\":\"20\",\"quantity\":\"10\",\"meta_title\":\"سرور تک یونیت نسل 9 مناسب جهت شرکتهای استارت آپی\",\"description\":\"\",\"seo_H1\":\"سرور G9\",\"seo_canonical\":\"\",\"seo_title\":\"خرید و بهترین قیمت سرور DL360P G9 8SFF P\\/N:755258-B21 اچ پی HP | یوزدکالا\",\"seo_description\":\"خرید و بهترین قیمت سرور DL360P G9 8SFF P\\/N:755258-B21 اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا\",\"seo_robot\":\"0\",\"status_related\":\"1\"}', '/admin/product', '2022-02-01 12:36:06'),
+(484, 85, '46.209.63.120', 'create', 'relateds', 56, '', '{\"entity_type\":\"product\",\"entity_id\":\"100\",\"related_id\":\"112\",\"user_id\":\"85\"}', '/admin/product', '2022-02-01 12:36:06'),
+(485, 85, '46.209.63.120', 'create', 'product_categories', 347, '', '{\"product_id\":\"100\",\"category_id\":\"112\"}', '/admin/product', '2022-02-01 12:36:06'),
+(486, 85, '46.209.63.120', 'create', 'photos', 312, '', '{\"entity_type\":\"Product\",\"entity_id\":100,\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202202\\/DL360 G9 8SFF-3.---02a8033f.jpg\",\"alt\":\"product_image\",\"type\":0}', '/admin/product', '2022-02-01 12:36:06'),
+(487, 85, '46.209.63.120', 'create', 'photos', 313, '', '{\"entity_type\":\"Product\",\"entity_id\":100,\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202202\\/DL360 G9 8SFF -2.---860d15ad.jpg\",\"alt\":\"product_image\",\"type\":1}', '/admin/product', '2022-02-01 12:36:06'),
+(488, 85, '46.209.63.120', 'create', 'photos', 314, '', '{\"entity_type\":\"Product\",\"entity_id\":100,\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202202\\/DL360 G9 8SFF.---15517d66.jpg\",\"alt\":\"product_image\",\"type\":2}', '/admin/product', '2022-02-01 12:36:06'),
+(489, 85, '46.209.63.120', 'update', 'products', 0, '{\"id\":\"99\"}', '{\"old\":[{\"id\":\"99\",\"brand_id\":\"10\",\"user_id\":\"85\",\"title\":\"سرور DL380 Gen9 12LFF CTO Server P\\/N:719061-B21  اچ پی HP\",\"title_english\":\"\",\"seo_robot\":\"0\",\"seo_canonical\":\"\",\"seo_H1\":\"سرور G9\",\"seo_description\":\"خرید و بهترین قیمت سرور سرور DL380 Gen9 12LFF CTO Server P\\/N:719061-B21  اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا\",\"seo_title\":\"خرید و بهترین قیمت سرور سرور DL380 Gen9 12LFF CTO Server P\\/N:719061-B21  اچ پی HP | یوزدکالا\",\"meta_title\":\"سرور دو یونیت نسل 9\",\"description\":\"\",\"price\":\"280000000\",\"featured\":\"1\",\"image\":null,\"slug\":\"سرور-DL380-Gen9-12LFF-CTO-Server-PN719061-B21-اچ-پی-HP\",\"sale\":\"1\",\"status\":\"0\",\"status_related\":\"1\",\"sku\":\"\",\"quantity\":\"10\",\"weight\":\"30\",\"created_at\":\"2022-02-01 15:35:09\",\"updated_at\":null,\"published_at\":null,\"started_at\":null,\"end_at\":null}],\"new\":{\"user_id\":\"85\",\"slug\":\"سرور-DL380-Gen9-12LFF-CTO-Server-PN719061-B21-اچ-پی-HP\",\"title\":\"سرور DL380 Gen9 12LFF CTO Server P\\/N:719061-B21  اچ پی HP\",\"price\":\"280000000\",\"brand_id\":\"10\",\"sku\":\"\",\"weight\":\"30\",\"quantity\":\"10\",\"meta_title\":\"سرور دو یونیت نسل 9\",\"description\":\"\",\"featured\":1,\"sale\":1,\"status\":1,\"seo_H1\":\"سرور G9\",\"seo_canonical\":\"\",\"seo_title\":\"خرید و بهترین قیمت سرور DL380 Gen9 12LFF CTO Server P\\/N:719061-B21  اچ پی HP | یوزدکالا\",\"seo_robot\":\"0\",\"seo_description\":\"خرید و بهترین قیمت سرور DL380 Gen9 12LFF CTO Server P\\/N:719061-B21  اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا\",\"status_related\":\"1\"}}', '/admin/product/99', '2022-02-01 12:36:39'),
+(490, 85, '46.209.63.120', 'delete', 'relateds', 0, '{\"entity_id\":\"99\"}', '[{\"id\":\"55\",\"entity_type\":\"product\",\"entity_id\":\"99\",\"related_id\":\"112\",\"user_id\":\"85\",\"created_at\":\"2022-02-01 15:36:22\"}]', '/admin/product/99', '2022-02-01 12:36:39'),
+(491, 85, '46.209.63.120', 'create', 'relateds', 57, '', '{\"entity_type\":\"product\",\"entity_id\":\"99\",\"related_id\":\"112\",\"user_id\":\"85\"}', '/admin/product/99', '2022-02-01 12:36:39'),
+(492, 85, '46.209.63.120', 'delete', 'product_categories', 0, '{\"product_id\":99}', '[{\"id\":\"346\",\"product_id\":\"99\",\"category_id\":\"112\"}]', '/admin/product/99', '2022-02-01 12:36:39'),
+(493, 85, '46.209.63.120', 'create', 'product_categories', 348, '', '{\"product_id\":\"99\",\"category_id\":\"112\"}', '/admin/product/99', '2022-02-01 12:36:39'),
+(494, 85, '46.209.63.120', 'create', 'products', 101, '', '{\"user_id\":\"85\",\"slug\":\"سرور-DL380P-G8-12LFF-PN665552-B21-اچ-پی-HP\",\"title\":\"سرور DL380P G8 12LFF P\\/N:665552-B21 اچ پی HP\",\"price\":\"55000000\",\"brand_id\":\"14\",\"sku\":\"\",\"weight\":\"20\",\"quantity\":\"10\",\"meta_title\":\"سرور دو یونیت نسل 8\",\"description\":\"\",\"seo_H1\":\"سرور G8\",\"seo_canonical\":\"\",\"seo_title\":\"خرید و بهترین قیمت سرور DL380P G8 12LFF P\\/N:665552-B21 اچ پی HP | یوزدکالا\",\"seo_description\":\"خرید و بهترین قیمت سرور DL380P G8 12LFF P\\/N:665552-B21 اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا\",\"seo_robot\":\"0\",\"status_related\":\"1\"}', '/admin/product', '2022-02-01 12:45:31'),
+(495, 85, '46.209.63.120', 'create', 'relateds', 58, '', '{\"entity_type\":\"product\",\"entity_id\":\"101\",\"related_id\":\"112\",\"user_id\":\"85\"}', '/admin/product', '2022-02-01 12:45:31'),
+(496, 85, '46.209.63.120', 'create', 'product_categories', 349, '', '{\"product_id\":\"101\",\"category_id\":\"112\"}', '/admin/product', '2022-02-01 12:45:31'),
+(497, 85, '46.209.63.120', 'create', 'photos', 315, '', '{\"entity_type\":\"Product\",\"entity_id\":101,\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202202\\/DL380 G8 12LFF-2.---f7360e1f.jpg\",\"alt\":\"product_image\",\"type\":0}', '/admin/product', '2022-02-01 12:45:31'),
+(498, 85, '46.209.63.120', 'create', 'photos', 316, '', '{\"entity_type\":\"Product\",\"entity_id\":101,\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202202\\/DL380 G8 12LFF.---ebece0af.jpg\",\"alt\":\"product_image\",\"type\":1}', '/admin/product', '2022-02-01 12:45:31'),
+(499, 85, '46.209.63.120', 'update', 'products', 0, '{\"id\":\"101\"}', '{\"old\":[{\"id\":\"101\",\"brand_id\":\"14\",\"user_id\":\"85\",\"title\":\"سرور DL380P G8 12LFF P\\/N:665552-B21 اچ پی HP\",\"title_english\":\"\",\"seo_robot\":\"0\",\"seo_canonical\":\"\",\"seo_H1\":\"سرور G8\",\"seo_description\":\"خرید و بهترین قیمت سرور DL380P G8 12LFF P\\/N:665552-B21 اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا\",\"seo_title\":\"خرید و بهترین قیمت سرور DL380P G8 12LFF P\\/N:665552-B21 اچ پی HP | یوزدکالا\",\"meta_title\":\"سرور دو یونیت نسل 8\",\"description\":\"\",\"price\":\"55000000\",\"featured\":null,\"image\":null,\"slug\":\"سرور-DL380P-G8-12LFF-PN665552-B21-اچ-پی-HP\",\"sale\":\"0\",\"status\":\"1\",\"status_related\":\"1\",\"sku\":\"\",\"quantity\":\"10\",\"weight\":\"20\",\"created_at\":\"2022-02-01 16:15:31\",\"updated_at\":null,\"published_at\":null,\"started_at\":null,\"end_at\":null}],\"new\":{\"user_id\":\"85\",\"slug\":\"سرور-DL380P-G8-12LFF-PN665552-B21-اچ-پی-HP\",\"title\":\"سرور DL380P G8 12LFF P\\/N:665552-B21 اچ پی HP\",\"price\":\"5500000\",\"brand_id\":\"14\",\"sku\":\"\",\"weight\":\"20\",\"quantity\":\"10\",\"meta_title\":\"سرور دو یونیت نسل 8\",\"description\":\"\",\"featured\":1,\"sale\":1,\"status\":\"on\",\"seo_H1\":\"سرور G8\",\"seo_canonical\":\"\",\"seo_title\":\"خرید و بهترین قیمت سرور DL380P G8 12LFF P\\/N:665552-B21 اچ پی HP | یوزدکالا\",\"seo_robot\":\"0\",\"seo_description\":\"خرید و بهترین قیمت سرور DL380P G8 12LFF P\\/N:665552-B21 اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا\",\"status_related\":\"1\"}}', '/admin/product/101', '2022-02-01 12:51:42'),
+(500, 85, '46.209.63.120', 'delete', 'relateds', 0, '{\"entity_id\":\"101\"}', '[{\"id\":\"58\",\"entity_type\":\"product\",\"entity_id\":\"101\",\"related_id\":\"112\",\"user_id\":\"85\",\"created_at\":\"2022-02-01 16:15:31\"}]', '/admin/product/101', '2022-02-01 12:51:42'),
+(501, 85, '46.209.63.120', 'create', 'relateds', 59, '', '{\"entity_type\":\"product\",\"entity_id\":\"101\",\"related_id\":\"112\",\"user_id\":\"85\"}', '/admin/product/101', '2022-02-01 12:51:42'),
+(502, 85, '46.209.63.120', 'delete', 'product_categories', 0, '{\"product_id\":101}', '[{\"id\":\"349\",\"product_id\":\"101\",\"category_id\":\"112\"}]', '/admin/product/101', '2022-02-01 12:51:42'),
+(503, 85, '46.209.63.120', 'create', 'product_categories', 350, '', '{\"product_id\":\"101\",\"category_id\":\"112\"}', '/admin/product/101', '2022-02-01 12:51:42'),
+(504, 85, '46.209.63.120', 'update', 'products', 0, '{\"id\":\"99\"}', '{\"old\":[{\"id\":\"99\",\"brand_id\":\"10\",\"user_id\":\"85\",\"title\":\"سرور DL380 Gen9 12LFF CTO Server P\\/N:719061-B21  اچ پی HP\",\"title_english\":\"\",\"seo_robot\":\"0\",\"seo_canonical\":\"\",\"seo_H1\":\"سرور G9\",\"seo_description\":\"خرید و بهترین قیمت سرور DL380 Gen9 12LFF CTO Server P\\/N:719061-B21  اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا\",\"seo_title\":\"خرید و بهترین قیمت سرور DL380 Gen9 12LFF CTO Server P\\/N:719061-B21  اچ پی HP | یوزدکالا\",\"meta_title\":\"سرور دو یونیت نسل 9\",\"description\":\"\",\"price\":\"280000000\",\"featured\":\"1\",\"image\":null,\"slug\":\"سرور-DL380-Gen9-12LFF-CTO-Server-PN719061-B21-اچ-پی-HP\",\"sale\":\"1\",\"status\":\"1\",\"status_related\":\"1\",\"sku\":\"\",\"quantity\":\"10\",\"weight\":\"30\",\"created_at\":\"2022-02-01 15:35:09\",\"updated_at\":null,\"published_at\":null,\"started_at\":null,\"end_at\":null}],\"new\":{\"user_id\":\"85\",\"slug\":\"سرور-DL380-Gen9-12LFF-CTO-Server-PN719061-B21-اچ-پی-HP\",\"title\":\"سرور DL380 Gen9 12LFF CTO Server P\\/N:719061-B21  اچ پی HP\",\"price\":\"28000000\",\"brand_id\":\"10\",\"sku\":\"\",\"weight\":\"30\",\"quantity\":\"10\",\"meta_title\":\"سرور دو یونیت نسل 9\",\"description\":\"\",\"featured\":1,\"sale\":1,\"status\":\"on\",\"seo_H1\":\"سرور G9\",\"seo_canonical\":\"\",\"seo_title\":\"خرید و بهترین قیمت سرور DL380 Gen9 12LFF CTO Server P\\/N:719061-B21  اچ پی HP | یوزدکالا\",\"seo_robot\":\"0\",\"seo_description\":\"خرید و بهترین قیمت سرور DL380 Gen9 12LFF CTO Server P\\/N:719061-B21  اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا\",\"status_related\":\"1\"}}', '/admin/product/99', '2022-02-01 12:51:54'),
+(505, 85, '46.209.63.120', 'delete', 'relateds', 0, '{\"entity_id\":\"99\"}', '[{\"id\":\"57\",\"entity_type\":\"product\",\"entity_id\":\"99\",\"related_id\":\"112\",\"user_id\":\"85\",\"created_at\":\"2022-02-01 16:06:39\"}]', '/admin/product/99', '2022-02-01 12:51:54'),
+(506, 85, '46.209.63.120', 'create', 'relateds', 60, '', '{\"entity_type\":\"product\",\"entity_id\":\"99\",\"related_id\":\"112\",\"user_id\":\"85\"}', '/admin/product/99', '2022-02-01 12:51:54'),
+(507, 85, '46.209.63.120', 'delete', 'product_categories', 0, '{\"product_id\":99}', '[{\"id\":\"348\",\"product_id\":\"99\",\"category_id\":\"112\"}]', '/admin/product/99', '2022-02-01 12:51:54'),
+(508, 85, '46.209.63.120', 'create', 'product_categories', 351, '', '{\"product_id\":\"99\",\"category_id\":\"112\"}', '/admin/product/99', '2022-02-01 12:51:54'),
+(509, 85, '46.209.63.120', 'update', 'products', 0, '{\"id\":\"99\"}', '{\"old\":[{\"id\":\"99\",\"brand_id\":\"10\",\"user_id\":\"85\",\"title\":\"سرور DL380 Gen9 12LFF CTO Server P\\/N:719061-B21  اچ پی HP\",\"title_english\":\"\",\"seo_robot\":\"0\",\"seo_canonical\":\"\",\"seo_H1\":\"سرور G9\",\"seo_description\":\"خرید و بهترین قیمت سرور DL380 Gen9 12LFF CTO Server P\\/N:719061-B21  اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا\",\"seo_title\":\"خرید و بهترین قیمت سرور DL380 Gen9 12LFF CTO Server P\\/N:719061-B21  اچ پی HP | یوزدکالا\",\"meta_title\":\"سرور دو یونیت نسل 9\",\"description\":\"\",\"price\":\"28000000\",\"featured\":\"1\",\"image\":null,\"slug\":\"سرور-DL380-Gen9-12LFF-CTO-Server-PN719061-B21-اچ-پی-HP\",\"sale\":\"1\",\"status\":\"0\",\"status_related\":\"1\",\"sku\":\"\",\"quantity\":\"10\",\"weight\":\"30\",\"created_at\":\"2022-02-01 15:35:09\",\"updated_at\":null,\"published_at\":null,\"started_at\":null,\"end_at\":null}],\"new\":{\"user_id\":\"85\",\"slug\":\"سرور-DL380-Gen9-12LFF-CTO-Server-PN719061-B21-اچ-پی-HP\",\"title\":\"سرور DL380 Gen9 12LFF CTO Server P\\/N:719061-B21  اچ پی HP\",\"price\":\"280000000\",\"brand_id\":\"10\",\"sku\":\"\",\"weight\":\"30\",\"quantity\":\"10\",\"meta_title\":\"سرور دو یونیت نسل 9\",\"description\":\"\",\"featured\":1,\"sale\":1,\"status\":1,\"seo_H1\":\"سرور G9\",\"seo_canonical\":\"\",\"seo_title\":\"خرید و بهترین قیمت سرور DL380 Gen9 12LFF CTO Server P\\/N:719061-B21  اچ پی HP | یوزدکالا\",\"seo_robot\":\"0\",\"seo_description\":\"خرید و بهترین قیمت سرور DL380 Gen9 12LFF CTO Server P\\/N:719061-B21  اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا\",\"status_related\":\"1\"}}', '/admin/product/99', '2022-02-01 12:52:11'),
+(510, 85, '46.209.63.120', 'delete', 'relateds', 0, '{\"entity_id\":\"99\"}', '[{\"id\":\"60\",\"entity_type\":\"product\",\"entity_id\":\"99\",\"related_id\":\"112\",\"user_id\":\"85\",\"created_at\":\"2022-02-01 16:21:54\"}]', '/admin/product/99', '2022-02-01 12:52:11'),
+(511, 85, '46.209.63.120', 'create', 'relateds', 61, '', '{\"entity_type\":\"product\",\"entity_id\":\"99\",\"related_id\":\"112\",\"user_id\":\"85\"}', '/admin/product/99', '2022-02-01 12:52:11'),
+(512, 85, '46.209.63.120', 'delete', 'product_categories', 0, '{\"product_id\":99}', '[{\"id\":\"351\",\"product_id\":\"99\",\"category_id\":\"112\"}]', '/admin/product/99', '2022-02-01 12:52:11'),
+(513, 85, '46.209.63.120', 'create', 'product_categories', 352, '', '{\"product_id\":\"99\",\"category_id\":\"112\"}', '/admin/product/99', '2022-02-01 12:52:11'),
+(514, 85, '46.209.63.120', 'update', 'products', 0, '{\"id\":\"101\"}', '{\"old\":[{\"id\":\"101\",\"brand_id\":\"14\",\"user_id\":\"85\",\"title\":\"سرور DL380P G8 12LFF P\\/N:665552-B21 اچ پی HP\",\"title_english\":\"\",\"seo_robot\":\"0\",\"seo_canonical\":\"\",\"seo_H1\":\"سرور G8\",\"seo_description\":\"خرید و بهترین قیمت سرور DL380P G8 12LFF P\\/N:665552-B21 اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا\",\"seo_title\":\"خرید و بهترین قیمت سرور DL380P G8 12LFF P\\/N:665552-B21 اچ پی HP | یوزدکالا\",\"meta_title\":\"سرور دو یونیت نسل 8\",\"description\":\"\",\"price\":\"5500000\",\"featured\":\"1\",\"image\":null,\"slug\":\"سرور-DL380P-G8-12LFF-PN665552-B21-اچ-پی-HP\",\"sale\":\"1\",\"status\":\"0\",\"status_related\":\"1\",\"sku\":\"\",\"quantity\":\"10\",\"weight\":\"20\",\"created_at\":\"2022-02-01 16:15:31\",\"updated_at\":null,\"published_at\":null,\"started_at\":null,\"end_at\":null}],\"new\":{\"user_id\":\"85\",\"slug\":\"سرور-DL380P-G8-12LFF-PN665552-B21-اچ-پی-HP\",\"title\":\"سرور DL380P G8 12LFF P\\/N:665552-B21 اچ پی HP\",\"price\":\"55000000\",\"brand_id\":\"14\",\"sku\":\"\",\"weight\":\"20\",\"quantity\":\"10\",\"meta_title\":\"سرور دو یونیت نسل 8\",\"description\":\"\",\"featured\":1,\"sale\":1,\"status\":1,\"seo_H1\":\"سرور G8\",\"seo_canonical\":\"\",\"seo_title\":\"خرید و بهترین قیمت سرور DL380P G8 12LFF P\\/N:665552-B21 اچ پی HP | یوزدکالا\",\"seo_robot\":\"0\",\"seo_description\":\"خرید و بهترین قیمت سرور DL380P G8 12LFF P\\/N:665552-B21 اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا\",\"status_related\":\"1\"}}', '/admin/product/101', '2022-02-01 12:52:20'),
+(515, 85, '46.209.63.120', 'delete', 'relateds', 0, '{\"entity_id\":\"101\"}', '[{\"id\":\"59\",\"entity_type\":\"product\",\"entity_id\":\"101\",\"related_id\":\"112\",\"user_id\":\"85\",\"created_at\":\"2022-02-01 16:21:42\"}]', '/admin/product/101', '2022-02-01 12:52:20'),
+(516, 85, '46.209.63.120', 'create', 'relateds', 62, '', '{\"entity_type\":\"product\",\"entity_id\":\"101\",\"related_id\":\"112\",\"user_id\":\"85\"}', '/admin/product/101', '2022-02-01 12:52:20'),
+(517, 85, '46.209.63.120', 'delete', 'product_categories', 0, '{\"product_id\":101}', '[{\"id\":\"350\",\"product_id\":\"101\",\"category_id\":\"112\"}]', '/admin/product/101', '2022-02-01 12:52:20'),
+(518, 85, '46.209.63.120', 'create', 'product_categories', 353, '', '{\"product_id\":\"101\",\"category_id\":\"112\"}', '/admin/product/101', '2022-02-01 12:52:20'),
+(519, 0, '46.209.63.120', 'create', 'active_codes', 400, '', '{\"user_id\":\"85\",\"code\":7072,\"expired_at\":\"2022-02-01 17:50:44\"}', '/admin/login', '2022-02-01 14:20:43'),
+(520, 85, '46.209.63.120', 'delete', 'active_codes', 0, '{\"user_id\":\"85\"}', '[{\"id\":\"400\",\"user_id\":\"85\",\"code\":\"7072\",\"expired_at\":\"2022-02-01 17:50:44\"}]', '/admin/token', '2022-02-01 14:21:35'),
+(521, 85, '46.209.63.120', 'create', 'products', 102, '', '{\"user_id\":\"85\",\"slug\":\"سرور-DL380e-Gen8-8SFF-PN669253-B21-اچ-پی-HP\",\"title\":\"سرور DL380e Gen8 8SFF P\\/N:669253-B21 اچ پی HP\",\"price\":\"20000000\",\"brand_id\":\"14\",\"sku\":\"\",\"weight\":\"15\",\"quantity\":\"10\",\"meta_title\":\"سرور تک یونیت نسل 8\",\"description\":\"\",\"seo_H1\":\"سرور G8\",\"seo_canonical\":\"\",\"seo_title\":\"خرید و بهترین قیمت سرور DL380e Gen8 8SFF P\\/N:669253-B21 اچ پی HP | یوزدکالا\",\"seo_description\":\"خرید و بهترین قیمت سرور DL380e Gen8 8SFF P\\/N:669253-B21 اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا\",\"seo_robot\":\"0\",\"status_related\":\"1\"}', '/admin/product', '2022-02-01 14:24:49'),
+(522, 85, '46.209.63.120', 'create', 'relateds', 63, '', '{\"entity_type\":\"product\",\"entity_id\":\"102\",\"related_id\":\"112\",\"user_id\":\"85\"}', '/admin/product', '2022-02-01 14:24:49'),
+(523, 85, '46.209.63.120', 'create', 'product_categories', 354, '', '{\"product_id\":\"102\",\"category_id\":\"112\"}', '/admin/product', '2022-02-01 14:24:49'),
+(524, 85, '46.209.63.120', 'create', 'photos', 317, '', '{\"entity_type\":\"Product\",\"entity_id\":102,\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202202\\/dl320e g8.---e27299e0.png\",\"alt\":\"product_image\",\"type\":0}', '/admin/product', '2022-02-01 14:24:49'),
+(525, 85, '46.209.63.120', 'create', 'products', 103, '', '{\"user_id\":\"85\",\"slug\":\"سرور-DL380e-Gen8-8SFF-PN669253-B21-اچ-پی-HP\",\"title\":\"سرور DL380e Gen8 8SFF P\\/N:669253-B21 اچ پی HP\",\"price\":\"20000000\",\"brand_id\":\"14\",\"sku\":\"\",\"weight\":\"15\",\"quantity\":\"10\",\"meta_title\":\"سرور تک یونیت نسل 8\",\"description\":\"\",\"seo_H1\":\"سرور G8\",\"seo_canonical\":\"\",\"seo_title\":\"خرید و بهترین قیمت سرور DL380e Gen8 8SFF P\\/N:669253-B21 اچ پی HP | یوزدکالا\",\"seo_description\":\"خرید و بهترین قیمت سرور DL380e Gen8 8SFF P\\/N:669253-B21 اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا\",\"seo_robot\":\"0\",\"status_related\":\"1\"}', '/admin/product', '2022-02-01 14:24:54'),
+(526, 85, '46.209.63.120', 'create', 'relateds', 64, '', '{\"entity_type\":\"product\",\"entity_id\":\"103\",\"related_id\":\"112\",\"user_id\":\"85\"}', '/admin/product', '2022-02-01 14:24:54'),
+(527, 85, '46.209.63.120', 'create', 'product_categories', 355, '', '{\"product_id\":\"103\",\"category_id\":\"112\"}', '/admin/product', '2022-02-01 14:24:54'),
+(528, 85, '46.209.63.120', 'create', 'photos', 318, '', '{\"entity_type\":\"Product\",\"entity_id\":103,\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202202\\/dl320e g8.---3bfca6d9.png\",\"alt\":\"product_image\",\"type\":0}', '/admin/product', '2022-02-01 14:24:54'),
+(529, 85, '46.209.63.120', 'delete', 'product_categories', 0, '{\"product_id\":102}', '[{\"id\":\"354\",\"product_id\":\"102\",\"category_id\":\"112\"}]', '/admin/product/102', '2022-02-01 14:25:04'),
+(530, 85, '46.209.63.120', 'delete', 'taggables', 0, '{\"entity_id\":\"102\"}', '[]', '/admin/product/102', '2022-02-01 14:25:04'),
+(531, 85, '46.209.63.120', 'delete', 'photos', 0, '{\"entity_id\":\"102\"}', '[{\"id\":\"317\",\"entity_id\":\"102\",\"entity_type\":\"Product\",\"type\":\"0\",\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202202\\/dl320e g8.---e27299e0.png\",\"alt\":\"product_image\",\"created_at\":\"2022-02-01 17:54:49\"}]', '/admin/product/102', '2022-02-01 14:25:04'),
+(532, 85, '46.209.63.120', 'delete', 'products', 0, '{\"id\":\"102\"}', '[{\"id\":\"102\",\"brand_id\":\"14\",\"user_id\":\"85\",\"title\":\"سرور DL380e Gen8 8SFF P\\/N:669253-B21 اچ پی HP\",\"title_english\":\"\",\"seo_robot\":\"0\",\"seo_canonical\":\"\",\"seo_H1\":\"سرور G8\",\"seo_description\":\"خرید و بهترین قیمت سرور DL380e Gen8 8SFF P\\/N:669253-B21 اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا\",\"seo_title\":\"خرید و بهترین قیمت سرور DL380e Gen8 8SFF P\\/N:669253-B21 اچ پی HP | یوزدکالا\",\"meta_title\":\"سرور تک یونیت نسل 8\",\"description\":\"\",\"price\":\"20000000\",\"featured\":null,\"image\":null,\"slug\":\"سرور-DL380e-Gen8-8SFF-PN669253-B21-اچ-پی-HP\",\"sale\":\"0\",\"status\":\"1\",\"status_related\":\"1\",\"sku\":\"\",\"quantity\":\"10\",\"weight\":\"15\",\"created_at\":\"2022-02-01 17:54:49\",\"updated_at\":null,\"published_at\":null,\"started_at\":null,\"end_at\":null}]', '/admin/product/102', '2022-02-01 14:25:04'),
+(533, 85, '46.209.63.120', 'create', 'products', 104, '', '{\"user_id\":\"85\",\"slug\":\"سی-پی-یو-سرور-E5-2630\",\"title\":\"سی پی یو سرور E5-2630\",\"price\":\"5000000\",\"brand_id\":\"12\",\"sku\":\"\",\"weight\":\"1\",\"quantity\":\"10\",\"meta_title\":\"پردازنده 2.3 گیگاهرتزی 6 هسته مربوط به نسل 8\",\"description\":\"\",\"seo_H1\":\"CPU G8\",\"seo_canonical\":\"\",\"seo_title\":\"خرید و بهترین قیمت سی پی یو سرور E5-2630 اینتل Intel | یوزدکالا\",\"seo_description\":\"خرید و بهترین قیمت سی پی یو سرور E5-2630 اینتل Intel | مناسبترین قیمت انواع سی پی یو سرور در بازار | فروشگاه آنلاین یوزدکالا\",\"seo_robot\":\"0\",\"status_related\":\"1\"}', '/admin/product', '2022-02-01 14:33:05'),
+(534, 85, '46.209.63.120', 'create', 'relateds', 65, '', '{\"entity_type\":\"product\",\"entity_id\":\"104\",\"related_id\":\"149\",\"user_id\":\"85\"}', '/admin/product', '2022-02-01 14:33:05'),
+(535, 85, '46.209.63.120', 'create', 'product_categories', 356, '', '{\"product_id\":\"104\",\"category_id\":\"149\"}', '/admin/product', '2022-02-01 14:33:05'),
+(536, 85, '46.209.63.120', 'create', 'photos', 319, '', '{\"entity_type\":\"Product\",\"entity_id\":104,\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202202\\/CPU 2630 V1.---fba5ff0b.jpg\",\"alt\":\"product_image\",\"type\":0}', '/admin/product', '2022-02-01 14:33:05'),
+(537, 85, '46.209.63.120', 'create', 'products', 105, '', '{\"user_id\":\"85\",\"slug\":\"سی-پی-یو-سرور-E5-2670\",\"title\":\"سی پی یو سرور E5-2670\",\"price\":\"15000000\",\"brand_id\":\"12\",\"sku\":\"\",\"weight\":\"1\",\"quantity\":\"10\",\"meta_title\":\"پردازنده 2.6 گیگاهرتزی 8 هسته مربوط به نسل 8\",\"description\":\"\",\"seo_H1\":\"CPU G8\",\"seo_canonical\":\"\",\"seo_title\":\"خرید و بهترین قیمت سی پی یو سرور E5-2670 اینتل Intel | یوزدکالا\",\"seo_description\":\"خرید و بهترین قیمت سی پی یو سرور E5-2670 اینتل Intel | مناسبترین قیمت انواع سی پی یو سرور در بازار | فروشگاه آنلاین یوزدکالا\",\"seo_robot\":\"0\",\"status_related\":\"1\"}', '/admin/product', '2022-02-01 14:46:56'),
+(538, 85, '46.209.63.120', 'create', 'relateds', 66, '', '{\"entity_type\":\"product\",\"entity_id\":\"105\",\"related_id\":\"149\",\"user_id\":\"85\"}', '/admin/product', '2022-02-01 14:46:56'),
+(539, 85, '46.209.63.120', 'create', 'product_categories', 357, '', '{\"product_id\":\"105\",\"category_id\":\"149\"}', '/admin/product', '2022-02-01 14:46:56'),
+(540, 85, '46.209.63.120', 'create', 'photos', 320, '', '{\"entity_type\":\"Product\",\"entity_id\":105,\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202202\\/CPU 2670 V1.---9d6d7fb3.jpg\",\"alt\":\"product_image\",\"type\":0}', '/admin/product', '2022-02-01 14:46:56'),
+(541, 85, '46.209.63.120', 'delete', 'product_categories', 0, '{\"product_id\":33}', '[{\"id\":\"89\",\"product_id\":\"33\",\"category_id\":\"113\"},{\"id\":\"90\",\"product_id\":\"33\",\"category_id\":\"149\"}]', '/admin/product/33', '2022-02-01 14:59:14'),
+(542, 85, '46.209.63.120', 'delete', 'taggables', 0, '{\"entity_id\":\"33\"}', '[]', '/admin/product/33', '2022-02-01 14:59:14'),
+(543, 85, '46.209.63.120', 'delete', 'photos', 0, '{\"entity_id\":\"33\"}', '[{\"id\":\"240\",\"entity_id\":\"33\",\"entity_type\":\"Product\",\"type\":\"0\",\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202112\\/intel-xeon-e5507.---b321b46a.jpg\",\"alt\":null,\"created_at\":\"2021-12-14 13:19:43\"}]', '/admin/product/33', '2022-02-01 14:59:14');
+INSERT INTO `activity_log` (`id`, `user_id`, `ip`, `type`, `target_table`, `row_id`, `where_condition`, `detailed_data`, `uri`, `created_at`) VALUES
+(544, 85, '46.209.63.120', 'delete', 'products', 0, '{\"id\":\"33\"}', '[{\"id\":\"33\",\"brand_id\":\"12\",\"user_id\":\"0\",\"title\":\"سی پی یو سرور E5-2670\",\"title_english\":\"Intel® Xeon® E5-2670 (2.6GHz\\/8-core\\/20MB\\/8GT-s QPI\\/115W, DDR3-1600, HT, Turbo2- 4\\/4\\/5\\/5\\/6\\/6\\/7\\/7)\",\"seo_robot\":null,\"seo_canonical\":null,\"seo_H1\":null,\"seo_description\":\"خرید و بهترین قیمت سی پی یو سرور E5-2670 اینتل Intel | مناسبترین قیمت انواع سی پی یو سرور در بازار | فروشگاه آنلاین یوزدکالا\",\"seo_title\":\"خرید و بهترین قیمت سی پی یو سرور E5-2670 اینتل Intel | یوزدکالا\",\"meta_title\":null,\"description\":\"\",\"price\":\"17000000\",\"featured\":null,\"image\":null,\"slug\":\"سی-پی-یو-سرور-E5-2670\",\"sale\":\"0\",\"status\":\"1\",\"status_related\":\"0\",\"sku\":null,\"quantity\":\"0\",\"weight\":null,\"created_at\":\"2021-12-14 14:08:28\",\"updated_at\":null,\"published_at\":null,\"started_at\":null,\"end_at\":null}]', '/admin/product/33', '2022-02-01 14:59:14'),
+(545, 0, '46.209.63.120', 'create', 'active_codes', 401, '', '{\"user_id\":\"85\",\"code\":1171,\"expired_at\":\"2022-02-02 08:52:55\"}', '/admin/login', '2022-02-02 05:22:54'),
+(546, 85, '46.209.63.120', 'delete', 'active_codes', 0, '{\"user_id\":\"85\"}', '[{\"id\":\"401\",\"user_id\":\"85\",\"code\":\"1171\",\"expired_at\":\"2022-02-02 08:52:55\"}]', '/admin/token', '2022-02-02 05:23:11'),
+(547, 0, '46.209.63.120', 'create', 'active_codes', 402, '', '{\"user_id\":\"85\",\"code\":2982,\"expired_at\":\"2022-02-02 10:49:32\"}', '/admin/login', '2022-02-02 07:19:31'),
+(548, 85, '46.209.63.120', 'delete', 'active_codes', 0, '{\"user_id\":\"85\"}', '[{\"id\":\"402\",\"user_id\":\"85\",\"code\":\"2982\",\"expired_at\":\"2022-02-02 10:49:32\"}]', '/admin/token', '2022-02-02 07:19:39'),
+(549, 85, '46.209.63.120', 'create', 'products', 106, '', '{\"user_id\":\"85\",\"slug\":\"سی-پی-یو-سرور-E5-2680\",\"title\":\"سی پی یو سرور E5-2680\",\"price\":\"20000000\",\"brand_id\":\"12\",\"sku\":\"\",\"weight\":\"1\",\"quantity\":\"10\",\"meta_title\":\"پردازنده 2.7 گیگاهرتزی 8 هسته مربوط به نسل 8\",\"description\":\"\",\"seo_H1\":\"CPU G8\",\"seo_canonical\":\"\",\"seo_title\":\"خرید و بهترین قیمت سی پی یو سرور E5-2680 اینتل Intel | یوزدکالا\",\"seo_description\":\"خرید و بهترین قیمت سی پی یو سرور E5-2680 اینتل Intel | مناسبترین قیمت انواع سی پی یو سرور در بازار | فروشگاه آنلاین یوزدکالا\",\"seo_robot\":\"0\",\"status_related\":\"1\"}', '/admin/product', '2022-02-02 07:32:06'),
+(550, 85, '46.209.63.120', 'create', 'relateds', 67, '', '{\"entity_type\":\"product\",\"entity_id\":\"106\",\"related_id\":\"149\",\"user_id\":\"85\"}', '/admin/product', '2022-02-02 07:32:06'),
+(551, 85, '46.209.63.120', 'create', 'product_categories', 358, '', '{\"product_id\":\"106\",\"category_id\":\"149\"}', '/admin/product', '2022-02-02 07:32:06'),
+(552, 85, '46.209.63.120', 'create', 'photos', 321, '', '{\"entity_type\":\"Product\",\"entity_id\":106,\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202202\\/CPU 2680V1.---f22d90df.jpg\",\"alt\":\"product_image\",\"type\":0}', '/admin/product', '2022-02-02 07:32:06'),
+(553, 85, '46.209.63.120', 'create', 'products', 107, '', '{\"user_id\":\"85\",\"slug\":\"سی-پی-یو-سرور-E5-2667V4-اینتل-INTEL-Xeon\",\"title\":\"سی پی یو سرور E5-2667V4 اینتل INTEL Xeon\",\"price\":\"100000000\",\"brand_id\":\"12\",\"sku\":\"\",\"weight\":\"1\",\"quantity\":\"10\",\"meta_title\":\"پردازنده 3.2 گیگاهرتزی 8 هسته مربوط به نسل 9\",\"description\":\"\",\"seo_H1\":\"CPU G9\",\"seo_canonical\":\"\",\"seo_title\":\"خرید و بهترین قیمت سی پی یو سرور E5-2667V4 اینتل Intel | یوزدکالا\",\"seo_description\":\"خرید و بهترین قیمت سی پی یو سرور E5-2667V4 اینتل Intel | مناسبترین قیمت انواع سی پی یو سرور در بازار | فروشگاه آنلاین یوزدکالا\",\"seo_robot\":\"0\",\"status_related\":\"1\"}', '/admin/product', '2022-02-02 07:40:06'),
+(554, 85, '46.209.63.120', 'create', 'relateds', 68, '', '{\"entity_type\":\"product\",\"entity_id\":\"107\",\"related_id\":\"149\",\"user_id\":\"85\"}', '/admin/product', '2022-02-02 07:40:06'),
+(555, 85, '46.209.63.120', 'create', 'product_categories', 359, '', '{\"product_id\":\"107\",\"category_id\":\"149\"}', '/admin/product', '2022-02-02 07:40:06'),
+(556, 85, '46.209.63.120', 'create', 'photos', 322, '', '{\"entity_type\":\"Product\",\"entity_id\":107,\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202202\\/CPU 2667 V4.---9d60aeea.jpg\",\"alt\":\"product_image\",\"type\":0}', '/admin/product', '2022-02-02 07:40:06'),
+(557, 0, '46.209.63.120', 'create', 'active_codes', 403, '', '{\"user_id\":\"85\",\"code\":4358,\"expired_at\":\"2022-02-02 12:34:59\"}', '/admin/login', '2022-02-02 09:04:58'),
+(558, 85, '46.209.63.120', 'delete', 'active_codes', 0, '{\"user_id\":\"85\"}', '[{\"id\":\"403\",\"user_id\":\"85\",\"code\":\"4358\",\"expired_at\":\"2022-02-02 12:34:59\"}]', '/admin/token', '2022-02-02 09:05:08'),
+(559, 85, '46.209.63.120', 'create', 'products', 108, '', '{\"user_id\":\"85\",\"slug\":\"سی-پی-یو-سرور-E5-2667V2-اینتل-INTEL-Xeon\",\"title\":\"سی پی یو سرور E5-2667V2 اینتل INTEL Xeon\",\"price\":\"35000000\",\"brand_id\":\"12\",\"sku\":\"\",\"weight\":\"1\",\"quantity\":\"10\",\"meta_title\":\"پردازنده 3.3 گیگاهرتزی 8 هسته مربوط به نسل 8\",\"description\":\"\",\"seo_H1\":\"CPU G8\",\"seo_canonical\":\"\",\"seo_title\":\"خرید و بهترین قیمت سی پی یو سرور E5-2667V2 اینتل Intel | یوزدکالا\",\"seo_description\":\"خرید و بهترین قیمت سی پی یو سرور E5-2667V2 اینتل Intel | مناسبترین قیمت انواع سی پی یو سرور در بازار | فروشگاه آنلاین یوزدکالا\",\"seo_robot\":\"0\",\"status_related\":\"1\"}', '/admin/product', '2022-02-02 09:07:19'),
+(560, 85, '46.209.63.120', 'create', 'relateds', 69, '', '{\"entity_type\":\"product\",\"entity_id\":\"108\",\"related_id\":\"149\",\"user_id\":\"85\"}', '/admin/product', '2022-02-02 09:07:19'),
+(561, 85, '46.209.63.120', 'create', 'product_categories', 360, '', '{\"product_id\":\"108\",\"category_id\":\"149\"}', '/admin/product', '2022-02-02 09:07:19'),
+(562, 85, '46.209.63.120', 'create', 'photos', 323, '', '{\"entity_type\":\"Product\",\"entity_id\":108,\"path\":\"https:\\/\\/usedkala.com\\/Storage\\/202202\\/CPU 2667 V2.---ac58600a.jpg\",\"alt\":\"product_image\",\"type\":0}', '/admin/product', '2022-02-02 09:07:19');
 
 -- --------------------------------------------------------
 
@@ -2071,7 +2185,7 @@ CREATE TABLE `order_items` (
   `quantity` int(11) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
   `discount` float DEFAULT NULL,
-  `cerated_at` timestamp NULL DEFAULT NULL
+  `cerated_at` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
@@ -2340,7 +2454,6 @@ INSERT INTO `photos` (`id`, `entity_id`, `entity_type`, `type`, `path`, `alt`, `
 (237, 30, 'Product', 0, 'https://usedkala.com/Storage/202112/intel-xeon-e5507.---382efba6.jpg', 'product_image', '2021-12-14 09:45:54'),
 (238, 31, 'Product', 0, 'https://usedkala.com/Storage/202112/intel-xeon-e5507.---b321b46a.jpg', 'product_image', '2021-12-14 09:46:10'),
 (239, 32, 'Product', 0, 'https://usedkala.com/Storage/202112/intel-xeon-e5507.---b321b46a.jpg', NULL, '2021-12-14 09:49:43'),
-(240, 33, 'Product', 0, 'https://usedkala.com/Storage/202112/intel-xeon-e5507.---b321b46a.jpg', NULL, '2021-12-14 09:49:43'),
 (241, 34, 'Product', 0, 'https://usedkala.com/Storage/202112/intel-xeon-e5507.---b321b46a.jpg', NULL, '2021-12-14 09:49:43'),
 (242, 35, 'Product', 0, 'https://usedkala.com/Storage/202112/intel-xeon-e5507.---b321b46a.jpg', NULL, '2021-12-14 09:49:43'),
 (243, 36, 'Product', 0, 'https://usedkala.com/Storage/202112/intel-xeon-e5507.---b321b46a.jpg', NULL, '2021-12-14 09:49:43'),
@@ -2407,7 +2520,22 @@ INSERT INTO `photos` (`id`, `entity_id`, `entity_type`, `type`, `path`, `alt`, `
 (304, 80, 'User', 0, 'https://usedkala.com/Storage/202201/1517636632815.---956f7fdf.jpg', 'profile_image', '2022-01-03 13:31:00'),
 (305, 95, 'Product', 0, 'https://usedkala.com/Storage/202201/cache 512MB g8.---2047fd78.jpg', 'product_image', '2022-01-26 12:57:53'),
 (306, 96, 'Product', 0, 'https://usedkala.com/Storage/202201/cache 512MB g7.---0bb47e1a.jpg', 'product_image', '2022-01-26 13:52:09'),
-(307, 97, 'Product', 0, 'https://usedkala.com/Storage/202201/cache 512MB g7.2.---d1983175.jpg', 'product_image', '2022-01-26 14:06:18');
+(307, 97, 'Product', 0, 'https://usedkala.com/Storage/202201/cache 512MB g7.2.---d1983175.jpg', 'product_image', '2022-01-26 14:06:18'),
+(308, 98, 'Product', 0, 'https://usedkala.com/Storage/202201/DL360 G8.---e5b9d62a.png', 'product_image', '2022-01-31 06:13:17'),
+(309, 99, 'Product', 0, 'https://usedkala.com/Storage/202202/DL380 G9 12LFF.---8880843a.jpg', 'product_image', '2022-02-01 12:05:10'),
+(310, 99, 'Product', 0, 'https://usedkala.com/Storage/202202/DL380 G9 12LFF.---8880843a.jpg', 'product_image', '2022-02-01 12:05:10'),
+(311, 99, 'Product', 0, 'https://usedkala.com/Storage/202202/DL380 G9 12LFF.---8880843a.jpg', 'product_image', '2022-02-01 12:05:10'),
+(312, 100, 'Product', 0, 'https://usedkala.com/Storage/202202/DL360 G9 8SFF-3.---02a8033f.jpg', 'product_image', '2022-02-01 12:36:06'),
+(313, 100, 'Product', 1, 'https://usedkala.com/Storage/202202/DL360 G9 8SFF -2.---860d15ad.jpg', 'product_image', '2022-02-01 12:36:06'),
+(314, 100, 'Product', 2, 'https://usedkala.com/Storage/202202/DL360 G9 8SFF.---15517d66.jpg', 'product_image', '2022-02-01 12:36:06'),
+(315, 101, 'Product', 0, 'https://usedkala.com/Storage/202202/DL380 G8 12LFF-2.---f7360e1f.jpg', 'product_image', '2022-02-01 12:45:31'),
+(316, 101, 'Product', 1, 'https://usedkala.com/Storage/202202/DL380 G8 12LFF.---ebece0af.jpg', 'product_image', '2022-02-01 12:45:31'),
+(318, 103, 'Product', 0, 'https://usedkala.com/Storage/202202/dl320e g8.---3bfca6d9.png', 'product_image', '2022-02-01 14:24:54'),
+(319, 104, 'Product', 0, 'https://usedkala.com/Storage/202202/CPU 2630 V1.---fba5ff0b.jpg', 'product_image', '2022-02-01 14:33:05'),
+(320, 105, 'Product', 0, 'https://usedkala.com/Storage/202202/CPU 2670 V1.---9d6d7fb3.jpg', 'product_image', '2022-02-01 14:46:56'),
+(321, 106, 'Product', 0, 'https://usedkala.com/Storage/202202/CPU 2680V1.---f22d90df.jpg', 'product_image', '2022-02-02 07:32:06'),
+(322, 107, 'Product', 0, 'https://usedkala.com/Storage/202202/CPU 2667 V4.---9d60aeea.jpg', 'product_image', '2022-02-02 07:40:06'),
+(323, 108, 'Product', 0, 'https://usedkala.com/Storage/202202/CPU 2667 V2.---ac58600a.jpg', 'product_image', '2022-02-02 09:07:19');
 
 -- --------------------------------------------------------
 
@@ -2483,7 +2611,6 @@ INSERT INTO `products` (`id`, `brand_id`, `user_id`, `title`, `title_english`, `
 (30, 12, 80, 'سی پی یو سرور E5-2640 اینتل intel', 'Intel® Xeon® E5-2640 (2.5GHz/6-core/15MB/7.2GT-s QPI/95W, DDR3-1333, HT, Turbo2- 3/3/4/4/5/5)', 0, '', '', 'خرید و بهترین قیمت سی پی یو سرور E5-2640 اینتل Intel | مناسبترین قیمت انواع سی پی یو سرور در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت سی پی یو سرور E5-2640 اینتل Intel | یوزدکالا', '', '', 10000000, 1, NULL, 'سی-پی-یو-سرور-E5-2640', 1, 0, 0, '', 0, 0, '2021-12-14 10:38:28', NULL, NULL, NULL, NULL),
 (31, 12, 80, 'سی پی یو سرور E5-2650', 'Intel® Xeon® E5-2650 (2.0GHz/8-core/20MB/8GT-s QPI/95W, DDR3-1600, HT, Turbo2- 4/4/5/5/5/7/8/8)', 0, '', '', 'خرید و بهترین قیمت سی پی یو سرور E5-2650 اینتل Intel | مناسبترین قیمت انواع سی پی یو سرور در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت سی پی یو سرور E5-2650 اینتل Intel | یوزدکالا', '', '', 12000000, 1, NULL, 'سی-پی-یو-سرور-E5-2650', 1, 0, 0, '', 0, 0, '2021-12-14 10:38:28', NULL, NULL, NULL, NULL),
 (32, 12, 0, 'سی پی یو سرور E5-2660', 'Intel® Xeon® E5-2660 (2.2GHz/8-core/20MB/8GT-s QPI/95W, DDR3-1600, HT, Turbo2- 5/5/6/6/7/7/8/8)', NULL, NULL, NULL, 'خرید و بهترین قیمت سی پی یو سرور E5-2660 اینتل Intel | مناسبترین قیمت انواع سی پی یو سرور در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت سی پی یو سرور E5-2660 اینتل Intel | یوزدکالا', NULL, '', 14000000, NULL, NULL, 'سی-پی-یو-سرور-E5-2660', 0, 1, 0, NULL, 0, NULL, '2021-12-14 10:38:28', NULL, NULL, NULL, NULL),
-(33, 12, 0, 'سی پی یو سرور E5-2670', 'Intel® Xeon® E5-2670 (2.6GHz/8-core/20MB/8GT-s QPI/115W, DDR3-1600, HT, Turbo2- 4/4/5/5/6/6/7/7)', NULL, NULL, NULL, 'خرید و بهترین قیمت سی پی یو سرور E5-2670 اینتل Intel | مناسبترین قیمت انواع سی پی یو سرور در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت سی پی یو سرور E5-2670 اینتل Intel | یوزدکالا', NULL, '', 17000000, NULL, NULL, 'سی-پی-یو-سرور-E5-2670', 0, 1, 0, NULL, 0, NULL, '2021-12-14 10:38:28', NULL, NULL, NULL, NULL),
 (34, 12, 0, 'سی پی یو سرور E5-2620 v2', 'Intel® Xeon® E5-2620 v2 (2.1GHz/6-core/15MB/7.2GT-s QPI/80W, DDR3-1600, HT, Turbo2- 3/3/3/3/4/5)', NULL, NULL, NULL, 'خرید و بهترین قیمت سی پی یو سرور E5-2620 v2 اینتل Intel | مناسبترین قیمت انواع سی پی یو سرور در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت سی پی یو سرور E5-2620 v2 اینتل Intel | یوزدکالا', NULL, '', 7000000, NULL, NULL, 'سی-پی-یو-سرور-E5-2620-v2', 0, 1, 0, NULL, 0, NULL, '2021-12-14 10:38:28', NULL, NULL, NULL, NULL),
 (35, 12, 0, 'سی پی یو سرور E5-2650 v2', 'Intel® Xeon® E5-2650 v2 (2.6GHz/8-core/20MB/8.0GT-s QPI/95W, DDR3-1866, HT, Turbo2- 4/4/4/4/5/6/7/8)', NULL, NULL, NULL, 'خرید و بهترین قیمت سی پی یو سرور E5-2650 v2 اینتل Intel | مناسبترین قیمت انواع سی پی یو سرور در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت سی پی یو سرور E5-2650 v2 اینتل Intel | یوزدکالا', NULL, '', 17000000, NULL, NULL, 'سی-پی-یو-سرور-E5-2650-v2', 0, 1, 0, NULL, 0, NULL, '2021-12-14 10:38:28', NULL, NULL, NULL, NULL),
 (36, 12, 0, 'سی پی یو سرور E5-2603v3', 'Intel® Xeon® E5-2603v3 (1.6GHz/6-core/15MB/85W)', NULL, NULL, NULL, 'خرید و بهترین قیمت سی پی یو سرور E5-2603v3 اینتل Intel | مناسبترین قیمت انواع سی پی یو سرور در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت سی پی یو سرور E5-2603v3 اینتل Intel | یوزدکالا', NULL, '', 5000000, NULL, NULL, 'سی-پی-یو-سرور-E5-2603v3', 0, 1, 0, NULL, 0, NULL, '2021-12-14 10:38:28', NULL, NULL, NULL, NULL),
@@ -2545,7 +2672,17 @@ INSERT INTO `products` (`id`, `brand_id`, `user_id`, `title`, `title_english`, `
 (92, 10, 80, 'لایسنس P/N:512485-B21 اچ پی ای HPE', 'HPE iLO Adv incl 1yr TSU 1-Svr Lic P/N:512485-B21', 0, '', '', 'خرید و بهترین قیمت لایسنس P/N:512485-B21 اچ پی ای HPE | مناسبترین قیمت انواع لایسنس در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت لایسنس P/N:512485-B21 اچ پی ای HPE | یوزدکالا', '', '', 20000000, 1, NULL, 'لایسنس-PN512485-B21-اچ-پی-ای-HPE', 1, 0, 0, '', 0, 0, '2021-12-14 10:38:32', NULL, NULL, NULL, NULL),
 (95, 14, 82, 'کش سرور HP 512MB FBWC for P-Series Smart Array P/N:661069-B21', '', 0, '', 'کش سرور اچ پی 512MB', 'خرید و بهترین قیمت کش سرور HP 512MB FBWC Smart Array P/N:661069-B21 | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت کش سرور HP 512MB FBWC Smart Array P/N:661069-B21 | یوزدکالا', 'کش سرور اچ پی به شماره فنی 512MB  برای یک پارچه سازی هارد بر روی سرور های نسل 8 به کار میرود. شما می توانید از ایزارهایی که شرکت HP در اختیار شما قرار می دهد، استفاده کنید. زیرساخت ها اهمیت فراوانی دارند زیرا پایه و اساس تمام اطلاعات و برنامه های کاربردی کسب و کار شما می باشند. ProLiant کیفیت، قابلیت اطمینان و کارایی لازم را برای حفظ زیرساخت های شما را فراهم می کند.\r\n\r\n از آنجا که حتی کوچکترین نقص می تواند منجر به خرابی و شکست کسب و کار شما شود، حافظه سرور یکی از مهمترین مؤلفه ها می باشد.', '', 3500000, 1, NULL, 'کش-سرور-HP-512MB-FBWC-for-P-Series-Smart-Array-PN661069-B21', 1, 0, 0, '', 50, 10, '2022-01-26 12:57:53', NULL, NULL, NULL, NULL),
 (96, 14, 82, 'کش سرور HP 512MB P-Series BBWC Upgrade P/N:462967-B21', '', 0, '', 'کش سرور G7', 'خرید و بهترین قیمت کش سرور HP 512MB P-Series BBWC Upgrade P/N:462967-B21 | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت کش سرور HP 512MB P-Series BBWC Upgrade P/N:462967-B21 | یوزدکالا', 'کش سرور 512MB  براس سرور نسل 7  قابل نصب بر روی کنترول P410 و کنترولر های نسل 7', '', 1000000, NULL, NULL, 'کش-سرور-HP-512MB-P-Series-BBWC-Upgrade-PN462967-B21', 0, 1, 0, '', 50, 10, '2022-01-26 13:52:09', NULL, NULL, NULL, NULL),
-(97, 14, 82, 'کش سرور HP 512MB Flash Backed Write Cache P/N:534916-B21', '', 0, '', 'کش سرور اچ پی 512MB', 'خرید و بهترین قیمت کش سرور HP 512MB Flash Backed Write Cache P/N:534916-B21 | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت کش سرور HP 512MB Flash Backed Write Cache P/N:534916-B21 | یوزدکالا', 'کش سرور اچ پی، مربوط به سرور های نسل 7', '', 7000000, NULL, NULL, 'کش-سرور-HP-512MB-Flash-Backed-Write-Cache-PN534916-B21', 0, 1, 0, '', 10, 10, '2022-01-26 14:06:18', NULL, NULL, NULL, NULL);
+(97, 14, 82, 'کش سرور HP 512MB Flash Backed Write Cache P/N:534916-B21', '', 0, '', 'کش سرور اچ پی 512MB', 'خرید و بهترین قیمت کش سرور HP 512MB Flash Backed Write Cache P/N:534916-B21 | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت کش سرور HP 512MB Flash Backed Write Cache P/N:534916-B21 | یوزدکالا', 'کش سرور اچ پی، مربوط به سرور های نسل 7', '', 7000000, NULL, NULL, 'کش-سرور-HP-512MB-Flash-Backed-Write-Cache-PN534916-B21', 0, 1, 0, '', 10, 10, '2022-01-26 14:06:18', NULL, NULL, NULL, NULL),
+(98, 14, 85, 'سرور DL360P G8 8SFF P/N:654081-B21 اچ پی HP', '', 0, '', 'سرور G8', 'خرید و بهترین قیمت سرور DL360P G8 8SFF P/N:654081-B21 اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت سرور DL360P G8 8SFF P/N:654081-B21 اچ پی HP | یوزدکالا', 'سرور تک یونیت نسل 8 ', '', 40000000, 1, NULL, 'سرور-DL360P-G8-8SFF-PN654081-B21-اچ-پی-HP', 1, 0, 1, '', 10, 25, '2022-01-31 06:13:17', NULL, NULL, NULL, NULL),
+(99, 10, 85, 'سرور DL380 Gen9 12LFF CTO Server P/N:719061-B21  اچ پی HP', '', 0, '', 'سرور G9', 'خرید و بهترین قیمت سرور DL380 Gen9 12LFF CTO Server P/N:719061-B21  اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت سرور DL380 Gen9 12LFF CTO Server P/N:719061-B21  اچ پی HP | یوزدکالا', 'سرور دو یونیت نسل 9', '', 280000000, 1, NULL, 'سرور-DL380-Gen9-12LFF-CTO-Server-PN719061-B21-اچ-پی-HP', 1, 1, 1, '', 10, 30, '2022-02-01 12:05:09', NULL, NULL, NULL, NULL),
+(100, 10, 85, 'سرور DL360P G9 8SFF P/N:755258-B21 اچ پی HP', '', 0, '', 'سرور G9', 'خرید و بهترین قیمت سرور DL360P G9 8SFF P/N:755258-B21 اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت سرور DL360P G9 8SFF P/N:755258-B21 اچ پی HP | یوزدکالا', 'سرور تک یونیت نسل 9 مناسب جهت شرکتهای استارت آپی', '', 140000000, NULL, NULL, 'سرور-DL360P-G9-8SFF-PN755258-B21-اچ-پی-HP', 0, 1, 1, '', 10, 20, '2022-02-01 12:36:06', NULL, NULL, NULL, NULL),
+(101, 14, 85, 'سرور DL380P G8 12LFF P/N:665552-B21 اچ پی HP', '', 0, '', 'سرور G8', 'خرید و بهترین قیمت سرور DL380P G8 12LFF P/N:665552-B21 اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت سرور DL380P G8 12LFF P/N:665552-B21 اچ پی HP | یوزدکالا', 'سرور دو یونیت نسل 8', '', 55000000, 1, NULL, 'سرور-DL380P-G8-12LFF-PN665552-B21-اچ-پی-HP', 1, 1, 1, '', 10, 20, '2022-02-01 12:45:31', NULL, NULL, NULL, NULL),
+(103, 14, 85, 'سرور DL380e Gen8 8SFF P/N:669253-B21 اچ پی HP', '', 0, '', 'سرور G8', 'خرید و بهترین قیمت سرور DL380e Gen8 8SFF P/N:669253-B21 اچ پی HP | مناسبترین قیمت انواع کابل در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت سرور DL380e Gen8 8SFF P/N:669253-B21 اچ پی HP | یوزدکالا', 'سرور تک یونیت نسل 8', '', 20000000, NULL, NULL, 'سرور-DL380e-Gen8-8SFF-PN669253-B21-اچ-پی-HP', 0, 1, 1, '', 10, 15, '2022-02-01 14:24:54', NULL, NULL, NULL, NULL),
+(104, 12, 85, 'سی پی یو سرور E5-2630', '', 0, '', 'CPU G8', 'خرید و بهترین قیمت سی پی یو سرور E5-2630 اینتل Intel | مناسبترین قیمت انواع سی پی یو سرور در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت سی پی یو سرور E5-2630 اینتل Intel | یوزدکالا', 'پردازنده 2.3 گیگاهرتزی 6 هسته مربوط به نسل 8', '', 5000000, NULL, NULL, 'سی-پی-یو-سرور-E5-2630', 0, 1, 1, '', 10, 1, '2022-02-01 14:33:05', NULL, NULL, NULL, NULL),
+(105, 12, 85, 'سی پی یو سرور E5-2670', '', 0, '', 'CPU G8', 'خرید و بهترین قیمت سی پی یو سرور E5-2670 اینتل Intel | مناسبترین قیمت انواع سی پی یو سرور در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت سی پی یو سرور E5-2670 اینتل Intel | یوزدکالا', 'پردازنده 2.6 گیگاهرتزی 8 هسته مربوط به نسل 8', '', 15000000, NULL, NULL, 'سی-پی-یو-سرور-E5-2670', 0, 1, 1, '', 10, 1, '2022-02-01 14:46:56', NULL, NULL, NULL, NULL),
+(106, 12, 85, 'سی پی یو سرور E5-2680', '', 0, '', 'CPU G8', 'خرید و بهترین قیمت سی پی یو سرور E5-2680 اینتل Intel | مناسبترین قیمت انواع سی پی یو سرور در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت سی پی یو سرور E5-2680 اینتل Intel | یوزدکالا', 'پردازنده 2.7 گیگاهرتزی 8 هسته مربوط به نسل 8', '', 20000000, NULL, NULL, 'سی-پی-یو-سرور-E5-2680', 0, 1, 1, '', 10, 1, '2022-02-02 07:32:06', NULL, NULL, NULL, NULL),
+(107, 12, 85, 'سی پی یو سرور E5-2667V4 اینتل INTEL Xeon', '', 0, '', 'CPU G9', 'خرید و بهترین قیمت سی پی یو سرور E5-2667V4 اینتل Intel | مناسبترین قیمت انواع سی پی یو سرور در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت سی پی یو سرور E5-2667V4 اینتل Intel | یوزدکالا', 'پردازنده 3.2 گیگاهرتزی 8 هسته مربوط به نسل 9', '', 100000000, NULL, NULL, 'سی-پی-یو-سرور-E5-2667V4-اینتل-INTEL-Xeon', 0, 1, 1, '', 10, 1, '2022-02-02 07:40:06', NULL, NULL, NULL, NULL),
+(108, 12, 85, 'سی پی یو سرور E5-2667V2 اینتل INTEL Xeon', '', 0, '', 'CPU G8', 'خرید و بهترین قیمت سی پی یو سرور E5-2667V2 اینتل Intel | مناسبترین قیمت انواع سی پی یو سرور در بازار | فروشگاه آنلاین یوزدکالا', 'خرید و بهترین قیمت سی پی یو سرور E5-2667V2 اینتل Intel | یوزدکالا', 'پردازنده 3.3 گیگاهرتزی 8 هسته مربوط به نسل 8', '', 35000000, NULL, NULL, 'سی-پی-یو-سرور-E5-2667V2-اینتل-INTEL-Xeon', 0, 1, 1, '', 10, 1, '2022-02-02 09:07:19', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -2624,8 +2761,6 @@ INSERT INTO `product_categories` (`id`, `product_id`, `category_id`) VALUES
 (64, 20, 120),
 (87, 32, 113),
 (88, 32, 149),
-(89, 33, 113),
-(90, 33, 149),
 (91, 34, 113),
 (92, 34, 149),
 (93, 35, 113),
@@ -2829,7 +2964,17 @@ INSERT INTO `product_categories` (`id`, `product_id`, `category_id`) VALUES
 (338, 1, 112),
 (340, 96, 153),
 (341, 95, 153),
-(342, 97, 153);
+(342, 97, 153),
+(344, 98, 112),
+(347, 100, 112),
+(352, 99, 112),
+(353, 101, 112),
+(355, 103, 112),
+(356, 104, 149),
+(357, 105, 149),
+(358, 106, 149),
+(359, 107, 149),
+(360, 108, 149);
 
 -- --------------------------------------------------------
 
@@ -2967,7 +3112,18 @@ CREATE TABLE `relateds` (
 --
 
 INSERT INTO `relateds` (`id`, `entity_type`, `entity_id`, `related_id`, `user_id`, `created_at`) VALUES
-(51, 'product', 1, 112, 84, '2022-01-23 11:56:45');
+(51, 'product', 1, 112, 84, '2022-01-23 11:56:45'),
+(53, 'product', 98, 112, 85, '2022-01-31 06:14:20'),
+(56, 'product', 100, 112, 85, '2022-02-01 12:36:06'),
+(61, 'product', 99, 112, 85, '2022-02-01 12:52:11'),
+(62, 'product', 101, 112, 85, '2022-02-01 12:52:20'),
+(63, 'product', 102, 112, 85, '2022-02-01 14:24:49'),
+(64, 'product', 103, 112, 85, '2022-02-01 14:24:54'),
+(65, 'product', 104, 149, 85, '2022-02-01 14:33:05'),
+(66, 'product', 105, 149, 85, '2022-02-01 14:46:56'),
+(67, 'product', 106, 149, 85, '2022-02-02 07:32:06'),
+(68, 'product', 107, 149, 85, '2022-02-02 07:40:06'),
+(69, 'product', 108, 149, 85, '2022-02-02 09:07:19');
 
 -- --------------------------------------------------------
 
@@ -3228,6 +3384,13 @@ CREATE TABLE `taggables` (
   `tag_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+--
+-- Dumping data for table `taggables`
+--
+
+INSERT INTO `taggables` (`id`, `entity_id`, `entity_type`, `tag_id`, `created_at`) VALUES
+(6, 98, 'Product', 1, '2022-01-31 06:13:17');
 
 -- --------------------------------------------------------
 
@@ -3624,13 +3787,13 @@ ALTER TABLE `wish_lists`
 -- AUTO_INCREMENT for table `active_codes`
 --
 ALTER TABLE `active_codes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=394;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=404;
 
 --
 -- AUTO_INCREMENT for table `activity_log`
 --
 ALTER TABLE `activity_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=452;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=563;
 
 --
 -- AUTO_INCREMENT for table `attributes`
@@ -3750,19 +3913,19 @@ ALTER TABLE `permission_users`
 -- AUTO_INCREMENT for table `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=308;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=324;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
 
 --
 -- AUTO_INCREMENT for table `product_categories`
 --
 ALTER TABLE `product_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=343;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=361;
 
 --
 -- AUTO_INCREMENT for table `product_discounts`
@@ -3792,7 +3955,7 @@ ALTER TABLE `provinces`
 -- AUTO_INCREMENT for table `relateds`
 --
 ALTER TABLE `relateds`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -3858,7 +4021,7 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT for table `taggables`
 --
 ALTER TABLE `taggables`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tags`
