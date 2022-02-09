@@ -61,6 +61,7 @@ class Order_Item extends MysqlBaseModel
         $ta = $date['to'];
         return $this->query("
                 SELECT
+                products.slug AS product_slug,
                 products.title AS product_name,
                 products.id AS product_id,
                 sum(order_items.price) AS grand_total,
@@ -70,26 +71,6 @@ class Order_Item extends MysqlBaseModel
                 INNER JOIN products
                 ON order_items.product_id = products.id
                 WHERE order_items.created_at <= '$as' AND order_items.created_at >= '$ta'
-                GROUP BY order_items.product_id
-                LIMIT $limit_at
-            ");
-    }
-
-    public function join__orderItem_whit_product_percent($limit_at, $date)
-    {
-        $as = $date['as'];
-        $ta = $date['to'];
-        return $this->query("
-                SELECT
-                products.title AS product_name,
-                products.id AS product_id,
-                sum(order_items.price) AS grand_total,
-                sum(order_items.quantity) AS quantity_total,
-                count(order_items.id) AS count_order_items
-                FROM order_items
-                INNER JOIN products
-                ON order_items.product_id = products.id
-                WHERE order_items.created_at BETWEEN '$ta' AND '$as'
                 GROUP BY order_items.product_id
                 LIMIT $limit_at
             ");

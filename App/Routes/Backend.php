@@ -32,6 +32,7 @@ Route::group(function () {
     Route::post('/admin/report', 'HomeController@report');
     Route::post('/admin/bestsellers', 'HomeController@bestsellers');
     Route::post('/admin/bestsellers/cent', 'HomeController@bestsellers_cent');
+    Route::post('/admin/bestsellers/number_view_chart_pri', 'HomeController@number_view_chart_pri');
 });
 Route::group(function () {
     Route::get('/admin/users', 'UserController@index');

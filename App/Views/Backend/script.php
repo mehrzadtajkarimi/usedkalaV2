@@ -145,7 +145,26 @@
 
 
 
-    $('#btn_date').children('button').click(function(e) {
+    $('#btn-count').children('button').click(function(e) {
+      e.preventDefault();
+      var that = $(this);
+      var count = $(this).data('count');
+      that.addClass('active').siblings().removeClass('active');
+
+      $.ajax({
+        type: "post",
+        url: "<?= base_url() ?>admin/bestsellers/number_view_chart_pri",
+        data: {
+          'count': count
+        },
+        success: function(response) {
+          location.reload();
+        }
+      });
+    });
+
+
+    $('#btn-date').children('button').click(function(e) {
       e.preventDefault();
       var that = $(this);
       var li_chart_pir = $('#li-chart-pir');

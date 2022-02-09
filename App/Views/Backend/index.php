@@ -70,8 +70,25 @@
     <div class="col-lg-12">
 
       <div class="card">
-        <div class="card-header">
+        <div class="card-header  d-flex">
           <h3 class="card-title">پرفروش ترین ها</h3>
+          <div class="m-auto">
+            <div class="btn-group  btn-group-sm " id="btn-date">
+              <button type="button" data-time="year" class="btn btn-danger active">ســال</button>
+              <button type="button" data-time="month" class="btn btn-danger">مــاه</button>
+              <button type="button" data-time="week" class="btn btn-danger">هفته</button>
+              <button type="button" data-time="day" class="btn btn-danger">روز</button>
+            </div>
+            <div class="btn-group  btn-group-sm mr-3" id="btn-basis">
+              <button type="button" data-time="year" class="btn btn-danger active">قیـمت</button>
+              <button type="button" data-time="month" class="btn btn-danger">تــعداد</button>
+            </div>
+            <div class="btn-group  btn-group-sm mr-3" id="btn-count">
+              <?php foreach ($limits_chart_pir as $key => $value): ?>
+                <button type="button" data-count="<?= $key ?>" class="btn btn-danger <?= $value ?>"><?= $key ?></button>
+              <?php endforeach; ?>
+            </div>
+          </div>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -81,12 +98,6 @@
           </div>
         </div>
         <div class="card-body">
-          <div class="btn-group mb-3" id="btn_date">
-            <button type="button" data-time="year" class="btn btn-danger active">سال</button>
-            <button type="button" data-time="month" class="btn btn-danger">ماه</button>
-            <button type="button" data-time="week" class="btn btn-danger">هفته</button>
-            <button type="button" data-time="day" class="btn btn-danger">روز</button>
-          </div>
 
           <div class="row">
             <div class="col-md-8">
@@ -110,7 +121,7 @@
             <?php foreach ($change_item_sale_year as $value): ?>
               <?php if(!empty($value)): ?>
                 <li class="nav-item">
-                  <a href="#" class="nav-link">
+                  <a href="<?= base_url() ?>product/<?= $value[2] ?>" class="nav-link">
                   <?= $value[1] ?>
                     <span class="float-left text-<?= $value[0] > 0 ?  'success' :'danger'  ?>">
                       <i class="fa fa-arrow-<?= $value[0] > 0 ? 'up' : 'down' ?>"text-sm"></i>

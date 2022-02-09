@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\Order_Item;
 use App\Services\Auth\Auth;
 use App\Controllers\Controller;
+use App\Services\Session\SessionManager;
 use App\Utilities\FlashMessage;
 
 class HomeController extends Controller
@@ -13,13 +14,14 @@ class HomeController extends Controller
 
     private $orderModel;
     private $orderItemModel;
-    private $limit_chart_pir = 5;
+    private $limits_chart_pir;
 
     public function __construct()
     {
         parent::__construct();
-        $this->orderModel     = new Order();
-        $this->orderItemModel = new Order_Item();
+        $this->orderModel      = new Order();
+        $this->orderItemModel  = new Order_Item();
+        $this->limits_chart_pir = SessionManager::has('limits_chart_pir') ? SessionManager::get('limits_chart_pir') : 3;
     }
 
 
@@ -35,35 +37,16 @@ class HomeController extends Controller
         $last_month = (int) $this->orderModel->comparison($this->between_dates('last', 'month'));
         $last_year  = (int) $this->orderModel->comparison($this->between_dates('last', 'year'));
 
-
-
-
-        // dd($this_item_year, $last_item_year);
-        // dd(array_keys(array_intersect_key($this_item_year, $last_item_year)) );
-        // dd(array_intersect_key($this_item_year, $last_item_year) );
-        // dd(array_diff($this_item_year, $last_item_year) );
-
-
-
-        // $this_day   = $this->product_change_percentage('day');
-        // $this_week  = $this->product_change_percentage('week');
-        // $this_month = $this->product_change_percentage('month');
-        // $this_year  = $this->product_change_percentage('year');
-        // $last_day   = $this->product_change_percentage('day');
-        // $last_week  = $this->product_change_percentage('week');
-        // $last_month = $this->product_change_percentage('month');
-        // $last_year  = $this->product_change_percentage('year');
-
-
-        // dd( $this_year);
-
-
+        $limits_chart_pir = [];
+        for ($i = 2; $i <= 10; $i++) {
+            $limits_chart_pir[$i] = $i == $this->limits_chart_pir ? 'active' : '';
+        }
 
         $data = array(
             'grand'    => $this->calculations_mount('grand'),
             'discount' => $this->calculations_mount('discount'),
 
-            'chart_pir'  => $this->orderItemModel->join__orderItem_whit_product_sort($this->limit_chart_pir, $this->between_dates('this', 'year')),
+            'chart_pir'  => $this->orderItemModel->join__orderItem_whit_product_sort($this->limits_chart_pir, $this->between_dates('this', 'year')),
             'chart_pir_color' => ['danger', 'success', 'warning',  'primary', 'muted'],
 
             'count_order'  => $this->orderModel->count_order(),         // count all order
@@ -81,23 +64,21 @@ class HomeController extends Controller
             'change_item_sale_mount' => $this->product_change_percentage('month'),
             'change_item_sale_year'  => $this->product_change_percentage('year'),
 
-
+            'limits_chart_pir' => $limits_chart_pir,
 
             'avg_grand'    => $this->orderModel->read_avg_grand(),      // avg grand total of all orders
             'avg_discount' => $this->orderModel->read_avg_discount(),   // avg discount of all orders
 
         );
-        // dd($data['change_item_sale_day'], $data['change_item_sale_week'], $data['change_item_sale_mount'], $data['change_item_sale_year']);
 
-        // dd(empty($data['chart_pir_day']),empty($data['chart_pir_week']),empty($data['chart_pir_month']),empty($data['chart_pir_year']));
         return view('Backend.index', $data);
     }
 
     public function product_change_percentage($when = 'year')
     {
         $cent = [];
-        $this_items   = $this->orderItemModel->join__orderItem_whit_product_sort($this->limit_chart_pir, $this->between_dates('this', $when)) ?? false;
-        $last_items   = $this->orderItemModel->join__orderItem_whit_product_sort($this->limit_chart_pir, $this->between_dates('last', $when)) ?? false;
+        $this_items   = $this->orderItemModel->join__orderItem_whit_product_sort($this->limits_chart_pir, $this->between_dates('this', $when)) ?? false;
+        $last_items   = $this->orderItemModel->join__orderItem_whit_product_sort($this->limits_chart_pir, $this->between_dates('last', $when)) ?? false;
 
 
 
@@ -105,10 +86,11 @@ class HomeController extends Controller
         $last_items_column   = array_column($last_items, 'grand_total', 'product_id');
 
         $this_items_name   =    array_column($this_items, 'product_name', 'product_id');
+        $this_items_slug   =    array_column($this_items, 'product_slug', 'product_id');
 
         foreach ($this_items_column as $key => $value) {
             if (in_array($key, array_keys($last_items_column))) {
-                $cent[$key] = [round(($value - $last_items_column[$key]) / $last_items_column[$key] * 100), $this_items_name[$key]];
+                $cent[$key] = [round(($value - $last_items_column[$key]) / $last_items_column[$key] * 100), $this_items_name[$key], $this_items_slug[$key]];
             } else {
                 $cent[$key] = 0;
             }
@@ -241,7 +223,7 @@ class HomeController extends Controller
     {
         $params = $this->request->get_param('time');
         $data = [
-            'chart_pir' => $this->orderItemModel->join__orderItem_whit_product_sort('5', $this->between_dates('this', $params)),
+            'chart_pir' => $this->orderItemModel->join__orderItem_whit_product_sort($this->limits_chart_pir, $this->between_dates('this', $params)),
         ];
         echo  json_encode($data);
     }
@@ -255,5 +237,12 @@ class HomeController extends Controller
             'change_item_sale'   => array_values($this->product_change_percentage($params)),
         ];
         echo  json_encode($data);
+    }
+
+    public function number_view_chart_pri()
+    {
+        $params = $this->request->get_param('count');
+        SessionManager::set('limits_chart_pir', $params);
+        return $this->request->redirect('admin');
     }
 }
