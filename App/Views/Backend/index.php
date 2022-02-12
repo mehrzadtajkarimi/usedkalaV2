@@ -70,9 +70,9 @@
     <div class="col-lg-12">
 
       <div class="card">
-        <div class="card-header  d-flex">
-          <h3 class="card-title">پرفروش ترین ها</h3>
-          <div class="m-auto">
+        <div class="card-header  d-flex  justify-content-between">
+            <h3 class="card-title">پرفروش ترین ها</h3>
+          <div class="">
             <div class="btn-group  btn-group-sm " id="btn-date">
               <button type="button" data-time="year" class="btn btn-danger active">ســال</button>
               <button type="button" data-time="month" class="btn btn-danger">مــاه</button>
@@ -80,12 +80,12 @@
               <button type="button" data-time="day" class="btn btn-danger">روز</button>
             </div>
             <div class="btn-group  btn-group-sm mr-3" id="btn-basis">
-              <button type="button" data-time="year" class="btn btn-danger active">قیـمت</button>
-              <button type="button" data-time="month" class="btn btn-danger">تــعداد</button>
+              <button type="button" data-time="year" class="btn btn-success active">قیـمت</button>
+              <button type="button" data-time="month" class="btn btn-success">تــعداد</button>
             </div>
             <div class="btn-group  btn-group-sm mr-3" id="btn-count">
-              <?php foreach ($limits_chart_pir as $key => $value): ?>
-                <button type="button" data-count="<?= $key ?>" class="btn btn-danger <?= $value ?>"><?= $key ?></button>
+              <?php foreach ($limits_chart_pir as $key => $value) : ?>
+                <button type="button" data-count="<?= $key ?>" class="btn btn-secondary <?= $value ?>"><?= $key ?></button>
               <?php endforeach; ?>
             </div>
           </div>
@@ -109,7 +109,9 @@
               <ul class="chart-legend clearfix" id="li-chart-pir">
                 <?php foreach ($chart_pir as $key => $value) : ?>
                   <li>
-                    <i class="fa fa-circle-o <?= "text-$chart_pir_color[$key]" ?>"><?= $value['product_name'] ?></i>
+                    <i class="fa fa-square <?= "text-$chart_pir_color[$key]" ?>" title="شماره شناسه محصول : <?= $value['product_id'] ?>">
+                      <?= $value['product_name'] ?>
+                    </i>
                   </li>
                 <?php endforeach; ?>
               </ul>
@@ -118,13 +120,13 @@
         </div>
         <div class="card-footer bg-white p-0">
           <ul class="nav nav-pills flex-column" id="change-item-sale">
-            <?php foreach ($change_item_sale_year as $value): ?>
-              <?php if(!empty($value)): ?>
+            <?php foreach ($change_item_sale_year as $value) : ?>
+              <?php if (!empty($value)) : ?>
                 <li class="nav-item">
                   <a href="<?= base_url() ?>product/<?= $value[2] ?>" class="nav-link">
-                  <?= $value[1] ?>
-                    <span class="float-left text-<?= $value[0] > 0 ?  'success' :'danger'  ?>">
-                      <i class="fa fa-arrow-<?= $value[0] > 0 ? 'up' : 'down' ?>"text-sm"></i>
+                    <?= $value[1] ?>
+                    <span class="float-left text-<?= $value[0] > 0 ?  'success' : 'danger'  ?>">
+                      <i class="fa fa-arrow-<?= $value[0] > 0 ? 'up' : 'down' ?>" text-sm"></i>
                       <?= $value[0] ?>%</span>
                   </a>
                 </li>

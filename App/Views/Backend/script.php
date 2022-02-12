@@ -170,7 +170,7 @@
       var li_chart_pir = $('#li-chart-pir');
       var change_item_sale = $('#change-item-sale');
       var time = $(this).data('time');
-      var chart_pir_color = ['danger', 'success', 'warning', 'primary', 'muted'];
+      var chart_pir_color = ['danger', 'success', 'warning', 'primary', 'secondary', 'info', 'dark'];
       that.addClass('active').siblings().removeClass('active');
 
       $.ajax({
@@ -247,14 +247,18 @@
                   'rgba(40, 167, 69)',
                   'rgba(255, 193, 7)',
                   'rgba(0, 123, 255)',
-                  'rgba(108, 117, 125)'
+                  'rgba(108, 117, 125)',
+                  'rgba(23, 162, 184)',
+                  'rgba(52, 58, 64)',
                 ],
                 borderColor: [
                   'rgba(220, 53, 69)',
                   'rgba(40, 167, 69)',
                   'rgba(255, 193, 7)',
                   'rgba(0, 123, 255)',
-                  'rgba(108, 117, 125)'
+                  'rgba(108, 117, 125)',
+                  'rgba(23, 162, 184)',
+                  'rgba(52, 58, 64)',
                 ],
               }]
             },
@@ -274,16 +278,21 @@
             'rgba(40, 167, 69)',
             'rgba(255, 193, 7)',
             'rgba(0, 123, 255)',
-            'rgba(108, 117, 125)'
+            'rgba(108, 117, 125)',
+            'rgba(23, 162, 184)',
+            'rgba(52, 58, 64)',
           ],
           borderColor: [
             'rgba(220, 53, 69)',
             'rgba(40, 167, 69)',
             'rgba(255, 193, 7)',
             'rgba(0, 123, 255)',
-            'rgba(108, 117, 125)'
+            'rgba(108, 117, 125)',
+            'rgba(23, 162, 184)',
+            'rgba(52, 58, 64)',
           ],
-        }]
+        }],
+        labels:  <?= json_encode($chart_pir_comparison)  ?>
       },
     });
 

@@ -59,7 +59,8 @@ class Order_Item extends MysqlBaseModel
     {
         $as = $date['as'];
         $ta = $date['to'];
-        return $this->query("
+        $total_sales = $this->read_order_item_between($as, $ta);
+        $total_sale_products = $this->query("
                 SELECT
                 products.slug AS product_slug,
                 products.title AS product_name,
@@ -74,6 +75,12 @@ class Order_Item extends MysqlBaseModel
                 GROUP BY order_items.product_id
                 LIMIT $limit_at
             ");
+
+
+        foreach ($total_sale_products as  $value) {
+       $total_sale_products =$value=['comparison' => round(($value['grand_total'] - $total_sales) / $total_sales * 100)];
+        }
+        return $total_sale_products;
     }
 
     public function join__orderItem_whit_product()
@@ -106,10 +113,10 @@ class Order_Item extends MysqlBaseModel
                 ORDER BY order_items.price DESC
                 LIMIT $limit
                 ");
-                // return array_column($result, 'product_id','grand_total');
-                // return array_column($result, 'grand_total','product_name');
+        // return array_column($result, 'product_id','grand_total');
+        // return array_column($result, 'grand_total','product_name');
 
-        return array_column($result, 'grand_total','product_id');
+        return array_column($result, 'grand_total', 'product_id');
     }
 
     public function update_orderItem(array $params, $id)
@@ -120,5 +127,16 @@ class Order_Item extends MysqlBaseModel
     public function delete_orderItem($id)
     {
         return $this->delete(['id' => $id]);
+    }
+
+    public function read_order_item_between($as, $ta)
+    {
+        return  $this->connection->sum(
+            $this->table,
+            "price",
+            [
+                "created_at[<>]" => [$ta, $as]
+            ]
+        );
     }
 }
