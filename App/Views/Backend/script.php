@@ -267,7 +267,6 @@
               labels: data_comparison
             },
           });
-          document.reload();
         }
       });
 
