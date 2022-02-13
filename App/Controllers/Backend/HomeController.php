@@ -27,14 +27,10 @@ class HomeController extends Controller
 
     public function index()
     {
-
-
-        $total_sale_products = $this->orderItemModel->join__orderItem_whit_product_sort($this->limits_chart_pir, $this->between_dates('this', 'year'));
-
-dd($total_sale_products);
-
-        foreach ($total_sale_products as $value) {
-            $comparison[$value['product_id']] = round(($value['grand_total'] - $total_sales) / $total_sales * 100);
+        $chart_pir             = $this->orderItemModel->join__orderItem_whit_product_sort($this->limits_chart_pir, $this->between_dates('this', 'year'));
+        $chart_pir_total_year  = $this->orderItemModel->read_order_item_between($this->between_dates('this', 'year'));
+        foreach ($chart_pir as $key => $value) {
+            $chart_pir[$key]['comparison'] = '%'. round((($value['grand_total'] - $chart_pir_total_year) / $chart_pir_total_year * 100) + 100);
         }
 
         $this_day   = (int) $this->orderModel->comparison($this->between_dates('this', 'day'));
@@ -51,14 +47,12 @@ dd($total_sale_products);
             $limits_chart_pir[$i] = $i == $this->limits_chart_pir ? 'active' : '';
         }
 
-        dd($comparison);
         $data = array(
             'grand'    => $this->calculations_mount('grand'),
             'discount' => $this->calculations_mount('discount'),
 
-            'chart_pir'            => $this->orderItemModel->join__orderItem_whit_product_sort($this->limits_chart_pir, $this->between_dates('this', 'year')),
-            'chart_pir_comparison' => $comparison,
-            'chart_pir_color'      => ['danger', 'success', 'warning', 'primary', 'secondary', 'info', 'dark'],
+            'chart_pir'       => $chart_pir,
+            'chart_pir_color' => ['danger', 'success', 'warning', 'primary', 'secondary', 'info', 'dark'],
 
             'count_order'  => $this->orderModel->count_order(),         // count all order
             'max_total'    => $this->orderModel->read_max_total(),      // max total of all orders
@@ -108,28 +102,6 @@ dd($total_sale_products);
         }
         return $cent;
     }
-
-    public function percentage_total_sales($when = 'year')
-    {
-        $total_sales = $this->orderItemModel->read_order_item_between( $this->between_dates('this', $when)) ;
-        $last_items   = $this->orderItemModel->join__orderItem_whit_product_sort($this->limits_chart_pir, $this->between_dates('last', $when)) ?? false;
-
-        $this_items_column   = array_column($this_items, 'grand_total', 'product_id');
-        $last_items_column   = array_column($last_items, 'grand_total', 'product_id');
-
-        $this_items_name   =    array_column($this_items, 'product_name', 'product_id');
-        $this_items_slug   =    array_column($this_items, 'product_slug', 'product_id');
-
-        foreach ($this_items_column as $key => $value) {
-            if (in_array($key, array_keys($last_items_column))) {
-                $cent[$key] = [round(($value - $last_items_column[$key]) / $last_items_column[$key] * 100), $this_items_name[$key], $this_items_slug[$key]];
-            } else {
-                $cent[$key] = 0;
-            }
-        }
-        return $cent;
-    }
-
 
     public function report()
     {
@@ -253,9 +225,17 @@ dd($total_sale_products);
 
     public function bestsellers()
     {
-        $params = $this->request->get_param('time');
+        $param = $this->request->get_param('time');
+
+        $chart_pir       = $this->orderItemModel->join__orderItem_whit_product_sort($this->limits_chart_pir, $this->between_dates('this', $param));
+        $chart_pir_total = $this->orderItemModel->read_order_item_between($this->between_dates('this', $param));
+
+        foreach ($chart_pir as $key => $value) {
+            $chart_pir[$key]['comparison'] = '%'. round((($value['grand_total'] - $chart_pir_total) / $chart_pir_total * 100) + 100);
+        }
+
         $data = [
-            'chart_pir' => $this->orderItemModel->join__orderItem_whit_product_sort($this->limits_chart_pir, $this->between_dates('this', $params)),
+            'chart_pir' => $chart_pir,
         ];
         echo  json_encode($data);
     }

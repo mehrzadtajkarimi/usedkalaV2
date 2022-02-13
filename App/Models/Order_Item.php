@@ -59,8 +59,7 @@ class Order_Item extends MysqlBaseModel
     {
         $as = $date['as'];
         $ta = $date['to'];
-        $total_sales = $this->read_order_item_between($as, $ta);
-        $total_sale_products = $this->query("
+        return $this->query("
                 SELECT
                 products.slug AS product_slug,
                 products.title AS product_name,
@@ -73,14 +72,9 @@ class Order_Item extends MysqlBaseModel
                 ON order_items.product_id = products.id
                 WHERE order_items.created_at <= '$as' AND order_items.created_at >= '$ta'
                 GROUP BY order_items.product_id
+                ORDER BY grand_total DESC
                 LIMIT $limit_at
             ");
-
-
-        foreach ($total_sale_products as  $value) {
-       $total_sale_products =$value=['comparison' => round(($value['grand_total'] - $total_sales) / $total_sales * 100)];
-        }
-        return $total_sale_products;
     }
 
     public function join__orderItem_whit_product()
@@ -129,8 +123,10 @@ class Order_Item extends MysqlBaseModel
         return $this->delete(['id' => $id]);
     }
 
-    public function read_order_item_between($as, $ta)
+    public function read_order_item_between($comparison)
     {
+        $as = $comparison['as'];
+        $ta = $comparison['to'];
         return  $this->connection->sum(
             $this->table,
             "price",

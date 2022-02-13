@@ -225,10 +225,13 @@
         success: function(response) {
           var parsed_data = JSON.parse(response);
 
-          var data = [];
+          var data_grand_total = [];
+          var data_comparison = [];
           li_chart_pir.empty();
           $(parsed_data.chart_pir).each(function(key, value) {
-            data.push(value['grand_total']);
+            data_grand_total.push(value['grand_total']);
+            data_comparison.push(value['comparison']);
+
             li_chart_pir.append(`
               <li>
                   <i class="fa fa-circle-o  text-` + chart_pir_color[key] + `">` + value['product_name'] + ` </i>
@@ -241,7 +244,7 @@
             type: 'doughnut',
             data: {
               datasets: [{
-                data: data,
+                data: data_grand_total,
                 backgroundColor: [
                   'rgba(220, 53, 69)',
                   'rgba(40, 167, 69)',
@@ -260,11 +263,15 @@
                   'rgba(23, 162, 184)',
                   'rgba(52, 58, 64)',
                 ],
-              }]
+              }],
+              labels: data_comparison
             },
           });
+          document.reload();
         }
       });
+
+
     });
 
     var ctx = document.getElementById("pieChart").getContext('2d');
@@ -292,7 +299,7 @@
             'rgba(52, 58, 64)',
           ],
         }],
-        labels:  <?= json_encode($chart_pir_comparison)  ?>
+        labels: <?= json_encode(array_column($chart_pir, 'comparison')) ?? 1   ?>
       },
     });
 
