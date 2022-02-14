@@ -71,7 +71,7 @@
 
       <div class="card">
         <div class="card-header  d-flex  justify-content-between">
-            <h3 class="card-title">پرفروش ترین ها</h3>
+          <h3 class="card-title">پرفروش ترین ها</h3>
           <div class="">
             <div class="btn-group  btn-group-sm " id="btn-date">
               <button type="button" data-time="year" class="btn btn-danger active">ســال</button>
@@ -103,6 +103,30 @@
             <div class="col-md-8">
               <div class="chart-responsive">
                 <canvas id="pieChart" width="334" height="70"></canvas>
+              </div>
+              <div class="text-center">
+                <div class="row  m-auto">
+                  <div class="col pt-4">
+                    <div class="edit-started float-left">
+                      <!-- <small >از : </small> -->
+                      <span class="badge badge-pill badge-secondary pr-3 pl-3" id="chart_pir_this">
+                        <?= $chart_pir_this_as ?>
+                        <i class="fa fa-arrow-left pr-1 pl-2  text-warning wow fadeInRight"  data-wow-delay="0.1s" data-wow-iteration="2" aria-hidden="true"></i>
+                        <?= $chart_pir_this_to ?>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col  pt-4">
+                    <div class="edit-finished float-right">
+                      <!-- <small >تا  : </small> -->
+                      <span class="badge badge-pill badge-secondary pr-3 pl-3" id="chart_pir_last">
+                        <?= $chart_pir_last_as ?>
+                        <i class="fa fa-arrow-left pr-1 pl-2  text-warning wow fadeInRight"  data-wow-delay="0.5s" data-wow-iteration="2" aria-hidden="true"></i>
+                        <?= $chart_pir_last_to ?>
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="col-md-4">

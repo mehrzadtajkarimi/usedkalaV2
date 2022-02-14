@@ -53,6 +53,10 @@ class HomeController extends Controller
 
             'chart_pir'       => $chart_pir,
             'chart_pir_color' => ['danger', 'success', 'warning', 'primary', 'secondary', 'info', 'dark'],
+            'chart_pir_this_as' => jdate('j F Y'),
+            'chart_pir_this_to' => jdate('j F Y', strtotime("-1 year")),
+            'chart_pir_last_as' => jdate('j F Y', strtotime("-1 year")),
+            'chart_pir_last_to' => jdate('j F Y', strtotime("-2 year")),
 
             'count_order'  => $this->orderModel->count_order(),         // count all order
             'max_total'    => $this->orderModel->read_max_total(),      // max total of all orders
@@ -232,6 +236,10 @@ class HomeController extends Controller
 
         foreach ($chart_pir as $key => $value) {
             $chart_pir[$key]['comparison'] = '%'. round((($value['grand_total'] - $chart_pir_total) / $chart_pir_total * 100) + 100);
+            $chart_pir[$key]['chart_pir_this_to'] = jdate('j F Y');
+            $chart_pir[$key]['chart_pir_this_as'] = jdate('j F Y', strtotime("-1 $param"));
+            $chart_pir[$key]['chart_pir_last_to'] = jdate('j F Y', strtotime("-1 $param"));
+            $chart_pir[$key]['chart_pir_last_as'] = jdate('j F Y', strtotime("-2 $param"));
         }
 
         $data = [

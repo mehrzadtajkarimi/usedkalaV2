@@ -28,7 +28,7 @@
 
    <script src="<?= asset_url() ?>Backend/plugins/bootstrap/js/bootstrap.min.js"></script>
    <!--script src="<?= asset_url() ?>Backend/plugins/chartjs-old/Chart.min.js"></!--script-->
-   <script src="<?= asset_url() ?>Backend/plugins/chart.js/Chart.min.js"></!script>
+   <script src="<?= asset_url() ?>Backend/plugins/chart.js/Chart.min.js"></script>
    <script src="<?= asset_url() ?>Backend/plugins/WOW/dist/wow.min.js"></script>
    <!-- <script src="<?= asset_url() ?>Backend/dist/js/demo.js"></script> -->
    <!-- <script src="<?= asset_url() ?>Backend/dist/js/pages/dashboard3.js"></script> -->
@@ -37,6 +37,7 @@
    <script src="<?= asset_url() ?>Backend/plugins/select2/select2.full.min.js"></script>
    <script src="<?= asset_url() ?>Backend/plugins/datepicker/persian-datepicker.min.js"></script>
    <script src="<?= asset_url() ?>Backend/dist/js/pages/my.js"></script>
+   <script src="<?= asset_url() ?>Backend/plugins/jeditable/jquery.jeditable.min.js"></script>
 
 
 

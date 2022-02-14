@@ -1,6 +1,15 @@
 <script>
   $(document).ready(function() {
 
+    // $('.edit-started').editable('<?= base_url() ?>admin/bestsellers/edit_time', {
+
+
+
+
+    //   tooltip: "Click to edit..."
+    // });
+
+
     $(function() {
       'use strict'
 
@@ -168,6 +177,8 @@
       e.preventDefault();
       var that = $(this);
       var li_chart_pir = $('#li-chart-pir');
+      var chart_pir_this = $('#chart_pir_this');
+      var chart_pir_last = $('#chart_pir_last');
       var change_item_sale = $('#change-item-sale');
       var time = $(this).data('time');
       var chart_pir_color = ['danger', 'success', 'warning', 'primary', 'secondary', 'info', 'dark'];
@@ -234,9 +245,21 @@
 
             li_chart_pir.append(`
               <li>
-                  <i class="fa fa-circle-o  text-` + chart_pir_color[key] + `">` + value['product_name'] + ` </i>
+              <i class="fa fa-circle-o  text-` + chart_pir_color[key] + `">` + value['product_name'] + ` </i>
               </li>
+              `);
+
+            chart_pir_this.empty().append(`
+            ` + value['chart_pir_this_to'] + `
+              <i class="fa fa-arrow-left pr-1 pl-2 text-warning wow fadeInRight"  data-wow-delay="0.1s" data-wow-iteration="2" aria-hidden="true"></i>
+              ` + value['chart_pir_this_as'] + `
+              `);
+            chart_pir_last.empty().append(`
+            ` + value['chart_pir_last_to'] + `
+              <i class="fa fa-arrow-left pr-1 pl-2 text-warning wow fadeInRight"  data-wow-delay="0.5s" data-wow-iteration="2" aria-hidden="true"></i>
+            ` + value['chart_pir_last_as'] + `
             `);
+
           });
 
           var ctx = document.getElementById("pieChart").getContext('2d');
@@ -339,8 +362,7 @@
     }
 
     var salesChartOptions = {
-      //Boolean - If we should show the scale at all
-      showScale: true,
+      //Boolean - If we should show the scalto
       //Boolean - Whether grid lines are shown across the chart
       scaleShowGridLines: false,
       //String - Colour of the grid lines
@@ -382,7 +404,6 @@
 
     //---------------------------
     //- END MONTHLY SALES CHART -
-
 
 
 
