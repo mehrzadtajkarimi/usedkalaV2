@@ -251,12 +251,12 @@
 
             chart_pir_this.empty().append(`
             ` + value['chart_pir_this_to'] + `
-              <i class="fa fa-arrow-left pr-1 pl-2 text-warning wow fadeInRight"  data-wow-delay="0.1s" data-wow-iteration="2" aria-hidden="true"></i>
+              <i class="fa fa-arrow-left pr-1 pl-2 text-warning wow fadeInRight"  aria-hidden="true"></i>
               ` + value['chart_pir_this_as'] + `
               `);
             chart_pir_last.empty().append(`
             ` + value['chart_pir_last_to'] + `
-              <i class="fa fa-arrow-left pr-1 pl-2 text-warning wow fadeInRight"  data-wow-delay="0.5s" data-wow-iteration="2" aria-hidden="true"></i>
+              <i class="fa fa-arrow-left pr-1 pl-2 text-warning wow fadeInRight"  aria-hidden="true"></i>
             ` + value['chart_pir_last_as'] + `
             `);
 

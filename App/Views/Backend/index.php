@@ -70,31 +70,65 @@
     <div class="col-lg-12">
 
       <div class="card">
-        <div class="card-header  d-flex  justify-content-between">
-          <h3 class="card-title">پرفروش ترین ها</h3>
-          <div class="">
-            <div class="btn-group  btn-group-sm " id="btn-date">
-              <button type="button" data-time="year" class="btn btn-danger active">ســال</button>
-              <button type="button" data-time="month" class="btn btn-danger">مــاه</button>
-              <button type="button" data-time="week" class="btn btn-danger">هفته</button>
-              <button type="button" data-time="day" class="btn btn-danger">روز</button>
+        <div class="card-header border-0  d-flex  ">
+          <h3 class="position-absolute " style="right:15px">پرفروش ترین ها</h3>
+          <div class="m-auto">
+            <div class="btn-group  btn-group-sm shadow wow fadeInRight" id="btn-date">
+              <button type="button" data-time="year" class="btn btn-secondary active  ">ســال</button>
+              <button type="button" data-time="month" class="btn btn-secondary  ">مــاه</button>
+              <button type="button" data-time="week" class="btn btn-secondary  ">هفته</button>
+              <button type="button" data-time="day" class="btn btn-secondary  ">روز</button>
             </div>
-            <div class="btn-group  btn-group-sm mr-3" id="btn-basis">
-              <button type="button" data-time="year" class="btn btn-success active">قیـمت</button>
-              <button type="button" data-time="month" class="btn btn-success">تــعداد</button>
+            <div class="btn-group  btn-group-sm mr-3 shadow wow fadeInRight" data-wow-delay="0.2s" id="btn-basis">
+              <button type="button" data-time="year" class="btn btn-secondary active">قیـمت</button>
+              <button type="button" data-time="month" class="btn btn-secondary">تــعداد</button>
             </div>
-            <div class="btn-group  btn-group-sm mr-3" id="btn-count">
+            <div class="btn-group  btn-group-sm mr-3 shadow wow fadeInRight" data-wow-delay="0.6s" id="btn-count">
               <?php foreach ($limits_chart_pir as $key => $value) : ?>
                 <button type="button" data-count="<?= $key ?>" class="btn btn-secondary <?= $value ?>"><?= $key ?></button>
               <?php endforeach; ?>
             </div>
           </div>
+          <div class="position-absolute " style="left:15px">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-link float-right" data-toggle="modal" data-target="#limits_chart_pirModalCenter">
+              مشاهده گزارش
+            </button>
 
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-widget="remove"><i class="fa fa-times"></i>
-            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="limits_chart_pirModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                  <form action="<?= base_url() ?>admin/report" method="post">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="my-modal-title">گزارش پرفروش ترین محصولات</h5>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="col">
+                          <div class="form-group">
+                            <label for="Input1" class=""> شروع</label>
+                            <input type="text" class="form-control start_at" id="Input1">
+                            <input type="hidden" id="start_at" name="start_at">
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-group">
+                            <label for="Input2" class=""> پایان</label>
+                            <input type="text" class="form-control finish_at" id="Input2">
+                            <input type="hidden" id="finish_at" name="finish_at">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer row">
+                      <button type="submit" class="btn btn-primary col ml-2">نمایش </button>
+                      <button type="button" class="btn btn-secondary col" data-dismiss="modal">انصراف</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="card-body">
@@ -102,16 +136,16 @@
           <div class="row">
             <div class="col-md-8">
               <div class="chart-responsive">
-                <canvas id="pieChart" width="334" height="70"></canvas>
+                <canvas id="pieChart" height="80"></canvas>
               </div>
               <div class="text-center">
                 <div class="row  m-auto">
                   <div class="col pt-4">
                     <div class="edit-started float-left">
                       <!-- <small >از : </small> -->
-                      <span class="badge badge-pill badge-secondary pr-3 pl-3" id="chart_pir_this">
+                      <span class="badge badge-pill badge-secondary pr-3 pl-3 shadow" id="chart_pir_this">
                         <?= $chart_pir_this_as ?>
-                        <i class="fa fa-arrow-left pr-1 pl-2  text-warning wow fadeInRight"  data-wow-delay="0.1s" data-wow-iteration="2" aria-hidden="true"></i>
+                        <i class="fa fa-arrow-left pr-1 pl-2  text-warning wow fadeInRight" data-wow-delay="1s" aria-hidden="true"></i>
                         <?= $chart_pir_this_to ?>
                       </span>
                     </div>
@@ -119,9 +153,9 @@
                   <div class="col  pt-4">
                     <div class="edit-finished float-right">
                       <!-- <small >تا  : </small> -->
-                      <span class="badge badge-pill badge-secondary pr-3 pl-3" id="chart_pir_last">
+                      <span class="badge badge-pill badge-secondary pr-3 pl-3 shadow" id="chart_pir_last">
                         <?= $chart_pir_last_as ?>
-                        <i class="fa fa-arrow-left pr-1 pl-2  text-warning wow fadeInRight"  data-wow-delay="0.5s" data-wow-iteration="2" aria-hidden="true"></i>
+                        <i class="fa fa-arrow-left pr-1 pl-2  text-warning wow fadeInRight" data-wow-delay="1s" aria-hidden="true"></i>
                         <?= $chart_pir_last_to ?>
                       </span>
                     </div>
@@ -281,7 +315,7 @@
           </div>
 
           <div class="position-relative mb-4">
-            <canvas id="visitors-chart" height="200"></canvas>
+            <canvas id="visitors-chart" height="250"></canvas>
           </div>
 
           <div class="d-flex flex-row justify-content-end">
