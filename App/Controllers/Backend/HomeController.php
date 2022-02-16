@@ -27,10 +27,10 @@ class HomeController extends Controller
 
     public function index()
     {
-        $chart_pir             = $this->orderItemModel->join__orderItem_whit_product_sort($this->limits_chart_pir, $this->between_dates('this', 'year'));
+        $chart_pir             = $this->orderItemModel->join__orderItem_whit_product_sort($this->between_dates('this', 'year'), $this->limits_chart_pir);
         $chart_pir_total_year  = $this->orderItemModel->read_order_item_between($this->between_dates('this', 'year'));
         foreach ($chart_pir as $key => $value) {
-            $chart_pir[$key]['comparison'] = '%'. round((($value['grand_total'] - $chart_pir_total_year) / $chart_pir_total_year * 100) + 100);
+            $chart_pir[$key]['comparison'] = '%' . round((($value['grand_total'] - $chart_pir_total_year) / $chart_pir_total_year * 100) + 100);
         }
 
         $this_day   = (int) $this->orderModel->comparison($this->between_dates('this', 'day'));
@@ -86,8 +86,8 @@ class HomeController extends Controller
     public function product_change_percentage($when = 'year')
     {
         $cent = [];
-        $this_items   = $this->orderItemModel->join__orderItem_whit_product_sort($this->limits_chart_pir, $this->between_dates('this', $when)) ?? false;
-        $last_items   = $this->orderItemModel->join__orderItem_whit_product_sort($this->limits_chart_pir, $this->between_dates('last', $when)) ?? false;
+        $this_items   = $this->orderItemModel->join__orderItem_whit_product_sort($this->between_dates('this', $when), $this->limits_chart_pir) ?? false;
+        $last_items   = $this->orderItemModel->join__orderItem_whit_product_sort($this->between_dates('last', $when), $this->limits_chart_pir) ?? false;
 
 
 
@@ -107,7 +107,7 @@ class HomeController extends Controller
         return $cent;
     }
 
-    public function report()
+    public function sales_report()
     {
         $params = $this->request->params();
 
@@ -136,7 +136,9 @@ class HomeController extends Controller
         }
 
         $data = [
-            'orders' => $order,
+            'title'  => 'گزارش فروش',
+            'type'   => 'line',
+            'report' => $order,
             'as'     => $params['start_at'],
             'to'     => $params['finish_at'],
             'user'   => Auth::user(),
@@ -231,11 +233,11 @@ class HomeController extends Controller
     {
         $param = $this->request->get_param('time');
 
-        $chart_pir       = $this->orderItemModel->join__orderItem_whit_product_sort($this->limits_chart_pir, $this->between_dates('this', $param));
+        $chart_pir       = $this->orderItemModel->join__orderItem_whit_product_sort($this->between_dates('this', $param, $this->limits_chart_pir));
         $chart_pir_total = $this->orderItemModel->read_order_item_between($this->between_dates('this', $param));
 
         foreach ($chart_pir as $key => $value) {
-            $chart_pir[$key]['comparison'] = '%'. round((($value['grand_total'] - $chart_pir_total) / $chart_pir_total * 100) + 100);
+            $chart_pir[$key]['comparison'] = '%' . round((($value['grand_total'] - $chart_pir_total) / $chart_pir_total * 100) + 100);
             $chart_pir[$key]['chart_pir_this_to'] = jdate('j F Y');
             $chart_pir[$key]['chart_pir_this_as'] = jdate('j F Y', strtotime("-1 $param"));
             $chart_pir[$key]['chart_pir_last_to'] = jdate('j F Y', strtotime("-1 $param"));
@@ -264,5 +266,28 @@ class HomeController extends Controller
         $params = $this->request->get_param('count');
         SessionManager::set('limits_chart_pir', $params);
         return $this->request->redirect('admin');
+    }
+
+    public function best_selling_products()
+    {
+        $params = $this->request->params();
+
+        $date = [
+            'to' => date('Y-m-d H:i:s', $params['start_at']),
+            'as' => date('Y-m-d H:i:s', $params['finish_at']),
+        ];
+        $report = $this->orderItemModel->join__orderItem_whit_product_sort($date);
+
+        $data = [
+            'title'  => 'گزارش محصولات پرفروش',
+            'type'   => 'pie',
+            'report' => $report,
+            'as'     => $params['start_at'],
+            'to'     => $params['finish_at'],
+            'user'   => Auth::user(),
+        ];
+
+
+        return view('Backend.report.index', $data);
     }
 }

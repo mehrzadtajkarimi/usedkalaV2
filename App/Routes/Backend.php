@@ -29,10 +29,11 @@ use App\Middleware\Gate;
 
 Route::group(function () {
     Route::get('/admin', 'HomeController@index');
-    Route::post('/admin/report', 'HomeController@report');
+    Route::post('/admin/sales_report', 'HomeController@sales_report');
     Route::post('/admin/bestsellers', 'HomeController@bestsellers');
     Route::post('/admin/bestsellers/cent', 'HomeController@bestsellers_cent');
     Route::post('/admin/bestsellers/number_view_chart_pri', 'HomeController@number_view_chart_pri');
+    Route::post('/admin/bestsellers/best_selling_products', 'HomeController@best_selling_products');
 });
 Route::group(function () {
     Route::get('/admin/users', 'UserController@index');

@@ -25,3 +25,5 @@
 <link rel="stylesheet" href="<?= asset_url() ?>Backend/dist/css/my.css">
 <!-- jQuery -->
 <script src="<?= asset_url() ?>Backend/plugins/jquery/jquery.min.js"></script>
+<script src="<?= asset_url() ?>Backend/plugins/datepicker/persian-date.min.js"></script>
+<script src="<?= asset_url() ?>Backend/plugins/datepicker/persian-datepicker.min.js"></script>

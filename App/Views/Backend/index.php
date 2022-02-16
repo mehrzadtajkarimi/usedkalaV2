@@ -1,3 +1,9 @@
+
+<?php include(BASEPATH . "/App/Views/Backend/script.php") ?>
+
+
+
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-12">
@@ -90,6 +96,7 @@
             </div>
           </div>
           <div class="position-absolute " style="left:15px">
+
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-link float-right" data-toggle="modal" data-target="#limits_chart_pirModalCenter">
               مشاهده گزارش
@@ -99,7 +106,7 @@
             <div class="modal fade" id="limits_chart_pirModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
-                  <form action="<?= base_url() ?>admin/report" method="post">
+                  <form action="<?= base_url() ?>admin/bestsellers/best_selling_products" method="post">
                     <div class="modal-header">
                       <h5 class="modal-title" id="my-modal-title">گزارش پرفروش ترین محصولات</h5>
                     </div>
@@ -107,16 +114,16 @@
                       <div class="row">
                         <div class="col">
                           <div class="form-group">
-                            <label for="Input1" class=""> شروع</label>
-                            <input type="text" class="form-control start_at" id="Input1">
-                            <input type="hidden" id="start_at" name="start_at">
+                            <label for="Input3" class=""> شروع</label>
+                            <input type="text" class="form-control start_at-1" id="Input3">
+                            <input type="hidden" id="start_at-1" name="start_at">
                           </div>
                         </div>
                         <div class="col">
                           <div class="form-group">
-                            <label for="Input2" class=""> پایان</label>
-                            <input type="text" class="form-control finish_at" id="Input2">
-                            <input type="hidden" id="finish_at" name="finish_at">
+                            <label for="Input4" class=""> پایان</label>
+                            <input type="text" class="form-control finish_at-1" id="Input4">
+                            <input type="hidden" id="finish_at-1" name="finish_at">
                           </div>
                         </div>
                       </div>
@@ -145,7 +152,7 @@
                       <!-- <small >از : </small> -->
                       <span class="badge badge-pill badge-secondary pr-3 pl-3 shadow" id="chart_pir_this">
                         <?= $chart_pir_this_as ?>
-                        <i class="fa fa-arrow-left pr-1 pl-2  text-warning wow fadeInRight" data-wow-delay="1s" aria-hidden="true"></i>
+                        <i class="fa fa-arrow-left pr-1 pl-2  text-warning wow fadeInRight" data-wow-delay="1s" data-wow-iteration="5" aria-hidden="true"></i>
                         <?= $chart_pir_this_to ?>
                       </span>
                     </div>
@@ -155,7 +162,7 @@
                       <!-- <small >تا  : </small> -->
                       <span class="badge badge-pill badge-secondary pr-3 pl-3 shadow" id="chart_pir_last">
                         <?= $chart_pir_last_as ?>
-                        <i class="fa fa-arrow-left pr-1 pl-2  text-warning wow fadeInRight" data-wow-delay="1s" aria-hidden="true"></i>
+                        <i class="fa fa-arrow-left pr-1 pl-2  text-warning wow fadeInRight" data-wow-delay="1s" data-wow-iteration="5" aria-hidden="true"></i>
                         <?= $chart_pir_last_to ?>
                       </span>
                     </div>
@@ -211,7 +218,7 @@
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
-                  <form action="<?= base_url() ?>admin/report" method="post">
+                  <form action="<?= base_url() ?>admin/sales_report" method="post">
                     <div class="modal-header">
                       <h5 class="modal-title" id="my-modal-title">گزارش فروش</h5>
                     </div>
@@ -525,5 +532,3 @@
   </div>
 </div>
 
-
-<?php include(BASEPATH . "/App/Views/Backend/script.php") ?>

@@ -55,26 +55,33 @@ class Order_Item extends MysqlBaseModel
         return $products;
     }
 
-    public function join__orderItem_whit_product_sort($limit_at, $date)
+    public function join__orderItem_whit_product_sort($date, $limit_at = null)
     {
         $as = $date['as'];
         $ta = $date['to'];
-        return $this->query("
-                SELECT
-                products.slug AS product_slug,
-                products.title AS product_name,
-                products.id AS product_id,
-                sum(order_items.price) AS grand_total,
-                sum(order_items.quantity) AS quantity_total,
-                count(order_items.id) AS count_order_items
-                FROM order_items
-                INNER JOIN products
-                ON order_items.product_id = products.id
-                WHERE order_items.created_at <= '$as' AND order_items.created_at >= '$ta'
-                GROUP BY order_items.product_id
-                ORDER BY grand_total DESC
-                LIMIT $limit_at
-            ");
+
+        $query = "
+        SELECT
+        products.slug AS product_slug,
+        products.title AS product_name,
+        products.id AS product_id,
+        products.price AS product_price,
+        sum(order_items.price) AS grand_total,
+        sum(order_items.quantity) AS quantity_total,
+        count(order_items.id) AS count_order_items
+        FROM order_items
+        INNER JOIN products
+        ON order_items.product_id = products.id
+        WHERE order_items.created_at <= '$as' AND order_items.created_at >= '$ta'
+        GROUP BY order_items.product_id
+        ORDER BY grand_total DESC
+    ";
+
+        if ($limit_at != null) {
+            $query = $query . " LIMIT $limit_at";
+        }
+
+        return $this->query($query);
     }
 
     public function join__orderItem_whit_product()
