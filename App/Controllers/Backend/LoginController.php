@@ -11,16 +11,16 @@ class LoginController extends Controller
 
     public function login()
     {
-		$isLogin=Auth::is_login();
-		if ($isLogin>0)
-		{
-			$userModel = new User();
-			$isAdmin=$userModel->is_admin($isLogin);
-			if ($isAdmin)
-				return $this->request->redirect('admin');
-			else
-				return $this->request->redirect('profile');
-		}
+        $isLogin = Auth::is_login();
+        if ($isLogin > 0) {
+            $userModel = new User();
+            $isAdmin = $userModel->is_admin($isLogin);
+            if ($isAdmin) {
+                return $this->request->redirect('admin/dashboard');
+            } else {
+                return $this->request->redirect('profile');
+            }
+        }
         global $request;
         return view('Backend.user.login', ['request' => $request], true);
     }

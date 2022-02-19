@@ -61,7 +61,7 @@ class SessionProvider extends AuthProvider
             $this->active_code_model->delete(['user_id' => $user['id']]);
             FlashMessage::add('ورود /ثبت نام با موفقیت انجام شد.');
             if ($is_admin) {
-                $this->request->redirect('admin');
+                $this->request->redirect('admin/dashboard');
             }
             $this->request->redirect('profile');
         }

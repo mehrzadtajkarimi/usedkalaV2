@@ -38,8 +38,6 @@ class HomeController extends Controller
             }
         }
 
-
-
         $chart_pir             = $this->orderItemModel->join__orderItem_whit_product_sort($this->between_dates('this', 'year'), $this->limits_chart_pir);
         $chart_pir_total_year  = $this->orderItemModel->read_order_item_between($this->between_dates('this', 'year'));
         foreach ($chart_pir as $key => $value) {
@@ -139,12 +137,12 @@ class HomeController extends Controller
             $order = $this->orderModel->get_orders($as, $to, 'grand_total');
         } else {
             FlashMessage::add("مورد مورد نظر یافت نشد", FlashMessage::WARNING);
-            return $this->request->redirect('admin');
+            return $this->request->redirect('admin/dashboard');
         }
 
         if (empty($order)) {
             FlashMessage::add("از (($msg_as)) تا (($msg_to)) این تاریخ فروشی صورت نگرفته", FlashMessage::ERROR);
-            return $this->request->redirect('admin');
+            return $this->request->redirect('admin/dashboard');
         }
 
         $data = [
