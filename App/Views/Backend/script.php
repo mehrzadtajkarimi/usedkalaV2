@@ -1,13 +1,15 @@
 <script>
   $(document).ready(function() {
 
-    // $('.edit-started').editable('<?= base_url() ?>admin/bestsellers/edit_time', {
+    $('.btn-quantity').click(function() {
+      $(".btn-price").removeClass("active");
+      $('.btn-quantity').addClass("active");
+    });
 
-
-
-
-    //   tooltip: "Click to edit..."
-    // });
+    $('.btn-price').click(function() {
+      $(".btn-quantity").removeClass("active");
+      $('.btn-price').addClass("active");
+    });
 
 
     $(function() {
@@ -404,6 +406,31 @@
 
     //---------------------------
     //- END MONTHLY SALES CHART -
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   });
 

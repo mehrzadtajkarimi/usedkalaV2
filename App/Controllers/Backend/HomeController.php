@@ -27,6 +27,22 @@ class HomeController extends Controller
 
     public function index()
     {
+
+        $param = $this->request->get_param('quantity');
+
+        // dd($param);
+        if ($param != null) {
+            SessionManager::remove('quantity_chart_pir');
+            if ($param == 'quantity') {
+                SessionManager::set('quantity_chart_pir', 'quantity');
+            }
+            if ($param == 'price') {
+                SessionManager::set('quantity_chart_pir', 'price');
+            }
+        }
+
+
+
         $chart_pir             = $this->orderItemModel->join__orderItem_whit_product_sort($this->between_dates('this', 'year'), $this->limits_chart_pir);
         $chart_pir_total_year  = $this->orderItemModel->read_order_item_between($this->between_dates('this', 'year'));
         foreach ($chart_pir as $key => $value) {
@@ -73,7 +89,8 @@ class HomeController extends Controller
             'change_item_sale_mount' => $this->product_change_percentage('month'),
             'change_item_sale_year'  => $this->product_change_percentage('year'),
 
-            'limits_chart_pir' => $limits_chart_pir,
+            'limits_chart_pir'   => $limits_chart_pir,
+            'quantity_chart_pir' => SessionManager::get('quantity_chart_pir') ?? 'price',
 
             'avg_grand'    => $this->orderModel->read_avg_grand(),      // avg grand total of all orders
             'avg_discount' => $this->orderModel->read_avg_discount(),   // avg discount of all orders
@@ -88,8 +105,6 @@ class HomeController extends Controller
         $cent = [];
         $this_items   = $this->orderItemModel->join__orderItem_whit_product_sort($this->between_dates('this', $when), $this->limits_chart_pir) ?? false;
         $last_items   = $this->orderItemModel->join__orderItem_whit_product_sort($this->between_dates('last', $when), $this->limits_chart_pir) ?? false;
-
-
 
         $this_items_column   = array_column($this_items, 'grand_total', 'product_id');
         $last_items_column   = array_column($last_items, 'grand_total', 'product_id');
