@@ -1,16 +1,6 @@
 <script>
   $(document).ready(function() {
 
-    $('.btn-quantity').click(function() {
-      $(".btn-price").removeClass("active");
-      $('.btn-quantity').addClass("active");
-    });
-
-    $('.btn-price').click(function() {
-      $(".btn-quantity").removeClass("active");
-      $('.btn-price').addClass("active");
-    });
-
 
     $(function() {
       'use strict'

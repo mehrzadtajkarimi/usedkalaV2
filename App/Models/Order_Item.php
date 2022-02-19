@@ -130,10 +130,19 @@ class Order_Item extends MysqlBaseModel
         return $this->delete(['id' => $id]);
     }
 
-    public function read_order_item_between($comparison)
+    public function read_order_item_between($comparison, $quantity_chart_pir ='price')
     {
         $as = $comparison['as'];
         $ta = $comparison['to'];
+        if ($quantity_chart_pir == 'quantity') {
+            return  $this->connection->sum(
+                $this->table,
+                "quantity",
+                [
+                    "created_at[<>]" => [$ta, $as]
+                ]
+            );
+        }
         return  $this->connection->sum(
             $this->table,
             "price",

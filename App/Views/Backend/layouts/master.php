@@ -15,7 +15,7 @@
 
     </nav>
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
-      <a href="<?= base_url() ?>admin" class="brand-link">
+      <a href="<?= base_url() ?>admin/dashboard" class="brand-link">
         <img src="<?= asset_url() ?>Backend/dist/img/ukfav-icon.png" alt="AdminLTE Logo" class="brand-image " style="opacity: .8">
         <span class="brand-text font-weight-light">پنل مدیریت</span>
       </a>

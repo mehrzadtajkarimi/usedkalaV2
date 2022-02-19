@@ -85,8 +85,8 @@
               <button type="button" data-time="day" class="btn btn-secondary  ">روز</button>
             </div>
             <div class="btn-group  btn-group-sm mr-3 shadow wow fadeInRight" data-wow-delay="0.2s" id="btn-basis">
-              <a href="<?= base_url() ?>admin/price" type="submit" class="btn btn-secondary btn-price  <?= $quantity_chart_pir == 'price' ? 'active' : ''?>">قیـمت</a>
-              <a href="<?= base_url() ?>admin/quantity" type="submit" class="btn btn-secondary btn-quantity  <?= $quantity_chart_pir == 'quantity' ? 'active' : ''?>">تــعداد</a>
+              <a href="<?= base_url() ?>admin/dashboard/price"  class="btn btn-secondary btn-price  <?= $quantity_chart_pir == 'price' ? 'active' : ''?>">قیـمت</a>
+              <a href="<?= base_url() ?>admin/dashboard/quantity"  class="btn btn-secondary btn-quantity  <?= $quantity_chart_pir == 'quantity' ? 'active' : ''?>">تــعداد</a>
             </div>
             <div class="btn-group  btn-group-sm mr-3 shadow wow fadeInRight" data-wow-delay="0.6s" id="btn-count">
               <?php foreach ($limits_chart_pir as $key => $value) : ?>

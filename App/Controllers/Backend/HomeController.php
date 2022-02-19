@@ -14,7 +14,6 @@ class HomeController extends Controller
 
     private $orderModel;
     private $orderItemModel;
-    private $limits_chart_pir;
 
     public function __construct()
     {
@@ -27,10 +26,8 @@ class HomeController extends Controller
 
     public function index()
     {
-
         $param = $this->request->get_param('quantity');
 
-        // dd($param);
         if ($param != null) {
             SessionManager::remove('quantity_chart_pir');
             if ($param == 'quantity') {
@@ -280,7 +277,7 @@ class HomeController extends Controller
     {
         $params = $this->request->get_param('count');
         SessionManager::set('limits_chart_pir', $params);
-        return $this->request->redirect('admin');
+        return $this->request->redirect('admin/dashboard');
     }
 
     public function best_selling_products()

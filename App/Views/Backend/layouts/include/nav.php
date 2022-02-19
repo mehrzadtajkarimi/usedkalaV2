@@ -4,7 +4,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="<?= base_url() ?>admin" class="nav-link">داشبورد</a>
+        <a href="<?= base_url() ?>admin/dashboard" class="nav-link">داشبورد</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="mailto:webdev@meftah.com" class="nav-link">تماس با پشتیبانی</a>
