@@ -84,7 +84,7 @@
               <button type="button" data-time="week" class="btn btn-secondary  ">هفته</button>
               <button type="button" data-time="day" class="btn btn-secondary  ">روز</button>
             </div>
-            <div class="btn-group  btn-group-sm mr-3 shadow wow fadeInRight" data-wow-delay="0.2s" id="btn-basis">
+            <div class="btn-group  btn-group-sm mr-3 shadow wow fadeInRight" data-wow-delay="0.2s" id="btn-quantity">
               <a href="<?= base_url() ?>admin/dashboard/price" class="btn btn-secondary btn-price  <?= $quantity_chart_pir == 'price' ? 'active' : '' ?>">قیـمت</a>
               <a href="<?= base_url() ?>admin/dashboard/quantity" class="btn btn-secondary btn-quantity  <?= $quantity_chart_pir == 'quantity' ? 'active' : '' ?>">تــعداد</a>
             </div>
@@ -145,24 +145,30 @@
                 <canvas id="pieChart" height="80"></canvas>
               </div>
               <div class="text-center">
-                <div class="row  m-auto">
-                  <div class="col pt-4">
-                    <div class="edit-started float-left">
-                      <!-- <small >از : </small> -->
-                      <span class="badge badge-pill badge-secondary pr-3 pl-3 shadow" id="chart_pir_this">
-                        <?= $chart_pir_this_as ?>
-                        <i class="fa fa-arrow-left pr-1 pl-2  text-warning wow fadeInRight" data-wow-delay="1s" data-wow-iteration="5" aria-hidden="true"></i>
+                <div class="row  m-auto  pt-4">
+                  <div class="col">
+                    <b class="float-left"> مقایسه از بازده تاریــخ : </b>
+                  </div>
+                  <div class="col">
+                    <div class="edit-started float-right">
+                      <span class="badge badge-pill badge-secondary  shadow" id="chart_pir_this">
                         <?= $chart_pir_this_to ?>
+                        <i class="fa fa-arrow-left pr-1 pl-2  text-warning wow fadeInRight" data-wow-delay="1s" data-wow-iteration="5" aria-hidden="true"></i>
+                        <?= $chart_pir_this_as ?>
                       </span>
                     </div>
                   </div>
-                  <div class="col  pt-4">
+                </div>
+                <div class="row  pt-4">
+                  <div class="col">
+                    <b class="float-left"> تا تاریــخ :</b>
+                  </div>
+                  <div class="col ">
                     <div class="edit-finished float-right">
-                      <!-- <small >تا  : </small> -->
-                      <span class="badge badge-pill badge-secondary pr-3 pl-3 shadow" id="chart_pir_last">
-                        <?= $chart_pir_last_as ?>
-                        <i class="fa fa-arrow-left pr-1 pl-2  text-warning wow fadeInRight" data-wow-delay="1s" data-wow-iteration="5" aria-hidden="true"></i>
+                      <span class="badge badge-pill badge-secondary shadow" id="chart_pir_last">
                         <?= $chart_pir_last_to ?>
+                        <i class="fa fa-arrow-left pr-1 pl-2  text-warning wow fadeInRight" data-wow-delay="1s" data-wow-iteration="5" aria-hidden="true"></i>
+                        <?= $chart_pir_last_as ?>
                       </span>
                     </div>
                   </div>
@@ -183,20 +189,27 @@
           </div>
         </div>
         <div class="card-footer bg-white p-0">
-          <ul class="nav nav-pills flex-column" id="change-item-sale">
-            <?php foreach ($change_item_sale_year as $value) : ?>
-              <?php if (!empty($value)) : ?>
-                <li class="nav-item">
-                  <a href="<?= base_url() ?>product/<?= $value[2] ?>" class="nav-link">
-                    <?= $value[1] ?>
-                    <span class="float-left text-<?= $value[0] > 0 ?  'success' : 'danger'  ?>">
-                      <i class="fa fa-arrow-<?= $value[0] > 0 ? 'up' : 'down' ?>" text-sm"></i>
-                      <?= $value[0] ?>%</span>
-                  </a>
-                </li>
-              <?php endif; ?>
-            <?php endforeach; ?>
-          </ul>
+          <div class="row">
+            <div class="col-2 ">
+              <b class='text-muted font-weight-bold d-block text-center pt-4 h3'>  درصد مقایسه در بازده : </b>
+            </div>
+            <div class="col-10">
+              <ul class="nav nav-pills flex-column" id="change-item-sale">
+                <?php foreach ($change_item_sale_year as $value) : ?>
+                  <?php if (!empty($value)) : ?>
+                    <li class="nav-item">
+                      <a href="<?= base_url() ?>product/<?= $value[2] ?>" class="nav-link">
+                        <?= $value[1] ?>
+                        <span class="float-left text-<?= $value[0] > 0 ?  'success' : 'danger'  ?>">
+                          <i class="fa fa-arrow-<?= $value[0] > 0 ? 'up' : 'down' ?>" text-sm"></i>
+                          <?= $value[0] ?>%</span>
+                      </a>
+                    </li>
+                  <?php endif; ?>
+                <?php endforeach; ?>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>

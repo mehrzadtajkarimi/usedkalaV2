@@ -176,11 +176,12 @@
       var chart_pir_color = ['danger', 'success', 'warning', 'primary', 'secondary', 'info', 'dark'];
       that.addClass('active').siblings().removeClass('active');
 
+      // درصد مقایسه با سال قبل
       $.ajax({
         type: "post",
         url: "<?= base_url() ?>admin/bestsellers/cent",
         data: {
-          'time': time
+          'time': time,
         },
         success: function(response) {
           var parsed_data = JSON.parse(response);
@@ -218,12 +219,12 @@
       });
 
 
-
+      // برای چارت پیشرفت در سال
       $.ajax({
         type: "post",
         url: "<?= base_url() ?>admin/bestsellers",
         data: {
-          'time': time
+          'time': time,
         },
         success: function(response) {
           var parsed_data = JSON.parse(response);
@@ -284,8 +285,6 @@
           });
         }
       });
-
-
     });
 
     var ctx = document.getElementById("pieChart").getContext('2d');

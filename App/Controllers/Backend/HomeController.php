@@ -14,6 +14,7 @@ class HomeController extends Controller
 
     private $orderModel;
     private $orderItemModel;
+    private $limits_chart_pir=3;
 
     public function __construct()
     {
@@ -26,19 +27,19 @@ class HomeController extends Controller
 
     public function index()
     {
-        $param = $this->request->get_param('quantity');
+        $param_quantity = $this->request->get_param('quantity');
 
-        if ($param != null) {
+        if ($param_quantity != null) {
             SessionManager::remove('quantity_chart_pir');
-            if ($param == 'quantity') {
+            if ($param_quantity == 'quantity') {
                 SessionManager::set('quantity_chart_pir', 'quantity');
             }
-            if ($param == 'price') {
+            if ($param_quantity == 'price') {
                 SessionManager::set('quantity_chart_pir', 'price');
             }
         }
 
-        $chart_pir             = $this->orderItemModel->join__orderItem_whit_product_sort($this->between_dates('this', 'year'), $this->limits_chart_pir);
+        $chart_pir             = $this->orderItemModel->join__orderItem_whit_product_sort($this->between_dates('this', 'year'), $this->limits_chart_pir, $param_quantity);
         $chart_pir_total_year  = $this->orderItemModel->read_order_item_between($this->between_dates('this', 'year'));
         foreach ($chart_pir as $key => $value) {
             $chart_pir[$key]['comparison'] = '%' . round((($value['grand_total'] - $chart_pir_total_year) / $chart_pir_total_year * 100) + 100);
@@ -79,10 +80,10 @@ class HomeController extends Controller
             'change_sale_mount' => $this_month && $last_month ? $this->percentage_change($this_month, $last_month) : 0,   // percentage change of sale mount
             'change_sale_year'  => $this_year && $last_year ? $this->percentage_change($this_year, $last_year) : 0,       // percentage change of sale year
 
-            'change_item_sale_day'   => $this->product_change_percentage('day'),
-            'change_item_sale_week'  => $this->product_change_percentage('week'),
-            'change_item_sale_mount' => $this->product_change_percentage('month'),
-            'change_item_sale_year'  => $this->product_change_percentage('year'),
+            'change_item_sale_day'   => $this->product_change_percentage('day',$param_quantity ?? 'price'),
+            'change_item_sale_week'  => $this->product_change_percentage('week',$param_quantity ?? 'price'),
+            'change_item_sale_mount' => $this->product_change_percentage('month',$param_quantity ?? 'price'),
+            'change_item_sale_year'  => $this->product_change_percentage('year',$param_quantity ?? 'price'),
 
             'limits_chart_pir'   => $limits_chart_pir,
             'quantity_chart_pir' => SessionManager::get('quantity_chart_pir') ?? 'price',
@@ -95,11 +96,11 @@ class HomeController extends Controller
         return view('Backend.index', $data);
     }
 
-    public function product_change_percentage($when = 'year')
+    public function product_change_percentage($when = 'year',$quantity = 'price')
     {
         $cent = [];
-        $this_items   = $this->orderItemModel->join__orderItem_whit_product_sort($this->between_dates('this', $when), $this->limits_chart_pir) ?? false;
-        $last_items   = $this->orderItemModel->join__orderItem_whit_product_sort($this->between_dates('last', $when), $this->limits_chart_pir) ?? false;
+        $this_items   = $this->orderItemModel->join__orderItem_whit_product_sort($this->between_dates('this', $when) , $this->limits_chart_pir , $quantity) ?? false;
+        $last_items   = $this->orderItemModel->join__orderItem_whit_product_sort($this->between_dates('last', $when) , $this->limits_chart_pir , $quantity) ?? false;
 
         $this_items_column   = array_column($this_items, 'grand_total', 'product_id');
         $last_items_column   = array_column($last_items, 'grand_total', 'product_id');
@@ -241,17 +242,20 @@ class HomeController extends Controller
 
     public function bestsellers()
     {
-        $param = $this->request->get_param('time');
+        $when     = $this->request->get_param('time');
+        $quantity = SessionManager::get('limits_chart_pir') ?? 'price' ;
 
-        $chart_pir       = $this->orderItemModel->join__orderItem_whit_product_sort($this->between_dates('this', $param, $this->limits_chart_pir));
-        $chart_pir_total = $this->orderItemModel->read_order_item_between($this->between_dates('this', $param));
+        $chart_pir       = $this->orderItemModel->join__orderItem_whit_product_sort($this->between_dates('this', $when),$this->limits_chart_pir ,$quantity);
+        $chart_pir_total = $this->orderItemModel->read_order_item_between($this->between_dates('this', $when));
 
+
+        // dd($chart_pir[0]['grand_total']);
         foreach ($chart_pir as $key => $value) {
             $chart_pir[$key]['comparison'] = '%' . round((($value['grand_total'] - $chart_pir_total) / $chart_pir_total * 100) + 100);
             $chart_pir[$key]['chart_pir_this_to'] = jdate('j F Y');
-            $chart_pir[$key]['chart_pir_this_as'] = jdate('j F Y', strtotime("-1 $param"));
-            $chart_pir[$key]['chart_pir_last_to'] = jdate('j F Y', strtotime("-1 $param"));
-            $chart_pir[$key]['chart_pir_last_as'] = jdate('j F Y', strtotime("-2 $param"));
+            $chart_pir[$key]['chart_pir_this_as'] = jdate('j F Y', strtotime("-1 $when"));
+            $chart_pir[$key]['chart_pir_last_to'] = jdate('j F Y', strtotime("-1 $when"));
+            $chart_pir[$key]['chart_pir_last_as'] = jdate('j F Y', strtotime("-2 $when"));
         }
 
         $data = [
@@ -263,10 +267,10 @@ class HomeController extends Controller
 
     public function bestsellers_cent()
     {
-        $params = $this->request->get_param('time');
+        $params_time = $this->request->get_param('time');
 
         $data = [
-            'change_item_sale'   => array_values($this->product_change_percentage($params)),
+            'change_item_sale'   => array_values($this->product_change_percentage($params_time)),
         ];
         echo  json_encode($data);
     }

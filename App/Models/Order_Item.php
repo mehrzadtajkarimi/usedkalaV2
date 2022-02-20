@@ -55,7 +55,7 @@ class Order_Item extends MysqlBaseModel
         return $products;
     }
 
-    public function join__orderItem_whit_product_sort($date, $limit_at = null)
+    public function join__orderItem_whit_product_sort($date, $limit_at = null, $param  = null)
     {
         $as = $date['as'];
         $ta = $date['to'];
@@ -74,8 +74,16 @@ class Order_Item extends MysqlBaseModel
         ON order_items.product_id = products.id
         WHERE order_items.created_at <= '$as' AND order_items.created_at >= '$ta'
         GROUP BY order_items.product_id
-        ORDER BY grand_total DESC
     ";
+
+        if ($param  != null ) {
+            if ($param  == 'price') {
+                $query = $query . " ORDER BY grand_total DESC";
+            }
+            if ($param  == 'quantity') {
+                $query = $query . " ORDER BY quantity_total DESC";
+            }
+        }
 
         if ($limit_at != null) {
             $query = $query . " LIMIT $limit_at";
