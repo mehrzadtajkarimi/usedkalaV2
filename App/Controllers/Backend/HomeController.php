@@ -68,6 +68,7 @@ class HomeController extends Controller
             $limits_chart_pir[$i] = $i == $this->limits_chart_pir ? 'active' : '';
         }
 
+
         $data = array(
             'grand'    => $this->calculations_mount('grand'),
             'discount' => $this->calculations_mount('discount'),
@@ -85,8 +86,15 @@ class HomeController extends Controller
             'max_discount' => $this->orderModel->read_max_discount(),   // max discount of all orders
 
             'change_sale_year'  => $this_year && $last_year ? $this->percentage_change($this_year, $last_year) : 0,       // percentage change of sale year
+            'change_sale_mount' => $this_month && $last_month ? $this->percentage_change($this_month, $last_month) : 0,    // percentage change of sale month
+            'change_sale_week'  => $this_week && $last_week ? $this->percentage_change($this_week, $last_week) : 0,       // percentage change of sale week
+            'change_sale_day'   => $this_day && $last_day ? $this->percentage_change($this_day, $last_day) : 0,         // percentage change of sale day
 
             'change_item_sale_year'  => $this->product_change_percentage('year', $param_quantity),
+            'change_item_sale_month' => $this->product_change_percentage('month', $param_quantity),
+            'change_item_sale_week'  => $this->product_change_percentage('week', $param_quantity),
+            'change_item_sale_day'   => $this->product_change_percentage('day', $param_quantity),
+
 
             'limits_chart_pir'   => $limits_chart_pir,
             'quantity_chart_pir' => $param_quantity,
@@ -105,10 +113,10 @@ class HomeController extends Controller
         $this_items = $this->orderItemModel->join__orderItem_whit_product_sort($this->between_dates('this', $when), $this->limits_chart_pir, $quantity) ?? false;
         $last_items = $this->orderItemModel->join__orderItem_whit_product_sort($this->between_dates('last', $when), $this->limits_chart_pir, $quantity) ?? false;
 
-        
+
         $this_items_name = array_column($this_items, 'product_name', 'product_id');
         $this_items_slug = array_column($this_items, 'product_slug', 'product_id');
-        
+
         if ($quantity == 'grand_total') {
             $this_items_column = array_column($this_items, 'grand_total', 'product_id');
             $last_items_column = array_column($last_items, 'grand_total', 'product_id');
@@ -255,15 +263,13 @@ class HomeController extends Controller
         ];
     }
 
-
-
     public function bestsellers()
     {
         $when     = $this->request->get_param('time');
         $quantity = SessionManager::get('limits_chart_pir') ?? 'grand_total';
 
         $chart_pir       = $this->orderItemModel->join__orderItem_whit_product_sort($this->between_dates('this', $when), $this->limits_chart_pir, $quantity);
-        $chart_pir_total = $this->orderItemModel->read_order_item_between($this->between_dates('this', $when),$quantity);
+        $chart_pir_total = $this->orderItemModel->read_order_item_between($this->between_dates('this', $when), $quantity);
 
 
         // dd($chart_pir[0]['grand_total']);
@@ -291,7 +297,6 @@ class HomeController extends Controller
         ];
         echo  json_encode($data);
     }
-
 
     public function bestsellers_cent()
     {

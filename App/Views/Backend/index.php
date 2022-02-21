@@ -143,9 +143,9 @@
             <div class="col-md-8">
               <div class="chart-responsive">
                 <b class="text-center text-muted d-block">
-                  <i class="fa fa-hand-o-down wow flash pr-3"data-wow-duration="2.5s" data-wow-iteration="8" aria-hidden="true"></i>
+                  <i class="fa fa-hand-o-down wow flash pr-3" data-wow-duration="2.5s" data-wow-iteration="8" aria-hidden="true"></i>
                   <span>درصد - مقایسه فروش محصولات به نسبت کل است</span>
-                  <i class="fa fa-hand-o-down wow flash "data-wow-duration="2.5s" data-wow-iteration="8" aria-hidden="true"></i>
+                  <i class="fa fa-hand-o-down wow flash " data-wow-duration="2.5s" data-wow-iteration="8" aria-hidden="true"></i>
                 </b>
                 <canvas id="pieChart" height="80"></canvas>
               </div>
@@ -463,8 +463,54 @@
       <div class="card">
         <div class="card-header no-border">
           <div class="d-flex justify-content-between">
-            <h3 class="card-title">فروش</h3>
-            <a href="javascript:void(0);">مشاهده گزارش</a>
+            <h3 class="card-title"> تعداد بازدید</h3>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter">
+              مشاهده گزارش
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                  <form action="<?= base_url() ?>admin/dashboard" method="post">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="my-modal-title">گزارش فروش</h5>
+                    </div>
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="col">
+                          <div class="form-group">
+                            <label for="Input5" class=""> شروع</label>
+                            <input type="text" class="form-control start_at" id="Input5">
+                            <input type="hidden" id="start_at" name="start_at">
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-group">
+                            <label for="Input6" class=""> پایان</label>
+                            <input type="text" class="form-control finish_at" id="Input6">
+                            <input type="hidden" id="finish_at" name="finish_at">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <label>گزارش بر اساس </label>
+                        <select name="order-type" id="discount_product" class="form-control">
+                          <option value="all">همه </option>
+                          <option value="discount_total">با تخفیف </option>
+                          <option value="grand_total">بدون تخفیف </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="modal-footer row">
+                      <button type="submit" class="btn btn-primary col ml-2">نمایش </button>
+                      <button type="button" class="btn btn-secondary col" data-dismiss="modal">انصراف</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="card-body">
