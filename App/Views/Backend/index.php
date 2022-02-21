@@ -85,8 +85,8 @@
               <button type="button" data-time="day" class="btn btn-secondary  ">روز</button>
             </div>
             <div class="btn-group  btn-group-sm mr-3 shadow wow fadeInRight" data-wow-delay="0.2s" id="btn-quantity">
-              <a href="<?= base_url() ?>admin/dashboard/price" class="btn btn-secondary btn-price  <?= $quantity_chart_pir == 'price' ? 'active' : '' ?>">قیـمت</a>
-              <a href="<?= base_url() ?>admin/dashboard/quantity" class="btn btn-secondary btn-quantity  <?= $quantity_chart_pir == 'quantity' ? 'active' : '' ?>">تــعداد</a>
+              <a href="<?= base_url() ?>admin/dashboard/grand_total" class="btn btn-secondary btn-price  <?= $quantity_chart_pir == 'grand_total' ? 'active' : '' ?>">قیـمت</a>
+              <a href="<?= base_url() ?>admin/dashboard/quantity_total" class="btn btn-secondary btn-quantity  <?= $quantity_chart_pir == 'quantity_total' ? 'active' : '' ?>">تــعداد</a>
             </div>
             <div class="btn-group  btn-group-sm mr-3 shadow wow fadeInRight" data-wow-delay="0.6s" id="btn-count">
               <?php foreach ($limits_chart_pir as $key => $value) : ?>
@@ -142,6 +142,11 @@
           <div class="row">
             <div class="col-md-8">
               <div class="chart-responsive">
+                <b class="text-center text-muted d-block">
+                  <i class="fa fa-hand-o-down wow flash pr-3"data-wow-duration="2.5s" data-wow-iteration="8" aria-hidden="true"></i>
+                  <span>درصد - مقایسه فروش محصولات به نسبت کل است</span>
+                  <i class="fa fa-hand-o-down wow flash "data-wow-duration="2.5s" data-wow-iteration="8" aria-hidden="true"></i>
+                </b>
                 <canvas id="pieChart" height="80"></canvas>
               </div>
               <div class="text-center">
@@ -191,7 +196,7 @@
         <div class="card-footer bg-white p-0">
           <div class="row">
             <div class="col-2 ">
-              <b class='text-muted font-weight-bold d-block text-center pt-4 h3'>  درصد مقایسه در بازده : </b>
+              <b class='text-muted font-weight-bold d-block text-center pt-1 h3'> درصد مقایسه در بازده : </b>
             </div>
             <div class="col-10">
               <ul class="nav nav-pills flex-column" id="change-item-sale">

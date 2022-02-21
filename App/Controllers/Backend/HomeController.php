@@ -14,7 +14,7 @@ class HomeController extends Controller
 
     private $orderModel;
     private $orderItemModel;
-    private $limits_chart_pir=3;
+    private $limits_chart_pir = 3;
 
     public function __construct()
     {
@@ -31,18 +31,27 @@ class HomeController extends Controller
 
         if ($param_quantity != null) {
             SessionManager::remove('quantity_chart_pir');
-            if ($param_quantity == 'quantity') {
-                SessionManager::set('quantity_chart_pir', 'quantity');
+            if ($param_quantity == 'grand_total') {
+                SessionManager::set('quantity_chart_pir', 'grand_total');
             }
-            if ($param_quantity == 'price') {
-                SessionManager::set('quantity_chart_pir', 'price');
+            if ($param_quantity == 'quantity_total') {
+                SessionManager::set('quantity_chart_pir', 'quantity_total');
             }
+        } else {
+            $param_quantity = SessionManager::has('quantity_chart_pir') ? SessionManager::get('quantity_chart_pir') : 'grand_total';
         }
 
         $chart_pir             = $this->orderItemModel->join__orderItem_whit_product_sort($this->between_dates('this', 'year'), $this->limits_chart_pir, $param_quantity);
-        $chart_pir_total_year  = $this->orderItemModel->read_order_item_between($this->between_dates('this', 'year'));
-        foreach ($chart_pir as $key => $value) {
-            $chart_pir[$key]['comparison'] = '%' . round((($value['grand_total'] - $chart_pir_total_year) / $chart_pir_total_year * 100) + 100);
+        $chart_pir_total_year  = $this->orderItemModel->read_order_item_between($this->between_dates('this', 'year'), $param_quantity);
+        if ($param_quantity == 'grand_total') {
+            foreach ($chart_pir as $key => $value) {
+                $chart_pir[$key]['comparison'] = '%' . round((($value['grand_total'] - $chart_pir_total_year) / $chart_pir_total_year * 100) + 100);
+            }
+        }
+        if ($param_quantity == 'quantity_total') {
+            foreach ($chart_pir as $key => $value) {
+                $chart_pir[$key]['comparison'] = '%' . round((($value['quantity_total'] - $chart_pir_total_year) / $chart_pir_total_year * 100) + 100);
+            }
         }
 
         $this_day   = (int) $this->orderModel->comparison($this->between_dates('this', 'day'));
@@ -75,18 +84,12 @@ class HomeController extends Controller
             'min_total'    => $this->orderModel->read_min_total(),      // min total of all orders
             'max_discount' => $this->orderModel->read_max_discount(),   // max discount of all orders
 
-            'change_sale_day'   => $this_day && $last_day ? $this->percentage_change($this_day, $last_day) : 0,           // percentage change of sale day
-            'change_sale_week'  => $this_week && $last_week ? $this->percentage_change($this_week, $last_week) : 0,       // percentage change of sale week
-            'change_sale_mount' => $this_month && $last_month ? $this->percentage_change($this_month, $last_month) : 0,   // percentage change of sale mount
             'change_sale_year'  => $this_year && $last_year ? $this->percentage_change($this_year, $last_year) : 0,       // percentage change of sale year
 
-            'change_item_sale_day'   => $this->product_change_percentage('day',$param_quantity ?? 'price'),
-            'change_item_sale_week'  => $this->product_change_percentage('week',$param_quantity ?? 'price'),
-            'change_item_sale_mount' => $this->product_change_percentage('month',$param_quantity ?? 'price'),
-            'change_item_sale_year'  => $this->product_change_percentage('year',$param_quantity ?? 'price'),
+            'change_item_sale_year'  => $this->product_change_percentage('year', $param_quantity),
 
             'limits_chart_pir'   => $limits_chart_pir,
-            'quantity_chart_pir' => SessionManager::get('quantity_chart_pir') ?? 'price',
+            'quantity_chart_pir' => $param_quantity,
 
             'avg_grand'    => $this->orderModel->read_avg_grand(),      // avg grand total of all orders
             'avg_discount' => $this->orderModel->read_avg_discount(),   // avg discount of all orders
@@ -96,25 +99,39 @@ class HomeController extends Controller
         return view('Backend.index', $data);
     }
 
-    public function product_change_percentage($when = 'year',$quantity = 'price')
+    public function product_change_percentage($when = 'year', $quantity = 'grand_total')
     {
         $cent = [];
-        $this_items   = $this->orderItemModel->join__orderItem_whit_product_sort($this->between_dates('this', $when) , $this->limits_chart_pir , $quantity) ?? false;
-        $last_items   = $this->orderItemModel->join__orderItem_whit_product_sort($this->between_dates('last', $when) , $this->limits_chart_pir , $quantity) ?? false;
+        $this_items = $this->orderItemModel->join__orderItem_whit_product_sort($this->between_dates('this', $when), $this->limits_chart_pir, $quantity) ?? false;
+        $last_items = $this->orderItemModel->join__orderItem_whit_product_sort($this->between_dates('last', $when), $this->limits_chart_pir, $quantity) ?? false;
 
-        $this_items_column   = array_column($this_items, 'grand_total', 'product_id');
-        $last_items_column   = array_column($last_items, 'grand_total', 'product_id');
-
-        $this_items_name   =    array_column($this_items, 'product_name', 'product_id');
-        $this_items_slug   =    array_column($this_items, 'product_slug', 'product_id');
-
-        foreach ($this_items_column as $key => $value) {
-            if (in_array($key, array_keys($last_items_column))) {
-                $cent[$key] = [round(($value - $last_items_column[$key]) / $last_items_column[$key] * 100), $this_items_name[$key], $this_items_slug[$key]];
-            } else {
-                $cent[$key] = 0;
+        
+        $this_items_name = array_column($this_items, 'product_name', 'product_id');
+        $this_items_slug = array_column($this_items, 'product_slug', 'product_id');
+        
+        if ($quantity == 'grand_total') {
+            $this_items_column = array_column($this_items, 'grand_total', 'product_id');
+            $last_items_column = array_column($last_items, 'grand_total', 'product_id');
+            foreach ($this_items_column as $key => $value) {
+                if (in_array($key, array_keys($last_items_column))) {
+                    $cent[$key] = [round(($value - $last_items_column[$key]) / $last_items_column[$key] * 100), $this_items_name[$key], $this_items_slug[$key]];
+                } else {
+                    $cent[$key] = 0;
+                }
             }
         }
+        if ($quantity == 'quantity_total') {
+            $this_items_column = array_column($this_items, 'quantity_total', 'product_id');
+            $last_items_column = array_column($last_items, 'quantity_total', 'product_id');
+            foreach ($this_items_column as $key => $value) {
+                if (in_array($key, array_keys($last_items_column))) {
+                    $cent[$key] = [round(($value - $last_items_column[$key]) / $last_items_column[$key] * 100), $this_items_name[$key], $this_items_slug[$key]];
+                } else {
+                    $cent[$key] = 0;
+                }
+            }
+        }
+
         return $cent;
     }
 
@@ -243,19 +260,30 @@ class HomeController extends Controller
     public function bestsellers()
     {
         $when     = $this->request->get_param('time');
-        $quantity = SessionManager::get('limits_chart_pir') ?? 'price' ;
+        $quantity = SessionManager::get('limits_chart_pir') ?? 'grand_total';
 
-        $chart_pir       = $this->orderItemModel->join__orderItem_whit_product_sort($this->between_dates('this', $when),$this->limits_chart_pir ,$quantity);
-        $chart_pir_total = $this->orderItemModel->read_order_item_between($this->between_dates('this', $when));
+        $chart_pir       = $this->orderItemModel->join__orderItem_whit_product_sort($this->between_dates('this', $when), $this->limits_chart_pir, $quantity);
+        $chart_pir_total = $this->orderItemModel->read_order_item_between($this->between_dates('this', $when),$quantity);
 
 
         // dd($chart_pir[0]['grand_total']);
-        foreach ($chart_pir as $key => $value) {
-            $chart_pir[$key]['comparison'] = '%' . round((($value['grand_total'] - $chart_pir_total) / $chart_pir_total * 100) + 100);
-            $chart_pir[$key]['chart_pir_this_to'] = jdate('j F Y');
-            $chart_pir[$key]['chart_pir_this_as'] = jdate('j F Y', strtotime("-1 $when"));
-            $chart_pir[$key]['chart_pir_last_to'] = jdate('j F Y', strtotime("-1 $when"));
-            $chart_pir[$key]['chart_pir_last_as'] = jdate('j F Y', strtotime("-2 $when"));
+        if ($quantity == 'grand_total') {
+            foreach ($chart_pir as $key => $value) {
+                $chart_pir[$key]['comparison'] = '%' . round((($value['grand_total'] - $chart_pir_total) / $chart_pir_total * 100) + 100);
+                $chart_pir[$key]['chart_pir_this_to'] = jdate('j F Y');
+                $chart_pir[$key]['chart_pir_this_as'] = jdate('j F Y', strtotime("-1 $when"));
+                $chart_pir[$key]['chart_pir_last_to'] = jdate('j F Y', strtotime("-1 $when"));
+                $chart_pir[$key]['chart_pir_last_as'] = jdate('j F Y', strtotime("-2 $when"));
+            }
+        }
+        if ($quantity == 'quantity_total') {
+            foreach ($chart_pir as $key => $value) {
+                $chart_pir[$key]['comparison'] = '%' . round((($value['quantity_total'] - $chart_pir_total) / $chart_pir_total * 100) + 100);
+                $chart_pir[$key]['chart_pir_this_to'] = jdate('j F Y');
+                $chart_pir[$key]['chart_pir_this_as'] = jdate('j F Y', strtotime("-1 $when"));
+                $chart_pir[$key]['chart_pir_last_to'] = jdate('j F Y', strtotime("-1 $when"));
+                $chart_pir[$key]['chart_pir_last_as'] = jdate('j F Y', strtotime("-2 $when"));
+            }
         }
 
         $data = [

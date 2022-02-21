@@ -231,9 +231,10 @@
 
           var data_grand_total = [];
           var data_comparison = [];
+          var session_manager = <?= App\Services\Session\SessionManager::get('quantity_chart_pir')  ?? 'grand_total' ?>;
           li_chart_pir.empty();
           $(parsed_data.chart_pir).each(function(key, value) {
-            data_grand_total.push(value['grand_total']);
+            data_grand_total.push(value[session_manager]); //grand total OR quantity_total
             data_comparison.push(value['comparison']);
 
             li_chart_pir.append(`
@@ -292,7 +293,7 @@
       type: 'doughnut',
       data: {
         datasets: [{
-          data: <?= json_encode(array_column($chart_pir, 'grand_total')) ?? 1 ?>,
+          data: <?= json_encode(array_column($chart_pir, App\Services\Session\SessionManager::get('quantity_chart_pir')  ?? 'grand_total')) ?? 1 ?>,
           backgroundColor: [
             'rgba(220, 53, 69)',
             'rgba(40, 167, 69)',
@@ -400,7 +401,7 @@
 
 
 
-  
+
 
 
 

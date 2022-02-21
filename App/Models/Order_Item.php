@@ -77,10 +77,10 @@ class Order_Item extends MysqlBaseModel
     ";
 
         if ($param  != null ) {
-            if ($param  == 'price') {
+            if ($param  == 'grand_total') {
                 $query = $query . " ORDER BY grand_total DESC";
             }
-            if ($param  == 'quantity') {
+            if ($param  == 'quantity_total') {
                 $query = $query . " ORDER BY quantity_total DESC";
             }
         }
@@ -138,11 +138,11 @@ class Order_Item extends MysqlBaseModel
         return $this->delete(['id' => $id]);
     }
 
-    public function read_order_item_between($comparison, $quantity_chart_pir ='price')
+    public function read_order_item_between($comparison, $quantity_chart_pir ='grand_total')
     {
         $as = $comparison['as'];
         $ta = $comparison['to'];
-        if ($quantity_chart_pir == 'quantity') {
+        if ($quantity_chart_pir == 'quantity_total') {
             return  $this->connection->sum(
                 $this->table,
                 "quantity",
