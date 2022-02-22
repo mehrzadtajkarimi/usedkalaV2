@@ -38,22 +38,10 @@ class  MysqlBaseModel extends BaseModel
     {
         try {
             $this->connection->insert($this->table, $data);
-			$returnedID=$this->connection->id();
-			
-            $this->connection->insert("activity_log", [
-				'user_id'		=> Auth::is_login(),
-				'ip'			=> $_SERVER['REMOTE_ADDR'],
-				'type'			=> 'create',
-				'target_table'	=> $this->table,
-				'row_id'		=> $returnedID,
-				'detailed_data'	=> json_encode($data,JSON_UNESCAPED_UNICODE),
-				'uri'			=> $_SERVER['REQUEST_URI']
-			]);
-			
-            return $returnedID;
+            return $this->connection->id();
         } catch (\PDOException $e) {
             echo 'مشکلی در هنگام ذخیره اطلاعات رخ داد/n';
-			var_dump($e);
+            var_dump($e);
         }
     }
 
@@ -68,7 +56,7 @@ class  MysqlBaseModel extends BaseModel
     }
     public function find_by_id($id)
     {
-        return  $this->connection->get($this->table, '*', [$this->primaryKey => $id]) ;
+        return  $this->connection->get($this->table, '*', [$this->primaryKey => $id]);
     }
 
     public function count_by($field, $value)
@@ -81,9 +69,9 @@ class  MysqlBaseModel extends BaseModel
         return $this->get('*');
     }
 
-    public function get_all($where = null, $columns="*"): array
+    public function get_all($where = null, $columns = "*"): array
     {
-        if($where == null){
+        if ($where == null) {
             return $this->connection->select($this->table, $columns);
         } else {
             return $this->connection->select($this->table, $columns, $where);
@@ -117,21 +105,11 @@ class  MysqlBaseModel extends BaseModel
     public function update(array $data, array $where): int
     {
         try {
-			$oldData=$this->connection->select($this->table, '*', $where);
-            $this->connection->insert("activity_log", [
-				'user_id'			=> Auth::is_login(),
-				'ip'				=> $_SERVER['REMOTE_ADDR'],
-				'type'				=> 'update',
-				'where_condition'	=> json_encode($where,JSON_UNESCAPED_UNICODE),
-				'target_table'		=> $this->table,
-				'detailed_data'		=> json_encode(["old"=>$oldData,"new"=>$data],JSON_UNESCAPED_UNICODE),
-				'uri'				=> $_SERVER['REQUEST_URI']
-			]);
             $result = $this->connection->update($this->table, $data, $where);
             return $result->rowCount();
         } catch (\PDOException $e) {
             echo '<h1>مشکلی در ارتباط با دیتابیس رخ داد </h1>';
-			var_dump($e);
+            var_dump($e);
         }
     }
 
@@ -152,7 +130,7 @@ class  MysqlBaseModel extends BaseModel
         try {
             $exists = $this->get($where);
             foreach ($exists as  $value) {
-                    return  $this->delete($value['id']);
+                return  $this->delete($value['id']);
             }
             return $this->update($data, $where);
         } catch (\PDOException $e) {
@@ -162,16 +140,6 @@ class  MysqlBaseModel extends BaseModel
 
     public function delete(array $where): int
     {
-		$oldData=$this->connection->select($this->table, '*', $where);
-		$this->connection->insert("activity_log", [
-			'user_id'			=> Auth::is_login(),
-			'ip'				=> $_SERVER['REMOTE_ADDR'],
-			'type'				=> 'delete',
-			'where_condition'	=> json_encode($where,JSON_UNESCAPED_UNICODE),
-			'target_table'		=> $this->table,
-			'detailed_data'		=> json_encode($oldData,JSON_UNESCAPED_UNICODE),
-			'uri'				=> $_SERVER['REQUEST_URI']
-		]);
         $result = $this->connection->delete($this->table,  $where);
         return $result->rowCount();
     }
@@ -192,7 +160,7 @@ class  MysqlBaseModel extends BaseModel
     }
     public function query($query)
     {
-		return $this->connection->query($query)->fetchAll();
+        return $this->connection->query($query)->fetchAll();
     }
 
 
@@ -321,11 +289,11 @@ class  MysqlBaseModel extends BaseModel
         ON $this->table.$columns_as = $join.$columns_to
         ";
         if ($where_2) {
-			die("$query WHERE $where_1 AND $where_2");
+            die("$query WHERE $where_1 AND $where_2");
             return $this->connection->query("$query WHERE $where_1 AND $where_2")->fetchAll();
         }
         if ($where_3) {
-			die('3: '.$query);
+            die('3: ' . $query);
             return $this->connection->query("$query WHERE $where_1 AND $where_2 AND $where_3")->fetchAll();
         }
         return $this->connection->query("$query WHERE $where_1")->fetchAll();
@@ -346,7 +314,7 @@ class  MysqlBaseModel extends BaseModel
         $where_3 = null,
         $where_4 = null
     ) {
-        $query="
+        $query = "
         SELECT $column FROM $this->table
         INNER JOIN $join_one
         ON $this->table.$table_one_as = $join_one.$table_one_to
@@ -381,7 +349,7 @@ class  MysqlBaseModel extends BaseModel
         $where_3 = null,
         $where_4 = null
     ) {
-        $query="
+        $query = "
         SELECT $column FROM $this->table
         INNER JOIN $join_one
         ON $this->table.$table_one_as = $join_one.$table_one_to
@@ -439,5 +407,73 @@ class  MysqlBaseModel extends BaseModel
             return $this->connection->query("$query AND $where_1 AND $where_2 AND $where_3")->fetchAll();
         }
         return $this->connection->query("$query AND $where_1")->fetchAll();
+    }
+
+    public function activity_log(string $type, int $id = null, array $new_value = null)
+    {
+
+        if ($type == 'create') {
+            $returnedID = $this->connection->id();
+            $this->connection->insert("activity_log", [
+                'user_id'         => Auth::is_login(),
+                'ip'              => $_SERVER['REMOTE_ADDR'],
+                'type'            => $type,
+                'target_table'    => $this->table,
+                'uri'             => $_SERVER['REQUEST_URI'],
+            ]);
+            return $returnedID;
+        }
+        if ($type == 'read') {
+            if ($id != null) {
+                $this->connection->insert("activity_log", [
+                    'user_id'         => Auth::is_login(),
+                    'ip'              => $_SERVER['REMOTE_ADDR'],
+                    'type'            => $type,
+                    'target_table'    => $this->table,
+                    'row_id'          => $id,
+                    'uri'             => $_SERVER['REQUEST_URI'],
+                ]);
+            } else {
+                die("id is null");
+            }
+            return true;
+        }
+        if ($type == 'update') {
+            if ($id != null && $new_value != null) {
+                $oldData = $this->connection->select($this->table, '*', $id);
+                $this->connection->insert("activity_log", [
+                    'user_id'         => Auth::is_login(),
+                    'ip'              => $_SERVER['REMOTE_ADDR'],
+                    'type'            => $type,
+                    'target_table'    => $this->table,
+                    'row_id'          => $oldData['id'],
+                    'detailed_data'   => json_encode(["old" => $oldData, "new" => $new_value]),
+                    'uri'             => $_SERVER['REQUEST_URI'],
+                ]);
+            } else {
+                die("id or new_value is null");
+            }
+            return true;
+        }
+        if ($type == 'delete') {
+            if ($id != null) {
+                $oldData = $this->connection->select($this->table, '*', $id);
+                $returnedID = $this->connection->id();
+                $this->connection->insert("activity_log", [
+                    'user_id'         => Auth::is_login(),
+                    'ip'              => $_SERVER['REMOTE_ADDR'],
+                    'type'            => $type,
+                    'target_table'    => $this->table,
+                    'row_id'          => $oldData['id'],
+                    'detailed_data'   => json_encode(["old" => $oldData]),
+                    'uri'             => $_SERVER['REQUEST_URI'],
+                ]);
+            } else {
+                die("id is null");
+            }
+            return  $returnedID;
+        }
+
+        die('  خطا در قسمت لاگ گیری :‌ مقادیر پارامتر اول ورودی صحیح نمی باشد باید یکی از { create , read , update , delete} باشد ');
     }
 }

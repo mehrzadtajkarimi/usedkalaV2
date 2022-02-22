@@ -10,13 +10,16 @@ class Product extends MysqlBaseModel
 
     public function create_product(array $params)
     {
+        $this->activity_log('create');
         return $this->create($params);
     }
     public function read_product($id = null)
     {
+
         if (is_null($id)) {
             return $this->all();
         }
+        $this->activity_log('read', $id);
         return $this->first(['id' => $id]);
     }
     public function read_product_byslug($slug = null)
@@ -25,7 +28,9 @@ class Product extends MysqlBaseModel
             return $this->all();
         }
         $slug = urldecode($slug);
-        return $this->first(['slug' => $slug]);
+        $result = $this->first(['slug' => $slug]);
+        $this->activity_log('read', $result['id']);
+        return $result;
     }
     public function read_product_all($id = null)
     {
@@ -169,8 +174,8 @@ class Product extends MysqlBaseModel
             "3",
         );
     }
-    
-    
+
+
     public function join_product_to_photo_by_id($product_id)
     {
         return $this->inner_join(
