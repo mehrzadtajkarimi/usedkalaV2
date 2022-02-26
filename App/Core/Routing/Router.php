@@ -3,10 +3,10 @@
 namespace App\Core\Routing;
 
 use App\Core\Middleware\Auth;
+use App\Core\Middleware\Gate;
 use App\Core\Middleware\GlobalMiddleware;
 use App\Core\Request;
 use App\Core\Routing\Route;
-use App\Middleware\Gate;
 
 class Router
 {
@@ -78,6 +78,9 @@ class Router
         }
 
         $middle_object = new  GlobalMiddleware;
+        $middle_object->handle();
+
+        $middle_object = new  Gate;
         $middle_object->handle();
     }
 
