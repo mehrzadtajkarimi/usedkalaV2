@@ -6,9 +6,11 @@ use App\Core\Middleware\Contract\MiddlewareInterface;
 
 class GlobalMiddleware implements MiddlewareInterface
 {
+
     public function handle()
     {
         $this->sanitizeGetParams();
+
     }
 
 

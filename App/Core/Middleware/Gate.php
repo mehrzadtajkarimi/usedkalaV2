@@ -8,11 +8,12 @@ class Gate implements MiddlewareInterface
 {
     public function handle()
     {
-        // global $request;
+        global $request;
 
-        // echo '<pre>'; var_dump($request);
+        echo '<pre>'; var_dump($request);
 
         echo '<br>'.'Gate';
+        die;
 
         return;
     }

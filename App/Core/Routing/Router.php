@@ -6,6 +6,7 @@ use App\Core\Middleware\Auth;
 use App\Core\Middleware\GlobalMiddleware;
 use App\Core\Request;
 use App\Core\Routing\Route;
+use App\Middleware\Gate;
 
 class Router
 {
@@ -75,6 +76,7 @@ class Router
             $middle_object = new  Auth;
             $middle_object->handle();
         }
+
         $middle_object = new  GlobalMiddleware;
         $middle_object->handle();
     }
