@@ -3,6 +3,7 @@
 namespace App\Services\Log;
 
 use App\Models\Activity_log;
+use App\Models\See_log;
 use App\Services\Log\Contract\LogContract;
 
 class LogManager implements LogContract
@@ -13,6 +14,7 @@ class LogManager implements LogContract
     {
 
         $this->activityLogModel = new Activity_log();
+        $this->seeLogModel = new See_log();
     }
 
     /**

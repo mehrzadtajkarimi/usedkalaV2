@@ -11,6 +11,7 @@ class Request
     private  $ip;
     private  $agent;
     private  $uri;
+    private  $http_referer;
 
     public  function __construct()
     {
@@ -21,6 +22,7 @@ class Request
         $this->files       = $_FILES;
         $this->ip          = $_SERVER['SERVER_ADDR'];
         $this->agent       = $_SERVER['HTTP_USER_AGENT'];
+        $this->http_referer= $_SERVER['HTTP_REFERER'];
     }
 
     // get from router  method regex_matched
@@ -64,6 +66,11 @@ class Request
     public  function form_method()
     {
         return $this->form_method;
+    }
+
+    public  function http_referer()
+    {
+        return $this->http_referer;
     }
 
     public  function ip()

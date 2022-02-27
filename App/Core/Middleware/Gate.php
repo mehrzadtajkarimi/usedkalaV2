@@ -12,17 +12,18 @@ class Gate implements MiddlewareInterface
     {
         global $request;
 
-        echo '<pre>'; var_dump($request->ip());
+        // echo '<pre>'; var_dump($_SERVER['HTTP_REFERER']); echo '</pre>';
 
         
-        echo '<br>'.'Gate';
-        die;
-        $activity_log = new LogManager();
-        $activity_log->set([
-            'user_id' => Auth::is_login(),
-            'ip' => $request->ip(),
-
-        ]);
+        // echo '<br>'.'Gate';
+        // die;
+        // $activity_log = new LogManager();
+        // $activity_log->set([
+        //     'user_id'      => Auth::is_login(),
+        //     'ip'           => $request->ip(),
+        //     'http_referer' => $request->http_referer(),
+         
+        // ]);
 
         return;
     }
