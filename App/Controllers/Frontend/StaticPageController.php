@@ -16,23 +16,24 @@ class StaticPageController extends Controller
     {
         parent::__construct();
         $this->staticPageModel = new StaticPage();
-		$this->pageMetaModel         = new PageMeta();
+        $this->pageMetaModel   = new PageMeta();
     }
 
     public function about()
     {
         $slug = $this->request->get_param('slug');
 		$slug = urldecode($slug);
-        $setting_about = $this->staticPageModel->read_staticPage_by_slug($slug);
+
+        $setting_about = $this->staticPageModel->read_staticPage_by_key($slug);
 
         if (is_array($setting_about)) {
             $data = array(
-                'setting'    => $setting_about[0]??[],
-				'home_page_active_menu' => 'single single-post full-width',
-				'headSeoTitle' => $setting_about[0]['html_title'],
-				'headSeoDescription' => $setting_about[0]['html_desc'],
-				'headSeoRobots' => $setting_about[0]['robots'],
-				'headSeoCanonical' => $setting_about[0]['canonical']
+                'setting'               => $setting_about[0]??[],
+                'home_page_active_menu' => 'single single-post full-width',
+                'headSeoTitle'          => $setting_about[0]['html_title'],
+                'headSeoDescription'    => $setting_about[0]['html_desc'],
+                'headSeoRobots'         => $setting_about[0]['robots'],
+                'headSeoCanonical'      => $setting_about[0]['canonical']
             );
             return view('Frontend.about.show', $data);
         }
@@ -72,12 +73,12 @@ class StaticPageController extends Controller
 
         if (is_array($setting_contact)) {
             $data = array(
-                'setting'				=> $setting_contact[0]??[],
-				'home_page_active_menu'	=> 'page home page-template-default',
-				'headSeoTitle' => $pageMetas['html_title'],
-				'headSeoDescription' => $pageMetas['html_desc'],
-				'headSeoRobots' => $pageMetas['robots'],
-				'headSeoCanonical' => $pageMetas['canonical']
+                'setting'               => $setting_contact[0]??[],
+                'home_page_active_menu' => 'page home page-template-default',
+                'headSeoTitle'          => $pageMetas['html_title'],
+                'headSeoDescription'    => $pageMetas['html_desc'],
+                'headSeoRobots'         => $pageMetas['robots'],
+                'headSeoCanonical'      => $pageMetas['canonical']
             );
             return view('Frontend.about.contact', $data);
         }

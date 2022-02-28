@@ -22,7 +22,7 @@ class Request
         $this->files       = $_FILES;
         $this->ip          = $_SERVER['SERVER_ADDR'];
         $this->agent       = $_SERVER['HTTP_USER_AGENT'];
-        $this->http_referer= $_SERVER['HTTP_REFERER'];
+        $this->http_referer= $_SERVER['HTTP_REFERER']??'';
     }
 
     // get from router  method regex_matched

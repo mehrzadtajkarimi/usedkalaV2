@@ -28,7 +28,7 @@ class StaticPage extends MysqlBaseModel
         if (is_null($key)) {
             return $this->all();
         }
-        return $this->get('*',['key'=>$key]);
+        return $this->get('*',['slug'=>$key]);
     }
     public function update_staticPage(array $params , $id)
     {

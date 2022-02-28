@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\Order_Item;
 use App\Services\Auth\Auth;
 use App\Controllers\Controller;
+use App\Models\See_log;
 use App\Services\Session\SessionManager;
 use App\Utilities\FlashMessage;
 
@@ -14,13 +15,15 @@ class HomeController extends Controller
 
     private $orderModel;
     private $orderItemModel;
+    private $seeLogModel;
     private $limits_chart_pir = 3;
 
     public function __construct()
     {
         parent::__construct();
-        $this->orderModel      = new Order();
-        $this->orderItemModel  = new Order_Item();
+        $this->orderModel       = new Order();
+        $this->orderItemModel   = new Order_Item();
+        $this->seeLogModel      = new See_log();
         $this->limits_chart_pir = SessionManager::has('limits_chart_pir') ? SessionManager::get('limits_chart_pir') : 3;
     }
 
@@ -70,11 +73,13 @@ class HomeController extends Controller
 
 
         $data = array(
+
             'grand'    => $this->calculations_mount('grand'),
             'discount' => $this->calculations_mount('discount'),
 
             'chart_pir'       => $chart_pir,
             'chart_pir_color' => ['danger', 'success', 'warning', 'primary', 'secondary', 'info', 'dark'],
+
             'chart_pir_this_as' => jdate('j F Y'),
             'chart_pir_this_to' => jdate('j F Y', strtotime("-1 year")),
             'chart_pir_last_as' => jdate('j F Y', strtotime("-1 year")),

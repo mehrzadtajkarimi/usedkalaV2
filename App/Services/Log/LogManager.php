@@ -9,12 +9,13 @@ use App\Services\Log\Contract\LogContract;
 class LogManager implements LogContract
 {
     private static $activityLogModel;
+    private static $seeLogModel;
 
     public function __construct()
     {
 
-        $this->activityLogModel = new Activity_log();
-        $this->seeLogModel = new See_log();
+        self::$activityLogModel = new Activity_log();
+        self::$seeLogModel = new See_log();
     }
 
     /**
@@ -28,6 +29,12 @@ class LogManager implements LogContract
         }
 
         return null;
+    }
+
+    public static function set_see_log($value)
+    {
+        self::$seeLogModel->create_log($value);
+        return new self;
     }
 
     public static function set($value)
