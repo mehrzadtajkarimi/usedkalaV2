@@ -14,7 +14,7 @@ class See_log extends MysqlBaseModel
         return $this->create($params);
     }
 
-    public function read_log($id=null)
+    public function read_log($id = null)
     {
         if (is_null($id)) {
             return $this->all();
@@ -22,7 +22,7 @@ class See_log extends MysqlBaseModel
         return $this->first(['id' => $id]);
     }
 
-    public function update_log($params ,$id)
+    public function update_log($params, $id)
     {
         return $this->update($params, ['id' => $id]);
     }
@@ -36,5 +36,20 @@ class See_log extends MysqlBaseModel
     {
         return $this->query("TRUNCATE TABLE activity_log");
     }
-}
 
+    public function comparison($as, $to, $user_id = false)
+    {
+        if ($user_id) {
+            return  $this->connection->count($this->table, '*', [
+                "created_at[<>]" => [$as, $to],
+                'user_id[>]'     => 0,
+                'GROUP'          => [
+                    'user_id',
+                ],
+            ]);
+        }
+        return  $this->connection->count($this->table, '*', [
+            "created_at[<>]" => [$as, $to],
+        ]);
+    }
+}

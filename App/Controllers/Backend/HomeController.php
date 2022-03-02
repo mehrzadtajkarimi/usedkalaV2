@@ -32,6 +32,9 @@ class HomeController extends Controller
     {
         $param_quantity = $this->request->get_param('quantity');
 
+
+        dd($this->calculations_mount_see_logs());
+
         if ($param_quantity != null) {
             SessionManager::remove('quantity_chart_pir');
             if ($param_quantity == 'grand_total') {
@@ -84,6 +87,8 @@ class HomeController extends Controller
             'chart_pir_this_to' => jdate('j F Y', strtotime("-1 year")),
             'chart_pir_last_as' => jdate('j F Y', strtotime("-1 year")),
             'chart_pir_last_to' => jdate('j F Y', strtotime("-2 year")),
+
+            'count_see_logs'  => $this->calculations_mount_see_logs(),         // count all see_log
 
             'count_order'  => $this->orderModel->count_order(),         // count all order
             'max_total'    => $this->orderModel->read_max_total(),      // max total of all orders
@@ -218,6 +223,53 @@ class HomeController extends Controller
         }
     }
 
+    public function calculations_mount_see_logs($user_id = false): array
+    {
+        // $shamsi_1400 = [1616272200, 1618947000, 1621625400, 1624303800, 1626982200, 1629660600, 1632342600, 1634934600, 1637526600, 1640118600, 1642710600, 1645302600]; // array key is month shamsi example(فروردین - ساعت 12 شب)
+        $shamsi_1400 = [
+            '2021-03-21 00:00:00',
+            '2021-04-21 00:00:00',
+            '2021-05-22 00:00:00',
+            '2021-06-22 00:00:00',
+            '2021-07-23 00:00:00',
+            '2021-08-23 00:00:00',
+            '2021-09-23 00:00:00',
+            '2021-10-23 00:00:00',
+            '2021-11-22 00:00:00',
+            '2021-12-22 00:00:00',
+            '2022-01-21 00:00:00',
+            '2022-02-20 00:00:00',
+            '2022-03-20 00:00:00',
+        ];
+        $farvardin  = $this->seeLogModel->comparison($shamsi_1400[0], $shamsi_1400[1] , $user_id );
+        $ordebhesht = $this->seeLogModel->comparison($shamsi_1400[1], $shamsi_1400[2] , $user_id );
+        $khordad    = $this->seeLogModel->comparison($shamsi_1400[2], $shamsi_1400[3] , $user_id );
+        $tir        = $this->seeLogModel->comparison($shamsi_1400[3], $shamsi_1400[4] , $user_id );
+        $mordad     = $this->seeLogModel->comparison($shamsi_1400[4], $shamsi_1400[5] , $user_id );
+        $shhrivar   = $this->seeLogModel->comparison($shamsi_1400[5], $shamsi_1400[6] , $user_id );
+        $mehr       = $this->seeLogModel->comparison($shamsi_1400[6], $shamsi_1400[7] , $user_id );
+        $aban       = $this->seeLogModel->comparison($shamsi_1400[7], $shamsi_1400[8] , $user_id );
+        $azar       = $this->seeLogModel->comparison($shamsi_1400[8], $shamsi_1400[9] , $user_id );
+        $day        = $this->seeLogModel->comparison($shamsi_1400[9], $shamsi_1400[10] , $user_id );
+        $bhman      = $this->seeLogModel->comparison($shamsi_1400[10], $shamsi_1400[11] , $user_id );
+        $esfand     = $this->seeLogModel->comparison($shamsi_1400[11], $shamsi_1400[12] , $user_id );
+
+        return   [
+            'farvardin'  => $farvardin,
+            'ordebhesht' => $ordebhesht,
+            'khordad'    => $khordad,
+            'tir'        => $tir,
+            'mordad'     => $mordad,
+            'shhrivar'   => $shhrivar,
+            'mehr'       => $mehr,
+            'aban'       => $aban,
+            'azar'       => $azar,
+            'day'        => $day,
+            'bhman'      => $bhman,
+            'esfand'     => $esfand,
+        ];
+    }
+
     public function calculations_mount($requested): array
     {
         // $shamsi_1400 = [1616272200, 1618947000, 1621625400, 1624303800, 1626982200, 1629660600, 1632342600, 1634934600, 1637526600, 1640118600, 1642710600, 1645302600]; // array key is month shamsi example(فروردین - ساعت 12 شب)
@@ -233,7 +285,8 @@ class HomeController extends Controller
             '2021-11-22 00:00:00',
             '2021-12-22 00:00:00',
             '2022-01-21 00:00:00',
-            '2022-02-20 00:00:00'
+            '2022-02-20 00:00:00',
+            '2022-03-20 00:00:00',
         ]; // array key is month shamsi example(فروردین - ساعت 12 شب)
         // $shamsi_1400_array = array_map(function ($item) {
         //     return strtotime($item);
@@ -249,7 +302,7 @@ class HomeController extends Controller
         $azar       = $this->orderModel->read_order_between($shamsi_1400[8], $shamsi_1400[9]);
         $day        = $this->orderModel->read_order_between($shamsi_1400[9], $shamsi_1400[10]);
         $bhman      = $this->orderModel->read_order_between($shamsi_1400[10], $shamsi_1400[11]);
-        $esfand     = $this->orderModel->read_order_between($shamsi_1400[11], $shamsi_1400[11]);
+        $esfand     = $this->orderModel->read_order_between($shamsi_1400[11], $shamsi_1400[12]);
 
         return   [
             array_sum(array_column($farvardin, $requested . '_total')),
