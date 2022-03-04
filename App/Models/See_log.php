@@ -50,6 +50,7 @@ class See_log extends MysqlBaseModel
         }
         return  $this->connection->count($this->table, '*', [
             "created_at[<>]" => [$as, $to],
+            'user_id'     => 0,
         ]);
     }
 }

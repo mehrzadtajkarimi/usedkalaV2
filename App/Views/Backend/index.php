@@ -532,11 +532,11 @@
 
           <div class="d-flex flex-row justify-content-end">
             <span class="ml-2">
-              <i class="fa fa-square text-primary"></i> امسال
+              <i class="fa fa-square text-primary"></i> کاربران ثبت نامی
             </span>
 
             <span>
-              <i class="fa fa-square text-gray"></i> سال گذشته
+              <i class="fa fa-square text-muted"></i> کابران مهمان
             </span>
           </div>
         </div>

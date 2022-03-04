@@ -21,12 +21,12 @@
           datasets: [{
               backgroundColor: '#007bff',
               borderColor: '#007bff',
-              data: [1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000],
+              data: <?= $count_see_logs_login_user ?>,
             },
             {
-              backgroundColor: '#ced4da',
-              borderColor: '#ced4da',
-              data: [500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500],
+              backgroundColor: '#6c757d',
+              borderColor: '#6c757d',
+              data: <?= $count_see_logs_guest_user ?>,
             }
           ]
         },
