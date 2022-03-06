@@ -228,12 +228,16 @@
         },
         success: function(response) {
           var parsed_data = JSON.parse(response);
-
+          
           var data_grand_total = [];
           var data_comparison = [];
-          var session_manager = <?= App\Services\Session\SessionManager::get('quantity_chart_pir')  ?? 'grand_total' ?>;
+          var session_manager = <?= json_encode(App\Services\Session\SessionManager::get('quantity_chart_pir')  ?? 'grand_total') ?>;
+
           li_chart_pir.empty();
           $(parsed_data.chart_pir).each(function(key, value) {
+
+
+
             data_grand_total.push(value[session_manager]); //grand total OR quantity_total
             data_comparison.push(value['comparison']);
 
