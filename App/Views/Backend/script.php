@@ -228,7 +228,6 @@
         },
         success: function(response) {
           var parsed_data = JSON.parse(response);
-          
           var data_grand_total = [];
           var data_comparison = [];
           var session_manager = <?= json_encode(App\Services\Session\SessionManager::get('quantity_chart_pir')  ?? 'grand_total') ?>;

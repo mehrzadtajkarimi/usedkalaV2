@@ -85,7 +85,24 @@ class User extends MysqlBaseModel
             "users.id=$user_id",
             "photos.entity_type='User'",
         )[0] ??  $this->first(['id' => $user_id]); */
-		return $this->query("SELECT usr.*,img.`path`,img.`alt` FROM `users` as usr LEFT JOIN `photos` as img ON img.`entity_type` = 'User' AND img.`entity_id` = usr.`id` AND img.`type` = 0 WHERE usr.`id` = $user_id")[0];
+        return $this->query("SELECT usr.*,img.`path`,img.`alt` FROM `users` as usr LEFT JOIN `photos` as img ON img.`entity_type` = 'User' AND img.`entity_id` = usr.`id` AND img.`type` = 0 WHERE usr.`id` = $user_id")[0];
+    }
+    public function join_user_to_photo_all()
+    {
+        return $this->query("
+        SELECT 
+        users.first_name,
+        users.last_name,
+        users.created_at AS created_at,
+        photos.*
+        FROM users
+        LEFT JOIN photos
+        ON photos.entity_type = 'User'
+        AND photos.entity_id = users.id
+        AND photos.type = 0
+        ORDER BY  users.id  DESC
+        LIMIT 12
+        ");
     }
 
     public function join__whit_province_city($user_id)

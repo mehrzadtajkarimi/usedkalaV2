@@ -7,6 +7,8 @@ use App\Models\Order_Item;
 use App\Services\Auth\Auth;
 use App\Controllers\Controller;
 use App\Models\See_log;
+use App\Models\User;
+use App\Models\Wish_list;
 use App\Services\Session\SessionManager;
 use App\Utilities\FlashMessage;
 
@@ -16,14 +18,18 @@ class HomeController extends Controller
     private $orderModel;
     private $orderItemModel;
     private $seeLogModel;
+    private $userModel;
+    private $wishModel;
     private $limits_chart_pir = 3;
 
     public function __construct()
     {
         parent::__construct();
-        $this->orderModel       = new Order();
-        $this->orderItemModel   = new Order_Item();
-        $this->seeLogModel      = new See_log();
+        $this->orderModel     = new Order();
+        $this->orderItemModel = new Order_Item();
+        $this->seeLogModel    = new See_log();
+        $this->userModel      = new User();
+        $this->wishModel      = new Wish_list();
         $this->limits_chart_pir = SessionManager::has('limits_chart_pir') ? SessionManager::get('limits_chart_pir') : 3;
     }
 
@@ -32,6 +38,7 @@ class HomeController extends Controller
     {
         $param_quantity = $this->request->get_param('quantity');
 
+        // dd($this->userModel->join_user_to_photo_all());
 
         // dd($this->calculations_mount_see_logs(true));
 
@@ -79,6 +86,12 @@ class HomeController extends Controller
 
             'grand'    => $this->calculations_mount('grand'),
             'discount' => $this->calculations_mount('discount'),
+
+            'orders_counts' => $this->orderModel->count(['status_sender[!]'=>0]),
+            'user_counts'   => $this->userModel->count(),
+            'which_counts'  => $this->wishModel->count(),
+
+            'list_new_user' => $this->userModel->join_user_to_photo_all(),
 
             'chart_pir'       => $chart_pir,
             'chart_pir_color' => ['danger', 'success', 'warning', 'primary', 'secondary', 'info', 'dark'],

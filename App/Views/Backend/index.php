@@ -29,8 +29,8 @@
             <span class="info-box-icon bg-danger elevation-1"><i class="fa fa-google-plus"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">لایک‌ها</span>
-              <span class="info-box-number">۴۱,۴۱۰</span>
+              <span class="info-box-text">علاقه مندی ها</span>
+              <span class="info-box-number"><?= $which_counts ?></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -46,8 +46,8 @@
             <span class="info-box-icon bg-success elevation-1"><i class="fa fa-shopping-cart"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">فروش</span>
-              <span class="info-box-number">۷۶۰</span>
+              <span class="info-box-text"> فروش رفته</span>
+              <span class="info-box-number"><?= $orders_counts ?></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -60,7 +60,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">اعضای جدید</span>
-              <span class="info-box-number">۲,۰۰۰</span>
+              <span class="info-box-number"><?= $user_counts ?></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -354,60 +354,48 @@
         </div>
       </div>
 
-   
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">آخرین اعضا</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-widget="remove"><i class="fa fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body p-0">
+          <ul class="users-list clearfix">
+            <?php foreach ($list_new_user as $key =>$value): ?>
+              <li class="float-right">
+                <img src="<?= $value['path'] ?? base_url(). 'Assets/Backend/dist/img/user.png' ?>" class="w-50" style="filter: grayscale(50%)" alt="User Image">
+                <a class="users-list-name mt-2" href="#"><?=  $value['first_name'] . $value['last_name'] ?: '***' ?></a>
+                <span class="users-list-date"></span>
+              </li>
+            <?php endforeach; ?>
+          </ul>
+          <!-- /.users-list -->
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer text-center">
+          <a href="#">مشاهده همه کاربران</a>
+        </div>
+        <!-- /.card-footer -->
+      </div>
+
     </div>
     <div class="col-lg-6">
       <div class="card">
         <div class="card-header no-border">
           <div class="d-flex justify-content-between">
             <h3 class="card-title"> تعداد بازدید</h3>
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter">
+            <button type="button" class="btn btn-link">
               مشاهده گزارش
             </button>
 
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                <div class="modal-content">
-                  <form action="<?= base_url() ?>admin/dashboard" method="post">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="my-modal-title">گزارش فروش</h5>
-                    </div>
-                    <div class="modal-body">
-                      <div class="row">
-                        <div class="col">
-                          <div class="form-group">
-                            <label for="Input5" class=""> شروع</label>
-                            <input type="text" class="form-control start_at" id="Input5">
-                            <input type="hidden" id="start_at" name="start_at">
-                          </div>
-                        </div>
-                        <div class="col">
-                          <div class="form-group">
-                            <label for="Input6" class=""> پایان</label>
-                            <input type="text" class="form-control finish_at" id="Input6">
-                            <input type="hidden" id="finish_at" name="finish_at">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col">
-                        <label>گزارش بر اساس </label>
-                        <select name="order-type" id="discount_product" class="form-control">
-                          <option value="all">همه </option>
-                          <option value="discount_total">با تخفیف </option>
-                          <option value="grand_total">بدون تخفیف </option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="modal-footer row">
-                      <button type="submit" class="btn btn-primary col ml-2">نمایش </button>
-                      <button type="button" class="btn btn-secondary col" data-dismiss="modal">انصراف</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
         <div class="card-body">
@@ -439,7 +427,87 @@
         </div>
       </div>
 
- 
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">محصولات تازه اضافه شده</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-widget="collapse">
+              <i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-widget="remove">
+              <i class="fa fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body p-0">
+          <ul class="products-list product-list-in-card pl-2 pr-2">
+            <li class="item">
+              <div class="product-img">
+                <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
+              </div>
+              <div class="product-info">
+                <a href="javascript:void(0)" class="product-title">تلویزیون سامسونگ
+                  <span class="badge badge-warning float-left">تومان ۱۸۰۰</span></a>
+                <span class="product-description">
+                  سامسونگ ۳۲ اینچی، ال ای دی و سالم
+                </span>
+              </div>
+            </li>
+            <!-- /.item -->
+            <li class="item">
+              <div class="product-img">
+                <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
+              </div>
+              <div class="product-info">
+                <a href="javascript:void(0)" class="product-title">دوچرخه
+                  <span class="badge badge-info float-left">تومان ۷۰۰</span></a>
+                <span class="product-description">
+                  دوچرخه ۲۶، کاملا اسپورت و کوهستانی
+                </span>
+              </div>
+            </li>
+            <!-- /.item -->
+            <li class="item">
+              <div class="product-img">
+                <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
+              </div>
+              <div class="product-info">
+                <a href="javascript:void(0)" class="product-title">
+                  ایکس‌ باکس <span class="badge badge-danger float-left">
+                    تومان ۳۵۰
+                  </span>
+                </a>
+                <span class="product-description">
+                  کنسول ایکس باکس برای بازی های توپ و باحال
+                </span>
+              </div>
+            </li>
+            <!-- /.item -->
+            <li class="item">
+              <div class="product-img">
+                <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
+              </div>
+              <div class="product-info">
+                <a href="javascript:void(0)" class="product-title">پلی استیشن ۴
+                  <span class="badge badge-success float-left">$۳۹۹</span></a>
+                <span class="product-description">
+                  پلی استیشن ۴ با ۳۰۰ گیگ حافظه داخلی
+                </span>
+              </div>
+            </li>
+            <!-- /.item -->
+          </ul>
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer text-center">
+          <a href="javascript:void(0)" class="uppercase">نمایش همه محصولات</a>
+        </div>
+        <!-- /.card-footer -->
+      </div>
+
     </div>
   </div>
 </div>

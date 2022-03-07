@@ -144,7 +144,7 @@ class  MysqlBaseModel extends BaseModel
         return $result->rowCount();
     }
 
-    public function count(array $where): int
+    public function count(array $where =null): int
     {
         return $this->connection->count($this->table,  $where);
     }
