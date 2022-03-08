@@ -111,6 +111,18 @@ class Product extends MysqlBaseModel
         AND img.`type` = 0
         WHERE pro.`brand_id` = '$brand_id'");
     }
+    public function join_product_to_photo_for_list_new()
+    {
+        return $this->query("
+            SELECT * 
+            FROM products
+            INNER JOIN photos
+            ON products.id = photos.entity_id
+            AND photos.entity_type = 'Product'
+            AND photos.type = 0
+            LIMIT 6"
+        );
+    }
     public function join_product_to_photo_all()
     {
         $page    = (isset($_GET['page']) && is_numeric($_GET['page'])) ? $_GET['page'] : 1;

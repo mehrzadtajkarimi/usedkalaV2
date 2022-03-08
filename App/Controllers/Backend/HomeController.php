@@ -6,6 +6,7 @@ use App\Models\Order;
 use App\Models\Order_Item;
 use App\Services\Auth\Auth;
 use App\Controllers\Controller;
+use App\Models\Product;
 use App\Models\See_log;
 use App\Models\User;
 use App\Models\Wish_list;
@@ -20,6 +21,7 @@ class HomeController extends Controller
     private $seeLogModel;
     private $userModel;
     private $wishModel;
+    private $productModel;
     private $limits_chart_pir = 3;
 
     public function __construct()
@@ -30,6 +32,7 @@ class HomeController extends Controller
         $this->seeLogModel    = new See_log();
         $this->userModel      = new User();
         $this->wishModel      = new Wish_list();
+        $this->productModel   = new Product();
         $this->limits_chart_pir = SessionManager::has('limits_chart_pir') ? SessionManager::get('limits_chart_pir') : 3;
     }
 
@@ -92,6 +95,7 @@ class HomeController extends Controller
             'which_counts'  => $this->wishModel->count(),
 
             'list_new_user' => $this->userModel->join_user_to_photo_all(),
+            'list_new_product' => $this->productModel->join_product_to_photo_for_list_new(),
 
             'chart_pir'       => $chart_pir,
             'chart_pir_color' => ['danger', 'success', 'warning', 'primary', 'secondary', 'info', 'dark'],

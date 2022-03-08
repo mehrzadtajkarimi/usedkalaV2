@@ -369,10 +369,10 @@
         <!-- /.card-header -->
         <div class="card-body p-0">
           <ul class="users-list clearfix">
-            <?php foreach ($list_new_user as $key =>$value): ?>
+            <?php foreach ($list_new_user as $key => $value) : ?>
               <li class="float-right">
-                <img src="<?= $value['path'] ?? base_url(). 'Assets/Backend/dist/img/user.png' ?>" class="w-50" style="filter: grayscale(50%)" alt="User Image">
-                <a class="users-list-name mt-2" href="#"><?=  $value['first_name'] . $value['last_name'] ?: '***' ?></a>
+                <img src="<?= $value['path'] ?? base_url() . 'Assets/Backend/dist/img/user.png' ?>" class="w-50" style="filter: grayscale(50%)" alt="User Image">
+                <a class="users-list-name mt-2" href="#"><?= $value['first_name'] . $value['last_name'] ?: '***' ?></a>
                 <span class="users-list-date"></span>
               </li>
             <?php endforeach; ?>
@@ -381,7 +381,7 @@
         </div>
         <!-- /.card-body -->
         <div class="card-footer text-center">
-          <a href="#">مشاهده همه کاربران</a>
+          <a href="<?= base_url() ?>admin/users">مشاهده همه کاربران</a>
         </div>
         <!-- /.card-footer -->
       </div>
@@ -444,66 +444,25 @@
         <!-- /.card-header -->
         <div class="card-body p-0">
           <ul class="products-list product-list-in-card pl-2 pr-2">
-            <li class="item">
-              <div class="product-img">
-                <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
-              </div>
-              <div class="product-info">
-                <a href="javascript:void(0)" class="product-title">تلویزیون سامسونگ
-                  <span class="badge badge-warning float-left">تومان ۱۸۰۰</span></a>
-                <span class="product-description">
-                  سامسونگ ۳۲ اینچی، ال ای دی و سالم
-                </span>
-              </div>
-            </li>
-            <!-- /.item -->
-            <li class="item">
-              <div class="product-img">
-                <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
-              </div>
-              <div class="product-info">
-                <a href="javascript:void(0)" class="product-title">دوچرخه
-                  <span class="badge badge-info float-left">تومان ۷۰۰</span></a>
-                <span class="product-description">
-                  دوچرخه ۲۶، کاملا اسپورت و کوهستانی
-                </span>
-              </div>
-            </li>
-            <!-- /.item -->
-            <li class="item">
-              <div class="product-img">
-                <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
-              </div>
-              <div class="product-info">
-                <a href="javascript:void(0)" class="product-title">
-                  ایکس‌ باکس <span class="badge badge-danger float-left">
-                    تومان ۳۵۰
+            <?php foreach ($list_new_product as $value) : ?>
+              <li class="item">
+                <div class="product-img">
+                  <img src="<?= $value['path'] ?>" alt="<?= $value['alt'] ?>" class="img-size-50">
+                </div>
+                <div class="product-info">
+                  <a href="javascript:void(0)" class="product-title"><?= $value['title'] ?>
+                    <span class="badge badge-warning float-left">تومان <?= number_format($value['price']) ?></span></a>
+                  <span class="product-description">
+                    <?= $value['slug'] ?>
                   </span>
-                </a>
-                <span class="product-description">
-                  کنسول ایکس باکس برای بازی های توپ و باحال
-                </span>
-              </div>
-            </li>
-            <!-- /.item -->
-            <li class="item">
-              <div class="product-img">
-                <img src="dist/img/default-150x150.png" alt="Product Image" class="img-size-50">
-              </div>
-              <div class="product-info">
-                <a href="javascript:void(0)" class="product-title">پلی استیشن ۴
-                  <span class="badge badge-success float-left">$۳۹۹</span></a>
-                <span class="product-description">
-                  پلی استیشن ۴ با ۳۰۰ گیگ حافظه داخلی
-                </span>
-              </div>
-            </li>
-            <!-- /.item -->
+                </div>
+              </li>
+            <?php endforeach; ?>
           </ul>
         </div>
         <!-- /.card-body -->
         <div class="card-footer text-center">
-          <a href="javascript:void(0)" class="uppercase">نمایش همه محصولات</a>
+          <a href="<?= base_url() ?>admin/product" class="uppercase">نمایش همه محصولات</a>
         </div>
         <!-- /.card-footer -->
       </div>
