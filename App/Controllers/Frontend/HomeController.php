@@ -32,6 +32,8 @@ class HomeController extends Controller
     private $wishListModel;
     private $blogModel;
     private $pageMetaModel;
+    private $product_discountModel;
+    private $jDateObj;
     public function __construct()
     {
         parent::__construct();

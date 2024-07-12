@@ -22,6 +22,7 @@ class BlogController extends Controller
     private $taggableModel;
     private $wishListModel;
 	private $pageMetaModel;
+	private $jDateObj;
 
     public function __construct()
     {

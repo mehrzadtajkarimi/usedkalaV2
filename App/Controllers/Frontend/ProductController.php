@@ -28,6 +28,9 @@ class ProductController extends Controller
     private $relatedModel;
     private $categoryModel;
 	private $pageMetaModel;
+	private $commentModel;
+	private $ProductDiscountModel;
+	private $discountModel;
 
     public function __construct()
     {

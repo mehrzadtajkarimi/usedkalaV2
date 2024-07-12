@@ -66,7 +66,7 @@ function inject_menu()
         $level_two = $categoryModel->get_all([
             'parent_id' => $LevelOne['id'],
             'type'      => 0,
-        ],'id');
+        ], 'id');
         $firstLevelTwoItem = $categoryModel->join_category_to_photo($LevelOne['id']);
         $categoryLevelTwo[$LevelOne['id']] = [$firstLevelTwoItem[0]];
         foreach ($level_two as $level_two_id) {
@@ -120,7 +120,7 @@ function create_slug($string)
         "؟",
         "«",
         "»",
-		":"
+        ":"
     ], [
         "",
         "",
@@ -142,7 +142,7 @@ function create_slug($string)
         "",
         "",
         "",
-		""
+        ""
     ], strip_tags($string));
     return $slug;
 }
@@ -307,7 +307,7 @@ function connection()
         echo '<h1>مشکلی در ارتباط با دیتابیس رخ داد </h1>';
     }
 }
-function level_user() :array
+function level_user(): array
 {
     return  [
         '1' => '* (برنزی)',
@@ -329,30 +329,30 @@ function status_sender(): array
     ];
 }
 
-function jalaliDate($sqlTimestamp , $format = 'j F Y')
+function jalaliDate($sqlTimestamp, $format = 'j F Y')
 {
-    $unixTimestamp=strtotime($sqlTimestamp);
-    return jdate($format,$unixTimestamp);
+    $unixTimestamp = strtotime($sqlTimestamp);
+    return jdate($format, $unixTimestamp);
 }
 
 function numRows($queryStr)
 {
-	$CON=mysqli_connect($_ENV['DB_HOST'],$_ENV['DB_USER'],$_ENV['DB_PASS'],$_ENV['DB_NAME']);
-	mysqli_query($CON,"SET NAMES utf8");
-	mysqli_query($CON,"SET CHARACTER_SET utf8");
-	$numRowsQuery=mysqli_query($CON,$queryStr);
-	return mysqli_num_rows($numRowsQuery);
+    $CON = mysqli_connect($_ENV['DB_HOST'], $_ENV['DB_USER'], $_ENV['DB_PASS'], $_ENV['DB_NAME']);
+    mysqli_query($CON, "SET NAMES utf8");
+    $numRowsQuery = mysqli_query($CON, $queryStr);
+    return mysqli_num_rows($numRowsQuery);
 }
 
-function replaceAll($str,$reverse=false)
+function replaceAll($str, $reverse = false)
 {
-	$standard = array("0","1","2","3","4","5","6","7","8","9");
-	$east_arabic = array("۰","۱","۲","۳","۴","۵","۶","۷","۸","۹");
-	if (!$reverse) return str_replace($standard , $east_arabic , $str);
-	else return str_replace( $east_arabic ,$standard , $str);
+    $standard = array("0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
+    $east_arabic = array("۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹");
+    if (!$reverse) return str_replace($standard, $east_arabic, $str);
+    else return str_replace($east_arabic, $standard, $str);
 }
 
-function generate_random_string($length = 10) {
+function generate_random_string($length = 10)
+{
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);
     $randomString = '';
